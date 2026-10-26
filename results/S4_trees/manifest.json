@@ -1,0 +1,50 @@
+{
+ "code": {
+  "ancestra/treebench.py": "64e5c97cadb3777e4712d8e53f9f1af72d02e45f37bcdff52c2412ae8ace3682",
+  "ancestra/localtree.py": "d25221e360e1209556eba4887f9e6aa79d9a80d8ef6a2123db7e2ff0c7d8eb87",
+  "scripts/S4_trees.py": "b2c2fda43fd846e315f734019286e86ad2e960187ee23a86dbc6cb6602242fda",
+  "scripts/S4_3di_model.py": "cb01eb0d9ce59f3eaba1082bd411066d00bb87ac8b9afef8a1e3dd58fe8a2bd3",
+  "scripts/S4_cost.py": "b383db4fdc13b86eba1e422eb9564823a5cf6149104cfac71768c8c6c3b5e989",
+  "scripts/S4_summarize.py": "b9b864b7788871057b811830115476fe3ef955b70bc14862950f61df34276112",
+  "scripts/S4_checks.py": "0c2ac4ff7d5dd4d569d2cdd07b24e11abfbf0431b9b62135c994ef06e7c3eec2",
+  "tests/test_treebench.py": "e6d58239b40094ec6d51029ac756e90b8ce9543be2e6fe3bfe89f6322d2f3da8"
+ },
+ "inputs": {
+  "splits/orthobench_split.json": "90920164d52aa18339c6bd466b5f1cc8562c6121179eede8ce6197eed019a4fb",
+  "work/core_v0_ob/run_v2/stages/scores/scores.npz": "b7fe3d8ebaa736816abfba5af5667942604af964d82a917848f0ad97782aad25",
+  "work/core_v0_ob/run_v2/stages/input/genes.tsv": "7708c63246096344234716e4e914bfc0f4de75c88ba0bab7080d4c57ee66a634",
+  "work/core_v0_ob/run_v2/stages/input/guide_tree.nwk": "a95d0bab7c7e2c1b02ac8e14b7ec43d8cadb43983888b10425be12c3dfb999a0",
+  "data/structure/orthobench_3di_best.fa": "3aa615f0dd509cd7bb83fa81e32ff5230ba00ca01b31194c4cf62ed9651cb148",
+  "work/S5/refog_pair_labels.parquet": "c8d30e397022ce6b7525e344bc15156753271c998d6807c4ce394f8ada468f93",
+  "work/S4/mat3di.out": "57145e08dea1817fd7408a6b443f24c1aa491125f54c154ee7c4f9409e7bfb79",
+  "work/S4/3DI_foldseek.paml": "be6604dd627ea1d9159289ca8a526e51afdd1acadc947948b5360659bbc50327",
+  "work/S4/3DI_foldseek.fasttree.tsv": "116d4c7bfe4d220f8e0b1eb2c307dc7f911e114da3715faac5cb4d96df259660"
+ },
+ "tools": {
+  "famsa": "FAMSA (Fast and Accurate Multiple Sequence Alignment) ",
+  "fasttree": "FastTree 2.2.0 Double precision",
+  "iqtree": "IQ-TREE version 3.1.4 for Linux x86 64-bit built Sep 29 2026",
+  "foldseek": "10.941cd33"
+ },
+ "commands": [
+  "python scripts/S4_3di_model.py",
+  "python scripts/S4_trees.py --workers 6",
+  "python scripts/S4_cost.py --workers 6",
+  "python scripts/S4_summarize.py",
+  "python scripts/S4_checks.py",
+  "pytest tests/test_treebench.py"
+ ],
+ "seeds": {
+  "bootstrap": 11,
+  "B": 2000,
+  "iqtree": 11,
+  "cost_sets": 11,
+  "random_control": [
+   11,
+   23,
+   47
+  ]
+ },
+ "node_note": "shared node (load 25-35 on 24 allocated CPUs, other agents running OrthoFinder); 6 workers, every tool single-threaded; CPU = user+sys of the tool processes",
+ "written": "2026-10-26T21:12:51+0100"
+}

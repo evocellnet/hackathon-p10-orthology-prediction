@@ -1,0 +1,1474 @@
+{
+ "meta": {
+  "RefOG002__full": {
+   "set": "RefOG002",
+   "kind": "single",
+   "scope": "full",
+   "refogs": [
+    "RefOG002"
+   ],
+   "n": 19,
+   "n_set": 19,
+   "seq_pairs_missing": 36,
+   "n_pairs": 171
+  },
+  "RefOG002__c3di": {
+   "set": "RefOG002",
+   "kind": "single",
+   "scope": "c3di",
+   "refogs": [
+    "RefOG002"
+   ],
+   "n": 10,
+   "n_set": 19,
+   "seq_pairs_missing": 9,
+   "n_pairs": 45
+  },
+  "RefOG004__full": {
+   "set": "RefOG004",
+   "kind": "single",
+   "scope": "full",
+   "refogs": [
+    "RefOG004"
+   ],
+   "n": 12,
+   "n_set": 12,
+   "seq_pairs_missing": 0,
+   "n_pairs": 66
+  },
+  "RefOG004__c3di": {
+   "set": "RefOG004",
+   "kind": "single",
+   "scope": "c3di",
+   "refogs": [
+    "RefOG004"
+   ],
+   "n": 8,
+   "n_set": 12,
+   "seq_pairs_missing": 0,
+   "n_pairs": 28
+  },
+  "RefOG005__full": {
+   "set": "RefOG005",
+   "kind": "single",
+   "scope": "full",
+   "refogs": [
+    "RefOG005"
+   ],
+   "n": 34,
+   "n_set": 34,
+   "seq_pairs_missing": 0,
+   "n_pairs": 561
+  },
+  "RefOG005__c3di": {
+   "set": "RefOG005",
+   "kind": "single",
+   "scope": "c3di",
+   "refogs": [
+    "RefOG005"
+   ],
+   "n": 9,
+   "n_set": 34,
+   "seq_pairs_missing": 0,
+   "n_pairs": 36
+  },
+  "RefOG006__full": {
+   "set": "RefOG006",
+   "kind": "single",
+   "scope": "full",
+   "refogs": [
+    "RefOG006"
+   ],
+   "n": 48,
+   "n_set": 48,
+   "seq_pairs_missing": 2,
+   "n_pairs": 1128
+  },
+  "RefOG006__c3di": {
+   "set": "RefOG006",
+   "kind": "single",
+   "scope": "c3di",
+   "refogs": [
+    "RefOG006"
+   ],
+   "n": 13,
+   "n_set": 48,
+   "seq_pairs_missing": 0,
+   "n_pairs": 78
+  },
+  "RefOG007__full": {
+   "set": "RefOG007",
+   "kind": "single",
+   "scope": "full",
+   "refogs": [
+    "RefOG007"
+   ],
+   "n": 57,
+   "n_set": 57,
+   "seq_pairs_missing": 802,
+   "n_pairs": 1596
+  },
+  "RefOG007__c3di": {
+   "set": "RefOG007",
+   "kind": "single",
+   "scope": "c3di",
+   "refogs": [
+    "RefOG007"
+   ],
+   "n": 42,
+   "n_set": 57,
+   "seq_pairs_missing": 419,
+   "n_pairs": 861
+  },
+  "RefOG008__full": {
+   "set": "RefOG008",
+   "kind": "single",
+   "scope": "full",
+   "refogs": [
+    "RefOG008"
+   ],
+   "n": 14,
+   "n_set": 14,
+   "seq_pairs_missing": 0,
+   "n_pairs": 91
+  },
+  "RefOG008__c3di": {
+   "set": "RefOG008",
+   "kind": "single",
+   "scope": "c3di",
+   "refogs": [
+    "RefOG008"
+   ],
+   "n": 13,
+   "n_set": 14,
+   "seq_pairs_missing": 0,
+   "n_pairs": 78
+  },
+  "RefOG013__full": {
+   "set": "RefOG013",
+   "kind": "single",
+   "scope": "full",
+   "refogs": [
+    "RefOG013"
+   ],
+   "n": 27,
+   "n_set": 27,
+   "seq_pairs_missing": 205,
+   "n_pairs": 351
+  },
+  "RefOG013__c3di": {
+   "set": "RefOG013",
+   "kind": "single",
+   "scope": "c3di",
+   "refogs": [
+    "RefOG013"
+   ],
+   "n": 25,
+   "n_set": 27,
+   "seq_pairs_missing": 163,
+   "n_pairs": 300
+  },
+  "RefOG015__full": {
+   "set": "RefOG015",
+   "kind": "single",
+   "scope": "full",
+   "refogs": [
+    "RefOG015"
+   ],
+   "n": 30,
+   "n_set": 30,
+   "seq_pairs_missing": 0,
+   "n_pairs": 435
+  },
+  "RefOG015__c3di": {
+   "set": "RefOG015",
+   "kind": "single",
+   "scope": "c3di",
+   "refogs": [
+    "RefOG015"
+   ],
+   "n": 10,
+   "n_set": 30,
+   "seq_pairs_missing": 0,
+   "n_pairs": 45
+  },
+  "RefOG019__full": {
+   "set": "RefOG019",
+   "kind": "single",
+   "scope": "full",
+   "refogs": [
+    "RefOG019"
+   ],
+   "n": 13,
+   "n_set": 13,
+   "seq_pairs_missing": 0,
+   "n_pairs": 78
+  },
+  "RefOG019__c3di": {
+   "set": "RefOG019",
+   "kind": "single",
+   "scope": "c3di",
+   "refogs": [
+    "RefOG019"
+   ],
+   "n": 13,
+   "n_set": 13,
+   "seq_pairs_missing": 0,
+   "n_pairs": 78
+  },
+  "RefOG021__full": {
+   "set": "RefOG021",
+   "kind": "single",
+   "scope": "full",
+   "refogs": [
+    "RefOG021"
+   ],
+   "n": 125,
+   "n_set": 125,
+   "seq_pairs_missing": 1773,
+   "n_pairs": 7750
+  },
+  "RefOG021__c3di": {
+   "set": "RefOG021",
+   "kind": "single",
+   "scope": "c3di",
+   "refogs": [
+    "RefOG021"
+   ],
+   "n": 101,
+   "n_set": 125,
+   "seq_pairs_missing": 839,
+   "n_pairs": 5050
+  },
+  "RefOG023__full": {
+   "set": "RefOG023",
+   "kind": "single",
+   "scope": "full",
+   "refogs": [
+    "RefOG023"
+   ],
+   "n": 69,
+   "n_set": 69,
+   "seq_pairs_missing": 1270,
+   "n_pairs": 2346
+  },
+  "RefOG023__c3di": {
+   "set": "RefOG023",
+   "kind": "single",
+   "scope": "c3di",
+   "refogs": [
+    "RefOG023"
+   ],
+   "n": 7,
+   "n_set": 69,
+   "seq_pairs_missing": 13,
+   "n_pairs": 21
+  },
+  "RefOG024__full": {
+   "set": "RefOG024",
+   "kind": "single",
+   "scope": "full",
+   "refogs": [
+    "RefOG024"
+   ],
+   "n": 51,
+   "n_set": 51,
+   "seq_pairs_missing": 0,
+   "n_pairs": 1275
+  },
+  "RefOG024__c3di": {
+   "set": "RefOG024",
+   "kind": "single",
+   "scope": "c3di",
+   "refogs": [
+    "RefOG024"
+   ],
+   "n": 43,
+   "n_set": 51,
+   "seq_pairs_missing": 0,
+   "n_pairs": 903
+  },
+  "RefOG028__full": {
+   "set": "RefOG028",
+   "kind": "single",
+   "scope": "full",
+   "refogs": [
+    "RefOG028"
+   ],
+   "n": 24,
+   "n_set": 24,
+   "seq_pairs_missing": 3,
+   "n_pairs": 276
+  },
+  "RefOG028__c3di": {
+   "set": "RefOG028",
+   "kind": "single",
+   "scope": "c3di",
+   "refogs": [
+    "RefOG028"
+   ],
+   "n": 22,
+   "n_set": 24,
+   "seq_pairs_missing": 3,
+   "n_pairs": 231
+  },
+  "RefOG030__full": {
+   "set": "RefOG030",
+   "kind": "single",
+   "scope": "full",
+   "refogs": [
+    "RefOG030"
+   ],
+   "n": 13,
+   "n_set": 13,
+   "seq_pairs_missing": 0,
+   "n_pairs": 78
+  },
+  "RefOG030__c3di": {
+   "set": "RefOG030",
+   "kind": "single",
+   "scope": "c3di",
+   "refogs": [
+    "RefOG030"
+   ],
+   "n": 12,
+   "n_set": 13,
+   "seq_pairs_missing": 0,
+   "n_pairs": 66
+  },
+  "RefOG033__full": {
+   "set": "RefOG033",
+   "kind": "single",
+   "scope": "full",
+   "refogs": [
+    "RefOG033"
+   ],
+   "n": 30,
+   "n_set": 30,
+   "seq_pairs_missing": 89,
+   "n_pairs": 435
+  },
+  "RefOG033__c3di": {
+   "set": "RefOG033",
+   "kind": "single",
+   "scope": "c3di",
+   "refogs": [
+    "RefOG033"
+   ],
+   "n": 24,
+   "n_set": 30,
+   "seq_pairs_missing": 47,
+   "n_pairs": 276
+  },
+  "RefOG034__full": {
+   "set": "RefOG034",
+   "kind": "single",
+   "scope": "full",
+   "refogs": [
+    "RefOG034"
+   ],
+   "n": 21,
+   "n_set": 21,
+   "seq_pairs_missing": 6,
+   "n_pairs": 210
+  },
+  "RefOG034__c3di": {
+   "set": "RefOG034",
+   "kind": "single",
+   "scope": "c3di",
+   "refogs": [
+    "RefOG034"
+   ],
+   "n": 18,
+   "n_set": 21,
+   "seq_pairs_missing": 6,
+   "n_pairs": 153
+  },
+  "RefOG035__full": {
+   "set": "RefOG035",
+   "kind": "single",
+   "scope": "full",
+   "refogs": [
+    "RefOG035"
+   ],
+   "n": 32,
+   "n_set": 32,
+   "seq_pairs_missing": 1,
+   "n_pairs": 496
+  },
+  "RefOG035__c3di": {
+   "set": "RefOG035",
+   "kind": "single",
+   "scope": "c3di",
+   "refogs": [
+    "RefOG035"
+   ],
+   "n": 9,
+   "n_set": 32,
+   "seq_pairs_missing": 0,
+   "n_pairs": 36
+  },
+  "RefOG038__full": {
+   "set": "RefOG038",
+   "kind": "single",
+   "scope": "full",
+   "refogs": [
+    "RefOG038"
+   ],
+   "n": 9,
+   "n_set": 9,
+   "seq_pairs_missing": 0,
+   "n_pairs": 36
+  },
+  "RefOG043__full": {
+   "set": "RefOG043",
+   "kind": "single",
+   "scope": "full",
+   "refogs": [
+    "RefOG043"
+   ],
+   "n": 17,
+   "n_set": 17,
+   "seq_pairs_missing": 3,
+   "n_pairs": 136
+  },
+  "RefOG043__c3di": {
+   "set": "RefOG043",
+   "kind": "single",
+   "scope": "c3di",
+   "refogs": [
+    "RefOG043"
+   ],
+   "n": 15,
+   "n_set": 17,
+   "seq_pairs_missing": 3,
+   "n_pairs": 105
+  },
+  "RefOG044__full": {
+   "set": "RefOG044",
+   "kind": "single",
+   "scope": "full",
+   "refogs": [
+    "RefOG044"
+   ],
+   "n": 14,
+   "n_set": 14,
+   "seq_pairs_missing": 3,
+   "n_pairs": 91
+  },
+  "RefOG044__c3di": {
+   "set": "RefOG044",
+   "kind": "single",
+   "scope": "c3di",
+   "refogs": [
+    "RefOG044"
+   ],
+   "n": 11,
+   "n_set": 14,
+   "seq_pairs_missing": 1,
+   "n_pairs": 55
+  },
+  "RefOG045__full": {
+   "set": "RefOG045",
+   "kind": "single",
+   "scope": "full",
+   "refogs": [
+    "RefOG045"
+   ],
+   "n": 13,
+   "n_set": 13,
+   "seq_pairs_missing": 1,
+   "n_pairs": 78
+  },
+  "RefOG045__c3di": {
+   "set": "RefOG045",
+   "kind": "single",
+   "scope": "c3di",
+   "refogs": [
+    "RefOG045"
+   ],
+   "n": 12,
+   "n_set": 13,
+   "seq_pairs_missing": 1,
+   "n_pairs": 66
+  },
+  "RefOG046__full": {
+   "set": "RefOG046",
+   "kind": "single",
+   "scope": "full",
+   "refogs": [
+    "RefOG046"
+   ],
+   "n": 32,
+   "n_set": 32,
+   "seq_pairs_missing": 5,
+   "n_pairs": 496
+  },
+  "RefOG046__c3di": {
+   "set": "RefOG046",
+   "kind": "single",
+   "scope": "c3di",
+   "refogs": [
+    "RefOG046"
+   ],
+   "n": 28,
+   "n_set": 32,
+   "seq_pairs_missing": 5,
+   "n_pairs": 378
+  },
+  "RefOG048__full": {
+   "set": "RefOG048",
+   "kind": "single",
+   "scope": "full",
+   "refogs": [
+    "RefOG048"
+   ],
+   "n": 40,
+   "n_set": 40,
+   "seq_pairs_missing": 0,
+   "n_pairs": 780
+  },
+  "RefOG048__c3di": {
+   "set": "RefOG048",
+   "kind": "single",
+   "scope": "c3di",
+   "refogs": [
+    "RefOG048"
+   ],
+   "n": 36,
+   "n_set": 40,
+   "seq_pairs_missing": 0,
+   "n_pairs": 630
+  },
+  "RefOG052__full": {
+   "set": "RefOG052",
+   "kind": "single",
+   "scope": "full",
+   "refogs": [
+    "RefOG052"
+   ],
+   "n": 15,
+   "n_set": 15,
+   "seq_pairs_missing": 2,
+   "n_pairs": 105
+  },
+  "RefOG052__c3di": {
+   "set": "RefOG052",
+   "kind": "single",
+   "scope": "c3di",
+   "refogs": [
+    "RefOG052"
+   ],
+   "n": 11,
+   "n_set": 15,
+   "seq_pairs_missing": 1,
+   "n_pairs": 55
+  },
+  "RefOG054__full": {
+   "set": "RefOG054",
+   "kind": "single",
+   "scope": "full",
+   "refogs": [
+    "RefOG054"
+   ],
+   "n": 44,
+   "n_set": 44,
+   "seq_pairs_missing": 367,
+   "n_pairs": 946
+  },
+  "RefOG054__c3di": {
+   "set": "RefOG054",
+   "kind": "single",
+   "scope": "c3di",
+   "refogs": [
+    "RefOG054"
+   ],
+   "n": 41,
+   "n_set": 44,
+   "seq_pairs_missing": 336,
+   "n_pairs": 820
+  },
+  "RefOG055__full": {
+   "set": "RefOG055",
+   "kind": "single",
+   "scope": "full",
+   "refogs": [
+    "RefOG055"
+   ],
+   "n": 27,
+   "n_set": 27,
+   "seq_pairs_missing": 6,
+   "n_pairs": 351
+  },
+  "RefOG055__c3di": {
+   "set": "RefOG055",
+   "kind": "single",
+   "scope": "c3di",
+   "refogs": [
+    "RefOG055"
+   ],
+   "n": 22,
+   "n_set": 27,
+   "seq_pairs_missing": 2,
+   "n_pairs": 231
+  },
+  "RefOG057__full": {
+   "set": "RefOG057",
+   "kind": "single",
+   "scope": "full",
+   "refogs": [
+    "RefOG057"
+   ],
+   "n": 16,
+   "n_set": 16,
+   "seq_pairs_missing": 15,
+   "n_pairs": 120
+  },
+  "RefOG057__c3di": {
+   "set": "RefOG057",
+   "kind": "single",
+   "scope": "c3di",
+   "refogs": [
+    "RefOG057"
+   ],
+   "n": 13,
+   "n_set": 16,
+   "seq_pairs_missing": 12,
+   "n_pairs": 78
+  },
+  "RefOG059__full": {
+   "set": "RefOG059",
+   "kind": "single",
+   "scope": "full",
+   "refogs": [
+    "RefOG059"
+   ],
+   "n": 10,
+   "n_set": 10,
+   "seq_pairs_missing": 0,
+   "n_pairs": 45
+  },
+  "RefOG059__c3di": {
+   "set": "RefOG059",
+   "kind": "single",
+   "scope": "c3di",
+   "refogs": [
+    "RefOG059"
+   ],
+   "n": 4,
+   "n_set": 10,
+   "seq_pairs_missing": 0,
+   "n_pairs": 6
+  },
+  "RefOG061__full": {
+   "set": "RefOG061",
+   "kind": "single",
+   "scope": "full",
+   "refogs": [
+    "RefOG061"
+   ],
+   "n": 30,
+   "n_set": 30,
+   "seq_pairs_missing": 22,
+   "n_pairs": 435
+  },
+  "RefOG061__c3di": {
+   "set": "RefOG061",
+   "kind": "single",
+   "scope": "c3di",
+   "refogs": [
+    "RefOG061"
+   ],
+   "n": 22,
+   "n_set": 30,
+   "seq_pairs_missing": 10,
+   "n_pairs": 231
+  },
+  "RefOG065__full": {
+   "set": "RefOG065",
+   "kind": "single",
+   "scope": "full",
+   "refogs": [
+    "RefOG065"
+   ],
+   "n": 10,
+   "n_set": 10,
+   "seq_pairs_missing": 1,
+   "n_pairs": 45
+  },
+  "RefOG065__c3di": {
+   "set": "RefOG065",
+   "kind": "single",
+   "scope": "c3di",
+   "refogs": [
+    "RefOG065"
+   ],
+   "n": 5,
+   "n_set": 10,
+   "seq_pairs_missing": 1,
+   "n_pairs": 10
+  },
+  "RefOG066__full": {
+   "set": "RefOG066",
+   "kind": "single",
+   "scope": "full",
+   "refogs": [
+    "RefOG066"
+   ],
+   "n": 14,
+   "n_set": 14,
+   "seq_pairs_missing": 13,
+   "n_pairs": 91
+  },
+  "RefOG066__c3di": {
+   "set": "RefOG066",
+   "kind": "single",
+   "scope": "c3di",
+   "refogs": [
+    "RefOG066"
+   ],
+   "n": 13,
+   "n_set": 14,
+   "seq_pairs_missing": 12,
+   "n_pairs": 78
+  },
+  "RefOG067__full": {
+   "set": "RefOG067",
+   "kind": "single",
+   "scope": "full",
+   "refogs": [
+    "RefOG067"
+   ],
+   "n": 13,
+   "n_set": 13,
+   "seq_pairs_missing": 0,
+   "n_pairs": 78
+  },
+  "RefOG067__c3di": {
+   "set": "RefOG067",
+   "kind": "single",
+   "scope": "c3di",
+   "refogs": [
+    "RefOG067"
+   ],
+   "n": 12,
+   "n_set": 13,
+   "seq_pairs_missing": 0,
+   "n_pairs": 66
+  },
+  "RefOG068__full": {
+   "set": "RefOG068",
+   "kind": "single",
+   "scope": "full",
+   "refogs": [
+    "RefOG068"
+   ],
+   "n": 32,
+   "n_set": 32,
+   "seq_pairs_missing": 36,
+   "n_pairs": 496
+  },
+  "RefOG068__c3di": {
+   "set": "RefOG068",
+   "kind": "single",
+   "scope": "c3di",
+   "refogs": [
+    "RefOG068"
+   ],
+   "n": 11,
+   "n_set": 32,
+   "seq_pairs_missing": 1,
+   "n_pairs": 55
+  },
+  "RefOG005+RefOG006__full": {
+   "set": "RefOG005+RefOG006",
+   "kind": "comp",
+   "scope": "full",
+   "refogs": [
+    "RefOG005",
+    "RefOG006"
+   ],
+   "n": 82,
+   "n_set": 82,
+   "seq_pairs_missing": 3,
+   "n_pairs": 3321
+  },
+  "RefOG005+RefOG006__c3di": {
+   "set": "RefOG005+RefOG006",
+   "kind": "comp",
+   "scope": "c3di",
+   "refogs": [
+    "RefOG005",
+    "RefOG006"
+   ],
+   "n": 22,
+   "n_set": 82,
+   "seq_pairs_missing": 0,
+   "n_pairs": 231
+  },
+  "RefOG015+RefOG023__full": {
+   "set": "RefOG015+RefOG023",
+   "kind": "comp",
+   "scope": "full",
+   "refogs": [
+    "RefOG015",
+    "RefOG023"
+   ],
+   "n": 99,
+   "n_set": 99,
+   "seq_pairs_missing": 3340,
+   "n_pairs": 4851
+  },
+  "RefOG015+RefOG023__c3di": {
+   "set": "RefOG015+RefOG023",
+   "kind": "comp",
+   "scope": "c3di",
+   "refogs": [
+    "RefOG015",
+    "RefOG023"
+   ],
+   "n": 17,
+   "n_set": 99,
+   "seq_pairs_missing": 83,
+   "n_pairs": 136
+  },
+  "RefOG021+RefOG068__full": {
+   "set": "RefOG021+RefOG068",
+   "kind": "comp",
+   "scope": "full",
+   "refogs": [
+    "RefOG021",
+    "RefOG068"
+   ],
+   "n": 156,
+   "n_set": 156,
+   "seq_pairs_missing": 5653,
+   "n_pairs": 12090
+  },
+  "RefOG021+RefOG068__c3di": {
+   "set": "RefOG021+RefOG068",
+   "kind": "comp",
+   "scope": "c3di",
+   "refogs": [
+    "RefOG021",
+    "RefOG068"
+   ],
+   "n": 112,
+   "n_set": 156,
+   "seq_pairs_missing": 1951,
+   "n_pairs": 6216
+  },
+  "RefOG038+RefOG052__full": {
+   "set": "RefOG038+RefOG052",
+   "kind": "comp",
+   "scope": "full",
+   "refogs": [
+    "RefOG038",
+    "RefOG052"
+   ],
+   "n": 24,
+   "n_set": 24,
+   "seq_pairs_missing": 31,
+   "n_pairs": 276
+  },
+  "RefOG038+RefOG052__c3di": {
+   "set": "RefOG038+RefOG052",
+   "kind": "comp",
+   "scope": "c3di",
+   "refogs": [
+    "RefOG038",
+    "RefOG052"
+   ],
+   "n": 14,
+   "n_set": 24,
+   "seq_pairs_missing": 12,
+   "n_pairs": 91
+  }
+ },
+ "aux": {
+  "RefOG005+RefOG006__full": {
+   "_msa": {
+    "cpu": 3.4269,
+    "wall": 3.51641583442688
+   }
+  },
+  "RefOG021__full": {
+   "_msa": {
+    "cpu": 3.233777,
+    "wall": 3.3275537490844727
+   }
+  },
+  "RefOG023__full": {
+   "_msa": {
+    "cpu": 17.86726399999999,
+    "wall": 20.5486102104187
+   }
+  },
+  "RefOG024__full": {
+   "_msa": {
+    "cpu": 0.3900029999999984,
+    "wall": 0.41063976287841797
+   }
+  },
+  "RefOG007__full": {
+   "_msa": {
+    "cpu": 1.786167999999972,
+    "wall": 1.8542194366455078
+   }
+  },
+  "RefOG054__full": {
+   "_msa": {
+    "cpu": 0.4302700000000165,
+    "wall": 0.43926191329956055
+   }
+  },
+  "RefOG015+RefOG023__full": {
+   "_msa": {
+    "cpu": 19.078055,
+    "wall": 19.821458101272583
+   }
+  },
+  "RefOG006__full": {
+   "_msa": {
+    "cpu": 2.08569699999999,
+    "wall": 2.1658437252044678
+   }
+  },
+  "RefOG021+RefOG068__full": {
+   "_msa": {
+    "cpu": 5.521542,
+    "wall": 5.698339939117432
+   }
+  },
+  "RefOG021__c3di": {
+   "_msa": {
+    "cpu": 0.7347849999999999,
+    "wall": 0.803351879119873
+   },
+   "_fs_pairs": {
+    "cpu": 5151.0,
+    "wall": 5151.0
+   }
+  },
+  "RefOG048__full": {
+   "_msa": {
+    "cpu": 0.18627899999992675,
+    "wall": 0.26101231575012207
+   }
+  },
+  "RefOG005__full": {
+   "_msa": {
+    "cpu": 1.5358420000000321,
+    "wall": 2.0216221809387207
+   }
+  },
+  "RefOG048__c3di": {
+   "_msa": {
+    "cpu": 0.14229899999997714,
+    "wall": 0.3221306800842285
+   },
+   "_fs_pairs": {
+    "cpu": 666.0,
+    "wall": 666.0
+   }
+  },
+  "RefOG024__c3di": {
+   "_msa": {
+    "cpu": 0.37150199999997324,
+    "wall": 0.40003538131713867
+   },
+   "_fs_pairs": {
+    "cpu": 946.0,
+    "wall": 946.0
+   }
+  },
+  "RefOG046__full": {
+   "_msa": {
+    "cpu": 0.03235200000000188,
+    "wall": 0.1535341739654541
+   }
+  },
+  "RefOG015__full": {
+   "_msa": {
+    "cpu": 1.2610710000000227,
+    "wall": 1.3809814453125
+   }
+  },
+  "RefOG035__full": {
+   "_msa": {
+    "cpu": 2.1768389999999873,
+    "wall": 4.123730182647705
+   }
+  },
+  "RefOG033__full": {
+   "_msa": {
+    "cpu": 0.2672429999999557,
+    "wall": 0.3338150978088379
+   }
+  },
+  "RefOG054__c3di": {
+   "_msa": {
+    "cpu": 0.42797300000002864,
+    "wall": 0.4618034362792969
+   },
+   "_fs_pairs": {
+    "cpu": 861.0,
+    "wall": 861.0
+   }
+  },
+  "RefOG046__c3di": {
+   "_msa": {
+    "cpu": 0.035244999999908,
+    "wall": 0.11017322540283203
+   },
+   "_fs_pairs": {
+    "cpu": 406.0,
+    "wall": 406.0
+   }
+  },
+  "RefOG061__full": {
+   "_msa": {
+    "cpu": 0.6726989999999743,
+    "wall": 0.8422422409057617
+   }
+  },
+  "RefOG055__full": {
+   "_msa": {
+    "cpu": 0.0812860000000025,
+    "wall": 0.1885819435119629
+   }
+  },
+  "RefOG013__full": {
+   "_msa": {
+    "cpu": 0.6091210000000381,
+    "wall": 1.0124728679656982
+   }
+  },
+  "RefOG028__full": {
+   "_msa": {
+    "cpu": 0.3799909999999864,
+    "wall": 0.5272393226623535
+   }
+  },
+  "RefOG068__full": {
+   "_msa": {
+    "cpu": 2.776121999999991,
+    "wall": 3.3591694831848145
+   }
+  },
+  "RefOG038+RefOG052__full": {
+   "_msa": {
+    "cpu": 1.0131370000000106,
+    "wall": 1.2633273601531982
+   }
+  },
+  "RefOG033__c3di": {
+   "_msa": {
+    "cpu": 0.2043560000000132,
+    "wall": 0.29332995414733887
+   },
+   "_fs_pairs": {
+    "cpu": 300.0,
+    "wall": 300.0
+   }
+  },
+  "RefOG007__c3di": {
+   "_msa": {
+    "cpu": 0.7741740000000241,
+    "wall": 0.8052361011505127
+   },
+   "_fs_pairs": {
+    "cpu": 903.0,
+    "wall": 903.0
+   }
+  },
+  "RefOG055__c3di": {
+   "_msa": {
+    "cpu": 0.07192399999996471,
+    "wall": 0.13995862007141113
+   },
+   "_fs_pairs": {
+    "cpu": 253.0,
+    "wall": 253.0
+   }
+  },
+  "RefOG034__full": {
+   "_msa": {
+    "cpu": 0.033920000000020795,
+    "wall": 0.07883691787719727
+   }
+  },
+  "RefOG028__c3di": {
+   "_msa": {
+    "cpu": 0.3697900000000636,
+    "wall": 0.420090913772583
+   },
+   "_fs_pairs": {
+    "cpu": 253.0,
+    "wall": 253.0
+   }
+  },
+  "RefOG034__c3di": {
+   "_msa": {
+    "cpu": 0.025455000000022043,
+    "wall": 0.11461234092712402
+   },
+   "_fs_pairs": {
+    "cpu": 171.0,
+    "wall": 171.0
+   }
+  },
+  "RefOG043__full": {
+   "_msa": {
+    "cpu": 0.12806699999999585,
+    "wall": 0.31794023513793945
+   }
+  },
+  "RefOG061__c3di": {
+   "_msa": {
+    "cpu": 0.4623979999999716,
+    "wall": 0.7545773983001709
+   },
+   "_fs_pairs": {
+    "cpu": 253.0,
+    "wall": 253.0
+   }
+  },
+  "RefOG013__c3di": {
+   "_msa": {
+    "cpu": 0.5931439999999997,
+    "wall": 0.8606126308441162
+   },
+   "_fs_pairs": {
+    "cpu": 325.0,
+    "wall": 325.0
+   }
+  },
+  "RefOG057__full": {
+   "_msa": {
+    "cpu": 0.06377199999995796,
+    "wall": 0.16087794303894043
+   }
+  },
+  "RefOG052__full": {
+   "_msa": {
+    "cpu": 0.2961949999999749,
+    "wall": 0.42559242248535156
+   }
+  },
+  "RefOG008__full": {
+   "_msa": {
+    "cpu": 0.037834000000045526,
+    "wall": 0.1224520206451416
+   }
+  },
+  "RefOG043__c3di": {
+   "_msa": {
+    "cpu": 0.10952799999994459,
+    "wall": 0.29435300827026367
+   },
+   "_fs_pairs": {
+    "cpu": 120.0,
+    "wall": 120.0
+   }
+  },
+  "RefOG044__full": {
+   "_msa": {
+    "cpu": 0.16529199999992855,
+    "wall": 0.4275076389312744
+   }
+  },
+  "RefOG066__full": {
+   "_msa": {
+    "cpu": 0.09689699999999138,
+    "wall": 0.2465503215789795
+   }
+  },
+  "RefOG002__full": {
+   "_msa": {
+    "cpu": 10.268501000000013,
+    "wall": 11.258210897445679
+   }
+  },
+  "RefOG008__c3di": {
+   "_msa": {
+    "cpu": 0.03674500000000128,
+    "wall": 0.07963442802429199
+   },
+   "_fs_pairs": {
+    "cpu": 91.0,
+    "wall": 91.0
+   }
+  },
+  "RefOG019__full": {
+   "_msa": {
+    "cpu": 0.01580699999993551,
+    "wall": 0.08235621452331543
+   }
+  },
+  "RefOG019__c3di": {
+   "_msa": {
+    "cpu": 0.014813999999998606,
+    "wall": 0.05665183067321777
+   },
+   "_fs_pairs": {
+    "cpu": 91.0,
+    "wall": 91.0
+   }
+  },
+  "RefOG030__full": {
+   "_msa": {
+    "cpu": 0.02518599999996729,
+    "wall": 0.0982666015625
+   }
+  },
+  "RefOG045__full": {
+   "_msa": {
+    "cpu": 0.22064500000002815,
+    "wall": 0.4600226879119873
+   }
+  },
+  "RefOG057__c3di": {
+   "_msa": {
+    "cpu": 0.04211499999998844,
+    "wall": 0.15150761604309082
+   },
+   "_fs_pairs": {
+    "cpu": 91.0,
+    "wall": 91.0
+   }
+  },
+  "RefOG038+RefOG052__c3di": {
+   "_msa": {
+    "cpu": 0.5716390000000363,
+    "wall": 0.685945987701416
+   },
+   "_fs_pairs": {
+    "cpu": 105.0,
+    "wall": 105.0
+   }
+  },
+  "RefOG067__full": {
+   "_msa": {
+    "cpu": 0.05905199999996055,
+    "wall": 0.08417534828186035
+   }
+  },
+  "RefOG004__full": {
+   "_msa": {
+    "cpu": 0.07691099999996542,
+    "wall": 0.08773183822631836
+   }
+  },
+  "RefOG030__c3di": {
+   "_msa": {
+    "cpu": 0.026201999999976855,
+    "wall": 0.06311440467834473
+   },
+   "_fs_pairs": {
+    "cpu": 78.0,
+    "wall": 78.0
+   }
+  },
+  "RefOG066__c3di": {
+   "_msa": {
+    "cpu": 0.09776500000000532,
+    "wall": 0.10737466812133789
+   },
+   "_fs_pairs": {
+    "cpu": 91.0,
+    "wall": 91.0
+   }
+  },
+  "RefOG006__c3di": {
+   "_msa": {
+    "cpu": 0.5856670000000016,
+    "wall": 1.0022599697113037
+   },
+   "_fs_pairs": {
+    "cpu": 91.0,
+    "wall": 91.0
+   }
+  },
+  "RefOG005+RefOG006__c3di": {
+   "_msa": {
+    "cpu": 1.062495999999935,
+    "wall": 1.6250841617584229
+   },
+   "_fs_pairs": {
+    "cpu": 253.0,
+    "wall": 253.0
+   }
+  },
+  "RefOG067__c3di": {
+   "_msa": {
+    "cpu": 0.027858000000031247,
+    "wall": 0.09212827682495117
+   },
+   "_fs_pairs": {
+    "cpu": 78.0,
+    "wall": 78.0
+   }
+  },
+  "RefOG044__c3di": {
+   "_msa": {
+    "cpu": 0.09955799999995621,
+    "wall": 0.2755241394042969
+   },
+   "_fs_pairs": {
+    "cpu": 66.0,
+    "wall": 66.0
+   }
+  },
+  "RefOG045__c3di": {
+   "_msa": {
+    "cpu": 0.20541600000000254,
+    "wall": 0.2117171287536621
+   },
+   "_fs_pairs": {
+    "cpu": 78.0,
+    "wall": 78.0
+   }
+  },
+  "RefOG052__c3di": {
+   "_msa": {
+    "cpu": 0.2168739999999587,
+    "wall": 0.3220677375793457
+   },
+   "_fs_pairs": {
+    "cpu": 66.0,
+    "wall": 66.0
+   }
+  },
+  "RefOG059__full": {
+   "_msa": {
+    "cpu": 0.2917110000000092,
+    "wall": 0.40665721893310547
+   }
+  },
+  "RefOG065__full": {
+   "_msa": {
+    "cpu": 1.2167249999999978,
+    "wall": 1.3818340301513672
+   }
+  },
+  "RefOG015__c3di": {
+   "_msa": {
+    "cpu": 0.5717439999999818,
+    "wall": 1.1331639289855957
+   },
+   "_fs_pairs": {
+    "cpu": 55.0,
+    "wall": 55.0
+   }
+  },
+  "RefOG068__c3di": {
+   "_msa": {
+    "cpu": 1.0347220000000419,
+    "wall": 1.4137542247772217
+   },
+   "_fs_pairs": {
+    "cpu": 66.0,
+    "wall": 66.0
+   }
+  },
+  "RefOG038__full": {
+   "_msa": {
+    "cpu": 0.5992150000000126,
+    "wall": 1.0172555446624756
+   }
+  },
+  "RefOG015+RefOG023__c3di": {
+   "_msa": {
+    "cpu": 1.2558330000000597,
+    "wall": 1.5845649242401123
+   },
+   "_fs_pairs": {
+    "cpu": 153.0,
+    "wall": 153.0
+   }
+  },
+  "RefOG002__c3di": {
+   "_msa": {
+    "cpu": 1.0172380000000036,
+    "wall": 1.2165019512176514
+   },
+   "_fs_pairs": {
+    "cpu": 55.0,
+    "wall": 55.0
+   }
+  },
+  "RefOG004__c3di": {
+   "_msa": {
+    "cpu": 0.04090100000005492,
+    "wall": 0.07263445854187012
+   },
+   "_fs_pairs": {
+    "cpu": 36.0,
+    "wall": 36.0
+   }
+  },
+  "RefOG059__c3di": {
+   "_msa": {
+    "cpu": 0.07890299999993544,
+    "wall": 0.14241313934326172
+   },
+   "_fs_pairs": {
+    "cpu": 10.0,
+    "wall": 10.0
+   }
+  },
+  "RefOG005__c3di": {
+   "_msa": {
+    "cpu": 0.64398899999996,
+    "wall": 1.172506332397461
+   },
+   "_fs_pairs": {
+    "cpu": 45.0,
+    "wall": 45.0
+   }
+  },
+  "RefOG065__c3di": {
+   "_msa": {
+    "cpu": 0.3351260000000289,
+    "wall": 0.744225263595581
+   },
+   "_fs_pairs": {
+    "cpu": 15.0,
+    "wall": 15.0
+   }
+  },
+  "RefOG035__c3di": {
+   "_msa": {
+    "cpu": 0.6276389999999892,
+    "wall": 0.7080483436584473
+   },
+   "_fs_pairs": {
+    "cpu": 45.0,
+    "wall": 45.0
+   }
+  },
+  "RefOG023__c3di": {
+   "_msa": {
+    "cpu": 0.7646949999999745,
+    "wall": 0.9440596103668213
+   },
+   "_fs_pairs": {
+    "cpu": 28.0,
+    "wall": 28.0
+   }
+  },
+  "RefOG021+RefOG068__c3di": {
+   "_msa": {
+    "cpu": 1.573969,
+    "wall": 1.7768328189849854
+   },
+   "_fs_pairs": {
+    "cpu": 6328.0,
+    "wall": 6328.0
+   }
+  }
+ },
+ "wall_total_s": 791.451427936554,
+ "workers": 6
+}

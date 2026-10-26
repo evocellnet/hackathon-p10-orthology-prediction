@@ -1,0 +1,66 @@
+{
+ "a_nj": {
+  "cpu_mean_s": 0.0002528,
+  "cpu_median_s": 0.0001854999999999843,
+  "wall_mean_s": 0.00025493860244750976,
+  "projected_cpu_h_orthobench": 0.0010853546666666667,
+  "acceptable": true
+ },
+ "b_ft": {
+  "cpu_mean_s": 0.23595356999999997,
+  "cpu_median_s": 0.13639799999999863,
+  "wall_mean_s": 0.40374072790145876,
+  "projected_cpu_h_orthobench": 1.0130273271999999,
+  "acceptable": false
+ },
+ "b_iq": {
+  "cpu_mean_s": 0.4404247,
+  "cpu_median_s": 0.2833944999999993,
+  "wall_mean_s": 0.6963573956489563,
+  "projected_cpu_h_orthobench": 1.8908900453333333,
+  "acceptable": false
+ },
+ "c_ft3di": {
+  "cpu_mean_s": 0.23542096999999967,
+  "cpu_median_s": 0.14117049999999925,
+  "wall_mean_s": 0.40061470031738283,
+  "projected_cpu_h_orthobench": 1.0107406978666653,
+  "acceptable": false
+ },
+ "c_iq3di": {
+  "cpu_mean_s": 0.31568993,
+  "cpu_median_s": 0.19611150000000013,
+  "wall_mean_s": 0.5464215040206909,
+  "projected_cpu_h_orthobench": 1.3553620994666666,
+  "acceptable": false
+ },
+ "d_part": {
+  "cpu_mean_s": 0.7572632599999998,
+  "cpu_median_s": 0.5176660000000001,
+  "wall_mean_s": 1.005228774547577,
+  "projected_cpu_h_orthobench": 3.2511835962666655,
+  "acceptable": false
+ },
+ "d_ftcat": {
+  "cpu_mean_s": 0.3260275499999999,
+  "cpu_median_s": 0.20194299999999962,
+  "wall_mean_s": 0.5235913920402527,
+  "projected_cpu_h_orthobench": 1.3997449479999995,
+  "acceptable": false
+ },
+ "e_fident": {
+  "cpu_mean_s": 0.23349787000000014,
+  "cpu_median_s": 0.2272085,
+  "wall_mean_s": 0.7081350874900818,
+  "projected_cpu_h_orthobench": 1.002484188533334,
+  "acceptable": false
+ },
+ "e_fsbits": {
+  "cpu_mean_s": 0.2333767500000002,
+  "cpu_median_s": 0.22709249999999997,
+  "wall_mean_s": 0.7081350874900818,
+  "projected_cpu_h_orthobench": 1.0019641800000008,
+  "acceptable": false
+ },
+ "_note": "a_nj CPU here is the NJ only (scores are precomputed by the pipeline); MSA arms include FAMSA; e_* include Foldseek DB build + all-pair alignment"
+}
