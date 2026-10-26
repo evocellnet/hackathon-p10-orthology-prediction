@@ -472,10 +472,17 @@ The total is **28.5 min wall** with **14.2 GB max RSS** (`/usr/bin/time -v`), on
 |---|---|---|---|---|
 | S0-agent (old, run_v2) | 72.5 / 0.740 / 0.768 | 79.2 / 0.783 / 0.791 | 72.5–73.3 / 0.740 | 75.5 / 0.800 / 0.800 |
 | old pipeline order (run_e2e) | 71.4 / 0.739 / 0.769 | 75.6 / 0.636 / 0.763 | 71.4 / 0.739 | 79.1 / 0.701 / 0.775 |
-| **deterministic (run_det)** | see §7.7 | | | |
+| **deterministic (run_det)** | 71.3 / 0.674 / 0.752 | **75.7** / 0.722 / 0.772 | 71.3–72.0 / 0.674–0.721 (macro 0.752–0.758) | 74.5 / 0.780 / 0.792 |
 
 - The micro pair F1 is dominated by RefOG021 (125 genes, lineage-specific expansions). On run_e2e, synteny raises its FP pairs from 27 to 1,800 of the 2,392 total; elsewhere it removes FPs (RefOG033 24 → 0, RefOG048 254 → 159).
-- Macro pair F1 (mean over dev RefOGs) is far more stable.
+- Macro pair F1 (mean over dev RefOGs) is far more stable. Even a shuffled control can move micro pair F1 by +0.046 (deterministic partition, seed 23) while macro moves only +0.006.
+
+### 7.7 T+12h gate input (deterministic partition, full default pipeline)
+`python -m ancestra run ... --gene-order data/genomes/orthobench --threads 12` (`work/core_v0_ob/run_det`; manifest `results/core_v0_orthobench/det_default_manifest.json`).
+- **Dev OG-F 75.7** (P 72.2, R 79.6, 11/34 exact). Pair F1 is 0.722 micro, 0.772 macro.
+- Without synteny the dev OG-F is 71.3.
+- Runtime: 31.5 min wall, 14.7 GB max RSS (S0 462 s, scores 1,365 s, merge 54 s, output 9 s; 12 threads, shared node).
+
 
 ### 7.8 Next steps
 1. **Precision of tree mode and over-merges in large S0 families** (OG-P 63–75%):

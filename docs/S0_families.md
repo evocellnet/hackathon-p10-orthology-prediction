@@ -149,3 +149,11 @@ multiplier Gamma(2)).
 - The ≥ 95 % target cannot be met by a sequence-similarity partition (§4 upper bound). Structure-based (3Di) or
   profile (HMM) linking of singletons and small families is the only route to the remaining RefOGs, and should be
   checked against the toy negative control (false fusions).
+
+## Determinism fix (core agent, 2026-10-26 ~T+5h; details in docs/core_v0.md §7.6)
+- S0 results depended on input order and ID names, because DIAMOND `cluster` greedy ties follow input order (ARI 0.78 between the agent run on `ob_all.fa` and the pipeline's integer-ID FASTA).
+- They also depended on `--threads` in the stage-2 `diamond blastp`, through DIAMOND's automatic block and chunk sizing: 0.016% of hits changed between 12 and 24 threads.
+- `run_families` now clusters a canonical copy of the input (normalised sequences, sorted by length desc / sequence / ID, renamed by rank). The stage-2 search pins `-b 4 -c 1` (`s2_block`, `s2_chunks`), and edges are sorted before CC and Leiden.
+- On OrthoBench, `families.tsv` is byte-identical for 12 vs 24 threads and for agent vs pipeline input order.
+- **The selected config's partition changed:** 22,643 families, max 7,269. Families TSVs produced before the fix are not reproducible and should not be reused (`s1_reuse` refuses pre-fix stage-1 outputs).
+- Test: `tests/test_s0_determinism.py`.
