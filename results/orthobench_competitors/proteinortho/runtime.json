@@ -1,0 +1,31 @@
+{
+ "wall_s": 820.68,
+ "user_s": 5709.29,
+ "sys_s": 29.93,
+ "max_rss_gb": 0.7838592529296875,
+ "cpu_s": 5739.22,
+ "cpu_h": 1.5942277777777778,
+ "wall_h": 0.22796666666666665,
+ "threads_requested": 8,
+ "node_cores": 24,
+ "node_shared_busy": true,
+ "note": "proteinortho -p=diamond -cpus=8 (defaults: e=1e-5, identity 25, coverage 50, conn 0.1, purity; PoFF off). Input proteomes had internal '*' stop symbols stripped (sed, required by ProteinOrtho)",
+ "phases": {
+  "proteinortho/logs": {
+   "wall_s": 820.68,
+   "user_s": 5709.29,
+   "sys_s": 29.93,
+   "max_rss_gb": 0.7838592529296875,
+   "exit_status": 0,
+   "major_faults": 1,
+   "node_load_1min": {
+    "n": 14,
+    "load1_mean": 37.115,
+    "load1_max": 39.65,
+    "load1_min": 30.98
+   },
+   "start": "2026-10-27T00:14:07+01:00",
+   "end": "2026-10-27T00:27:48+01:00"
+  }
+ }
+}

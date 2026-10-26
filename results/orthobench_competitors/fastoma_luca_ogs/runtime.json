@@ -1,0 +1,31 @@
+{
+ "wall_s": 12612.0,
+ "user_s": 27776.43,
+ "sys_s": 18085.29,
+ "max_rss_gb": 13.594562530517578,
+ "cpu_s": 45861.72,
+ "cpu_h": 12.739366666666667,
+ "wall_h": 3.5033333333333334,
+ "threads_requested": 8,
+ "node_cores": 24,
+ "node_shared_busy": true,
+ "note": "FastOMA 0.5.1 nextflow pipeline (local, no container), OMAmer 2.1.0 + LUCA.h5 (OMAmer DB, OMA-derived: LEAKAGE - OMA contains these species); same run as fastoma_luca; peak RSS = largest single process",
+ "phases": {
+  "fastoma/logs": {
+   "wall_s": 12612.0,
+   "user_s": 27776.43,
+   "sys_s": 18085.29,
+   "max_rss_gb": 13.594562530517578,
+   "exit_status": 0,
+   "major_faults": 127515,
+   "node_load_1min": {
+    "n": 211,
+    "load1_mean": 42.434218009478684,
+    "load1_max": 73.18,
+    "load1_min": 22.43
+   },
+   "start": "2026-10-26T20:40:14+01:00",
+   "end": "2026-10-27T00:10:27+01:00"
+  }
+ }
+}

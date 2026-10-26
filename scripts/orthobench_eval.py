@@ -78,7 +78,8 @@ def prf(tp, fp, fn):
         return 0.0, 0.0, 0.0
     p = tp / (tp + fp)
     r = tp / (tp + fn)
-    return 100. * 2 * p * r / (p + r), 100. * p, 100. * r
+    f = 2 * p * r / (p + r)          # same operation order as upstream (bit-identical floats)
+    return 100. * f, 100. * p, 100. * r
 
 
 def subset_scores(per_refog, ids=None):
@@ -156,7 +157,7 @@ def bootstrap_delta_f(perA, perB, ids=None, B=2000, seed=11):
         tp, fp, fn = x[:, 0], x[:, 1], x[:, 2]
         with np.errstate(divide="ignore", invalid="ignore"):
             p = tp / (tp + fp); r = tp / (tp + fn)
-            f = 100 * 2 * p * r / (p + r)
+            f = 100. * (2 * p * r / (p + r))
         return np.where(tp > 0, f, 0.0)
     fa = f_of(a[S].sum(axis=1)); fb = f_of(b[S].sum(axis=1))
     d = fa - fb

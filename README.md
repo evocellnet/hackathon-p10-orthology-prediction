@@ -31,7 +31,11 @@ bash scripts/run_orthobench.sh my_Orthogroups.tsv my_method
 # -> prints F / precision / recall / #exact RefOGs, writes results/orthobench/my_method.json
 ```
 `scripts/orthobench_eval.py` imports the official `BENCHMARKS/benchmark.py` and calls its functions
-(identical scoring); it only adds JSON output and reports F=0 instead of crashing when TP=0.
+(identical scoring); it adds JSON output, reports F=0 instead of crashing when TP=0, and (v2) writes per-RefOG
+TP/FP/FN (RefOG-size normalised, as in benchmark.py), dev/test subset scores (`../splits/orthobench_split.json`;
+sums of per-RefOG TP/FP/FN, verified bit-identical to benchmark.py on the full 70 at every run) and has a paired
+bootstrap (`bootstrap_delta_f`, B=2000, seed 11; CLI: `orthobench_eval.py --compare A.json B.json --subset test`).
+Competitor baselines (OrthoFinder, SonicParanoid2, ProteinOrtho, FastOMA): `results/orthobench_competitors/SUMMARY.md`.
 Input proteomes: `$DATA_DIR/orthobench/Open_Orthobench/BENCHMARKS/Input/*.fa` (12 species, 251,378
 proteins, one per gene, Ensembl release 99 IDs; FlyBase FBpp and WormBase gene IDs).
 

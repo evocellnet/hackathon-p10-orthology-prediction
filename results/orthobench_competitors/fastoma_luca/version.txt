@@ -1,0 +1,1 @@
+FastOMA 0.5.1, omamer 2.1.0, LUCA.h5 (zenodo 20814376, 2026-06-23); species tree hand-built from NCBI taxonomy; variant=tophogs

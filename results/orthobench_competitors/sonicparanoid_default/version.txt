@@ -1,0 +1,1 @@
+SonicParanoid 2.0.9 (bioconda), bundled diamond; mode default

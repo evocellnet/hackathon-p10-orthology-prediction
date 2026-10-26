@@ -1,0 +1,31 @@
+{
+ "wall_s": 4662.0,
+ "user_s": 28944.15,
+ "sys_s": 665.24,
+ "max_rss_gb": 5.604728698730469,
+ "cpu_s": 29609.390000000003,
+ "cpu_h": 8.224830555555556,
+ "wall_h": 1.295,
+ "threads_requested": 8,
+ "node_cores": 24,
+ "node_shared_busy": true,
+ "note": "orthofinder -f <12 proteomes> -t 8 -a 8 -mog (default: DIAMOND, MSA/famsa+FastTree gene trees, MCL I=1.2); node load avg ~20-55 on 24 cores",
+ "phases": {
+  "orthofinder/logs": {
+   "wall_s": 4662.0,
+   "user_s": 28944.15,
+   "sys_s": 665.24,
+   "max_rss_gb": 5.604728698730469,
+   "exit_status": 0,
+   "major_faults": 58,
+   "node_load_1min": {
+    "n": 78,
+    "load1_mean": 39.75987179487179,
+    "load1_max": 55.0,
+    "load1_min": 21.12
+   },
+   "start": "2026-10-26T16:40:33+01:00",
+   "end": "2026-10-26T17:58:16+01:00"
+  }
+ }
+}

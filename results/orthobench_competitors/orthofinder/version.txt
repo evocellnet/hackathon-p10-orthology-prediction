@@ -1,0 +1,1 @@
+OrthoFinder 3.2 (conda, bioconda) ; diamond 2.2.8; famsa 2.4.1; FastTree 2.2.0; mcl 22.282

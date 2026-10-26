@@ -1,0 +1,31 @@
+{
+ "wall_s": 4730.0,
+ "user_s": 27755.52,
+ "sys_s": 517.77,
+ "max_rss_gb": 8.052478790283203,
+ "cpu_s": 28273.29,
+ "cpu_h": 7.853691666666667,
+ "wall_h": 1.3138888888888889,
+ "threads_requested": 8,
+ "node_cores": 24,
+ "node_shared_busy": true,
+ "note": "sonicparanoid -m default -t 8 -I 1.5 (diamond very-sensitive, domain-arch step on). Includes one-time Pfam profile DB indexing at first run after install (few minutes). Node load avg ~20-55 on 24 cores",
+ "phases": {
+  "sonicparanoid_default/logs": {
+   "wall_s": 4730.0,
+   "user_s": 27755.52,
+   "sys_s": 517.77,
+   "max_rss_gb": 8.052478790283203,
+   "exit_status": 0,
+   "major_faults": 3,
+   "node_load_1min": {
+    "n": 79,
+    "load1_mean": 51.04886075949367,
+    "load1_max": 83.93,
+    "load1_min": 35.35
+   },
+   "start": "2026-10-26T17:59:00+01:00",
+   "end": "2026-10-26T19:17:51+01:00"
+  }
+ }
+}

@@ -1,0 +1,23 @@
+	Command being timed: "proteinortho -p=diamond -cpus=8 -project=ob12 -temp=/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/data/orthobench/runs/proteinortho/../proteinortho/tmp /scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/data/orthobench/runs/proteinortho/../proteinortho/input/Caenorhabditis_elegans.WBcel235.pep.all.fa /scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/data/orthobench/runs/proteinortho/../proteinortho/input/Canis_familiaris.CanFam3.1.pep.all.fa /scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/data/orthobench/runs/proteinortho/../proteinortho/input/Ciona_intestinalis.KH.pep.all.fa /scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/data/orthobench/runs/proteinortho/../proteinortho/input/Danio_rerio.GRCz11.pep.all.fa /scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/data/orthobench/runs/proteinortho/../proteinortho/input/Drosophila_melanogaster.BDGP6.28.pep.all.fa /scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/data/orthobench/runs/proteinortho/../proteinortho/input/Gallus_gallus.GRCg6a.pep.all.fa /scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/data/orthobench/runs/proteinortho/../proteinortho/input/Homo_sapiens.GRCh38.pep.all.fa /scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/data/orthobench/runs/proteinortho/../proteinortho/input/Monodelphis_domestica.ASM229v1.pep.all.fa /scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/data/orthobench/runs/proteinortho/../proteinortho/input/Mus_musculus.GRCm38.pep.all.fa /scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/data/orthobench/runs/proteinortho/../proteinortho/input/Pan_troglodytes.Pan_tro_3.0.pep.all.fa /scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/data/orthobench/runs/proteinortho/../proteinortho/input/Rattus_norvegicus.Rnor_6.0.pep.all.fa /scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/data/orthobench/runs/proteinortho/../proteinortho/input/Tetraodon_nigroviridis.TETRAODON8.pep.all.fa"
+	User time (seconds): 5709.29
+	System time (seconds): 29.93
+	Percent of CPU this job got: 699%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 13:40.68
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 821936
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 1
+	Minor (reclaiming a frame) page faults: 4573250
+	Voluntary context switches: 273672
+	Involuntary context switches: 398900
+	Swaps: 0
+	File system inputs: 92
+	File system outputs: 0
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
