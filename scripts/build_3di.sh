@@ -64,6 +64,7 @@ fi
 # 5. Foldcomp-derived tables (exact AA sequence only; QfO also via UniProt merged/secondary accessions)
 $PY qfo "$W/sub_fs" "$S/qfo_fasta" "$W/qfo_3di_foldcomp.fa" "$W/qfo_foldcomp.stats.tsv" --alias "$W/qfo_alias.tsv"
 $PY ob "$W/sub_fs" "$OB_IN" "$W/ob_candidates.tsv" "$W/orthobench_3di_foldcomp.fa" "$W/ob_foldcomp.stats.tsv"
+cp "$W/qfo_3di_foldcomp.fa" "$S/qfo_3di_foldcomp.fa"; cp "$W/orthobench_3di_foldcomp.fa" "$S/orthobench_3di_foldcomp.fa"
 
 # 6. True-3Di tables from the Foldseek AFDB DB by exact sequence (Alphafold/UniProt preferred, else Alphafold/Proteome)
 [ "${SKIP_FSDB:-0}" = 1 ] || [ -f "$S/afdb_uniprot_fs/ex/.extracted" ] || "$ROOT/scripts/get_foldseek_afdb_uniprot.sh"   # 491 GB download + parallel extract
