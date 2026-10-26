@@ -58,7 +58,7 @@ SYNTENY_DEFAULT = dict(mode="multiplicative", lam=0.3, anchor="core", w=10)
 #            the constrained two-pass synteny merge.
 #   fast:    NJ on -ln S everywhere (v0.2 behaviour; used for scaling claims).
 PRESETS = {
-    "accurate": {"tree_method": "fasttree", "tree_ft_mode": "medoid", "off_tree_method": "OFF_TREE_TBD"},
+    "accurate": {"tree_method": "fasttree", "tree_ft_mode": "medoid", "off_tree_method": "nj"},
     "fast": {"tree_method": "nj", "tree_ft_mode": "medoid", "off_tree_method": "nj"},
     "custom": None,   # leave the merge config as given (off pass uses its tree_method)
 }
