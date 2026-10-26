@@ -41,7 +41,7 @@ Decision note M0: benchmark lives in its own repo (bench_repo/) as the prompt re
 - [x] 3. S0 family partition — own benchmark (docs/S0_families.md)
   - [!] 3.1 Ceiling finding: no sequence-similarity partition can reach the pre-registered ≥95% dev RefOG completeness; even all DIAMOND hits at e≤1e-5 give 27/34, ceiling ≈0.82 (6 dev RefOGs have members with no hit to the rest at e≤1e-3 even with ultra-sensitive). Deviation recorded; target not met, method accepted as near-ceiling.
   - [x] 3.2 Chosen: 2sA_dc30_cc_sh30_RA (diamond cluster 30%/cov50 → all genes vs reps → CC with ≥30% cov → Leiden >7.5k → reassignment). Dev completeness 0.794, fission 1.32, Σg²/N² 0.0075, max family 7,478, 263 s wall, 6.2 GB. **Test 0.722** (logged in results/test_log.tsv). Byte-identical rerun.
-  - [-] 3.3 Rep-vs-rep linking (r2 proposal) gave 0.441; gene-vs-rep N×R search was the key.
+  - [-] 3.3 Rep-vs-rep linking (r2 proposal): 0.441 with ≥50% coverage guard, 0.706 without guard; gene-vs-rep N×R search (0.794) was the key.
   - [ ] 3.4 Root rescue for the 145 Leiden-split families + 15k singletons (6.1%)
 - [x] 3b. Core engine v0 (docs/core_v0.md): hybrid scoring (DIAMOND + MMseqs2 re-align of in-family misses, which recovers the 6–10% of pairs DIAMOND alone misses); level-synchronous k-way merge (mutual-best seeds, in-paralog absorption, avg-link, normalised scores, coverage guard 0.5). Toy pair F1 0.94–0.98 (precision 0.986–0.993); RBH-only arm 0.74. 33k proteins/32 spp end-to-end 35 s.
   - Failure modes: fast-evolving young duplicates fail the in-paralog test; hidden paralogy via complementary loss (all FPs are true paralogs); saturated deep families.
