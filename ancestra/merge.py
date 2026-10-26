@@ -73,14 +73,14 @@ __all__ = ["MergeConfig", "MergeResult", "run_merge", "to_orthoxml", "decide_nod
 
 @dataclass
 class MergeConfig:
-    link: str = "max"            # max | avg
+    link: str = "avg"            # avg | max   (default chosen by the pre-stated toy rule)
     score: str = "norm_max"      # bits | norm_min | norm_max | of (see leaf_scores)
     tol: float = 0.95            # mutual-best tolerance (1.0 = strict RBH)
     inparalogs: bool = True      # R2
     inpar_factor: float = 1.0
     inpar_rule: str = "ortholog"  # ortholog | self | either | quartet (see module docstring)
-    repair: bool = True          # R3
-    repair_ratio: float = 0.5
+    repair: bool = True          # R3 (toy sweep: +0.0003 F1; results/core_v0/sweep.tsv)
+    repair_ratio: float = 0.9
     min_cov: float = 0.5         # bidirectional coverage guard on leaf pairs
     min_score: float = 0.0       # minimum aggregated score for a candidate edge
 
@@ -90,16 +90,17 @@ class MergeConfig:
 
 _D = MergeConfig()
 ARMS = {   # named arms of the S3/S4 benchmark (docs/core_v0.md)
+    "default": _D,
     "rbh": replace(_D, score="bits", tol=1.0, inparalogs=False, repair=False),
     "max": replace(_D, link="max", repair=False),
-    "max+repair": replace(_D, link="max", repair=True),
+    "max+repair": replace(_D, link="max", repair=True, repair_ratio=0.5),
     "avg": replace(_D, link="avg", repair=False),
-    "avg+repair": replace(_D, link="avg", repair=True),
-    "max+repair/bits": replace(_D, link="max", repair=True, score="bits"),
-    "avg+repair/bits": replace(_D, link="avg", repair=True, score="bits"),
-    "max+repair/quartet": replace(_D, link="max", repair=True, inpar_rule="quartet"),
-    "avg+repair/quartet": replace(_D, link="avg", repair=True, inpar_rule="quartet"),
-    "avg+repair/either": replace(_D, link="avg", repair=True, inpar_rule="either"),
+    "avg+repair": replace(_D, link="avg", repair=True, repair_ratio=0.5),
+    "max+repair/bits": replace(_D, link="max", repair=True, score="bits", repair_ratio=0.5),
+    "avg+repair/bits": replace(_D, link="avg", repair=True, score="bits", repair_ratio=0.5),
+    "max+repair/quartet": replace(_D, link="max", repair=True, inpar_rule="quartet", repair_ratio=0.5),
+    "avg+repair/quartet": replace(_D, link="avg", repair=True, inpar_rule="quartet", repair_ratio=0.5),
+    "avg+repair/either": replace(_D, link="avg", repair=True, inpar_rule="either", repair_ratio=0.5),
 }
 
 

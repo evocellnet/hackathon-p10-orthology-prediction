@@ -35,7 +35,7 @@ from ancestra.evaluate_toy import evaluate, partition_metrics  # noqa: E402
 from ancestra.io import families_from_mapping, load_families, load_guide_tree, load_proteomes, write_fasta  # noqa: E402
 from ancestra.merge import ARMS, run_merge, to_orthoxml  # noqa: E402
 from ancestra.orthoxml import read_orthoxml  # noqa: E402
-from ancestra.scoring import ScoreTable, ScoringConfig, score_families  # noqa: E402
+from ancestra.scoring import ScoreTable, ScoringConfig, score_families, score_with_rescue  # noqa: E402
 
 S2_ARM_MERGE = ["max+repair", "avg+repair"]
 
@@ -60,7 +60,8 @@ def summarize(r: dict, tree_depth: dict) -> dict:
                 recall_by_level={k: v["recall"] for k, v in r["pair_recall_by_level"].items()})
 
 
-def run_condition(sim_dir: str, famsrc: str, work: str, threads: int) -> list[dict]:
+def run_condition(sim_dir: str, famsrc: str, work: str, threads: int, scorings=None,
+                  arm_names=None) -> list[dict]:
     name = os.path.basename(sim_dir.rstrip("/"))
     setting, rest = name.split("_s")[0], name.split("_s")[1]
     nsp = int("".join(c for c in setting if c.isdigit()))
@@ -100,9 +101,10 @@ def run_condition(sim_dir: str, famsrc: str, work: str, threads: int) -> list[di
     depth = {}
     for nd in tree.preorder():
         depth[nd.name] = 0 if nd.parent is None else depth[nd.parent.name] + 1
-    scorings = [("diamond", 10.0)]
-    if famsrc == "truth":
-        scorings += [("mmseqs", 10.0), ("diamond", 1e-3)]
+    if scorings is None:
+        scorings = [("diamond", 10.0)]
+        if famsrc == "truth":
+            scorings += [("mmseqs", 10.0), ("diamond", 1e-3)]
     out = []
     for backend, ev in scorings:
         sp = os.path.join(wd, f"scores_{backend}_e{ev:g}.npz")
@@ -111,11 +113,21 @@ def run_condition(sim_dir: str, famsrc: str, work: str, threads: int) -> list[di
             st = ScoreTable.load(sp)
             sstats = json.load(open(sp + ".json"))
         else:
-            st, sstats = score_families(gt, fam, ScoringConfig(backend=backend, evalue=ev, threads=threads),
-                                        os.path.join(wd, f"tmp_{backend}_{ev:g}"))
+            if backend.endswith("+rescue"):
+                st, _, sstats = score_with_rescue(gt, fam, ScoringConfig(backend=backend.split("+")[0],
+                                                                         evalue=ev, threads=threads),
+                                                  os.path.join(wd, f"tmp_{backend}_{ev:g}"))
+            else:
+                st, sstats = score_families(gt, fam, ScoringConfig(backend=backend, evalue=ev, threads=threads),
+                                            os.path.join(wd, f"tmp_{backend}_{ev:g}"))
             st.save(sp)
             json.dump(sstats, open(sp + ".json", "w"), default=str)
-        arms = ARMS if (backend, ev) == ("diamond", 10.0) else {k: ARMS[k] for k in S2_ARM_MERGE}
+        if arm_names is not None:
+            arms = {k: ARMS[k] for k in arm_names}
+        elif (backend, ev) == ("diamond", 10.0):
+            arms = ARMS
+        else:
+            arms = {k: ARMS[k] for k in S2_ARM_MERGE}
         for arm, cfg in arms.items():
             t0 = time.time()
             res = run_merge(gt, tree, st, cfg)
@@ -141,6 +153,8 @@ def main(argv=None):
     ap.add_argument("--threads", type=int, default=4)
     ap.add_argument("--only", nargs="*", help="sim names subset")
     ap.add_argument("--families", nargs="*", default=["truth", "s0"])
+    ap.add_argument("--scorings", nargs="*", help="backend:evalue list (default: built-in set)")
+    ap.add_argument("--arms", nargs="*", help="merge arm subset")
     a = ap.parse_args(argv)
     os.makedirs(a.out, exist_ok=True)
     sims = sorted(d for d in os.listdir(a.sims) if os.path.isdir(os.path.join(a.sims, d)))
@@ -152,7 +166,8 @@ def main(argv=None):
     outp = os.path.join(a.out, "toy_grid.jsonl")
     t0 = time.time()
     with ProcessPoolExecutor(a.workers) as ex, open(outp, "a") as fh:
-        futs = {ex.submit(run_condition, s, f, a.work, a.threads): (s, f) for s, f in jobs}
+        sc = [(x.split(":")[0], float(x.split(":")[1])) for x in a.scorings] if a.scorings else None
+        futs = {ex.submit(run_condition, s, f, a.work, a.threads, sc, a.arms): (s, f) for s, f in jobs}
         for fu in as_completed(futs):
             s, f = futs[fu]
             try:

@@ -17,7 +17,14 @@ def load():
         if not f.endswith(".json") or f.endswith(".TEST.json") or f in ("configs.json", "selection.json"):
             continue
         r = json.load(open(os.path.join(RES, f)))
+        if "dev" not in r or "family_stats" not in r:
+            continue
         a, fs, rt = r["dev"]["aggregate"], r["family_stats"], r["runtime"]
+        rss = rt.get("peak_rss_gb") or 0.0
+        reuse = r["manifest"]["config"].get("s1_reuse")
+        if reuse:  # stage 1 ran in another config: its peak RSS counts too
+            src = json.load(open(os.path.join(RES, os.path.basename(reuse.rstrip("/")) + ".json")))
+            rss = max(rss, src["runtime"].get("peak_rss_gb") or 0.0)
         n = fs["n_genes"]
         rows.append({
             "name": r["name"],
@@ -31,7 +38,8 @@ def load():
             "sum_g2": fs["sum_g2"], "sum_g2_over_N2": fs["sum_g2_over_N2"],
             "max_family": fs["max_family"], "max_over_N": fs["max_family"] / n, "top10": fs["top_sizes"],
             "n_split_families": fs.get("n_split_families", 0),
-            "wall_s": rt.get("wall_incl_reused_stage1_s", rt.get("wall_s")), "peak_rss_gb": rt.get("peak_rss_gb"),
+            "wall_s": rt.get("wall_incl_reused_stage1_s", rt.get("wall_s")), "peak_rss_gb": rss,
+            "gene_weighted_best_frac": a.get("gene_weighted_best_frac"), "frac_le1_stray": a.get("frac_refogs_le1_stray"),
             "cpu_h": rt.get("cpu_h"), "load": rt.get("node_loadavg_at_start", ["?"])[0],
             "eligible": fs["sum_g2"] <= 0.05 * n * n and fs["max_family"] <= 0.03 * n,
         })
@@ -40,7 +48,8 @@ def load():
 
 def main():
     rows = load()
-    elig = [r for r in rows if r["eligible"]]
+    # *_fresh rows are from-scratch reruns of an already-listed config (timing/determinism), not candidates
+    elig = [r for r in rows if r["eligible"] and not r["name"].endswith("_fresh")]
     best = max(elig, key=lambda r: (r["dev_completeness"], r["pair_recall"], -r["wall_s"])) if elig else None
     cols = list(rows[0].keys())
     with open(os.path.join(RES, "summary.tsv"), "w") as fh:

@@ -1,0 +1,486 @@
+{
+ "stages": {
+  "input": {
+   "key": "decd88de1c13df3b",
+   "wall_s": 0.022,
+   "peak_rss_mb": 51.0,
+   "children_max_rss_mb": 50.7,
+   "stats": {
+    "n_genes": 33044,
+    "n_species": 32,
+    "n_internal_nodes": 31
+   },
+   "skipped": true
+  },
+  "families": {
+   "key": "1baceb7339b70150",
+   "wall_s": 40.151,
+   "peak_rss_mb": 70.3,
+   "children_max_rss_mb": 598.1,
+   "stats": {
+    "source": "ancestra.families",
+    "s0_timings": {
+     "stage1_s": 37.681061029434204,
+     "stage2_search_s": 2.2782444953918457,
+     "stage2_s": 2.2910592555999756,
+     "total_s": 40.0893874168396
+    },
+    "n_families": 1402,
+    "n_singletons": 158,
+    "max_family": 98,
+    "sum_g2": 1174790
+   },
+   "skipped": true
+  },
+  "scores": {
+   "key": "37ef195786df1756",
+   "wall_s": 22.438,
+   "peak_rss_mb": 317.4,
+   "children_max_rss_mb": 532.1,
+   "stats": {
+    "backend": "hybrid",
+    "n_families": 1402,
+    "sum_g2": 1174790,
+    "max_family": 98,
+    "n_cross_family_hits": 18737,
+    "n_blocks": 1,
+    "diamond_s": 17.57,
+    "n_pairs_diamond": 575679,
+    "n_pairs_rescue_candidates": 28238,
+    "n_pairs_aligned_mmseqs": 28238,
+    "pairs_write_s": 0.01,
+    "align_s": 0.51,
+    "n_families_over_cap": 0,
+    "n_families_over_gmax": 0,
+    "n_pairs_dropped_by_cap": 0,
+    "wall_s": 19.32,
+    "n_scored_pairs": 590706,
+    "n_self_scores": 33044,
+    "rescue_joins": 159,
+    "rescue_rescored_genes": 3779,
+    "rescue_wall_s": 3.04,
+    "n_families_after_rescue": 1243,
+    "n_families_before_rescue": 1402
+   },
+   "skipped": false
+  },
+  "merge": {
+   "key": "c486275ec662d9c6",
+   "wall_s": 0.495,
+   "peak_rss_mb": 128.4,
+   "children_max_rss_mb": 532.1,
+   "stats": {
+    "n_root_groups": 1106,
+    "n_root_anc_genes": 1292,
+    "merge_s_sum_nodes": 0.438
+   },
+   "skipped": false
+  },
+  "output": {
+   "key": "a00799245412ff8d",
+   "wall_s": 1.721,
+   "peak_rss_mb": 276.6,
+   "children_max_rss_mb": 532.1,
+   "stats": {
+    "xsd_valid": true,
+    "n_top_groups": 1106,
+    "n_pairs": 498168,
+    "n_ogs_multi": 1106
+   },
+   "skipped": false
+  }
+ },
+ "tool": "ancestra core v0",
+ "argv": [
+  "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/ancestra/__main__.py",
+  "run",
+  "--proteomes",
+  "work/core_v0/sims/def32_s11/proteomes",
+  "--tree",
+  "work/core_v0/sims/def32_s11/species_tree.nwk",
+  "--out",
+  "work/core_v0/example_def32_s11_s0",
+  "--threads",
+  "24"
+ ],
+ "git": {
+  "commit": "cdf9f7db22c237eba6765b37a9d2dee48e58a5aa",
+  "ancestra_dirty": true
+ },
+ "versions": {
+  "python": "3.11.18",
+  "numpy": "1.26.4",
+  "mmseqs": "18.8cc5c",
+  "diamond": "diamond version 2.2.8"
+ },
+ "inputs": {
+  "proteomes": {
+   "sp0.fa": "23f4f9e592628d2fc8a6949adff75943",
+   "sp1.fa": "5607eb50feb0fbe8c35df30fa13141be",
+   "sp10.fa": "385fdd74e74c349ddb55be35f811c640",
+   "sp11.fa": "befbd7dd8391b904c7561cf4c347466d",
+   "sp12.fa": "5cf5bb20ff000cac2d359b2c9f743ed8",
+   "sp13.fa": "739ea4d511371cef18f85c754ce3eab0",
+   "sp14.fa": "126d9e0c4fbadcc9f63b1380d7d5c238",
+   "sp15.fa": "7b98d5d12986a4cf79959c1d8ddf193a",
+   "sp16.fa": "11803dba731ccba8fdb160d6886523ff",
+   "sp17.fa": "94288e635e438e35c3de9500d94db002",
+   "sp18.fa": "ee94ac6c5b54486480956a9a41a3de82",
+   "sp19.fa": "ca3cff8a59c0c78205fa0d09daf5d0f4",
+   "sp2.fa": "4c9cea0bc61312c432e483771b776460",
+   "sp20.fa": "0aacb6dbc70f535b1125a634fa4bc633",
+   "sp21.fa": "f5057d68c356adbd6b7c7845652532db",
+   "sp22.fa": "19a5393e4f96c8d2496a47c6f0d4e16f",
+   "sp23.fa": "700ba50e23d8a7eadbd86d16cd9b69d5",
+   "sp24.fa": "d69defce93a1f2cdd1518e98e6b4d02d",
+   "sp25.fa": "c85e19d6a7cc2e5a185da985e9d7cf29",
+   "sp26.fa": "8bd095e669e1c26b3fc37189c444c263",
+   "sp27.fa": "e60917eba98aa57a7fb7820214f63321",
+   "sp28.fa": "493283cdebbd27332c3070d066d8c670",
+   "sp29.fa": "b46de52c2cfcc9505a4ae944f854d48d",
+   "sp3.fa": "004f044a0f4eef7acd0d60b1b5716bd5",
+   "sp30.fa": "4cf55306266c37d976952defa6c17cdd",
+   "sp31.fa": "1601eea534d2eafcc3906b38239376f1",
+   "sp4.fa": "1ef12602fca0c000d8d699ac507fe59f",
+   "sp5.fa": "6cb83f283f13bafd99ef0051934045cf",
+   "sp6.fa": "a5594f6f1f3a418c6be03dc64f85771b",
+   "sp7.fa": "b06c20abea33fced030753473efca545",
+   "sp8.fa": "a4fb5ceddfd4cfefd00af334062a26ee",
+   "sp9.fa": "7086723fc86587fedaed158e0a07e0ea"
+  },
+  "tree": "c370d02e5858f0c2a28bfc3bda880c9e",
+  "families": null
+ },
+ "config": {
+  "threads": 24,
+  "scoring": {
+   "backend": "hybrid",
+   "evalue": 10.0,
+   "block_genes": 100000,
+   "diamond_sens": "--sensitive",
+   "diamond_b": 4.0,
+   "cap_all": 5000,
+   "g_max": 20000,
+   "top_per_species": 2,
+   "top_same": 20,
+   "family_rescue": true,
+   "rescue_cov": 0.5,
+   "rescue_evalue": 1e-05,
+   "threads": 24
+  },
+  "merge": {
+   "link": "avg",
+   "score": "norm_max",
+   "tol": 0.95,
+   "inparalogs": true,
+   "inpar_factor": 1.0,
+   "inpar_rule": "ortholog",
+   "repair": true,
+   "repair_ratio": 0.9,
+   "min_cov": 0.5,
+   "min_score": 0.0
+  },
+  "families": {
+   "default_clustering": {
+    "backend": "diamond",
+    "dmnd_cmd": "cluster",
+    "approx_id": 30,
+    "member_cover": 50,
+    "stage2": "cc",
+    "s2_sens": "--sensitive",
+    "s2_evalue": 1e-05,
+    "s2_cov": 0.5,
+    "s2_cov_mode": "min"
+   }
+  }
+ },
+ "n_genes": 33044,
+ "n_species": 32,
+ "nodes": [
+  {
+   "node": "N30",
+   "n_children": 2,
+   "n_units": 2007,
+   "n_anc_out": 1004,
+   "n_merged_groups": 961,
+   "n_edges": 1824,
+   "wall_s": 0.0133
+  },
+  {
+   "node": "N29",
+   "n_children": 2,
+   "n_units": 2028,
+   "n_anc_out": 1027,
+   "n_merged_groups": 943,
+   "n_edges": 1900,
+   "wall_s": 0.0117
+  },
+  {
+   "node": "N28",
+   "n_children": 2,
+   "n_units": 2047,
+   "n_anc_out": 1023,
+   "n_merged_groups": 958,
+   "n_edges": 1839,
+   "wall_s": 0.0125
+  },
+  {
+   "node": "N27",
+   "n_children": 2,
+   "n_units": 2027,
+   "n_anc_out": 1022,
+   "n_merged_groups": 948,
+   "n_edges": 1729,
+   "wall_s": 0.013
+  },
+  {
+   "node": "N26",
+   "n_children": 2,
+   "n_units": 2051,
+   "n_anc_out": 1021,
+   "n_merged_groups": 964,
+   "n_edges": 1888,
+   "wall_s": 0.0126
+  },
+  {
+   "node": "N25",
+   "n_children": 2,
+   "n_units": 2091,
+   "n_anc_out": 1041,
+   "n_merged_groups": 1031,
+   "n_edges": 2016,
+   "wall_s": 0.0203
+  },
+  {
+   "node": "N24",
+   "n_children": 2,
+   "n_units": 2096,
+   "n_anc_out": 1042,
+   "n_merged_groups": 965,
+   "n_edges": 1979,
+   "wall_s": 0.013
+  },
+  {
+   "node": "N23",
+   "n_children": 2,
+   "n_units": 2063,
+   "n_anc_out": 1034,
+   "n_merged_groups": 994,
+   "n_edges": 1806,
+   "wall_s": 0.0133
+  },
+  {
+   "node": "N22",
+   "n_children": 2,
+   "n_units": 2065,
+   "n_anc_out": 1045,
+   "n_merged_groups": 912,
+   "n_edges": 1749,
+   "wall_s": 0.0129
+  },
+  {
+   "node": "N21",
+   "n_children": 2,
+   "n_units": 2057,
+   "n_anc_out": 1027,
+   "n_merged_groups": 1014,
+   "n_edges": 1954,
+   "wall_s": 0.012
+  },
+  {
+   "node": "N20",
+   "n_children": 2,
+   "n_units": 2048,
+   "n_anc_out": 1036,
+   "n_merged_groups": 912,
+   "n_edges": 1778,
+   "wall_s": 0.0125
+  },
+  {
+   "node": "N19",
+   "n_children": 2,
+   "n_units": 2081,
+   "n_anc_out": 1052,
+   "n_merged_groups": 972,
+   "n_edges": 1653,
+   "wall_s": 0.0139
+  },
+  {
+   "node": "N18",
+   "n_children": 2,
+   "n_units": 2029,
+   "n_anc_out": 1013,
+   "n_merged_groups": 963,
+   "n_edges": 1807,
+   "wall_s": 0.011
+  },
+  {
+   "node": "N17",
+   "n_children": 2,
+   "n_units": 2012,
+   "n_anc_out": 1021,
+   "n_merged_groups": 962,
+   "n_edges": 1711,
+   "wall_s": 0.0115
+  },
+  {
+   "node": "N16",
+   "n_children": 2,
+   "n_units": 2053,
+   "n_anc_out": 1021,
+   "n_merged_groups": 995,
+   "n_edges": 1807,
+   "wall_s": 0.0119
+  },
+  {
+   "node": "N15",
+   "n_children": 2,
+   "n_units": 2070,
+   "n_anc_out": 1037,
+   "n_merged_groups": 981,
+   "n_edges": 1828,
+   "wall_s": 0.0127
+  },
+  {
+   "node": "N14",
+   "n_children": 2,
+   "n_units": 2089,
+   "n_anc_out": 1057,
+   "n_merged_groups": 956,
+   "n_edges": 1647,
+   "wall_s": 0.0154
+  },
+  {
+   "node": "N13",
+   "n_children": 2,
+   "n_units": 2067,
+   "n_anc_out": 1072,
+   "n_merged_groups": 883,
+   "n_edges": 1537,
+   "wall_s": 0.024
+  },
+  {
+   "node": "N12",
+   "n_children": 2,
+   "n_units": 2090,
+   "n_anc_out": 1041,
+   "n_merged_groups": 1026,
+   "n_edges": 1980,
+   "wall_s": 0.0115
+  },
+  {
+   "node": "N11",
+   "n_children": 2,
+   "n_units": 2095,
+   "n_anc_out": 1040,
+   "n_merged_groups": 1006,
+   "n_edges": 1990,
+   "wall_s": 0.0113
+  },
+  {
+   "node": "N10",
+   "n_children": 2,
+   "n_units": 2081,
+   "n_anc_out": 1042,
+   "n_merged_groups": 1025,
+   "n_edges": 1907,
+   "wall_s": 0.0114
+  },
+  {
+   "node": "N9",
+   "n_children": 2,
+   "n_units": 2093,
+   "n_anc_out": 1047,
+   "n_merged_groups": 1009,
+   "n_edges": 1938,
+   "wall_s": 0.0121
+  },
+  {
+   "node": "N8",
+   "n_children": 2,
+   "n_units": 2091,
+   "n_anc_out": 1051,
+   "n_merged_groups": 975,
+   "n_edges": 1854,
+   "wall_s": 0.0131
+  },
+  {
+   "node": "N7",
+   "n_children": 2,
+   "n_units": 2087,
+   "n_anc_out": 1042,
+   "n_merged_groups": 1029,
+   "n_edges": 2010,
+   "wall_s": 0.0115
+  },
+  {
+   "node": "N6",
+   "n_children": 2,
+   "n_units": 2100,
+   "n_anc_out": 1048,
+   "n_merged_groups": 988,
+   "n_edges": 1971,
+   "wall_s": 0.013
+  },
+  {
+   "node": "N5",
+   "n_children": 2,
+   "n_units": 2072,
+   "n_anc_out": 1049,
+   "n_merged_groups": 953,
+   "n_edges": 1818,
+   "wall_s": 0.0123
+  },
+  {
+   "node": "N4",
+   "n_children": 2,
+   "n_units": 2100,
+   "n_anc_out": 1055,
+   "n_merged_groups": 998,
+   "n_edges": 1770,
+   "wall_s": 0.0142
+  },
+  {
+   "node": "N3",
+   "n_children": 2,
+   "n_units": 2152,
+   "n_anc_out": 1062,
+   "n_merged_groups": 975,
+   "n_edges": 1901,
+   "wall_s": 0.0134
+  },
+  {
+   "node": "N2",
+   "n_children": 2,
+   "n_units": 2134,
+   "n_anc_out": 1100,
+   "n_merged_groups": 945,
+   "n_edges": 1539,
+   "wall_s": 0.0213
+  },
+  {
+   "node": "N1",
+   "n_children": 2,
+   "n_units": 2118,
+   "n_anc_out": 1223,
+   "n_merged_groups": 683,
+   "n_edges": 1259,
+   "wall_s": 0.0277
+  },
+  {
+   "node": "N0",
+   "n_children": 2,
+   "n_units": 2245,
+   "n_anc_out": 1292,
+   "n_merged_groups": 794,
+   "n_edges": 1235,
+   "wall_s": 0.0176
+  }
+ ],
+ "total_wall_s": 24.89,
+ "outputs": {
+  "hogs.orthoxml": "fee634def7cffd43d55a479e2f99a869",
+  "pairs.tsv": "da19d88f378736a5637a6429fb85c0bb",
+  "orthobench_ogs.txt": "dede119bba8ea19401f39c823362e488"
+ }
+}

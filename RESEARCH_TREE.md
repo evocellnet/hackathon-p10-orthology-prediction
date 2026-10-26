@@ -29,7 +29,11 @@ Decision note M0: benchmark lives in its own repo (bench_repo/) as the prompt re
   - [x] 2.1 Structure feasibility (docs/structure_feasibility.md): ProstT5 CPU 125–250 res/s → 140–980 h for full sets (infeasible). AFDB covers 90% of QfO accessions; the 1.8 GB Foldseek AFDB/Proteome DB already gives 3Di for 263k QfO / 98k OrthoBench proteins. Decision: S6 uses AFDB 3Di for deep/ambiguous representatives only; decide on streaming the 491 GB AFDB/UniProt DB when S6 starts
   - [~] 2.1b User suggestion (T+1h20): Foldcomp prebuilt AFDB databases → foldseek createdb for true 3Di of matched sequences (agent evaluating coverage/download)
   - [x] 2.2 Toy simulator + OrthoXML utils — flattening identical to QfO map_relations.py; RefOGs→F=100 in official benchmark.py
-- [~] 3. S0 family partition (two-level DeepClust → rep all-vs-all → components) — own benchmark (agent)
+- [x] 3. S0 family partition — own benchmark (docs/S0_families.md)
+  - [!] 3.1 Ceiling finding: no sequence-similarity partition can reach the pre-registered ≥95% dev RefOG completeness; even all DIAMOND hits at e≤1e-5 give 27/34, ceiling ≈0.82 (6 dev RefOGs have members with no hit to the rest at e≤1e-3 even with ultra-sensitive). Deviation recorded; target not met, method accepted as near-ceiling.
+  - [x] 3.2 Chosen: 2sA_dc30_cc_sh30_RA (diamond cluster 30%/cov50 → all genes vs reps → CC with ≥30% cov → Leiden >7.5k → reassignment). Dev completeness 0.794, fission 1.32, Σg²/N² 0.0075, max family 7,478, 263 s wall, 6.2 GB. **Test 0.722** (logged in results/test_log.tsv). Byte-identical rerun.
+  - [-] 3.3 Rep-vs-rep linking (r2 proposal) gave 0.441; gene-vs-rep N×R search was the key.
+  - [ ] 3.4 Root rescue for the 145 Leiden-split families + 15k singletons (6.1%)
 - [~] 3b. Core engine v0 (S2 scoring + S3 merge, sequence-only) on toy sim (agent)
 - [ ] 4. Sub-task: gene-tree inference (AA vs AA+3Di) — own benchmark
 - [ ] 5. Sub-task: species tree (universal vs inferred vs family-local) — own benchmark

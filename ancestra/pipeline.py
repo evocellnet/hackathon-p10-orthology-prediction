@@ -43,7 +43,7 @@ from .io import (GeneTable, families_from_mapping, load_families, load_guide_tre
                  load_proteomes, write_fasta, write_gene_table)
 from .merge import ARMS, MergeConfig, MergeResult, run_merge, to_orthoxml
 from .orthoxml import hogs_to_pairs, to_orthobench_ogs, validate_xsd, write_orthoxml
-from .scoring import ScoreTable, ScoringConfig, score_families
+from .scoring import ScoreTable, ScoringConfig, score_with_rescue
 
 __all__ = ["run_pipeline", "main", "DEFAULT_FAMILY_CONFIG"]
 
@@ -270,8 +270,11 @@ def run_pipeline(proteomes: str, tree_path: str, outdir: str, families: str | No
 
     # 3. scores
     def s_scores(d):
-        st, stats = score_families(gt, fam, scoring, os.path.join(d, "work"))
+        st, fam2, stats = score_with_rescue(gt, fam, scoring, os.path.join(d, "work"))
         st.save(os.path.join(d, "scores.npz"))
+        np.save(os.path.join(d, "families_final.npy"), fam2)
+        if st.cross is not None:   # S0-fission signal: hits between different families
+            np.savez(os.path.join(d, "cross_family_hits.npz"), **st.cross)
         return stats
     d_sc, k_sc = R.stage("scores", {"up": k_fam, "cfg": scoring.key()}, s_scores)
     st = ScoreTable.load(os.path.join(d_sc, "scores.npz"))
@@ -335,7 +338,7 @@ def build_parser(ap: argparse.ArgumentParser | None = None) -> argparse.Argument
     ap.add_argument("--family-config", help="JSON with ancestra.families.FamilyConfig fields")
     ap.add_argument("--out", required=True)
     ap.add_argument("--threads", type=int, default=24)
-    ap.add_argument("--backend", default="mmseqs", choices=["mmseqs", "diamond"])
+    ap.add_argument("--backend", default="hybrid", choices=["hybrid", "diamond", "mmseqs"])
     ap.add_argument("--arm", default=None, choices=sorted(ARMS),
                     help="named merge configuration (default: MergeConfig defaults)")
     ap.add_argument("--config", help="JSON {'scoring': {...}, 'merge': {...}} overriding defaults")

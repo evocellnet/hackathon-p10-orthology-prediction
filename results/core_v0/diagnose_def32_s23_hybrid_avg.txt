@@ -1,0 +1,10 @@
+work/core_v0/sims/def32_s23 arm=avg score=norm_max backend=hybrid
+FN pairs=8713 of 492845 true; distinct unit pairs=483
+  one_unmatched                unit-pairs=  312  pairs=5130
+  both_unmatched+no_edge       unit-pairs=   67  pairs=1869
+  split_groups                 unit-pairs=   46  pairs=536
+  both_unmatched               unit-pairs=   42  pairs=669
+  one_unmatched+no_edge        unit-pairs=   16  pairs=509
+  FN unit-pairs by level (depth): N0(d0)=42, N1(d1)=32, N15(d1)=57, N16(d2)=46, N12(d2)=9, N2(d2)=35, N25(d2)=11, N17(d3)=47, N13(d3)=7, N3(d3)=33, N23(d3)=11, N28(d3)=10, N14(d3)=4, N26(d3)=5, N4(d4)=23, N24(d4)=8, N29(d4)=11, N30(d4)=6, N7(d4)=19, N18(d4)=6, N19(d4)=10, N27(d4)=2, N20(d5)=4, N8(d5)=12, N5(d5)=6, N11(d5)=6, N21(d5)=10, N6(d5)=4, N9(d6)=2, N22(d6)=3, N10(d7)=2
+FP pairs=2830 (true paralogs 2830); by predicted level: {'N19': 88, 'N18': 11, 'N24': 6, 'N20': 16, 'N26': 24, 'N22': 14, 'N28': 30, 'N25': 136, 'N27': 22, 'N21': 7, 'N2': 98, 'N13': 10, 'N4': 24, 'N14': 20, 'N11': 5, 'N16': 443, 'N15': 1024, 'N3': 181, 'N6': 6, 'N10': 14, 'N9': 27, 'N17': 147, 'N12': 57, 'N7': 48, 'N30': 8, 'N29': 6, 'N1': 303, 'N8': 20, 'N23': 30, 'N5': 5}
+  FP distinct unit pairs=387; top: [(('N15', 45428, 37189), 98), (('N15', 45166, 37619), 98), (('N15', 45496, 36792), 84), (('N15', 45496, 37250), 80), (('N15', 45199, 36939), 70)]

@@ -240,6 +240,17 @@ def test_pipeline_end_to_end_resume(sim_basic, tmp_path):
     # changing the merge config reruns merge + output only
     m3 = run_pipeline(os.path.join(simdir, "proteomes"), os.path.join(simdir, "species_tree.nwk"), out,
                       families=os.path.join(simdir, "truth", "gene_families.tsv"), fam_cols=(0, 2),
-                      threads=4, merge=MergeConfig(link="avg"), log=logs.append)
+                      threads=4, merge=MergeConfig(link="max"), log=logs.append)
     sk = {k: v["skipped"] for k, v in m3["stages"].items()}
     assert sk == {"input": True, "families": True, "scores": True, "merge": False, "output": False}
+
+
+def test_join_families_guard():
+    from ancestra.scoring import join_families
+    fam = np.array([0, 0, 1, 1, 2, 3])
+    cross = dict(q=np.array([0, 2, 4]), t=np.array([2, 4, 5]), qcov=np.array([0.9, 0.2, 0.9]),
+                 tcov=np.array([0.8, 0.9, 0.9]), evalue=np.array([1e-20, 1e-20, 1.0]))
+    new, n = join_families(fam, cross, cov=0.5, evalue=1e-5)
+    assert n == 1                                  # 0-1 joined; 1-2 fails coverage; 2-3 fails e-value
+    assert new[0] == new[2] and new[2] != new[4] and new[4] != new[5]
+    assert sorted(set(new.tolist())) == [0, 1, 2]
