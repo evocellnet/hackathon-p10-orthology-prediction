@@ -46,7 +46,7 @@ Decision note M0: benchmark lives in its own repo (bench_repo/) as the prompt re
 - [x] 5. S5 synteny phase 1 (docs/S5_synteny.md). Coverage: OrthoBench ~100%; QfO 93% (zebrafish 0.64, amphioxus 0.08). PI approved versioned-UniProt-ID matching and Ensembl Fungi 52 for S. pombe, each reported separately.
   - [!] 5.1 Synteny discriminates orthologs vs paralogs (OrthoBench dev, AUC at w=20): human/mouse 0.92, human/chicken 0.93, zebrafish/Tetraodon 0.82, human/zebrafish 0.70, human/fly 0.49; shuffled 0.50. On 157 hard cases (sequence 50% correct), synteny decides 70 with 84% precision; re-rank gain +0.16 [0.05, 0.26], shuffled −0.006.
   - [-] 5.2 Naive additive bonus in merge (toy): halves FP paralog pairs but loses 4–8 recall, because it disturbs in-paralog absorption. Fix: apply only at partner choice (R1).
-  - [~] 5.3 Phase 2: pair-level dev evaluator (RefOG-tree labels) + arms off/real/shuffled (agent)
+  - [!] 5.3 Phase 2: pair-level dev metric (19,146 cross-species pairs in 34 dev RefOGs, labelled from rooted RefOG trees). Synteny R1-only: w10 λ0.3 **+0.032 [+0.009, +0.062] pair F1**; w10 λ0.5 core anchors +0.046 [+0.019, +0.072], vert–teleost +0.092 [+0.029, +0.147]. 102 shuffled runs stay at 0.716–0.730 (seed spread ≤0.012). **Keep rule passed.** Decision: lock w=10, λ=0.3 (plateau, less selection bias than the best of 34 configs). OG-level F is too noisy on 34 RefOGs for pair-level decisions (shuffled seeds span 66.9–69.8).
 - [~] 8a. Competitor baselines on OrthoBench (OrthoFinder, SonicParanoid2, …) + orthobench_eval.py with dev/test + bootstrap (agent)
 - [ ] 4. Sub-task: gene-tree inference (AA vs AA+3Di) — own benchmark
 - [ ] 5. Sub-task: species tree (universal vs inferred vs family-local) — own benchmark

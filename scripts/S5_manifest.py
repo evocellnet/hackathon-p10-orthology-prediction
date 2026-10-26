@@ -30,13 +30,13 @@ m = dict(created=time.strftime("%Y-%m-%dT%H:%M:%S%z"), git_commit=commit or "not
                     + glob.glob(f"{ROOT}/data/orthobench/ensembl_99/gff3/*.gff3.gz")),
          derived=rel(glob.glob(f"{ROOT}/data/genomes/orthobench/*") + glob.glob(f"{ROOT}/data/genomes/qfo2022/coverage.tsv")
                      + [f"{ROOT}/work/S5/refog_pair_labels.parquet"] + glob.glob(f"{ROOT}/work/S5/diamond/*.tsv")),
-         outputs=rel(glob.glob(f"{ROOT}/results/S5_synteny/*.json") + glob.glob(f"{ROOT}/results/S5_synteny/*.md")),
+         outputs=rel(glob.glob(f"{ROOT}/results/S5_synteny/*.json") + glob.glob(f"{ROOT}/results/S5_synteny/*.md") + glob.glob(f"{ROOT}/results/S5_synteny/phase2/*.json") + glob.glob(f"{ROOT}/results/S5_synteny/phase2/*.md") + glob.glob(f"{ROOT}/results/S5_synteny/phase2/arms/*")),
          commands=["scripts/build_gene_order.sh", "scripts/S5_diamond_pairs.sh (THREADS=8)",
                    "python scripts/S5_refog_labels.py", "python scripts/S5_pair_benchmark.py",
                    "python scripts/S5_pair_benchmark.py --toy --threads 4",
                    "python scripts/S5_ancestral_toy.py  (wgd8_s11)",
                    "python scripts/S5_ancestral_toy.py --name def8_s23 --seed 23 --wgd none --dup 0.2",
-                   "python scripts/S5_merge_preview.py --workers 4", "python scripts/summarize_S5.py"],
+                   "python scripts/S5_merge_preview.py --workers 4", "python scripts/summarize_S5.py", "python scripts/orthobench_dev_pairs_eval.py truth work/core_v0_ob/run_v2/pairs.tsv", "python scripts/S5_phase2_arms.py --workers 4 --skip-done", "python scripts/S5_phase2_analyze.py"],
          diamond="diamond blastp --sensitive -k 100 --max-hsps 1 -e 1e-3 (whole proteomes, both directions)")
 m["outputs"].pop("results/S5_synteny/manifest.json", None)
 json.dump(m, open(f"{ROOT}/results/S5_synteny/manifest.json", "w"), indent=1)

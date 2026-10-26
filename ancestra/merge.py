@@ -81,7 +81,8 @@ class MergeConfig:
     inpar_rule: str = "ortholog"  # ortholog | self | either | quartet (see module docstring)
     repair: bool = True          # R3 (toy sweep: +0.0003 F1; results/core_v0/sweep.tsv)
     repair_ratio: float = 0.9
-    min_cov: float = 0.5         # bidirectional coverage guard on leaf pairs
+    min_cov: float = 0.0         # bidirectional coverage guard on leaf pairs (v0: 0.5; OrthoBench
+                                 # dev: the guard removes fragments/odd gene models, -9 F)
     min_score: float = 0.0       # minimum aggregated score for a candidate edge
     # relative-divergence (RD) tests with the closest outgroup gene o (needs a norm_* score):
     # r(a,b) = d(a,b) / mean(d(a,o), d(b,o)), d = -ln S; calibrated per node on the R1 seeds
@@ -90,13 +91,13 @@ class MergeConfig:
     rd_inpar: bool = False       # R2: absorb u if r(u, w) <= rd_inpar_factor * median seed r
     rd_inpar_factor: float = 1.0
     engine: str = "numba"        # numba | python (reference implementation)
-    tree_mode: bool = False      # hybrid local-tree mode for ambiguous clusters (ancestra.localtree)
+    tree_mode: bool = True       # hybrid local-tree mode for ambiguous clusters (ancestra.localtree)
     tree_tau: float = 0.9        # ambiguity edge: S(u,v) >= tau * min(best(u), best(v))
     tree_max_units: int = 60     # larger clusters keep the rule result
-    tree_require_outgroup: bool = False  # only clusters rooted by an outgroup gene
+    tree_require_outgroup: bool = True   # only clusters rooted by an outgroup gene
     tree_conservative: bool = False      # tree may absorb singletons / split, never fuse groups
     tree_nodes: str = ""                 # comma-separated node names to restrict tree mode ("" = all)
-    tree_min_d: float = 0.0              # tree mode only at nodes whose median seed distance
+    tree_min_d: float = 0.5              # tree mode only at nodes whose median seed distance
                                          # -ln S >= this (divergent nodes; rules suffice shallow)
     ctx_mode: str = "r1"         # context evidence used only for R1 partner choice | "all" (additive)
     ctx_window: float = 0.75     # R1-only: bonus only for candidates >= window x best raw score
@@ -109,9 +110,12 @@ class MergeConfig:
         return asdict(self)
 
 
-_D = MergeConfig()
+# v0 (sequence-only rules, coverage guard 0.5) is the base of the S3 arms of the toy grid;
+# "default" is the current default (v0.2: min_cov 0 + local-tree mode at divergent nodes).
+_D = MergeConfig(min_cov=0.5, tree_mode=False, tree_require_outgroup=False, tree_min_d=0.0)
 ARMS = {   # named arms of the S3/S4 benchmark (docs/core_v0.md)
-    "default": _D,
+    "default": MergeConfig(),
+    "v0_default": _D,
     "rbh": replace(_D, score="bits", tol=1.0, inparalogs=False, repair=False),
     "max": replace(_D, link="max", repair=False),
     "max+repair": replace(_D, link="max", repair=True, repair_ratio=0.5),
@@ -125,7 +129,7 @@ ARMS = {   # named arms of the S3/S4 benchmark (docs/core_v0.md)
     "rd_hidden": replace(_D, rd_hidden=True),
     "rd_inpar": replace(_D, rd_inpar=True),
     "rd_both": replace(_D, rd_hidden=True, rd_inpar=True),
-    "tree": replace(_D, tree_mode=True),
+    "tree": replace(_D, tree_mode=True, min_cov=0.0),
     "seq_ob": replace(_D, min_cov=0.0),
     "tree_ob": replace(_D, min_cov=0.0, tree_mode=True, tree_require_outgroup=True, tree_min_d=0.5),
     "tree+rd": replace(_D, tree_mode=True, rd_hidden=True, rd_inpar=True),
