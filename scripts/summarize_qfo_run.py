@@ -115,7 +115,7 @@ def main(argv=None) -> int:
                           "n_genes": len(ox.genes), "n_genes_in_groups": in_groups,
                           "n_singleton_genes": len(ox.genes) - in_groups,
                           "largest": [{"genes": a_, "species": b, "level": c, "kind": d}
-                                      for a_, b, c, d in sizes[:10]],
+                                      for a_, b, c, d in sizes[:20]],
                           "toplevel_by_level": dict(Counter(g.level for g in tops).most_common())}
         og = Counter()
         for t in tops:

@@ -4,9 +4,9 @@
 #
 #   bash scripts/run_qfo_full.sh [full|sub10] [--gene-order both|on|off] [--threads N]
 #        [--stop-after input|families|scores|merge|output] [--config cfg.json] [--name PREFIX]
-#        [--adopt-unrecorded]
+#        [--adopt-unrecorded] [--workdir work/qfo2022]
 #
-# Run dirs: work/qfo2022/<PREFIX>_nogo (merge without gene order) and <PREFIX>_go (merge with
+# Run dirs: <WORKDIR>/<PREFIX>_nogo (merge without gene order) and <PREFIX>_go (merge with
 # the S5 gene-order tables, constrained synteny = current default merge). PREFIX defaults to
 # "full" / "sub10_s11". With --gene-order both (default) the nogo run computes S0+S2 and the go
 # run hard-links them (--reuse-stages-from), so S0 and scoring run once.
@@ -27,7 +27,7 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
 
-MODE="full"; STOP=""; THREADS="${THREADS:-12}"; CONFIG=""; PREFIX=""; GO="both"; ADOPT=""
+MODE="full"; STOP=""; THREADS="${THREADS:-12}"; CONFIG=""; PREFIX=""; GO="both"; ADOPT=""; WD="work/qfo2022"
 while [[ $# -gt 0 ]]; do
   case "$1" in
     full|sub10) MODE="$1"; shift ;;
@@ -37,7 +37,8 @@ while [[ $# -gt 0 ]]; do
     --config) CONFIG="$2"; shift 2 ;;
     --name) PREFIX="$2"; shift 2 ;;
     --adopt-unrecorded) ADOPT="--adopt-unrecorded"; shift ;;
-    -h|--help) sed -n '2,26p' "$0"; exit 0 ;;
+    --workdir) WD="$2"; shift 2 ;;
+    -h|--help) sed -n '2,27p' "$0"; exit 0 ;;
     *) echo "unknown argument $1" >&2; exit 2 ;;
   esac
 done
@@ -52,13 +53,13 @@ TREE="$IN/guide_tree_ncbi.nwk"
 GODIR="$IN/gene_order"
 if [[ "$MODE" == "full" ]]; then PROT="$IN/proteomes"; PREFIX="${PREFIX:-full}";
 else PROT="$IN/subsets/sub10_s11"; PREFIX="${PREFIX:-sub10_s11}"; fi
-LOGD="work/qfo2022/logs"; RES="results/qfo_run"
+LOGD="$WD/logs"; RES="results/qfo_run"
 mkdir -p "$LOGD" "$RES"
 TS="$(date +%Y%m%dT%H%M%S)"
 LOG="$LOGD/${PREFIX}.${TS}.log"
 
 echo "[run_qfo] $(bash scripts/clock.sh)" | tee -a "$LOG"
-echo "[run_qfo] mode=$MODE prefix=$PREFIX gene_order=$GO threads=$THREADS stop_after=${STOP:-none} config=${CONFIG:-defaults} $ADOPT" | tee -a "$LOG"
+echo "[run_qfo] workdir=$WD mode=$MODE prefix=$PREFIX gene_order=$GO threads=$THREADS stop_after=${STOP:-none} config=${CONFIG:-defaults} $ADOPT" | tee -a "$LOG"
 echo "[run_qfo] git $(git rev-parse HEAD 2>/dev/null || echo none); load: $(cat /proc/loadavg)" | tee -a "$LOG"
 
 # 1-2. inputs + verification (always on the full 78-species set: DESIGN §4)
@@ -68,7 +69,7 @@ if ! python scripts/verify_ids.py --tree "$TREE" --gene-order "$GODIR" --json "$
 fi
 
 run_one() {   # $1 = go|nogo, $2 = run dir to reuse S0+S2 from (optional)
-  local v="$1" reuse="${2:-}" name="${PREFIX}_$1" out="work/qfo2022/${PREFIX}_$1"
+  local v="$1" reuse="${2:-}" name="${PREFIX}_$1" out="$WD/${PREFIX}_$1"
   local args=(--proteomes "$PROT" --tree "$TREE" --out "$out" --threads "$THREADS")
   [[ "$v" == "go" ]] && args+=(--gene-order "$GODIR") || args+=(--gene-order none)
   [[ -n "$reuse" ]] && args+=(--reuse-stages-from "$reuse")
@@ -95,6 +96,6 @@ run_one() {   # $1 = go|nogo, $2 = run dir to reuse S0+S2 from (optional)
 case "$GO" in
   off)  run_one nogo ;;
   on)   run_one go ;;
-  both) run_one nogo && run_one go "work/qfo2022/${PREFIX}_nogo" ;;
+  both) run_one nogo && run_one go "$WD/${PREFIX}_nogo" ;;
 esac
 echo "[run_qfo] done $(bash scripts/clock.sh); log $LOG" | tee -a "$LOG"

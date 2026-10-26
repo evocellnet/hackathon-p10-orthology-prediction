@@ -428,7 +428,7 @@ def main(argv=None) -> int:
     ap.add_argument("--largest", type=int, default=5, help="also include the N largest groups")
     ap.add_argument("--seed", type=int, default=11)
     ap.add_argument("--pyham", default="auto", choices=["auto", "full", "sample", "off"],
-                    help="auto = full if <= 300k genes else sample")
+                    help="auto = full if <= 5M genes else sample (QfO 989k: 27 s load)")
     ap.add_argument("--json")
     a = ap.parse_args(argv)
     from ancestra.newick import read_newick
@@ -489,7 +489,7 @@ def main(argv=None) -> int:
     ck["flattening_vs_qfo"] = timed("flattening_vs_qfo", fl)
     mode = a.pyham
     if mode == "auto":
-        mode = "full" if len(ox.genes) <= 300_000 else "sample"
+        mode = "full" if len(ox.genes) <= 5_000_000 else "sample"
     if mode != "off":
         with tempfile.TemporaryDirectory() as td:
             groups = ox.groups if mode == "full" else (sample or ox.groups[:a.sample])
