@@ -1,0 +1,7 @@
+data/
+conda_envs/
+bench_repo/
+work/
+*.dmnd
+*.pyc
+__pycache__/
