@@ -68,7 +68,8 @@ from .newick import Node
 from .orthoxml import GeneEntry, Group, OrthoXML, normalize_groups
 from .scoring import ScoreTable
 
-__all__ = ["MergeConfig", "MergeResult", "run_merge", "to_orthoxml", "decide_node", "ARMS"]
+__all__ = ["MergeConfig", "MergeResult", "run_merge", "run_merge_constrained", "ConstrainedContext",
+           "root_labels", "to_orthoxml", "decide_node", "ARMS", "NodeContext"]
 
 
 @dataclass
@@ -864,6 +865,48 @@ def run_merge(gt: GeneTable, tree: Node, st: ScoreTable, cfg: MergeConfig,
     root = nodes[-1].name
     roots = [struct[int(a)] for a in node_anc[root]]
     return MergeResult(roots=roots, node_stats=node_stats, n_genes=N)
+
+
+def root_labels(res: "MergeResult", n_genes: int) -> np.ndarray:
+    """gene -> index of its root ancestral gene (root HOG) in ``res.roots``."""
+    lab = np.full(n_genes, -1, dtype=np.int64)
+    for k, x in enumerate(res.roots):
+        stack = [x]
+        while stack:
+            y = stack.pop()
+            if isinstance(y, (int, np.integer)):
+                lab[int(y)] = k
+            else:
+                stack.extend(y[2])
+    return lab
+
+
+class ConstrainedContext:
+    """Two-pass constrained context evidence: the wrapped context function (e.g.
+    ``ancestra.synteny.SyntenyContext``) acts only between units that lie in the same root
+    HOG of a context-off run (``root_lab``: gene -> root HOG); bonus and support of other
+    candidates are 0. OrthoBench dev: keeps synteny's pair-level gain without its OG-level
+    fusions (docs/core_v0.md §7)."""
+
+    def __init__(self, base, root_lab: np.ndarray):
+        self.base, self.root_lab = base, root_lab
+
+    def _same(self, ctx):
+        lab = np.array([self.root_lab[m[0]] if len(m) else -1
+                        for m in (ctx.members(i) for i in range(len(ctx.child)))])
+        return lab[ctx.cand_a] == lab[ctx.cand_b]
+
+    def __call__(self, ctx):
+        return np.asarray(self.base(ctx), dtype=np.float64) * self._same(ctx)
+
+    def support(self, ctx):
+        return np.asarray(self.base.support(ctx), dtype=np.float64) * self._same(ctx)
+
+
+def run_merge_constrained(gt, tree, st, cfg, context, **kw) -> "MergeResult":
+    """Context-off merge -> root HOGs -> merge with ``ConstrainedContext(context)``."""
+    off = run_merge(gt, tree, st, cfg, **kw)
+    return run_merge(gt, tree, st, cfg, context=ConstrainedContext(context, root_labels(off, gt.n)), **kw)
 
 
 def _to_group(x, names):

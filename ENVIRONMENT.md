@@ -38,3 +38,8 @@ Diamond: `-k 500 -e 1e-3`; mmseqs easy-search: `--max-seqs 500`. Wall seconds (s
 | mmseqs easy-search -s 7.5 | 14.8 | 88.1 | 1,166,448 |
 
 Foldseek: binary present and runs; no structure search timed (no structures/weights downloaded).
+
+## Addendum (S8 gene-loss validation, 2026-10-26)
+- Installed into `conda_envs/orth`: `mamba install -p conda_envs/orth -c bioconda -c conda-forge miniprot samtools`
+  -> **miniprot 0.18-r281** (bioconda build h577a1d6_0), **samtools 1.24** (h9dcdb79_1). Used by `ancestra/geneloss.py`
+  (protein-to-genome alignment; `.fai` random access). tblastn (blast 2.17.0) was available as fallback but not needed.

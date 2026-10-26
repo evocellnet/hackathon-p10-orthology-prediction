@@ -1,4 +1,11 @@
-# Ancestra core v0 (sequence only): S2 scoring + S3 level-synchronous merge
+# Ancestra core v0 → v0.2: S2 scoring + S3 level-synchronous merge (+ local trees, synteny hook)
+
+> **Update v0.2 (T+2h–T+3h30, OrthoBench dev phase; §7):**
+> - New merge default: `min_cov` 0 and the hybrid local-tree mode (§3.7) at divergent nodes with an outgroup.
+> - Numba engine (§3.6) and relative-divergence tests (§3.6, off by default).
+> - Root parsimony merge R4 (off by default).
+> - Synteny via the context hook: R1-only, constrained to synteny-off root HOGs, plus a veto (§3.5, §7). It is on in the pipeline when `--gene-order` is given.
+> - §1–§6 describe v0. Their toy tables use the v0 default (`v0_default` arm).
 
 Status: v0, toy-verified, 2026-10-26 (built T+0h50 to T+1h55, read from `scripts/clock.sh`).
 
@@ -195,6 +202,29 @@ Both precision and recall improve. `rd_both` is arm `rd_both`; OrthoBench dev re
 - On three toy sims and six arms the two engines give **identical** ortholog-pair sets (`test_numba_engine_matches_python`).
 - Ties between exactly equal scores could in principle break differently, so the engines are not guaranteed bit-identical.
 - Compilation takes ~10 s once and is cached. On OrthoBench (251k genes, 11 internal nodes) the merge takes 7–13 s.
+
+### 3.7 Hybrid local-tree mode (default since v0.2; `ancestra/localtree.py`)
+This is the DESIGN §1(b) hybrid: score rules where they are unambiguous, a small tree where they are not.
+
+**Detection.** It runs at node X after R1–R3.
+- Every unit u has best(u), its best edge (cross- or same-child).
+- An edge between two *different* rule groups with S ≥ τ·min(best(u), best(v)) (τ = 0.9) is an ambiguity edge.
+- Groups connected by ambiguity edges form a cluster. A cluster with ≥2 groups and ≤60 units is re-decided by a tree; larger clusters keep the rule result and are counted as `tree_too_big`.
+
+**Tree.** NJ on unit distances −ln S of the linked (avg) member scores; missing pairs get max + 1.
+- One outgroup leaf is added: the sibling-clade gene with the highest summed score to the cluster (`out_edges`).
+- NJ is used rather than an MSA + ML tree because it is rate-robust, deterministic and cheap: O(m³) with m ≤ 60, no subprocess per cluster. FAMSA + FastTree is a possible later arm.
+
+**Rooting.** On the outgroup branch. Otherwise at the edge that minimises species-overlap duplications.
+
+**Labelling.** A node whose subtrees share a child of X, and together span ≥2 children, is a duplication at or before X, so it is split. Any other subtree is one ancestral gene of X: a speciation, or duplications confined to one child (in-paralogs).
+
+**Where it runs (pre-stated selection on dev with a toy check, §7).** Only when an outgroup exists (`tree_require_outgroup`) and the node's median mutual-best seed distance −ln S ≥ `tree_min_d` = 0.5, i.e. at divergent nodes.
+- On OrthoBench this is Euteleostomi, Chordata and Ecdysozoa.
+- At the root (no outgroup) trees collapse precision: dev OG-F 61.
+- At shallow nodes they add FPs: dev OG-F 65.7 when used there only.
+
+**Hand cases** (`test_localtree_labelling`): a fast-evolving in-paralog is kept with its sister copy; an out-paralog after loss is kept apart; an old duplication with both copies retained is split correctly without an outgroup.
 
 ## 4. Complexity
 - **S2:** DIAMOND blocks ~N·B. The rescue cost is proportional to the pairs DIAMOND missed (5–12% of Σ g_f(g_f+1)/2 on the toy). The cross-family rescue re-scores only the joined families (3–14% of genes on the toy, 2–15 s).

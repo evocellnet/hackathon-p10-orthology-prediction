@@ -27,7 +27,7 @@ Decision note M0: benchmark lives in its own repo (bench_repo/) as the prompt re
   - [-] 2.0 v0 'pure progressive pan-proteome merging' — rejected: ~2.5x saving only vs all-vs-all (r1_algorithms_compute)
   - [x] 2.3 v1/v2 family-partition + level-synchronous merge; split by homology component (random split leaked: 5 paralogous RefOG groups)
   - [x] 2.1 Structure feasibility (docs/structure_feasibility.md): ProstT5 CPU 125–250 res/s → 140–980 h for full sets (infeasible). AFDB covers 90% of QfO accessions; the 1.8 GB Foldseek AFDB/Proteome DB already gives 3Di for 263k QfO / 98k OrthoBench proteins. Decision: S6 uses AFDB 3Di for deep/ambiguous representatives only; decide on streaming the 491 GB AFDB/UniProt DB when S6 starts
-  - [~] 2.1b User suggestion (T+1h20): Foldcomp prebuilt AFDB databases → foldseek createdb for true 3Di of matched sequences (agent evaluating coverage/download)
+  - [x] 2.1b Foldcomp (user suggestion) + Foldseek AFDB/UniProt DB: exact-sequence 3Di coverage QfO 94.5% (928k), OrthoBench 80.5% (202k). Foldcomp 3Di is lossy (97.9% per-residue agreement with true 3Di), so the best tables use Foldseek true 3Di and Foldcomp is kept as a cross-check. Downloads: Foldcomp v6 1.2 TB, Foldseek UniProt 491 GB.
   - [x] 2.2 Toy simulator + OrthoXML utils — flattening identical to QfO map_relations.py; RefOGs→F=100 in official benchmark.py
 - [x] 3. S0 family partition — own benchmark (docs/S0_families.md)
   - [!] 3.1 Ceiling finding: no sequence-similarity partition can reach the pre-registered ≥95% dev RefOG completeness; even all DIAMOND hits at e≤1e-5 give 27/34, ceiling ≈0.82 (6 dev RefOGs have members with no hit to the rest at e≤1e-3 even with ultra-sensitive). Deviation recorded; target not met, method accepted as near-ceiling.
@@ -54,6 +54,7 @@ Decision note M0: benchmark lives in its own repo (bench_repo/) as the prompt re
 - [ ] 5. Sub-task: species tree (universal vs inferred vs family-local) — own benchmark
 - [ ] 6. Sub-task: reconciliation → HOGs → OrthoXML — own benchmark
 - [~] 7. Extra layers
+  - [~] 7.0 S6 structure (3Di) layer: S0 rescue + deep/ambiguous scoring, shuffled-3Di control (agent)
   - [-] 7.1 S9 expression (Bgee v15.2), standalone on dev: AUC ortholog vs paralog 0.667 (shuffled ~0.5), but on hard cases the gain is −0.019 [−0.20, 0.15] (primary) and −0.116 [−0.18, −0.05] (28 vertebrate pairs). When expression decides it is right only 40–47%. KILLED per pre-registered criterion. Conservation report: 16% of ortholog pairs conserved vs 26% broken (paralogs 4.5% vs 47%); zebrafish has 29–45% breaks (docs/S9_expression.md).
   - [-] 7.2 S7 isoforms (Ensembl 99): best-isoform scoring AUC 0.760 vs 0.759 canonical; hard-case gain +0.013 [−0.018, 0.044]; costs 2–5× more search. KILLED. Finding: for 21% of ortholog pairs the best-matching isoform pair is not the canonical pair (orthologous-isoform evidence).
 - [ ] 8. Full pipeline benchmark vs competitors (accuracy + runtime + scaling)

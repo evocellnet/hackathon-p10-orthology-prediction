@@ -29,6 +29,26 @@ COLS = ["time", "label", "run", "config_hash", "F", "precision", "recall", "exac
         "n_refogs_with_fp", "n_pred_groups", "merge_s", "config", "pairP", "pairR", "pairF1"]
 
 
+class ConstrainedContext:
+    """Synteny only within the root HOGs of the synteny-off result (bonus/support of a
+    candidate whose two units fall in different off-mode root HOGs is set to 0)."""
+
+    def __init__(self, base, root_lab):
+        self.base, self.root_lab = base, root_lab
+
+    def _same(self, ctx):
+        import numpy as np
+        lab = np.array([self.root_lab[ctx.members(i)[0]] if len(ctx.members(i)) else -1
+                        for i in range(len(ctx.child))])
+        return lab[ctx.cand_a] == lab[ctx.cand_b]
+
+    def __call__(self, ctx):
+        return self.base(ctx) * self._same(ctx)
+
+    def support(self, ctx):
+        return self.base.support(ctx) * self._same(ctx)
+
+
 def parse_val(v):
     try:
         return json.loads(v)
@@ -46,12 +66,14 @@ def main():
     ap.add_argument("--scores", default="scores.npz", help="file in RUN/stages/scores/ (e.g. scores_pass1.npz)")
     ap.add_argument("--synteny", default="off", choices=["off", "real", "shuffled"])
     ap.add_argument("--syn", nargs="*", default=[], help="SyntenyContext kwargs k=v (JSON values)")
+    ap.add_argument("--syn-constrain", action="store_true",
+                    help="two-pass: synteny acts only inside the synteny-off root HOGs")
     a = ap.parse_args()
     cfg = ARMS[a.arm]
     over = dict(kv.split("=", 1) for kv in a.set)
     cfg = replace(cfg, **{k: parse_val(v) for k, v in over.items()})
     ch = hashlib.sha256((json.dumps(asdict(cfg), sort_keys=True) + a.scores + a.synteny
-                         + " ".join(a.syn)).encode()).hexdigest()[:10]
+                         + " ".join(a.syn) + ("C" if a.syn_constrain else "")).encode()).hexdigest()[:10]
     out = a.out or os.path.join(a.run, "iter", ch)
     os.makedirs(out, exist_ok=True)
     gt = read_gene_table(os.path.join(a.run, "stages/input/genes.tsv"))
@@ -70,8 +92,20 @@ def main():
         syn_kw = dict(mode="multiplicative", lam=0.3, anchor="core", w=10)   # PI lock (S5 phase 2)
         syn_kw.update({k: parse_val(v) for k, v in (kv.split("=", 1) for kv in a.syn)})
         if a.synteny == "shuffled":
-            syn_kw["shuffle_seed"] = 11
+            syn_kw.setdefault("shuffle_seed", 11)
         context = SyntenyContext(cc, oo, family=fam, **syn_kw)
+        if a.syn_constrain:
+            off = run_merge(gt, tree, st, cfg)
+            root_lab = np.full(gt.n, -1, dtype=np.int64)
+            for k, x in enumerate(off.roots):
+                stack = [x]
+                while stack:
+                    y = stack.pop()
+                    if isinstance(y, (int, np.integer)):
+                        root_lab[int(y)] = k
+                    else:
+                        stack.extend(y[2])
+            context = ConstrainedContext(context, root_lab)
     t0 = time.time()
     res = run_merge(gt, tree, st, cfg, context=context)
     ms = time.time() - t0
@@ -90,7 +124,8 @@ def main():
                n_refogs_with_fp=ev["n_refogs_with_fp"], n_pred_groups=ev["n_pred_groups"],
                pairP=pm["all"]["P"], pairR=pm["all"]["R"], pairF1=pm["all"]["F1"],
                merge_s=round(ms, 1), config=json.dumps(dict(asdict(cfg), scores=a.scores, synteny=a.synteny,
-                                                   synteny_kw=syn_kw), sort_keys=True))
+                                                   synteny_kw=syn_kw, syn_constrain=a.syn_constrain),
+                                              sort_keys=True))
     new = not os.path.exists(LOG)
     os.makedirs(os.path.dirname(LOG), exist_ok=True)
     if not new:   # upgrade an older header (rows without pair metrics get NA)

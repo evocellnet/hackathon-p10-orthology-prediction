@@ -1,0 +1,11 @@
+[S8] loaded in 2s; candidates 2523; complete 1:1 HOGs 9829
+[S8] Homo_sapiens cand: n=67 {'C_deleted': 25, 'B_pseudo': 20, 'A_annotated': 16, 'A_gap': 6} (4s)
+[S8] Homo_sapiens pos: n=100 {'A_annotated': 95, 'D_undetermined': 3, 'B_pseudo': 1, 'B_partial': 1} (9s)
+[S8] Homo_sapiens mask: n=100 {'C_deleted': 94, 'D_undetermined': 5, 'A_gap': 1} (13s)
+[S8] Homo_sapiens neg: n=67 {'C_deleted': 67} (15s)
+[S8] Homo_sapiens known: [('GULO', 'B_pseudo', 3, 1, 0.832), ('UOX', 'B_pseudo', 0, 3, 1.0)]
+[S8] Homo_sapiens genome-wide: n=45 intact_elsewhere=23 (68s)
+[S8] Mus_musculus cand: n=45 {'A_annotated': 14, 'B_pseudo': 14, 'D_undetermined': 6, 'A_gap': 5, 'C_deleted': 5, 'B_partial': 1} (3s)
+[S8] Mus_musculus pos: n=100 {'A_annotated': 98, 'B_pseudo': 2} (8s)
+[S8] Mus_musculus mask: n=100 {'C_deleted': 98, 'D_undetermined': 2} (11s)
+[S8] Mus_musculus neg: n=45 {'C_deleted': 43, 'D_undetermined': 2} (13s)

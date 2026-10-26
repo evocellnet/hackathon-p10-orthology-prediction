@@ -35,7 +35,7 @@ import shutil
 import subprocess
 import sys
 import time
-from dataclasses import asdict
+from dataclasses import asdict, replace
 
 import numpy as np
 
@@ -45,7 +45,12 @@ from .merge import ARMS, MergeConfig, MergeResult, run_merge, to_orthoxml
 from .orthoxml import to_orthobench_ogs, validate_xsd, write_orthoxml
 from .scoring import ScoreTable, ScoringConfig, score_with_rescue
 
-__all__ = ["run_pipeline", "main", "DEFAULT_FAMILY_CONFIG"]
+__all__ = ["run_pipeline", "main", "DEFAULT_FAMILY_CONFIG", "SYNTENY_DEFAULT"]
+
+# synteny (S5) defaults, locked by the PI after OrthoBench dev (docs/S5_synteny.md §8,
+# docs/core_v0.md §7): R1-only multiplicative bonus, window 10, lambda 0.3, core 1:1 anchors;
+# constrained to the synteny-off root HOGs; plus the R2/R3 veto and R3 partner choice.
+SYNTENY_DEFAULT = dict(mode="multiplicative", lam=0.3, anchor="core", w=10)
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # S0 default = `2sA_dc30_cc_sh30_RA` (docs/S0_families.md, selected on OrthoBench DEV RefOGs):
@@ -252,7 +257,7 @@ def _fallback_families(gt: GeneTable, wd: str, threads: int) -> dict:
 def run_pipeline(proteomes: str, tree_path: str, outdir: str, families: str | None = None,
                  fam_cols: tuple = (0, 1), threads: int = 24, scoring: ScoringConfig | None = None,
                  merge: MergeConfig | None = None, family_config: dict | None = None,
-                 force: bool = False, log=print) -> dict:
+                 force: bool = False, log=print, gene_order_dir: str | None = None) -> dict:
     os.makedirs(outdir, exist_ok=True)
     scoring = scoring or ScoringConfig()
     scoring.threads = threads
@@ -327,16 +332,45 @@ def run_pipeline(proteomes: str, tree_path: str, outdir: str, families: str | No
     st = ScoreTable.load(os.path.join(d_sc, "scores.npz"))
 
     # 4. merge
+    syn_info = None
+    if gene_order_dir:
+        syn_info = {"dir": os.path.abspath(gene_order_dir),
+                    "files": {f: os.path.getsize(os.path.join(gene_order_dir, f))
+                              for f in sorted(os.listdir(gene_order_dir))},
+                    "kw": dict(SYNTENY_DEFAULT)}
+    R.manifest["config"]["synteny"] = syn_info
+
     def s_merge(d):
-        res = run_merge(gt, tree, st, merge)
+        info = {}
+        if syn_info:
+            # synteny (S5, ancestra.synteny): R1-only, constrained two-pass, + veto/R3 choice
+            from .merge import run_merge_constrained
+            from .synteny import SyntenyContext, gene_positions
+            names = []
+            for sp in gt.species:
+                names.append(sp if os.path.exists(os.path.join(gene_order_dir, sp + ".parquet"))
+                             else sp.split(".")[0])
+            cc, oo, cov = gene_positions(gt.names, gt.species_of, names, gene_order_dir)
+            famf = os.path.join(d_sc, "families_final.npy")
+            famx = np.load(famf) if os.path.exists(famf) else fam
+            ctx = SyntenyContext(cc, oo, family=famx, **SYNTENY_DEFAULT)
+            mcfg = replace(merge, ctx_veto=True, ctx_r3=True)
+            res = run_merge_constrained(gt, tree, st, mcfg, ctx)
+            info["synteny_coverage"] = cov
+        else:
+            res = run_merge(gt, tree, st, merge)
         with open(os.path.join(d, "merge.pkl"), "wb") as fh:
             pickle.dump(res, fh, protocol=pickle.HIGHEST_PROTOCOL)
         with open(os.path.join(d, "node_stats.json"), "w") as fh:
             json.dump(res.node_stats, fh, indent=0)
         n_multi = sum(1 for x in res.roots if not isinstance(x, (int, np.integer)))
-        return {"n_root_groups": n_multi, "n_root_anc_genes": len(res.roots),
-                "merge_s_sum_nodes": round(sum(s["wall_s"] for s in res.node_stats), 3)}
-    d_m, k_m = R.stage("merge", {"up": k_sc, "cfg": merge.key()}, s_merge)
+        info.update({"n_root_groups": n_multi, "n_root_anc_genes": len(res.roots),
+                "merge_s_sum_nodes": round(sum(s["wall_s"] for s in res.node_stats), 3),
+                "tree_clusters": int(sum(s.get("tree_clusters", 0) for s in res.node_stats)),
+                "tree_units": int(sum(s.get("tree_units", 0) for s in res.node_stats)),
+                "tree_s": round(sum(s.get("tree_s", 0) for s in res.node_stats), 2)})
+        return info
+    d_m, k_m = R.stage("merge", {"up": k_sc, "cfg": merge.key(), "synteny": syn_info}, s_merge)
     with open(os.path.join(d_m, "merge.pkl"), "rb") as fh:
         res: MergeResult = pickle.load(fh)
     R.manifest["nodes"] = [{k: s[k] for k in ("node", "n_children", "n_units", "n_anc_out",
@@ -385,6 +419,8 @@ def build_parser(ap: argparse.ArgumentParser | None = None) -> argparse.Argument
     ap.add_argument("--arm", default=None, choices=sorted(ARMS),
                     help="named merge configuration (default: MergeConfig defaults)")
     ap.add_argument("--config", help="JSON {'scoring': {...}, 'merge': {...}} overriding defaults")
+    ap.add_argument("--gene-order", help="directory of S5 gene-order tables (<species>.parquet); "
+                    "enables synteny evidence")
     ap.add_argument("--force", action="store_true", help="recompute all stages")
     return ap
 
@@ -407,7 +443,7 @@ def main(argv=None) -> int:
     cols = tuple(int(x) for x in a.families_cols.split(","))
     m = run_pipeline(a.proteomes, a.tree, a.out, families=a.families, fam_cols=cols,
                      threads=a.threads, scoring=sc, merge=mc, family_config=fc, force=a.force,
-                     log=lambda s: print(s, file=sys.stderr))
+                     log=lambda s: print(s, file=sys.stderr), gene_order_dir=a.gene_order)
     print(f"[ancestra] done in {m['total_wall_s']:.1f}s -> {a.out}/hogs.orthoxml", file=sys.stderr)
     return 0
 

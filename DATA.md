@@ -130,3 +130,22 @@ checksum manifests are kept next to the data (paths given); key checksums are li
   isoform of that gene; it is the *longest* isoform in 100% of genes in all 12 species (C. elegans inputs are WBGene IDs
   + `.1`, matched by gene). Genes with >1 distinct isoform: human 16,806/23,485, mouse 13,481/22,866, zebrafish
   10,878/30,313, Ciona 558/16,671 (`work/S7/prep_stats.json`). See `docs/S7_isoforms.md`.
+
+## 13. S8 genomes (Ensembl 99 soft-masked genome DNA, 6 mammals; gene-loss validation)
+- **Source:** `http://ftp.ensembl.org/pub/release-99/fasta/<species>/dna/<file>` (release 99, Jan 2020; same assemblies as the
+  OrthoBench proteomes and the S5 gene-order tables). Retrieved 2026-10-26 ~17:53-18:00 CET (`*.done` timestamps) with
+  `data/genomes_dna/download.sh`. License: Ensembl data, no restrictions on use (EMBL-EBI terms of use).
+- **Files** (`dna_sm` = repeats soft-masked; human and mouse `primary_assembly`, i.e. no alt haplotypes/patches; the others
+  `toplevel`). md5 (ours) / Ensembl BSD `sum` (all six match Ensembl's `CHECKSUMS`, saved as `CHECKSUMS.<species>`):
+  - `03c20dcfc34077229363943501fc60eb  Canis_familiaris.CanFam3.1.dna_sm.toplevel.fa.gz` (sum 23354 757314)
+  - `239580e6119c7b16865d934f78b20a08  Homo_sapiens.GRCh38.dna_sm.primary_assembly.fa.gz` (sum 56549 919614)
+  - `bd505593846d907abe012d24f726497b  Monodelphis_domestica.ASM229v1.dna_sm.toplevel.fa.gz` (sum 14674 1112120)
+  - `f805d39d45cb2fbe6740004932c9267e  Mus_musculus.GRCm38.dna_sm.primary_assembly.fa.gz` (sum 29999 841789)
+  - `30502c220d5496d8657d710fc3d1f004  Pan_troglodytes.Pan_tro_3.0.dna_sm.toplevel.fa.gz` (sum 12960 982612)
+  - `efe847fc8d7598aa2af4cbabcbf0b5c7  Rattus_norvegicus.Rnor_6.0.dna_sm.toplevel.fa.gz` (sum 38432 867385)
+- **Local path:** `data/genomes_dna/` (gz ~5.8 GB; decompressed `.fa` + samtools `.fai` by `decompress.sh`, ~16 GB;
+  miniprot indexes `work/S8/<species>.mpi`). Used only by `ancestra/geneloss.py` / `scripts/run_S8_geneloss.py`
+  (`docs/S8_geneloss.md`); never by the core method.
+- Gene-level features of all biotypes (incl. GENCODE/Ensembl pseudogenes) and CDS segments of the input proteins were parsed
+  from the section-2 GFF3 files into `work/S8/gff_genes_<sp>.parquet` and `work/S8/cds_<sp>.parquet`
+  (`scripts/S8_parse_gff_genes.py`, `scripts/S8_parse_gff_cds.py`).

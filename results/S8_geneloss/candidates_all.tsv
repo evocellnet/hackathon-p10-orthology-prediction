@@ -1,0 +1,2524 @@
+hog	target	n_genes	max_copies	outgroup
+2091	Pan_troglodytes	5	1	
+2093	Rattus_norvegicus	7	2	
+2095	Mus_musculus	5	1	
+2109	Rattus_norvegicus	5	1	
+2112	Pan_troglodytes	5	1	
+2117	Rattus_norvegicus	5	1	
+2142	Pan_troglodytes	5	1	
+2144	Rattus_norvegicus	5	1	
+2150	Rattus_norvegicus	5	1	
+2153	Canis_familiaris	5	1	
+2157	Canis_familiaris	8	2	
+2160	Rattus_norvegicus	5	1	
+2163	Canis_familiaris	5	1	
+2164	Canis_familiaris	5	1	
+2173	Rattus_norvegicus	5	1	
+2174	Canis_familiaris	5	1	
+2175	Canis_familiaris	5	1	
+2178	Rattus_norvegicus	5	1	
+2181	Canis_familiaris	5	1	
+2182	Canis_familiaris	5	1	
+2209	Canis_familiaris	5	1	
+2210	Rattus_norvegicus	5	1	
+2226	Rattus_norvegicus	5	1	
+2239	Canis_familiaris	5	1	
+2265	Rattus_norvegicus	5	1	
+2267	Pan_troglodytes	5	1	
+2277	Homo_sapiens	5	1	
+2278	Canis_familiaris	5	1	
+2292	Pan_troglodytes	6	2	
+2293	Rattus_norvegicus	5	1	
+2301	Canis_familiaris	5	1	
+2302	Canis_familiaris	5	1	
+2306	Pan_troglodytes	6	2	
+2308	Rattus_norvegicus	5	1	
+2313	Canis_familiaris	5	1	
+2320	Canis_familiaris	7	2	
+2321	Canis_familiaris	6	2	
+2325	Canis_familiaris	5	1	
+2330	Canis_familiaris	5	1	
+2340	Canis_familiaris	6	2	
+2341	Rattus_norvegicus	5	1	
+2343	Mus_musculus	6	2	
+2349	Pan_troglodytes	5	1	
+2357	Canis_familiaris	5	1	
+2376	Canis_familiaris	5	1	
+2381	Rattus_norvegicus	5	1	
+2392	Mus_musculus	5	1	
+2393	Rattus_norvegicus	5	1	
+2395	Rattus_norvegicus	7	2	
+2415	Canis_familiaris	5	1	
+2426	Canis_familiaris	5	1	
+2442	Canis_familiaris	5	1	
+2451	Canis_familiaris	5	1	
+2454	Rattus_norvegicus	6	2	
+2473	Canis_familiaris	5	1	
+2475	Canis_familiaris	5	1	
+2492	Canis_familiaris	5	1	
+2495	Rattus_norvegicus	5	1	
+2501	Canis_familiaris	5	1	
+2506	Rattus_norvegicus	5	1	
+2509	Canis_familiaris	5	1	
+2510	Canis_familiaris	6	2	
+2516	Canis_familiaris	5	1	
+2523	Pan_troglodytes	5	1	
+2535	Rattus_norvegicus	5	1	
+2554	Canis_familiaris	5	1	
+2560	Canis_familiaris	5	1	
+2567	Canis_familiaris	5	1	
+2569	Rattus_norvegicus	5	1	
+2576	Canis_familiaris	5	1	
+2588	Pan_troglodytes	5	1	
+2606	Canis_familiaris	5	1	
+2613	Canis_familiaris	5	1	
+2615	Rattus_norvegicus	5	1	
+2616	Canis_familiaris	5	1	
+2619	Canis_familiaris	5	1	
+2625	Rattus_norvegicus	5	1	
+2635	Canis_familiaris	5	1	
+2638	Canis_familiaris	5	1	
+2644	Pan_troglodytes	5	1	
+2665	Rattus_norvegicus	5	1	
+2668	Canis_familiaris	5	1	
+2674	Homo_sapiens	5	1	
+2677	Canis_familiaris	5	1	
+2685	Rattus_norvegicus	5	1	
+2697	Canis_familiaris	6	2	
+2704	Mus_musculus	6	2	
+2705	Canis_familiaris	5	1	
+2711	Canis_familiaris	5	1	
+2727	Pan_troglodytes	5	1	
+2728	Rattus_norvegicus	5	1	
+2733	Canis_familiaris	5	1	
+2734	Canis_familiaris	5	1	
+2738	Rattus_norvegicus	8	2	
+2741	Pan_troglodytes	5	1	
+2750	Canis_familiaris	5	1	
+2752	Canis_familiaris	6	2	
+2757	Canis_familiaris	7	2	
+2759	Canis_familiaris	5	1	
+2762	Pan_troglodytes	5	1	
+2770	Homo_sapiens	5	1	
+2775	Canis_familiaris	5	1	
+2780	Rattus_norvegicus	5	1	
+2781	Rattus_norvegicus	5	1	
+2792	Mus_musculus	5	1	
+2793	Rattus_norvegicus	5	1	
+2804	Canis_familiaris	5	1	
+2808	Canis_familiaris	7	2	
+2812	Canis_familiaris	5	1	
+2815	Canis_familiaris	5	1	
+2820	Canis_familiaris	5	1	
+2822	Canis_familiaris	5	1	
+2832	Rattus_norvegicus	5	1	
+2837	Mus_musculus	5	1	
+2852	Canis_familiaris	6	2	
+2884	Rattus_norvegicus	5	1	
+2889	Canis_familiaris	5	1	
+2898	Rattus_norvegicus	5	1	
+2903	Canis_familiaris	5	1	
+2907	Canis_familiaris	5	1	
+2916	Canis_familiaris	6	2	
+2931	Rattus_norvegicus	5	1	
+2941	Canis_familiaris	6	2	
+2942	Rattus_norvegicus	5	1	
+2946	Canis_familiaris	5	1	
+2947	Canis_familiaris	5	1	
+2949	Canis_familiaris	5	1	
+2970	Canis_familiaris	6	2	
+2971	Canis_familiaris	6	2	
+2979	Canis_familiaris	6	2	
+2980	Canis_familiaris	5	1	
+2981	Rattus_norvegicus	5	1	
+2997	Rattus_norvegicus	5	1	
+2998	Canis_familiaris	6	2	
+3008	Canis_familiaris	5	1	
+3011	Canis_familiaris	5	1	
+3022	Canis_familiaris	6	2	
+3025	Rattus_norvegicus	5	1	
+3028	Canis_familiaris	5	1	
+3030	Canis_familiaris	5	1	
+3035	Canis_familiaris	5	1	
+3049	Homo_sapiens	5	1	
+3054	Homo_sapiens	6	2	
+3062	Canis_familiaris	5	1	
+3067	Rattus_norvegicus	5	1	
+3072	Canis_familiaris	5	1	
+3073	Canis_familiaris	5	1	
+3107	Monodelphis_domestica	5	1	Gallus_gallus
+3108	Monodelphis_domestica	6	2	Gallus_gallus
+3123	Monodelphis_domestica	5	1	Gallus_gallus
+3126	Monodelphis_domestica	5	1	Gallus_gallus
+3137	Monodelphis_domestica	5	1	Gallus_gallus
+3140	Canis_familiaris	5	1	Gallus_gallus
+3142	Monodelphis_domestica	5	1	Gallus_gallus
+3145	Monodelphis_domestica	5	1	Gallus_gallus
+3157	Mus_musculus	5	1	Gallus_gallus
+3161	Pan_troglodytes	6	2	Gallus_gallus
+3173	Monodelphis_domestica	6	2	Gallus_gallus
+3182	Homo_sapiens	7	2	Gallus_gallus
+3195	Rattus_norvegicus	5	1	Gallus_gallus
+3205	Monodelphis_domestica	6	2	Gallus_gallus
+3208	Monodelphis_domestica	5	1	Gallus_gallus
+3216	Monodelphis_domestica	5	1	Gallus_gallus
+3221	Monodelphis_domestica	5	1	Gallus_gallus
+3228	Monodelphis_domestica	5	1	Gallus_gallus
+3230	Canis_familiaris	5	1	Gallus_gallus
+3246	Monodelphis_domestica	5	1	Gallus_gallus
+3249	Canis_familiaris	5	1	Gallus_gallus
+3259	Canis_familiaris	5	1	Gallus_gallus
+3265	Pan_troglodytes	6	2	Gallus_gallus
+3267	Canis_familiaris	5	1	Gallus_gallus
+3281	Canis_familiaris	5	1	Gallus_gallus
+3286	Monodelphis_domestica	5	1	Gallus_gallus
+3302	Canis_familiaris	6	2	Gallus_gallus
+3308	Monodelphis_domestica	5	1	Gallus_gallus
+3312	Canis_familiaris	5	1	Gallus_gallus
+3318	Rattus_norvegicus	5	1	Gallus_gallus
+3319	Rattus_norvegicus	5	1	Gallus_gallus
+3321	Monodelphis_domestica	5	1	Gallus_gallus
+3322	Pan_troglodytes	7	2	Gallus_gallus
+3330	Canis_familiaris	5	1	Gallus_gallus
+3333	Monodelphis_domestica	6	2	Gallus_gallus
+3341	Canis_familiaris	5	1	Gallus_gallus
+3346	Monodelphis_domestica	5	1	Gallus_gallus
+3351	Monodelphis_domestica	5	1	Gallus_gallus
+3356	Canis_familiaris	6	2	Gallus_gallus
+3364	Canis_familiaris	6	2	Gallus_gallus
+3386	Monodelphis_domestica	5	1	Gallus_gallus
+3395	Canis_familiaris	5	1	Gallus_gallus
+3399	Monodelphis_domestica	5	1	Gallus_gallus
+3400	Canis_familiaris	5	1	Gallus_gallus
+3406	Rattus_norvegicus	5	1	Gallus_gallus
+3407	Monodelphis_domestica	5	1	Gallus_gallus
+3422	Monodelphis_domestica	5	1	Gallus_gallus
+3428	Canis_familiaris	5	1	Gallus_gallus
+3439	Canis_familiaris	5	1	Gallus_gallus
+3451	Monodelphis_domestica	5	1	Gallus_gallus
+3455	Monodelphis_domestica	6	2	Gallus_gallus
+3461	Mus_musculus	5	1	Gallus_gallus
+3465	Monodelphis_domestica	5	1	Gallus_gallus
+3471	Rattus_norvegicus	5	1	Gallus_gallus
+3476	Canis_familiaris	5	1	Gallus_gallus
+3492	Canis_familiaris	5	1	Gallus_gallus
+3499	Canis_familiaris	5	1	Gallus_gallus
+3513	Canis_familiaris	6	2	Gallus_gallus
+3516	Canis_familiaris	5	1	Gallus_gallus
+3522	Canis_familiaris	5	1	Gallus_gallus
+3536	Monodelphis_domestica	5	1	Gallus_gallus
+3542	Monodelphis_domestica	5	1	Gallus_gallus
+3543	Monodelphis_domestica	6	2	Gallus_gallus
+3558	Canis_familiaris	5	1	Gallus_gallus
+3564	Rattus_norvegicus	5	1	Gallus_gallus
+3565	Pan_troglodytes	5	1	Gallus_gallus
+3569	Monodelphis_domestica	5	1	Gallus_gallus
+3570	Rattus_norvegicus	6	2	Gallus_gallus
+3571	Homo_sapiens	5	1	Gallus_gallus
+3573	Monodelphis_domestica	5	1	Gallus_gallus
+3578	Homo_sapiens	5	1	Gallus_gallus
+3591	Canis_familiaris	5	1	Gallus_gallus
+3595	Pan_troglodytes	5	1	Gallus_gallus
+3598	Monodelphis_domestica	5	1	Gallus_gallus
+3608	Monodelphis_domestica	5	1	Gallus_gallus
+3613	Monodelphis_domestica	5	1	Gallus_gallus
+3626	Canis_familiaris	5	1	Gallus_gallus
+3631	Monodelphis_domestica	5	1	Gallus_gallus
+3634	Canis_familiaris	5	1	Gallus_gallus
+3641	Mus_musculus	5	1	Gallus_gallus
+3646	Monodelphis_domestica	5	1	Gallus_gallus
+3648	Canis_familiaris	5	1	Gallus_gallus
+3650	Rattus_norvegicus	5	1	Gallus_gallus
+3662	Monodelphis_domestica	5	1	Gallus_gallus
+3674	Canis_familiaris	5	1	Gallus_gallus
+3690	Canis_familiaris	5	1	Gallus_gallus
+3691	Monodelphis_domestica	6	2	Gallus_gallus
+3695	Canis_familiaris	5	1	Gallus_gallus
+3696	Canis_familiaris	5	1	Gallus_gallus
+3697	Canis_familiaris	5	1	Gallus_gallus
+3714	Homo_sapiens	5	1	Gallus_gallus
+3724	Monodelphis_domestica	5	1	Gallus_gallus
+3729	Monodelphis_domestica	5	1	Gallus_gallus
+3731	Monodelphis_domestica	5	1	Gallus_gallus
+3751	Rattus_norvegicus	5	1	Gallus_gallus
+3770	Pan_troglodytes	5	1	Gallus_gallus
+3785	Monodelphis_domestica	5	1	Gallus_gallus
+3800	Monodelphis_domestica	5	1	Gallus_gallus
+3804	Rattus_norvegicus	6	2	Gallus_gallus
+3810	Monodelphis_domestica	5	1	Gallus_gallus
+3829	Canis_familiaris	5	1	Gallus_gallus
+3859	Monodelphis_domestica	5	1	Gallus_gallus
+3864	Monodelphis_domestica	6	2	Gallus_gallus
+3866	Monodelphis_domestica	5	1	Gallus_gallus
+3902	Canis_familiaris	5	1	Gallus_gallus
+3907	Monodelphis_domestica	5	1	Gallus_gallus
+3916	Canis_familiaris	5	1	Gallus_gallus
+3927	Monodelphis_domestica	5	1	Gallus_gallus
+3929	Canis_familiaris	5	1	Gallus_gallus
+3936	Monodelphis_domestica	5	1	Gallus_gallus
+3948	Monodelphis_domestica	6	2	Gallus_gallus
+3958	Canis_familiaris	5	1	Gallus_gallus
+3969	Canis_familiaris	6	2	Gallus_gallus
+3980	Monodelphis_domestica	6	2	Gallus_gallus
+3982	Monodelphis_domestica	5	1	Gallus_gallus
+3987	Monodelphis_domestica	5	1	Gallus_gallus
+3990	Canis_familiaris	5	1	Gallus_gallus
+3993	Canis_familiaris	5	1	Gallus_gallus
+4003	Canis_familiaris	5	1	Gallus_gallus
+4005	Rattus_norvegicus	6	2	Gallus_gallus
+4022	Rattus_norvegicus	5	1	Gallus_gallus
+4024	Monodelphis_domestica	5	1	Gallus_gallus
+4037	Pan_troglodytes	5	1	Gallus_gallus
+4045	Monodelphis_domestica	5	1	Gallus_gallus
+4048	Monodelphis_domestica	5	1	Gallus_gallus
+4067	Canis_familiaris	5	1	Gallus_gallus
+4069	Monodelphis_domestica	5	1	Gallus_gallus
+4074	Monodelphis_domestica	5	1	Gallus_gallus
+4078	Monodelphis_domestica	5	1	Gallus_gallus
+4080	Canis_familiaris	5	1	Gallus_gallus
+4084	Monodelphis_domestica	5	1	Gallus_gallus
+4086	Monodelphis_domestica	5	1	Gallus_gallus
+4088	Rattus_norvegicus	5	1	Gallus_gallus
+4094	Rattus_norvegicus	5	1	Gallus_gallus
+4095	Canis_familiaris	5	1	Gallus_gallus
+4096	Monodelphis_domestica	5	1	Gallus_gallus
+4100	Pan_troglodytes	5	1	Gallus_gallus
+4106	Rattus_norvegicus	5	1	Gallus_gallus
+4109	Canis_familiaris	5	1	Gallus_gallus
+4123	Pan_troglodytes	5	1	
+4430	Rattus_norvegicus	5	1	
+4437	Monodelphis_domestica	5	1	Gallus_gallus
+4441	Rattus_norvegicus	5	1	Gallus_gallus
+4442	Homo_sapiens	5	1	Gallus_gallus
+4467	Canis_familiaris	5	1	Gallus_gallus
+4471	Monodelphis_domestica	5	1	Gallus_gallus
+4473	Canis_familiaris	5	1	Gallus_gallus
+4497	Monodelphis_domestica	5	1	Gallus_gallus
+4502	Monodelphis_domestica	7	2	Gallus_gallus
+4504	Monodelphis_domestica	5	1	Gallus_gallus
+4506	Canis_familiaris	5	1	Gallus_gallus
+4507	Canis_familiaris	5	1	Gallus_gallus
+4513	Canis_familiaris	5	1	Gallus_gallus
+4514	Canis_familiaris	5	1	Gallus_gallus
+4518	Canis_familiaris	5	1	Gallus_gallus
+4529	Rattus_norvegicus	6	2	
+4540	Monodelphis_domestica	5	1	Gallus_gallus
+4549	Monodelphis_domestica	5	1	Gallus_gallus
+4555	Canis_familiaris	5	1	Gallus_gallus
+4558	Monodelphis_domestica	5	1	Gallus_gallus
+4559	Monodelphis_domestica	5	1	Gallus_gallus
+4563	Monodelphis_domestica	5	1	Gallus_gallus
+4565	Pan_troglodytes	5	1	Gallus_gallus
+4570	Monodelphis_domestica	5	1	Gallus_gallus
+4573	Monodelphis_domestica	5	1	Gallus_gallus
+4593	Monodelphis_domestica	5	1	Gallus_gallus
+4597	Monodelphis_domestica	5	1	Gallus_gallus
+4600	Canis_familiaris	6	2	Gallus_gallus
+4602	Monodelphis_domestica	6	2	Gallus_gallus
+4607	Canis_familiaris	5	1	Gallus_gallus
+4610	Monodelphis_domestica	5	1	Gallus_gallus
+4618	Rattus_norvegicus	5	1	Gallus_gallus
+4619	Canis_familiaris	5	1	Gallus_gallus
+4625	Pan_troglodytes	5	1	Gallus_gallus
+4627	Canis_familiaris	5	1	
+4633	Monodelphis_domestica	5	1	Gallus_gallus
+4634	Rattus_norvegicus	5	1	Gallus_gallus
+4637	Canis_familiaris	5	1	Gallus_gallus
+4644	Canis_familiaris	5	1	Gallus_gallus
+4648	Monodelphis_domestica	6	2	Gallus_gallus
+4651	Canis_familiaris	5	1	Gallus_gallus
+4653	Monodelphis_domestica	5	1	Gallus_gallus
+4659	Canis_familiaris	6	2	Gallus_gallus
+4660	Rattus_norvegicus	5	1	
+4665	Canis_familiaris	5	1	
+4667	Monodelphis_domestica	5	1	Gallus_gallus
+4668	Monodelphis_domestica	7	2	Gallus_gallus
+4671	Canis_familiaris	5	1	Gallus_gallus
+4677	Homo_sapiens	5	1	Gallus_gallus
+4682	Homo_sapiens	5	1	Gallus_gallus
+4707	Canis_familiaris	5	1	Gallus_gallus
+4714	Canis_familiaris	5	1	Gallus_gallus
+4717	Canis_familiaris	5	1	Gallus_gallus
+4731	Monodelphis_domestica	6	2	Gallus_gallus
+4732	Homo_sapiens	5	1	Gallus_gallus
+4735	Canis_familiaris	5	1	Gallus_gallus
+4746	Canis_familiaris	5	1	
+4748	Monodelphis_domestica	5	1	Gallus_gallus
+4763	Monodelphis_domestica	5	1	Gallus_gallus
+4767	Monodelphis_domestica	5	1	Gallus_gallus
+4794	Monodelphis_domestica	5	1	Gallus_gallus
+4795	Monodelphis_domestica	5	1	Gallus_gallus
+4810	Rattus_norvegicus	5	1	
+4814	Pan_troglodytes	5	1	
+4816	Monodelphis_domestica	5	1	Gallus_gallus
+4819	Monodelphis_domestica	5	1	Gallus_gallus
+4832	Canis_familiaris	5	1	Gallus_gallus
+4837	Homo_sapiens	5	1	Gallus_gallus
+4841	Monodelphis_domestica	6	2	Gallus_gallus
+4858	Monodelphis_domestica	5	1	Gallus_gallus
+4859	Canis_familiaris	5	1	Gallus_gallus
+4862	Rattus_norvegicus	5	1	Gallus_gallus
+4878	Canis_familiaris	5	1	Gallus_gallus
+4880	Monodelphis_domestica	5	1	Gallus_gallus
+4887	Rattus_norvegicus	5	1	
+4891	Monodelphis_domestica	5	1	Gallus_gallus
+4893	Rattus_norvegicus	5	1	
+4897	Canis_familiaris	5	1	Gallus_gallus
+4898	Canis_familiaris	5	1	Gallus_gallus
+4904	Canis_familiaris	5	1	
+4911	Canis_familiaris	5	1	Gallus_gallus
+4912	Rattus_norvegicus	5	1	
+4929	Monodelphis_domestica	5	1	Gallus_gallus
+4939	Canis_familiaris	6	2	Gallus_gallus
+4957	Monodelphis_domestica	5	1	Gallus_gallus
+4960	Canis_familiaris	5	1	Gallus_gallus
+4966	Pan_troglodytes	5	1	
+4978	Canis_familiaris	5	1	Gallus_gallus
+4980	Monodelphis_domestica	5	1	Gallus_gallus
+4984	Monodelphis_domestica	5	1	Gallus_gallus
+4987	Canis_familiaris	5	1	Gallus_gallus
+5000	Monodelphis_domestica	5	1	Gallus_gallus
+5001	Rattus_norvegicus	5	1	
+5003	Canis_familiaris	5	1	Gallus_gallus
+5010	Monodelphis_domestica	5	1	Gallus_gallus
+5035	Canis_familiaris	6	2	Gallus_gallus
+5048	Canis_familiaris	6	2	Gallus_gallus
+5057	Canis_familiaris	5	1	
+5063	Monodelphis_domestica	5	1	Gallus_gallus
+5073	Monodelphis_domestica	5	1	Gallus_gallus
+5075	Canis_familiaris	5	1	
+5077	Monodelphis_domestica	5	1	Gallus_gallus
+5086	Rattus_norvegicus	5	1	Gallus_gallus
+5094	Monodelphis_domestica	5	1	Gallus_gallus
+5097	Mus_musculus	5	1	Gallus_gallus
+5099	Monodelphis_domestica	5	1	Gallus_gallus
+5101	Canis_familiaris	5	1	Gallus_gallus
+5104	Pan_troglodytes	5	1	
+5110	Monodelphis_domestica	5	1	Gallus_gallus
+5123	Monodelphis_domestica	5	1	Gallus_gallus
+5126	Canis_familiaris	5	1	Gallus_gallus
+5132	Rattus_norvegicus	5	1	
+5135	Monodelphis_domestica	5	1	Gallus_gallus
+5140	Canis_familiaris	5	1	
+5145	Rattus_norvegicus	6	2	Gallus_gallus
+5160	Monodelphis_domestica	5	1	Gallus_gallus
+5184	Canis_familiaris	5	1	Gallus_gallus
+5186	Monodelphis_domestica	5	1	Gallus_gallus
+5189	Monodelphis_domestica	5	1	Gallus_gallus
+5195	Homo_sapiens	5	1	
+5207	Canis_familiaris	7	2	
+5210	Canis_familiaris	5	1	Gallus_gallus
+5215	Monodelphis_domestica	5	1	Gallus_gallus
+5216	Pan_troglodytes	5	1	
+5225	Canis_familiaris	5	1	Gallus_gallus
+5229	Canis_familiaris	5	1	Gallus_gallus
+5230	Monodelphis_domestica	5	1	Gallus_gallus
+5245	Canis_familiaris	5	1	Gallus_gallus
+5247	Homo_sapiens	5	1	Gallus_gallus
+5252	Monodelphis_domestica	5	1	Gallus_gallus
+5278	Monodelphis_domestica	5	1	Gallus_gallus
+5292	Pan_troglodytes	5	1	Gallus_gallus
+5315	Rattus_norvegicus	5	1	Gallus_gallus
+5322	Canis_familiaris	5	1	Gallus_gallus
+5325	Pan_troglodytes	6	2	Gallus_gallus
+5326	Rattus_norvegicus	6	2	Gallus_gallus
+5329	Pan_troglodytes	6	2	Gallus_gallus
+5336	Pan_troglodytes	7	2	Gallus_gallus
+5337	Canis_familiaris	5	1	Gallus_gallus
+5345	Monodelphis_domestica	5	1	Gallus_gallus
+5347	Monodelphis_domestica	5	1	Gallus_gallus
+5395	Pan_troglodytes	6	2	Gallus_gallus
+5470	Rattus_norvegicus	5	1	Gallus_gallus
+5473	Canis_familiaris	5	1	
+5475	Monodelphis_domestica	5	1	Gallus_gallus
+5480	Canis_familiaris	5	1	Gallus_gallus
+5488	Monodelphis_domestica	5	1	Gallus_gallus
+5492	Canis_familiaris	5	1	Gallus_gallus
+5507	Monodelphis_domestica	5	1	Gallus_gallus
+5514	Monodelphis_domestica	5	1	Gallus_gallus
+5515	Canis_familiaris	5	1	
+5523	Canis_familiaris	5	1	Gallus_gallus
+5531	Canis_familiaris	5	1	Gallus_gallus
+5532	Canis_familiaris	5	1	Gallus_gallus
+5546	Canis_familiaris	5	1	
+5548	Canis_familiaris	6	2	
+5552	Rattus_norvegicus	5	1	
+5560	Canis_familiaris	5	1	Gallus_gallus
+5562	Monodelphis_domestica	5	1	Gallus_gallus
+5579	Rattus_norvegicus	5	1	
+5582	Rattus_norvegicus	6	2	Gallus_gallus
+5609	Pan_troglodytes	7	2	Gallus_gallus
+5618	Pan_troglodytes	8	2	
+5627	Pan_troglodytes	7	2	
+5632	Homo_sapiens	5	1	
+5661	Pan_troglodytes	8	2	
+5665	Pan_troglodytes	6	2	
+5669	Canis_familiaris	5	1	
+5672	Canis_familiaris	10	2	
+5679	Pan_troglodytes	5	1	
+5700	Homo_sapiens	8	2	
+5708	Pan_troglodytes	6	2	
+5718	Canis_familiaris	5	1	
+5735	Canis_familiaris	5	1	
+5933	Rattus_norvegicus	5	1	
+5935	Canis_familiaris	5	1	
+5948	Canis_familiaris	5	1	Gallus_gallus
+5952	Monodelphis_domestica	5	1	Gallus_gallus
+5955	Rattus_norvegicus	5	1	Gallus_gallus
+5965	Canis_familiaris	5	1	Gallus_gallus
+5973	Canis_familiaris	5	1	Gallus_gallus
+5981	Canis_familiaris	5	1	Gallus_gallus
+5988	Monodelphis_domestica	5	1	Gallus_gallus
+6038	Homo_sapiens	9	2	Gallus_gallus
+6046	Canis_familiaris	5	1	Gallus_gallus
+6054	Pan_troglodytes	5	1	
+6059	Monodelphis_domestica	5	1	Gallus_gallus
+6064	Canis_familiaris	5	1	Gallus_gallus
+6089	Pan_troglodytes	7	2	
+6094	Canis_familiaris	5	1	Gallus_gallus
+6097	Canis_familiaris	5	1	Gallus_gallus
+6099	Canis_familiaris	5	1	Gallus_gallus
+6102	Rattus_norvegicus	6	2	
+6108	Homo_sapiens	5	1	Gallus_gallus
+6115	Pan_troglodytes	5	1	
+6117	Canis_familiaris	5	1	Gallus_gallus
+6123	Canis_familiaris	7	2	Gallus_gallus
+6135	Monodelphis_domestica	5	1	Gallus_gallus
+6161	Monodelphis_domestica	5	1	Gallus_gallus
+6163	Monodelphis_domestica	5	1	Gallus_gallus
+6165	Canis_familiaris	5	1	Gallus_gallus
+6169	Monodelphis_domestica	5	1	Gallus_gallus
+6170	Monodelphis_domestica	5	1	Gallus_gallus
+6187	Canis_familiaris	8	2	
+6193	Canis_familiaris	6	2	Gallus_gallus
+6212	Rattus_norvegicus	5	1	
+6213	Monodelphis_domestica	5	1	Gallus_gallus
+6214	Monodelphis_domestica	5	1	Gallus_gallus
+6217	Pan_troglodytes	5	1	
+6218	Mus_musculus	5	1	
+6223	Monodelphis_domestica	5	1	Gallus_gallus
+6230	Canis_familiaris	5	1	Gallus_gallus
+6231	Rattus_norvegicus	5	1	
+6235	Monodelphis_domestica	7	2	Gallus_gallus
+6238	Pan_troglodytes	6	2	Gallus_gallus
+6282	Rattus_norvegicus	5	1	Gallus_gallus
+6292	Monodelphis_domestica	5	1	Gallus_gallus
+6294	Monodelphis_domestica	5	1	Gallus_gallus
+6313	Monodelphis_domestica	5	1	Gallus_gallus
+6317	Canis_familiaris	5	1	Gallus_gallus
+6319	Monodelphis_domestica	5	1	Gallus_gallus
+6326	Monodelphis_domestica	5	1	Gallus_gallus
+6328	Rattus_norvegicus	5	1	Gallus_gallus
+6332	Canis_familiaris	5	1	Gallus_gallus
+6594	Monodelphis_domestica	5	1	Gallus_gallus
+6597	Homo_sapiens	5	1	
+6607	Canis_familiaris	5	1	Gallus_gallus
+6609	Canis_familiaris	5	1	
+6611	Monodelphis_domestica	5	1	Gallus_gallus
+6613	Monodelphis_domestica	5	1	Gallus_gallus
+6614	Canis_familiaris	6	2	
+6626	Canis_familiaris	5	1	
+6641	Monodelphis_domestica	5	1	Gallus_gallus
+6642	Monodelphis_domestica	5	1	Gallus_gallus
+6647	Monodelphis_domestica	5	1	Gallus_gallus
+6649	Monodelphis_domestica	6	2	Gallus_gallus
+6670	Canis_familiaris	5	1	Gallus_gallus
+6705	Canis_familiaris	7	2	Gallus_gallus
+6711	Canis_familiaris	5	1	Gallus_gallus
+6714	Monodelphis_domestica	5	1	Gallus_gallus
+6729	Monodelphis_domestica	5	1	Gallus_gallus
+6752	Monodelphis_domestica	6	2	Gallus_gallus
+6776	Homo_sapiens	5	1	
+6781	Monodelphis_domestica	5	1	Gallus_gallus
+6788	Monodelphis_domestica	5	1	Gallus_gallus
+6796	Pan_troglodytes	5	1	
+6797	Canis_familiaris	6	2	
+6804	Canis_familiaris	5	1	Gallus_gallus
+6808	Monodelphis_domestica	5	1	Gallus_gallus
+6815	Canis_familiaris	7	2	Gallus_gallus
+6824	Monodelphis_domestica	5	1	Gallus_gallus
+6825	Monodelphis_domestica	5	1	Gallus_gallus
+6839	Monodelphis_domestica	5	1	Gallus_gallus
+6858	Canis_familiaris	5	1	Gallus_gallus
+6860	Canis_familiaris	5	1	
+6872	Canis_familiaris	5	1	Gallus_gallus
+6877	Monodelphis_domestica	5	1	Gallus_gallus
+6882	Monodelphis_domestica	5	1	Gallus_gallus
+6887	Rattus_norvegicus	5	1	
+6896	Monodelphis_domestica	5	1	Gallus_gallus
+6900	Canis_familiaris	8	2	
+6903	Monodelphis_domestica	5	1	Gallus_gallus
+6907	Canis_familiaris	5	1	
+6914	Canis_familiaris	5	1	Gallus_gallus
+6924	Canis_familiaris	5	1	
+6927	Monodelphis_domestica	5	1	Gallus_gallus
+6929	Monodelphis_domestica	5	1	Gallus_gallus
+6944	Monodelphis_domestica	5	1	Gallus_gallus
+6946	Canis_familiaris	5	1	Gallus_gallus
+6958	Rattus_norvegicus	5	1	Gallus_gallus
+6965	Monodelphis_domestica	5	1	Gallus_gallus
+6966	Canis_familiaris	5	1	Gallus_gallus
+6980	Canis_familiaris	5	1	
+6989	Canis_familiaris	5	1	Gallus_gallus
+6993	Monodelphis_domestica	6	2	Gallus_gallus
+6994	Monodelphis_domestica	6	2	Gallus_gallus
+7001	Canis_familiaris	5	1	Gallus_gallus
+7006	Pan_troglodytes	5	1	Gallus_gallus
+7008	Monodelphis_domestica	6	2	Gallus_gallus
+7010	Canis_familiaris	5	1	Gallus_gallus
+7015	Canis_familiaris	5	1	
+7016	Monodelphis_domestica	5	1	Gallus_gallus
+7023	Canis_familiaris	5	1	Gallus_gallus
+7035	Canis_familiaris	6	2	Gallus_gallus
+7040	Canis_familiaris	5	1	Gallus_gallus
+7048	Canis_familiaris	6	2	
+7050	Canis_familiaris	5	1	
+7051	Canis_familiaris	5	1	
+7063	Canis_familiaris	5	1	
+7069	Canis_familiaris	5	1	
+7070	Monodelphis_domestica	6	2	Gallus_gallus
+7090	Canis_familiaris	5	1	Gallus_gallus
+7098	Canis_familiaris	5	1	Gallus_gallus
+7126	Monodelphis_domestica	6	2	Gallus_gallus
+7138	Homo_sapiens	5	1	Gallus_gallus
+7140	Rattus_norvegicus	5	1	Gallus_gallus
+7141	Canis_familiaris	6	2	Gallus_gallus
+7142	Monodelphis_domestica	5	1	Gallus_gallus
+7164	Canis_familiaris	5	1	Gallus_gallus
+7166	Monodelphis_domestica	5	1	Gallus_gallus
+7176	Pan_troglodytes	5	1	Gallus_gallus
+7193	Monodelphis_domestica	6	2	Gallus_gallus
+7210	Canis_familiaris	5	1	Gallus_gallus
+7222	Canis_familiaris	6	2	Gallus_gallus
+7225	Canis_familiaris	5	1	Gallus_gallus
+7232	Monodelphis_domestica	5	1	Gallus_gallus
+7235	Canis_familiaris	5	1	Gallus_gallus
+7242	Monodelphis_domestica	5	1	Gallus_gallus
+7258	Rattus_norvegicus	5	1	Gallus_gallus
+7259	Monodelphis_domestica	5	1	Gallus_gallus
+7262	Pan_troglodytes	5	1	Gallus_gallus
+7263	Pan_troglodytes	5	1	Gallus_gallus
+7266	Canis_familiaris	5	1	
+7271	Mus_musculus	7	2	Gallus_gallus
+7272	Pan_troglodytes	5	1	Gallus_gallus
+7277	Monodelphis_domestica	5	1	Gallus_gallus
+7283	Monodelphis_domestica	5	1	Gallus_gallus
+7287	Monodelphis_domestica	5	1	Gallus_gallus
+7292	Monodelphis_domestica	5	1	Gallus_gallus
+7325	Monodelphis_domestica	5	1	Gallus_gallus
+7334	Canis_familiaris	5	1	Gallus_gallus
+7335	Monodelphis_domestica	5	1	Gallus_gallus
+7341	Canis_familiaris	5	1	
+7348	Rattus_norvegicus	5	1	Gallus_gallus
+7363	Rattus_norvegicus	5	1	Gallus_gallus
+7384	Monodelphis_domestica	5	1	Gallus_gallus
+7404	Rattus_norvegicus	5	1	Gallus_gallus
+7405	Canis_familiaris	5	1	Gallus_gallus
+7406	Pan_troglodytes	5	1	
+7413	Rattus_norvegicus	6	2	
+7421	Monodelphis_domestica	5	1	Gallus_gallus
+7427	Monodelphis_domestica	5	1	Gallus_gallus
+7438	Monodelphis_domestica	5	1	Gallus_gallus
+7443	Rattus_norvegicus	5	1	Gallus_gallus
+7461	Canis_familiaris	5	1	Gallus_gallus
+7462	Monodelphis_domestica	6	2	Gallus_gallus
+7489	Pan_troglodytes	5	1	Gallus_gallus
+7507	Canis_familiaris	5	1	
+7509	Canis_familiaris	5	1	Gallus_gallus
+7518	Rattus_norvegicus	5	1	Gallus_gallus
+7529	Rattus_norvegicus	5	1	Gallus_gallus
+7531	Monodelphis_domestica	5	1	Gallus_gallus
+7547	Monodelphis_domestica	5	1	Gallus_gallus
+7556	Canis_familiaris	5	1	Gallus_gallus
+7557	Monodelphis_domestica	7	2	Gallus_gallus
+7564	Monodelphis_domestica	5	1	Gallus_gallus
+7571	Canis_familiaris	5	1	Gallus_gallus
+7580	Canis_familiaris	5	1	Gallus_gallus
+7594	Homo_sapiens	5	1	Gallus_gallus
+7596	Canis_familiaris	5	1	Gallus_gallus
+7599	Canis_familiaris	6	2	Gallus_gallus
+7606	Monodelphis_domestica	5	1	Gallus_gallus
+7609	Canis_familiaris	5	1	
+7619	Monodelphis_domestica	5	1	Gallus_gallus
+7625	Rattus_norvegicus	5	1	Gallus_gallus
+7626	Canis_familiaris	5	1	Gallus_gallus
+7627	Pan_troglodytes	5	1	
+7639	Pan_troglodytes	5	1	Gallus_gallus
+7642	Canis_familiaris	5	1	Gallus_gallus
+7643	Pan_troglodytes	5	1	Gallus_gallus
+7644	Monodelphis_domestica	5	1	Gallus_gallus
+7645	Monodelphis_domestica	5	1	Gallus_gallus
+7647	Monodelphis_domestica	5	1	Gallus_gallus
+7649	Monodelphis_domestica	5	1	Gallus_gallus
+7653	Canis_familiaris	5	1	Gallus_gallus
+7655	Canis_familiaris	5	1	Gallus_gallus
+7656	Canis_familiaris	5	1	Gallus_gallus
+7659	Canis_familiaris	5	1	Gallus_gallus
+7661	Canis_familiaris	5	1	Gallus_gallus
+7663	Rattus_norvegicus	5	1	Gallus_gallus
+7666	Monodelphis_domestica	5	1	Gallus_gallus
+7684	Canis_familiaris	5	1	
+7691	Rattus_norvegicus	5	1	Gallus_gallus
+7694	Monodelphis_domestica	5	1	Gallus_gallus
+7695	Canis_familiaris	5	1	Gallus_gallus
+7704	Monodelphis_domestica	5	1	Gallus_gallus
+7705	Canis_familiaris	5	1	Gallus_gallus
+7719	Rattus_norvegicus	5	1	
+7724	Canis_familiaris	5	1	Gallus_gallus
+7728	Homo_sapiens	5	1	Gallus_gallus
+7731	Canis_familiaris	5	1	Gallus_gallus
+7732	Monodelphis_domestica	6	2	Gallus_gallus
+7746	Monodelphis_domestica	5	1	Gallus_gallus
+7753	Monodelphis_domestica	5	1	Gallus_gallus
+7758	Rattus_norvegicus	5	1	Gallus_gallus
+7762	Canis_familiaris	5	1	Gallus_gallus
+7766	Monodelphis_domestica	5	1	Gallus_gallus
+7779	Monodelphis_domestica	5	1	Gallus_gallus
+7786	Canis_familiaris	5	1	Gallus_gallus
+7796	Pan_troglodytes	5	1	Gallus_gallus
+7798	Monodelphis_domestica	5	1	Gallus_gallus
+7809	Canis_familiaris	5	1	Gallus_gallus
+7814	Canis_familiaris	5	1	Gallus_gallus
+7815	Monodelphis_domestica	5	1	Gallus_gallus
+7819	Rattus_norvegicus	5	1	Gallus_gallus
+7822	Canis_familiaris	5	1	Gallus_gallus
+7844	Canis_familiaris	5	1	
+7846	Canis_familiaris	6	2	Gallus_gallus
+7852	Monodelphis_domestica	6	2	Gallus_gallus
+7857	Monodelphis_domestica	5	1	Gallus_gallus
+7866	Rattus_norvegicus	5	1	Gallus_gallus
+7873	Canis_familiaris	6	2	Gallus_gallus
+7879	Rattus_norvegicus	5	1	Gallus_gallus
+7882	Canis_familiaris	5	1	Gallus_gallus
+7884	Monodelphis_domestica	5	1	Gallus_gallus
+7895	Monodelphis_domestica	5	1	Gallus_gallus
+7910	Canis_familiaris	6	2	Gallus_gallus
+7912	Pan_troglodytes	5	1	Gallus_gallus
+7919	Monodelphis_domestica	5	1	Gallus_gallus
+7920	Rattus_norvegicus	5	1	Gallus_gallus
+7922	Canis_familiaris	5	1	Gallus_gallus
+7925	Rattus_norvegicus	5	1	Gallus_gallus
+7927	Canis_familiaris	5	1	Gallus_gallus
+7933	Monodelphis_domestica	5	1	Gallus_gallus
+7945	Canis_familiaris	5	1	Gallus_gallus
+7951	Homo_sapiens	5	1	Gallus_gallus
+7969	Monodelphis_domestica	5	1	Gallus_gallus
+7970	Canis_familiaris	5	1	
+7971	Rattus_norvegicus	5	1	Gallus_gallus
+7974	Monodelphis_domestica	6	2	Gallus_gallus
+7978	Canis_familiaris	5	1	Gallus_gallus
+7979	Pan_troglodytes	5	1	Gallus_gallus
+7983	Canis_familiaris	6	2	Gallus_gallus
+7985	Canis_familiaris	5	1	Gallus_gallus
+7992	Monodelphis_domestica	5	1	Gallus_gallus
+7994	Rattus_norvegicus	6	2	Gallus_gallus
+7999	Monodelphis_domestica	5	1	Gallus_gallus
+8011	Canis_familiaris	7	2	Gallus_gallus
+8025	Rattus_norvegicus	5	1	Gallus_gallus
+8045	Canis_familiaris	5	1	
+8070	Canis_familiaris	5	1	Gallus_gallus
+8075	Canis_familiaris	5	1	Gallus_gallus
+8078	Rattus_norvegicus	5	1	Gallus_gallus
+8086	Canis_familiaris	5	1	
+8089	Monodelphis_domestica	5	1	Gallus_gallus
+8097	Canis_familiaris	6	2	
+8102	Canis_familiaris	5	1	
+8104	Canis_familiaris	6	2	Gallus_gallus
+8108	Mus_musculus	5	1	Gallus_gallus
+8116	Monodelphis_domestica	5	1	Gallus_gallus
+8119	Canis_familiaris	5	1	Gallus_gallus
+8127	Monodelphis_domestica	5	1	Gallus_gallus
+8131	Monodelphis_domestica	6	2	Gallus_gallus
+8134	Canis_familiaris	5	1	Gallus_gallus
+8135	Canis_familiaris	5	1	Gallus_gallus
+8144	Monodelphis_domestica	5	1	Gallus_gallus
+8147	Canis_familiaris	5	1	Gallus_gallus
+8151	Canis_familiaris	6	2	Gallus_gallus
+8161	Canis_familiaris	5	1	
+8162	Mus_musculus	6	2	
+8177	Rattus_norvegicus	5	1	Gallus_gallus
+8180	Canis_familiaris	7	2	Gallus_gallus
+8193	Pan_troglodytes	5	1	Gallus_gallus
+8195	Monodelphis_domestica	5	1	Gallus_gallus
+8197	Canis_familiaris	5	1	
+8198	Pan_troglodytes	5	1	
+8218	Rattus_norvegicus	5	1	
+8220	Canis_familiaris	5	1	
+8222	Monodelphis_domestica	5	1	Gallus_gallus
+8223	Canis_familiaris	5	1	Gallus_gallus
+8250	Rattus_norvegicus	5	1	Gallus_gallus
+8257	Canis_familiaris	6	2	
+8259	Monodelphis_domestica	5	1	Gallus_gallus
+8260	Monodelphis_domestica	5	1	Gallus_gallus
+8261	Canis_familiaris	5	1	Gallus_gallus
+8262	Monodelphis_domestica	5	1	Gallus_gallus
+8263	Monodelphis_domestica	5	1	Gallus_gallus
+8266	Canis_familiaris	5	1	Gallus_gallus
+8276	Canis_familiaris	5	1	Gallus_gallus
+8279	Rattus_norvegicus	5	1	Gallus_gallus
+8282	Canis_familiaris	5	1	Gallus_gallus
+8285	Canis_familiaris	6	2	Gallus_gallus
+8296	Canis_familiaris	5	1	Gallus_gallus
+8303	Canis_familiaris	5	1	
+8311	Rattus_norvegicus	5	1	Gallus_gallus
+8316	Rattus_norvegicus	5	1	Gallus_gallus
+8323	Monodelphis_domestica	5	1	Gallus_gallus
+8329	Canis_familiaris	5	1	Gallus_gallus
+8349	Rattus_norvegicus	5	1	Gallus_gallus
+8365	Monodelphis_domestica	5	1	Gallus_gallus
+8367	Monodelphis_domestica	5	1	Gallus_gallus
+8376	Monodelphis_domestica	5	1	Gallus_gallus
+8377	Canis_familiaris	5	1	
+8384	Canis_familiaris	5	1	Gallus_gallus
+8387	Canis_familiaris	5	1	Gallus_gallus
+8398	Monodelphis_domestica	5	1	Gallus_gallus
+8404	Canis_familiaris	5	1	Gallus_gallus
+8420	Canis_familiaris	5	1	Gallus_gallus
+8428	Canis_familiaris	5	1	Gallus_gallus
+8433	Canis_familiaris	5	1	Gallus_gallus
+8434	Pan_troglodytes	5	1	Gallus_gallus
+8443	Monodelphis_domestica	5	1	Gallus_gallus
+8447	Rattus_norvegicus	5	1	Gallus_gallus
+8456	Monodelphis_domestica	5	1	Gallus_gallus
+8458	Canis_familiaris	5	1	
+8466	Monodelphis_domestica	5	1	Gallus_gallus
+8468	Pan_troglodytes	5	1	Gallus_gallus
+8478	Canis_familiaris	5	1	Gallus_gallus
+8480	Canis_familiaris	5	1	Gallus_gallus
+8489	Monodelphis_domestica	5	1	Gallus_gallus
+8491	Monodelphis_domestica	5	1	Gallus_gallus
+8508	Monodelphis_domestica	5	1	Gallus_gallus
+8509	Canis_familiaris	5	1	Gallus_gallus
+8512	Monodelphis_domestica	5	1	Gallus_gallus
+8520	Monodelphis_domestica	5	1	Gallus_gallus
+8528	Homo_sapiens	5	1	Gallus_gallus
+8539	Canis_familiaris	5	1	Gallus_gallus
+8541	Monodelphis_domestica	5	1	Gallus_gallus
+8556	Canis_familiaris	5	1	Gallus_gallus
+8559	Canis_familiaris	5	1	Gallus_gallus
+8560	Monodelphis_domestica	5	1	Gallus_gallus
+8562	Monodelphis_domestica	5	1	Gallus_gallus
+8565	Mus_musculus	5	1	Gallus_gallus
+8570	Rattus_norvegicus	5	1	Gallus_gallus
+8571	Canis_familiaris	5	1	Gallus_gallus
+8572	Monodelphis_domestica	5	1	Gallus_gallus
+8576	Rattus_norvegicus	5	1	Gallus_gallus
+8580	Monodelphis_domestica	5	1	Gallus_gallus
+8582	Canis_familiaris	5	1	Gallus_gallus
+8587	Monodelphis_domestica	5	1	Gallus_gallus
+8588	Monodelphis_domestica	5	1	Gallus_gallus
+8589	Monodelphis_domestica	6	2	Gallus_gallus
+8599	Monodelphis_domestica	5	1	Gallus_gallus
+8601	Pan_troglodytes	5	1	
+8612	Canis_familiaris	5	1	Gallus_gallus
+8621	Rattus_norvegicus	5	1	Gallus_gallus
+8624	Rattus_norvegicus	5	1	Gallus_gallus
+8625	Monodelphis_domestica	5	1	Gallus_gallus
+8631	Monodelphis_domestica	6	2	Gallus_gallus
+8678	Monodelphis_domestica	5	1	Gallus_gallus
+8690	Monodelphis_domestica	5	1	Gallus_gallus
+8712	Monodelphis_domestica	5	1	Gallus_gallus
+8734	Canis_familiaris	5	1	Gallus_gallus
+8735	Canis_familiaris	5	1	Gallus_gallus
+8740	Monodelphis_domestica	6	2	Gallus_gallus
+8743	Pan_troglodytes	5	1	
+8746	Canis_familiaris	5	1	Gallus_gallus
+8753	Rattus_norvegicus	5	1	Gallus_gallus
+8760	Canis_familiaris	5	1	Gallus_gallus
+8783	Rattus_norvegicus	5	1	Gallus_gallus
+8788	Canis_familiaris	5	1	Gallus_gallus
+8803	Monodelphis_domestica	5	1	Gallus_gallus
+8809	Monodelphis_domestica	5	1	Gallus_gallus
+8811	Monodelphis_domestica	5	1	Gallus_gallus
+8825	Canis_familiaris	5	1	
+8831	Monodelphis_domestica	5	1	Gallus_gallus
+8848	Canis_familiaris	6	2	Gallus_gallus
+8859	Canis_familiaris	5	1	Gallus_gallus
+8864	Rattus_norvegicus	5	1	
+8868	Canis_familiaris	5	1	Gallus_gallus
+8869	Monodelphis_domestica	6	2	Gallus_gallus
+8873	Monodelphis_domestica	5	1	Gallus_gallus
+8882	Monodelphis_domestica	5	1	Gallus_gallus
+8883	Rattus_norvegicus	5	1	
+8896	Mus_musculus	6	2	Gallus_gallus
+8902	Canis_familiaris	5	1	Gallus_gallus
+8906	Monodelphis_domestica	5	1	Gallus_gallus
+8914	Monodelphis_domestica	5	1	Gallus_gallus
+8916	Canis_familiaris	5	1	Gallus_gallus
+8924	Canis_familiaris	5	1	Gallus_gallus
+8931	Canis_familiaris	6	2	
+8932	Canis_familiaris	5	1	
+8933	Canis_familiaris	7	2	
+8934	Canis_familiaris	5	1	
+8944	Pan_troglodytes	5	1	Gallus_gallus
+8948	Canis_familiaris	5	1	
+8952	Rattus_norvegicus	5	1	Gallus_gallus
+8955	Monodelphis_domestica	5	1	Gallus_gallus
+8957	Rattus_norvegicus	5	1	Gallus_gallus
+8968	Rattus_norvegicus	5	1	Gallus_gallus
+8973	Monodelphis_domestica	5	1	Gallus_gallus
+8974	Monodelphis_domestica	5	1	Gallus_gallus
+8989	Monodelphis_domestica	5	1	Gallus_gallus
+8994	Rattus_norvegicus	5	1	Gallus_gallus
+9004	Monodelphis_domestica	5	1	Gallus_gallus
+9006	Canis_familiaris	6	2	Gallus_gallus
+9017	Pan_troglodytes	5	1	Gallus_gallus
+9018	Canis_familiaris	5	1	Gallus_gallus
+9029	Rattus_norvegicus	5	1	Gallus_gallus
+9037	Monodelphis_domestica	5	1	Gallus_gallus
+9039	Monodelphis_domestica	6	2	Gallus_gallus
+9043	Canis_familiaris	5	1	Gallus_gallus
+9047	Monodelphis_domestica	5	1	Gallus_gallus
+9048	Monodelphis_domestica	5	1	Gallus_gallus
+9062	Monodelphis_domestica	5	1	Gallus_gallus
+9063	Canis_familiaris	5	1	
+9065	Monodelphis_domestica	5	1	Gallus_gallus
+9070	Monodelphis_domestica	5	1	Gallus_gallus
+9077	Rattus_norvegicus	5	1	Gallus_gallus
+9078	Canis_familiaris	5	1	
+9080	Canis_familiaris	5	1	
+9083	Rattus_norvegicus	5	1	Gallus_gallus
+9088	Rattus_norvegicus	5	1	Gallus_gallus
+9089	Canis_familiaris	5	1	
+9093	Canis_familiaris	5	1	Gallus_gallus
+9097	Monodelphis_domestica	5	1	Gallus_gallus
+9099	Monodelphis_domestica	5	1	Gallus_gallus
+9111	Monodelphis_domestica	5	1	Gallus_gallus
+9133	Rattus_norvegicus	5	1	Gallus_gallus
+9134	Monodelphis_domestica	5	1	Gallus_gallus
+9136	Canis_familiaris	5	1	
+9137	Canis_familiaris	5	1	Gallus_gallus
+9144	Canis_familiaris	5	1	Gallus_gallus
+9148	Monodelphis_domestica	5	1	Gallus_gallus
+9193	Monodelphis_domestica	5	1	Gallus_gallus
+9198	Rattus_norvegicus	5	1	Gallus_gallus
+9207	Canis_familiaris	5	1	Gallus_gallus
+9209	Canis_familiaris	6	2	Gallus_gallus
+9210	Canis_familiaris	5	1	Gallus_gallus
+9213	Rattus_norvegicus	5	1	Gallus_gallus
+9223	Rattus_norvegicus	5	1	Gallus_gallus
+9246	Pan_troglodytes	5	1	Gallus_gallus
+9248	Rattus_norvegicus	6	2	Gallus_gallus
+9253	Mus_musculus	5	1	Gallus_gallus
+9266	Monodelphis_domestica	6	2	Gallus_gallus
+9272	Monodelphis_domestica	5	1	Gallus_gallus
+9282	Canis_familiaris	5	1	Gallus_gallus
+9289	Canis_familiaris	5	1	Gallus_gallus
+9292	Canis_familiaris	5	1	Gallus_gallus
+9305	Monodelphis_domestica	5	1	Gallus_gallus
+9313	Canis_familiaris	5	1	Gallus_gallus
+9314	Canis_familiaris	5	1	
+9318	Monodelphis_domestica	5	1	Gallus_gallus
+9319	Monodelphis_domestica	5	1	Gallus_gallus
+9324	Monodelphis_domestica	5	1	Gallus_gallus
+9328	Monodelphis_domestica	5	1	Gallus_gallus
+9343	Monodelphis_domestica	5	1	Gallus_gallus
+9346	Monodelphis_domestica	5	1	Gallus_gallus
+9361	Monodelphis_domestica	5	1	Gallus_gallus
+9363	Monodelphis_domestica	5	1	Gallus_gallus
+9368	Monodelphis_domestica	5	1	Gallus_gallus
+9372	Monodelphis_domestica	5	1	Gallus_gallus
+9374	Monodelphis_domestica	5	1	Gallus_gallus
+9377	Monodelphis_domestica	5	1	Gallus_gallus
+9390	Monodelphis_domestica	7	2	Gallus_gallus
+9394	Monodelphis_domestica	7	2	Gallus_gallus
+9399	Canis_familiaris	5	1	Gallus_gallus
+9426	Canis_familiaris	5	1	Gallus_gallus
+9433	Rattus_norvegicus	5	1	Gallus_gallus
+9436	Canis_familiaris	5	1	
+9446	Monodelphis_domestica	5	1	Gallus_gallus
+9447	Monodelphis_domestica	5	1	Gallus_gallus
+9463	Rattus_norvegicus	6	2	Gallus_gallus
+9473	Canis_familiaris	5	1	Gallus_gallus
+9476	Rattus_norvegicus	5	1	Gallus_gallus
+9478	Monodelphis_domestica	5	1	Gallus_gallus
+9492	Monodelphis_domestica	6	2	Gallus_gallus
+9514	Canis_familiaris	5	1	Gallus_gallus
+9517	Monodelphis_domestica	6	2	Gallus_gallus
+9522	Canis_familiaris	5	1	Gallus_gallus
+9541	Rattus_norvegicus	5	1	Gallus_gallus
+9545	Canis_familiaris	5	1	
+9552	Monodelphis_domestica	5	1	Gallus_gallus
+9556	Monodelphis_domestica	5	1	Gallus_gallus
+9559	Rattus_norvegicus	5	1	
+9560	Canis_familiaris	5	1	Gallus_gallus
+9562	Monodelphis_domestica	5	1	Gallus_gallus
+9567	Canis_familiaris	5	1	Gallus_gallus
+9572	Canis_familiaris	5	1	Gallus_gallus
+9577	Monodelphis_domestica	5	1	Gallus_gallus
+9607	Monodelphis_domestica	5	1	Gallus_gallus
+9613	Rattus_norvegicus	5	1	
+9618	Rattus_norvegicus	5	1	
+9619	Canis_familiaris	5	1	Gallus_gallus
+9620	Canis_familiaris	5	1	Gallus_gallus
+9629	Canis_familiaris	5	1	
+9659	Canis_familiaris	5	1	Gallus_gallus
+9664	Canis_familiaris	6	2	
+9667	Canis_familiaris	5	1	Gallus_gallus
+9668	Canis_familiaris	5	1	
+9683	Canis_familiaris	5	1	Gallus_gallus
+9687	Canis_familiaris	5	1	Gallus_gallus
+9693	Canis_familiaris	5	1	Gallus_gallus
+9700	Canis_familiaris	5	1	Gallus_gallus
+9703	Canis_familiaris	5	1	
+9706	Canis_familiaris	5	1	Gallus_gallus
+9770	Monodelphis_domestica	5	1	Gallus_gallus
+9780	Monodelphis_domestica	5	1	Gallus_gallus
+9789	Canis_familiaris	5	1	
+9792	Canis_familiaris	5	1	Gallus_gallus
+9795	Monodelphis_domestica	5	1	Gallus_gallus
+9802	Monodelphis_domestica	5	1	Gallus_gallus
+9813	Canis_familiaris	6	2	Gallus_gallus
+9823	Pan_troglodytes	5	1	Gallus_gallus
+9828	Canis_familiaris	5	1	Gallus_gallus
+9832	Monodelphis_domestica	5	1	Gallus_gallus
+9833	Monodelphis_domestica	5	1	Gallus_gallus
+9843	Monodelphis_domestica	5	1	Gallus_gallus
+9846	Monodelphis_domestica	5	1	Gallus_gallus
+9869	Pan_troglodytes	6	2	Gallus_gallus
+9872	Canis_familiaris	5	1	Gallus_gallus
+9876	Canis_familiaris	5	1	Gallus_gallus
+9879	Rattus_norvegicus	5	1	Gallus_gallus
+9883	Rattus_norvegicus	6	2	Gallus_gallus
+9889	Monodelphis_domestica	5	1	Gallus_gallus
+9898	Canis_familiaris	5	1	Gallus_gallus
+9914	Canis_familiaris	5	1	
+9917	Canis_familiaris	6	2	
+9935	Monodelphis_domestica	5	1	Gallus_gallus
+9940	Canis_familiaris	5	1	Gallus_gallus
+9945	Monodelphis_domestica	5	1	Gallus_gallus
+9954	Monodelphis_domestica	5	1	Gallus_gallus
+9958	Canis_familiaris	5	1	Gallus_gallus
+9962	Monodelphis_domestica	5	1	Gallus_gallus
+9974	Canis_familiaris	5	1	
+9994	Rattus_norvegicus	9	2	
+10010	Canis_familiaris	6	2	
+10019	Monodelphis_domestica	5	1	Gallus_gallus
+10021	Rattus_norvegicus	5	1	Gallus_gallus
+10031	Canis_familiaris	5	1	Gallus_gallus
+10041	Monodelphis_domestica	5	1	Gallus_gallus
+10054	Canis_familiaris	5	1	Gallus_gallus
+10057	Monodelphis_domestica	5	1	Gallus_gallus
+10062	Monodelphis_domestica	5	1	Gallus_gallus
+10066	Monodelphis_domestica	6	2	Gallus_gallus
+10068	Rattus_norvegicus	6	2	
+10070	Canis_familiaris	5	1	Gallus_gallus
+10072	Mus_musculus	6	2	Gallus_gallus
+10079	Monodelphis_domestica	5	1	Gallus_gallus
+10084	Monodelphis_domestica	5	1	Gallus_gallus
+10100	Monodelphis_domestica	5	1	Gallus_gallus
+10101	Monodelphis_domestica	5	1	Gallus_gallus
+10108	Canis_familiaris	5	1	Gallus_gallus
+10109	Monodelphis_domestica	5	1	Gallus_gallus
+10119	Monodelphis_domestica	5	1	Gallus_gallus
+10122	Monodelphis_domestica	5	1	Gallus_gallus
+10129	Canis_familiaris	5	1	Gallus_gallus
+10135	Monodelphis_domestica	5	1	Gallus_gallus
+10144	Monodelphis_domestica	5	1	Gallus_gallus
+10146	Monodelphis_domestica	5	1	Gallus_gallus
+10150	Rattus_norvegicus	5	1	Gallus_gallus
+10152	Monodelphis_domestica	5	1	Gallus_gallus
+10154	Canis_familiaris	5	1	Gallus_gallus
+10165	Monodelphis_domestica	5	1	Gallus_gallus
+10173	Pan_troglodytes	5	1	Gallus_gallus
+10176	Monodelphis_domestica	5	1	Gallus_gallus
+10183	Monodelphis_domestica	5	1	Gallus_gallus
+10184	Monodelphis_domestica	5	1	Gallus_gallus
+10187	Monodelphis_domestica	5	1	Gallus_gallus
+10197	Canis_familiaris	5	1	
+10201	Canis_familiaris	5	1	
+10204	Canis_familiaris	5	1	Gallus_gallus
+10212	Monodelphis_domestica	6	2	Gallus_gallus
+10221	Canis_familiaris	5	1	Gallus_gallus
+10231	Canis_familiaris	5	1	
+10236	Rattus_norvegicus	5	1	Gallus_gallus
+10255	Monodelphis_domestica	5	1	Gallus_gallus
+10265	Monodelphis_domestica	5	1	Gallus_gallus
+10266	Canis_familiaris	5	1	Gallus_gallus
+10280	Canis_familiaris	6	2	Gallus_gallus
+10284	Monodelphis_domestica	5	1	Gallus_gallus
+10288	Canis_familiaris	5	1	Gallus_gallus
+10290	Canis_familiaris	5	1	
+10291	Rattus_norvegicus	5	1	Gallus_gallus
+10306	Canis_familiaris	5	1	
+10319	Canis_familiaris	5	1	
+10323	Pan_troglodytes	5	1	
+10346	Monodelphis_domestica	5	1	Gallus_gallus
+10368	Rattus_norvegicus	5	1	Gallus_gallus
+10386	Canis_familiaris	5	1	Gallus_gallus
+10402	Canis_familiaris	6	2	
+10405	Canis_familiaris	5	1	Gallus_gallus
+10415	Pan_troglodytes	5	1	Gallus_gallus
+10416	Canis_familiaris	5	1	
+10507	Canis_familiaris	5	1	
+10515	Pan_troglodytes	5	1	
+10526	Monodelphis_domestica	5	1	Gallus_gallus
+10538	Canis_familiaris	5	1	Gallus_gallus
+10540	Canis_familiaris	5	1	
+10554	Canis_familiaris	5	1	Gallus_gallus
+10558	Monodelphis_domestica	5	1	Gallus_gallus
+10559	Canis_familiaris	7	2	
+10561	Canis_familiaris	6	2	
+10567	Rattus_norvegicus	7	2	
+10572	Rattus_norvegicus	5	1	
+10580	Monodelphis_domestica	5	1	Gallus_gallus
+10583	Monodelphis_domestica	5	1	Gallus_gallus
+10600	Monodelphis_domestica	5	1	Gallus_gallus
+10636	Canis_familiaris	5	1	Gallus_gallus
+10641	Canis_familiaris	5	1	Gallus_gallus
+10655	Monodelphis_domestica	5	1	Gallus_gallus
+10659	Canis_familiaris	5	1	Gallus_gallus
+10661	Canis_familiaris	5	1	Gallus_gallus
+10681	Monodelphis_domestica	5	1	Gallus_gallus
+10682	Canis_familiaris	5	1	Gallus_gallus
+10696	Canis_familiaris	5	1	Gallus_gallus
+10697	Monodelphis_domestica	5	1	Gallus_gallus
+10706	Rattus_norvegicus	5	1	
+10710	Monodelphis_domestica	5	1	Gallus_gallus
+10711	Monodelphis_domestica	5	1	Gallus_gallus
+10712	Canis_familiaris	5	1	
+10713	Canis_familiaris	5	1	Gallus_gallus
+10730	Canis_familiaris	6	2	Gallus_gallus
+10744	Canis_familiaris	5	1	Gallus_gallus
+10751	Canis_familiaris	5	1	
+10753	Canis_familiaris	5	1	Gallus_gallus
+10758	Monodelphis_domestica	5	1	Gallus_gallus
+10759	Canis_familiaris	5	1	Gallus_gallus
+10770	Pan_troglodytes	5	1	Gallus_gallus
+10787	Canis_familiaris	5	1	
+10805	Monodelphis_domestica	5	1	Gallus_gallus
+10822	Rattus_norvegicus	5	1	Gallus_gallus
+10824	Canis_familiaris	5	1	Gallus_gallus
+10827	Pan_troglodytes	5	1	Gallus_gallus
+10828	Mus_musculus	5	1	Gallus_gallus
+10837	Monodelphis_domestica	5	1	Gallus_gallus
+10860	Canis_familiaris	5	1	Gallus_gallus
+10863	Canis_familiaris	5	1	Gallus_gallus
+10874	Rattus_norvegicus	5	1	
+10875	Pan_troglodytes	6	2	Gallus_gallus
+10880	Canis_familiaris	6	2	Gallus_gallus
+10893	Rattus_norvegicus	5	1	Gallus_gallus
+10894	Canis_familiaris	6	2	Gallus_gallus
+10899	Canis_familiaris	5	1	
+10903	Canis_familiaris	5	1	Gallus_gallus
+10917	Pan_troglodytes	5	1	Gallus_gallus
+10922	Rattus_norvegicus	6	2	Gallus_gallus
+10923	Monodelphis_domestica	5	1	Gallus_gallus
+10930	Monodelphis_domestica	5	1	Gallus_gallus
+10936	Canis_familiaris	5	1	Gallus_gallus
+10953	Monodelphis_domestica	5	1	Gallus_gallus
+10978	Monodelphis_domestica	5	1	Gallus_gallus
+10986	Canis_familiaris	5	1	Gallus_gallus
+10990	Pan_troglodytes	5	1	
+10992	Monodelphis_domestica	6	2	Gallus_gallus
+10997	Monodelphis_domestica	5	1	Gallus_gallus
+11003	Rattus_norvegicus	5	1	Gallus_gallus
+11004	Canis_familiaris	5	1	Gallus_gallus
+11020	Monodelphis_domestica	5	1	Gallus_gallus
+11022	Monodelphis_domestica	6	2	Gallus_gallus
+11023	Canis_familiaris	6	2	Gallus_gallus
+11034	Rattus_norvegicus	5	1	Gallus_gallus
+11043	Monodelphis_domestica	5	1	Gallus_gallus
+11054	Canis_familiaris	5	1	Gallus_gallus
+11055	Canis_familiaris	5	1	
+11069	Rattus_norvegicus	5	1	Gallus_gallus
+11070	Monodelphis_domestica	5	1	Gallus_gallus
+11075	Canis_familiaris	5	1	Gallus_gallus
+11084	Monodelphis_domestica	5	1	Gallus_gallus
+11102	Canis_familiaris	5	1	Gallus_gallus
+11115	Canis_familiaris	5	1	Gallus_gallus
+11117	Monodelphis_domestica	5	1	Gallus_gallus
+11120	Pan_troglodytes	5	1	Gallus_gallus
+11155	Monodelphis_domestica	5	1	Gallus_gallus
+11162	Canis_familiaris	5	1	Gallus_gallus
+11168	Canis_familiaris	5	1	Gallus_gallus
+11180	Canis_familiaris	5	1	Gallus_gallus
+11187	Canis_familiaris	5	1	Gallus_gallus
+11189	Homo_sapiens	5	1	Gallus_gallus
+11196	Canis_familiaris	6	2	Gallus_gallus
+11213	Canis_familiaris	5	1	Gallus_gallus
+11214	Canis_familiaris	6	2	
+11232	Canis_familiaris	5	1	Gallus_gallus
+11235	Canis_familiaris	6	2	Gallus_gallus
+11267	Mus_musculus	5	1	
+11281	Monodelphis_domestica	5	1	Gallus_gallus
+11317	Canis_familiaris	6	2	Gallus_gallus
+11323	Monodelphis_domestica	5	1	Gallus_gallus
+11332	Canis_familiaris	5	1	Gallus_gallus
+11334	Homo_sapiens	6	2	Gallus_gallus
+11357	Canis_familiaris	6	2	Gallus_gallus
+11365	Canis_familiaris	5	1	
+11373	Canis_familiaris	5	1	Gallus_gallus
+11385	Canis_familiaris	5	1	Gallus_gallus
+11394	Canis_familiaris	5	1	
+11399	Canis_familiaris	5	1	Gallus_gallus
+11408	Canis_familiaris	5	1	Gallus_gallus
+11426	Monodelphis_domestica	5	1	Gallus_gallus
+11427	Monodelphis_domestica	5	1	Gallus_gallus
+11439	Canis_familiaris	5	1	
+11449	Monodelphis_domestica	5	1	Gallus_gallus
+11454	Monodelphis_domestica	5	1	Gallus_gallus
+11461	Monodelphis_domestica	5	1	Gallus_gallus
+11478	Monodelphis_domestica	5	1	Gallus_gallus
+11481	Monodelphis_domestica	5	1	Gallus_gallus
+11484	Rattus_norvegicus	7	2	
+11506	Canis_familiaris	5	1	Gallus_gallus
+11507	Monodelphis_domestica	5	1	Gallus_gallus
+11513	Canis_familiaris	5	1	Gallus_gallus
+11519	Canis_familiaris	5	1	Gallus_gallus
+11528	Monodelphis_domestica	5	1	Gallus_gallus
+11533	Rattus_norvegicus	5	1	Gallus_gallus
+11547	Monodelphis_domestica	5	1	Gallus_gallus
+11548	Monodelphis_domestica	6	2	Gallus_gallus
+11552	Pan_troglodytes	6	2	
+11555	Monodelphis_domestica	5	1	Gallus_gallus
+11558	Rattus_norvegicus	6	2	Gallus_gallus
+11564	Canis_familiaris	5	1	
+11570	Rattus_norvegicus	5	1	
+11571	Canis_familiaris	5	1	Gallus_gallus
+11575	Canis_familiaris	5	1	Gallus_gallus
+11590	Canis_familiaris	6	2	Gallus_gallus
+11598	Monodelphis_domestica	5	1	Gallus_gallus
+11616	Homo_sapiens	5	1	Gallus_gallus
+11617	Monodelphis_domestica	5	1	Gallus_gallus
+11621	Homo_sapiens	7	2	
+11654	Monodelphis_domestica	5	1	Gallus_gallus
+11668	Monodelphis_domestica	5	1	Gallus_gallus
+11670	Canis_familiaris	5	1	Gallus_gallus
+11675	Canis_familiaris	5	1	Gallus_gallus
+11684	Canis_familiaris	5	1	Gallus_gallus
+11689	Homo_sapiens	6	2	Gallus_gallus
+11699	Rattus_norvegicus	5	1	Gallus_gallus
+11700	Canis_familiaris	6	2	Gallus_gallus
+11710	Canis_familiaris	6	2	
+11716	Canis_familiaris	5	1	Gallus_gallus
+11720	Canis_familiaris	5	1	
+11730	Monodelphis_domestica	6	2	Gallus_gallus
+11741	Canis_familiaris	5	1	Gallus_gallus
+11742	Mus_musculus	5	1	
+11750	Monodelphis_domestica	5	1	Gallus_gallus
+11751	Canis_familiaris	5	1	
+11752	Monodelphis_domestica	5	1	Gallus_gallus
+11756	Rattus_norvegicus	5	1	Gallus_gallus
+11759	Canis_familiaris	5	1	
+11765	Monodelphis_domestica	5	1	Gallus_gallus
+11774	Monodelphis_domestica	5	1	Gallus_gallus
+11775	Mus_musculus	6	2	
+11778	Homo_sapiens	5	1	Gallus_gallus
+11780	Monodelphis_domestica	5	1	Gallus_gallus
+11781	Canis_familiaris	5	1	Gallus_gallus
+11783	Monodelphis_domestica	5	1	Gallus_gallus
+11788	Canis_familiaris	5	1	
+11789	Pan_troglodytes	5	1	Gallus_gallus
+11801	Homo_sapiens	5	1	Gallus_gallus
+11821	Canis_familiaris	5	1	Gallus_gallus
+11827	Monodelphis_domestica	5	1	Gallus_gallus
+11841	Monodelphis_domestica	5	1	Gallus_gallus
+11850	Pan_troglodytes	5	1	Gallus_gallus
+11853	Monodelphis_domestica	5	1	Gallus_gallus
+11864	Monodelphis_domestica	5	1	Gallus_gallus
+11869	Mus_musculus	5	1	Gallus_gallus
+11873	Canis_familiaris	5	1	Gallus_gallus
+11875	Canis_familiaris	5	1	Gallus_gallus
+11882	Canis_familiaris	5	1	
+11883	Canis_familiaris	5	1	
+11901	Rattus_norvegicus	5	1	Gallus_gallus
+11907	Monodelphis_domestica	5	1	Gallus_gallus
+11909	Canis_familiaris	5	1	
+11931	Canis_familiaris	5	1	Gallus_gallus
+11932	Monodelphis_domestica	6	2	Gallus_gallus
+11939	Monodelphis_domestica	5	1	Gallus_gallus
+11973	Monodelphis_domestica	5	1	Gallus_gallus
+11977	Canis_familiaris	6	2	
+11986	Canis_familiaris	5	1	Gallus_gallus
+11992	Monodelphis_domestica	5	1	Gallus_gallus
+12004	Canis_familiaris	5	1	Gallus_gallus
+12014	Monodelphis_domestica	5	1	Gallus_gallus
+12016	Canis_familiaris	5	1	Gallus_gallus
+12020	Monodelphis_domestica	5	1	Gallus_gallus
+12025	Monodelphis_domestica	5	1	Gallus_gallus
+12030	Rattus_norvegicus	5	1	Gallus_gallus
+12032	Pan_troglodytes	5	1	
+12033	Pan_troglodytes	5	1	Gallus_gallus
+12047	Pan_troglodytes	7	2	Gallus_gallus
+12052	Canis_familiaris	5	1	Gallus_gallus
+12054	Canis_familiaris	5	1	
+12065	Canis_familiaris	5	1	Gallus_gallus
+12069	Canis_familiaris	5	1	Gallus_gallus
+12097	Monodelphis_domestica	7	2	Gallus_gallus
+12107	Canis_familiaris	5	1	Gallus_gallus
+12109	Monodelphis_domestica	5	1	Gallus_gallus
+12113	Monodelphis_domestica	5	1	Gallus_gallus
+12122	Monodelphis_domestica	5	1	Gallus_gallus
+12136	Canis_familiaris	5	1	Gallus_gallus
+12140	Monodelphis_domestica	5	1	Gallus_gallus
+12143	Canis_familiaris	5	1	
+12145	Canis_familiaris	5	1	Gallus_gallus
+12148	Rattus_norvegicus	5	1	Gallus_gallus
+12154	Monodelphis_domestica	5	1	Gallus_gallus
+12156	Monodelphis_domestica	5	1	Gallus_gallus
+12163	Rattus_norvegicus	5	1	Gallus_gallus
+12175	Canis_familiaris	5	1	Gallus_gallus
+12179	Canis_familiaris	5	1	Gallus_gallus
+12195	Rattus_norvegicus	5	1	Gallus_gallus
+12214	Monodelphis_domestica	5	1	Gallus_gallus
+12221	Monodelphis_domestica	5	1	Gallus_gallus
+12232	Monodelphis_domestica	5	1	Gallus_gallus
+12234	Canis_familiaris	5	1	
+12236	Canis_familiaris	5	1	Gallus_gallus
+12241	Homo_sapiens	5	1	Gallus_gallus
+12247	Canis_familiaris	5	1	Gallus_gallus
+12254	Monodelphis_domestica	5	1	Gallus_gallus
+12255	Canis_familiaris	5	1	Gallus_gallus
+12262	Pan_troglodytes	5	1	Gallus_gallus
+12266	Pan_troglodytes	6	2	
+12271	Canis_familiaris	5	1	Gallus_gallus
+12276	Canis_familiaris	6	2	Gallus_gallus
+12277	Canis_familiaris	5	1	
+12279	Canis_familiaris	5	1	Gallus_gallus
+12283	Canis_familiaris	5	1	Gallus_gallus
+12290	Pan_troglodytes	5	1	
+12306	Monodelphis_domestica	5	1	Gallus_gallus
+12309	Monodelphis_domestica	5	1	Gallus_gallus
+12312	Canis_familiaris	6	2	Gallus_gallus
+12322	Canis_familiaris	6	2	Gallus_gallus
+12328	Canis_familiaris	5	1	Gallus_gallus
+12331	Monodelphis_domestica	5	1	Gallus_gallus
+12334	Canis_familiaris	5	1	Gallus_gallus
+12337	Monodelphis_domestica	5	1	Gallus_gallus
+12383	Rattus_norvegicus	6	2	Gallus_gallus
+12389	Monodelphis_domestica	5	1	Gallus_gallus
+12390	Canis_familiaris	5	1	
+12398	Monodelphis_domestica	5	1	Gallus_gallus
+12435	Monodelphis_domestica	5	1	Gallus_gallus
+12473	Mus_musculus	5	1	Gallus_gallus
+12482	Monodelphis_domestica	5	1	Gallus_gallus
+12488	Monodelphis_domestica	5	1	Gallus_gallus
+12491	Canis_familiaris	5	1	Gallus_gallus
+12492	Monodelphis_domestica	5	1	Gallus_gallus
+12499	Canis_familiaris	6	2	Gallus_gallus
+12502	Rattus_norvegicus	5	1	
+12504	Monodelphis_domestica	5	1	Gallus_gallus
+12507	Monodelphis_domestica	5	1	Gallus_gallus
+12521	Canis_familiaris	5	1	Gallus_gallus
+12528	Mus_musculus	5	1	
+12533	Rattus_norvegicus	5	1	Gallus_gallus
+12554	Monodelphis_domestica	5	1	Gallus_gallus
+12574	Canis_familiaris	5	1	Gallus_gallus
+12577	Pan_troglodytes	6	2	Gallus_gallus
+12578	Monodelphis_domestica	5	1	Gallus_gallus
+12585	Canis_familiaris	5	1	
+12589	Canis_familiaris	5	1	Gallus_gallus
+12614	Pan_troglodytes	5	1	Gallus_gallus
+12632	Canis_familiaris	5	1	Gallus_gallus
+12652	Canis_familiaris	5	1	Gallus_gallus
+12657	Rattus_norvegicus	5	1	Gallus_gallus
+12665	Rattus_norvegicus	5	1	Gallus_gallus
+12675	Canis_familiaris	5	1	Gallus_gallus
+12701	Homo_sapiens	8	2	Gallus_gallus
+12704	Homo_sapiens	7	2	
+12715	Canis_familiaris	5	1	Gallus_gallus
+12718	Monodelphis_domestica	5	1	Gallus_gallus
+12723	Monodelphis_domestica	5	1	Gallus_gallus
+12737	Monodelphis_domestica	5	1	Gallus_gallus
+12745	Canis_familiaris	5	1	
+12749	Monodelphis_domestica	9	2	Gallus_gallus
+12763	Canis_familiaris	5	1	Gallus_gallus
+12764	Canis_familiaris	5	1	Gallus_gallus
+12773	Canis_familiaris	5	1	
+12774	Mus_musculus	6	2	Gallus_gallus
+12780	Monodelphis_domestica	5	1	Gallus_gallus
+12784	Monodelphis_domestica	5	1	Gallus_gallus
+12786	Monodelphis_domestica	5	1	Gallus_gallus
+12800	Canis_familiaris	5	1	Gallus_gallus
+12805	Canis_familiaris	5	1	Gallus_gallus
+12812	Canis_familiaris	6	2	Gallus_gallus
+12818	Canis_familiaris	5	1	
+12831	Rattus_norvegicus	5	1	
+12837	Monodelphis_domestica	5	1	Gallus_gallus
+12839	Monodelphis_domestica	5	1	Gallus_gallus
+12840	Monodelphis_domestica	5	1	Gallus_gallus
+12841	Canis_familiaris	5	1	
+12843	Rattus_norvegicus	5	1	
+12855	Homo_sapiens	5	1	Gallus_gallus
+12863	Monodelphis_domestica	5	1	Gallus_gallus
+12872	Monodelphis_domestica	5	1	Gallus_gallus
+12882	Canis_familiaris	5	1	
+12888	Monodelphis_domestica	5	1	Gallus_gallus
+12889	Pan_troglodytes	5	1	Gallus_gallus
+12901	Canis_familiaris	5	1	Gallus_gallus
+12902	Rattus_norvegicus	5	1	
+12906	Monodelphis_domestica	5	1	Gallus_gallus
+12915	Monodelphis_domestica	5	1	Gallus_gallus
+12952	Monodelphis_domestica	5	1	Gallus_gallus
+12958	Canis_familiaris	5	1	
+12962	Canis_familiaris	5	1	
+12963	Monodelphis_domestica	5	1	Gallus_gallus
+12995	Pan_troglodytes	6	2	Gallus_gallus
+13011	Monodelphis_domestica	5	1	Gallus_gallus
+13020	Rattus_norvegicus	5	1	Gallus_gallus
+13024	Canis_familiaris	5	1	
+13028	Canis_familiaris	5	1	Gallus_gallus
+13032	Monodelphis_domestica	5	1	Gallus_gallus
+13033	Monodelphis_domestica	5	1	Gallus_gallus
+13044	Monodelphis_domestica	5	1	Gallus_gallus
+13047	Monodelphis_domestica	5	1	Gallus_gallus
+13049	Canis_familiaris	5	1	Gallus_gallus
+13052	Monodelphis_domestica	5	1	Gallus_gallus
+13057	Monodelphis_domestica	5	1	Gallus_gallus
+13061	Canis_familiaris	5	1	Gallus_gallus
+13070	Canis_familiaris	5	1	
+13073	Monodelphis_domestica	5	1	Gallus_gallus
+13077	Monodelphis_domestica	5	1	Gallus_gallus
+13089	Monodelphis_domestica	5	1	Gallus_gallus
+13092	Canis_familiaris	5	1	Gallus_gallus
+13098	Pan_troglodytes	5	1	Gallus_gallus
+13134	Monodelphis_domestica	5	1	Gallus_gallus
+13135	Pan_troglodytes	5	1	Gallus_gallus
+13145	Monodelphis_domestica	5	1	Gallus_gallus
+13147	Canis_familiaris	6	2	Gallus_gallus
+13153	Monodelphis_domestica	5	1	Gallus_gallus
+13162	Monodelphis_domestica	6	2	Gallus_gallus
+13168	Mus_musculus	6	2	Gallus_gallus
+13178	Canis_familiaris	5	1	Gallus_gallus
+13182	Pan_troglodytes	5	1	Gallus_gallus
+13187	Monodelphis_domestica	5	1	Gallus_gallus
+13191	Canis_familiaris	5	1	Gallus_gallus
+13194	Canis_familiaris	5	1	Gallus_gallus
+13243	Pan_troglodytes	6	2	Gallus_gallus
+13256	Monodelphis_domestica	5	1	Gallus_gallus
+13268	Monodelphis_domestica	5	1	Gallus_gallus
+13279	Rattus_norvegicus	5	1	Gallus_gallus
+13292	Monodelphis_domestica	5	1	Gallus_gallus
+13304	Monodelphis_domestica	5	1	Gallus_gallus
+13340	Monodelphis_domestica	5	1	Gallus_gallus
+13345	Canis_familiaris	6	2	
+13358	Canis_familiaris	5	1	Gallus_gallus
+13368	Monodelphis_domestica	5	1	Gallus_gallus
+13370	Monodelphis_domestica	6	2	Gallus_gallus
+13392	Monodelphis_domestica	5	1	Gallus_gallus
+13396	Monodelphis_domestica	5	1	Gallus_gallus
+13399	Monodelphis_domestica	5	1	Gallus_gallus
+13407	Pan_troglodytes	5	1	Gallus_gallus
+13411	Canis_familiaris	6	2	Gallus_gallus
+13416	Monodelphis_domestica	5	1	Gallus_gallus
+13437	Monodelphis_domestica	5	1	Gallus_gallus
+13441	Canis_familiaris	6	2	Gallus_gallus
+13443	Canis_familiaris	5	1	Gallus_gallus
+13453	Canis_familiaris	5	1	Gallus_gallus
+13456	Monodelphis_domestica	5	1	Gallus_gallus
+13458	Canis_familiaris	6	2	Gallus_gallus
+13464	Monodelphis_domestica	5	1	Gallus_gallus
+13480	Canis_familiaris	5	1	Gallus_gallus
+13486	Monodelphis_domestica	5	1	Gallus_gallus
+13495	Canis_familiaris	5	1	Gallus_gallus
+13527	Canis_familiaris	6	2	Gallus_gallus
+13529	Canis_familiaris	5	1	Gallus_gallus
+13532	Canis_familiaris	5	1	Gallus_gallus
+13535	Monodelphis_domestica	5	1	Gallus_gallus
+13543	Canis_familiaris	5	1	Gallus_gallus
+13557	Monodelphis_domestica	5	1	Gallus_gallus
+13560	Monodelphis_domestica	6	2	Gallus_gallus
+13563	Monodelphis_domestica	5	1	Gallus_gallus
+13564	Monodelphis_domestica	6	2	Gallus_gallus
+13565	Monodelphis_domestica	6	2	Gallus_gallus
+13567	Monodelphis_domestica	5	1	Gallus_gallus
+13592	Canis_familiaris	5	1	Gallus_gallus
+13625	Rattus_norvegicus	6	2	Gallus_gallus
+13643	Monodelphis_domestica	7	2	Gallus_gallus
+13655	Canis_familiaris	5	1	Gallus_gallus
+13665	Mus_musculus	5	1	Gallus_gallus
+13668	Canis_familiaris	5	1	Gallus_gallus
+13671	Rattus_norvegicus	5	1	Gallus_gallus
+13703	Monodelphis_domestica	5	1	Gallus_gallus
+13711	Monodelphis_domestica	5	1	Gallus_gallus
+13783	Monodelphis_domestica	5	1	Gallus_gallus
+13790	Canis_familiaris	5	1	
+13798	Monodelphis_domestica	5	1	Gallus_gallus
+13801	Canis_familiaris	5	1	Gallus_gallus
+13802	Monodelphis_domestica	5	1	Gallus_gallus
+13803	Monodelphis_domestica	5	1	Gallus_gallus
+13806	Pan_troglodytes	5	1	Gallus_gallus
+13813	Canis_familiaris	5	1	Gallus_gallus
+13823	Monodelphis_domestica	5	1	Gallus_gallus
+13826	Homo_sapiens	5	1	
+13837	Rattus_norvegicus	6	2	
+13838	Monodelphis_domestica	5	1	Gallus_gallus
+13844	Canis_familiaris	5	1	Gallus_gallus
+13857	Canis_familiaris	5	1	
+13860	Canis_familiaris	5	1	
+13865	Monodelphis_domestica	5	1	Gallus_gallus
+13868	Rattus_norvegicus	5	1	
+13877	Canis_familiaris	5	1	
+13878	Canis_familiaris	5	1	Gallus_gallus
+13892	Pan_troglodytes	5	1	Gallus_gallus
+13898	Canis_familiaris	5	1	Gallus_gallus
+13917	Monodelphis_domestica	5	1	Gallus_gallus
+13924	Canis_familiaris	5	1	Gallus_gallus
+13930	Monodelphis_domestica	5	1	Gallus_gallus
+13938	Rattus_norvegicus	5	1	Gallus_gallus
+13947	Monodelphis_domestica	5	1	Gallus_gallus
+13953	Rattus_norvegicus	5	1	Gallus_gallus
+13954	Monodelphis_domestica	5	1	Gallus_gallus
+13960	Monodelphis_domestica	5	1	Gallus_gallus
+13964	Canis_familiaris	5	1	
+14000	Monodelphis_domestica	6	2	Gallus_gallus
+14008	Rattus_norvegicus	5	1	Gallus_gallus
+14009	Monodelphis_domestica	5	1	Gallus_gallus
+14040	Canis_familiaris	5	1	
+14044	Canis_familiaris	5	1	Gallus_gallus
+14045	Rattus_norvegicus	5	1	Gallus_gallus
+14053	Monodelphis_domestica	5	1	Gallus_gallus
+14064	Monodelphis_domestica	6	2	Gallus_gallus
+14067	Canis_familiaris	6	2	Gallus_gallus
+14088	Rattus_norvegicus	5	1	Gallus_gallus
+14102	Canis_familiaris	5	1	Gallus_gallus
+14107	Canis_familiaris	5	1	
+14117	Canis_familiaris	5	1	Gallus_gallus
+14118	Canis_familiaris	5	1	Gallus_gallus
+14121	Canis_familiaris	5	1	Gallus_gallus
+14122	Canis_familiaris	5	1	Gallus_gallus
+14134	Canis_familiaris	5	1	Gallus_gallus
+14152	Canis_familiaris	5	1	Gallus_gallus
+14159	Canis_familiaris	5	1	Gallus_gallus
+14173	Canis_familiaris	5	1	
+14180	Monodelphis_domestica	5	1	Gallus_gallus
+14181	Monodelphis_domestica	5	1	Gallus_gallus
+14196	Monodelphis_domestica	6	2	Gallus_gallus
+14206	Monodelphis_domestica	5	1	Gallus_gallus
+14209	Monodelphis_domestica	5	1	Gallus_gallus
+14210	Canis_familiaris	5	1	Gallus_gallus
+14211	Monodelphis_domestica	5	1	Gallus_gallus
+14218	Canis_familiaris	5	1	Gallus_gallus
+14219	Canis_familiaris	5	1	Gallus_gallus
+14222	Monodelphis_domestica	5	1	Gallus_gallus
+14230	Monodelphis_domestica	5	1	Gallus_gallus
+14236	Monodelphis_domestica	5	1	Gallus_gallus
+14274	Pan_troglodytes	5	1	
+14281	Canis_familiaris	5	1	
+14296	Canis_familiaris	6	2	
+14304	Monodelphis_domestica	5	1	Gallus_gallus
+14311	Canis_familiaris	5	1	
+14314	Pan_troglodytes	5	1	
+14334	Canis_familiaris	5	1	
+14336	Canis_familiaris	6	2	Gallus_gallus
+14341	Canis_familiaris	6	2	Gallus_gallus
+14345	Canis_familiaris	5	1	
+14384	Canis_familiaris	5	1	Gallus_gallus
+14390	Canis_familiaris	5	1	
+14404	Canis_familiaris	5	1	Gallus_gallus
+14414	Canis_familiaris	5	1	Gallus_gallus
+14418	Canis_familiaris	5	1	Gallus_gallus
+14425	Monodelphis_domestica	6	2	Gallus_gallus
+14426	Monodelphis_domestica	5	1	Gallus_gallus
+14433	Rattus_norvegicus	5	1	Gallus_gallus
+14446	Monodelphis_domestica	5	1	Gallus_gallus
+14450	Monodelphis_domestica	5	1	Gallus_gallus
+14481	Canis_familiaris	5	1	Gallus_gallus
+14482	Monodelphis_domestica	5	1	Gallus_gallus
+14484	Rattus_norvegicus	5	1	Gallus_gallus
+14486	Pan_troglodytes	6	2	Gallus_gallus
+14489	Monodelphis_domestica	5	1	Gallus_gallus
+14500	Rattus_norvegicus	5	1	
+14521	Monodelphis_domestica	5	1	Gallus_gallus
+14531	Rattus_norvegicus	5	1	Gallus_gallus
+14540	Monodelphis_domestica	5	1	Gallus_gallus
+14544	Canis_familiaris	5	1	Gallus_gallus
+14545	Rattus_norvegicus	5	1	Gallus_gallus
+14559	Canis_familiaris	5	1	Gallus_gallus
+14568	Canis_familiaris	5	1	Gallus_gallus
+14588	Canis_familiaris	5	1	Gallus_gallus
+14623	Canis_familiaris	5	1	
+14628	Canis_familiaris	6	2	Gallus_gallus
+14638	Rattus_norvegicus	5	1	Gallus_gallus
+14640	Monodelphis_domestica	5	1	Gallus_gallus
+14645	Canis_familiaris	5	1	
+14646	Monodelphis_domestica	5	1	Gallus_gallus
+14651	Canis_familiaris	7	2	
+14655	Monodelphis_domestica	5	1	Gallus_gallus
+14661	Canis_familiaris	5	1	Gallus_gallus
+14672	Monodelphis_domestica	5	1	Gallus_gallus
+14677	Monodelphis_domestica	5	1	Gallus_gallus
+14679	Canis_familiaris	7	2	
+14681	Monodelphis_domestica	5	1	Gallus_gallus
+14694	Rattus_norvegicus	5	1	Gallus_gallus
+14699	Canis_familiaris	5	1	Gallus_gallus
+14702	Canis_familiaris	5	1	Gallus_gallus
+14724	Rattus_norvegicus	5	1	Gallus_gallus
+14727	Canis_familiaris	5	1	Gallus_gallus
+14734	Canis_familiaris	6	2	Gallus_gallus
+14748	Monodelphis_domestica	5	1	Gallus_gallus
+14750	Monodelphis_domestica	5	1	Gallus_gallus
+14791	Canis_familiaris	6	2	Gallus_gallus
+14799	Canis_familiaris	5	1	Gallus_gallus
+14805	Monodelphis_domestica	5	1	Gallus_gallus
+14813	Canis_familiaris	5	1	Gallus_gallus
+14822	Canis_familiaris	5	1	Gallus_gallus
+14823	Monodelphis_domestica	5	1	Gallus_gallus
+14845	Monodelphis_domestica	5	1	Gallus_gallus
+14846	Canis_familiaris	6	2	Gallus_gallus
+14849	Monodelphis_domestica	5	1	Gallus_gallus
+14860	Monodelphis_domestica	5	1	Gallus_gallus
+14878	Monodelphis_domestica	5	1	Gallus_gallus
+14894	Monodelphis_domestica	6	2	Gallus_gallus
+14906	Monodelphis_domestica	5	1	Gallus_gallus
+14933	Rattus_norvegicus	5	1	Gallus_gallus
+14938	Canis_familiaris	5	1	Gallus_gallus
+14974	Canis_familiaris	5	1	Gallus_gallus
+14979	Monodelphis_domestica	5	1	Gallus_gallus
+14989	Canis_familiaris	5	1	
+14995	Monodelphis_domestica	5	1	Gallus_gallus
+15012	Pan_troglodytes	6	2	Gallus_gallus
+15020	Monodelphis_domestica	6	2	Gallus_gallus
+15032	Homo_sapiens	5	1	Gallus_gallus
+15033	Monodelphis_domestica	5	1	Gallus_gallus
+15043	Pan_troglodytes	6	2	Gallus_gallus
+15044	Mus_musculus	5	1	
+15052	Canis_familiaris	5	1	Gallus_gallus
+15057	Canis_familiaris	5	1	Gallus_gallus
+15059	Canis_familiaris	5	1	
+15064	Canis_familiaris	6	2	Gallus_gallus
+15072	Rattus_norvegicus	5	1	Gallus_gallus
+15073	Monodelphis_domestica	5	1	Gallus_gallus
+15078	Pan_troglodytes	5	1	Gallus_gallus
+15079	Canis_familiaris	5	1	Gallus_gallus
+15089	Canis_familiaris	5	1	Gallus_gallus
+15090	Monodelphis_domestica	5	1	Gallus_gallus
+15097	Monodelphis_domestica	5	1	Gallus_gallus
+15106	Canis_familiaris	5	1	Gallus_gallus
+15110	Monodelphis_domestica	5	1	Gallus_gallus
+15111	Canis_familiaris	5	1	
+15114	Rattus_norvegicus	5	1	Gallus_gallus
+15119	Monodelphis_domestica	5	1	Gallus_gallus
+15124	Canis_familiaris	6	2	Gallus_gallus
+15135	Monodelphis_domestica	5	1	Gallus_gallus
+15137	Monodelphis_domestica	6	2	Gallus_gallus
+15147	Canis_familiaris	6	2	Gallus_gallus
+15148	Monodelphis_domestica	5	1	Gallus_gallus
+15151	Rattus_norvegicus	5	1	
+15155	Monodelphis_domestica	6	2	Gallus_gallus
+15177	Monodelphis_domestica	5	1	Gallus_gallus
+15192	Pan_troglodytes	5	1	
+15202	Rattus_norvegicus	5	1	Gallus_gallus
+15231	Monodelphis_domestica	5	1	Gallus_gallus
+15246	Monodelphis_domestica	5	1	Gallus_gallus
+15251	Canis_familiaris	5	1	
+15252	Monodelphis_domestica	6	2	Gallus_gallus
+15254	Monodelphis_domestica	5	1	Gallus_gallus
+15259	Monodelphis_domestica	5	1	Gallus_gallus
+15260	Canis_familiaris	5	1	Gallus_gallus
+15262	Pan_troglodytes	5	1	Gallus_gallus
+15264	Canis_familiaris	5	1	
+15267	Monodelphis_domestica	5	1	Gallus_gallus
+15292	Canis_familiaris	5	1	Gallus_gallus
+15297	Canis_familiaris	5	1	Gallus_gallus
+15305	Monodelphis_domestica	6	2	Gallus_gallus
+15307	Monodelphis_domestica	6	2	Gallus_gallus
+15330	Pan_troglodytes	5	1	Gallus_gallus
+15331	Monodelphis_domestica	5	1	Gallus_gallus
+15341	Rattus_norvegicus	5	1	Gallus_gallus
+15362	Mus_musculus	5	1	Gallus_gallus
+15382	Canis_familiaris	5	1	Gallus_gallus
+15395	Canis_familiaris	5	1	Gallus_gallus
+15400	Monodelphis_domestica	5	1	Gallus_gallus
+15401	Homo_sapiens	5	1	Gallus_gallus
+15403	Monodelphis_domestica	5	1	Gallus_gallus
+15407	Canis_familiaris	5	1	Gallus_gallus
+15420	Canis_familiaris	6	2	Gallus_gallus
+15422	Monodelphis_domestica	5	1	Gallus_gallus
+15423	Canis_familiaris	5	1	
+15429	Monodelphis_domestica	5	1	Gallus_gallus
+15444	Canis_familiaris	5	1	Gallus_gallus
+15459	Monodelphis_domestica	5	1	Gallus_gallus
+15465	Rattus_norvegicus	5	1	Gallus_gallus
+15469	Rattus_norvegicus	5	1	Gallus_gallus
+15482	Rattus_norvegicus	5	1	
+15510	Monodelphis_domestica	5	1	Gallus_gallus
+15527	Monodelphis_domestica	5	1	Gallus_gallus
+15533	Canis_familiaris	5	1	Gallus_gallus
+15542	Canis_familiaris	5	1	Gallus_gallus
+15550	Canis_familiaris	5	1	Gallus_gallus
+15560	Canis_familiaris	5	1	
+15584	Pan_troglodytes	5	1	Gallus_gallus
+15586	Mus_musculus	5	1	Gallus_gallus
+15590	Homo_sapiens	5	1	Gallus_gallus
+15594	Pan_troglodytes	5	1	Gallus_gallus
+15609	Canis_familiaris	5	1	Gallus_gallus
+15621	Rattus_norvegicus	5	1	Gallus_gallus
+15653	Canis_familiaris	5	1	Gallus_gallus
+15660	Canis_familiaris	5	1	
+15661	Canis_familiaris	5	1	Gallus_gallus
+15666	Canis_familiaris	5	1	
+15668	Rattus_norvegicus	5	1	Gallus_gallus
+15698	Monodelphis_domestica	5	1	Gallus_gallus
+15706	Pan_troglodytes	7	2	Gallus_gallus
+15707	Monodelphis_domestica	5	1	Gallus_gallus
+15738	Monodelphis_domestica	5	1	Gallus_gallus
+15747	Canis_familiaris	5	1	Gallus_gallus
+15753	Monodelphis_domestica	5	1	Gallus_gallus
+15754	Monodelphis_domestica	5	1	Gallus_gallus
+15761	Monodelphis_domestica	5	1	Gallus_gallus
+15792	Rattus_norvegicus	5	1	Gallus_gallus
+15799	Rattus_norvegicus	5	1	
+15800	Canis_familiaris	5	1	
+15803	Canis_familiaris	6	2	Gallus_gallus
+15810	Monodelphis_domestica	5	1	Gallus_gallus
+15815	Canis_familiaris	5	1	Gallus_gallus
+15819	Monodelphis_domestica	5	1	Gallus_gallus
+15821	Canis_familiaris	5	1	Gallus_gallus
+15822	Monodelphis_domestica	5	1	Gallus_gallus
+15826	Monodelphis_domestica	5	1	Gallus_gallus
+15845	Monodelphis_domestica	5	1	Gallus_gallus
+15848	Monodelphis_domestica	6	2	Gallus_gallus
+15852	Canis_familiaris	5	1	Gallus_gallus
+15855	Canis_familiaris	6	2	Gallus_gallus
+15863	Canis_familiaris	6	2	Gallus_gallus
+15878	Monodelphis_domestica	5	1	Gallus_gallus
+15905	Canis_familiaris	5	1	Gallus_gallus
+15909	Monodelphis_domestica	5	1	Gallus_gallus
+15917	Homo_sapiens	5	1	Gallus_gallus
+15925	Monodelphis_domestica	6	2	Gallus_gallus
+15926	Monodelphis_domestica	5	1	Gallus_gallus
+15933	Canis_familiaris	5	1	Gallus_gallus
+15942	Monodelphis_domestica	5	1	Gallus_gallus
+15960	Pan_troglodytes	5	1	
+15961	Monodelphis_domestica	5	1	Gallus_gallus
+15964	Canis_familiaris	5	1	Gallus_gallus
+15967	Mus_musculus	5	1	
+15969	Monodelphis_domestica	5	1	Gallus_gallus
+16012	Rattus_norvegicus	5	1	Gallus_gallus
+16013	Canis_familiaris	5	1	Gallus_gallus
+16014	Canis_familiaris	5	1	
+16016	Monodelphis_domestica	5	1	Gallus_gallus
+16018	Canis_familiaris	5	1	
+16024	Rattus_norvegicus	5	1	Gallus_gallus
+16028	Mus_musculus	5	1	Gallus_gallus
+16031	Monodelphis_domestica	5	1	Gallus_gallus
+16048	Rattus_norvegicus	5	1	Gallus_gallus
+16050	Rattus_norvegicus	5	1	Gallus_gallus
+16056	Homo_sapiens	5	1	Gallus_gallus
+16058	Monodelphis_domestica	7	2	Gallus_gallus
+16062	Canis_familiaris	5	1	Gallus_gallus
+16068	Canis_familiaris	5	1	Gallus_gallus
+16069	Canis_familiaris	5	1	Gallus_gallus
+16070	Rattus_norvegicus	6	2	Gallus_gallus
+16074	Canis_familiaris	5	1	Gallus_gallus
+16094	Canis_familiaris	5	1	Gallus_gallus
+16105	Monodelphis_domestica	5	1	Gallus_gallus
+16109	Canis_familiaris	6	2	Gallus_gallus
+16112	Rattus_norvegicus	6	2	
+16127	Monodelphis_domestica	6	2	Gallus_gallus
+16129	Monodelphis_domestica	5	1	Gallus_gallus
+16137	Monodelphis_domestica	5	1	Gallus_gallus
+16146	Monodelphis_domestica	6	2	Gallus_gallus
+16147	Canis_familiaris	7	2	Gallus_gallus
+16152	Monodelphis_domestica	5	1	Gallus_gallus
+16156	Canis_familiaris	5	1	Gallus_gallus
+16158	Monodelphis_domestica	5	1	Gallus_gallus
+16169	Canis_familiaris	5	1	Gallus_gallus
+16191	Canis_familiaris	5	1	Gallus_gallus
+16200	Canis_familiaris	6	2	Gallus_gallus
+16236	Monodelphis_domestica	5	1	Gallus_gallus
+16244	Homo_sapiens	5	1	Gallus_gallus
+16260	Monodelphis_domestica	5	1	Gallus_gallus
+16265	Monodelphis_domestica	5	1	Gallus_gallus
+16272	Canis_familiaris	5	1	Gallus_gallus
+16273	Rattus_norvegicus	6	2	
+16282	Canis_familiaris	5	1	Gallus_gallus
+16298	Homo_sapiens	5	1	Gallus_gallus
+16300	Homo_sapiens	5	1	Gallus_gallus
+16315	Monodelphis_domestica	6	2	Gallus_gallus
+16325	Monodelphis_domestica	5	1	Gallus_gallus
+16327	Canis_familiaris	5	1	
+16348	Canis_familiaris	5	1	Gallus_gallus
+16357	Monodelphis_domestica	5	1	Gallus_gallus
+16366	Canis_familiaris	5	1	Gallus_gallus
+16368	Canis_familiaris	5	1	Gallus_gallus
+16381	Monodelphis_domestica	6	2	Gallus_gallus
+16389	Monodelphis_domestica	5	1	Gallus_gallus
+16401	Canis_familiaris	5	1	Gallus_gallus
+16405	Pan_troglodytes	5	1	
+16415	Rattus_norvegicus	5	1	Gallus_gallus
+16420	Canis_familiaris	5	1	Gallus_gallus
+16423	Canis_familiaris	5	1	Gallus_gallus
+16425	Monodelphis_domestica	5	1	Gallus_gallus
+16427	Canis_familiaris	5	1	Gallus_gallus
+16441	Canis_familiaris	6	2	
+16443	Canis_familiaris	7	2	Gallus_gallus
+16444	Canis_familiaris	5	1	Gallus_gallus
+16445	Canis_familiaris	5	1	Gallus_gallus
+16449	Rattus_norvegicus	5	1	
+16458	Canis_familiaris	5	1	Gallus_gallus
+16459	Monodelphis_domestica	5	1	Gallus_gallus
+16466	Monodelphis_domestica	5	1	Gallus_gallus
+16474	Canis_familiaris	5	1	Gallus_gallus
+16485	Canis_familiaris	5	1	Gallus_gallus
+16486	Canis_familiaris	5	1	Gallus_gallus
+16488	Monodelphis_domestica	5	1	Gallus_gallus
+16489	Canis_familiaris	5	1	
+16501	Canis_familiaris	6	2	Gallus_gallus
+16540	Canis_familiaris	5	1	Gallus_gallus
+16542	Monodelphis_domestica	5	1	Gallus_gallus
+16555	Rattus_norvegicus	6	2	Gallus_gallus
+16560	Homo_sapiens	5	1	Gallus_gallus
+16563	Monodelphis_domestica	5	1	Gallus_gallus
+16568	Monodelphis_domestica	5	1	Gallus_gallus
+16570	Canis_familiaris	5	1	
+16573	Monodelphis_domestica	7	2	Gallus_gallus
+16589	Monodelphis_domestica	5	1	Gallus_gallus
+16590	Mus_musculus	6	2	
+16591	Monodelphis_domestica	5	1	Gallus_gallus
+16594	Pan_troglodytes	5	1	Gallus_gallus
+16608	Monodelphis_domestica	5	1	Gallus_gallus
+16618	Monodelphis_domestica	5	1	Gallus_gallus
+16632	Canis_familiaris	5	1	
+16639	Monodelphis_domestica	5	1	Gallus_gallus
+16675	Monodelphis_domestica	5	1	Gallus_gallus
+16680	Monodelphis_domestica	5	1	Gallus_gallus
+16685	Canis_familiaris	5	1	Gallus_gallus
+16691	Monodelphis_domestica	5	1	Gallus_gallus
+16693	Canis_familiaris	5	1	Gallus_gallus
+16695	Monodelphis_domestica	5	1	Gallus_gallus
+16698	Rattus_norvegicus	5	1	Gallus_gallus
+16701	Monodelphis_domestica	5	1	Gallus_gallus
+16705	Canis_familiaris	5	1	
+16715	Canis_familiaris	5	1	Gallus_gallus
+16728	Monodelphis_domestica	6	2	Gallus_gallus
+16737	Monodelphis_domestica	5	1	Gallus_gallus
+16752	Canis_familiaris	5	1	Gallus_gallus
+16757	Monodelphis_domestica	5	1	Gallus_gallus
+16773	Canis_familiaris	5	1	Gallus_gallus
+16785	Canis_familiaris	5	1	Gallus_gallus
+16786	Canis_familiaris	5	1	Gallus_gallus
+16790	Homo_sapiens	5	1	Gallus_gallus
+16795	Monodelphis_domestica	5	1	Gallus_gallus
+16809	Monodelphis_domestica	5	1	Gallus_gallus
+16813	Canis_familiaris	5	1	Gallus_gallus
+16825	Canis_familiaris	5	1	Gallus_gallus
+16836	Canis_familiaris	5	1	Gallus_gallus
+16849	Monodelphis_domestica	5	1	Gallus_gallus
+16851	Monodelphis_domestica	5	1	Gallus_gallus
+16857	Monodelphis_domestica	5	1	Gallus_gallus
+16859	Monodelphis_domestica	5	1	Gallus_gallus
+16860	Rattus_norvegicus	5	1	Gallus_gallus
+16883	Monodelphis_domestica	5	1	Gallus_gallus
+16897	Pan_troglodytes	5	1	Gallus_gallus
+16906	Canis_familiaris	6	2	
+16912	Monodelphis_domestica	5	1	Gallus_gallus
+16917	Monodelphis_domestica	5	1	Gallus_gallus
+16928	Monodelphis_domestica	6	2	Gallus_gallus
+16932	Monodelphis_domestica	5	1	Gallus_gallus
+16934	Monodelphis_domestica	5	1	Gallus_gallus
+16942	Monodelphis_domestica	6	2	Gallus_gallus
+16946	Monodelphis_domestica	5	1	Gallus_gallus
+16956	Monodelphis_domestica	5	1	Gallus_gallus
+16959	Monodelphis_domestica	5	1	Gallus_gallus
+16977	Monodelphis_domestica	5	1	Gallus_gallus
+16995	Monodelphis_domestica	5	1	Gallus_gallus
+17019	Canis_familiaris	5	1	Gallus_gallus
+17023	Canis_familiaris	5	1	
+17029	Monodelphis_domestica	5	1	Gallus_gallus
+17034	Rattus_norvegicus	5	1	
+17035	Canis_familiaris	5	1	
+17036	Rattus_norvegicus	7	2	
+17044	Canis_familiaris	5	1	Gallus_gallus
+17048	Canis_familiaris	5	1	
+17080	Canis_familiaris	7	2	Gallus_gallus
+17083	Canis_familiaris	6	2	Gallus_gallus
+17086	Monodelphis_domestica	5	1	Gallus_gallus
+17122	Monodelphis_domestica	5	1	Gallus_gallus
+17127	Monodelphis_domestica	5	1	Gallus_gallus
+17134	Monodelphis_domestica	5	1	Gallus_gallus
+17140	Monodelphis_domestica	5	1	Gallus_gallus
+17142	Monodelphis_domestica	5	1	Gallus_gallus
+17150	Canis_familiaris	5	1	
+17161	Monodelphis_domestica	5	1	Gallus_gallus
+17164	Monodelphis_domestica	5	1	Gallus_gallus
+17167	Canis_familiaris	5	1	Gallus_gallus
+17170	Canis_familiaris	5	1	Gallus_gallus
+17185	Canis_familiaris	5	1	Gallus_gallus
+17212	Pan_troglodytes	5	1	Gallus_gallus
+17213	Monodelphis_domestica	5	1	Gallus_gallus
+17242	Canis_familiaris	5	1	Gallus_gallus
+17255	Canis_familiaris	5	1	Gallus_gallus
+17273	Canis_familiaris	5	1	Gallus_gallus
+17278	Canis_familiaris	5	1	Gallus_gallus
+17279	Monodelphis_domestica	5	1	Gallus_gallus
+17281	Canis_familiaris	5	1	Gallus_gallus
+17283	Monodelphis_domestica	5	1	Gallus_gallus
+17293	Canis_familiaris	5	1	Gallus_gallus
+17295	Canis_familiaris	5	1	
+17300	Monodelphis_domestica	6	2	Gallus_gallus
+17301	Canis_familiaris	5	1	Gallus_gallus
+17328	Mus_musculus	5	1	Gallus_gallus
+17329	Pan_troglodytes	6	2	
+17331	Monodelphis_domestica	6	2	Gallus_gallus
+17350	Canis_familiaris	6	2	
+17363	Canis_familiaris	6	2	
+17380	Monodelphis_domestica	5	1	Gallus_gallus
+17387	Monodelphis_domestica	5	1	Gallus_gallus
+17392	Monodelphis_domestica	5	1	Gallus_gallus
+17409	Monodelphis_domestica	6	2	Gallus_gallus
+17412	Monodelphis_domestica	5	1	Gallus_gallus
+17413	Canis_familiaris	5	1	Gallus_gallus
+17460	Monodelphis_domestica	5	1	Gallus_gallus
+17471	Monodelphis_domestica	6	2	Gallus_gallus
+17474	Monodelphis_domestica	5	1	Gallus_gallus
+17500	Mus_musculus	5	1	Gallus_gallus
+17512	Monodelphis_domestica	6	2	Gallus_gallus
+17537	Monodelphis_domestica	5	1	Gallus_gallus
+17542	Rattus_norvegicus	5	1	Gallus_gallus
+17547	Homo_sapiens	6	2	Gallus_gallus
+17553	Monodelphis_domestica	5	1	Gallus_gallus
+17560	Rattus_norvegicus	5	1	
+17561	Canis_familiaris	5	1	
+17564	Mus_musculus	6	2	Gallus_gallus
+17569	Canis_familiaris	6	2	Gallus_gallus
+17577	Monodelphis_domestica	6	2	Gallus_gallus
+17578	Rattus_norvegicus	5	1	Gallus_gallus
+17585	Monodelphis_domestica	5	1	Gallus_gallus
+17590	Canis_familiaris	5	1	Gallus_gallus
+17600	Canis_familiaris	6	2	
+17617	Monodelphis_domestica	5	1	Gallus_gallus
+17619	Monodelphis_domestica	5	1	Gallus_gallus
+17625	Monodelphis_domestica	5	1	Gallus_gallus
+17627	Canis_familiaris	6	2	Gallus_gallus
+17628	Canis_familiaris	5	1	Gallus_gallus
+17636	Canis_familiaris	7	2	Gallus_gallus
+17638	Monodelphis_domestica	5	1	Gallus_gallus
+17639	Monodelphis_domestica	5	1	Gallus_gallus
+17643	Canis_familiaris	6	2	Gallus_gallus
+17661	Rattus_norvegicus	5	1	Gallus_gallus
+17668	Homo_sapiens	7	2	Gallus_gallus
+17688	Monodelphis_domestica	5	1	Gallus_gallus
+17700	Monodelphis_domestica	5	1	Gallus_gallus
+17732	Monodelphis_domestica	5	1	Gallus_gallus
+17742	Rattus_norvegicus	5	1	Gallus_gallus
+17744	Canis_familiaris	5	1	Gallus_gallus
+17756	Canis_familiaris	5	1	Gallus_gallus
+17781	Monodelphis_domestica	5	1	Gallus_gallus
+17792	Monodelphis_domestica	5	1	Gallus_gallus
+17804	Monodelphis_domestica	5	1	Gallus_gallus
+17806	Canis_familiaris	5	1	Gallus_gallus
+17809	Monodelphis_domestica	6	2	Gallus_gallus
+17811	Monodelphis_domestica	5	1	Gallus_gallus
+17825	Monodelphis_domestica	5	1	Gallus_gallus
+17826	Rattus_norvegicus	7	2	Gallus_gallus
+17832	Monodelphis_domestica	5	1	Gallus_gallus
+17842	Rattus_norvegicus	5	1	Gallus_gallus
+17855	Canis_familiaris	5	1	Gallus_gallus
+17863	Rattus_norvegicus	5	1	Gallus_gallus
+17868	Canis_familiaris	5	1	Gallus_gallus
+17881	Monodelphis_domestica	5	1	Gallus_gallus
+17891	Monodelphis_domestica	5	1	Gallus_gallus
+17896	Canis_familiaris	5	1	Gallus_gallus
+17903	Monodelphis_domestica	5	1	Gallus_gallus
+17908	Canis_familiaris	5	1	
+17910	Canis_familiaris	5	1	
+17933	Monodelphis_domestica	5	1	Gallus_gallus
+17938	Monodelphis_domestica	5	1	Gallus_gallus
+17940	Canis_familiaris	5	1	Gallus_gallus
+17943	Monodelphis_domestica	6	2	Gallus_gallus
+17946	Monodelphis_domestica	5	1	Gallus_gallus
+17954	Monodelphis_domestica	5	1	Gallus_gallus
+17955	Pan_troglodytes	6	2	
+17957	Canis_familiaris	5	1	Gallus_gallus
+17971	Monodelphis_domestica	6	2	Gallus_gallus
+17981	Monodelphis_domestica	5	1	Gallus_gallus
+17986	Monodelphis_domestica	5	1	Gallus_gallus
+18000	Canis_familiaris	5	1	Gallus_gallus
+18014	Pan_troglodytes	6	2	
+18017	Canis_familiaris	5	1	Gallus_gallus
+18056	Rattus_norvegicus	7	2	
+18057	Monodelphis_domestica	5	1	Gallus_gallus
+18077	Canis_familiaris	5	1	Gallus_gallus
+18091	Monodelphis_domestica	5	1	Gallus_gallus
+18094	Canis_familiaris	5	1	Gallus_gallus
+18097	Monodelphis_domestica	5	1	Gallus_gallus
+18118	Pan_troglodytes	5	1	Gallus_gallus
+18125	Monodelphis_domestica	5	1	Gallus_gallus
+18132	Canis_familiaris	5	1	Gallus_gallus
+18139	Canis_familiaris	5	1	
+18149	Monodelphis_domestica	5	1	Gallus_gallus
+18155	Canis_familiaris	5	1	Gallus_gallus
+18161	Monodelphis_domestica	6	2	Gallus_gallus
+18173	Rattus_norvegicus	5	1	Gallus_gallus
+18175	Monodelphis_domestica	5	1	Gallus_gallus
+18179	Monodelphis_domestica	5	1	Gallus_gallus
+18203	Canis_familiaris	5	1	Gallus_gallus
+18207	Monodelphis_domestica	5	1	Gallus_gallus
+18212	Rattus_norvegicus	5	1	
+18213	Rattus_norvegicus	5	1	
+18229	Monodelphis_domestica	5	1	Gallus_gallus
+18232	Rattus_norvegicus	5	1	Gallus_gallus
+18237	Monodelphis_domestica	6	2	Gallus_gallus
+18256	Canis_familiaris	5	1	Gallus_gallus
+18258	Pan_troglodytes	5	1	Gallus_gallus
+18265	Mus_musculus	5	1	Gallus_gallus
+18291	Monodelphis_domestica	5	1	Gallus_gallus
+18293	Homo_sapiens	7	2	
+18312	Monodelphis_domestica	5	1	Gallus_gallus
+18320	Monodelphis_domestica	5	1	Gallus_gallus
+18340	Homo_sapiens	5	1	Gallus_gallus
+18359	Monodelphis_domestica	6	2	Gallus_gallus
+18365	Canis_familiaris	5	1	
+18376	Canis_familiaris	5	1	Gallus_gallus
+18399	Canis_familiaris	5	1	Gallus_gallus
+18407	Rattus_norvegicus	5	1	Gallus_gallus
+18412	Canis_familiaris	5	1	Gallus_gallus
+18422	Canis_familiaris	5	1	Gallus_gallus
+18423	Canis_familiaris	5	1	
+18437	Canis_familiaris	5	1	Gallus_gallus
+18463	Monodelphis_domestica	5	1	Gallus_gallus
+18468	Pan_troglodytes	6	2	
+18481	Canis_familiaris	5	1	Gallus_gallus
+18488	Canis_familiaris	5	1	Gallus_gallus
+18491	Canis_familiaris	6	2	Gallus_gallus
+18497	Canis_familiaris	5	1	
+18498	Monodelphis_domestica	5	1	Gallus_gallus
+18503	Monodelphis_domestica	5	1	Gallus_gallus
+18522	Monodelphis_domestica	5	1	Gallus_gallus
+18525	Canis_familiaris	5	1	Gallus_gallus
+18526	Monodelphis_domestica	5	1	Gallus_gallus
+18527	Monodelphis_domestica	5	1	Gallus_gallus
+18540	Canis_familiaris	5	1	
+18541	Monodelphis_domestica	6	2	Gallus_gallus
+18557	Canis_familiaris	6	2	Gallus_gallus
+18573	Rattus_norvegicus	6	2	Gallus_gallus
+18580	Monodelphis_domestica	6	2	Gallus_gallus
+18584	Pan_troglodytes	5	1	
+18586	Monodelphis_domestica	5	1	Gallus_gallus
+18587	Monodelphis_domestica	5	1	Gallus_gallus
+18593	Monodelphis_domestica	5	1	Gallus_gallus
+18606	Canis_familiaris	6	2	Gallus_gallus
+18612	Pan_troglodytes	6	2	Gallus_gallus
+18615	Canis_familiaris	5	1	Gallus_gallus
+18619	Monodelphis_domestica	5	1	Gallus_gallus
+18622	Rattus_norvegicus	5	1	Gallus_gallus
+18628	Canis_familiaris	5	1	Gallus_gallus
+18642	Monodelphis_domestica	6	2	Gallus_gallus
+18655	Canis_familiaris	5	1	Gallus_gallus
+18663	Rattus_norvegicus	5	1	Gallus_gallus
+18666	Canis_familiaris	5	1	Gallus_gallus
+18670	Monodelphis_domestica	5	1	Gallus_gallus
+18675	Pan_troglodytes	5	1	
+18677	Monodelphis_domestica	5	1	Gallus_gallus
+18688	Rattus_norvegicus	5	1	Gallus_gallus
+18702	Canis_familiaris	5	1	Gallus_gallus
+18703	Rattus_norvegicus	5	1	
+18733	Monodelphis_domestica	5	1	Gallus_gallus
+18735	Monodelphis_domestica	5	1	Gallus_gallus
+18741	Monodelphis_domestica	5	1	Gallus_gallus
+18744	Canis_familiaris	5	1	Gallus_gallus
+18755	Pan_troglodytes	5	1	
+18778	Monodelphis_domestica	5	1	Gallus_gallus
+18784	Rattus_norvegicus	5	1	
+18786	Canis_familiaris	5	1	Gallus_gallus
+18788	Monodelphis_domestica	5	1	Gallus_gallus
+18792	Monodelphis_domestica	6	2	Gallus_gallus
+18813	Canis_familiaris	5	1	Gallus_gallus
+18825	Canis_familiaris	5	1	Gallus_gallus
+18828	Canis_familiaris	5	1	Gallus_gallus
+18840	Canis_familiaris	5	1	Gallus_gallus
+18865	Monodelphis_domestica	5	1	Gallus_gallus
+18872	Monodelphis_domestica	5	1	Gallus_gallus
+18875	Rattus_norvegicus	5	1	Gallus_gallus
+18876	Canis_familiaris	5	1	Gallus_gallus
+18888	Canis_familiaris	5	1	Gallus_gallus
+18890	Pan_troglodytes	5	1	Gallus_gallus
+18900	Rattus_norvegicus	5	1	Gallus_gallus
+18906	Monodelphis_domestica	6	2	Gallus_gallus
+18908	Monodelphis_domestica	5	1	Gallus_gallus
+18910	Monodelphis_domestica	5	1	Gallus_gallus
+18924	Canis_familiaris	6	2	Gallus_gallus
+18932	Pan_troglodytes	6	2	Gallus_gallus
+18935	Monodelphis_domestica	6	2	Gallus_gallus
+18937	Monodelphis_domestica	5	1	Gallus_gallus
+18940	Monodelphis_domestica	5	1	Gallus_gallus
+18941	Canis_familiaris	5	1	Gallus_gallus
+18955	Monodelphis_domestica	6	2	Gallus_gallus
+18959	Canis_familiaris	5	1	Gallus_gallus
+18968	Canis_familiaris	5	1	
+18974	Monodelphis_domestica	5	1	Gallus_gallus
+18975	Canis_familiaris	5	1	
+18981	Monodelphis_domestica	5	1	Gallus_gallus
+18989	Monodelphis_domestica	5	1	Gallus_gallus
+18990	Monodelphis_domestica	5	1	Gallus_gallus
+19034	Canis_familiaris	5	1	Gallus_gallus
+19041	Canis_familiaris	5	1	Gallus_gallus
+19044	Monodelphis_domestica	5	1	Gallus_gallus
+19056	Monodelphis_domestica	5	1	Gallus_gallus
+19078	Canis_familiaris	5	1	Gallus_gallus
+19079	Monodelphis_domestica	5	1	Gallus_gallus
+19080	Monodelphis_domestica	5	1	Gallus_gallus
+19088	Monodelphis_domestica	6	2	Gallus_gallus
+19121	Canis_familiaris	7	2	Gallus_gallus
+19133	Pan_troglodytes	5	1	
+19138	Monodelphis_domestica	5	1	Gallus_gallus
+19144	Canis_familiaris	6	2	Gallus_gallus
+19148	Monodelphis_domestica	6	2	Gallus_gallus
+19198	Canis_familiaris	6	2	Gallus_gallus
+19210	Canis_familiaris	6	2	Gallus_gallus
+19211	Monodelphis_domestica	5	1	Gallus_gallus
+19217	Canis_familiaris	5	1	Gallus_gallus
+19226	Monodelphis_domestica	5	1	Gallus_gallus
+19237	Rattus_norvegicus	5	1	
+19253	Canis_familiaris	5	1	
+19258	Canis_familiaris	5	1	Gallus_gallus
+19263	Canis_familiaris	5	1	
+19289	Monodelphis_domestica	5	1	Gallus_gallus
+19293	Monodelphis_domestica	6	2	Gallus_gallus
+19294	Monodelphis_domestica	5	1	Gallus_gallus
+19301	Monodelphis_domestica	5	1	Gallus_gallus
+19310	Canis_familiaris	5	1	Gallus_gallus
+19338	Canis_familiaris	5	1	Gallus_gallus
+19361	Monodelphis_domestica	5	1	Gallus_gallus
+19366	Monodelphis_domestica	5	1	Gallus_gallus
+19370	Canis_familiaris	5	1	Gallus_gallus
+19372	Rattus_norvegicus	5	1	Gallus_gallus
+19376	Monodelphis_domestica	5	1	Gallus_gallus
+19377	Monodelphis_domestica	5	1	Gallus_gallus
+19387	Monodelphis_domestica	5	1	Gallus_gallus
+19415	Canis_familiaris	5	1	
+19416	Canis_familiaris	5	1	
+19418	Canis_familiaris	5	1	Gallus_gallus
+19422	Rattus_norvegicus	5	1	Gallus_gallus
+19425	Rattus_norvegicus	7	2	Gallus_gallus
+19427	Canis_familiaris	5	1	Gallus_gallus
+19457	Rattus_norvegicus	5	1	Gallus_gallus
+19466	Monodelphis_domestica	5	1	Gallus_gallus
+19469	Rattus_norvegicus	6	2	Gallus_gallus
+19500	Pan_troglodytes	5	1	
+19508	Canis_familiaris	5	1	Gallus_gallus
+19509	Pan_troglodytes	5	1	Gallus_gallus
+19518	Canis_familiaris	5	1	
+19519	Pan_troglodytes	6	2	
+19538	Canis_familiaris	5	1	Gallus_gallus
+19552	Rattus_norvegicus	5	1	Gallus_gallus
+19589	Monodelphis_domestica	5	1	Gallus_gallus
+19592	Pan_troglodytes	5	1	Gallus_gallus
+19594	Monodelphis_domestica	5	1	Gallus_gallus
+19597	Monodelphis_domestica	5	1	Gallus_gallus
+19606	Monodelphis_domestica	5	1	Gallus_gallus
+19624	Canis_familiaris	5	1	Gallus_gallus
+19625	Monodelphis_domestica	5	1	Gallus_gallus
+19637	Canis_familiaris	5	1	Gallus_gallus
+19643	Canis_familiaris	6	2	
+19650	Canis_familiaris	5	1	
+19659	Canis_familiaris	5	1	Gallus_gallus
+19669	Canis_familiaris	5	1	
+19671	Monodelphis_domestica	5	1	Gallus_gallus
+19672	Canis_familiaris	5	1	
+19687	Monodelphis_domestica	5	1	Gallus_gallus
+19697	Monodelphis_domestica	6	2	Gallus_gallus
+19703	Monodelphis_domestica	5	1	Gallus_gallus
+19715	Canis_familiaris	5	1	Gallus_gallus
+19716	Canis_familiaris	5	1	Gallus_gallus
+19728	Canis_familiaris	5	1	Gallus_gallus
+19733	Monodelphis_domestica	5	1	Gallus_gallus
+19762	Canis_familiaris	5	1	Gallus_gallus
+19769	Monodelphis_domestica	5	1	Gallus_gallus
+19781	Canis_familiaris	5	1	Gallus_gallus
+19806	Monodelphis_domestica	5	1	Gallus_gallus
+19811	Monodelphis_domestica	5	1	Gallus_gallus
+19827	Rattus_norvegicus	5	1	Gallus_gallus
+19830	Monodelphis_domestica	5	1	Gallus_gallus
+19832	Canis_familiaris	5	1	Gallus_gallus
+19850	Canis_familiaris	8	2	
+19856	Canis_familiaris	5	1	Gallus_gallus
+19862	Canis_familiaris	6	2	Gallus_gallus
+19869	Monodelphis_domestica	5	1	Gallus_gallus
+19870	Canis_familiaris	5	1	Gallus_gallus
+19873	Canis_familiaris	5	1	Gallus_gallus
+19880	Pan_troglodytes	8	2	Gallus_gallus
+19886	Canis_familiaris	5	1	Gallus_gallus
+19889	Canis_familiaris	5	1	Gallus_gallus
+19891	Monodelphis_domestica	5	1	Gallus_gallus
+19907	Monodelphis_domestica	6	2	Gallus_gallus
+19914	Monodelphis_domestica	5	1	Gallus_gallus
+19924	Monodelphis_domestica	5	1	Gallus_gallus
+19952	Mus_musculus	5	1	Gallus_gallus
+19963	Pan_troglodytes	5	1	Gallus_gallus
+19968	Pan_troglodytes	7	2	Gallus_gallus
+19977	Monodelphis_domestica	5	1	Gallus_gallus
+19982	Monodelphis_domestica	5	1	Gallus_gallus
+19986	Monodelphis_domestica	5	1	Gallus_gallus
+20018	Rattus_norvegicus	5	1	Gallus_gallus
+20029	Monodelphis_domestica	5	1	Gallus_gallus
+20031	Canis_familiaris	6	2	Gallus_gallus
+20045	Monodelphis_domestica	5	1	Gallus_gallus
+20079	Mus_musculus	5	1	Gallus_gallus
+20080	Monodelphis_domestica	5	1	Gallus_gallus
+20085	Canis_familiaris	6	2	
+20090	Monodelphis_domestica	5	1	Gallus_gallus
+20094	Homo_sapiens	5	1	Gallus_gallus
+20097	Monodelphis_domestica	6	2	Gallus_gallus
+20118	Canis_familiaris	5	1	Gallus_gallus
+20125	Canis_familiaris	5	1	Gallus_gallus
+20128	Rattus_norvegicus	7	2	
+20141	Canis_familiaris	5	1	Gallus_gallus
+20149	Canis_familiaris	6	2	
+20150	Pan_troglodytes	5	1	Gallus_gallus
+20163	Pan_troglodytes	5	1	Gallus_gallus
+20164	Canis_familiaris	5	1	Gallus_gallus
+20180	Canis_familiaris	5	1	
+20184	Homo_sapiens	5	1	
+20192	Rattus_norvegicus	5	1	Gallus_gallus
+20220	Canis_familiaris	6	2	Gallus_gallus
+20232	Monodelphis_domestica	6	2	Gallus_gallus
+20236	Monodelphis_domestica	5	1	Gallus_gallus
+20242	Canis_familiaris	5	1	Gallus_gallus
+20253	Monodelphis_domestica	6	2	Gallus_gallus
+20262	Canis_familiaris	5	1	
+20273	Monodelphis_domestica	5	1	Gallus_gallus
+20276	Canis_familiaris	5	1	Gallus_gallus
+20286	Canis_familiaris	6	2	Gallus_gallus
+20301	Canis_familiaris	5	1	Gallus_gallus
+20316	Canis_familiaris	6	2	Gallus_gallus
+20323	Monodelphis_domestica	5	1	Gallus_gallus
+20326	Monodelphis_domestica	5	1	Gallus_gallus
+20366	Monodelphis_domestica	5	1	Gallus_gallus
+20369	Canis_familiaris	5	1	
+20371	Rattus_norvegicus	7	2	Gallus_gallus
+20386	Canis_familiaris	5	1	Gallus_gallus
+20393	Rattus_norvegicus	5	1	Gallus_gallus
+20395	Monodelphis_domestica	5	1	Gallus_gallus
+20415	Monodelphis_domestica	7	2	Gallus_gallus
+20434	Monodelphis_domestica	5	1	Gallus_gallus
+20445	Monodelphis_domestica	5	1	Gallus_gallus
+20447	Canis_familiaris	5	1	Gallus_gallus
+20457	Rattus_norvegicus	5	1	Gallus_gallus
+20469	Canis_familiaris	5	1	Gallus_gallus
+20483	Pan_troglodytes	6	2	Gallus_gallus
+20492	Canis_familiaris	5	1	Gallus_gallus
+20496	Monodelphis_domestica	5	1	Gallus_gallus
+20502	Mus_musculus	6	2	Gallus_gallus
+20522	Monodelphis_domestica	5	1	Gallus_gallus
+20544	Canis_familiaris	5	1	Gallus_gallus
+20546	Homo_sapiens	5	1	Gallus_gallus
+20570	Monodelphis_domestica	5	1	Gallus_gallus
+20579	Canis_familiaris	5	1	Gallus_gallus
+20580	Canis_familiaris	5	1	Gallus_gallus
+20599	Canis_familiaris	5	1	Gallus_gallus
+20607	Canis_familiaris	5	1	Gallus_gallus
+20608	Monodelphis_domestica	5	1	Gallus_gallus
+20609	Monodelphis_domestica	5	1	Gallus_gallus
+20615	Pan_troglodytes	6	2	Gallus_gallus
+20617	Canis_familiaris	5	1	Gallus_gallus
+20618	Canis_familiaris	5	1	Gallus_gallus
+20625	Canis_familiaris	5	1	Gallus_gallus
+20628	Monodelphis_domestica	5	1	Gallus_gallus
+20630	Monodelphis_domestica	6	2	Gallus_gallus
+20652	Monodelphis_domestica	5	1	Gallus_gallus
+20660	Canis_familiaris	5	1	Gallus_gallus
+20669	Homo_sapiens	5	1	Gallus_gallus
+20673	Canis_familiaris	5	1	Gallus_gallus
+20692	Rattus_norvegicus	5	1	
+20712	Canis_familiaris	5	1	Gallus_gallus
+20740	Rattus_norvegicus	5	1	Gallus_gallus
+20742	Canis_familiaris	5	1	Gallus_gallus
+20751	Canis_familiaris	7	2	Gallus_gallus
+20753	Monodelphis_domestica	5	1	Gallus_gallus
+20775	Monodelphis_domestica	5	1	Gallus_gallus
+20776	Rattus_norvegicus	5	1	Gallus_gallus
+20796	Canis_familiaris	5	1	Gallus_gallus
+20799	Pan_troglodytes	5	1	Gallus_gallus
+20806	Homo_sapiens	5	1	Gallus_gallus
+20815	Canis_familiaris	5	1	
+20863	Monodelphis_domestica	6	2	Gallus_gallus
+20873	Monodelphis_domestica	5	1	Gallus_gallus
+20874	Canis_familiaris	5	1	Gallus_gallus
+20899	Monodelphis_domestica	5	1	Gallus_gallus
+20910	Monodelphis_domestica	5	1	Gallus_gallus
+20931	Rattus_norvegicus	5	1	Gallus_gallus
+20937	Canis_familiaris	5	1	Gallus_gallus
+20951	Canis_familiaris	5	1	Gallus_gallus
+20965	Mus_musculus	6	2	Gallus_gallus
+20987	Pan_troglodytes	5	1	
+20988	Monodelphis_domestica	5	1	Gallus_gallus
+20990	Pan_troglodytes	5	1	Gallus_gallus
+20991	Monodelphis_domestica	5	1	Gallus_gallus
+20998	Canis_familiaris	5	1	Gallus_gallus
+21000	Monodelphis_domestica	5	1	Gallus_gallus
+21005	Canis_familiaris	5	1	Gallus_gallus
+21011	Canis_familiaris	5	1	Gallus_gallus
+21026	Rattus_norvegicus	5	1	Gallus_gallus
+21027	Pan_troglodytes	5	1	Gallus_gallus
+21031	Canis_familiaris	5	1	Gallus_gallus
+21057	Mus_musculus	7	2	Gallus_gallus
+21058	Canis_familiaris	5	1	
+21068	Canis_familiaris	5	1	Gallus_gallus
+21072	Canis_familiaris	7	2	Gallus_gallus
+21095	Monodelphis_domestica	6	2	Gallus_gallus
+21096	Monodelphis_domestica	5	1	Gallus_gallus
+21108	Monodelphis_domestica	5	1	Gallus_gallus
+21110	Canis_familiaris	6	2	Gallus_gallus
+21113	Monodelphis_domestica	5	1	Gallus_gallus
+21115	Canis_familiaris	5	1	Gallus_gallus
+21117	Canis_familiaris	5	1	Gallus_gallus
+21118	Rattus_norvegicus	5	1	Gallus_gallus
+21151	Monodelphis_domestica	5	1	Gallus_gallus
+21152	Monodelphis_domestica	5	1	Gallus_gallus
+21162	Monodelphis_domestica	5	1	Gallus_gallus
+21185	Monodelphis_domestica	5	1	Gallus_gallus
+21197	Canis_familiaris	5	1	
+21205	Monodelphis_domestica	5	1	Gallus_gallus
+21216	Pan_troglodytes	5	1	Gallus_gallus
+21223	Monodelphis_domestica	5	1	Gallus_gallus
+21236	Monodelphis_domestica	5	1	Gallus_gallus
+21252	Rattus_norvegicus	5	1	Gallus_gallus
+21266	Monodelphis_domestica	5	1	Gallus_gallus
+21270	Canis_familiaris	5	1	
+21271	Monodelphis_domestica	5	1	Gallus_gallus
+21276	Canis_familiaris	5	1	Gallus_gallus
+21289	Canis_familiaris	5	1	Gallus_gallus
+21302	Monodelphis_domestica	5	1	Gallus_gallus
+21315	Canis_familiaris	5	1	Gallus_gallus
+21316	Monodelphis_domestica	5	1	Gallus_gallus
+21348	Canis_familiaris	5	1	
+21359	Monodelphis_domestica	5	1	Gallus_gallus
+21368	Rattus_norvegicus	5	1	Gallus_gallus
+21380	Mus_musculus	5	1	
+21383	Monodelphis_domestica	5	1	Gallus_gallus
+21390	Monodelphis_domestica	5	1	Gallus_gallus
+21400	Canis_familiaris	5	1	Gallus_gallus
+21418	Monodelphis_domestica	5	1	Gallus_gallus
+21437	Monodelphis_domestica	5	1	Gallus_gallus
+21455	Canis_familiaris	5	1	
+21457	Pan_troglodytes	5	1	Gallus_gallus
+21460	Canis_familiaris	6	2	Gallus_gallus
+21464	Canis_familiaris	5	1	
+21467	Monodelphis_domestica	5	1	Gallus_gallus
+21480	Rattus_norvegicus	5	1	Gallus_gallus
+21483	Monodelphis_domestica	5	1	Gallus_gallus
+21484	Rattus_norvegicus	5	1	Gallus_gallus
+21487	Monodelphis_domestica	5	1	Gallus_gallus
+21492	Monodelphis_domestica	5	1	Gallus_gallus
+21494	Homo_sapiens	5	1	
+21515	Canis_familiaris	5	1	Gallus_gallus
+21523	Monodelphis_domestica	5	1	Gallus_gallus
+21524	Pan_troglodytes	5	1	Gallus_gallus
+21567	Monodelphis_domestica	5	1	Gallus_gallus
+21576	Monodelphis_domestica	5	1	Gallus_gallus
+21580	Rattus_norvegicus	5	1	Gallus_gallus
+21588	Monodelphis_domestica	5	1	Gallus_gallus
+21592	Monodelphis_domestica	6	2	Gallus_gallus
+21617	Monodelphis_domestica	5	1	Gallus_gallus
+21621	Canis_familiaris	5	1	Gallus_gallus
+21673	Monodelphis_domestica	5	1	Gallus_gallus
+21675	Homo_sapiens	5	1	Gallus_gallus
+21681	Rattus_norvegicus	5	1	
+21683	Monodelphis_domestica	5	1	Gallus_gallus
+21691	Monodelphis_domestica	5	1	Gallus_gallus
+21694	Monodelphis_domestica	5	1	Gallus_gallus
+21697	Monodelphis_domestica	5	1	Gallus_gallus
+21699	Pan_troglodytes	5	1	Gallus_gallus
+21701	Canis_familiaris	5	1	
+21730	Canis_familiaris	5	1	Gallus_gallus
+21744	Monodelphis_domestica	5	1	Gallus_gallus
+21749	Pan_troglodytes	5	1	Gallus_gallus
+21775	Canis_familiaris	5	1	Gallus_gallus
+21789	Monodelphis_domestica	5	1	Gallus_gallus
+21794	Monodelphis_domestica	5	1	Gallus_gallus
+21799	Homo_sapiens	5	1	Gallus_gallus
+21801	Canis_familiaris	5	1	
+21808	Monodelphis_domestica	5	1	Gallus_gallus
+21815	Monodelphis_domestica	5	1	Gallus_gallus
+21836	Canis_familiaris	5	1	Gallus_gallus
+21840	Canis_familiaris	5	1	Gallus_gallus
+21848	Monodelphis_domestica	5	1	Gallus_gallus
+21850	Rattus_norvegicus	5	1	Gallus_gallus
+21856	Canis_familiaris	5	1	
+21860	Monodelphis_domestica	5	1	Gallus_gallus
+21862	Monodelphis_domestica	5	1	Gallus_gallus
+21863	Homo_sapiens	5	1	Gallus_gallus
+21879	Monodelphis_domestica	6	2	Gallus_gallus
+21884	Pan_troglodytes	5	1	Gallus_gallus
+21907	Pan_troglodytes	5	1	Gallus_gallus
+21919	Canis_familiaris	6	2	Gallus_gallus
+21922	Monodelphis_domestica	5	1	Gallus_gallus
+21928	Monodelphis_domestica	5	1	Gallus_gallus
+21932	Rattus_norvegicus	5	1	Gallus_gallus
+21933	Monodelphis_domestica	5	1	Gallus_gallus
+21947	Monodelphis_domestica	6	2	Gallus_gallus
+21959	Canis_familiaris	5	1	
+21968	Canis_familiaris	5	1	Gallus_gallus
+21969	Monodelphis_domestica	5	1	Gallus_gallus
+21973	Monodelphis_domestica	5	1	Gallus_gallus
+21975	Rattus_norvegicus	5	1	Gallus_gallus
+21976	Canis_familiaris	5	1	Gallus_gallus
+21989	Monodelphis_domestica	5	1	Gallus_gallus
+21996	Rattus_norvegicus	5	1	Gallus_gallus
+22022	Pan_troglodytes	5	1	
+22025	Monodelphis_domestica	5	1	Gallus_gallus
+22026	Monodelphis_domestica	6	2	Gallus_gallus
+22035	Pan_troglodytes	5	1	Gallus_gallus
+22046	Canis_familiaris	5	1	Gallus_gallus
+22060	Homo_sapiens	5	1	Gallus_gallus
+22079	Canis_familiaris	5	1	Gallus_gallus
+22080	Canis_familiaris	5	1	
+22090	Canis_familiaris	5	1	Gallus_gallus
+22091	Monodelphis_domestica	5	1	Gallus_gallus
+22096	Rattus_norvegicus	5	1	
+22101	Rattus_norvegicus	5	1	Gallus_gallus
+22105	Rattus_norvegicus	6	2	
+22134	Canis_familiaris	5	1	Gallus_gallus
+22141	Rattus_norvegicus	7	2	Gallus_gallus
+22148	Monodelphis_domestica	5	1	Gallus_gallus
+22201	Canis_familiaris	5	1	Gallus_gallus
+22206	Rattus_norvegicus	5	1	Gallus_gallus
+22207	Canis_familiaris	6	2	Gallus_gallus
+22210	Monodelphis_domestica	5	1	Gallus_gallus
+22216	Canis_familiaris	5	1	Gallus_gallus
+22222	Canis_familiaris	5	1	Gallus_gallus
+22235	Canis_familiaris	6	2	
+22254	Mus_musculus	5	1	Gallus_gallus
+22265	Monodelphis_domestica	5	1	Gallus_gallus
+22266	Monodelphis_domestica	5	1	Gallus_gallus
+22269	Canis_familiaris	5	1	
+22270	Canis_familiaris	5	1	
+22271	Canis_familiaris	5	1	
+22286	Monodelphis_domestica	5	1	Gallus_gallus
+22293	Monodelphis_domestica	5	1	Gallus_gallus
+22341	Canis_familiaris	7	2	Gallus_gallus
+22346	Monodelphis_domestica	5	1	Gallus_gallus
+22348	Canis_familiaris	5	1	
+22358	Canis_familiaris	5	1	Gallus_gallus
+22361	Monodelphis_domestica	5	1	Gallus_gallus
+22378	Canis_familiaris	5	1	Gallus_gallus
+22399	Monodelphis_domestica	5	1	Gallus_gallus
+22435	Monodelphis_domestica	5	1	Gallus_gallus
+22452	Monodelphis_domestica	5	1	Gallus_gallus
+22468	Rattus_norvegicus	5	1	Gallus_gallus
+22470	Monodelphis_domestica	5	1	Gallus_gallus
+22476	Pan_troglodytes	5	1	Gallus_gallus
+22484	Monodelphis_domestica	5	1	Gallus_gallus
+22494	Canis_familiaris	5	1	Gallus_gallus
+22506	Rattus_norvegicus	5	1	Gallus_gallus
+22508	Canis_familiaris	5	1	Gallus_gallus
+22515	Pan_troglodytes	5	1	Gallus_gallus
+22521	Canis_familiaris	5	1	Gallus_gallus
+22529	Canis_familiaris	5	1	Gallus_gallus
+22534	Rattus_norvegicus	5	1	Gallus_gallus
+22538	Pan_troglodytes	5	1	Gallus_gallus
+22539	Pan_troglodytes	5	1	Gallus_gallus
+22588	Monodelphis_domestica	5	1	Gallus_gallus
+22598	Monodelphis_domestica	5	1	Gallus_gallus
+22605	Monodelphis_domestica	5	1	Gallus_gallus
+22614	Canis_familiaris	5	1	Gallus_gallus
+22646	Canis_familiaris	5	1	Gallus_gallus
+22668	Rattus_norvegicus	5	1	Gallus_gallus
+22674	Monodelphis_domestica	5	1	Gallus_gallus
+22685	Canis_familiaris	5	1	Gallus_gallus
+22705	Monodelphis_domestica	5	1	Gallus_gallus
+22732	Canis_familiaris	5	1	Gallus_gallus
+22753	Canis_familiaris	5	1	Gallus_gallus
+22754	Canis_familiaris	5	1	Gallus_gallus
+22755	Canis_familiaris	5	1	Gallus_gallus
+22762	Monodelphis_domestica	5	1	Gallus_gallus
+22786	Canis_familiaris	5	1	Gallus_gallus
+22791	Rattus_norvegicus	5	1	Gallus_gallus
+22795	Monodelphis_domestica	5	1	Gallus_gallus
+22811	Monodelphis_domestica	5	1	Gallus_gallus
+22814	Canis_familiaris	6	2	Gallus_gallus
+22815	Canis_familiaris	5	1	Gallus_gallus
+22819	Rattus_norvegicus	6	2	Gallus_gallus
+22820	Monodelphis_domestica	5	1	Gallus_gallus
+22822	Canis_familiaris	5	1	Gallus_gallus
+22825	Canis_familiaris	5	1	Gallus_gallus
+22826	Monodelphis_domestica	5	1	Gallus_gallus
+22832	Canis_familiaris	5	1	Gallus_gallus
+22838	Canis_familiaris	5	1	
+22840	Pan_troglodytes	5	1	
+22843	Monodelphis_domestica	5	1	Gallus_gallus
+22863	Canis_familiaris	6	2	Gallus_gallus
+22864	Monodelphis_domestica	6	2	Gallus_gallus
+22866	Canis_familiaris	5	1	Gallus_gallus
+22874	Canis_familiaris	5	1	Gallus_gallus
+22876	Monodelphis_domestica	6	2	Gallus_gallus
+22884	Monodelphis_domestica	5	1	Gallus_gallus
+22893	Monodelphis_domestica	5	1	Gallus_gallus
+22899	Canis_familiaris	7	2	
+22902	Canis_familiaris	5	1	Gallus_gallus
+22915	Rattus_norvegicus	5	1	Gallus_gallus
+22918	Canis_familiaris	5	1	
+22936	Rattus_norvegicus	6	2	Gallus_gallus
+22951	Canis_familiaris	5	1	Gallus_gallus
+22953	Canis_familiaris	6	2	
+22955	Pan_troglodytes	5	1	Gallus_gallus
+22959	Canis_familiaris	5	1	Gallus_gallus
+22974	Rattus_norvegicus	5	1	Gallus_gallus
+22986	Rattus_norvegicus	5	1	Gallus_gallus
+23023	Monodelphis_domestica	5	1	Gallus_gallus
+23047	Monodelphis_domestica	5	1	Gallus_gallus
+23054	Canis_familiaris	5	1	Gallus_gallus
+23073	Monodelphis_domestica	5	1	Gallus_gallus
+23091	Pan_troglodytes	5	1	Gallus_gallus
+23094	Monodelphis_domestica	6	2	Gallus_gallus
+23103	Monodelphis_domestica	5	1	Gallus_gallus
+23124	Monodelphis_domestica	6	2	Gallus_gallus
+23128	Monodelphis_domestica	5	1	Gallus_gallus
+23132	Monodelphis_domestica	5	1	Gallus_gallus
+23140	Canis_familiaris	5	1	Gallus_gallus
+23141	Canis_familiaris	5	1	Gallus_gallus
+23159	Canis_familiaris	6	2	Gallus_gallus
+23177	Canis_familiaris	5	1	Gallus_gallus
+23194	Homo_sapiens	5	1	
+23205	Canis_familiaris	5	1	Gallus_gallus
+23213	Canis_familiaris	5	1	Gallus_gallus
+23229	Monodelphis_domestica	5	1	Gallus_gallus
+23248	Canis_familiaris	5	1	
+23268	Monodelphis_domestica	5	1	Gallus_gallus
+23272	Canis_familiaris	5	1	Gallus_gallus
+23306	Monodelphis_domestica	6	2	Gallus_gallus
+23325	Monodelphis_domestica	5	1	Gallus_gallus
+23330	Canis_familiaris	5	1	Gallus_gallus
+23340	Pan_troglodytes	5	1	Gallus_gallus
+23341	Rattus_norvegicus	5	1	Gallus_gallus
+23343	Canis_familiaris	5	1	Gallus_gallus
+23346	Canis_familiaris	5	1	Gallus_gallus
+23352	Canis_familiaris	5	1	Gallus_gallus
+23357	Canis_familiaris	5	1	Gallus_gallus
+23392	Pan_troglodytes	5	1	Gallus_gallus
+23394	Canis_familiaris	5	1	Gallus_gallus
+23396	Canis_familiaris	5	1	Gallus_gallus
+23410	Canis_familiaris	5	1	Gallus_gallus
+23421	Canis_familiaris	6	2	
+23424	Canis_familiaris	6	2	Gallus_gallus
+23428	Monodelphis_domestica	5	1	Gallus_gallus
+23435	Rattus_norvegicus	5	1	Gallus_gallus
+23482	Monodelphis_domestica	5	1	Gallus_gallus
+23496	Monodelphis_domestica	5	1	Gallus_gallus
+23513	Pan_troglodytes	8	2	Gallus_gallus
+23530	Rattus_norvegicus	5	1	Gallus_gallus
+23541	Monodelphis_domestica	5	1	Gallus_gallus
+23543	Canis_familiaris	6	2	Gallus_gallus
+23560	Monodelphis_domestica	5	1	Gallus_gallus
+23562	Rattus_norvegicus	5	1	Gallus_gallus
+23581	Canis_familiaris	5	1	Gallus_gallus
+23620	Canis_familiaris	5	1	Gallus_gallus
+23626	Homo_sapiens	6	2	Gallus_gallus
+23637	Monodelphis_domestica	5	1	Gallus_gallus
+23638	Canis_familiaris	5	1	Gallus_gallus
+23657	Rattus_norvegicus	5	1	Gallus_gallus
+23659	Monodelphis_domestica	5	1	Gallus_gallus
+23666	Monodelphis_domestica	6	2	Gallus_gallus
+23697	Rattus_norvegicus	5	1	Gallus_gallus
+23705	Monodelphis_domestica	5	1	Gallus_gallus
+23706	Canis_familiaris	5	1	
+23711	Canis_familiaris	5	1	
+23714	Canis_familiaris	5	1	
+23732	Canis_familiaris	5	1	Gallus_gallus
+23762	Monodelphis_domestica	5	1	Gallus_gallus
+23767	Canis_familiaris	5	1	Gallus_gallus
+23776	Homo_sapiens	6	2	
+23779	Canis_familiaris	5	1	Gallus_gallus
+23789	Homo_sapiens	6	2	Gallus_gallus
+23803	Monodelphis_domestica	7	2	Gallus_gallus
+23806	Canis_familiaris	5	1	Gallus_gallus
+23817	Monodelphis_domestica	5	1	Gallus_gallus
+23818	Canis_familiaris	5	1	
+23829	Monodelphis_domestica	5	1	Gallus_gallus
+23830	Monodelphis_domestica	5	1	Gallus_gallus
+23831	Canis_familiaris	5	1	Gallus_gallus
+23841	Monodelphis_domestica	5	1	Gallus_gallus
