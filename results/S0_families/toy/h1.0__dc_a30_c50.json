@@ -1,0 +1,91 @@
+{
+ "sim": "work/S0/toy/h1.0",
+ "sim_params": {
+  "seed": 11,
+  "params": {
+   "n_species": 16,
+   "n_genes": 500,
+   "n_chromosomes": 2,
+   "newick": null,
+   "tree_height": 1.0,
+   "dup_rate": 0.2,
+   "loss_rate": 0.2,
+   "inversion_rate": 0.05,
+   "translocation_rate": 0.02,
+   "hgt_rate": 0.0,
+   "dispersed_dup_frac": 0.2,
+   "block_mean": 4.0,
+   "wgd_branch": null,
+   "wgd_position": 0.5,
+   "wgd_fractionation": 0.5,
+   "gamma_shape": 1.0,
+   "gamma_categories": 4,
+   "family_rate_shape": 2.0,
+   "indel_rate": 0.02,
+   "indel_mean_len": 3.0,
+   "indel_max_len": 20,
+   "neo_factor": 1.0,
+   "neo_duration": 0.05,
+   "len_min": 150,
+   "len_max": 600,
+   "min_protein_len": 50
+  }
+ },
+ "config": "dc_a30_c50",
+ "aggregate": {
+  "n_refogs": 498,
+  "completeness": 0.6325301204819277,
+  "n_complete": 315,
+  "mean_n_fam": 1.9317269076305221,
+  "median_n_fam": 1.0,
+  "max_n_fam": 11,
+  "mean_best_frac": 0.8644883289986872,
+  "gene_weighted_best_frac": 0.8564350453172206,
+  "frac_refogs_best_frac_ge95": 0.6365461847389559,
+  "frac_refogs_le1_stray": 0.6807228915662651,
+  "median_size_ratio": 1.0,
+  "mean_size_ratio": 0.8644883289986872,
+  "max_size_ratio": 1.0,
+  "fusion_rate": 0.0,
+  "mean_foreign_refog_frac": 0.0,
+  "pair_recall": 0.8031709679659288,
+  "pair_precision": 1.0
+ },
+ "n_pred_families_with_gt1_true_family": 0,
+ "family_stats": {
+  "n_genes": 8275,
+  "n_families": 962,
+  "n_singletons": 207,
+  "n_families_ge2": 755,
+  "frac_genes_in_singletons": 0.02501510574018127,
+  "sum_g2": 127537,
+  "sum_g2_over_N2": 0.001862516771478902,
+  "max_family": 41,
+  "max_family_over_N": 0.004954682779456193,
+  "top_sizes": [
+   41,
+   40,
+   39,
+   39,
+   39,
+   38,
+   36,
+   35,
+   34,
+   33
+  ],
+  "size_quantiles_ge2": {
+   "0.5": 10,
+   "0.9": 19,
+   "0.99": 35,
+   "0.999": 41
+  },
+  "n_stage1_clusters": 962,
+  "config_hash": "bb000ff92025"
+ },
+ "timings": {
+  "stage1_s": 19.769433736801147,
+  "total_s": 19.816674947738647
+ },
+ "wall_s": 19.846598863601685
+}

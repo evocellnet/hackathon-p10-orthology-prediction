@@ -1,0 +1,87 @@
+{
+ "run": "work/S0/2sA_dc30_cc_nocov",
+ "single_linkage_ceiling": {
+  "completeness": 0.7941176470588235,
+  "n_complete": 27,
+  "n_refogs": 34,
+  "max_component": 135945,
+  "sum_g2_over_N2": 0.292562752334593,
+  "incomplete": {
+   "RefOG002": {
+    "size": 19,
+    "n_fam": 2
+   },
+   "RefOG013": {
+    "size": 27,
+    "n_fam": 2
+   },
+   "RefOG021": {
+    "size": 125,
+    "n_fam": 2
+   },
+   "RefOG054": {
+    "size": 44,
+    "n_fam": 2
+   },
+   "RefOG055": {
+    "size": 29,
+    "n_fam": 3
+   },
+   "RefOG057": {
+    "size": 16,
+    "n_fam": 2
+   },
+   "RefOG066": {
+    "size": 14,
+    "n_fam": 2
+   }
+  }
+ },
+ "stray_probe": {
+  "FBpp0073985": {
+   "refog": "RefOG002",
+   "best_evalue_to_majority_refog_members": null
+  },
+  "FBpp0072181": {
+   "refog": "RefOG013",
+   "best_evalue_to_majority_refog_members": 3.27e-05
+  },
+  "FBpp0309618": {
+   "refog": "RefOG021",
+   "best_evalue_to_majority_refog_members": null
+  },
+  "FBpp0291497": {
+   "refog": "RefOG054",
+   "best_evalue_to_majority_refog_members": null
+  },
+  "FBpp0291496": {
+   "refog": "RefOG054",
+   "best_evalue_to_majority_refog_members": 0.191
+  },
+  "ENSCINP00000012544": {
+   "refog": "RefOG055",
+   "best_evalue_to_majority_refog_members": null
+  },
+  "ENSCAFP00000051664": {
+   "refog": "RefOG055",
+   "best_evalue_to_majority_refog_members": null
+  },
+  "WBGene00044438.1": {
+   "refog": "RefOG057",
+   "best_evalue_to_majority_refog_members": null
+  },
+  "ENSCINP00000033401": {
+   "refog": "RefOG066",
+   "best_evalue_to_majority_refog_members": 0.0098
+  }
+ },
+ "unreachable_refogs_at_e1e-3": [
+  "RefOG002",
+  "RefOG021",
+  "RefOG054",
+  "RefOG055",
+  "RefOG057",
+  "RefOG066"
+ ],
+ "max_reachable_completeness": 0.8235294117647058
+}

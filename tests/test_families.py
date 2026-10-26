@@ -79,6 +79,9 @@ def test_evaluate_refogs_hand_example():
     assert agg["n_refogs"] == 3 and agg["completeness"] == 0.0
     assert agg["mean_n_fam"] == 2.0
     assert agg["fusion_rate"] == pytest.approx(1 / 3)
+    assert agg["gene_weighted_best_frac"] == pytest.approx((3 + 2 + 1) / 9)
+    assert agg["frac_refogs_best_frac_ge95"] == 0.0
+    assert agg["frac_refogs_le1_stray"] == pytest.approx(1.0)  # A: 1 stray, B: 1 stray, C: 1 stray
     # OrthoBench q_even pair recall: A: TP=3 (3 of 6 pairs), FN=3 -> /3 ; B: TP=1, FN=2 -> /2; C: TP=0, FN=1 -> /1
     tp = 3 / 3 + 1 / 2 + 0
     fn = 3 / 3 + 2 / 2 + 1
@@ -136,3 +139,29 @@ def test_config_hash_ignores_resources():
     b = F.FamilyConfig(name="y", threads=24, memory_gb=8)
     assert a.hash() == b.hash()
     assert a.hash() != F.FamilyConfig(approx_id=50).hash()
+
+
+def test_leiden_split_two_cliques():
+    a = [f"a{i}" for i in range(6)]
+    b = [f"b{i}" for i in range(6)]
+    edges = [(x, y, 100.0) for grp in (a, b) for i, x in enumerate(grp) for y in grp[i + 1:]]
+    edges.append(("a0", "b0", 1.0))  # weak bridge
+    w = {n: 10 for n in a + b}       # each rep stands for 10 genes -> component of 120 genes
+    parts = F.leiden_split(a + b, edges, w, gmax=60, seed=11)
+    assert sorted(sorted(p) for p in parts) == [sorted(a), sorted(b)]
+    # under the cap: untouched
+    assert F.leiden_split(a + b, edges, w, gmax=1000) == [a + b]
+
+
+def test_best_hits_directed_and_filtered():
+    rows = [
+        ["g1", "r1", "1e-30", "100", "100", "100", "1", "100", "1", "100"],
+        ["g1", "r2", "1e-40", "150", "100", "100", "1", "100", "1", "100"],
+        ["g1", "r3", "1e-50", "300", "100", "1000", "1", "100", "1", "100"],  # scov 0.1 -> fails 'min'
+        ["g2", "g2", "0", "500", "100", "100", "1", "100", "1", "100"],      # self
+        ["g3", "r1", "1e-2", "40", "100", "100", "1", "100", "1", "100"],    # e-value fails
+    ]
+    cfg = F.FamilyConfig(s2_evalue=1e-5, s2_cov=0.5, s2_cov_mode="min")
+    assert F.best_hits(rows, cfg) == {"g1": ("r2", 150.0)}
+    cfg.s2_cov = 0.0
+    assert F.best_hits(rows, cfg) == {"g1": ("r3", 300.0)}

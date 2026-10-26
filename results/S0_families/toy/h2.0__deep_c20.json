@@ -1,0 +1,91 @@
+{
+ "sim": "work/S0/toy/h2.0",
+ "sim_params": {
+  "seed": 11,
+  "params": {
+   "n_species": 16,
+   "n_genes": 500,
+   "n_chromosomes": 2,
+   "newick": null,
+   "tree_height": 2.0,
+   "dup_rate": 0.2,
+   "loss_rate": 0.2,
+   "inversion_rate": 0.05,
+   "translocation_rate": 0.02,
+   "hgt_rate": 0.0,
+   "dispersed_dup_frac": 0.2,
+   "block_mean": 4.0,
+   "wgd_branch": null,
+   "wgd_position": 0.5,
+   "wgd_fractionation": 0.5,
+   "gamma_shape": 1.0,
+   "gamma_categories": 4,
+   "family_rate_shape": 2.0,
+   "indel_rate": 0.02,
+   "indel_mean_len": 3.0,
+   "indel_max_len": 20,
+   "neo_factor": 1.0,
+   "neo_duration": 0.05,
+   "len_min": 150,
+   "len_max": 600,
+   "min_protein_len": 50
+  }
+ },
+ "config": "deep_c20",
+ "aggregate": {
+  "n_refogs": 490,
+  "completeness": 0.46938775510204084,
+  "n_complete": 230,
+  "mean_n_fam": 2.563265306122449,
+  "median_n_fam": 2.0,
+  "max_n_fam": 13,
+  "mean_best_frac": 0.7746430703974991,
+  "gene_weighted_best_frac": 0.749844353131615,
+  "frac_refogs_best_frac_ge95": 0.4775510204081633,
+  "frac_refogs_le1_stray": 0.536734693877551,
+  "median_size_ratio": 0.9128787878787878,
+  "mean_size_ratio": 0.7746430703974991,
+  "max_size_ratio": 1.0,
+  "fusion_rate": 0.0,
+  "mean_foreign_refog_frac": 0.0,
+  "pair_recall": 0.6686820315209917,
+  "pair_precision": 1.0
+ },
+ "n_pred_families_with_gt1_true_family": 0,
+ "family_stats": {
+  "n_genes": 8031,
+  "n_families": 1256,
+  "n_singletons": 311,
+  "n_families_ge2": 945,
+  "frac_genes_in_singletons": 0.03872494085419002,
+  "sum_g2": 107713,
+  "sum_g2_over_N2": 0.0016700476786805506,
+  "max_family": 49,
+  "max_family_over_N": 0.006101357240692318,
+  "top_sizes": [
+   49,
+   47,
+   41,
+   38,
+   37,
+   33,
+   33,
+   33,
+   32,
+   32
+  ],
+  "size_quantiles_ge2": {
+   "0.5": 5,
+   "0.9": 18,
+   "0.99": 32,
+   "0.999": 49
+  },
+  "n_stage1_clusters": 1256,
+  "config_hash": "de89d53d088b"
+ },
+ "timings": {
+  "stage1_s": 20.425517559051514,
+  "total_s": 20.464905500411987
+ },
+ "wall_s": 20.479351043701172
+}

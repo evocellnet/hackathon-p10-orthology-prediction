@@ -1,0 +1,52 @@
+{
+ "sim": "work/S0/toy/h1.0",
+ "config": "ceiling_allvsall_cc--ultra-sensitive_e1e-3",
+ "aggregate": {
+  "n_refogs": 498,
+  "completeness": 0.9216867469879518,
+  "n_complete": 459,
+  "mean_n_fam": 1.1244979919678715,
+  "median_n_fam": 1.0,
+  "max_n_fam": 5,
+  "mean_best_frac": 0.9815737337750703,
+  "gene_weighted_best_frac": 0.9829607250755287,
+  "frac_refogs_best_frac_ge95": 0.9257028112449799,
+  "frac_refogs_le1_stray": 0.9437751004016064,
+  "median_size_ratio": 1.0,
+  "mean_size_ratio": 1.0042772161510527,
+  "max_size_ratio": 4.125,
+  "fusion_rate": 0.014056224899598393,
+  "mean_foreign_refog_frac": 0.008032128514056224,
+  "pair_recall": 0.9724675633425498,
+  "pair_precision": 0.9544808432084256
+ },
+ "family_stats": {
+  "n_genes": 8275,
+  "n_families": 556,
+  "n_singletons": 32,
+  "n_families_ge2": 524,
+  "frac_genes_in_singletons": 0.003867069486404834,
+  "sum_g2": 157757,
+  "sum_g2_over_N2": 0.0023038416954938344,
+  "max_family": 66,
+  "max_family_over_N": 0.00797583081570997,
+  "top_sizes": [
+   66,
+   43,
+   43,
+   41,
+   40,
+   39,
+   39,
+   38,
+   36,
+   36
+  ],
+  "size_quantiles_ge2": {
+   "0.5": 16,
+   "0.9": 23,
+   "0.99": 39,
+   "0.999": 66
+  }
+ }
+}

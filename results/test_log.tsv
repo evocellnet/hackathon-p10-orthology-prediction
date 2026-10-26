@@ -1,0 +1,2 @@
+time	subtask	config_name	config_hash	benchmark	reason
+2026-10-26T16:29:09+01:00	S0	2sA_dc30_cc_sh30_RA	20da30474e36	OrthoBench-test-RefOGs	S0 final: rule-selected config (max dev completeness s.t. sum_g2<=5%N^2, max<=3%N; tie-break pair recall)

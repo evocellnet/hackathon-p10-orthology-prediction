@@ -1,0 +1,52 @@
+{
+ "sim": "work/S0/toy/h2.0",
+ "config": "ceiling_allvsall_cc--sensitive_e1e-5",
+ "aggregate": {
+  "n_refogs": 490,
+  "completeness": 0.6,
+  "n_complete": 294,
+  "mean_n_fam": 2.0877551020408163,
+  "median_n_fam": 1.0,
+  "max_n_fam": 13,
+  "mean_best_frac": 0.8498697924671278,
+  "gene_weighted_best_frac": 0.8375046694060515,
+  "frac_refogs_best_frac_ge95": 0.6081632653061224,
+  "frac_refogs_le1_stray": 0.6714285714285714,
+  "median_size_ratio": 1.0,
+  "mean_size_ratio": 0.8498697924671278,
+  "max_size_ratio": 1.0,
+  "fusion_rate": 0.0,
+  "mean_foreign_refog_frac": 0.0,
+  "pair_recall": 0.7783353927464067,
+  "pair_precision": 1.0
+ },
+ "family_stats": {
+  "n_genes": 8031,
+  "n_families": 1023,
+  "n_singletons": 246,
+  "n_families_ge2": 777,
+  "frac_genes_in_singletons": 0.030631303698169594,
+  "sum_g2": 125929,
+  "sum_g2_over_N2": 0.0019524795904724875,
+  "max_family": 49,
+  "max_family_over_N": 0.006101357240692318,
+  "top_sizes": [
+   49,
+   47,
+   44,
+   42,
+   41,
+   38,
+   37,
+   36,
+   36,
+   33
+  ],
+  "size_quantiles_ge2": {
+   "0.5": 7,
+   "0.9": 20,
+   "0.99": 36,
+   "0.999": 49
+  }
+ }
+}

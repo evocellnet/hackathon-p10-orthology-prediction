@@ -219,6 +219,8 @@ def evaluate_refogs(gene2fam: dict[str, str], refogs: dict[str, set[str]]) -> di
     Per RefOG R (genes missing from ``gene2fam`` count as singleton families):
       complete     -- all of R lies in one family
       n_fam        -- number of distinct families R is spread over (fission; 1 = none)
+                      (secondary: gene-weighted best_frac, share of RefOGs with best_frac >= 0.95,
+                      share of RefOGs with at most one gene outside the best family)
       best_frac    -- largest fraction of R in a single family
       best_fam_size-- size of that family; size_ratio = best_fam_size / |R|
       foreign_refog_frac -- fraction of the best family's genes that belong to *other*
@@ -280,6 +282,9 @@ def evaluate_refogs(gene2fam: dict[str, str], refogs: dict[str, set[str]]) -> di
         "median_n_fam": med([v["n_fam"] for v in vals]),
         "max_n_fam": max(v["n_fam"] for v in vals),
         "mean_best_frac": sum(v["best_frac"] for v in vals) / k,
+        "gene_weighted_best_frac": sum(v["best_frac"] * v["size"] for v in vals) / sum(v["size"] for v in vals),
+        "frac_refogs_best_frac_ge95": sum(v["best_frac"] >= 0.95 for v in vals) / k,
+        "frac_refogs_le1_stray": sum(v["size"] - round(v["best_frac"] * v["size"]) <= 1 for v in vals) / k,
         "median_size_ratio": med([v["size_ratio"] for v in vals]),
         "mean_size_ratio": sum(v["size_ratio"] for v in vals) / k,
         "max_size_ratio": max(v["size_ratio"] for v in vals),
@@ -325,7 +330,10 @@ class FamilyConfig:
     s2_max_target: int = 500
     s2_bitscore: float = 0.0
     s2_query: str = "reps"            # reps: reps vs reps ; all: every gene vs reps (N x R)
-    s2_gmax: int | None = None        # split connected components larger than this (genes) with Leiden
+    s2_gmax: float | None = None      # split connected components larger than this many genes with Leiden;
+                                      # a value in (0, 1) means that fraction of N (e.g. 0.03 -> 3% of N)
+    s2_reassign: bool = False         # after a Leiden split: move each gene of a split part to the part
+                                      # holding its best-scoring (filter-passing) rep hit
     mcl_I: float = 1.4
     s1_reuse: str | None = None       # outdir of an earlier run with identical stage-1 params: reuse its clusters
     seed: int = 11
@@ -424,6 +432,28 @@ def filter_hits(rows: Iterable[list[str]], cfg: FamilyConfig) -> list[tuple[str,
         if bs > best.get(k, -1.0):
             best[k] = bs
     return [(a, b, w) for (a, b), w in best.items()]
+
+
+def best_hits(rows: Iterable[list[str]], cfg: FamilyConfig) -> dict[str, tuple[str, float]]:
+    """Directed best hit per query (highest bitscore; ties -> smaller subject id) among rows that pass
+    the same e-value / bitscore / coverage filters as :func:`filter_hits`. Self hits are ignored."""
+    best = {}
+    for t in rows:
+        q, s = t[0], t[1]
+        if q == s:
+            continue
+        ev, bs = float(t[2]), float(t[3])
+        ql, sl = int(t[4]), int(t[5])
+        if ev > cfg.s2_evalue or bs < cfg.s2_bitscore:
+            continue
+        qcov = (abs(int(t[7]) - int(t[6])) + 1) / ql
+        scov = (abs(int(t[9]) - int(t[8])) + 1) / sl
+        if not _passes_cov(qcov, scov, ql, sl, cfg.s2_cov, cfg.s2_cov_mode):
+            continue
+        cur = best.get(q)
+        if cur is None or bs > cur[1] or (bs == cur[1] and s < cur[0]):
+            best[q] = (s, bs)
+    return best
 
 
 def _mcl(edges, outdir, cfg: FamilyConfig, log) -> list[tuple[str, str]]:
@@ -558,18 +588,20 @@ def run_families(fasta: str, outdir: str, cfg: FamilyConfig) -> dict:
                 raise ValueError(cfg.stage2)
             rep2root = partition_from_pairs(sorted(rep_set), rep_pairs)
             n_split = 0
-            if cfg.s2_gmax:
+            gmax = cfg.s2_gmax * len(gene_ids) if cfg.s2_gmax and cfg.s2_gmax < 1 else cfg.s2_gmax
+            extra["s2_gmax_genes"] = gmax
+            if gmax:
                 comp = defaultdict(list)
                 for r, root in rep2root.items():
                     comp[root].append(r)
-                big = {root for root, rs in comp.items() if sum(rep_size[r] for r in rs) > cfg.s2_gmax}
+                big = {root for root, rs in comp.items() if sum(rep_size[r] for r in rs) > gmax}
                 if big:
                     by_comp = defaultdict(list)
                     for a, b, w in edges:
                         if rep2root[a] in big and rep2root[a] == rep2root[b]:
                             by_comp[rep2root[a]].append((a, b, w))
                     for root in sorted(big):
-                        parts = leiden_split(sorted(comp[root]), by_comp[root], rep_size, cfg.s2_gmax, cfg.seed)
+                        parts = leiden_split(sorted(comp[root]), by_comp[root], rep_size, gmax, cfg.seed)
                         n_split += 1
                         for part in parts:
                             proot = min(part)
@@ -577,6 +609,17 @@ def run_families(fasta: str, outdir: str, cfg: FamilyConfig) -> dict:
                                 rep2root[r] = proot
                                 flagged[r] = root
             g2r = {g: rep2root[gene2rep[g]] for g in gene_ids}
+            n_moved = 0
+            if cfg.s2_reassign and flagged:
+                with open(hits) as fh:
+                    bh = best_hits((l.rstrip("\n").split("\t") for l in fh), cfg)
+                new = dict(g2r)
+                for g, (s_, _) in bh.items():
+                    if gene2rep[g] in flagged and s_ in flagged and g2r[s_] != g2r[g]:
+                        new[g] = g2r[s_]
+                        n_moved += 1
+                g2r = new
+            extra["n_genes_reassigned"] = n_moved
             timings["stage2_s"] = time.time() - t
             extra.update(n_reps=len(rep_set), n_gene_edges=len(gene_edges), n_rep_edges=len(edges),
                          n_components_split=n_split)
@@ -591,6 +634,8 @@ def run_families(fasta: str, outdir: str, cfg: FamilyConfig) -> dict:
             r = gene2rep[g]
             if r in flagged:
                 fam_from.setdefault(f, flagged[r])
+            elif g in flagged:
+                fam_from.setdefault(f, flagged[g])
         with open(os.path.join(outdir, "families_split_flags.tsv"), "w") as fh:
             fh.write("#family_id\tsplit_from_component\n")
             for f in sorted(fam_from):

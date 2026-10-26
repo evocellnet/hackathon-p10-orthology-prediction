@@ -10,6 +10,9 @@
    "median_n_fam": 1.0,
    "max_n_fam": 4,
    "mean_best_frac": 0.9870162993665448,
+   "gene_weighted_best_frac": 0.9862869198312236,
+   "frac_refogs_best_frac_ge95": 0.8529411764705882,
+   "frac_refogs_le1_stray": 0.9117647058823529,
    "median_size_ratio": 10.036062378167642,
    "mean_size_ratio": 49.21088977184021,
    "max_size_ratio": 250.3846153846154,
@@ -369,6 +372,9 @@
   "median_n_fam": 1.0,
   "max_n_fam": 4,
   "mean_best_frac": 0.9860971817194859,
+  "gene_weighted_best_frac": 0.9854166666666667,
+  "frac_refogs_best_frac_ge95": 0.8529411764705882,
+  "frac_refogs_le1_stray": 0.9117647058823529,
   "median_size_ratio": 10.036062378167642,
   "mean_size_ratio": 49.09155011568789,
   "max_size_ratio": 250.3846153846154,
@@ -492,6 +498,7 @@
   "families_tsv_sha256": "eb04fdbd1a7420090be14994297a729069f39171e4b262c660d09f2644c9e364",
   "command": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/conda_envs/orth/bin/python -m ancestra.families cluster --fasta /scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/S0/ob_all.fa --outdir /scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/S0/2sA_dc30_cc_sh30 --config /scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/S0/2sA_dc30_cc_sh30/config.json",
   "started": "2026-10-26T15:52:05+01:00",
-  "host_threads": 48
+  "host_threads": 48,
+  "rescored": "2026-10-26T16:11:28+01:00"
  }
 }
