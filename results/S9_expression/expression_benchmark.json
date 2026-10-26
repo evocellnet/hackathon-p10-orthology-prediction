@@ -1,0 +1,6933 @@
+{
+ "benchmark": "orthobench_dev",
+ "min_shared": 5,
+ "hard_ratio": 0.9,
+ "shuffle_seeds": [
+  11,
+  23,
+  47
+ ],
+ "primary_pairs": [
+  "Homo_sapiens:Mus_musculus",
+  "Homo_sapiens:Gallus_gallus",
+  "Homo_sapiens:Danio_rerio"
+ ],
+ "per_pair": {
+  "Homo_sapiens:Mus_musculus": {
+   "seq_source": "S5_whole_proteome",
+   "n": 643,
+   "n_expr": 586,
+   "n_orth": 81,
+   "n_par": 505,
+   "n_hard": 25,
+   "n_shared_entities": 210,
+   "null_n": 3448,
+   "null_q50": 0.0929,
+   "null_q95": 0.6025,
+   "null_mean": 0.0925,
+   "auc_spearman": 0.7127,
+   "auc_jaccard": 0.6639,
+   "auc_seq": 0.8708,
+   "auc_spearman_hard": 0.8333,
+   "auc_seq_hard": 0.8712,
+   "auc_spearman_shuf": [
+    0.5487,
+    0.4759,
+    0.4956
+   ],
+   "conservation": {
+    "orthologs": {
+     "n": 81,
+     "median_spearman": 0.2631,
+     "frac_conserved_gt_null95": 0.0617,
+     "frac_break_le_null50": 0.1728
+    },
+    "paralogs": {
+     "n": 505,
+     "median_spearman": 0.1131,
+     "frac_conserved_gt_null95": 0.0257,
+     "frac_break_le_null50": 0.4772
+    },
+    "paralogs_within": {
+     "n": 386,
+     "median_spearman": 0.143,
+     "frac_conserved_gt_null95": 0.0337,
+     "frac_break_le_null50": 0.4067
+    },
+    "paralogs_deep": {
+     "n": 119,
+     "median_spearman": -0.0551,
+     "frac_conserved_gt_null95": 0.0,
+     "frac_break_le_null50": 0.7059
+    }
+   },
+   "ortholog_breaks": [
+    [
+     "ENSP00000371923",
+     "ENSMUSP00000055449",
+     "RefOG002",
+     -0.1222,
+     47
+    ],
+    [
+     "ENSP00000357707",
+     "ENSMUSP00000102952",
+     "RefOG021",
+     0.0561,
+     70
+    ],
+    [
+     "ENSP00000357791",
+     "ENSMUSP00000091288",
+     "RefOG021",
+     0.009,
+     45
+    ],
+    [
+     "ENSP00000382323",
+     "ENSMUSP00000130949",
+     "RefOG023",
+     -0.1492,
+     41
+    ],
+    [
+     "ENSP00000356198",
+     "ENSMUSP00000123979",
+     "RefOG024",
+     -0.0577,
+     87
+    ],
+    [
+     "ENSP00000358755",
+     "ENSMUSP00000078134",
+     "RefOG024",
+     0.051,
+     74
+    ],
+    [
+     "ENSP00000358755",
+     "ENSMUSP00000142477",
+     "RefOG024",
+     -0.0934,
+     34
+    ],
+    [
+     "ENSP00000358755",
+     "ENSMUSP00000029510",
+     "RefOG024",
+     -0.2524,
+     35
+    ],
+    [
+     "ENSP00000259119",
+     "ENSMUSP00000112413",
+     "RefOG028",
+     0.0433,
+     105
+    ],
+    [
+     "ENSP00000359245",
+     "ENSMUSP00000013995",
+     "RefOG035",
+     0.0804,
+     91
+    ],
+    [
+     "ENSP00000418082",
+     "ENSMUSP00000058919",
+     "RefOG046",
+     -0.0232,
+     103
+    ],
+    [
+     "ENSP00000392762",
+     "ENSMUSP00000022725",
+     "RefOG054",
+     0.0409,
+     97
+    ],
+    [
+     "ENSP00000357507",
+     "ENSMUSP00000159150",
+     "RefOG057",
+     -0.1511,
+     45
+    ],
+    [
+     "ENSP00000369004",
+     "ENSMUSP00000108083",
+     "RefOG061",
+     -0.0413,
+     80
+    ]
+   ]
+  },
+  "Homo_sapiens:Gallus_gallus": {
+   "seq_source": "S5_whole_proteome",
+   "n": 508,
+   "n_expr": 413,
+   "n_orth": 60,
+   "n_par": 353,
+   "n_hard": 48,
+   "n_shared_entities": 13,
+   "null_n": 3109,
+   "null_q50": 0.0091,
+   "null_q95": 0.6623,
+   "null_mean": 0.0125,
+   "auc_spearman": 0.7189,
+   "auc_jaccard": 0.6076,
+   "auc_seq": 0.8552,
+   "auc_spearman_hard": 0.7143,
+   "auc_seq_hard": 0.6551,
+   "auc_spearman_shuf": [
+    0.5231,
+    0.4384,
+    0.456
+   ],
+   "conservation": {
+    "orthologs": {
+     "n": 60,
+     "median_spearman": 0.3984,
+     "frac_conserved_gt_null95": 0.15,
+     "frac_break_le_null50": 0.1667
+    },
+    "paralogs": {
+     "n": 353,
+     "median_spearman": 0.0476,
+     "frac_conserved_gt_null95": 0.0652,
+     "frac_break_le_null50": 0.4618
+    },
+    "paralogs_within": {
+     "n": 256,
+     "median_spearman": 0.0511,
+     "frac_conserved_gt_null95": 0.0781,
+     "frac_break_le_null50": 0.4688
+    },
+    "paralogs_deep": {
+     "n": 97,
+     "median_spearman": 0.044,
+     "frac_conserved_gt_null95": 0.0309,
+     "frac_break_le_null50": 0.4433
+    }
+   },
+   "ortholog_breaks": [
+    [
+     "ENSP00000377699",
+     "ENSGALP00000010309",
+     "RefOG007",
+     -0.2606,
+     10
+    ],
+    [
+     "ENSP00000326817",
+     "ENSGALP00000064119",
+     "RefOG008",
+     -0.4011,
+     13
+    ],
+    [
+     "ENSP00000497618",
+     "ENSGALP00000064119",
+     "RefOG008",
+     -0.2455,
+     11
+    ],
+    [
+     "ENSP00000216252",
+     "ENSGALP00000019471",
+     "RefOG019",
+     -0.0165,
+     13
+    ],
+    [
+     "ENSP00000426768",
+     "ENSGALP00000024131",
+     "RefOG021",
+     -0.0182,
+     10
+    ],
+    [
+     "ENSP00000406861",
+     "ENSGALP00000050462",
+     "RefOG023",
+     -0.4341,
+     13
+    ],
+    [
+     "ENSP00000499243",
+     "ENSGALP00000018780",
+     "RefOG033",
+     -0.6,
+     11
+    ],
+    [
+     "ENSP00000392762",
+     "ENSGALP00000035733",
+     "RefOG054",
+     -0.007,
+     12
+    ],
+    [
+     "ENSP00000369004",
+     "ENSGALP00000026433",
+     "RefOG061",
+     -0.044,
+     13
+    ],
+    [
+     "ENSP00000384827",
+     "ENSGALP00000056541",
+     "RefOG066",
+     -0.4615,
+     13
+    ]
+   ]
+  },
+  "Homo_sapiens:Danio_rerio": {
+   "seq_source": "S5_whole_proteome",
+   "n": 972,
+   "n_expr": 666,
+   "n_orth": 93,
+   "n_par": 573,
+   "n_hard": 263,
+   "n_shared_entities": 74,
+   "null_n": 2823,
+   "null_q50": 0.0,
+   "null_q95": 0.6525,
+   "null_mean": 0.0138,
+   "auc_spearman": 0.5936,
+   "auc_jaccard": 0.5726,
+   "auc_seq": 0.7853,
+   "auc_spearman_hard": 0.5395,
+   "auc_seq_hard": 0.6047,
+   "auc_spearman_shuf": [
+    0.4993,
+    0.5021,
+    0.4771
+   ],
+   "conservation": {
+    "orthologs": {
+     "n": 93,
+     "median_spearman": 0.1678,
+     "frac_conserved_gt_null95": 0.1183,
+     "frac_break_le_null50": 0.3763
+    },
+    "paralogs": {
+     "n": 573,
+     "median_spearman": 0.0424,
+     "frac_conserved_gt_null95": 0.0384,
+     "frac_break_le_null50": 0.4415
+    },
+    "paralogs_within": {
+     "n": 387,
+     "median_spearman": 0.0629,
+     "frac_conserved_gt_null95": 0.0543,
+     "frac_break_le_null50": 0.4264
+    },
+    "paralogs_deep": {
+     "n": 186,
+     "median_spearman": 0.0153,
+     "frac_conserved_gt_null95": 0.0054,
+     "frac_break_le_null50": 0.4731
+    }
+   },
+   "ortholog_breaks": [
+    [
+     "ENSP00000371923",
+     "ENSDARP00000127535",
+     "RefOG002",
+     -0.0357,
+     7
+    ],
+    [
+     "ENSP00000371923",
+     "ENSDARP00000126512",
+     "RefOG002",
+     -0.2,
+     6
+    ],
+    [
+     "ENSP00000379616",
+     "ENSDARP00000041141",
+     "RefOG006",
+     -0.0182,
+     11
+    ],
+    [
+     "ENSP00000379616",
+     "ENSDARP00000134054",
+     "RefOG006",
+     -0.2,
+     10
+    ],
+    [
+     "ENSP00000369198",
+     "ENSDARP00000107322",
+     "RefOG007",
+     -0.4788,
+     10
+    ],
+    [
+     "ENSP00000456794",
+     "ENSDARP00000124010",
+     "RefOG007",
+     -0.3091,
+     11
+    ],
+    [
+     "ENSP00000326817",
+     "ENSDARP00000064514",
+     "RefOG008",
+     -0.5515,
+     10
+    ],
+    [
+     "ENSP00000497618",
+     "ENSDARP00000064514",
+     "RefOG008",
+     -0.119,
+     8
+    ],
+    [
+     "ENSP00000473589",
+     "ENSDARP00000120686",
+     "RefOG021",
+     -0.1703,
+     13
+    ],
+    [
+     "ENSP00000357707",
+     "ENSDARP00000120686",
+     "RefOG021",
+     -0.1879,
+     10
+    ],
+    [
+     "ENSP00000357687",
+     "ENSDARP00000123790",
+     "RefOG021",
+     -0.5105,
+     12
+    ],
+    [
+     "ENSP00000271638",
+     "ENSDARP00000121650",
+     "RefOG021",
+     -0.3416,
+     13
+    ],
+    [
+     "ENSP00000447211",
+     "ENSDARP00000087236",
+     "RefOG023",
+     -0.2833,
+     9
+    ],
+    [
+     "ENSP00000485659",
+     "ENSDARP00000129173",
+     "RefOG023",
+     -0.25,
+     7
+    ],
+    [
+     "ENSP00000485659",
+     "ENSDARP00000127611",
+     "RefOG023",
+     0.0,
+     8
+    ],
+    [
+     "ENSP00000485659",
+     "ENSDARP00000130459",
+     "RefOG023",
+     -0.0238,
+     8
+    ],
+    [
+     "ENSP00000436812",
+     "ENSDARP00000127611",
+     "RefOG023",
+     -0.0769,
+     14
+    ],
+    [
+     "ENSP00000436812",
+     "ENSDARP00000130459",
+     "RefOG023",
+     -0.3407,
+     13
+    ],
+    [
+     "ENSP00000358747",
+     "ENSDARP00000135566",
+     "RefOG024",
+     -0.0175,
+     12
+    ],
+    [
+     "ENSP00000358747",
+     "ENSDARP00000095389",
+     "RefOG024",
+     -0.3667,
+     9
+    ],
+    [
+     "ENSP00000358747",
+     "ENSDARP00000005298",
+     "RefOG024",
+     0.0,
+     11
+    ],
+    [
+     "ENSP00000358747",
+     "ENSDARP00000138333",
+     "RefOG024",
+     -0.2137,
+     12
+    ],
+    [
+     "ENSP00000358747",
+     "ENSDARP00000134903",
+     "RefOG024",
+     -0.4694,
+     12
+    ],
+    [
+     "ENSP00000358747",
+     "ENSDARP00000148464",
+     "RefOG024",
+     -0.4264,
+     13
+    ],
+    [
+     "ENSP00000358747",
+     "ENSDARP00000102083",
+     "RefOG024",
+     0.0,
+     11
+    ],
+    [
+     "ENSP00000258415",
+     "ENSDARP00000071946",
+     "RefOG033",
+     -0.0374,
+     14
+    ],
+    [
+     "ENSP00000359245",
+     "ENSDARP00000113256",
+     "RefOG035",
+     -0.4303,
+     10
+    ],
+    [
+     "ENSP00000359245",
+     "ENSDARP00000123162",
+     "RefOG035",
+     -0.5727,
+     11
+    ],
+    [
+     "ENSP00000263094",
+     "ENSDARP00000103740",
+     "RefOG035",
+     -0.0593,
+     14
+    ],
+    [
+     "ENSP00000260197",
+     "ENSDARP00000129655",
+     "RefOG038",
+     -0.0138,
+     13
+    ],
+    [
+     "ENSP00000362684",
+     "ENSDARP00000155276",
+     "RefOG055",
+     -0.0303,
+     10
+    ],
+    [
+     "ENSP00000346634",
+     "ENSDARP00000141866",
+     "RefOG061",
+     -0.3022,
+     13
+    ],
+    [
+     "ENSP00000357285",
+     "ENSDARP00000058324",
+     "RefOG067",
+     -0.1044,
+     13
+    ],
+    [
+     "ENSP00000347931",
+     "ENSDARP00000118137",
+     "RefOG068",
+     -0.0476,
+     8
+    ],
+    [
+     "ENSP00000304192",
+     "ENSDARP00000116424",
+     "RefOG068",
+     -0.1429,
+     13
+    ]
+   ]
+  },
+  "Homo_sapiens:Pan_troglodytes": {
+   "seq_source": "S7_devrefog_canonical",
+   "n": 730,
+   "n_expr": 676,
+   "n_orth": 80,
+   "n_par": 596,
+   "n_hard": 14,
+   "n_shared_entities": 25,
+   "null_n": 3369,
+   "null_q50": 0.0548,
+   "null_q95": 0.5921,
+   "null_mean": 0.0467,
+   "auc_spearman": 0.8128,
+   "auc_jaccard": 0.6916,
+   "auc_seq": 0.9103,
+   "auc_spearman_hard": 0.5455,
+   "auc_seq_hard": 0.9242,
+   "auc_spearman_shuf": [
+    0.4909,
+    0.5,
+    0.406
+   ],
+   "conservation": {
+    "orthologs": {
+     "n": 80,
+     "median_spearman": 0.4248,
+     "frac_conserved_gt_null95": 0.35,
+     "frac_break_le_null50": 0.0625
+    },
+    "paralogs": {
+     "n": 596,
+     "median_spearman": -0.0097,
+     "frac_conserved_gt_null95": 0.0386,
+     "frac_break_le_null50": 0.552
+    },
+    "paralogs_within": {
+     "n": 462,
+     "median_spearman": 0.0091,
+     "frac_conserved_gt_null95": 0.0368,
+     "frac_break_le_null50": 0.5281
+    },
+    "paralogs_deep": {
+     "n": 134,
+     "median_spearman": -0.1078,
+     "frac_conserved_gt_null95": 0.0448,
+     "frac_break_le_null50": 0.6343
+    }
+   },
+   "ortholog_breaks": [
+    [
+     "ENSP00000426768",
+     "ENSPTRP00000048303",
+     "RefOG021",
+     0.0299,
+     18
+    ],
+    [
+     "ENSP00000271835",
+     "ENSPTRP00000002233",
+     "RefOG021",
+     -0.4349,
+     24
+    ],
+    [
+     "ENSP00000357791",
+     "ENSPTRP00000075839",
+     "RefOG021",
+     -0.1912,
+     17
+    ],
+    [
+     "ENSP00000358755",
+     "ENSPTRP00000081197",
+     "RefOG024",
+     0.0015,
+     20
+    ],
+    [
+     "ENSP00000499044",
+     "ENSPTRP00000055354",
+     "RefOG048",
+     -0.7116,
+     23
+    ]
+   ]
+  },
+  "Homo_sapiens:Rattus_norvegicus": {
+   "seq_source": "S7_devrefog_canonical",
+   "n": 652,
+   "n_expr": 584,
+   "n_orth": 79,
+   "n_par": 505,
+   "n_hard": 21,
+   "n_shared_entities": 22,
+   "null_n": 3169,
+   "null_q50": 0.0667,
+   "null_q95": 0.6482,
+   "null_mean": 0.0665,
+   "auc_spearman": 0.7177,
+   "auc_jaccard": 0.6331,
+   "auc_seq": 0.8635,
+   "auc_spearman_hard": 0.9815,
+   "auc_seq_hard": 0.7593,
+   "auc_spearman_shuf": [
+    0.4834,
+    0.4826,
+    0.4459
+   ],
+   "conservation": {
+    "orthologs": {
+     "n": 79,
+     "median_spearman": 0.3703,
+     "frac_conserved_gt_null95": 0.1392,
+     "frac_break_le_null50": 0.2025
+    },
+    "paralogs": {
+     "n": 505,
+     "median_spearman": 0.0961,
+     "frac_conserved_gt_null95": 0.0297,
+     "frac_break_le_null50": 0.4851
+    },
+    "paralogs_within": {
+     "n": 384,
+     "median_spearman": 0.1447,
+     "frac_conserved_gt_null95": 0.0365,
+     "frac_break_le_null50": 0.4167
+    },
+    "paralogs_deep": {
+     "n": 121,
+     "median_spearman": -0.0632,
+     "frac_conserved_gt_null95": 0.0083,
+     "frac_break_le_null50": 0.7025
+    }
+   },
+   "ortholog_breaks": [
+    [
+     "ENSP00000220676",
+     "ENSRNOP00000040735",
+     "RefOG002",
+     -0.1422,
+     17
+    ],
+    [
+     "ENSP00000326817",
+     "ENSRNOP00000050922",
+     "RefOG008",
+     -0.1639,
+     20
+    ],
+    [
+     "ENSP00000326817",
+     "ENSRNOP00000075733",
+     "RefOG008",
+     -0.3544,
+     19
+    ],
+    [
+     "ENSP00000271638",
+     "ENSRNOP00000001672",
+     "RefOG021",
+     -0.0707,
+     20
+    ],
+    [
+     "ENSP00000447211",
+     "ENSRNOP00000041552",
+     "RefOG023",
+     -0.1042,
+     18
+    ],
+    [
+     "ENSP00000356198",
+     "ENSRNOP00000070204",
+     "RefOG024",
+     -0.0702,
+     19
+    ],
+    [
+     "ENSP00000290349",
+     "ENSRNOP00000073686",
+     "RefOG034",
+     0.0588,
+     18
+    ],
+    [
+     "ENSP00000290349",
+     "ENSRNOP00000043385",
+     "RefOG034",
+     0.0155,
+     18
+    ],
+    [
+     "ENSP00000290349",
+     "ENSRNOP00000051107",
+     "RefOG034",
+     -0.1435,
+     18
+    ],
+    [
+     "ENSP00000373570",
+     "ENSRNOP00000041764",
+     "RefOG054",
+     -0.2879,
+     14
+    ],
+    [
+     "ENSP00000263321",
+     "ENSRNOP00000021971",
+     "RefOG054",
+     -0.1958,
+     12
+    ],
+    [
+     "ENSP00000284486",
+     "ENSRNOP00000015055",
+     "RefOG055",
+     -0.1351,
+     19
+    ],
+    [
+     "ENSP00000275159",
+     "ENSRNOP00000001051",
+     "RefOG059",
+     -0.4263,
+     19
+    ],
+    [
+     "ENSP00000369004",
+     "ENSRNOP00000006867",
+     "RefOG061",
+     -0.0561,
+     19
+    ],
+    [
+     "ENSP00000251119",
+     "ENSRNOP00000074087",
+     "RefOG065",
+     -0.113,
+     21
+    ],
+    [
+     "ENSP00000347931",
+     "ENSRNOP00000059738",
+     "RefOG068",
+     -0.1311,
+     18
+    ]
+   ]
+  },
+  "Homo_sapiens:Canis_familiaris": {
+   "seq_source": "S7_devrefog_canonical",
+   "n": 585,
+   "n_expr": 514,
+   "n_orth": 73,
+   "n_par": 441,
+   "n_hard": 26,
+   "n_shared_entities": 50,
+   "null_n": 3255,
+   "null_q50": 0.0281,
+   "null_q95": 0.487,
+   "null_mean": 0.0313,
+   "auc_spearman": 0.7426,
+   "auc_jaccard": 0.6514,
+   "auc_seq": 0.8575,
+   "auc_spearman_hard": 0.7333,
+   "auc_seq_hard": 0.7524,
+   "auc_spearman_shuf": [
+    0.4655,
+    0.5187,
+    0.4922
+   ],
+   "conservation": {
+    "orthologs": {
+     "n": 73,
+     "median_spearman": 0.3171,
+     "frac_conserved_gt_null95": 0.1644,
+     "frac_break_le_null50": 0.1096
+    },
+    "paralogs": {
+     "n": 441,
+     "median_spearman": 0.0745,
+     "frac_conserved_gt_null95": 0.0363,
+     "frac_break_le_null50": 0.415
+    },
+    "paralogs_within": {
+     "n": 338,
+     "median_spearman": 0.0901,
+     "frac_conserved_gt_null95": 0.0414,
+     "frac_break_le_null50": 0.4053
+    },
+    "paralogs_deep": {
+     "n": 103,
+     "median_spearman": 0.0631,
+     "frac_conserved_gt_null95": 0.0194,
+     "frac_break_le_null50": 0.4466
+    }
+   },
+   "ortholog_breaks": [
+    [
+     "ENSP00000220676",
+     "ENSCAFP00000010380",
+     "RefOG002",
+     -0.0165,
+     41
+    ],
+    [
+     "ENSP00000326817",
+     "ENSCAFP00000016379",
+     "RefOG008",
+     -0.1342,
+     46
+    ],
+    [
+     "ENSP00000497618",
+     "ENSCAFP00000016379",
+     "RefOG008",
+     -0.0051,
+     32
+    ],
+    [
+     "ENSP00000447211",
+     "ENSCAFP00000059042",
+     "RefOG023",
+     0.0111,
+     37
+    ],
+    [
+     "ENSP00000308845",
+     "ENSCAFP00000008389",
+     "RefOG030",
+     -0.048,
+     35
+    ],
+    [
+     "ENSP00000349577",
+     "ENSCAFP00000059509",
+     "RefOG044",
+     0.0241,
+     35
+    ],
+    [
+     "ENSP00000369004",
+     "ENSCAFP00000019283",
+     "RefOG061",
+     -0.007,
+     45
+    ],
+    [
+     "ENSP00000357285",
+     "ENSCAFP00000058079",
+     "RefOG067",
+     -0.1586,
+     49
+    ]
+   ]
+  },
+  "Homo_sapiens:Monodelphis_domestica": {
+   "seq_source": "S7_devrefog_canonical",
+   "n": 530,
+   "n_expr": 483,
+   "n_orth": 72,
+   "n_par": 411,
+   "n_hard": 36,
+   "n_shared_entities": 17,
+   "null_n": 2963,
+   "null_q50": 0.0238,
+   "null_q95": 0.6131,
+   "null_mean": 0.026,
+   "auc_spearman": 0.6716,
+   "auc_jaccard": 0.6387,
+   "auc_seq": 0.8261,
+   "auc_spearman_hard": 0.6566,
+   "auc_seq_hard": 0.9646,
+   "auc_spearman_shuf": [
+    0.4812,
+    0.4585,
+    0.4917
+   ],
+   "conservation": {
+    "orthologs": {
+     "n": 72,
+     "median_spearman": 0.2586,
+     "frac_conserved_gt_null95": 0.0694,
+     "frac_break_le_null50": 0.2639
+    },
+    "paralogs": {
+     "n": 411,
+     "median_spearman": 0.0179,
+     "frac_conserved_gt_null95": 0.0511,
+     "frac_break_le_null50": 0.5061
+    },
+    "paralogs_within": {
+     "n": 307,
+     "median_spearman": 0.0515,
+     "frac_conserved_gt_null95": 0.0586,
+     "frac_break_le_null50": 0.456
+    },
+    "paralogs_deep": {
+     "n": 104,
+     "median_spearman": -0.1458,
+     "frac_conserved_gt_null95": 0.0288,
+     "frac_break_le_null50": 0.6538
+    }
+   },
+   "ortholog_breaks": [
+    [
+     "ENSP00000220676",
+     "ENSMODP00000040561",
+     "RefOG002",
+     -0.1978,
+     13
+    ],
+    [
+     "ENSP00000326817",
+     "ENSMODP00000057788",
+     "RefOG008",
+     -0.0324,
+     16
+    ],
+    [
+     "ENSP00000216252",
+     "ENSMODP00000020665",
+     "RefOG019",
+     -0.2,
+     16
+    ],
+    [
+     "ENSP00000473589",
+     "ENSMODP00000034118",
+     "RefOG021",
+     -0.0735,
+     17
+    ],
+    [
+     "ENSP00000426768",
+     "ENSMODP00000024649",
+     "RefOG021",
+     0.021,
+     12
+    ],
+    [
+     "ENSP00000317895",
+     "ENSMODP00000023726",
+     "RefOG021",
+     -0.0357,
+     15
+    ],
+    [
+     "ENSP00000271835",
+     "ENSMODP00000023841",
+     "RefOG021",
+     -0.4044,
+     17
+    ],
+    [
+     "ENSP00000373370",
+     "ENSMODP00000023838",
+     "RefOG021",
+     -0.2879,
+     14
+    ],
+    [
+     "ENSP00000382323",
+     "ENSMODP00000008408",
+     "RefOG023",
+     -0.5833,
+     9
+    ],
+    [
+     "ENSP00000447211",
+     "ENSMODP00000025620",
+     "RefOG023",
+     -0.1385,
+     14
+    ],
+    [
+     "ENSP00000356198",
+     "ENSMODP00000035744",
+     "RefOG024",
+     -0.3059,
+     16
+    ],
+    [
+     "ENSP00000259119",
+     "ENSMODP00000035037",
+     "RefOG028",
+     -0.3382,
+     17
+    ],
+    [
+     "ENSP00000499243",
+     "ENSMODP00000023310",
+     "RefOG033",
+     -0.3357,
+     15
+    ],
+    [
+     "ENSP00000499044",
+     "ENSMODP00000021571",
+     "RefOG048",
+     -0.0986,
+     14
+    ],
+    [
+     "ENSP00000256637",
+     "ENSMODP00000002515",
+     "RefOG052",
+     -0.0343,
+     17
+    ],
+    [
+     "ENSP00000369004",
+     "ENSMODP00000058915",
+     "RefOG061",
+     -0.0353,
+     16
+    ],
+    [
+     "ENSP00000251119",
+     "ENSMODP00000056797",
+     "RefOG065",
+     -0.1642,
+     17
+    ],
+    [
+     "ENSP00000357285",
+     "ENSMODP00000043890",
+     "RefOG067",
+     -0.027,
+     17
+    ],
+    [
+     "ENSP00000304192",
+     "ENSMODP00000008814",
+     "RefOG068",
+     -0.2426,
+     17
+    ]
+   ]
+  },
+  "Pan_troglodytes:Mus_musculus": {
+   "seq_source": "S7_devrefog_canonical",
+   "n": 740,
+   "n_expr": 732,
+   "n_orth": 87,
+   "n_par": 645,
+   "n_hard": 112,
+   "n_shared_entities": 23,
+   "null_n": 3044,
+   "null_q50": 0.0424,
+   "null_q95": 0.6043,
+   "null_mean": 0.0356,
+   "auc_spearman": 0.6379,
+   "auc_jaccard": 0.6509,
+   "auc_seq": 0.8702,
+   "auc_spearman_hard": 0.4544,
+   "auc_seq_hard": 0.7744,
+   "auc_spearman_shuf": [
+    0.4365,
+    0.504,
+    0.5122
+   ],
+   "conservation": {
+    "orthologs": {
+     "n": 87,
+     "median_spearman": 0.2441,
+     "frac_conserved_gt_null95": 0.1494,
+     "frac_break_le_null50": 0.3448
+    },
+    "paralogs": {
+     "n": 645,
+     "median_spearman": 0.025,
+     "frac_conserved_gt_null95": 0.031,
+     "frac_break_le_null50": 0.5163
+    },
+    "paralogs_within": {
+     "n": 508,
+     "median_spearman": 0.0379,
+     "frac_conserved_gt_null95": 0.0217,
+     "frac_break_le_null50": 0.5039
+    },
+    "paralogs_deep": {
+     "n": 137,
+     "median_spearman": -0.0377,
+     "frac_conserved_gt_null95": 0.0657,
+     "frac_break_le_null50": 0.562
+    }
+   },
+   "ortholog_breaks": [
+    [
+     "ENSPTRP00000092368",
+     "ENSMUSP00000055449",
+     "RefOG002",
+     -0.5315,
+     12
+    ],
+    [
+     "ENSPTRP00000079818",
+     "ENSMUSP00000025631",
+     "RefOG004",
+     -0.1097,
+     23
+    ],
+    [
+     "ENSPTRP00000072301",
+     "ENSMUSP00000108019",
+     "RefOG007",
+     0.0319,
+     17
+    ],
+    [
+     "ENSPTRP00000011913",
+     "ENSMUSP00000099554",
+     "RefOG008",
+     -0.4082,
+     23
+    ],
+    [
+     "ENSPTRP00000002279",
+     "ENSMUSP00000102952",
+     "RefOG021",
+     -0.2527,
+     13
+    ],
+    [
+     "ENSPTRP00000048303",
+     "ENSMUSP00000022186",
+     "RefOG021",
+     -0.1464,
+     15
+    ],
+    [
+     "ENSPTRP00000092800",
+     "ENSMUSP00000029515",
+     "RefOG021",
+     -0.2727,
+     12
+    ],
+    [
+     "ENSPTRP00000093848",
+     "ENSMUSP00000029515",
+     "RefOG021",
+     -0.2727,
+     12
+    ],
+    [
+     "ENSPTRP00000092937",
+     "ENSMUSP00000029515",
+     "RefOG021",
+     -0.3437,
+     18
+    ],
+    [
+     "ENSPTRP00000080971",
+     "ENSMUSP00000029515",
+     "RefOG021",
+     -0.5074,
+     17
+    ],
+    [
+     "ENSPTRP00000087426",
+     "ENSMUSP00000029515",
+     "RefOG021",
+     -0.7372,
+     18
+    ],
+    [
+     "ENSPTRP00000087944",
+     "ENSMUSP00000029515",
+     "RefOG021",
+     -0.0735,
+     17
+    ],
+    [
+     "ENSPTRP00000002233",
+     "ENSMUSP00000102921",
+     "RefOG021",
+     -0.162,
+     18
+    ],
+    [
+     "ENSPTRP00000051765",
+     "ENSMUSP00000142003",
+     "RefOG021",
+     -0.2324,
+     16
+    ],
+    [
+     "ENSPTRP00000074125",
+     "ENSMUSP00000122353",
+     "RefOG023",
+     -0.2824,
+     16
+    ],
+    [
+     "ENSPTRP00000092487",
+     "ENSMUSP00000128276",
+     "RefOG023",
+     -0.244,
+     14
+    ],
+    [
+     "ENSPTRP00000003133",
+     "ENSMUSP00000080717",
+     "RefOG024",
+     -0.0753,
+     18
+    ],
+    [
+     "ENSPTRP00000081197",
+     "ENSMUSP00000142477",
+     "RefOG024",
+     -0.4725,
+     14
+    ],
+    [
+     "ENSPTRP00000081197",
+     "ENSMUSP00000053923",
+     "RefOG024",
+     -0.3071,
+     15
+    ],
+    [
+     "ENSPTRP00000081197",
+     "ENSMUSP00000080851",
+     "RefOG024",
+     -0.1373,
+     18
+    ],
+    [
+     "ENSPTRP00000081197",
+     "ENSMUSP00000029510",
+     "RefOG024",
+     0.0036,
+     15
+    ],
+    [
+     "ENSPTRP00000071872",
+     "ENSMUSP00000080301",
+     "RefOG043",
+     -0.3953,
+     23
+    ],
+    [
+     "ENSPTRP00000055354",
+     "ENSMUSP00000060523",
+     "RefOG048",
+     -0.0667,
+     19
+    ],
+    [
+     "ENSPTRP00000071832",
+     "ENSMUSP00000099895",
+     "RefOG054",
+     -0.1214,
+     15
+    ],
+    [
+     "ENSPTRP00000080305",
+     "ENSMUSP00000022725",
+     "RefOG054",
+     -0.0609,
+     18
+    ],
+    [
+     "ENSPTRP00000007149",
+     "ENSMUSP00000004770",
+     "RefOG054",
+     -0.4061,
+     10
+    ],
+    [
+     "ENSPTRP00000072468",
+     "ENSMUSP00000113962",
+     "RefOG055",
+     -0.6264,
+     18
+    ],
+    [
+     "ENSPTRP00000002323",
+     "ENSMUSP00000159150",
+     "RefOG057",
+     -0.23,
+     19
+    ],
+    [
+     "ENSPTRP00000082852",
+     "ENSMUSP00000043583",
+     "RefOG061",
+     -0.039,
+     21
+    ],
+    [
+     "ENSPTRP00000069989",
+     "ENSMUSP00000021567",
+     "RefOG068",
+     -0.2905,
+     23
+    ]
+   ]
+  },
+  "Pan_troglodytes:Rattus_norvegicus": {
+   "seq_source": "S7_devrefog_canonical",
+   "n": 778,
+   "n_expr": 765,
+   "n_orth": 104,
+   "n_par": 661,
+   "n_hard": 107,
+   "n_shared_entities": 11,
+   "null_n": 2866,
+   "null_q50": 0.0364,
+   "null_q95": 0.672,
+   "null_mean": 0.0293,
+   "auc_spearman": 0.5905,
+   "auc_jaccard": 0.5738,
+   "auc_seq": 0.8439,
+   "auc_spearman_hard": 0.3755,
+   "auc_seq_hard": 0.7003,
+   "auc_spearman_shuf": [
+    0.4567,
+    0.4744,
+    0.5202
+   ],
+   "conservation": {
+    "orthologs": {
+     "n": 104,
+     "median_spearman": 0.2273,
+     "frac_conserved_gt_null95": 0.1635,
+     "frac_break_le_null50": 0.3942
+    },
+    "paralogs": {
+     "n": 661,
+     "median_spearman": 0.05,
+     "frac_conserved_gt_null95": 0.0469,
+     "frac_break_le_null50": 0.4962
+    },
+    "paralogs_within": {
+     "n": 522,
+     "median_spearman": 0.0636,
+     "frac_conserved_gt_null95": 0.0441,
+     "frac_break_le_null50": 0.4828
+    },
+    "paralogs_deep": {
+     "n": 139,
+     "median_spearman": -0.0333,
+     "frac_conserved_gt_null95": 0.0576,
+     "frac_break_le_null50": 0.5468
+    }
+   },
+   "ortholog_breaks": [
+    [
+     "ENSPTRP00000034690",
+     "ENSRNOP00000040735",
+     "RefOG002",
+     -0.1727,
+     11
+    ],
+    [
+     "ENSPTRP00000041054",
+     "ENSRNOP00000057982",
+     "RefOG007",
+     -0.3167,
+     9
+    ],
+    [
+     "ENSPTRP00000084092",
+     "ENSRNOP00000020062",
+     "RefOG007",
+     0.0238,
+     8
+    ],
+    [
+     "ENSPTRP00000011913",
+     "ENSRNOP00000050922",
+     "RefOG008",
+     -0.2364,
+     11
+    ],
+    [
+     "ENSPTRP00000011913",
+     "ENSRNOP00000075733",
+     "RefOG008",
+     -0.2909,
+     11
+    ],
+    [
+     "ENSPTRP00000024852",
+     "ENSRNOP00000005837",
+     "RefOG019",
+     -0.1273,
+     11
+    ],
+    [
+     "ENSPTRP00000002279",
+     "ENSRNOP00000015712",
+     "RefOG021",
+     -0.85,
+     9
+    ],
+    [
+     "ENSPTRP00000048303",
+     "ENSRNOP00000024202",
+     "RefOG021",
+     -0.6786,
+     7
+    ],
+    [
+     "ENSPTRP00000092937",
+     "ENSRNOP00000013393",
+     "RefOG021",
+     -0.6455,
+     11
+    ],
+    [
+     "ENSPTRP00000080971",
+     "ENSRNOP00000013393",
+     "RefOG021",
+     -0.3091,
+     10
+    ],
+    [
+     "ENSPTRP00000087426",
+     "ENSRNOP00000013393",
+     "RefOG021",
+     -0.6909,
+     11
+    ],
+    [
+     "ENSPTRP00000087944",
+     "ENSRNOP00000013393",
+     "RefOG021",
+     -0.4333,
+     9
+    ],
+    [
+     "ENSPTRP00000092937",
+     "ENSRNOP00000041760",
+     "RefOG021",
+     -0.5636,
+     10
+    ],
+    [
+     "ENSPTRP00000080971",
+     "ENSRNOP00000041760",
+     "RefOG021",
+     -0.2167,
+     9
+    ],
+    [
+     "ENSPTRP00000087426",
+     "ENSRNOP00000041760",
+     "RefOG021",
+     -0.5879,
+     10
+    ],
+    [
+     "ENSPTRP00000087944",
+     "ENSRNOP00000041760",
+     "RefOG021",
+     -0.4,
+     9
+    ],
+    [
+     "ENSPTRP00000002223",
+     "ENSRNOP00000001672",
+     "RefOG021",
+     -0.2,
+     11
+    ],
+    [
+     "ENSPTRP00000087944",
+     "ENSRNOP00000001672",
+     "RefOG021",
+     -0.1167,
+     9
+    ],
+    [
+     "ENSPTRP00000002233",
+     "ENSRNOP00000011762",
+     "RefOG021",
+     0.0,
+     11
+    ],
+    [
+     "ENSPTRP00000074125",
+     "ENSRNOP00000072033",
+     "RefOG023",
+     0.0061,
+     10
+    ],
+    [
+     "ENSPTRP00000092487",
+     "ENSRNOP00000036806",
+     "RefOG023",
+     -0.0357,
+     7
+    ],
+    [
+     "ENSPTRP00000078890",
+     "ENSRNOP00000072558",
+     "RefOG023",
+     -0.3455,
+     10
+    ],
+    [
+     "ENSPTRP00000003133",
+     "ENSRNOP00000074871",
+     "RefOG024",
+     -0.3727,
+     11
+    ],
+    [
+     "ENSPTRP00000081197",
+     "ENSRNOP00000052819",
+     "RefOG024",
+     0.0364,
+     11
+    ],
+    [
+     "ENSPTRP00000081197",
+     "ENSRNOP00000052813",
+     "RefOG024",
+     -0.4909,
+     11
+    ],
+    [
+     "ENSPTRP00000023898",
+     "ENSRNOP00000073686",
+     "RefOG034",
+     -0.3727,
+     11
+    ],
+    [
+     "ENSPTRP00000023898",
+     "ENSRNOP00000043385",
+     "RefOG034",
+     -0.3,
+     11
+    ],
+    [
+     "ENSPTRP00000023898",
+     "ENSRNOP00000051107",
+     "RefOG034",
+     -0.2636,
+     11
+    ],
+    [
+     "ENSPTRP00000023900",
+     "ENSRNOP00000002310",
+     "RefOG034",
+     -0.0545,
+     10
+    ],
+    [
+     "ENSPTRP00000071872",
+     "ENSRNOP00000007276",
+     "RefOG043",
+     -0.3909,
+     11
+    ],
+    [
+     "ENSPTRP00000093378",
+     "ENSRNOP00000047513",
+     "RefOG046",
+     -0.3,
+     11
+    ],
+    [
+     "ENSPTRP00000077042",
+     "ENSRNOP00000068335",
+     "RefOG048",
+     -0.2455,
+     11
+    ],
+    [
+     "ENSPTRP00000077042",
+     "ENSRNOP00000074727",
+     "RefOG048",
+     -0.1636,
+     11
+    ],
+    [
+     "ENSPTRP00000055354",
+     "ENSRNOP00000022897",
+     "RefOG048",
+     -0.6273,
+     11
+    ],
+    [
+     "ENSPTRP00000072468",
+     "ENSRNOP00000015055",
+     "RefOG055",
+     -0.4091,
+     11
+    ],
+    [
+     "ENSPTRP00000093050",
+     "ENSRNOP00000001051",
+     "RefOG059",
+     -0.3909,
+     11
+    ],
+    [
+     "ENSPTRP00000082852",
+     "ENSRNOP00000071825",
+     "RefOG061",
+     -0.4061,
+     10
+    ],
+    [
+     "ENSPTRP00000002442",
+     "ENSRNOP00000026974",
+     "RefOG067",
+     -0.1364,
+     11
+    ],
+    [
+     "ENSPTRP00000079066",
+     "ENSRNOP00000026974",
+     "RefOG067",
+     -0.1364,
+     11
+    ],
+    [
+     "ENSPTRP00000006704",
+     "ENSRNOP00000059738",
+     "RefOG068",
+     -0.0364,
+     11
+    ],
+    [
+     "ENSPTRP00000069989",
+     "ENSRNOP00000010022",
+     "RefOG068",
+     -0.3273,
+     11
+    ]
+   ]
+  },
+  "Pan_troglodytes:Canis_familiaris": {
+   "seq_source": "S7_devrefog_canonical",
+   "n": 691,
+   "n_expr": 685,
+   "n_orth": 83,
+   "n_par": 602,
+   "n_hard": 123,
+   "n_shared_entities": 17,
+   "null_n": 2841,
+   "null_q50": 0.0123,
+   "null_q95": 0.5882,
+   "null_mean": 0.0106,
+   "auc_spearman": 0.6879,
+   "auc_jaccard": 0.6559,
+   "auc_seq": 0.8543,
+   "auc_spearman_hard": 0.6426,
+   "auc_seq_hard": 0.6948,
+   "auc_spearman_shuf": [
+    0.5413,
+    0.5157,
+    0.4818
+   ],
+   "conservation": {
+    "orthologs": {
+     "n": 83,
+     "median_spearman": 0.2843,
+     "frac_conserved_gt_null95": 0.1325,
+     "frac_break_le_null50": 0.2169
+    },
+    "paralogs": {
+     "n": 602,
+     "median_spearman": 0.0175,
+     "frac_conserved_gt_null95": 0.0399,
+     "frac_break_le_null50": 0.495
+    },
+    "paralogs_within": {
+     "n": 481,
+     "median_spearman": 0.0196,
+     "frac_conserved_gt_null95": 0.0312,
+     "frac_break_le_null50": 0.4927
+    },
+    "paralogs_deep": {
+     "n": 121,
+     "median_spearman": 0.0074,
+     "frac_conserved_gt_null95": 0.0744,
+     "frac_break_le_null50": 0.5041
+    }
+   },
+   "ortholog_breaks": [
+    [
+     "ENSPTRP00000011913",
+     "ENSCAFP00000016379",
+     "RefOG008",
+     -0.3995,
+     17
+    ],
+    [
+     "ENSPTRP00000024852",
+     "ENSCAFP00000001529",
+     "RefOG019",
+     -0.0294,
+     17
+    ],
+    [
+     "ENSPTRP00000027366",
+     "ENSCAFP00000021149",
+     "RefOG021",
+     -0.0206,
+     16
+    ],
+    [
+     "ENSPTRP00000092800",
+     "ENSCAFP00000019025",
+     "RefOG021",
+     -0.2332,
+     14
+    ],
+    [
+     "ENSPTRP00000093848",
+     "ENSCAFP00000019025",
+     "RefOG021",
+     -0.2332,
+     14
+    ],
+    [
+     "ENSPTRP00000092937",
+     "ENSCAFP00000019025",
+     "RefOG021",
+     -0.4534,
+     17
+    ],
+    [
+     "ENSPTRP00000080971",
+     "ENSCAFP00000019025",
+     "RefOG021",
+     -0.3971,
+     16
+    ],
+    [
+     "ENSPTRP00000087426",
+     "ENSCAFP00000019025",
+     "RefOG021",
+     -0.6593,
+     17
+    ],
+    [
+     "ENSPTRP00000002233",
+     "ENSCAFP00000019157",
+     "RefOG021",
+     -0.4145,
+     17
+    ],
+    [
+     "ENSPTRP00000075839",
+     "ENSCAFP00000040984",
+     "RefOG021",
+     0.0025,
+     17
+    ],
+    [
+     "ENSPTRP00000074125",
+     "ENSCAFP00000056775",
+     "RefOG023",
+     -0.1471,
+     16
+    ],
+    [
+     "ENSPTRP00000081197",
+     "ENSCAFP00000032028",
+     "RefOG024",
+     -0.3164,
+     17
+    ],
+    [
+     "ENSPTRP00000093378",
+     "ENSCAFP00000034989",
+     "RefOG046",
+     -0.4425,
+     17
+    ],
+    [
+     "ENSPTRP00000093378",
+     "ENSCAFP00000052309",
+     "RefOG046",
+     -0.524,
+     17
+    ],
+    [
+     "ENSPTRP00000093050",
+     "ENSCAFP00000057847",
+     "RefOG059",
+     -0.0784,
+     17
+    ],
+    [
+     "ENSPTRP00000002442",
+     "ENSCAFP00000058079",
+     "RefOG067",
+     -0.1446,
+     17
+    ],
+    [
+     "ENSPTRP00000079066",
+     "ENSCAFP00000058079",
+     "RefOG067",
+     -0.1446,
+     17
+    ],
+    [
+     "ENSPTRP00000006704",
+     "ENSCAFP00000019733",
+     "RefOG068",
+     -0.0871,
+     17
+    ]
+   ]
+  },
+  "Pan_troglodytes:Monodelphis_domestica": {
+   "seq_source": "S7_devrefog_canonical",
+   "n": 641,
+   "n_expr": 610,
+   "n_orth": 88,
+   "n_par": 522,
+   "n_hard": 81,
+   "n_shared_entities": 8,
+   "null_n": 2438,
+   "null_q50": 0.0286,
+   "null_q95": 0.7143,
+   "null_mean": 0.0263,
+   "auc_spearman": 0.5498,
+   "auc_jaccard": 0.6669,
+   "auc_seq": 0.8285,
+   "auc_spearman_hard": 0.4744,
+   "auc_seq_hard": 0.799,
+   "auc_spearman_shuf": [
+    0.5397,
+    0.5585,
+    0.4642
+   ],
+   "conservation": {
+    "orthologs": {
+     "n": 88,
+     "median_spearman": 0.2,
+     "frac_conserved_gt_null95": 0.125,
+     "frac_break_le_null50": 0.3295
+    },
+    "paralogs": {
+     "n": 522,
+     "median_spearman": 0.1131,
+     "frac_conserved_gt_null95": 0.0805,
+     "frac_break_le_null50": 0.4138
+    },
+    "paralogs_within": {
+     "n": 400,
+     "median_spearman": 0.1429,
+     "frac_conserved_gt_null95": 0.085,
+     "frac_break_le_null50": 0.395
+    },
+    "paralogs_deep": {
+     "n": 122,
+     "median_spearman": 0.0595,
+     "frac_conserved_gt_null95": 0.0656,
+     "frac_break_le_null50": 0.4754
+    }
+   },
+   "ortholog_breaks": [
+    [
+     "ENSPTRP00000072301",
+     "ENSMODP00000021319",
+     "RefOG007",
+     -0.0714,
+     7
+    ],
+    [
+     "ENSPTRP00000024852",
+     "ENSMODP00000020665",
+     "RefOG019",
+     -0.0238,
+     8
+    ],
+    [
+     "ENSPTRP00000002282",
+     "ENSMODP00000021678",
+     "RefOG021",
+     -0.0476,
+     8
+    ],
+    [
+     "ENSPTRP00000092937",
+     "ENSMODP00000023607",
+     "RefOG021",
+     -0.2143,
+     7
+    ],
+    [
+     "ENSPTRP00000087426",
+     "ENSMODP00000023607",
+     "RefOG021",
+     -0.1916,
+     8
+    ],
+    [
+     "ENSPTRP00000087944",
+     "ENSMODP00000023607",
+     "RefOG021",
+     -0.8857,
+     6
+    ],
+    [
+     "ENSPTRP00000055657",
+     "ENSMODP00000008408",
+     "RefOG023",
+     -0.2143,
+     7
+    ],
+    [
+     "ENSPTRP00000008931",
+     "ENSMODP00000025620",
+     "RefOG023",
+     -0.1429,
+     8
+    ],
+    [
+     "ENSPTRP00000092487",
+     "ENSMODP00000050980",
+     "RefOG023",
+     -0.5,
+     5
+    ],
+    [
+     "ENSPTRP00000041993",
+     "ENSMODP00000035744",
+     "RefOG024",
+     -0.1786,
+     7
+    ],
+    [
+     "ENSPTRP00000003133",
+     "ENSMODP00000001267",
+     "RefOG024",
+     -0.4524,
+     8
+    ],
+    [
+     "ENSPTRP00000070313",
+     "ENSMODP00000035037",
+     "RefOG028",
+     -0.5,
+     8
+    ],
+    [
+     "ENSPTRP00000018769",
+     "ENSMODP00000047202",
+     "RefOG030",
+     -0.4524,
+     8
+    ],
+    [
+     "ENSPTRP00000062700",
+     "ENSMODP00000020336",
+     "RefOG035",
+     -0.1429,
+     8
+    ],
+    [
+     "ENSPTRP00000071872",
+     "ENSMODP00000044148",
+     "RefOG043",
+     -0.0476,
+     8
+    ],
+    [
+     "ENSPTRP00000078153",
+     "ENSMODP00000046488",
+     "RefOG044",
+     -0.1667,
+     8
+    ],
+    [
+     "ENSPTRP00000093378",
+     "ENSMODP00000058728",
+     "RefOG046",
+     -0.5476,
+     8
+    ],
+    [
+     "ENSPTRP00000093378",
+     "ENSMODP00000049610",
+     "RefOG046",
+     -0.619,
+     8
+    ],
+    [
+     "ENSPTRP00000075709",
+     "ENSMODP00000021571",
+     "RefOG048",
+     -0.7381,
+     8
+    ],
+    [
+     "ENSPTRP00000055354",
+     "ENSMODP00000021571",
+     "RefOG048",
+     -0.4286,
+     8
+    ],
+    [
+     "ENSPTRP00000001807",
+     "ENSMODP00000002515",
+     "RefOG052",
+     -0.3333,
+     8
+    ],
+    [
+     "ENSPTRP00000071832",
+     "ENSMODP00000018820",
+     "RefOG054",
+     -0.1905,
+     8
+    ],
+    [
+     "ENSPTRP00000007149",
+     "ENSMODP00000003356",
+     "RefOG054",
+     -0.3571,
+     7
+    ],
+    [
+     "ENSPTRP00000037245",
+     "ENSMODP00000058915",
+     "RefOG061",
+     -0.0714,
+     8
+    ],
+    [
+     "ENSPTRP00000000942",
+     "ENSMODP00000022235",
+     "RefOG061",
+     -0.3333,
+     8
+    ],
+    [
+     "ENSPTRP00000002442",
+     "ENSMODP00000043890",
+     "RefOG067",
+     0.0238,
+     8
+    ],
+    [
+     "ENSPTRP00000079066",
+     "ENSMODP00000043890",
+     "RefOG067",
+     0.0238,
+     8
+    ],
+    [
+     "ENSPTRP00000006704",
+     "ENSMODP00000012033",
+     "RefOG068",
+     -0.0714,
+     8
+    ],
+    [
+     "ENSPTRP00000069989",
+     "ENSMODP00000008814",
+     "RefOG068",
+     -0.7143,
+     8
+    ]
+   ]
+  },
+  "Pan_troglodytes:Gallus_gallus": {
+   "seq_source": "S7_devrefog_canonical",
+   "n": 542,
+   "n_expr": 503,
+   "n_orth": 69,
+   "n_par": 434,
+   "n_hard": 72,
+   "n_shared_entities": 8,
+   "null_n": 2761,
+   "null_q50": 0.0238,
+   "null_q95": 0.6905,
+   "null_mean": 0.0051,
+   "auc_spearman": 0.6559,
+   "auc_jaccard": 0.6173,
+   "auc_seq": 0.8566,
+   "auc_spearman_hard": 0.9198,
+   "auc_seq_hard": 0.6495,
+   "auc_spearman_shuf": [
+    0.461,
+    0.5201,
+    0.5185
+   ],
+   "conservation": {
+    "orthologs": {
+     "n": 69,
+     "median_spearman": 0.2857,
+     "frac_conserved_gt_null95": 0.2174,
+     "frac_break_le_null50": 0.3333
+    },
+    "paralogs": {
+     "n": 434,
+     "median_spearman": -0.0714,
+     "frac_conserved_gt_null95": 0.0461,
+     "frac_break_le_null50": 0.5622
+    },
+    "paralogs_within": {
+     "n": 325,
+     "median_spearman": -0.0238,
+     "frac_conserved_gt_null95": 0.0462,
+     "frac_break_le_null50": 0.5323
+    },
+    "paralogs_deep": {
+     "n": 109,
+     "median_spearman": -0.119,
+     "frac_conserved_gt_null95": 0.0459,
+     "frac_break_le_null50": 0.6514
+    }
+   },
+   "ortholog_breaks": [
+    [
+     "ENSPTRP00000012111",
+     "ENSGALP00000053885",
+     "RefOG005",
+     -0.0714,
+     8
+    ],
+    [
+     "ENSPTRP00000054569",
+     "ENSGALP00000049008",
+     "RefOG007",
+     -0.0714,
+     8
+    ],
+    [
+     "ENSPTRP00000024852",
+     "ENSGALP00000019471",
+     "RefOG019",
+     -0.5238,
+     8
+    ],
+    [
+     "ENSPTRP00000048303",
+     "ENSGALP00000024131",
+     "RefOG021",
+     -0.7143,
+     6
+    ],
+    [
+     "ENSPTRP00000092937",
+     "ENSGALP00000047847",
+     "RefOG021",
+     -0.5714,
+     8
+    ],
+    [
+     "ENSPTRP00000087426",
+     "ENSGALP00000047847",
+     "RefOG021",
+     -0.5476,
+     8
+    ],
+    [
+     "ENSPTRP00000087944",
+     "ENSGALP00000047847",
+     "RefOG021",
+     -0.8286,
+     6
+    ],
+    [
+     "ENSPTRP00000008931",
+     "ENSGALP00000017072",
+     "RefOG023",
+     -0.0714,
+     8
+    ],
+    [
+     "ENSPTRP00000074125",
+     "ENSGALP00000058491",
+     "RefOG023",
+     -0.2571,
+     6
+    ],
+    [
+     "ENSPTRP00000092487",
+     "ENSGALP00000058491",
+     "RefOG023",
+     -0.3,
+     5
+    ],
+    [
+     "ENSPTRP00000078890",
+     "ENSGALP00000050462",
+     "RefOG023",
+     -0.619,
+     8
+    ],
+    [
+     "ENSPTRP00000081197",
+     "ENSGALP00000058001",
+     "RefOG024",
+     -0.3214,
+     7
+    ],
+    [
+     "ENSPTRP00000081197",
+     "ENSGALP00000069949",
+     "RefOG024",
+     -0.0714,
+     7
+    ],
+    [
+     "ENSPTRP00000063859",
+     "ENSGALP00000058001",
+     "RefOG024",
+     -0.3214,
+     7
+    ],
+    [
+     "ENSPTRP00000063859",
+     "ENSGALP00000069949",
+     "RefOG024",
+     -0.0714,
+     7
+    ],
+    [
+     "ENSPTRP00000070313",
+     "ENSGALP00000055794",
+     "RefOG028",
+     -0.381,
+     8
+    ],
+    [
+     "ENSPTRP00000078153",
+     "ENSGALP00000012517",
+     "RefOG044",
+     -0.1667,
+     8
+    ],
+    [
+     "ENSPTRP00000063555",
+     "ENSGALP00000003418",
+     "RefOG045",
+     -0.0476,
+     8
+    ],
+    [
+     "ENSPTRP00000080305",
+     "ENSGALP00000035733",
+     "RefOG054",
+     -0.6786,
+     7
+    ],
+    [
+     "ENSPTRP00000093050",
+     "ENSGALP00000023954",
+     "RefOG059",
+     -0.5476,
+     8
+    ],
+    [
+     "ENSPTRP00000037245",
+     "ENSGALP00000026433",
+     "RefOG061",
+     -0.8571,
+     8
+    ],
+    [
+     "ENSPTRP00000082852",
+     "ENSGALP00000022545",
+     "RefOG061",
+     -0.7143,
+     7
+    ],
+    [
+     "ENSPTRP00000069989",
+     "ENSGALP00000065101",
+     "RefOG068",
+     -0.0952,
+     8
+    ]
+   ]
+  },
+  "Pan_troglodytes:Danio_rerio": {
+   "seq_source": "S7_devrefog_canonical",
+   "n": 913,
+   "n_expr": 266,
+   "n_orth": 45,
+   "n_par": 221,
+   "n_hard": 144,
+   "n_shared_entities": 9,
+   "null_n": 808,
+   "null_q50": 0.0,
+   "null_q95": 0.9,
+   "null_mean": 0.0043,
+   "auc_spearman": 0.55,
+   "auc_jaccard": 0.5986,
+   "auc_seq": 0.7353,
+   "auc_spearman_hard": 0.5268,
+   "auc_seq_hard": 0.5488,
+   "auc_spearman_shuf": [
+    0.5195,
+    0.5605,
+    0.4853
+   ],
+   "conservation": {
+    "orthologs": {
+     "n": 45,
+     "median_spearman": 0.2,
+     "frac_conserved_gt_null95": 0.0444,
+     "frac_break_le_null50": 0.4
+    },
+    "paralogs": {
+     "n": 221,
+     "median_spearman": 0.1,
+     "frac_conserved_gt_null95": 0.0136,
+     "frac_break_le_null50": 0.4977
+    },
+    "paralogs_within": {
+     "n": 150,
+     "median_spearman": 0.2,
+     "frac_conserved_gt_null95": 0.02,
+     "frac_break_le_null50": 0.4467
+    },
+    "paralogs_deep": {
+     "n": 71,
+     "median_spearman": -0.2,
+     "frac_conserved_gt_null95": 0.0,
+     "frac_break_le_null50": 0.6056
+    }
+   },
+   "ortholog_breaks": [
+    [
+     "ENSPTRP00000042713",
+     "ENSDARP00000115692",
+     "RefOG007",
+     -0.3,
+     5
+    ],
+    [
+     "ENSPTRP00000002273",
+     "ENSDARP00000120686",
+     "RefOG021",
+     0.0,
+     5
+    ],
+    [
+     "ENSPTRP00000002279",
+     "ENSDARP00000020595",
+     "RefOG021",
+     -0.9,
+     5
+    ],
+    [
+     "ENSPTRP00000001896",
+     "ENSDARP00000135566",
+     "RefOG024",
+     -0.9,
+     5
+    ],
+    [
+     "ENSPTRP00000001896",
+     "ENSDARP00000148464",
+     "RefOG024",
+     -0.3,
+     5
+    ],
+    [
+     "ENSPTRP00000070313",
+     "ENSDARP00000105507",
+     "RefOG028",
+     -0.2,
+     5
+    ],
+    [
+     "ENSPTRP00000021276",
+     "ENSDARP00000118349",
+     "RefOG033",
+     0.0,
+     5
+    ],
+    [
+     "ENSPTRP00000078153",
+     "ENSDARP00000108900",
+     "RefOG044",
+     -0.7,
+     5
+    ],
+    [
+     "ENSPTRP00000093378",
+     "ENSDARP00000149337",
+     "RefOG046",
+     -0.7,
+     5
+    ],
+    [
+     "ENSPTRP00000075709",
+     "ENSDARP00000072300",
+     "RefOG048",
+     -0.5,
+     5
+    ],
+    [
+     "ENSPTRP00000066134",
+     "ENSDARP00000072300",
+     "RefOG048",
+     -0.3,
+     5
+    ],
+    [
+     "ENSPTRP00000075709",
+     "ENSDARP00000029079",
+     "RefOG048",
+     -0.6,
+     5
+    ],
+    [
+     "ENSPTRP00000066134",
+     "ENSDARP00000029079",
+     "RefOG048",
+     -0.6,
+     5
+    ],
+    [
+     "ENSPTRP00000001807",
+     "ENSDARP00000119088",
+     "RefOG052",
+     -0.5,
+     5
+    ],
+    [
+     "ENSPTRP00000031814",
+     "ENSDARP00000141866",
+     "RefOG061",
+     0.0,
+     5
+    ],
+    [
+     "ENSPTRP00000002442",
+     "ENSDARP00000058324",
+     "RefOG067",
+     -0.7,
+     5
+    ],
+    [
+     "ENSPTRP00000079066",
+     "ENSDARP00000058324",
+     "RefOG067",
+     -0.7,
+     5
+    ],
+    [
+     "ENSPTRP00000069989",
+     "ENSDARP00000116424",
+     "RefOG068",
+     -0.7,
+     5
+    ]
+   ]
+  },
+  "Mus_musculus:Rattus_norvegicus": {
+   "seq_source": "S7_devrefog_canonical",
+   "n": 643,
+   "n_expr": 633,
+   "n_orth": 83,
+   "n_par": 550,
+   "n_hard": 34,
+   "n_shared_entities": 22,
+   "null_n": 2975,
+   "null_q50": 0.0412,
+   "null_q95": 0.6,
+   "null_mean": 0.0365,
+   "auc_spearman": 0.8119,
+   "auc_jaccard": 0.6669,
+   "auc_seq": 0.8703,
+   "auc_spearman_hard": 0.6508,
+   "auc_seq_hard": 0.7011,
+   "auc_spearman_shuf": [
+    0.4259,
+    0.4699,
+    0.5081
+   ],
+   "conservation": {
+    "orthologs": {
+     "n": 83,
+     "median_spearman": 0.513,
+     "frac_conserved_gt_null95": 0.3614,
+     "frac_break_le_null50": 0.0843
+    },
+    "paralogs": {
+     "n": 550,
+     "median_spearman": 0.1114,
+     "frac_conserved_gt_null95": 0.0582,
+     "frac_break_le_null50": 0.42
+    },
+    "paralogs_within": {
+     "n": 426,
+     "median_spearman": 0.1719,
+     "frac_conserved_gt_null95": 0.0587,
+     "frac_break_le_null50": 0.3803
+    },
+    "paralogs_deep": {
+     "n": 124,
+     "median_spearman": 0.0193,
+     "frac_conserved_gt_null95": 0.0565,
+     "frac_break_le_null50": 0.5565
+    }
+   },
+   "ortholog_breaks": [
+    [
+     "ENSMUSP00000051079",
+     "ENSRNOP00000020062",
+     "RefOG007",
+     -0.125,
+     15
+    ],
+    [
+     "ENSMUSP00000099554",
+     "ENSRNOP00000050922",
+     "RefOG008",
+     0.0367,
+     22
+    ],
+    [
+     "ENSMUSP00000102952",
+     "ENSRNOP00000015712",
+     "RefOG021",
+     -0.3727,
+     11
+    ],
+    [
+     "ENSMUSP00000123979",
+     "ENSRNOP00000070204",
+     "RefOG024",
+     -0.1786,
+     15
+    ],
+    [
+     "ENSMUSP00000053923",
+     "ENSRNOP00000052819",
+     "RefOG024",
+     -0.1374,
+     13
+    ],
+    [
+     "ENSMUSP00000130005",
+     "ENSRNOP00000072491",
+     "RefOG033",
+     -0.119,
+     8
+    ],
+    [
+     "ENSMUSP00000159150",
+     "ENSRNOP00000074705",
+     "RefOG057",
+     0.0311,
+     22
+    ]
+   ]
+  },
+  "Mus_musculus:Canis_familiaris": {
+   "seq_source": "S7_devrefog_canonical",
+   "n": 555,
+   "n_expr": 553,
+   "n_orth": 74,
+   "n_par": 479,
+   "n_hard": 29,
+   "n_shared_entities": 55,
+   "null_n": 2970,
+   "null_q50": 0.0235,
+   "null_q95": 0.5359,
+   "null_mean": 0.0278,
+   "auc_spearman": 0.7452,
+   "auc_jaccard": 0.7012,
+   "auc_seq": 0.8611,
+   "auc_spearman_hard": 0.55,
+   "auc_seq_hard": 0.8167,
+   "auc_spearman_shuf": [
+    0.5227,
+    0.5422,
+    0.4823
+   ],
+   "conservation": {
+    "orthologs": {
+     "n": 74,
+     "median_spearman": 0.2917,
+     "frac_conserved_gt_null95": 0.2027,
+     "frac_break_le_null50": 0.0946
+    },
+    "paralogs": {
+     "n": 479,
+     "median_spearman": 0.0616,
+     "frac_conserved_gt_null95": 0.0313,
+     "frac_break_le_null50": 0.4217
+    },
+    "paralogs_within": {
+     "n": 373,
+     "median_spearman": 0.0821,
+     "frac_conserved_gt_null95": 0.0349,
+     "frac_break_le_null50": 0.3861
+    },
+    "paralogs_deep": {
+     "n": 106,
+     "median_spearman": -0.0227,
+     "frac_conserved_gt_null95": 0.0189,
+     "frac_break_le_null50": 0.5472
+    }
+   },
+   "ortholog_breaks": [
+    [
+     "ENSMUSP00000099554",
+     "ENSCAFP00000016379",
+     "RefOG008",
+     -0.1781,
+     43
+    ],
+    [
+     "ENSMUSP00000029510",
+     "ENSCAFP00000032028",
+     "RefOG024",
+     -0.1203,
+     22
+    ],
+    [
+     "ENSMUSP00000147517",
+     "ENSCAFP00000021331",
+     "RefOG034",
+     0.0054,
+     25
+    ],
+    [
+     "ENSMUSP00000003620",
+     "ENSCAFP00000059509",
+     "RefOG044",
+     -0.12,
+     33
+    ],
+    [
+     "ENSMUSP00000058919",
+     "ENSCAFP00000052309",
+     "RefOG046",
+     -0.1394,
+     43
+    ],
+    [
+     "ENSMUSP00000113962",
+     "ENSCAFP00000011791",
+     "RefOG055",
+     -0.1215,
+     34
+    ],
+    [
+     "ENSMUSP00000097328",
+     "ENSCAFP00000057847",
+     "RefOG059",
+     -0.0288,
+     41
+    ]
+   ]
+  },
+  "Mus_musculus:Monodelphis_domestica": {
+   "seq_source": "S7_devrefog_canonical",
+   "n": 547,
+   "n_expr": 526,
+   "n_orth": 71,
+   "n_par": 455,
+   "n_hard": 82,
+   "n_shared_entities": 22,
+   "null_n": 2891,
+   "null_q50": 0.0737,
+   "null_q95": 0.7127,
+   "null_mean": 0.0676,
+   "auc_spearman": 0.6113,
+   "auc_jaccard": 0.7459,
+   "auc_seq": 0.8171,
+   "auc_spearman_hard": 0.6,
+   "auc_seq_hard": 0.8119,
+   "auc_spearman_shuf": [
+    0.49,
+    0.5023,
+    0.5152
+   ],
+   "conservation": {
+    "orthologs": {
+     "n": 71,
+     "median_spearman": 0.2887,
+     "frac_conserved_gt_null95": 0.1408,
+     "frac_break_le_null50": 0.2958
+    },
+    "paralogs": {
+     "n": 455,
+     "median_spearman": 0.1324,
+     "frac_conserved_gt_null95": 0.0242,
+     "frac_break_le_null50": 0.4022
+    },
+    "paralogs_within": {
+     "n": 348,
+     "median_spearman": 0.2015,
+     "frac_conserved_gt_null95": 0.0316,
+     "frac_break_le_null50": 0.3247
+    },
+    "paralogs_deep": {
+     "n": 107,
+     "median_spearman": -0.125,
+     "frac_conserved_gt_null95": 0.0,
+     "frac_break_le_null50": 0.6542
+    }
+   },
+   "ortholog_breaks": [
+    [
+     "ENSMUSP00000027032",
+     "ENSMODP00000040561",
+     "RefOG002",
+     -0.1735,
+     16
+    ],
+    [
+     "ENSMUSP00000042229",
+     "ENSMODP00000002338",
+     "RefOG005",
+     -0.0485,
+     18
+    ],
+    [
+     "ENSMUSP00000132628",
+     "ENSMODP00000060486",
+     "RefOG007",
+     -0.1179,
+     15
+    ],
+    [
+     "ENSMUSP00000099554",
+     "ENSMODP00000057788",
+     "RefOG008",
+     -0.3053,
+     20
+    ],
+    [
+     "ENSMUSP00000022186",
+     "ENSMODP00000024649",
+     "RefOG021",
+     -0.2426,
+     17
+    ],
+    [
+     "ENSMUSP00000044998",
+     "ENSMODP00000023726",
+     "RefOG021",
+     -0.7212,
+     10
+    ],
+    [
+     "ENSMUSP00000129467",
+     "ENSMODP00000025620",
+     "RefOG023",
+     -0.1538,
+     13
+    ],
+    [
+     "ENSMUSP00000000573",
+     "ENSMODP00000001616",
+     "RefOG024",
+     -0.0072,
+     18
+    ],
+    [
+     "ENSMUSP00000112413",
+     "ENSMODP00000035037",
+     "RefOG028",
+     -0.582,
+     20
+    ],
+    [
+     "ENSMUSP00000147517",
+     "ENSMODP00000044951",
+     "RefOG034",
+     0.0735,
+     16
+    ],
+    [
+     "ENSMUSP00000080301",
+     "ENSMODP00000044148",
+     "RefOG043",
+     0.0496,
+     20
+    ],
+    [
+     "ENSMUSP00000099895",
+     "ENSMODP00000018820",
+     "RefOG054",
+     -0.1888,
+     12
+    ],
+    [
+     "ENSMUSP00000022725",
+     "ENSMODP00000011738",
+     "RefOG054",
+     -0.1517,
+     18
+    ],
+    [
+     "ENSMUSP00000004770",
+     "ENSMODP00000003356",
+     "RefOG054",
+     -0.6224,
+     12
+    ],
+    [
+     "ENSMUSP00000113962",
+     "ENSMODP00000014981",
+     "RefOG055",
+     -0.0279,
+     18
+    ],
+    [
+     "ENSMUSP00000124554",
+     "ENSMODP00000045994",
+     "RefOG057",
+     -0.3926,
+     17
+    ],
+    [
+     "ENSMUSP00000159150",
+     "ENSMODP00000045994",
+     "RefOG057",
+     -0.616,
+     17
+    ],
+    [
+     "ENSMUSP00000097328",
+     "ENSMODP00000046619",
+     "RefOG059",
+     0.0466,
+     20
+    ],
+    [
+     "ENSMUSP00000079722",
+     "ENSMODP00000022235",
+     "RefOG061",
+     0.0556,
+     20
+    ],
+    [
+     "ENSMUSP00000109245",
+     "ENSMODP00000012033",
+     "RefOG068",
+     0.0737,
+     20
+    ],
+    [
+     "ENSMUSP00000021567",
+     "ENSMODP00000008814",
+     "RefOG068",
+     -0.409,
+     20
+    ]
+   ]
+  },
+  "Mus_musculus:Gallus_gallus": {
+   "seq_source": "S7_devrefog_canonical",
+   "n": 475,
+   "n_expr": 444,
+   "n_orth": 71,
+   "n_par": 373,
+   "n_hard": 56,
+   "n_shared_entities": 15,
+   "null_n": 2985,
+   "null_q50": 0.0,
+   "null_q95": 0.6643,
+   "null_mean": 0.0107,
+   "auc_spearman": 0.6704,
+   "auc_jaccard": 0.6278,
+   "auc_seq": 0.8368,
+   "auc_spearman_hard": 0.7565,
+   "auc_seq_hard": 0.6761,
+   "auc_spearman_shuf": [
+    0.4941,
+    0.4937,
+    0.5735
+   ],
+   "conservation": {
+    "orthologs": {
+     "n": 71,
+     "median_spearman": 0.2606,
+     "frac_conserved_gt_null95": 0.169,
+     "frac_break_le_null50": 0.2817
+    },
+    "paralogs": {
+     "n": 373,
+     "median_spearman": 0.0536,
+     "frac_conserved_gt_null95": 0.0349,
+     "frac_break_le_null50": 0.4692
+    },
+    "paralogs_within": {
+     "n": 271,
+     "median_spearman": 0.1429,
+     "frac_conserved_gt_null95": 0.0443,
+     "frac_break_le_null50": 0.3911
+    },
+    "paralogs_deep": {
+     "n": 102,
+     "median_spearman": -0.1472,
+     "frac_conserved_gt_null95": 0.0098,
+     "frac_break_le_null50": 0.6765
+    }
+   },
+   "ortholog_breaks": [
+    [
+     "ENSMUSP00000090661",
+     "ENSGALP00000043966",
+     "RefOG006",
+     -0.025,
+     15
+    ],
+    [
+     "ENSMUSP00000129467",
+     "ENSGALP00000017072",
+     "RefOG023",
+     -0.5769,
+     13
+    ],
+    [
+     "ENSMUSP00000122353",
+     "ENSGALP00000058491",
+     "RefOG023",
+     -0.1152,
+     10
+    ],
+    [
+     "ENSMUSP00000140483",
+     "ENSGALP00000050462",
+     "RefOG023",
+     -0.4286,
+     15
+    ],
+    [
+     "ENSMUSP00000078134",
+     "ENSGALP00000069949",
+     "RefOG024",
+     -0.1091,
+     11
+    ],
+    [
+     "ENSMUSP00000078134",
+     "ENSGALP00000066799",
+     "RefOG024",
+     -0.1259,
+     12
+    ],
+    [
+     "ENSMUSP00000142477",
+     "ENSGALP00000058001",
+     "RefOG024",
+     -0.1259,
+     12
+    ],
+    [
+     "ENSMUSP00000142477",
+     "ENSGALP00000066799",
+     "RefOG024",
+     -0.0979,
+     12
+    ],
+    [
+     "ENSMUSP00000053923",
+     "ENSGALP00000058001",
+     "RefOG024",
+     -0.3167,
+     9
+    ],
+    [
+     "ENSMUSP00000053923",
+     "ENSGALP00000069949",
+     "RefOG024",
+     -0.2667,
+     9
+    ],
+    [
+     "ENSMUSP00000053923",
+     "ENSGALP00000066799",
+     "RefOG024",
+     -0.0833,
+     9
+    ],
+    [
+     "ENSMUSP00000080851",
+     "ENSGALP00000058001",
+     "RefOG024",
+     -0.1394,
+     10
+    ],
+    [
+     "ENSMUSP00000029510",
+     "ENSGALP00000058001",
+     "RefOG024",
+     -0.0769,
+     12
+    ],
+    [
+     "ENSMUSP00000029510",
+     "ENSGALP00000069949",
+     "RefOG024",
+     -0.3007,
+     12
+    ],
+    [
+     "ENSMUSP00000112413",
+     "ENSGALP00000055794",
+     "RefOG028",
+     -0.3071,
+     15
+    ],
+    [
+     "ENSMUSP00000013995",
+     "ENSGALP00000009224",
+     "RefOG035",
+     -0.3538,
+     14
+    ],
+    [
+     "ENSMUSP00000123564",
+     "ENSGALP00000066916",
+     "RefOG052",
+     -0.1358,
+     15
+    ],
+    [
+     "ENSMUSP00000108083",
+     "ENSGALP00000026433",
+     "RefOG061",
+     -0.0643,
+     15
+    ],
+    [
+     "ENSMUSP00000079722",
+     "ENSGALP00000003357",
+     "RefOG061",
+     -0.0536,
+     15
+    ],
+    [
+     "ENSMUSP00000111291",
+     "ENSGALP00000056541",
+     "RefOG066",
+     -0.2464,
+     15
+    ]
+   ]
+  },
+  "Mus_musculus:Danio_rerio": {
+   "seq_source": "S7_devrefog_canonical",
+   "n": 843,
+   "n_expr": 713,
+   "n_orth": 95,
+   "n_par": 618,
+   "n_hard": 324,
+   "n_shared_entities": 402,
+   "null_n": 2739,
+   "null_q50": 0.0118,
+   "null_q95": 0.6245,
+   "null_mean": 0.0193,
+   "auc_spearman": 0.6349,
+   "auc_jaccard": 0.6477,
+   "auc_seq": 0.7706,
+   "auc_spearman_hard": 0.58,
+   "auc_seq_hard": 0.6201,
+   "auc_spearman_shuf": [
+    0.5351,
+    0.4993,
+    0.5005
+   ],
+   "conservation": {
+    "orthologs": {
+     "n": 95,
+     "median_spearman": 0.2149,
+     "frac_conserved_gt_null95": 0.0947,
+     "frac_break_le_null50": 0.3263
+    },
+    "paralogs": {
+     "n": 618,
+     "median_spearman": 0.0082,
+     "frac_conserved_gt_null95": 0.0356,
+     "frac_break_le_null50": 0.5049
+    },
+    "paralogs_within": {
+     "n": 420,
+     "median_spearman": 0.0543,
+     "frac_conserved_gt_null95": 0.0429,
+     "frac_break_le_null50": 0.4524
+    },
+    "paralogs_deep": {
+     "n": 198,
+     "median_spearman": -0.064,
+     "frac_conserved_gt_null95": 0.0202,
+     "frac_break_le_null50": 0.6162
+    }
+   },
+   "ortholog_breaks": [
+    [
+     "ENSMUSP00000042229",
+     "ENSDARP00000139984",
+     "RefOG005",
+     -0.2923,
+     14
+    ],
+    [
+     "ENSMUSP00000156021",
+     "ENSDARP00000134054",
+     "RefOG006",
+     -0.3779,
+     21
+    ],
+    [
+     "ENSMUSP00000090661",
+     "ENSDARP00000125918",
+     "RefOG006",
+     -0.0746,
+     25
+    ],
+    [
+     "ENSMUSP00000108019",
+     "ENSDARP00000107322",
+     "RefOG007",
+     -0.2714,
+     15
+    ],
+    [
+     "ENSMUSP00000108019",
+     "ENSDARP00000120943",
+     "RefOG007",
+     -0.2,
+     15
+    ],
+    [
+     "ENSMUSP00000137520",
+     "ENSDARP00000124010",
+     "RefOG007",
+     -0.0809,
+     17
+    ],
+    [
+     "ENSMUSP00000102952",
+     "ENSDARP00000020595",
+     "RefOG021",
+     -0.5088,
+     18
+    ],
+    [
+     "ENSMUSP00000022186",
+     "ENSDARP00000056560",
+     "RefOG021",
+     -0.3212,
+     10
+    ],
+    [
+     "ENSMUSP00000058237",
+     "ENSDARP00000123790",
+     "RefOG021",
+     -0.2574,
+     17
+    ],
+    [
+     "ENSMUSP00000029515",
+     "ENSDARP00000121650",
+     "RefOG021",
+     -0.2727,
+     11
+    ],
+    [
+     "ENSMUSP00000130949",
+     "ENSDARP00000142662",
+     "RefOG023",
+     -0.0211,
+     19
+    ],
+    [
+     "ENSMUSP00000122353",
+     "ENSDARP00000129173",
+     "RefOG023",
+     -0.1029,
+     16
+    ],
+    [
+     "ENSMUSP00000122353",
+     "ENSDARP00000127611",
+     "RefOG023",
+     -0.0088,
+     16
+    ],
+    [
+     "ENSMUSP00000128276",
+     "ENSDARP00000129173",
+     "RefOG023",
+     -0.1923,
+     13
+    ],
+    [
+     "ENSMUSP00000128276",
+     "ENSDARP00000127611",
+     "RefOG023",
+     -0.1165,
+     14
+    ],
+    [
+     "ENSMUSP00000000573",
+     "ENSDARP00000135566",
+     "RefOG024",
+     -0.1564,
+     20
+    ],
+    [
+     "ENSMUSP00000000573",
+     "ENSDARP00000095389",
+     "RefOG024",
+     -0.6154,
+     13
+    ],
+    [
+     "ENSMUSP00000000573",
+     "ENSDARP00000138333",
+     "RefOG024",
+     -0.5719,
+     19
+    ],
+    [
+     "ENSMUSP00000000573",
+     "ENSDARP00000134903",
+     "RefOG024",
+     -0.3143,
+     20
+    ],
+    [
+     "ENSMUSP00000000573",
+     "ENSDARP00000148464",
+     "RefOG024",
+     -0.3065,
+     21
+    ],
+    [
+     "ENSMUSP00000000573",
+     "ENSDARP00000102083",
+     "RefOG024",
+     -0.0265,
+     16
+    ],
+    [
+     "ENSMUSP00000112413",
+     "ENSDARP00000105507",
+     "RefOG028",
+     0.0,
+     17
+    ],
+    [
+     "ENSMUSP00000130005",
+     "ENSDARP00000142417",
+     "RefOG033",
+     -0.0714,
+     7
+    ],
+    [
+     "ENSMUSP00000030010",
+     "ENSDARP00000051555",
+     "RefOG035",
+     -0.0088,
+     19
+    ],
+    [
+     "ENSMUSP00000128121",
+     "ENSDARP00000103740",
+     "RefOG035",
+     -0.3173,
+     20
+    ],
+    [
+     "ENSMUSP00000003620",
+     "ENSDARP00000108900",
+     "RefOG044",
+     -0.4286,
+     13
+    ],
+    [
+     "ENSMUSP00000123564",
+     "ENSDARP00000131691",
+     "RefOG052",
+     -0.1912,
+     16
+    ],
+    [
+     "ENSMUSP00000050531",
+     "ENSDARP00000155276",
+     "RefOG055",
+     -0.1893,
+     15
+    ],
+    [
+     "ENSMUSP00000113962",
+     "ENSDARP00000144004",
+     "RefOG055",
+     -0.1121,
+     14
+    ],
+    [
+     "ENSMUSP00000159150",
+     "ENSDARP00000147427",
+     "RefOG057",
+     -0.3212,
+     10
+    ],
+    [
+     "ENSMUSP00000108083",
+     "ENSDARP00000101451",
+     "RefOG061",
+     -0.0842,
+     20
+    ]
+   ]
+  },
+  "Rattus_norvegicus:Canis_familiaris": {
+   "seq_source": "S7_devrefog_canonical",
+   "n": 620,
+   "n_expr": 609,
+   "n_orth": 81,
+   "n_par": 528,
+   "n_hard": 95,
+   "n_shared_entities": 17,
+   "null_n": 2793,
+   "null_q50": 0.0,
+   "null_q95": 0.5726,
+   "null_mean": 0.0055,
+   "auc_spearman": 0.7747,
+   "auc_jaccard": 0.6395,
+   "auc_seq": 0.8328,
+   "auc_spearman_hard": 0.5507,
+   "auc_seq_hard": 0.5983,
+   "auc_spearman_shuf": [
+    0.5155,
+    0.4944,
+    0.5067
+   ],
+   "conservation": {
+    "orthologs": {
+     "n": 81,
+     "median_spearman": 0.3799,
+     "frac_conserved_gt_null95": 0.3086,
+     "frac_break_le_null50": 0.0617
+    },
+    "paralogs": {
+     "n": 528,
+     "median_spearman": 0.0982,
+     "frac_conserved_gt_null95": 0.0587,
+     "frac_break_le_null50": 0.4034
+    },
+    "paralogs_within": {
+     "n": 421,
+     "median_spearman": 0.1275,
+     "frac_conserved_gt_null95": 0.0665,
+     "frac_break_le_null50": 0.3682
+    },
+    "paralogs_deep": {
+     "n": 107,
+     "median_spearman": -0.0321,
+     "frac_conserved_gt_null95": 0.028,
+     "frac_break_le_null50": 0.5421
+    }
+   },
+   "ortholog_breaks": [
+    [
+     "ENSRNOP00000072491",
+     "ENSCAFP00000000406",
+     "RefOG033",
+     -0.3149,
+     16
+    ],
+    [
+     "ENSRNOP00000043385",
+     "ENSCAFP00000021331",
+     "RefOG034",
+     -0.0662,
+     17
+    ],
+    [
+     "ENSRNOP00000047513",
+     "ENSCAFP00000058366",
+     "RefOG046",
+     -0.0429,
+     17
+    ],
+    [
+     "ENSRNOP00000015055",
+     "ENSCAFP00000011791",
+     "RefOG055",
+     -0.4821,
+     15
+    ],
+    [
+     "ENSRNOP00000006867",
+     "ENSCAFP00000019283",
+     "RefOG061",
+     -0.0417,
+     17
+    ]
+   ]
+  },
+  "Rattus_norvegicus:Monodelphis_domestica": {
+   "seq_source": "S7_devrefog_canonical",
+   "n": 556,
+   "n_expr": 529,
+   "n_orth": 80,
+   "n_par": 449,
+   "n_hard": 79,
+   "n_shared_entities": 10,
+   "null_n": 2547,
+   "null_q50": 0.0424,
+   "null_q95": 0.6844,
+   "null_mean": 0.0395,
+   "auc_spearman": 0.6129,
+   "auc_jaccard": 0.6727,
+   "auc_seq": 0.7991,
+   "auc_spearman_hard": 0.3941,
+   "auc_seq_hard": 0.8231,
+   "auc_spearman_shuf": [
+    0.4885,
+    0.5273,
+    0.5118
+   ],
+   "conservation": {
+    "orthologs": {
+     "n": 80,
+     "median_spearman": 0.2485,
+     "frac_conserved_gt_null95": 0.1625,
+     "frac_break_le_null50": 0.325
+    },
+    "paralogs": {
+     "n": 449,
+     "median_spearman": 0.0714,
+     "frac_conserved_gt_null95": 0.0334,
+     "frac_break_le_null50": 0.4699
+    },
+    "paralogs_within": {
+     "n": 340,
+     "median_spearman": 0.0952,
+     "frac_conserved_gt_null95": 0.0412,
+     "frac_break_le_null50": 0.4412
+    },
+    "paralogs_deep": {
+     "n": 109,
+     "median_spearman": -0.0167,
+     "frac_conserved_gt_null95": 0.0092,
+     "frac_break_le_null50": 0.5596
+    }
+   },
+   "ortholog_breaks": [
+    [
+     "ENSRNOP00000039239",
+     "ENSMODP00000021319",
+     "RefOG007",
+     0.0333,
+     9
+    ],
+    [
+     "ENSRNOP00000024202",
+     "ENSMODP00000024649",
+     "RefOG021",
+     -0.6833,
+     9
+    ],
+    [
+     "ENSRNOP00000025249",
+     "ENSMODP00000023726",
+     "RefOG021",
+     0.0,
+     8
+    ],
+    [
+     "ENSRNOP00000027029",
+     "ENSMODP00000047202",
+     "RefOG030",
+     -0.3283,
+     10
+    ],
+    [
+     "ENSRNOP00000073686",
+     "ENSMODP00000044951",
+     "RefOG034",
+     -0.5879,
+     10
+    ],
+    [
+     "ENSRNOP00000043385",
+     "ENSMODP00000044951",
+     "RefOG034",
+     -0.5515,
+     10
+    ],
+    [
+     "ENSRNOP00000051107",
+     "ENSMODP00000044951",
+     "RefOG034",
+     -0.0182,
+     10
+    ],
+    [
+     "ENSRNOP00000073686",
+     "ENSMODP00000037994",
+     "RefOG034",
+     -0.6485,
+     10
+    ],
+    [
+     "ENSRNOP00000043385",
+     "ENSMODP00000037994",
+     "RefOG034",
+     -0.5273,
+     10
+    ],
+    [
+     "ENSRNOP00000051107",
+     "ENSMODP00000037994",
+     "RefOG034",
+     -0.0667,
+     10
+    ],
+    [
+     "ENSRNOP00000073686",
+     "ENSMODP00000043880",
+     "RefOG034",
+     -0.3818,
+     10
+    ],
+    [
+     "ENSRNOP00000043385",
+     "ENSMODP00000043880",
+     "RefOG034",
+     -0.4303,
+     10
+    ],
+    [
+     "ENSRNOP00000007276",
+     "ENSMODP00000055025",
+     "RefOG043",
+     -0.1394,
+     10
+    ],
+    [
+     "ENSRNOP00000007276",
+     "ENSMODP00000044148",
+     "RefOG043",
+     -0.0424,
+     10
+    ],
+    [
+     "ENSRNOP00000047513",
+     "ENSMODP00000058728",
+     "RefOG046",
+     -0.3091,
+     10
+    ],
+    [
+     "ENSRNOP00000033162",
+     "ENSMODP00000021571",
+     "RefOG048",
+     -0.0238,
+     8
+    ],
+    [
+     "ENSRNOP00000041764",
+     "ENSMODP00000018820",
+     "RefOG054",
+     -0.1429,
+     7
+    ],
+    [
+     "ENSRNOP00000021971",
+     "ENSMODP00000003356",
+     "RefOG054",
+     -0.75,
+     9
+    ],
+    [
+     "ENSRNOP00000015055",
+     "ENSMODP00000014981",
+     "RefOG055",
+     -0.2333,
+     9
+    ],
+    [
+     "ENSRNOP00000006867",
+     "ENSMODP00000058915",
+     "RefOG061",
+     -0.1758,
+     10
+    ],
+    [
+     "ENSRNOP00000071825",
+     "ENSMODP00000021775",
+     "RefOG061",
+     -0.2121,
+     10
+    ],
+    [
+     "ENSRNOP00000071825",
+     "ENSMODP00000006216",
+     "RefOG061",
+     -0.1879,
+     10
+    ],
+    [
+     "ENSRNOP00000013570",
+     "ENSMODP00000022235",
+     "RefOG061",
+     -0.0667,
+     10
+    ],
+    [
+     "ENSRNOP00000074087",
+     "ENSMODP00000056797",
+     "RefOG065",
+     -0.2,
+     10
+    ],
+    [
+     "ENSRNOP00000070354",
+     "ENSMODP00000012959",
+     "RefOG066",
+     -0.3455,
+     10
+    ],
+    [
+     "ENSRNOP00000010022",
+     "ENSMODP00000008814",
+     "RefOG068",
+     -0.4424,
+     10
+    ]
+   ]
+  },
+  "Rattus_norvegicus:Gallus_gallus": {
+   "seq_source": "S7_devrefog_canonical",
+   "n": 480,
+   "n_expr": 440,
+   "n_orth": 66,
+   "n_par": 374,
+   "n_hard": 54,
+   "n_shared_entities": 11,
+   "null_n": 2865,
+   "null_q50": 0.0061,
+   "null_q95": 0.6818,
+   "null_mean": 0.0166,
+   "auc_spearman": 0.7264,
+   "auc_jaccard": 0.631,
+   "auc_seq": 0.8334,
+   "auc_spearman_hard": 0.7,
+   "auc_seq_hard": 0.7667,
+   "auc_spearman_shuf": [
+    0.4742,
+    0.4757,
+    0.3972
+   ],
+   "conservation": {
+    "orthologs": {
+     "n": 66,
+     "median_spearman": 0.4182,
+     "frac_conserved_gt_null95": 0.2273,
+     "frac_break_le_null50": 0.197
+    },
+    "paralogs": {
+     "n": 374,
+     "median_spearman": 0.0273,
+     "frac_conserved_gt_null95": 0.0615,
+     "frac_break_le_null50": 0.4706
+    },
+    "paralogs_within": {
+     "n": 271,
+     "median_spearman": 0.0788,
+     "frac_conserved_gt_null95": 0.0812,
+     "frac_break_le_null50": 0.428
+    },
+    "paralogs_deep": {
+     "n": 103,
+     "median_spearman": -0.0636,
+     "frac_conserved_gt_null95": 0.0097,
+     "frac_break_le_null50": 0.5825
+    }
+   },
+   "ortholog_breaks": [
+    [
+     "ENSRNOP00000039239",
+     "ENSGALP00000050330",
+     "RefOG007",
+     -0.4167,
+     9
+    ],
+    [
+     "ENSRNOP00000041552",
+     "ENSGALP00000017072",
+     "RefOG023",
+     -0.2455,
+     11
+    ],
+    [
+     "ENSRNOP00000072558",
+     "ENSGALP00000050462",
+     "RefOG023",
+     -0.103,
+     10
+    ],
+    [
+     "ENSRNOP00000073705",
+     "ENSGALP00000058001",
+     "RefOG024",
+     0.0,
+     8
+    ],
+    [
+     "ENSRNOP00000052819",
+     "ENSGALP00000058001",
+     "RefOG024",
+     -0.1636,
+     10
+    ],
+    [
+     "ENSRNOP00000052819",
+     "ENSGALP00000069949",
+     "RefOG024",
+     -0.0424,
+     10
+    ],
+    [
+     "ENSRNOP00000052813",
+     "ENSGALP00000069949",
+     "RefOG024",
+     -0.3576,
+     10
+    ],
+    [
+     "ENSRNOP00000013191",
+     "ENSGALP00000055794",
+     "RefOG028",
+     -0.1545,
+     11
+    ],
+    [
+     "ENSRNOP00000041764",
+     "ENSGALP00000037537",
+     "RefOG054",
+     -0.1667,
+     9
+    ],
+    [
+     "ENSRNOP00000015055",
+     "ENSGALP00000026830",
+     "RefOG055",
+     -0.0788,
+     10
+    ],
+    [
+     "ENSRNOP00000006867",
+     "ENSGALP00000026433",
+     "RefOG061",
+     -0.0818,
+     11
+    ],
+    [
+     "ENSRNOP00000070354",
+     "ENSGALP00000056541",
+     "RefOG066",
+     -0.0909,
+     11
+    ],
+    [
+     "ENSRNOP00000010022",
+     "ENSGALP00000065101",
+     "RefOG068",
+     -0.2182,
+     11
+    ]
+   ]
+  },
+  "Rattus_norvegicus:Danio_rerio": {
+   "seq_source": "S7_devrefog_canonical",
+   "n": 865,
+   "n_expr": 609,
+   "n_orth": 86,
+   "n_par": 523,
+   "n_hard": 288,
+   "n_shared_entities": 11,
+   "null_n": 2206,
+   "null_q50": 0.0286,
+   "null_q95": 0.8,
+   "null_mean": 0.0309,
+   "auc_spearman": 0.614,
+   "auc_jaccard": 0.6486,
+   "auc_seq": 0.7473,
+   "auc_spearman_hard": 0.5632,
+   "auc_seq_hard": 0.6353,
+   "auc_spearman_shuf": [
+    0.463,
+    0.5371,
+    0.5153
+   ],
+   "conservation": {
+    "orthologs": {
+     "n": 86,
+     "median_spearman": 0.3,
+     "frac_conserved_gt_null95": 0.0465,
+     "frac_break_le_null50": 0.2907
+    },
+    "paralogs": {
+     "n": 523,
+     "median_spearman": 0.0286,
+     "frac_conserved_gt_null95": 0.0268,
+     "frac_break_le_null50": 0.5258
+    },
+    "paralogs_within": {
+     "n": 345,
+     "median_spearman": 0.1,
+     "frac_conserved_gt_null95": 0.0348,
+     "frac_break_le_null50": 0.4609
+    },
+    "paralogs_deep": {
+     "n": 178,
+     "median_spearman": -0.0857,
+     "frac_conserved_gt_null95": 0.0112,
+     "frac_break_le_null50": 0.6517
+    }
+   },
+   "ortholog_breaks": [
+    [
+     "ENSRNOP00000011768",
+     "ENSDARP00000139984",
+     "RefOG005",
+     -0.0857,
+     6
+    ],
+    [
+     "ENSRNOP00000073929",
+     "ENSDARP00000041141",
+     "RefOG006",
+     -0.2571,
+     6
+    ],
+    [
+     "ENSRNOP00000073929",
+     "ENSDARP00000134054",
+     "RefOG006",
+     -0.3,
+     5
+    ],
+    [
+     "ENSRNOP00000071610",
+     "ENSDARP00000124010",
+     "RefOG007",
+     -0.3714,
+     6
+    ],
+    [
+     "ENSRNOP00000015958",
+     "ENSDARP00000120686",
+     "RefOG021",
+     -0.0857,
+     6
+    ],
+    [
+     "ENSRNOP00000015612",
+     "ENSDARP00000120686",
+     "RefOG021",
+     -0.4286,
+     6
+    ],
+    [
+     "ENSRNOP00000015712",
+     "ENSDARP00000120686",
+     "RefOG021",
+     -0.6,
+     5
+    ],
+    [
+     "ENSRNOP00000017000",
+     "ENSDARP00000123790",
+     "RefOG021",
+     -0.2,
+     6
+    ],
+    [
+     "ENSRNOP00000072033",
+     "ENSDARP00000130459",
+     "RefOG023",
+     -0.1429,
+     6
+    ],
+    [
+     "ENSRNOP00000064975",
+     "ENSDARP00000141193",
+     "RefOG023",
+     -0.5429,
+     6
+    ],
+    [
+     "ENSRNOP00000027029",
+     "ENSDARP00000152506",
+     "RefOG030",
+     -0.0857,
+     6
+    ],
+    [
+     "ENSRNOP00000073686",
+     "ENSDARP00000024104",
+     "RefOG034",
+     -0.8857,
+     6
+    ],
+    [
+     "ENSRNOP00000043385",
+     "ENSDARP00000024104",
+     "RefOG034",
+     -0.8857,
+     6
+    ],
+    [
+     "ENSRNOP00000051107",
+     "ENSDARP00000024104",
+     "RefOG034",
+     -0.4857,
+     6
+    ],
+    [
+     "ENSRNOP00000073686",
+     "ENSDARP00000132762",
+     "RefOG034",
+     -0.5429,
+     6
+    ],
+    [
+     "ENSRNOP00000043385",
+     "ENSDARP00000132762",
+     "RefOG034",
+     -0.5429,
+     6
+    ],
+    [
+     "ENSRNOP00000051107",
+     "ENSDARP00000132762",
+     "RefOG034",
+     -0.7714,
+     6
+    ],
+    [
+     "ENSRNOP00000002576",
+     "ENSDARP00000108900",
+     "RefOG044",
+     -0.7,
+     5
+    ],
+    [
+     "ENSRNOP00000047513",
+     "ENSDARP00000149337",
+     "RefOG046",
+     -0.4857,
+     6
+    ],
+    [
+     "ENSRNOP00000073014",
+     "ENSDARP00000072300",
+     "RefOG048",
+     -0.4857,
+     6
+    ],
+    [
+     "ENSRNOP00000073014",
+     "ENSDARP00000029079",
+     "RefOG048",
+     -0.4286,
+     6
+    ],
+    [
+     "ENSRNOP00000041764",
+     "ENSDARP00000050527",
+     "RefOG054",
+     -0.1,
+     5
+    ],
+    [
+     "ENSRNOP00000006867",
+     "ENSDARP00000101451",
+     "RefOG061",
+     -0.2571,
+     6
+    ],
+    [
+     "ENSRNOP00000013570",
+     "ENSDARP00000141866",
+     "RefOG061",
+     0.0286,
+     6
+    ],
+    [
+     "ENSRNOP00000010022",
+     "ENSDARP00000116424",
+     "RefOG068",
+     -0.0857,
+     6
+    ]
+   ]
+  },
+  "Canis_familiaris:Monodelphis_domestica": {
+   "seq_source": "S7_devrefog_canonical",
+   "n": 513,
+   "n_expr": 498,
+   "n_orth": 75,
+   "n_par": 423,
+   "n_hard": 116,
+   "n_shared_entities": 13,
+   "null_n": 2451,
+   "null_q50": 0.0165,
+   "null_q95": 0.6121,
+   "null_mean": 0.0203,
+   "auc_spearman": 0.6296,
+   "auc_jaccard": 0.6752,
+   "auc_seq": 0.7796,
+   "auc_spearman_hard": 0.5706,
+   "auc_seq_hard": 0.6701,
+   "auc_spearman_shuf": [
+    0.4818,
+    0.5034,
+    0.5322
+   ],
+   "conservation": {
+    "orthologs": {
+     "n": 75,
+     "median_spearman": 0.2448,
+     "frac_conserved_gt_null95": 0.1733,
+     "frac_break_le_null50": 0.2
+    },
+    "paralogs": {
+     "n": 423,
+     "median_spearman": 0.0989,
+     "frac_conserved_gt_null95": 0.0615,
+     "frac_break_le_null50": 0.4066
+    },
+    "paralogs_within": {
+     "n": 331,
+     "median_spearman": 0.1049,
+     "frac_conserved_gt_null95": 0.0755,
+     "frac_break_le_null50": 0.3716
+    },
+    "paralogs_deep": {
+     "n": 92,
+     "median_spearman": -0.0055,
+     "frac_conserved_gt_null95": 0.0109,
+     "frac_break_le_null50": 0.5326
+    }
+   },
+   "ortholog_breaks": [
+    [
+     "ENSCAFP00000010380",
+     "ENSMODP00000040561",
+     "RefOG002",
+     -0.2517,
+     12
+    ],
+    [
+     "ENSCAFP00000022013",
+     "ENSMODP00000019193",
+     "RefOG033",
+     -0.2473,
+     13
+    ],
+    [
+     "ENSCAFP00000021331",
+     "ENSMODP00000044951",
+     "RefOG034",
+     -0.033,
+     13
+    ],
+    [
+     "ENSCAFP00000054654",
+     "ENSMODP00000013310",
+     "RefOG043",
+     -0.3439,
+     13
+    ],
+    [
+     "ENSCAFP00000059509",
+     "ENSMODP00000046488",
+     "RefOG044",
+     -0.6044,
+     13
+    ],
+    [
+     "ENSCAFP00000058366",
+     "ENSMODP00000058728",
+     "RefOG046",
+     -0.4396,
+     13
+    ],
+    [
+     "ENSCAFP00000048566",
+     "ENSMODP00000002515",
+     "RefOG052",
+     -0.0549,
+     13
+    ],
+    [
+     "ENSCAFP00000062230",
+     "ENSMODP00000045994",
+     "RefOG057",
+     -0.3769,
+     13
+    ],
+    [
+     "ENSCAFP00000057847",
+     "ENSMODP00000046619",
+     "RefOG059",
+     -0.4505,
+     13
+    ],
+    [
+     "ENSCAFP00000019283",
+     "ENSMODP00000058915",
+     "RefOG061",
+     -0.2363,
+     13
+    ],
+    [
+     "ENSCAFP00000030955",
+     "ENSMODP00000021775",
+     "RefOG061",
+     -0.5824,
+     13
+    ],
+    [
+     "ENSCAFP00000030955",
+     "ENSMODP00000006216",
+     "RefOG061",
+     -0.2308,
+     13
+    ],
+    [
+     "ENSCAFP00000061009",
+     "ENSMODP00000012959",
+     "RefOG066",
+     -0.4231,
+     13
+    ],
+    [
+     "ENSCAFP00000058079",
+     "ENSMODP00000043890",
+     "RefOG067",
+     -0.1044,
+     13
+    ],
+    [
+     "ENSCAFP00000062292",
+     "ENSMODP00000008814",
+     "RefOG068",
+     -0.022,
+     13
+    ]
+   ]
+  },
+  "Canis_familiaris:Gallus_gallus": {
+   "seq_source": "S7_devrefog_canonical",
+   "n": 430,
+   "n_expr": 407,
+   "n_orth": 57,
+   "n_par": 350,
+   "n_hard": 63,
+   "n_shared_entities": 12,
+   "null_n": 2654,
+   "null_q50": 0.0,
+   "null_q95": 0.6172,
+   "null_mean": 0.0056,
+   "auc_spearman": 0.7019,
+   "auc_jaccard": 0.6868,
+   "auc_seq": 0.8292,
+   "auc_spearman_hard": 0.8409,
+   "auc_seq_hard": 0.6659,
+   "auc_spearman_shuf": [
+    0.4675,
+    0.5288,
+    0.4739
+   ],
+   "conservation": {
+    "orthologs": {
+     "n": 57,
+     "median_spearman": 0.3776,
+     "frac_conserved_gt_null95": 0.2807,
+     "frac_break_le_null50": 0.2632
+    },
+    "paralogs": {
+     "n": 350,
+     "median_spearman": 0.0052,
+     "frac_conserved_gt_null95": 0.0571,
+     "frac_break_le_null50": 0.4971
+    },
+    "paralogs_within": {
+     "n": 250,
+     "median_spearman": -0.0122,
+     "frac_conserved_gt_null95": 0.06,
+     "frac_break_le_null50": 0.516
+    },
+    "paralogs_deep": {
+     "n": 100,
+     "median_spearman": 0.028,
+     "frac_conserved_gt_null95": 0.05,
+     "frac_break_le_null50": 0.45
+    }
+   },
+   "ortholog_breaks": [
+    [
+     "ENSCAFP00000010380",
+     "ENSGALP00000064978",
+     "RefOG002",
+     -0.035,
+     12
+    ],
+    [
+     "ENSCAFP00000012785",
+     "ENSGALP00000049008",
+     "RefOG007",
+     -0.0455,
+     12
+    ],
+    [
+     "ENSCAFP00000056775",
+     "ENSGALP00000058491",
+     "RefOG023",
+     -0.1727,
+     11
+    ],
+    [
+     "ENSCAFP00000014623",
+     "ENSGALP00000058491",
+     "RefOG023",
+     -0.3167,
+     9
+    ],
+    [
+     "ENSCAFP00000014293",
+     "ENSGALP00000050462",
+     "RefOG023",
+     -0.3147,
+     12
+    ],
+    [
+     "ENSCAFP00000042190",
+     "ENSGALP00000050462",
+     "RefOG023",
+     -0.4333,
+     9
+    ],
+    [
+     "ENSCAFP00000054560",
+     "ENSGALP00000055794",
+     "RefOG028",
+     -0.4685,
+     12
+    ],
+    [
+     "ENSCAFP00000006781",
+     "ENSGALP00000018780",
+     "RefOG033",
+     -0.1273,
+     11
+    ],
+    [
+     "ENSCAFP00000059509",
+     "ENSGALP00000012517",
+     "RefOG044",
+     -0.3217,
+     12
+    ],
+    [
+     "ENSCAFP00000048566",
+     "ENSGALP00000066916",
+     "RefOG052",
+     -0.0595,
+     12
+    ],
+    [
+     "ENSCAFP00000007942",
+     "ENSGALP00000035733",
+     "RefOG054",
+     -0.15,
+     9
+    ],
+    [
+     "ENSCAFP00000019283",
+     "ENSGALP00000026433",
+     "RefOG061",
+     -0.035,
+     12
+    ],
+    [
+     "ENSCAFP00000030955",
+     "ENSGALP00000022545",
+     "RefOG061",
+     -0.0769,
+     12
+    ],
+    [
+     "ENSCAFP00000058079",
+     "ENSGALP00000058190",
+     "RefOG067",
+     -0.1189,
+     12
+    ],
+    [
+     "ENSCAFP00000062292",
+     "ENSGALP00000065101",
+     "RefOG068",
+     -0.4476,
+     12
+    ]
+   ]
+  },
+  "Canis_familiaris:Danio_rerio": {
+   "seq_source": "S7_devrefog_canonical",
+   "n": 831,
+   "n_expr": 673,
+   "n_orth": 88,
+   "n_par": 585,
+   "n_hard": 312,
+   "n_shared_entities": 25,
+   "null_n": 2500,
+   "null_q50": 0.0061,
+   "null_q95": 0.6242,
+   "null_mean": 0.0068,
+   "auc_spearman": 0.5459,
+   "auc_jaccard": 0.6451,
+   "auc_seq": 0.7796,
+   "auc_spearman_hard": 0.5792,
+   "auc_seq_hard": 0.6311,
+   "auc_spearman_shuf": [
+    0.4819,
+    0.5246,
+    0.5193
+   ],
+   "conservation": {
+    "orthologs": {
+     "n": 88,
+     "median_spearman": 0.0894,
+     "frac_conserved_gt_null95": 0.0568,
+     "frac_break_le_null50": 0.3977
+    },
+    "paralogs": {
+     "n": 585,
+     "median_spearman": 0.0333,
+     "frac_conserved_gt_null95": 0.0547,
+     "frac_break_le_null50": 0.4889
+    },
+    "paralogs_within": {
+     "n": 386,
+     "median_spearman": 0.069,
+     "frac_conserved_gt_null95": 0.0674,
+     "frac_break_le_null50": 0.456
+    },
+    "paralogs_deep": {
+     "n": 199,
+     "median_spearman": -0.0303,
+     "frac_conserved_gt_null95": 0.0302,
+     "frac_break_le_null50": 0.5528
+    }
+   },
+   "ortholog_breaks": [
+    [
+     "ENSCAFP00000010380",
+     "ENSDARP00000114695",
+     "RefOG002",
+     -0.697,
+     10
+    ],
+    [
+     "ENSCAFP00000046753",
+     "ENSDARP00000134054",
+     "RefOG006",
+     -0.2833,
+     9
+    ],
+    [
+     "ENSCAFP00000012785",
+     "ENSDARP00000124010",
+     "RefOG007",
+     -0.5394,
+     10
+    ],
+    [
+     "ENSCAFP00000025867",
+     "ENSDARP00000120686",
+     "RefOG021",
+     -0.2121,
+     10
+    ],
+    [
+     "ENSCAFP00000055426",
+     "ENSDARP00000123790",
+     "RefOG021",
+     -0.1758,
+     10
+    ],
+    [
+     "ENSCAFP00000019025",
+     "ENSDARP00000121650",
+     "RefOG021",
+     -0.0788,
+     10
+    ],
+    [
+     "ENSCAFP00000059042",
+     "ENSDARP00000087236",
+     "RefOG023",
+     -0.3214,
+     7
+    ],
+    [
+     "ENSCAFP00000056775",
+     "ENSDARP00000129173",
+     "RefOG023",
+     -0.381,
+     8
+    ],
+    [
+     "ENSCAFP00000056775",
+     "ENSDARP00000127611",
+     "RefOG023",
+     -0.8571,
+     8
+    ],
+    [
+     "ENSCAFP00000056775",
+     "ENSDARP00000130459",
+     "RefOG023",
+     -0.4762,
+     8
+    ],
+    [
+     "ENSCAFP00000014623",
+     "ENSDARP00000129173",
+     "RefOG023",
+     -1.0,
+     5
+    ],
+    [
+     "ENSCAFP00000053390",
+     "ENSDARP00000101847",
+     "RefOG023",
+     -0.103,
+     10
+    ],
+    [
+     "ENSCAFP00000020233",
+     "ENSDARP00000135566",
+     "RefOG024",
+     -0.1636,
+     10
+    ],
+    [
+     "ENSCAFP00000020233",
+     "ENSDARP00000095389",
+     "RefOG024",
+     -0.3,
+     9
+    ],
+    [
+     "ENSCAFP00000020233",
+     "ENSDARP00000138333",
+     "RefOG024",
+     -0.3697,
+     10
+    ],
+    [
+     "ENSCAFP00000020233",
+     "ENSDARP00000134903",
+     "RefOG024",
+     -0.0545,
+     10
+    ],
+    [
+     "ENSCAFP00000020233",
+     "ENSDARP00000148464",
+     "RefOG024",
+     -0.1394,
+     10
+    ],
+    [
+     "ENSCAFP00000054560",
+     "ENSDARP00000056521",
+     "RefOG028",
+     -0.2727,
+     10
+    ],
+    [
+     "ENSCAFP00000022013",
+     "ENSDARP00000071946",
+     "RefOG033",
+     -0.2364,
+     10
+    ],
+    [
+     "ENSCAFP00000000406",
+     "ENSDARP00000142417",
+     "RefOG033",
+     -0.3212,
+     10
+    ],
+    [
+     "ENSCAFP00000017344",
+     "ENSDARP00000129655",
+     "RefOG038",
+     -0.2848,
+     10
+    ],
+    [
+     "ENSCAFP00000054654",
+     "ENSDARP00000017582",
+     "RefOG043",
+     -0.5152,
+     10
+    ],
+    [
+     "ENSCAFP00000059509",
+     "ENSDARP00000108900",
+     "RefOG044",
+     -0.0167,
+     9
+    ],
+    [
+     "ENSCAFP00000055260",
+     "ENSDARP00000136011",
+     "RefOG045",
+     -0.2364,
+     10
+    ],
+    [
+     "ENSCAFP00000034989",
+     "ENSDARP00000149337",
+     "RefOG046",
+     -0.0667,
+     10
+    ],
+    [
+     "ENSCAFP00000049493",
+     "ENSDARP00000140190",
+     "RefOG048",
+     -0.4788,
+     10
+    ],
+    [
+     "ENSCAFP00000048566",
+     "ENSDARP00000131691",
+     "RefOG052",
+     -0.0909,
+     10
+    ],
+    [
+     "ENSCAFP00000007942",
+     "ENSDARP00000110477",
+     "RefOG054",
+     0.0,
+     9
+    ],
+    [
+     "ENSCAFP00000015672",
+     "ENSDARP00000155276",
+     "RefOG055",
+     -0.4061,
+     10
+    ],
+    [
+     "ENSCAFP00000011791",
+     "ENSDARP00000144004",
+     "RefOG055",
+     -0.3667,
+     9
+    ],
+    [
+     "ENSCAFP00000062230",
+     "ENSDARP00000072465",
+     "RefOG057",
+     -0.1636,
+     10
+    ],
+    [
+     "ENSCAFP00000062230",
+     "ENSDARP00000147427",
+     "RefOG057",
+     -0.0182,
+     10
+    ],
+    [
+     "ENSCAFP00000057847",
+     "ENSDARP00000122813",
+     "RefOG059",
+     -0.2364,
+     10
+    ],
+    [
+     "ENSCAFP00000061009",
+     "ENSDARP00000153743",
+     "RefOG066",
+     -0.3576,
+     10
+    ],
+    [
+     "ENSCAFP00000062292",
+     "ENSDARP00000116424",
+     "RefOG068",
+     -0.5879,
+     10
+    ]
+   ]
+  },
+  "Monodelphis_domestica:Gallus_gallus": {
+   "seq_source": "S7_devrefog_canonical",
+   "n": 387,
+   "n_expr": 350,
+   "n_orth": 57,
+   "n_par": 293,
+   "n_hard": 53,
+   "n_shared_entities": 11,
+   "null_n": 2692,
+   "null_q50": 0.0114,
+   "null_q95": 0.7143,
+   "null_mean": 0.0057,
+   "auc_spearman": 0.6988,
+   "auc_jaccard": 0.7062,
+   "auc_seq": 0.8385,
+   "auc_spearman_hard": 0.778,
+   "auc_seq_hard": 0.7267,
+   "auc_spearman_shuf": [
+    0.5098,
+    0.5148,
+    0.4596
+   ],
+   "conservation": {
+    "orthologs": {
+     "n": 57,
+     "median_spearman": 0.4455,
+     "frac_conserved_gt_null95": 0.2281,
+     "frac_break_le_null50": 0.1754
+    },
+    "paralogs": {
+     "n": 293,
+     "median_spearman": 0.0545,
+     "frac_conserved_gt_null95": 0.0717,
+     "frac_break_le_null50": 0.4676
+    },
+    "paralogs_within": {
+     "n": 213,
+     "median_spearman": 0.1273,
+     "frac_conserved_gt_null95": 0.0845,
+     "frac_break_le_null50": 0.4131
+    },
+    "paralogs_deep": {
+     "n": 80,
+     "median_spearman": -0.1364,
+     "frac_conserved_gt_null95": 0.0375,
+     "frac_break_le_null50": 0.6125
+    }
+   },
+   "ortholog_breaks": [
+    [
+     "ENSMODP00000021319",
+     "ENSGALP00000050330",
+     "RefOG007",
+     -0.4727,
+     11
+    ],
+    [
+     "ENSMODP00000024649",
+     "ENSGALP00000024131",
+     "RefOG021",
+     -0.4818,
+     11
+    ],
+    [
+     "ENSMODP00000008408",
+     "ENSGALP00000051785",
+     "RefOG023",
+     -0.3091,
+     11
+    ],
+    [
+     "ENSMODP00000050980",
+     "ENSGALP00000058491",
+     "RefOG023",
+     -0.0424,
+     10
+    ],
+    [
+     "ENSMODP00000000871",
+     "ENSGALP00000054065",
+     "RefOG043",
+     -0.3697,
+     10
+    ],
+    [
+     "ENSMODP00000002515",
+     "ENSGALP00000066916",
+     "RefOG052",
+     -0.3781,
+     11
+    ],
+    [
+     "ENSMODP00000011738",
+     "ENSGALP00000035733",
+     "RefOG054",
+     -0.5394,
+     10
+    ],
+    [
+     "ENSMODP00000045994",
+     "ENSGALP00000048776",
+     "RefOG057",
+     -0.2818,
+     11
+    ],
+    [
+     "ENSMODP00000021775",
+     "ENSGALP00000022545",
+     "RefOG061",
+     -0.2455,
+     11
+    ],
+    [
+     "ENSMODP00000008814",
+     "ENSGALP00000065101",
+     "RefOG068",
+     -0.1909,
+     11
+    ]
+   ]
+  },
+  "Monodelphis_domestica:Danio_rerio": {
+   "seq_source": "S7_devrefog_canonical",
+   "n": 663,
+   "n_expr": 544,
+   "n_orth": 96,
+   "n_par": 448,
+   "n_hard": 209,
+   "n_shared_entities": 12,
+   "null_n": 2213,
+   "null_q50": 0.0286,
+   "null_q95": 0.7714,
+   "null_mean": 0.0124,
+   "auc_spearman": 0.5607,
+   "auc_jaccard": 0.6011,
+   "auc_seq": 0.7497,
+   "auc_spearman_hard": 0.5331,
+   "auc_seq_hard": 0.7009,
+   "auc_spearman_shuf": [
+    0.4997,
+    0.5175,
+    0.4861
+   ],
+   "conservation": {
+    "orthologs": {
+     "n": 96,
+     "median_spearman": 0.0929,
+     "frac_conserved_gt_null95": 0.0938,
+     "frac_break_le_null50": 0.4479
+    },
+    "paralogs": {
+     "n": 448,
+     "median_spearman": 0.0607,
+     "frac_conserved_gt_null95": 0.058,
+     "frac_break_le_null50": 0.4888
+    },
+    "paralogs_within": {
+     "n": 316,
+     "median_spearman": 0.0857,
+     "frac_conserved_gt_null95": 0.0633,
+     "frac_break_le_null50": 0.481
+    },
+    "paralogs_deep": {
+     "n": 132,
+     "median_spearman": 0.0286,
+     "frac_conserved_gt_null95": 0.0455,
+     "frac_break_le_null50": 0.5076
+    }
+   },
+   "ortholog_breaks": [
+    [
+     "ENSMODP00000051065",
+     "ENSDARP00000041141",
+     "RefOG006",
+     -0.3143,
+     6
+    ],
+    [
+     "ENSMODP00000051065",
+     "ENSDARP00000134054",
+     "RefOG006",
+     -0.7714,
+     6
+    ],
+    [
+     "ENSMODP00000010173",
+     "ENSDARP00000125918",
+     "RefOG006",
+     -0.3571,
+     8
+    ],
+    [
+     "ENSMODP00000021319",
+     "ENSDARP00000120943",
+     "RefOG007",
+     -0.2,
+     5
+    ],
+    [
+     "ENSMODP00000034118",
+     "ENSDARP00000020595",
+     "RefOG021",
+     -0.75,
+     7
+    ],
+    [
+     "ENSMODP00000024649",
+     "ENSDARP00000056560",
+     "RefOG021",
+     -0.3714,
+     6
+    ],
+    [
+     "ENSMODP00000043447",
+     "ENSDARP00000123790",
+     "RefOG021",
+     -0.3714,
+     6
+    ],
+    [
+     "ENSMODP00000008408",
+     "ENSDARP00000142662",
+     "RefOG023",
+     -0.3143,
+     6
+    ],
+    [
+     "ENSMODP00000050980",
+     "ENSDARP00000129173",
+     "RefOG023",
+     -0.2,
+     6
+    ],
+    [
+     "ENSMODP00000043631",
+     "ENSDARP00000135566",
+     "RefOG024",
+     -0.4,
+     5
+    ],
+    [
+     "ENSMODP00000043631",
+     "ENSDARP00000005298",
+     "RefOG024",
+     0.0,
+     5
+    ],
+    [
+     "ENSMODP00000043631",
+     "ENSDARP00000134903",
+     "RefOG024",
+     -0.3714,
+     6
+    ],
+    [
+     "ENSMODP00000043631",
+     "ENSDARP00000148464",
+     "RefOG024",
+     -0.3714,
+     6
+    ],
+    [
+     "ENSMODP00000043631",
+     "ENSDARP00000102083",
+     "RefOG024",
+     -0.1,
+     5
+    ],
+    [
+     "ENSMODP00000001739",
+     "ENSDARP00000005298",
+     "RefOG024",
+     0.0,
+     5
+    ],
+    [
+     "ENSMODP00000001739",
+     "ENSDARP00000138333",
+     "RefOG024",
+     -0.2571,
+     6
+    ],
+    [
+     "ENSMODP00000001739",
+     "ENSDARP00000102083",
+     "RefOG024",
+     0.0286,
+     6
+    ],
+    [
+     "ENSMODP00000001616",
+     "ENSDARP00000135566",
+     "RefOG024",
+     -0.5429,
+     6
+    ],
+    [
+     "ENSMODP00000001616",
+     "ENSDARP00000095389",
+     "RefOG024",
+     -0.1,
+     5
+    ],
+    [
+     "ENSMODP00000001616",
+     "ENSDARP00000138333",
+     "RefOG024",
+     -0.4857,
+     6
+    ],
+    [
+     "ENSMODP00000001616",
+     "ENSDARP00000134903",
+     "RefOG024",
+     -0.4286,
+     7
+    ],
+    [
+     "ENSMODP00000001616",
+     "ENSDARP00000148464",
+     "RefOG024",
+     -0.7143,
+     7
+    ],
+    [
+     "ENSMODP00000035037",
+     "ENSDARP00000056521",
+     "RefOG028",
+     -0.3714,
+     6
+    ],
+    [
+     "ENSMODP00000035037",
+     "ENSDARP00000105507",
+     "RefOG028",
+     -0.0357,
+     7
+    ],
+    [
+     "ENSMODP00000019193",
+     "ENSDARP00000045587",
+     "RefOG033",
+     -0.0857,
+     6
+    ],
+    [
+     "ENSMODP00000023310",
+     "ENSDARP00000118349",
+     "RefOG033",
+     -0.0238,
+     8
+    ],
+    [
+     "ENSMODP00000037994",
+     "ENSDARP00000132762",
+     "RefOG034",
+     -0.3143,
+     6
+    ],
+    [
+     "ENSMODP00000043880",
+     "ENSDARP00000132762",
+     "RefOG034",
+     -0.1429,
+     6
+    ],
+    [
+     "ENSMODP00000020336",
+     "ENSDARP00000051555",
+     "RefOG035",
+     -0.3571,
+     7
+    ],
+    [
+     "ENSMODP00000046488",
+     "ENSDARP00000108900",
+     "RefOG044",
+     -0.2571,
+     6
+    ],
+    [
+     "ENSMODP00000021571",
+     "ENSDARP00000072300",
+     "RefOG048",
+     -0.3964,
+     7
+    ],
+    [
+     "ENSMODP00000021571",
+     "ENSDARP00000029079",
+     "RefOG048",
+     -0.2883,
+     7
+    ],
+    [
+     "ENSMODP00000018820",
+     "ENSDARP00000073055",
+     "RefOG054",
+     -0.6,
+     6
+    ],
+    [
+     "ENSMODP00000018820",
+     "ENSDARP00000050527",
+     "RefOG054",
+     -0.5714,
+     7
+    ],
+    [
+     "ENSMODP00000011738",
+     "ENSDARP00000110477",
+     "RefOG054",
+     -0.1429,
+     6
+    ],
+    [
+     "ENSMODP00000021797",
+     "ENSDARP00000155276",
+     "RefOG055",
+     -0.3143,
+     6
+    ],
+    [
+     "ENSMODP00000014981",
+     "ENSDARP00000144004",
+     "RefOG055",
+     -0.1429,
+     6
+    ],
+    [
+     "ENSMODP00000045994",
+     "ENSDARP00000147427",
+     "RefOG057",
+     -0.0286,
+     6
+    ],
+    [
+     "ENSMODP00000058915",
+     "ENSDARP00000101451",
+     "RefOG061",
+     -0.4643,
+     7
+    ],
+    [
+     "ENSMODP00000021775",
+     "ENSDARP00000141866",
+     "RefOG061",
+     -0.1071,
+     7
+    ],
+    [
+     "ENSMODP00000006216",
+     "ENSDARP00000141866",
+     "RefOG061",
+     -0.0357,
+     7
+    ],
+    [
+     "ENSMODP00000043890",
+     "ENSDARP00000058324",
+     "RefOG067",
+     -0.2857,
+     7
+    ],
+    [
+     "ENSMODP00000008814",
+     "ENSDARP00000116424",
+     "RefOG068",
+     -0.1786,
+     7
+    ]
+   ]
+  },
+  "Gallus_gallus:Danio_rerio": {
+   "seq_source": "S7_devrefog_canonical",
+   "n": 726,
+   "n_expr": 551,
+   "n_orth": 88,
+   "n_par": 463,
+   "n_hard": 256,
+   "n_shared_entities": 11,
+   "null_n": 2721,
+   "null_q50": 0.0,
+   "null_q95": 0.6905,
+   "null_mean": 0.0003,
+   "auc_spearman": 0.6049,
+   "auc_jaccard": 0.6227,
+   "auc_seq": 0.8074,
+   "auc_spearman_hard": 0.6178,
+   "auc_seq_hard": 0.7831,
+   "auc_spearman_shuf": [
+    0.5227,
+    0.4965,
+    0.5008
+   ],
+   "conservation": {
+    "orthologs": {
+     "n": 88,
+     "median_spearman": 0.1548,
+     "frac_conserved_gt_null95": 0.1023,
+     "frac_break_le_null50": 0.3636
+    },
+    "paralogs": {
+     "n": 463,
+     "median_spearman": 0.0357,
+     "frac_conserved_gt_null95": 0.0497,
+     "frac_break_le_null50": 0.4881
+    },
+    "paralogs_within": {
+     "n": 296,
+     "median_spearman": 0.0714,
+     "frac_conserved_gt_null95": 0.0541,
+     "frac_break_le_null50": 0.4595
+    },
+    "paralogs_deep": {
+     "n": 167,
+     "median_spearman": -0.0714,
+     "frac_conserved_gt_null95": 0.0419,
+     "frac_break_le_null50": 0.5389
+    }
+   },
+   "ortholog_breaks": [
+    [
+     "ENSGALP00000046782",
+     "ENSDARP00000134054",
+     "RefOG006",
+     -0.3929,
+     7
+    ],
+    [
+     "ENSGALP00000010309",
+     "ENSDARP00000142495",
+     "RefOG007",
+     -0.1429,
+     8
+    ],
+    [
+     "ENSGALP00000010309",
+     "ENSDARP00000121957",
+     "RefOG007",
+     -0.0238,
+     8
+    ],
+    [
+     "ENSGALP00000050330",
+     "ENSDARP00000107322",
+     "RefOG007",
+     -0.6429,
+     7
+    ],
+    [
+     "ENSGALP00000050330",
+     "ENSDARP00000120943",
+     "RefOG007",
+     -0.2619,
+     8
+    ],
+    [
+     "ENSGALP00000002888",
+     "ENSDARP00000147062",
+     "RefOG015",
+     -0.1429,
+     6
+    ],
+    [
+     "ENSGALP00000002888",
+     "ENSDARP00000061164",
+     "RefOG015",
+     -0.0857,
+     6
+    ],
+    [
+     "ENSGALP00000002888",
+     "ENSDARP00000113988",
+     "RefOG015",
+     -0.0857,
+     6
+    ],
+    [
+     "ENSGALP00000002888",
+     "ENSDARP00000050237",
+     "RefOG015",
+     -0.0857,
+     6
+    ],
+    [
+     "ENSGALP00000052989",
+     "ENSDARP00000123790",
+     "RefOG021",
+     -0.3333,
+     8
+    ],
+    [
+     "ENSGALP00000047847",
+     "ENSDARP00000121650",
+     "RefOG021",
+     -0.0952,
+     8
+    ],
+    [
+     "ENSGALP00000017072",
+     "ENSDARP00000087236",
+     "RefOG023",
+     -0.5952,
+     8
+    ],
+    [
+     "ENSGALP00000058491",
+     "ENSDARP00000130459",
+     "RefOG023",
+     -0.4286,
+     6
+    ],
+    [
+     "ENSGALP00000010852",
+     "ENSDARP00000130459",
+     "RefOG023",
+     -0.1429,
+     7
+    ],
+    [
+     "ENSGALP00000055794",
+     "ENSDARP00000056521",
+     "RefOG028",
+     -0.1905,
+     8
+    ],
+    [
+     "ENSGALP00000055794",
+     "ENSDARP00000105507",
+     "RefOG028",
+     -0.4524,
+     8
+    ],
+    [
+     "ENSGALP00000018780",
+     "ENSDARP00000118349",
+     "RefOG033",
+     -0.8286,
+     6
+    ],
+    [
+     "ENSGALP00000064702",
+     "ENSDARP00000024104",
+     "RefOG034",
+     -0.2381,
+     8
+    ],
+    [
+     "ENSGALP00000009224",
+     "ENSDARP00000113256",
+     "RefOG035",
+     -0.5714,
+     8
+    ],
+    [
+     "ENSGALP00000009224",
+     "ENSDARP00000123162",
+     "RefOG035",
+     -0.1667,
+     8
+    ],
+    [
+     "ENSGALP00000054065",
+     "ENSDARP00000017582",
+     "RefOG043",
+     -0.1667,
+     8
+    ],
+    [
+     "ENSGALP00000012517",
+     "ENSDARP00000085764",
+     "RefOG044",
+     -0.0238,
+     8
+    ],
+    [
+     "ENSGALP00000003418",
+     "ENSDARP00000136011",
+     "RefOG045",
+     -0.2381,
+     8
+    ],
+    [
+     "ENSGALP00000066916",
+     "ENSDARP00000119088",
+     "RefOG052",
+     -0.1905,
+     8
+    ],
+    [
+     "ENSGALP00000037537",
+     "ENSDARP00000050527",
+     "RefOG054",
+     -0.0476,
+     8
+    ],
+    [
+     "ENSGALP00000035733",
+     "ENSDARP00000110477",
+     "RefOG054",
+     -0.4286,
+     7
+    ],
+    [
+     "ENSGALP00000005221",
+     "ENSDARP00000155276",
+     "RefOG055",
+     -0.5238,
+     8
+    ],
+    [
+     "ENSGALP00000026433",
+     "ENSDARP00000101451",
+     "RefOG061",
+     -0.0952,
+     8
+    ],
+    [
+     "ENSGALP00000003357",
+     "ENSDARP00000141866",
+     "RefOG061",
+     0.0,
+     8
+    ],
+    [
+     "ENSGALP00000056541",
+     "ENSDARP00000153743",
+     "RefOG066",
+     -0.0476,
+     8
+    ],
+    [
+     "ENSGALP00000058190",
+     "ENSDARP00000058324",
+     "RefOG067",
+     -0.0952,
+     8
+    ],
+    [
+     "ENSGALP00000054373",
+     "ENSDARP00000151902",
+     "RefOG068",
+     -0.2143,
+     8
+    ]
+   ]
+  }
+ },
+ "pooled_primary": {
+  "set": "primary",
+  "n_candidates": 2123,
+  "n_with_expression": 1665,
+  "frac_with_expression": 0.7843,
+  "n_orth": 234,
+  "n_par": 1431,
+  "n_hard_pairs": 336,
+  "auc": {
+   "seq": {
+    "all": 0.8344,
+    "all_ci95": [
+     0.6369,
+     0.9214
+    ],
+    "hard": 0.6198,
+    "hard_ci95": [
+     0.3557,
+     0.7638
+    ]
+   },
+   "spearman": {
+    "all": 0.6668,
+    "all_ci95": [
+     0.6172,
+     0.7208
+    ],
+    "hard": 0.5778,
+    "hard_ci95": [
+     0.4672,
+     0.7143
+    ],
+    "shuf_all": [
+     0.5235,
+     0.4735,
+     0.4775
+    ],
+    "shuf_hard": [
+     0.5951,
+     0.4467,
+     0.4205
+    ]
+   },
+   "jaccard": {
+    "all": 0.6119,
+    "all_ci95": [
+     0.5521,
+     0.6997
+    ],
+    "hard": 0.565,
+    "hard_ci95": [
+     0.4824,
+     0.6771
+    ],
+    "shuf_all": [
+     0.4973,
+     0.4744,
+     0.4964
+    ],
+    "shuf_hard": [
+     0.5347,
+     0.4612,
+     0.4839
+    ]
+   }
+  },
+  "queries": {
+   "hard": {
+    "spearman": {
+     "n": 53,
+     "seq_acc": 0.5094,
+     "syn_correct": 25,
+     "syn_wrong": 28,
+     "syn_abstain": 0,
+     "syn_precision_when_decides": 0.4717,
+     "comb0.9_acc": 0.4906,
+     "comb0.9_minus_seq": -0.0189,
+     "comb0.9_minus_seq_ci95": [
+      -0.2,
+      0.1493
+     ],
+     "comb0.75_acc": 0.4906,
+     "comb0.75_minus_seq": -0.0189,
+     "comb0.75_minus_seq_ci95": [
+      -0.25,
+      0.2143
+     ],
+     "expr_top1_acc_alone": 0.4717,
+     "shuf_comb0.9_minus_seq": [
+      0.0,
+      -0.1321,
+      -0.3019
+     ],
+     "shuf_comb0.9_minus_seq_ci95": [
+      [
+       -0.138,
+       0.1765
+      ],
+      [
+       -0.2558,
+       0.0
+      ],
+      [
+       -0.4718,
+       -0.1143
+      ]
+     ],
+     "shuf_precision_when_decides": [
+      0.4043,
+      0.1591,
+      0.1739
+     ],
+     "comb0.9_real_minus_shuf": [
+      [
+       -0.0189,
+       [
+        -0.1751,
+        0.1207
+       ]
+      ],
+      [
+       0.1132,
+       [
+        -0.1305,
+        0.3654
+       ]
+      ],
+      [
+       0.283,
+       [
+        0.1315,
+        0.4263
+       ]
+      ]
+     ],
+     "shuf_comb0.75_minus_seq": [
+      -0.0189,
+      -0.1509,
+      -0.3208
+     ],
+     "shuf_comb0.75_minus_seq_ci95": [
+      [
+       -0.1957,
+       0.2175
+      ],
+      [
+       -0.25,
+       -0.0408
+      ],
+      [
+       -0.4717,
+       -0.1218
+      ]
+     ],
+     "comb0.75_real_minus_shuf": [
+      [
+       0.0,
+       [
+        -0.1739,
+        0.1569
+       ]
+      ],
+      [
+       0.1321,
+       [
+        -0.0882,
+        0.4167
+       ]
+      ],
+      [
+       0.3019,
+       [
+        0.1778,
+        0.4429
+       ]
+      ]
+     ]
+    },
+    "jaccard": {
+     "n": 53,
+     "seq_acc": 0.5094,
+     "syn_correct": 6,
+     "syn_wrong": 25,
+     "syn_abstain": 22,
+     "syn_precision_when_decides": 0.1935,
+     "comb0.9_acc": 0.3774,
+     "comb0.9_minus_seq": -0.1321,
+     "comb0.9_minus_seq_ci95": [
+      -0.2955,
+      0.0213
+     ],
+     "comb0.75_acc": 0.3962,
+     "comb0.75_minus_seq": -0.1132,
+     "comb0.75_minus_seq_ci95": [
+      -0.2683,
+      0.0606
+     ],
+     "expr_top1_acc_alone": 0.1132,
+     "shuf_comb0.9_minus_seq": [
+      -0.0377,
+      -0.0566,
+      -0.0943
+     ],
+     "shuf_comb0.9_minus_seq_ci95": [
+      [
+       -0.1628,
+       0.0811
+      ],
+      [
+       -0.1924,
+       0.0714
+      ],
+      [
+       -0.2131,
+       0.0286
+      ]
+     ],
+     "shuf_precision_when_decides": [
+      0.5,
+      0.1724,
+      0.1875
+     ],
+     "comb0.9_real_minus_shuf": [
+      [
+       -0.0943,
+       [
+        -0.26,
+        0.0435
+       ]
+      ],
+      [
+       -0.0755,
+       [
+        -0.1818,
+        0.0834
+       ]
+      ],
+      [
+       -0.0377,
+       [
+        -0.1136,
+        0.037
+       ]
+      ]
+     ],
+     "shuf_comb0.75_minus_seq": [
+      0.0,
+      -0.0943,
+      -0.1132
+     ],
+     "shuf_comb0.75_minus_seq_ci95": [
+      [
+       -0.1476,
+       0.1668
+      ],
+      [
+       -0.2979,
+       0.0423
+      ],
+      [
+       -0.2113,
+       0.0
+      ]
+     ],
+     "comb0.75_real_minus_shuf": [
+      [
+       -0.1132,
+       [
+        -0.2353,
+        0.0
+       ]
+      ],
+      [
+       -0.0189,
+       [
+        -0.14,
+        0.1564
+       ]
+      ],
+      [
+       0.0,
+       [
+        -0.0833,
+        0.077
+       ]
+      ]
+     ]
+    },
+    "per_pair": {
+     "Homo_sapiens:Mus_musculus": {
+      "n": 5,
+      "seq_acc": 0.6,
+      "comb09_spearman": 0.8,
+      "comb075_spearman": 0.8,
+      "comb09_shuf11": 1.0
+     },
+     "Homo_sapiens:Gallus_gallus": {
+      "n": 11,
+      "seq_acc": 0.4545,
+      "comb09_spearman": 0.4545,
+      "comb075_spearman": 0.5455,
+      "comb09_shuf11": 0.3636
+     },
+     "Homo_sapiens:Danio_rerio": {
+      "n": 37,
+      "seq_acc": 0.5135,
+      "comb09_spearman": 0.4595,
+      "comb075_spearman": 0.4324,
+      "comb09_shuf11": 0.4865
+     }
+    }
+   },
+   "all": {
+    "spearman": {
+     "n": 326,
+     "seq_acc": 0.9202,
+     "syn_correct": 153,
+     "syn_wrong": 172,
+     "syn_abstain": 1,
+     "syn_precision_when_decides": 0.4708,
+     "comb0.9_acc": 0.9172,
+     "comb0.9_minus_seq": -0.0031,
+     "comb0.9_minus_seq_ci95": [
+      -0.0287,
+      0.0292
+     ],
+     "comb0.75_acc": 0.8497,
+     "comb0.75_minus_seq": -0.0706,
+     "comb0.75_minus_seq_ci95": [
+      -0.1177,
+      -0.0069
+     ],
+     "expr_top1_acc_alone": 0.4693,
+     "shuf_comb0.9_minus_seq": [
+      0.0,
+      -0.0215,
+      -0.0491
+     ],
+     "shuf_comb0.9_minus_seq_ci95": [
+      [
+       -0.0224,
+       0.0274
+      ],
+      [
+       -0.0521,
+       0.0
+      ],
+      [
+       -0.0855,
+       -0.0156
+      ]
+     ],
+     "shuf_precision_when_decides": [
+      0.2333,
+      0.1972,
+      0.2245
+     ],
+     "comb0.9_real_minus_shuf": [
+      [
+       -0.0031,
+       [
+        -0.0233,
+        0.0232
+       ]
+      ],
+      [
+       0.0184,
+       [
+        -0.0164,
+        0.0809
+       ]
+      ],
+      [
+       0.046,
+       [
+        0.0152,
+        0.0953
+       ]
+      ]
+     ],
+     "shuf_comb0.75_minus_seq": [
+      -0.1074,
+      -0.1227,
+      -0.1564
+     ],
+     "shuf_comb0.75_minus_seq_ci95": [
+      [
+       -0.1719,
+       -0.0414
+      ],
+      [
+       -0.1911,
+       -0.0562
+      ],
+      [
+       -0.2317,
+       -0.071
+      ]
+     ],
+     "comb0.75_real_minus_shuf": [
+      [
+       0.0368,
+       [
+        -0.0126,
+        0.106
+       ]
+      ],
+      [
+       0.0521,
+       [
+        -0.006,
+        0.1389
+       ]
+      ],
+      [
+       0.0859,
+       [
+        0.0226,
+        0.1662
+       ]
+      ]
+     ]
+    },
+    "jaccard": {
+     "n": 326,
+     "seq_acc": 0.9202,
+     "syn_correct": 74,
+     "syn_wrong": 163,
+     "syn_abstain": 89,
+     "syn_precision_when_decides": 0.3122,
+     "comb0.9_acc": 0.8988,
+     "comb0.9_minus_seq": -0.0215,
+     "comb0.9_minus_seq_ci95": [
+      -0.052,
+      0.003
+     ],
+     "comb0.75_acc": 0.8221,
+     "comb0.75_minus_seq": -0.0982,
+     "comb0.75_minus_seq_ci95": [
+      -0.1462,
+      -0.0478
+     ],
+     "expr_top1_acc_alone": 0.227,
+     "shuf_comb0.9_minus_seq": [
+      -0.0061,
+      -0.0092,
+      -0.0153
+     ],
+     "shuf_comb0.9_minus_seq_ci95": [
+      [
+       -0.0269,
+       0.0129
+      ],
+      [
+       -0.0331,
+       0.0106
+      ],
+      [
+       -0.039,
+       0.0033
+      ]
+     ],
+     "shuf_precision_when_decides": [
+      0.2372,
+      0.1787,
+      0.2212
+     ],
+     "comb0.9_real_minus_shuf": [
+      [
+       -0.0153,
+       [
+        -0.0404,
+        0.0064
+       ]
+      ],
+      [
+       -0.0123,
+       [
+        -0.0298,
+        0.0089
+       ]
+      ],
+      [
+       -0.0061,
+       [
+        -0.0171,
+        0.0062
+       ]
+      ]
+     ],
+     "shuf_comb0.75_minus_seq": [
+      -0.092,
+      -0.0736,
+      -0.0951
+     ],
+     "shuf_comb0.75_minus_seq_ci95": [
+      [
+       -0.1599,
+       -0.0281
+      ],
+      [
+       -0.1565,
+       -0.0204
+      ],
+      [
+       -0.1697,
+       -0.035
+      ]
+     ],
+     "comb0.75_real_minus_shuf": [
+      [
+       -0.0061,
+       [
+        -0.0497,
+        0.0365
+       ]
+      ],
+      [
+       -0.0245,
+       [
+        -0.0718,
+        0.0389
+       ]
+      ],
+      [
+       -0.0031,
+       [
+        -0.0543,
+        0.0593
+       ]
+      ]
+     ]
+    },
+    "per_pair": {
+     "Homo_sapiens:Mus_musculus": {
+      "n": 127,
+      "seq_acc": 0.9843,
+      "comb09_spearman": 0.9921,
+      "comb075_spearman": 0.9606,
+      "comb09_shuf11": 1.0
+     },
+     "Homo_sapiens:Gallus_gallus": {
+      "n": 85,
+      "seq_acc": 0.9294,
+      "comb09_spearman": 0.9294,
+      "comb075_spearman": 0.9294,
+      "comb09_shuf11": 0.9176
+     },
+     "Homo_sapiens:Danio_rerio": {
+      "n": 114,
+      "seq_acc": 0.8421,
+      "comb09_spearman": 0.8246,
+      "comb075_spearman": 0.6667,
+      "comb09_shuf11": 0.8333
+     }
+    }
+   }
+  }
+ },
+ "pooled_extended": {
+  "set": "extended_28_pairs",
+  "n_candidates": 18059,
+  "n_with_expression": 15562,
+  "frac_with_expression": 0.8617,
+  "n_orth": 2182,
+  "n_par": 13380,
+  "n_hard_pairs": 3122,
+  "auc": {
+   "seq": {
+    "all": 0.8259,
+    "all_ci95": [
+     0.6672,
+     0.9029
+    ],
+    "hard": 0.675,
+    "hard_ci95": [
+     0.527,
+     0.7815
+    ]
+   },
+   "spearman": {
+    "all": 0.6569,
+    "all_ci95": [
+     0.6183,
+     0.7004
+    ],
+    "hard": 0.5855,
+    "hard_ci95": [
+     0.5259,
+     0.6647
+    ],
+    "shuf_all": [
+     0.4923,
+     0.5036,
+     0.4917
+    ],
+    "shuf_hard": [
+     0.5332,
+     0.4956,
+     0.4965
+    ]
+   },
+   "jaccard": {
+    "all": 0.648,
+    "all_ci95": [
+     0.5945,
+     0.7013
+    ],
+    "hard": 0.6027,
+    "hard_ci95": [
+     0.5497,
+     0.6588
+    ],
+    "shuf_all": [
+     0.4928,
+     0.4923,
+     0.4884
+    ],
+    "shuf_hard": [
+     0.5082,
+     0.4596,
+     0.4823
+    ]
+   }
+  },
+  "queries": {
+   "hard": {
+    "spearman": {
+     "n": 484,
+     "seq_acc": 0.5517,
+     "syn_correct": 192,
+     "syn_wrong": 287,
+     "syn_abstain": 5,
+     "syn_precision_when_decides": 0.4008,
+     "comb0.9_acc": 0.436,
+     "comb0.9_minus_seq": -0.1157,
+     "comb0.9_minus_seq_ci95": [
+      -0.1831,
+      -0.0521
+     ],
+     "comb0.75_acc": 0.4174,
+     "comb0.75_minus_seq": -0.1343,
+     "comb0.75_minus_seq_ci95": [
+      -0.2243,
+      -0.0436
+     ],
+     "expr_top1_acc_alone": 0.3967,
+     "shuf_comb0.9_minus_seq": [
+      -0.1322,
+      -0.126,
+      -0.2045
+     ],
+     "shuf_comb0.9_minus_seq_ci95": [
+      [
+       -0.2046,
+       -0.0256
+      ],
+      [
+       -0.1938,
+       -0.068
+      ],
+      [
+       -0.2549,
+       -0.1182
+      ]
+     ],
+     "shuf_precision_when_decides": [
+      0.2976,
+      0.2328,
+      0.2545
+     ],
+     "comb0.9_real_minus_shuf": [
+      [
+       0.0165,
+       [
+        -0.0939,
+        0.1105
+       ]
+      ],
+      [
+       0.0103,
+       [
+        -0.048,
+        0.086
+       ]
+      ],
+      [
+       0.0888,
+       [
+        0.005,
+        0.1514
+       ]
+      ]
+     ],
+     "shuf_comb0.75_minus_seq": [
+      -0.157,
+      -0.1405,
+      -0.2169
+     ],
+     "shuf_comb0.75_minus_seq_ci95": [
+      [
+       -0.2507,
+       -0.0257
+      ],
+      [
+       -0.2029,
+       -0.0703
+      ],
+      [
+       -0.2852,
+       -0.1111
+      ]
+     ],
+     "comb0.75_real_minus_shuf": [
+      [
+       0.0227,
+       [
+        -0.092,
+        0.1167
+       ]
+      ],
+      [
+       0.0062,
+       [
+        -0.0415,
+        0.0667
+       ]
+      ],
+      [
+       0.0826,
+       [
+        0.0078,
+        0.1414
+       ]
+      ]
+     ]
+    },
+    "jaccard": {
+     "n": 484,
+     "seq_acc": 0.5517,
+     "syn_correct": 57,
+     "syn_wrong": 184,
+     "syn_abstain": 243,
+     "syn_precision_when_decides": 0.2365,
+     "comb0.9_acc": 0.5145,
+     "comb0.9_minus_seq": -0.0372,
+     "comb0.9_minus_seq_ci95": [
+      -0.0982,
+      0.0082
+     ],
+     "comb0.75_acc": 0.5331,
+     "comb0.75_minus_seq": -0.0186,
+     "comb0.75_minus_seq_ci95": [
+      -0.0479,
+      0.0309
+     ],
+     "expr_top1_acc_alone": 0.1178,
+     "shuf_comb0.9_minus_seq": [
+      -0.1136,
+      -0.0847,
+      -0.1157
+     ],
+     "shuf_comb0.9_minus_seq_ci95": [
+      [
+       -0.1667,
+       -0.0525
+      ],
+      [
+       -0.1379,
+       -0.0236
+      ],
+      [
+       -0.1789,
+       -0.0443
+      ]
+     ],
+     "shuf_precision_when_decides": [
+      0.2325,
+      0.1622,
+      0.2379
+     ],
+     "comb0.9_real_minus_shuf": [
+      [
+       0.0764,
+       [
+        -0.0034,
+        0.1388
+       ]
+      ],
+      [
+       0.0475,
+       [
+        -0.017,
+        0.1118
+       ]
+      ],
+      [
+       0.0785,
+       [
+        -0.0022,
+        0.1429
+       ]
+      ]
+     ],
+     "shuf_comb0.75_minus_seq": [
+      -0.1178,
+      -0.1136,
+      -0.1467
+     ],
+     "shuf_comb0.75_minus_seq_ci95": [
+      [
+       -0.1815,
+       -0.0442
+      ],
+      [
+       -0.184,
+       -0.0481
+      ],
+      [
+       -0.2062,
+       -0.0606
+      ]
+     ],
+     "comb0.75_real_minus_shuf": [
+      [
+       0.0992,
+       [
+        0.0335,
+        0.1674
+       ]
+      ],
+      [
+       0.095,
+       [
+        0.0362,
+        0.1748
+       ]
+      ],
+      [
+       0.1281,
+       [
+        0.0562,
+        0.1901
+       ]
+      ]
+     ]
+    },
+    "per_pair": {
+     "Homo_sapiens:Mus_musculus": {
+      "n": 5,
+      "seq_acc": 0.6,
+      "comb09_spearman": 0.8,
+      "comb075_spearman": 0.8,
+      "comb09_shuf11": 1.0
+     },
+     "Homo_sapiens:Gallus_gallus": {
+      "n": 11,
+      "seq_acc": 0.4545,
+      "comb09_spearman": 0.4545,
+      "comb075_spearman": 0.5455,
+      "comb09_shuf11": 0.3636
+     },
+     "Homo_sapiens:Danio_rerio": {
+      "n": 37,
+      "seq_acc": 0.5135,
+      "comb09_spearman": 0.4595,
+      "comb075_spearman": 0.4324,
+      "comb09_shuf11": 0.4865
+     },
+     "Homo_sapiens:Pan_troglodytes": {
+      "n": 3,
+      "seq_acc": 1.0,
+      "comb09_spearman": 0.3333,
+      "comb075_spearman": 0.3333,
+      "comb09_shuf11": 0.3333
+     },
+     "Homo_sapiens:Rattus_norvegicus": {
+      "n": 5,
+      "seq_acc": 0.8,
+      "comb09_spearman": 0.8,
+      "comb075_spearman": 1.0,
+      "comb09_shuf11": 0.8
+     },
+     "Homo_sapiens:Canis_familiaris": {
+      "n": 6,
+      "seq_acc": 0.6667,
+      "comb09_spearman": 0.8333,
+      "comb075_spearman": 0.8333,
+      "comb09_shuf11": 0.5
+     },
+     "Homo_sapiens:Monodelphis_domestica": {
+      "n": 6,
+      "seq_acc": 0.8333,
+      "comb09_spearman": 0.6667,
+      "comb075_spearman": 0.5,
+      "comb09_shuf11": 0.3333
+     },
+     "Pan_troglodytes:Mus_musculus": {
+      "n": 10,
+      "seq_acc": 0.5,
+      "comb09_spearman": 0.2,
+      "comb075_spearman": 0.2,
+      "comb09_shuf11": 0.0
+     },
+     "Pan_troglodytes:Rattus_norvegicus": {
+      "n": 16,
+      "seq_acc": 0.25,
+      "comb09_spearman": 0.1875,
+      "comb075_spearman": 0.1875,
+      "comb09_shuf11": 0.25
+     },
+     "Pan_troglodytes:Canis_familiaris": {
+      "n": 15,
+      "seq_acc": 0.4667,
+      "comb09_spearman": 0.2667,
+      "comb075_spearman": 0.3333,
+      "comb09_shuf11": 0.4
+     },
+     "Pan_troglodytes:Monodelphis_domestica": {
+      "n": 17,
+      "seq_acc": 0.7059,
+      "comb09_spearman": 0.3529,
+      "comb075_spearman": 0.4118,
+      "comb09_shuf11": 0.7059
+     },
+     "Pan_troglodytes:Gallus_gallus": {
+      "n": 10,
+      "seq_acc": 0.5,
+      "comb09_spearman": 0.6,
+      "comb075_spearman": 0.6,
+      "comb09_shuf11": 0.2
+     },
+     "Pan_troglodytes:Danio_rerio": {
+      "n": 20,
+      "seq_acc": 0.5,
+      "comb09_spearman": 0.45,
+      "comb075_spearman": 0.4,
+      "comb09_shuf11": 0.3
+     },
+     "Mus_musculus:Rattus_norvegicus": {
+      "n": 9,
+      "seq_acc": 0.7778,
+      "comb09_spearman": 0.8889,
+      "comb075_spearman": 0.6667,
+      "comb09_shuf11": 0.4444
+     },
+     "Mus_musculus:Canis_familiaris": {
+      "n": 7,
+      "seq_acc": 0.7143,
+      "comb09_spearman": 0.5714,
+      "comb075_spearman": 0.5714,
+      "comb09_shuf11": 0.4286
+     },
+     "Mus_musculus:Monodelphis_domestica": {
+      "n": 12,
+      "seq_acc": 0.6667,
+      "comb09_spearman": 0.6667,
+      "comb075_spearman": 0.5833,
+      "comb09_shuf11": 0.4167
+     },
+     "Mus_musculus:Gallus_gallus": {
+      "n": 13,
+      "seq_acc": 0.5385,
+      "comb09_spearman": 0.6154,
+      "comb075_spearman": 0.6154,
+      "comb09_shuf11": 0.3077
+     },
+     "Mus_musculus:Danio_rerio": {
+      "n": 41,
+      "seq_acc": 0.3902,
+      "comb09_spearman": 0.3659,
+      "comb075_spearman": 0.3415,
+      "comb09_shuf11": 0.3659
+     },
+     "Rattus_norvegicus:Canis_familiaris": {
+      "n": 21,
+      "seq_acc": 0.4286,
+      "comb09_spearman": 0.2857,
+      "comb075_spearman": 0.3333,
+      "comb09_shuf11": 0.381
+     },
+     "Rattus_norvegicus:Monodelphis_domestica": {
+      "n": 19,
+      "seq_acc": 0.7368,
+      "comb09_spearman": 0.3158,
+      "comb075_spearman": 0.3684,
+      "comb09_shuf11": 0.6316
+     },
+     "Rattus_norvegicus:Gallus_gallus": {
+      "n": 11,
+      "seq_acc": 0.5455,
+      "comb09_spearman": 0.5455,
+      "comb075_spearman": 0.6364,
+      "comb09_shuf11": 0.3636
+     },
+     "Rattus_norvegicus:Danio_rerio": {
+      "n": 34,
+      "seq_acc": 0.5,
+      "comb09_spearman": 0.3235,
+      "comb075_spearman": 0.2647,
+      "comb09_shuf11": 0.3235
+     },
+     "Canis_familiaris:Monodelphis_domestica": {
+      "n": 22,
+      "seq_acc": 0.5,
+      "comb09_spearman": 0.5455,
+      "comb075_spearman": 0.5,
+      "comb09_shuf11": 0.5
+     },
+     "Canis_familiaris:Gallus_gallus": {
+      "n": 12,
+      "seq_acc": 0.25,
+      "comb09_spearman": 0.5,
+      "comb075_spearman": 0.5,
+      "comb09_shuf11": 0.25
+     },
+     "Canis_familiaris:Danio_rerio": {
+      "n": 46,
+      "seq_acc": 0.5652,
+      "comb09_spearman": 0.3478,
+      "comb075_spearman": 0.3261,
+      "comb09_shuf11": 0.4348
+     },
+     "Monodelphis_domestica:Gallus_gallus": {
+      "n": 11,
+      "seq_acc": 0.7273,
+      "comb09_spearman": 0.6364,
+      "comb075_spearman": 0.7273,
+      "comb09_shuf11": 0.3636
+     },
+     "Monodelphis_domestica:Danio_rerio": {
+      "n": 31,
+      "seq_acc": 0.6452,
+      "comb09_spearman": 0.3226,
+      "comb075_spearman": 0.2581,
+      "comb09_shuf11": 0.3871
+     },
+     "Gallus_gallus:Danio_rerio": {
+      "n": 34,
+      "seq_acc": 0.7059,
+      "comb09_spearman": 0.5294,
+      "comb075_spearman": 0.4118,
+      "comb09_shuf11": 0.5882
+     }
+    }
+   },
+   "all": {
+    "spearman": {
+     "n": 2990,
+     "seq_acc": 0.9274,
+     "syn_correct": 1356,
+     "syn_wrong": 1612,
+     "syn_abstain": 22,
+     "syn_precision_when_decides": 0.4569,
+     "comb0.9_acc": 0.9087,
+     "comb0.9_minus_seq": -0.0187,
+     "comb0.9_minus_seq_ci95": [
+      -0.0327,
+      -0.0051
+     ],
+     "comb0.75_acc": 0.8532,
+     "comb0.75_minus_seq": -0.0742,
+     "comb0.75_minus_seq_ci95": [
+      -0.0992,
+      -0.0495
+     ],
+     "expr_top1_acc_alone": 0.4535,
+     "shuf_comb0.9_minus_seq": [
+      -0.0214,
+      -0.0204,
+      -0.0331
+     ],
+     "shuf_comb0.9_minus_seq_ci95": [
+      [
+       -0.0491,
+       -0.002
+      ],
+      [
+       -0.0367,
+       -0.0083
+      ],
+      [
+       -0.0627,
+       -0.0135
+      ]
+     ],
+     "shuf_precision_when_decides": [
+      0.2293,
+      0.2362,
+      0.2326
+     ],
+     "comb0.9_real_minus_shuf": [
+      [
+       0.0027,
+       [
+        -0.011,
+        0.0234
+       ]
+      ],
+      [
+       0.0017,
+       [
+        -0.0064,
+        0.0136
+       ]
+      ],
+      [
+       0.0144,
+       [
+        0.0,
+        0.0348
+       ]
+      ]
+     ],
+     "shuf_comb0.75_minus_seq": [
+      -0.105,
+      -0.0936,
+      -0.1003
+     ],
+     "shuf_comb0.75_minus_seq_ci95": [
+      [
+       -0.1703,
+       -0.0506
+      ],
+      [
+       -0.1487,
+       -0.053
+      ],
+      [
+       -0.148,
+       -0.0558
+      ]
+     ],
+     "comb0.75_real_minus_shuf": [
+      [
+       0.0308,
+       [
+        -0.0045,
+        0.0932
+       ]
+      ],
+      [
+       0.0194,
+       [
+        -0.0042,
+        0.0678
+       ]
+      ],
+      [
+       0.0261,
+       [
+        0.0029,
+        0.0582
+       ]
+      ]
+     ]
+    },
+    "jaccard": {
+     "n": 2990,
+     "seq_acc": 0.9274,
+     "syn_correct": 553,
+     "syn_wrong": 1215,
+     "syn_abstain": 1222,
+     "syn_precision_when_decides": 0.3128,
+     "comb0.9_acc": 0.9214,
+     "comb0.9_minus_seq": -0.006,
+     "comb0.9_minus_seq_ci95": [
+      -0.0147,
+      0.0018
+     ],
+     "comb0.75_acc": 0.8722,
+     "comb0.75_minus_seq": -0.0552,
+     "comb0.75_minus_seq_ci95": [
+      -0.0792,
+      -0.0326
+     ],
+     "expr_top1_acc_alone": 0.1849,
+     "shuf_comb0.9_minus_seq": [
+      -0.0184,
+      -0.0137,
+      -0.0187
+     ],
+     "shuf_comb0.9_minus_seq_ci95": [
+      [
+       -0.0362,
+       -0.006
+      ],
+      [
+       -0.0289,
+       -0.0031
+      ],
+      [
+       -0.0399,
+       -0.0051
+      ]
+     ],
+     "shuf_precision_when_decides": [
+      0.2086,
+      0.1933,
+      0.2149
+     ],
+     "comb0.9_real_minus_shuf": [
+      [
+       0.0124,
+       [
+        -0.001,
+        0.0281
+       ]
+      ],
+      [
+       0.0077,
+       [
+        -0.0023,
+        0.0198
+       ]
+      ],
+      [
+       0.0127,
+       [
+        -0.0006,
+        0.0294
+       ]
+      ]
+     ],
+     "shuf_comb0.75_minus_seq": [
+      -0.0849,
+      -0.0672,
+      -0.0799
+     ],
+     "shuf_comb0.75_minus_seq_ci95": [
+      [
+       -0.1413,
+       -0.0447
+      ],
+      [
+       -0.1148,
+       -0.0333
+      ],
+      [
+       -0.1202,
+       -0.0416
+      ]
+     ],
+     "comb0.75_real_minus_shuf": [
+      [
+       0.0298,
+       [
+        -0.0041,
+        0.0865
+       ]
+      ],
+      [
+       0.012,
+       [
+        -0.0193,
+        0.0601
+       ]
+      ],
+      [
+       0.0247,
+       [
+        -0.0066,
+        0.0696
+       ]
+      ]
+     ]
+    },
+    "per_pair": {
+     "Homo_sapiens:Mus_musculus": {
+      "n": 127,
+      "seq_acc": 0.9843,
+      "comb09_spearman": 0.9921,
+      "comb075_spearman": 0.9606,
+      "comb09_shuf11": 1.0
+     },
+     "Homo_sapiens:Gallus_gallus": {
+      "n": 85,
+      "seq_acc": 0.9294,
+      "comb09_spearman": 0.9294,
+      "comb075_spearman": 0.9294,
+      "comb09_shuf11": 0.9176
+     },
+     "Homo_sapiens:Danio_rerio": {
+      "n": 114,
+      "seq_acc": 0.8421,
+      "comb09_spearman": 0.8246,
+      "comb075_spearman": 0.6667,
+      "comb09_shuf11": 0.8333
+     },
+     "Homo_sapiens:Pan_troglodytes": {
+      "n": 133,
+      "seq_acc": 1.0,
+      "comb09_spearman": 0.985,
+      "comb075_spearman": 0.985,
+      "comb09_shuf11": 0.985
+     },
+     "Homo_sapiens:Rattus_norvegicus": {
+      "n": 119,
+      "seq_acc": 0.9916,
+      "comb09_spearman": 0.9916,
+      "comb075_spearman": 0.9328,
+      "comb09_shuf11": 0.9916
+     },
+     "Homo_sapiens:Canis_familiaris": {
+      "n": 114,
+      "seq_acc": 0.9825,
+      "comb09_spearman": 0.9912,
+      "comb075_spearman": 0.9825,
+      "comb09_shuf11": 0.9737
+     },
+     "Homo_sapiens:Monodelphis_domestica": {
+      "n": 108,
+      "seq_acc": 0.9907,
+      "comb09_spearman": 0.9815,
+      "comb075_spearman": 0.9167,
+      "comb09_shuf11": 0.963
+     },
+     "Pan_troglodytes:Mus_musculus": {
+      "n": 134,
+      "seq_acc": 0.9627,
+      "comb09_spearman": 0.9403,
+      "comb075_spearman": 0.8881,
+      "comb09_shuf11": 0.9254
+     },
+     "Pan_troglodytes:Rattus_norvegicus": {
+      "n": 136,
+      "seq_acc": 0.9118,
+      "comb09_spearman": 0.9044,
+      "comb075_spearman": 0.8382,
+      "comb09_shuf11": 0.9118
+     },
+     "Pan_troglodytes:Canis_familiaris": {
+      "n": 129,
+      "seq_acc": 0.938,
+      "comb09_spearman": 0.9147,
+      "comb075_spearman": 0.8992,
+      "comb09_shuf11": 0.9302
+     },
+     "Pan_troglodytes:Monodelphis_domestica": {
+      "n": 127,
+      "seq_acc": 0.9606,
+      "comb09_spearman": 0.9134,
+      "comb075_spearman": 0.8504,
+      "comb09_shuf11": 0.9606
+     },
+     "Pan_troglodytes:Gallus_gallus": {
+      "n": 93,
+      "seq_acc": 0.9462,
+      "comb09_spearman": 0.957,
+      "comb075_spearman": 0.9247,
+      "comb09_shuf11": 0.914
+     },
+     "Pan_troglodytes:Danio_rerio": {
+      "n": 49,
+      "seq_acc": 0.7959,
+      "comb09_spearman": 0.7755,
+      "comb075_spearman": 0.6735,
+      "comb09_shuf11": 0.7143
+     },
+     "Mus_musculus:Rattus_norvegicus": {
+      "n": 129,
+      "seq_acc": 0.9845,
+      "comb09_spearman": 0.9922,
+      "comb075_spearman": 0.9535,
+      "comb09_shuf11": 0.9612
+     },
+     "Mus_musculus:Canis_familiaris": {
+      "n": 116,
+      "seq_acc": 0.9828,
+      "comb09_spearman": 0.9741,
+      "comb075_spearman": 0.9483,
+      "comb09_shuf11": 0.9655
+     },
+     "Mus_musculus:Monodelphis_domestica": {
+      "n": 101,
+      "seq_acc": 0.9604,
+      "comb09_spearman": 0.9604,
+      "comb075_spearman": 0.9406,
+      "comb09_shuf11": 0.9307
+     },
+     "Mus_musculus:Gallus_gallus": {
+      "n": 86,
+      "seq_acc": 0.9302,
+      "comb09_spearman": 0.9419,
+      "comb075_spearman": 0.9302,
+      "comb09_shuf11": 0.8953
+     },
+     "Mus_musculus:Danio_rerio": {
+      "n": 118,
+      "seq_acc": 0.7881,
+      "comb09_spearman": 0.7797,
+      "comb075_spearman": 0.6525,
+      "comb09_shuf11": 0.7797
+     },
+     "Rattus_norvegicus:Canis_familiaris": {
+      "n": 123,
+      "seq_acc": 0.9024,
+      "comb09_spearman": 0.878,
+      "comb075_spearman": 0.8618,
+      "comb09_shuf11": 0.8943
+     },
+     "Rattus_norvegicus:Monodelphis_domestica": {
+      "n": 104,
+      "seq_acc": 0.9519,
+      "comb09_spearman": 0.875,
+      "comb075_spearman": 0.8654,
+      "comb09_shuf11": 0.9327
+     },
+     "Rattus_norvegicus:Gallus_gallus": {
+      "n": 82,
+      "seq_acc": 0.939,
+      "comb09_spearman": 0.939,
+      "comb075_spearman": 0.9268,
+      "comb09_shuf11": 0.9146
+     },
+     "Rattus_norvegicus:Danio_rerio": {
+      "n": 95,
+      "seq_acc": 0.8211,
+      "comb09_spearman": 0.7579,
+      "comb075_spearman": 0.6421,
+      "comb09_shuf11": 0.7579
+     },
+     "Canis_familiaris:Monodelphis_domestica": {
+      "n": 107,
+      "seq_acc": 0.8972,
+      "comb09_spearman": 0.9065,
+      "comb075_spearman": 0.8785,
+      "comb09_shuf11": 0.8972
+     },
+     "Canis_familiaris:Gallus_gallus": {
+      "n": 80,
+      "seq_acc": 0.8875,
+      "comb09_spearman": 0.925,
+      "comb075_spearman": 0.925,
+      "comb09_shuf11": 0.8875
+     },
+     "Canis_familiaris:Danio_rerio": {
+      "n": 111,
+      "seq_acc": 0.8198,
+      "comb09_spearman": 0.7297,
+      "comb075_spearman": 0.6216,
+      "comb09_shuf11": 0.7658
+     },
+     "Monodelphis_domestica:Gallus_gallus": {
+      "n": 75,
+      "seq_acc": 0.96,
+      "comb09_spearman": 0.9467,
+      "comb075_spearman": 0.8533,
+      "comb09_shuf11": 0.9067
+     },
+     "Monodelphis_domestica:Danio_rerio": {
+      "n": 98,
+      "seq_acc": 0.8878,
+      "comb09_spearman": 0.7857,
+      "comb075_spearman": 0.6429,
+      "comb09_shuf11": 0.8061
+     },
+     "Gallus_gallus:Danio_rerio": {
+      "n": 97,
+      "seq_acc": 0.8969,
+      "comb09_spearman": 0.8351,
+      "comb075_spearman": 0.6495,
+      "comb09_shuf11": 0.8557
+     }
+    }
+   }
+  }
+ },
+ "conservation_pooled": {
+  "orthologs": {
+   "n": 2182,
+   "frac_conserved": 0.1595,
+   "frac_break": 0.2617
+  },
+  "paralogs": {
+   "n": 13380,
+   "frac_conserved": 0.0446,
+   "frac_break": 0.4741
+  },
+  "paralogs_within": {
+   "n": 9913,
+   "frac_conserved": 0.0497,
+   "frac_break": 0.4403
+  },
+  "paralogs_deep": {
+   "n": 3467,
+   "frac_conserved": 0.03,
+   "frac_break": 0.5705
+  }
+ },
+ "wall_s": 246.4
+}

@@ -1,0 +1,65 @@
+{
+ "created": "2026-10-26T17:49:28+0100",
+ "git_commit": "not a git repo",
+ "code": {
+  "ancestra/isoforms.py": "520704cec471c79616544232b5acc549",
+  "scripts/S5_pair_benchmark.py": "a858d20413925845804eda8ff9ff5eca",
+  "scripts/S5_refog_labels.py": "2bb0d4fba708ab2a73aeaf3cffc82493",
+  "scripts/S7_S9_manifest.py": "1ee89be6b27d291bd07f47f62e3bfa6c",
+  "scripts/S7_isoform_benchmark.py": "0e8dd0ac665de6502e85b8d9f718b076",
+  "scripts/S7_isoform_prep.py": "aa71aae6186d192fccbb7f6a4a0775b4",
+  "tests/test_expression_isoforms.py": "5ed38db7156371ece0a1f4eea4c77f52"
+ },
+ "inputs": {
+  "data/orthobench/Open_Orthobench/BENCHMARKS/Input/Caenorhabditis_elegans.WBcel235.pep.all.fa": "f91688d5fb34a1dec3d08ff10a3bd278",
+  "data/orthobench/Open_Orthobench/BENCHMARKS/Input/Canis_familiaris.CanFam3.1.pep.all.fa": "686469364d7fc1641e5d854585700080",
+  "data/orthobench/Open_Orthobench/BENCHMARKS/Input/Ciona_intestinalis.KH.pep.all.fa": "32ef93a5c9ff0c1117a54b7d5d8f49d9",
+  "data/orthobench/Open_Orthobench/BENCHMARKS/Input/Danio_rerio.GRCz11.pep.all.fa": "86e7818dc3a221300b2c1a1813b950a2",
+  "data/orthobench/Open_Orthobench/BENCHMARKS/Input/Drosophila_melanogaster.BDGP6.28.pep.all.fa": "c31fbf6de355bd21c5dcade6b249d6a5",
+  "data/orthobench/Open_Orthobench/BENCHMARKS/Input/Gallus_gallus.GRCg6a.pep.all.fa": "a4aa602960b1139601089a4794f1b2ee",
+  "data/orthobench/Open_Orthobench/BENCHMARKS/Input/Homo_sapiens.GRCh38.pep.all.fa": "3ee3d372689d71e0bc4da6c5335da1fd",
+  "data/orthobench/Open_Orthobench/BENCHMARKS/Input/Monodelphis_domestica.ASM229v1.pep.all.fa": "b6319e5e46ccd22dd9cba38123fb1db9",
+  "data/orthobench/Open_Orthobench/BENCHMARKS/Input/Mus_musculus.GRCm38.pep.all.fa": "c7300c6a6cfd774ca56ade51913e0c0e",
+  "data/orthobench/Open_Orthobench/BENCHMARKS/Input/Pan_troglodytes.Pan_tro_3.0.pep.all.fa": "831e923cc233f9d2d029f71c980134d2",
+  "data/orthobench/Open_Orthobench/BENCHMARKS/Input/Rattus_norvegicus.Rnor_6.0.pep.all.fa": "3d2f28c081a9ee6c9cf80e4ba3ae3569",
+  "data/orthobench/Open_Orthobench/BENCHMARKS/Input/Tetraodon_nigroviridis.TETRAODON8.pep.all.fa": "79396144d6e525ec80de6fcba5629c69",
+  "data/orthobench/ensembl_99/pep/Caenorhabditis_elegans.WBcel235.pep.all.fa.gz": "13d57b4756fc6fa97b4e96d23c3129ee",
+  "data/orthobench/ensembl_99/pep/Canis_familiaris.CanFam3.1.pep.all.fa.gz": "0143ddf187a9e3896f5894fb63fe118b",
+  "data/orthobench/ensembl_99/pep/Ciona_intestinalis.KH.pep.all.fa.gz": "6fa46132589a55e08aba1ad673fd393e",
+  "data/orthobench/ensembl_99/pep/Danio_rerio.GRCz11.pep.all.fa.gz": "0549a5adeb23c353df8ec61392cf6653",
+  "data/orthobench/ensembl_99/pep/Drosophila_melanogaster.BDGP6.28.pep.all.fa.gz": "8c2cc94ad3f35a1f2e8dedb79e48bcdb",
+  "data/orthobench/ensembl_99/pep/Gallus_gallus.GRCg6a.pep.all.fa.gz": "63a33edb1d33926d9fc95fd859d4ed2d",
+  "data/orthobench/ensembl_99/pep/Homo_sapiens.GRCh38.pep.all.fa.gz": "ce57a2486f0c112f2a652ab29d9e40bd",
+  "data/orthobench/ensembl_99/pep/Monodelphis_domestica.ASM229v1.pep.all.fa.gz": "84ab6a56c876593ebaca98068a8e05d7",
+  "data/orthobench/ensembl_99/pep/Mus_musculus.GRCm38.pep.all.fa.gz": "b8d7cc82deefd2b2c7d78211a45cc072",
+  "data/orthobench/ensembl_99/pep/Pan_troglodytes.Pan_tro_3.0.pep.all.fa.gz": "e6774545761b910232d4680494ac7abd",
+  "data/orthobench/ensembl_99/pep/Rattus_norvegicus.Rnor_6.0.pep.all.fa.gz": "e601e6252fc03adf0afb87ff068031dc",
+  "data/orthobench/ensembl_99/pep/Tetraodon_nigroviridis.TETRAODON8.pep.all.fa.gz": "e2e4350fa1744c4da902022473ae3e2d",
+  "splits/orthobench_refog_components.tsv": "08c01711646eac3babf133ebf498bd69",
+  "splits/orthobench_split.json": "3b90a7b356668e31913ca0569ad9b6fe",
+  "work/S5/pair_scores_Danio_rerio__Tetraodon_nigroviridis.parquet": "1bf7185e5e91c9ac01bc1bb263a3acb0",
+  "work/S5/pair_scores_Homo_sapiens__Danio_rerio.parquet": "0d9bebd4fbc6fc4a3aaf0d39210edcc8",
+  "work/S5/pair_scores_Homo_sapiens__Drosophila_melanogaster.parquet": "a97eaa06140f1c36e87283a4d442376c",
+  "work/S5/pair_scores_Homo_sapiens__Gallus_gallus.parquet": "e13d8c84f01564afc84524137ec7444d",
+  "work/S5/pair_scores_Homo_sapiens__Mus_musculus.parquet": "e62c9593a43bb03fb0958e248d60bc71",
+  "work/S5/pair_scores_Homo_sapiens__Tetraodon_nigroviridis.parquet": "54502c50c18db7359729a1a978311275",
+  "work/S5/refog_pair_labels.parquet": "d235d9777539643893bac0dff8b5eea6"
+ },
+ "derived": {
+  "work/S7/hits.tsv": "34667b9f67f9c59af2e2e6d0af5c57a9",
+  "work/S7/isoforms.fa": "7febb7962626e1459f8fb083325990d8",
+  "work/S7/isoforms.parquet": "5e724ae0dab991c8975a4006478a0897",
+  "work/S7/pair_scores.parquet": "be6ef81b16eed3a5b6355596647007d2",
+  "work/S7/prep_stats.json": "f2766991587366e0f8b5a880387193c2",
+  "work/S7/query_rows.parquet": "81133eaf116ef5b87afac0e270763d9f"
+ },
+ "outputs": {
+  "results/S7_isoforms/isoform_benchmark.json": "8e4e7a9f515cfef7cec92812d54b4cb8"
+ },
+ "commands": [
+  "python scripts/S7_isoform_prep.py   (DIAMOND 6 threads)",
+  "python scripts/S7_isoform_benchmark.py",
+  "python scripts/S7_S9_manifest.py"
+ ],
+ "diamond": "diamond blastp --sensitive -k 0 --max-hsps 1 -e 1e-3 -p 6, all-vs-all over 1,993 isoforms of 957 DEV-RefOG genes"
+}

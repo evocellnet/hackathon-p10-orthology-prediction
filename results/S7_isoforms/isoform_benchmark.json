@@ -65,6 +65,27 @@
     0.4901,
     0.8116
    ]
+  },
+  "xfam11": {
+   "auc": 0.755,
+   "ci95": [
+    0.5728,
+    0.8491
+   ]
+  },
+  "xfam23": {
+   "auc": 0.7533,
+   "ci95": [
+    0.5705,
+    0.848
+   ]
+  },
+  "xfam47": {
+   "auc": 0.7533,
+   "ci95": [
+    0.5712,
+    0.8474
+   ]
   }
  },
  "auc_pooled_vertebrate_pairs": {
@@ -102,6 +123,27 @@
     0.5623,
     0.8444
    ]
+  },
+  "xfam11": {
+   "auc": 0.8046,
+   "ci95": [
+    0.6553,
+    0.8854
+   ]
+  },
+  "xfam23": {
+   "auc": 0.8029,
+   "ci95": [
+    0.6525,
+    0.8836
+   ]
+  },
+  "xfam47": {
+   "auc": 0.8029,
+   "ci95": [
+    0.655,
+    0.883
+   ]
   }
  },
  "auc_within_query_mean": {
@@ -124,6 +166,18 @@
   "decoy47": [
    0.8034,
    4680
+  ],
+  "xfam11": [
+   0.9187,
+   4680
+  ],
+  "xfam23": [
+   0.919,
+   4680
+  ],
+  "xfam47": [
+   0.9202,
+   4680
   ]
  },
  "queries_all": {
@@ -135,6 +189,9 @@
   "acc_decoy11": 0.6593,
   "acc_decoy23": 0.6541,
   "acc_decoy47": 0.6578,
+  "acc_xfam11": 0.855,
+  "acc_xfam23": 0.8564,
+  "acc_xfam47": 0.8512,
   "best_iso_minus_canonical": {
    "diff": 0.0021,
    "ci95": [
@@ -188,6 +245,52 @@
     ]
    }
   ],
+  "xfam_minus_canonical": [
+   {
+    "diff": -0.0307,
+    "ci95": [
+     -0.0522,
+     -0.0134
+    ]
+   },
+   {
+    "diff": -0.0293,
+    "ci95": [
+     -0.0411,
+     -0.0164
+    ]
+   },
+   {
+    "diff": -0.0345,
+    "ci95": [
+     -0.0542,
+     -0.0161
+    ]
+   }
+  ],
+  "best_iso_minus_xfam": [
+   {
+    "diff": 0.0328,
+    "ci95": [
+     0.0134,
+     0.0557
+    ]
+   },
+   {
+    "diff": 0.0314,
+    "ci95": [
+     0.0175,
+     0.0456
+    ]
+   },
+   {
+    "diff": 0.0366,
+    "ci95": [
+     0.0172,
+     0.0573
+    ]
+   }
+  ],
   "changed_decisions": 42,
   "fixed": 28,
   "broken": 14
@@ -201,6 +304,9 @@
   "acc_decoy11": 0.3608,
   "acc_decoy23": 0.3608,
   "acc_decoy47": 0.3687,
+  "acc_xfam11": 0.4549,
+  "acc_xfam23": 0.449,
+  "acc_xfam47": 0.4544,
   "best_iso_minus_canonical": {
    "diff": 0.0129,
    "ci95": [
@@ -254,6 +360,52 @@
     ]
    }
   ],
+  "xfam_minus_canonical": [
+   {
+    "diff": -0.0149,
+    "ci95": [
+     -0.0253,
+     -0.0066
+    ]
+   },
+   {
+    "diff": -0.0208,
+    "ci95": [
+     -0.0341,
+     -0.0064
+    ]
+   },
+   {
+    "diff": -0.0154,
+    "ci95": [
+     -0.0317,
+     0.0
+    ]
+   }
+  ],
+  "best_iso_minus_xfam": [
+   {
+    "diff": 0.0278,
+    "ci95": [
+     -0.0033,
+     0.0566
+    ]
+   },
+   {
+    "diff": 0.0337,
+    "ci95": [
+     0.0022,
+     0.0562
+    ]
+   },
+   {
+    "diff": 0.0282,
+    "ci95": [
+     -0.004,
+     0.0523
+    ]
+   }
+  ],
   "changed_decisions": 39,
   "fixed": 28,
   "broken": 11
@@ -267,6 +419,9 @@
   "acc_decoy11": 0.3594,
   "acc_decoy23": 0.3571,
   "acc_decoy47": 0.3693,
+  "acc_xfam11": 0.4657,
+  "acc_xfam23": 0.459,
+  "acc_xfam47": 0.4651,
   "best_iso_minus_canonical": {
    "diff": 0.0188,
    "ci95": [
@@ -320,6 +475,52 @@
     ]
    }
   ],
+  "xfam_minus_canonical": [
+   {
+    "diff": -0.0166,
+    "ci95": [
+     -0.0272,
+     -0.0076
+    ]
+   },
+   {
+    "diff": -0.0233,
+    "ci95": [
+     -0.0369,
+     -0.007
+    ]
+   },
+   {
+    "diff": -0.0172,
+    "ci95": [
+     -0.0348,
+     0.0
+    ]
+   }
+  ],
+  "best_iso_minus_xfam": [
+   {
+    "diff": 0.0354,
+    "ci95": [
+     0.0065,
+     0.0685
+    ]
+   },
+   {
+    "diff": 0.0421,
+    "ci95": [
+     0.013,
+     0.0664
+    ]
+   },
+   {
+    "diff": 0.036,
+    "ci95": [
+     0.0059,
+     0.0624
+    ]
+   }
+  ],
   "changed_decisions": 35,
   "fixed": 28,
   "broken": 7
@@ -333,6 +534,9 @@
   "acc_decoy11": 0.328,
   "acc_decoy23": 0.3121,
   "acc_decoy47": 0.3631,
+  "acc_xfam11": 0.4522,
+  "acc_xfam23": 0.4682,
+  "acc_xfam47": 0.4682,
   "best_iso_minus_canonical": {
    "diff": 0.0223,
    "ci95": [
@@ -386,6 +590,52 @@
     ]
    }
   ],
+  "xfam_minus_canonical": [
+   {
+    "diff": -0.035,
+    "ci95": [
+     -0.067,
+     -0.0077
+    ]
+   },
+   {
+    "diff": -0.0191,
+    "ci95": [
+     -0.0385,
+     0.0
+    ]
+   },
+   {
+    "diff": -0.0191,
+    "ci95": [
+     -0.0598,
+     0.0138
+    ]
+   }
+  ],
+  "best_iso_minus_xfam": [
+   {
+    "diff": 0.0573,
+    "ci95": [
+     0.0077,
+     0.1212
+    ]
+   },
+   {
+    "diff": 0.0414,
+    "ci95": [
+     0.0072,
+     0.0848
+    ]
+   },
+   {
+    "diff": 0.0414,
+    "ci95": [
+     0.0,
+     0.0857
+    ]
+   }
+  ],
   "changed_decisions": 4,
   "fixed": 4,
   "broken": 0,
@@ -396,278 +646,324 @@
    "n": 7,
    "canonical": 0.1429,
    "best_iso": 0.1429,
-   "decoy11": 0.2143
+   "decoy11": 0.2143,
+   "xfam11": 0.1429
   },
   "Caenorhabditis_elegans:Drosophila_melanogaster": {
    "n": 5,
    "canonical": 0.5,
    "best_iso": 0.5,
-   "decoy11": 0.5
+   "decoy11": 0.5,
+   "xfam11": 0.5
   },
   "Caenorhabditis_elegans:Tetraodon_nigroviridis": {
    "n": 8,
    "canonical": 0.125,
    "best_iso": 0.125,
-   "decoy11": 0.1875
+   "decoy11": 0.1875,
+   "xfam11": 0.125
   },
   "Canis_familiaris:Ciona_intestinalis": {
    "n": 5,
    "canonical": 0.4,
    "best_iso": 0.4,
-   "decoy11": 0.4
+   "decoy11": 0.4,
+   "xfam11": 0.4
   },
   "Canis_familiaris:Danio_rerio": {
    "n": 48,
    "canonical": 0.5833,
    "best_iso": 0.5833,
-   "decoy11": 0.3333
+   "decoy11": 0.3333,
+   "xfam11": 0.5
   },
   "Canis_familiaris:Gallus_gallus": {
    "n": 13,
    "canonical": 0.3077,
    "best_iso": 0.4615,
-   "decoy11": 0.2692
+   "decoy11": 0.2692,
+   "xfam11": 0.3077
   },
   "Canis_familiaris:Homo_sapiens": {
    "n": 6,
    "canonical": 0.5833,
    "best_iso": 0.75,
-   "decoy11": 0.4167
+   "decoy11": 0.4167,
+   "xfam11": 0.5833
   },
   "Canis_familiaris:Monodelphis_domestica": {
    "n": 22,
    "canonical": 0.4773,
    "best_iso": 0.5682,
-   "decoy11": 0.3864
+   "decoy11": 0.3864,
+   "xfam11": 0.4773
   },
   "Canis_familiaris:Mus_musculus": {
    "n": 7,
    "canonical": 0.7143,
    "best_iso": 0.8571,
-   "decoy11": 0.7143
+   "decoy11": 0.7143,
+   "xfam11": 0.7143
   },
   "Canis_familiaris:Pan_troglodytes": {
    "n": 15,
    "canonical": 0.4,
    "best_iso": 0.4,
-   "decoy11": 0.3333
+   "decoy11": 0.3333,
+   "xfam11": 0.4
   },
   "Canis_familiaris:Rattus_norvegicus": {
    "n": 21,
    "canonical": 0.381,
    "best_iso": 0.4286,
-   "decoy11": 0.3333
+   "decoy11": 0.3333,
+   "xfam11": 0.381
   },
   "Canis_familiaris:Tetraodon_nigroviridis": {
    "n": 44,
    "canonical": 0.3295,
    "best_iso": 0.3636,
-   "decoy11": 0.2273
+   "decoy11": 0.2273,
+   "xfam11": 0.3295
   },
   "Ciona_intestinalis:Danio_rerio": {
    "n": 9,
    "canonical": 0.5,
    "best_iso": 0.5,
-   "decoy11": 0.5
+   "decoy11": 0.5,
+   "xfam11": 0.5
   },
   "Ciona_intestinalis:Homo_sapiens": {
    "n": 5,
    "canonical": 0.8,
    "best_iso": 0.4,
-   "decoy11": 0.8
+   "decoy11": 0.8,
+   "xfam11": 0.8
   },
   "Ciona_intestinalis:Monodelphis_domestica": {
    "n": 5,
    "canonical": 0.2,
    "best_iso": 0.2,
-   "decoy11": 0.4
+   "decoy11": 0.4,
+   "xfam11": 0.2
   },
   "Ciona_intestinalis:Mus_musculus": {
    "n": 6,
    "canonical": 0.3333,
    "best_iso": 0.3333,
-   "decoy11": 0.3333
+   "decoy11": 0.3333,
+   "xfam11": 0.3333
   },
   "Ciona_intestinalis:Pan_troglodytes": {
    "n": 5,
    "canonical": 0.8,
    "best_iso": 0.4,
-   "decoy11": 0.8
+   "decoy11": 0.8,
+   "xfam11": 0.8
   },
   "Ciona_intestinalis:Rattus_norvegicus": {
    "n": 5,
    "canonical": 0.4,
    "best_iso": 0.4,
-   "decoy11": 0.4
+   "decoy11": 0.4,
+   "xfam11": 0.4
   },
   "Ciona_intestinalis:Tetraodon_nigroviridis": {
    "n": 5,
    "canonical": 0.4,
    "best_iso": 0.4,
-   "decoy11": 0.2
+   "decoy11": 0.2,
+   "xfam11": 0.4
   },
   "Danio_rerio:Gallus_gallus": {
    "n": 43,
    "canonical": 0.7093,
    "best_iso": 0.7093,
-   "decoy11": 0.5465
+   "decoy11": 0.5465,
+   "xfam11": 0.686
   },
   "Danio_rerio:Homo_sapiens": {
    "n": 45,
    "canonical": 0.5667,
    "best_iso": 0.5889,
-   "decoy11": 0.2778
+   "decoy11": 0.2778,
+   "xfam11": 0.5
   },
   "Danio_rerio:Monodelphis_domestica": {
    "n": 34,
    "canonical": 0.6765,
    "best_iso": 0.6176,
-   "decoy11": 0.5
+   "decoy11": 0.5,
+   "xfam11": 0.5588
   },
   "Danio_rerio:Mus_musculus": {
    "n": 42,
    "canonical": 0.369,
    "best_iso": 0.3929,
-   "decoy11": 0.2619
+   "decoy11": 0.2619,
+   "xfam11": 0.369
   },
   "Danio_rerio:Pan_troglodytes": {
    "n": 51,
    "canonical": 0.451,
    "best_iso": 0.451,
-   "decoy11": 0.2843
+   "decoy11": 0.2843,
+   "xfam11": 0.451
   },
   "Danio_rerio:Rattus_norvegicus": {
    "n": 42,
    "canonical": 0.4643,
    "best_iso": 0.4643,
-   "decoy11": 0.2976
+   "decoy11": 0.2976,
+   "xfam11": 0.4643
   },
   "Danio_rerio:Tetraodon_nigroviridis": {
    "n": 48,
    "canonical": 0.5521,
    "best_iso": 0.5521,
-   "decoy11": 0.4479
+   "decoy11": 0.4479,
+   "xfam11": 0.5312
   },
   "Gallus_gallus:Homo_sapiens": {
    "n": 12,
    "canonical": 0.4167,
    "best_iso": 0.5,
-   "decoy11": 0.375
+   "decoy11": 0.375,
+   "xfam11": 0.4167
   },
   "Gallus_gallus:Monodelphis_domestica": {
    "n": 11,
    "canonical": 0.7273,
    "best_iso": 0.7273,
-   "decoy11": 0.6818
+   "decoy11": 0.6818,
+   "xfam11": 0.7273
   },
   "Gallus_gallus:Mus_musculus": {
    "n": 13,
    "canonical": 0.5,
    "best_iso": 0.5769,
-   "decoy11": 0.4231
+   "decoy11": 0.4231,
+   "xfam11": 0.5
   },
   "Gallus_gallus:Pan_troglodytes": {
    "n": 12,
    "canonical": 0.4583,
    "best_iso": 0.4583,
-   "decoy11": 0.4167
+   "decoy11": 0.4167,
+   "xfam11": 0.4583
   },
   "Gallus_gallus:Rattus_norvegicus": {
    "n": 11,
    "canonical": 0.5455,
    "best_iso": 0.5455,
-   "decoy11": 0.5455
+   "decoy11": 0.5455,
+   "xfam11": 0.5455
   },
   "Gallus_gallus:Tetraodon_nigroviridis": {
    "n": 37,
    "canonical": 0.4324,
    "best_iso": 0.4324,
-   "decoy11": 0.3108
+   "decoy11": 0.3108,
+   "xfam11": 0.4324
   },
   "Homo_sapiens:Monodelphis_domestica": {
    "n": 6,
    "canonical": 0.75,
    "best_iso": 0.8333,
-   "decoy11": 0.75
+   "decoy11": 0.75,
+   "xfam11": 0.75
   },
   "Homo_sapiens:Mus_musculus": {
    "n": 5,
    "canonical": 0.5,
    "best_iso": 0.7,
-   "decoy11": 0.3
+   "decoy11": 0.3,
+   "xfam11": 0.2
   },
   "Homo_sapiens:Rattus_norvegicus": {
    "n": 6,
    "canonical": 0.6667,
    "best_iso": 0.6667,
-   "decoy11": 0.6667
+   "decoy11": 0.6667,
+   "xfam11": 0.6667
   },
   "Homo_sapiens:Tetraodon_nigroviridis": {
    "n": 46,
    "canonical": 0.3478,
    "best_iso": 0.3587,
-   "decoy11": 0.2283
+   "decoy11": 0.2283,
+   "xfam11": 0.3478
   },
   "Monodelphis_domestica:Mus_musculus": {
    "n": 12,
    "canonical": 0.6667,
    "best_iso": 0.75,
-   "decoy11": 0.5
+   "decoy11": 0.5,
+   "xfam11": 0.6667
   },
   "Monodelphis_domestica:Pan_troglodytes": {
    "n": 17,
    "canonical": 0.6765,
    "best_iso": 0.6765,
-   "decoy11": 0.7059
+   "decoy11": 0.7059,
+   "xfam11": 0.6765
   },
   "Monodelphis_domestica:Rattus_norvegicus": {
    "n": 20,
    "canonical": 0.65,
    "best_iso": 0.65,
-   "decoy11": 0.625
+   "decoy11": 0.625,
+   "xfam11": 0.65
   },
   "Monodelphis_domestica:Tetraodon_nigroviridis": {
    "n": 36,
    "canonical": 0.5139,
    "best_iso": 0.5,
-   "decoy11": 0.3611
+   "decoy11": 0.3611,
+   "xfam11": 0.4861
   },
   "Mus_musculus:Pan_troglodytes": {
    "n": 10,
    "canonical": 0.35,
    "best_iso": 0.5,
-   "decoy11": 0.2
+   "decoy11": 0.2,
+   "xfam11": 0.45
   },
   "Mus_musculus:Rattus_norvegicus": {
    "n": 9,
    "canonical": 0.7222,
    "best_iso": 0.8333,
-   "decoy11": 0.6111
+   "decoy11": 0.6111,
+   "xfam11": 0.7222
   },
   "Mus_musculus:Tetraodon_nigroviridis": {
    "n": 50,
    "canonical": 0.38,
    "best_iso": 0.39,
-   "decoy11": 0.28
+   "decoy11": 0.28,
+   "xfam11": 0.38
   },
   "Pan_troglodytes:Rattus_norvegicus": {
    "n": 17,
    "canonical": 0.2059,
    "best_iso": 0.2059,
-   "decoy11": 0.2059
+   "decoy11": 0.2059,
+   "xfam11": 0.2059
   },
   "Pan_troglodytes:Tetraodon_nigroviridis": {
    "n": 44,
    "canonical": 0.2955,
    "best_iso": 0.2955,
-   "decoy11": 0.1705
+   "decoy11": 0.1705,
+   "xfam11": 0.2955
   },
   "Rattus_norvegicus:Tetraodon_nigroviridis": {
    "n": 44,
    "canonical": 0.4318,
    "best_iso": 0.4545,
-   "decoy11": 0.3409
+   "decoy11": 0.3409,
+   "xfam11": 0.4318
   }
  },
- "wall_s": 126.2
+ "wall_s": 205.3
 }

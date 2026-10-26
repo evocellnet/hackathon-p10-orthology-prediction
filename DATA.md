@@ -119,3 +119,14 @@ checksum manifests are kept next to the data (paths given); key checksums are li
   2026-10-26T16:33:54+01:00 (`data/taxonomy/download_date.txt`); md5 `1c0b66d2a42fe185ddeba0fbd1584c53` (matches
   NCBI's `.md5`). Public domain (NCBI). Local: `data/taxonomy/` (nodes.dmp, names.dmp, merged.dmp extracted).
 - Used by `ancestra/speciestree.py` (NCBI arm and internal-node names of all S1 trees). See `docs/S1_speciestree.md`.
+
+## 12. Ensembl 99 peptide files (all isoforms) for the 12 OrthoBench species (S7 isoform layer)
+- **Source:** https://ftp.ensembl.org/pub/release-99/fasta/<species>/pep/<Species>.<assembly>.pep.all.fa.gz (same file
+  names as the OrthoBench inputs); retrieved 2026-10-26T17:32 CET (`download_date.txt`). Ensembl data, no restrictions.
+- **Local path:** `data/orthobench/ensembl_99/pep/` (12 files, 112 MB); `md5sums.txt` there, plus Ensembl's own `sum`
+  checksums (`CHECKSUMS_ensembl.txt`, all 12 match). e.g. `ce57a2486f0c112f2a652ab29d9e40bd Homo_sapiens.GRCh38.pep.all.fa.gz`,
+  `b8d7cc82deefd2b2c7d78211a45cc072 Mus_musculus.GRCm38.pep.all.fa.gz`, `0549a5adeb23c353df8ec61392cf6653 Danio_rerio.GRCz11.pep.all.fa.gz`.
+- **Relation to OrthoBench inputs:** every OrthoBench protein maps to its Ensembl 99 gene and its sequence equals one
+  isoform of that gene; it is the *longest* isoform in 100% of genes in all 12 species (C. elegans inputs are WBGene IDs
+  + `.1`, matched by gene). Genes with >1 distinct isoform: human 16,806/23,485, mouse 13,481/22,866, zebrafish
+  10,878/30,313, Ciona 558/16,671 (`work/S7/prep_stats.json`). See `docs/S7_isoforms.md`.
