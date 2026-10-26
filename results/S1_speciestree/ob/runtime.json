@@ -4,5 +4,16 @@
   "cpu_self_s": 6.22,
   "cpu_children_s": 0.0,
   "loadavg_start": 21.30224609375
+ },
+ "search": {
+  "wall_s": 33.26,
+  "cpu_self_s": 1.34,
+  "cpu_children_s": 278.28,
+  "loadavg_start": 22.5654296875,
+  "search": {
+   "wall_s": 29.661280632019043,
+   "cpu_children_s": 270.32,
+   "cmd_template": "diamond blastp --mid-sensitive -k 5 --max-hsps 1 -e 1e-05 -p 12"
+  }
  }
 }
