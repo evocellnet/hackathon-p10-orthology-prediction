@@ -1,0 +1,3 @@
+[  299.5s] def32_s47 s0: 10 records; best max+repair/quartet F1=0.9387
+[  311.8s] def32_s11 s0: 10 records; best avg+repair/bits F1=0.9506
+[  314.5s] def32_s23 s0: 10 records; best avg+repair/bits F1=0.9413

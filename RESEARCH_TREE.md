@@ -27,6 +27,7 @@ Decision note M0: benchmark lives in its own repo (bench_repo/) as the prompt re
   - [-] 2.0 v0 'pure progressive pan-proteome merging' — rejected: ~2.5x saving only vs all-vs-all (r1_algorithms_compute)
   - [x] 2.3 v1/v2 family-partition + level-synchronous merge; split by homology component (random split leaked: 5 paralogous RefOG groups)
   - [x] 2.1 Structure feasibility (docs/structure_feasibility.md): ProstT5 CPU 125–250 res/s → 140–980 h for full sets (infeasible). AFDB covers 90% of QfO accessions; the 1.8 GB Foldseek AFDB/Proteome DB already gives 3Di for 263k QfO / 98k OrthoBench proteins. Decision: S6 uses AFDB 3Di for deep/ambiguous representatives only; decide on streaming the 491 GB AFDB/UniProt DB when S6 starts
+  - [~] 2.1b User suggestion (T+1h20): Foldcomp prebuilt AFDB databases → foldseek createdb for true 3Di of matched sequences (agent evaluating coverage/download)
   - [x] 2.2 Toy simulator + OrthoXML utils — flattening identical to QfO map_relations.py; RefOGs→F=100 in official benchmark.py
 - [~] 3. S0 family partition (two-level DeepClust → rep all-vs-all → components) — own benchmark (agent)
 - [~] 3b. Core engine v0 (S2 scoring + S3 merge, sequence-only) on toy sim (agent)
