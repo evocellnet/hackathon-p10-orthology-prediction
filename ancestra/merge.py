@@ -90,6 +90,9 @@ class MergeConfig:
     rd_inpar: bool = False       # R2: absorb u if r(u, w) <= rd_inpar_factor * median seed r
     rd_inpar_factor: float = 1.0
     engine: str = "numba"        # numba | python (reference implementation)
+    ctx_mode: str = "r1"         # context evidence used only for R1 partner choice | "all" (additive)
+    ctx_window: float = 0.75     # R1-only: bonus only for candidates >= window x best raw score
+    orphan_min: float = 0.0      # R4: minimum (normalised, linked) score of an orphan-merge edge
     orphan_merge: str = "off"    # R4: off | root | all -- merge partner-less same-child units
                                  # (no cross-child homolog at the node) connected by same-child
                                  # edges into one paralogGroup (parsimony: 1 dup vs dup + losses)
@@ -235,10 +238,13 @@ def decide_node(n: int, child: np.ndarray, lu: np.ndarray, lv: np.ndarray, score
     dkey = np.concatenate([ca.astype(np.int64) * k + child[cb], cb.astype(np.int64) * k + child[ca]])
     uniq, inv = np.unique(dkey, return_inverse=True)
 
-    def mutual_best(sc, tol):
+    def best_ab(sc):
         best = np.full(len(uniq), -np.inf)
         np.maximum.at(best, inv, np.concatenate([sc, sc]))
-        best_a, best_b = best[inv[:E]], best[inv[E:]]
+        return best[inv[:E]], best[inv[E:]]
+
+    def mutual_best(sc, tol):
+        best_a, best_b = best_ab(sc)
         if tol >= 1.0:
             m = (sc >= best_a) & (sc >= best_b)
         else:
@@ -257,16 +263,28 @@ def decide_node(n: int, child: np.ndarray, lu: np.ndarray, lv: np.ndarray, score
                           cand_b=cb, cand_score=cs.copy(), anchors=anchors,
                           adjacency=(node_info or {}).get("adjacency"),
                           members=(node_info or {}).get("members"))
-        bonus = np.asarray(context(ctx), dtype=np.float64)
+        bonus = np.nan_to_num(np.asarray(context(ctx), dtype=np.float64))
         if bonus.shape != cs.shape:
             raise ValueError("context function must return one value per candidate edge")
-        cs = cs + np.nan_to_num(bonus)
         stats["n_anchors"] = int(anchors.sum())
-    mb = mutual_best(cs, cfg.tol)
+        if cfg.ctx_mode == "all":
+            cs = cs + bonus
+            cs_sel = cs
+        else:
+            # R1-only: context may change the *partner choice* among candidates whose raw
+            # sequence score is within ctx_window of the best for both endpoints; R1's
+            # in-paralog constraint, R2, R3 and the RD tests keep the raw sequence scores.
+            ba, bb = best_ab(cs)
+            elig = (cs >= cfg.ctx_window * ba) & (cs >= cfg.ctx_window * bb)
+            cs_sel = cs + np.where(elig, bonus, 0.0)
+            stats["n_ctx_bonus"] = int(((bonus != 0) & elig).sum())
+    else:
+        cs_sel = cs
+    mb = mutual_best(cs_sel, cfg.tol)
     stats["n_mb"] = int(mb.sum())
     if cfg.engine == "numba":
         return _decide_numba(n, k, child, ca, cb, cs, sa, sb, ss, mb, cfg, out_edges, stats,
-                             resolver, node_name, lu, lv, score)
+                             resolver, node_name, lu, lv, score, cs_sel)
     # best cross score per unit (any child) and cross adjacency
     best_any = np.full(n, -np.inf)
     np.maximum.at(best_any, ca, cs)
@@ -301,7 +319,7 @@ def decide_node(n: int, child: np.ndarray, lu: np.ndarray, lv: np.ndarray, score
         return _d(s_ab) / den if den > 0 else None
 
     idx = np.flatnonzero(mb)
-    idx = idx[np.argsort(-cs[idx], kind="stable")]
+    idx = idx[np.argsort(-cs_sel[idx], kind="stable")]
     med_r = None
     veto = set()
     if (cfg.rd_hidden or cfg.rd_inpar) and out_adj:
@@ -462,32 +480,52 @@ def decide_node(n: int, child: np.ndarray, lu: np.ndarray, lv: np.ndarray, score
     return labels, stats
 
 
-def _orphan_merge(n, child, lu, lv, labels, stats):
-    """R4: units that are still alone and have no cross-child edge at this node are merged
-    with other such units of the same child they share an edge with (connected components)."""
-    from scipy.sparse import coo_matrix
-    from scipy.sparse.csgraph import connected_components
+def _orphan_merge(n, child, lu, lv, labels, stats, score=None, min_score=0.0):
+    """R4: units that are still alone and have no cross-child edge at this node are
+    agglomerated with other such units of the same child by iterated *mutual best*
+    (component similarity = best member edge), only through edges with score >=
+    ``min_score``. Parsimony: one duplication inside the child instead of a duplication
+    before X plus losses in every other child. Adds paralogGroups only (no ortholog pairs)."""
     cross = child[lu] != child[lv]
     has_cross = np.zeros(n, bool)
     has_cross[lu[cross]] = True
     has_cross[lv[cross]] = True
     alone = np.bincount(labels, minlength=n)[labels] == 1
     cand = alone & ~has_cross
-    m = ~cross & cand[lu] & cand[lv]
+    sc = np.ones(len(lu)) if score is None else score
+    m = ~cross & cand[lu] & cand[lv] & (sc >= min_score)
     stats["r4_orphan_merged"] = 0
     if not m.any():
         return labels
-    g = coo_matrix((np.ones(int(m.sum())), (lu[m], lv[m])), shape=(n, n))
-    nc, comp = connected_components(g, directed=False)
-    sizes = np.bincount(comp)
+    a, b, w = lu[m], lv[m], sc[m]
+    comp = np.arange(n)
+    merged = 0
+    for _ in range(50):
+        ca, cb = comp[a], comp[b]
+        k = ca != cb
+        if not k.any():
+            break
+        x, y, ww = ca[k], cb[k], w[k]
+        best = np.full(n, -np.inf)
+        np.maximum.at(best, x, ww)
+        np.maximum.at(best, y, ww)
+        # partner = component achieving the best score (ties: smallest id)
+        part = np.full(n, n, dtype=np.int64)
+        hx = ww >= best[x]
+        np.minimum.at(part, x[hx], y[hx])
+        hy = ww >= best[y]
+        np.minimum.at(part, y[hy], x[hy])
+        mutual = [(i, int(part[i])) for i in np.unique(np.r_[x, y])
+                  if part[i] < n and part[part[i]] == i and i < part[i]]
+        if not mutual:
+            break
+        for i, j in mutual:
+            comp[comp == j] = i
+            merged += 1
+    stats["r4_orphan_merged"] = merged
     new = labels.copy()
-    sel = cand & (sizes[comp] > 1)
-    rep = np.full(nc, -1, dtype=np.int64)
-    for i in np.flatnonzero(sel):
-        if rep[comp[i]] < 0:
-            rep[comp[i]] = labels[i]
-        new[i] = rep[comp[i]]
-    stats["r4_orphan_merged"] = int(sel.sum() - (rep >= 0).sum())
+    sel = cand & (np.bincount(comp, minlength=n)[comp] > 1)
+    new[sel] = labels[comp[sel]]
     return new
 
 
@@ -495,7 +533,7 @@ _RULE_CODE = {"ortholog": 0, "self": 1, "either": 2, "quartet": 3}
 
 
 def _decide_numba(n, k, child, ca, cb, cs, sa, sb, ss, mb, cfg, out_edges, stats,
-                  resolver, node_name, lu, lv, score):
+                  resolver, node_name, lu, lv, score, cs_sel=None):
     from . import merge_numba as mn
     child = np.ascontiguousarray(child, dtype=np.int64)
     ca = np.ascontiguousarray(ca, dtype=np.int64)
@@ -505,7 +543,8 @@ def _decide_numba(n, k, child, ca, cb, cs, sa, sb, ss, mb, cfg, out_edges, stats
     sb = np.ascontiguousarray(sb, dtype=np.int64)
     ss = np.ascontiguousarray(ss, dtype=np.float64)
     idx = np.flatnonzero(mb)
-    idx = idx[np.argsort(-cs[idx], kind="stable")].astype(np.int64)
+    order_sc = cs if cs_sel is None else cs_sel
+    idx = idx[np.argsort(-order_sc[idx], kind="stable")].astype(np.int64)
     has_out = out_edges is not None and len(out_edges[0]) > 0
     if has_out:
         optr, onbr, osc = mn.csr_directed_sorted(n, out_edges[0].astype(np.int64),
@@ -725,7 +764,7 @@ def run_merge(gt: GeneTable, tree: Node, st: ScoreTable, cfg: MergeConfig,
         labels, stt = decide_node(n, child, lu, lv, score, cfg, context, resolver, nd.name,
                                   out_edges, node_info)
         if cfg.orphan_merge == "all" or (cfg.orphan_merge == "root" and nd.parent is None):
-            labels = _orphan_merge(n, child, lu, lv, labels, stt)
+            labels = _orphan_merge(n, child, lu, lv, labels, stt, score, cfg.orphan_min)
         pos[units] = -1
         # build ancestral genes
         newid = {}

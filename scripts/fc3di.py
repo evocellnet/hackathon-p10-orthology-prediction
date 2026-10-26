@@ -353,23 +353,34 @@ def cmd_fsexact(a):
     if not os.path.exists(hits_tsv):
         ns = argparse.Namespace(db=a.db, out=hits_tsv, fasta=qfo_files + ob_files, procs=a.procs, chunks=a.chunks)
         cmd_seqscan(ns)
-    keys = {}
-    for l in open(hits_tsv):
-        k, s = l.rstrip('\n').split('\t'); keys[k] = s
-    names = {}
-    with open(a.db + '.lookup') as f:
-        for l in f:
-            t = l.split('\t', 2)
-            if t[0] in keys:
-                names[t[0]] = t[1]
-    ss = read_by_keys(a.db + '_ss', keys)
-    byseq = {}
-    for k, s in keys.items():
-        m = re.match(r'AF-(.+)-F(\d+)-model', names[k])
-        if m:
-            byseq.setdefault(s, []).append((int(m.group(2)), m.group(1), ss[k]))
-    for s in byseq:
-        byseq[s].sort()
+    import pickle
+    pk = a.out_prefix + '.byseq.pkl'
+    if os.path.exists(pk):
+        byseq = pickle.load(open(pk, 'rb'))
+    else:
+        keys = {}
+        for l in open(hits_tsv):
+            k, s = l.rstrip('\n').split('\t'); keys[k] = s
+        names = {}
+        with open(a.db + '.lookup') as f:
+            for l in f:
+                t = l.split('\t', 2)
+                if t[0] in keys:
+                    names[t[0]] = t[1]
+        ss = read_by_keys(a.db + '_ss', keys)
+        byseq = {}
+        for k, s in keys.items():
+            m = re.match(r'AF-(.+)-F(\d+)-model', names[k])
+            if m:
+                byseq.setdefault(s, []).append((int(m.group(2)), m.group(1), ss[k]))
+        for s in byseq:
+            byseq[s].sort()
+        pickle.dump(byseq, open(pk, 'wb'))
+    obcand = {}
+    if a.ob_cand:
+        for l in open(a.ob_cand):
+            sp, n, c = l.rstrip('\n').split('\t')
+            obcand[n] = set(x for x in c.split(',') if x)
     stat_q, stat_o = {}, {}
     with open(a.out_prefix + '.qfo.fa', 'w') as o, open(a.out_prefix + '.qfo.src.tsv', 'w') as so:
         for f in qfo_files:
@@ -395,10 +406,11 @@ def cmd_fsexact(a):
                 h = byseq.get(seq_norm(seq))
                 if not h:
                     continue
-                fr, hacc, d = h[0]
+                pref = [x for x in h if x[1] in obcand.get(n, ())]
+                fr, hacc, d = (pref or h)[0]
                 st[1] += 1
                 o.write(f'>{n}|{hacc}\n{d}\n')
-                so.write(f'{n}|{hacc}\t{hacc}\tseq\n')
+                so.write(f'{n}|{hacc}\t{hacc}\t{"uniprot_candidate" if pref else "seq_other_acc"}\n')
     with open(a.out_prefix + '.qfo.stats.tsv', 'w') as o:
         o.write('proteome\tn_proteins\tn_exact_own_acc\tn_exact_other_acc\n')
         for k, v in sorted(stat_q.items()):

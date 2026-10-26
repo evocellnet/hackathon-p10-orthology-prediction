@@ -44,18 +44,36 @@ def main():
     ap.add_argument("--label")
     ap.add_argument("--out")
     ap.add_argument("--scores", default="scores.npz", help="file in RUN/stages/scores/ (e.g. scores_pass1.npz)")
+    ap.add_argument("--synteny", default="off", choices=["off", "real", "shuffled"])
+    ap.add_argument("--syn", nargs="*", default=[], help="SyntenyContext kwargs k=v (JSON values)")
     a = ap.parse_args()
     cfg = ARMS[a.arm]
     over = dict(kv.split("=", 1) for kv in a.set)
     cfg = replace(cfg, **{k: parse_val(v) for k, v in over.items()})
-    ch = hashlib.sha256((json.dumps(asdict(cfg), sort_keys=True) + a.scores).encode()).hexdigest()[:10]
+    ch = hashlib.sha256((json.dumps(asdict(cfg), sort_keys=True) + a.scores + a.synteny
+                         + " ".join(a.syn)).encode()).hexdigest()[:10]
     out = a.out or os.path.join(a.run, "iter", ch)
     os.makedirs(out, exist_ok=True)
     gt = read_gene_table(os.path.join(a.run, "stages/input/genes.tsv"))
     tree = load_guide_tree(os.path.join(a.run, "stages/input/guide_tree.nwk"), gt.species)
     st = ScoreTable.load(os.path.join(a.run, "stages/scores", a.scores))
+    context = None
+    syn_kw = {}
+    if a.synteny != "off":
+        import numpy as np
+        from ancestra.synteny import SyntenyContext, gene_positions
+        stems = [sp.split(".")[0] for sp in gt.species]
+        cc, oo, cov = gene_positions(gt.names, gt.species_of, stems,
+                                     os.path.join(ROOT, "data/genomes/orthobench"))
+        famf = os.path.join(a.run, "stages/scores/families_final.npy")
+        fam = np.load(famf if os.path.exists(famf) else os.path.join(a.run, "stages/families/families.npy"))
+        syn_kw = dict(mode="multiplicative", lam=0.1, anchor="amb", w=5)
+        syn_kw.update({k: parse_val(v) for k, v in (kv.split("=", 1) for kv in a.syn)})
+        if a.synteny == "shuffled":
+            syn_kw["shuffle_seed"] = 11
+        context = SyntenyContext(cc, oo, family=fam, **syn_kw)
     t0 = time.time()
-    res = run_merge(gt, tree, st, cfg)
+    res = run_merge(gt, tree, st, cfg, context=context)
     ms = time.time() - t0
     ox = to_orthoxml(res, gt, tree)
     ogs = os.path.join(out, "orthobench_ogs.txt")
@@ -67,7 +85,8 @@ def main():
                config_hash=ch, F=round(ev["F"], 2), precision=round(ev["precision"], 2),
                recall=round(ev["recall"], 2), exact=ev["exact"], n_refogs_split=ev["n_refogs_split"],
                n_refogs_with_fp=ev["n_refogs_with_fp"], n_pred_groups=ev["n_pred_groups"],
-               merge_s=round(ms, 1), config=json.dumps(dict(asdict(cfg), scores=a.scores), sort_keys=True))
+               merge_s=round(ms, 1), config=json.dumps(dict(asdict(cfg), scores=a.scores, synteny=a.synteny,
+                                                   synteny_kw=syn_kw), sort_keys=True))
     new = not os.path.exists(LOG)
     os.makedirs(os.path.dirname(LOG), exist_ok=True)
     with open(LOG, "a") as fh:

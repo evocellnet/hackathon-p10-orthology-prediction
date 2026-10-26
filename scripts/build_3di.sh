@@ -70,7 +70,7 @@ $PY ob "$W/sub_fs" "$OB_IN" "$W/ob_candidates.tsv" "$W/orthobench_3di_foldcomp.f
 FSDB=$S/afdb_uniprot_fs/ex/afdb; FSLAB=fsuniprot
 if [ ! -f "$S/afdb_uniprot_fs/ex/.extracted" ]; then FSDB=$S/afdb_proteome_db/afdbp; FSLAB=fsproteome; fi
 log "exact-sequence route on $FSDB"
-$PY fsexact "$FSDB" "$S/qfo_fasta" "$OB_IN" "$W/$FSLAB" --procs "$THREADS"
+$PY fsexact "$FSDB" "$S/qfo_fasta" "$OB_IN" "$W/$FSLAB" --procs "$THREADS" --ob-cand "$W/ob_candidates.tsv"
 
 # 7. merge (priority: exact Foldseek 3Di > Foldcomp 3Di)
 $PY merge qfo "$S/qfo_fasta" "$S/qfo_3di_best" "$FSLAB=$W/$FSLAB.qfo.fa" "foldcomp=$W/qfo_3di_foldcomp.fa"

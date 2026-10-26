@@ -39,12 +39,14 @@ Decision note M0: benchmark lives in its own repo (bench_repo/) as the prompt re
   - [x] 3c. v0 on OrthoBench dev: **F=68.1** (P 71.2, R 65.3; 11/34 exact). 14.7 min wall, 14.9 GB RSS (scoring 860 s, merge 10–18 s numba). Biggest lever: coverage guard off (+9 F; fragments and gene models break it). Bug fixed: unbounded cross-family rescue rebuilt an 89,721-gene family; now capped at 7.5k.
     - Error classes on dev: merge splits 20/34 (2R ohnolog subfamilies never unite), over-merges 13/34 (fast Ciona genes bridge to deep-paralog subfamilies), S0 splits 7/34.
     - [-] relative-divergence in-paralog test: better on toy, −1.3 F on dev → not default.
-  - [~] 3d. Root-level parsimony merge → synteny R1 arms → hybrid local-tree mode for ambiguous clusters (agent)
+  - [-] 3d. Root parsimony merge (R4): ≤68.3 dev F, off by default. 2R pieces are not partner-less (Ciona genes are their partners), and in-family scores sit at the noise floor (median norm. score 0.058 within RefOG vs 0.044 outside), so score rules can't separate them.
+  - [x] 3e. Synteny R1-only on OrthoBench OG-level: null (68.01 vs 68.10; shuffled = off). Expected: OG metric is insensitive to partner choice. → pair-level dev metric from RefOG trees (S5 phase 2).
+  - [~] 3f. Hybrid local-tree mode for ambiguous clusters + 2R-like toy setting (agent)
 - [x] 4. S1 guide species tree arms (docs/S1_speciestree.md). NCBI taxdump tree: 0% split conflict vs published QfO reference (evaluation only), nRF 0.128 due to polytomies. Data-derived trees: ASTRAL-Pro 12% conflict, FastME 17%, BIONJ 21%; errors are classic long-branch (dog/cow+primates, C. elegans, Nematostella) and Bacteria 25–30% conflict (HGT). Decision: NCBI = default guide; ablation arms = NCBI+ASTRAL-refined, ASTRAL-Pro, FastME, NNI-perturbed (seeds 11/23/47), random (negative control).
 - [x] 5. S5 synteny phase 1 (docs/S5_synteny.md). Coverage: OrthoBench ~100%; QfO 93% (zebrafish 0.64, amphioxus 0.08). PI approved versioned-UniProt-ID matching and Ensembl Fungi 52 for S. pombe, each reported separately.
   - [!] 5.1 Synteny discriminates orthologs vs paralogs (OrthoBench dev, AUC at w=20): human/mouse 0.92, human/chicken 0.93, zebrafish/Tetraodon 0.82, human/zebrafish 0.70, human/fly 0.49; shuffled 0.50. On 157 hard cases (sequence 50% correct), synteny decides 70 with 84% precision; re-rank gain +0.16 [0.05, 0.26], shuffled −0.006.
   - [-] 5.2 Naive additive bonus in merge (toy): halves FP paralog pairs but loses 4–8 recall, because it disturbs in-paralog absorption. Fix: apply only at partner choice (R1).
-  - [ ] 5.3 Phase 2: integrated merge on OrthoBench dev, real vs shuffled vs off
+  - [~] 5.3 Phase 2: pair-level dev evaluator (RefOG-tree labels) + arms off/real/shuffled (agent)
 - [~] 8a. Competitor baselines on OrthoBench (OrthoFinder, SonicParanoid2, …) + orthobench_eval.py with dev/test + bootstrap (agent)
 - [ ] 4. Sub-task: gene-tree inference (AA vs AA+3Di) — own benchmark
 - [ ] 5. Sub-task: species tree (universal vs inferred vs family-local) — own benchmark
