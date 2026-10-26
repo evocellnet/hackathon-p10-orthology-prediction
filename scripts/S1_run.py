@@ -70,6 +70,9 @@ def main():
     ap.add_argument("--n-prok", type=int, default=1000)
     ap.add_argument("--sens", default="--mid-sensitive")
     ap.add_argument("--max-fams", type=int, default=400)
+    ap.add_argument("--max-copy", type=int, default=2, help="S0 near-single-copy: max copies per species")
+    ap.add_argument("--max-mean-copy", type=float, default=1.3)
+    ap.add_argument("--tag", default="", help="suffix for arm B outputs (variants)")
     a = ap.parse_args()
     cfg = DS[a.ds]
     work = os.path.join(ROOT, "work", "S1", a.ds)
@@ -153,7 +156,8 @@ def main():
                         seqs[pid] = s
                         gene_sp[pid] = sp
                 if cfg["s0"]:
-                    fams0 = st.families_from_s0(cfg["s0"], gene_sp, len(files))
+                    fams0 = st.families_from_s0(cfg["s0"], gene_sp, len(files), max_copy=a.max_copy,
+                                                 max_mean_copy=a.max_mean_copy)
                     keys = sorted(fams0)
                     import random
                     random.Random(11).shuffle(keys)
@@ -170,30 +174,48 @@ def main():
                 finfo.update({"n_families": len(fams), "occupancy_mean": float(np.mean(occ)),
                               "occupancy_min": float(np.min(occ)),
                               "genes_per_family_mean": float(np.mean([len(v) for v in fams.values()]))})
-                with open(os.path.join(work, "armB_families.tsv"), "w") as fh:
+                with open(os.path.join(work, f"armB{a.tag}_families.tsv"), "w") as fh:
                     for k, v in fams.items():
                         for sp, g in v:
                             fh.write(f"{k}\t{sp}\t{g}\n")
-                gdir = os.path.join(work, "genetrees")
+                gdir = os.path.join(work, "genetrees" + a.tag)
                 (gmap, paths, cpu_gt), r_gt = timed(lambda: st.gene_trees(fams, seqs, gdir, a.threads))
                 r_gt["cpu_children_s"] = cpu_gt
                 ncbi = read_newick(ncbi_path)
                 t, ainfo = st.run_astral_pro(paths, gmap, gdir, a.threads)
                 tt, info = st.finalize(t, ncbi, "ncbi")
-                st.write_tree(tt, os.path.join(res, "armB_astralpro_ncbiroot.nwk"))
+                st.write_tree(tt, os.path.join(res, f"armB_astralpro{a.tag}_ncbiroot.nwk"))
                 out = {"families": finfo, "genetrees_runtime": r_gt, "astral": ainfo, "astral_root": info}
                 try:
                     ct, cinfo = st.concat_tree(fams, gdir, gmap, a.threads, species)
                     ct2, info2 = st.finalize(ct, ncbi, "ncbi")
-                    st.write_tree(ct2, os.path.join(res, "armB_concat_fasttree_ncbiroot.nwk"))
+                    st.write_tree(ct2, os.path.join(res, f"armB_concat_fasttree{a.tag}_ncbiroot.nwk"))
                     out["concat"] = cinfo
                     out["concat_root"] = info2
                 except Exception as e:  # noqa: BLE001
                     out["concat_error"] = repr(e)
-                save_json(out, os.path.join(res, "armB_info.json"))
+                save_json(out, os.path.join(res, f"armB{a.tag}_info.json"))
                 return out
             _, r = timed(run)
-            rt["armB"] = r
+            rt["armB" + a.tag] = r
+        elif stage == "hybrid":
+            def run():
+                ncbi = read_newick(ncbi_path)
+                out = {}
+                for src in ("armB_astralpro_ncbiroot", "armA_fastme_ncbiroot"):
+                    sp_ = os.path.join(res, src + ".nwk")
+                    if not os.path.exists(sp_):
+                        continue
+                    t, added = st.refine_polytomies(ncbi, read_newick(sp_))
+                    tag = "hybrid_ncbi_refined_by_" + src.split("_")[0] + "_" + src.split("_")[1]
+                    st.write_tree(t, os.path.join(res, tag + ".nwk"), lengths=False)
+                    out[tag] = {"source": src, "clades_added": added,
+                                "n_internal": sum(1 for n in t.preorder() if n.children)}
+                save_json(out, os.path.join(res, "hybrid_info.json"))
+                return out
+            o, r = timed(run)
+            r["detail"] = o
+            rt["hybrid"] = r
         elif stage == "perturb":
             def run():
                 ncbi = read_newick(ncbi_path)
@@ -218,7 +240,7 @@ def main():
             _, r = timed(run)
             rt["perturb"] = r
         save_json(rt, rt_path)
-        print(json.dumps(rt.get(stage), default=str)[:600], flush=True)
+        print(json.dumps(rt.get(stage + (a.tag if stage == "armB" else "")), default=str)[:600], flush=True)
 
 
 if __name__ == "__main__":

@@ -15,5 +15,47 @@
    "cpu_children_s": 270.32,
    "cmd_template": "diamond blastp --mid-sensitive -k 5 --max-hsps 1 -e 1e-05 -p 12"
   }
+ },
+ "armA": {
+  "wall_s": 0.95,
+  "cpu_self_s": 0.73,
+  "cpu_children_s": 0.0,
+  "loadavg_start": 23.84619140625
+ },
+ "armB": {
+  "wall_s": 125.01,
+  "cpu_self_s": 3.05,
+  "cpu_children_s": 380.97,
+  "loadavg_start": 34.56591796875
+ },
+ "perturb": {
+  "wall_s": 0.01,
+  "cpu_self_s": 0.0,
+  "cpu_children_s": 0.0,
+  "loadavg_start": 42.43408203125
+ },
+ "armB_sc1": {
+  "wall_s": 219.41,
+  "cpu_self_s": 2.52,
+  "cpu_children_s": 258.08,
+  "loadavg_start": 53.3212890625
+ },
+ "hybrid": {
+  "wall_s": 0.01,
+  "cpu_self_s": 0.01,
+  "cpu_children_s": 0.0,
+  "loadavg_start": 51.15966796875,
+  "detail": {
+   "hybrid_ncbi_refined_by_armB_astralpro": {
+    "source": "armB_astralpro_ncbiroot",
+    "clades_added": 0,
+    "n_internal": 11
+   },
+   "hybrid_ncbi_refined_by_armA_fastme": {
+    "source": "armA_fastme_ncbiroot",
+    "clades_added": 0,
+    "n_internal": 11
+   }
+  }
  }
 }

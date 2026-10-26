@@ -53,7 +53,7 @@ from .newick import Node, parse_newick, read_newick
 __all__ = [
     "load_taxdump", "lookup_taxids_by_name", "ncbi_tree", "clades", "name_internal_nodes",
     "splits", "compare_trees", "quartet_compare", "nj", "midpoint_root", "root_by_reference",
-    "reroot", "nni_perturb", "random_topology", "prune_to", "collapse_unary",
+    "reroot", "refine_polytomies", "nni_perturb", "random_topology", "prune_to", "collapse_unary",
     "besthit_distances", "sample_queries", "write_tree",
 ]
 
@@ -433,9 +433,30 @@ def compare_trees(query: Node, ref: Node, quartets: bool = True, leaves=None) ->
         "n_conflicting_query_splits": conf,
         "ref_splits_contradicted": rconf / max(1, len(sr)),
     })
+    # rooted clades (both trees taken as rooted; only meaningful for rooted inputs)
+    cq = {c for c in clades(q) if 1 < len(c) < n}
+    cr = {c for c in clades(r) if 1 < len(c) < n}
+    out["rooted_clade_recall"] = len(cq & cr) / max(1, len(cr))
+    out["root_split"] = sorted(len(c.leaves()) for c in q.children)
     if quartets:
         out["quartet"] = quartet_compare(q, r, common)
     return out
+
+
+def conflicting_splits(query: Node, ref: Node) -> list[list[str]]:
+    """Query splits incompatible with the reference, each as the sorted leaf
+    names of its smaller side."""
+    common = sorted(set(query.leaf_names()) & set(ref.leaf_names()))
+    n = len(common)
+    q, r = prune_to(query, common), prune_to(ref, common)
+    sq, sr = splits(q, common), splits(r, common)
+    full = (1 << n) - 1
+    out = []
+    for a in sq:
+        if any(not _compatible(a, b, full) for b in sr):
+            side = a if bin(a).count("1") <= n / 2 else full ^ a
+            out.append(sorted(common[i] for i in range(n) if side >> i & 1))
+    return sorted(out, key=lambda x: (len(x), x))
 
 
 # ---------------------------------------------------------------------------
@@ -529,6 +550,15 @@ def reroot(root: Node, target: Node, frac: float = 0.5) -> Node:
     removed. Node names/data are kept (on copies)."""
     if target.parent is None:
         return copy_tree(root)
+    if len(root.children) == 1:          # unary root would become a fake leaf
+        if target.parent is root:
+            return copy_tree(root.children[0])
+        root2 = copy_tree(root)
+        # locate the copy of target by preorder position
+        pos = [id(n) for n in root.preorder()].index(id(target))
+        tgt2 = list(root2.preorder())[pos]
+        root2 = collapse_unary(root2)
+        return reroot(root2, tgt2, frac)
     adj, obj = _undirected(root)
     tid, pid = id(target), id(target.parent)
     L = target.length
@@ -632,6 +662,45 @@ def root_by_reference(root: Node, ref: Node) -> tuple[Node, dict]:
             best_info = {"ref_clades_matched": hit, "ref_clades_total": len(refc),
                          "root_split_sizes": sizes}
     return best, best_info
+
+
+def refine_polytomies(ref: Node, data: Node, refine_root: bool = False) -> tuple[Node, int]:
+    """Hybrid arm: resolve polytomies of ``ref`` (NCBI) with the rooted clades of
+    ``data`` that are compatible with every ``ref`` clade (nested or disjoint).
+    Clades are inserted largest first; each new node groups a subset (>= 2, not
+    all) of the children of the smallest node containing it. New nodes are named
+    ``<parent>~r<k>``. A root polytomy is left unresolved unless ``refine_root``
+    (the data trees' root position is itself chosen by NCBI agreement, so any
+    resolution there is a rooting artefact). Returns (tree, number of clades added)."""
+    t = copy_tree(ref)
+    leaves = set(t.leaf_names())
+    data = prune_to(data, leaves)
+    cand = sorted((c for c in clades(data) if 1 < len(c) < len(leaves)), key=len, reverse=True)
+    added = 0
+    for c in cand:
+        below = _leafsets(t)
+        # smallest node containing c
+        best = None
+        for nd in t.preorder():
+            if nd.children and c <= below[id(nd)]:
+                if best is None or len(below[id(nd)]) < len(below[id(best)]):
+                    best = nd
+        if best is None or below[id(best)] == c or (best is t and not refine_root):
+            continue
+        inside = [ch for ch in best.children if below[id(ch)] <= c]
+        covered = frozenset().union(*(below[id(ch)] for ch in inside)) if inside else frozenset()
+        if covered != c:
+            continue          # c cuts through a child clade -> incompatible with ref
+        if len(inside) < 2 or len(inside) == len(best.children):
+            continue
+        added += 1
+        u = Node(f"{best.name}~r{added}")
+        u.data["ref_match"] = False
+        for ch in inside:
+            best.children.remove(ch)
+            u.add_child(ch)
+        best.add_child(u)
+    return t, added
 
 
 # ---------------------------------------------------------------------------

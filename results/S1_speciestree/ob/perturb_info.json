@@ -1,0 +1,48 @@
+{
+ "k_values": [
+  1,
+  3
+ ],
+ "n_internal_ncbi": 11,
+ "trees": {
+  "perturbed_ncbi_nni1_s11.nwk": {
+   "k": 1,
+   "seed": 11,
+   "nni_done": 1
+  },
+  "perturbed_ncbi_nni1_s23.nwk": {
+   "k": 1,
+   "seed": 23,
+   "nni_done": 1
+  },
+  "perturbed_ncbi_nni1_s47.nwk": {
+   "k": 1,
+   "seed": 47,
+   "nni_done": 1
+  },
+  "perturbed_ncbi_nni3_s11.nwk": {
+   "k": 3,
+   "seed": 11,
+   "nni_done": 3
+  },
+  "perturbed_ncbi_nni3_s23.nwk": {
+   "k": 3,
+   "seed": 23,
+   "nni_done": 3
+  },
+  "perturbed_ncbi_nni3_s47.nwk": {
+   "k": 3,
+   "seed": 47,
+   "nni_done": 3
+  },
+  "random_s11.nwk": {
+   "seed": 11
+  },
+  "random_s23.nwk": {
+   "seed": 23
+  },
+  "random_s47.nwk": {
+   "seed": 47
+  }
+ }
+}

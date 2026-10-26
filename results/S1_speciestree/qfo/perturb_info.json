@@ -1,0 +1,64 @@
+{
+ "k_values": [
+  3,
+  5,
+  13
+ ],
+ "n_internal_ncbi": 52,
+ "trees": {
+  "perturbed_ncbi_nni3_s11.nwk": {
+   "k": 3,
+   "seed": 11,
+   "nni_done": 3
+  },
+  "perturbed_ncbi_nni3_s23.nwk": {
+   "k": 3,
+   "seed": 23,
+   "nni_done": 3
+  },
+  "perturbed_ncbi_nni3_s47.nwk": {
+   "k": 3,
+   "seed": 47,
+   "nni_done": 3
+  },
+  "perturbed_ncbi_nni5_s11.nwk": {
+   "k": 5,
+   "seed": 11,
+   "nni_done": 5
+  },
+  "perturbed_ncbi_nni5_s23.nwk": {
+   "k": 5,
+   "seed": 23,
+   "nni_done": 5
+  },
+  "perturbed_ncbi_nni5_s47.nwk": {
+   "k": 5,
+   "seed": 47,
+   "nni_done": 5
+  },
+  "perturbed_ncbi_nni13_s11.nwk": {
+   "k": 13,
+   "seed": 11,
+   "nni_done": 13
+  },
+  "perturbed_ncbi_nni13_s23.nwk": {
+   "k": 13,
+   "seed": 23,
+   "nni_done": 13
+  },
+  "perturbed_ncbi_nni13_s47.nwk": {
+   "k": 13,
+   "seed": 47,
+   "nni_done": 13
+  },
+  "random_s11.nwk": {
+   "seed": 11
+  },
+  "random_s23.nwk": {
+   "seed": 23
+  },
+  "random_s47.nwk": {
+   "seed": 47
+  }
+ }
+}

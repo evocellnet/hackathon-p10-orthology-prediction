@@ -1,0 +1,49 @@
+{
+ "families": {
+  "source": "sampled best hits (arm A search)",
+  "n_candidates": 5977,
+  "n_families": 400,
+  "occupancy_mean": 0.7296794871794873,
+  "occupancy_min": 0.5,
+  "genes_per_family_mean": 56.915
+ },
+ "genetrees_runtime": {
+  "wall_s": 233.6,
+  "cpu_self_s": 0.63,
+  "cpu_children_s": 1685.03,
+  "loadavg_start": 53.67578125
+ },
+ "astral": {
+  "wall_s": 77.8046624660492,
+  "cpu_s": 23.54999999999989,
+  "cmd": "astral-pro3 -t 12 -a /scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/S1/qfo/genetrees/gene2species.tsv -o /scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/S1/qfo/genetrees/astral_pro.nwk -i /scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/S1/qfo/genetrees/genetrees.nwk --seed 11"
+ },
+ "astral_root": {
+  "rooting": "ncbi",
+  "ref_clades_matched": 42,
+  "ref_clades_total": 51,
+  "root_split_sizes": [
+   30,
+   48
+  ],
+  "n_internal_named_as_ncbi": 43,
+  "n_internal": 77
+ },
+ "concat": {
+  "wall_s": 925.9360673427582,
+  "cpu_s": 1868.69,
+  "n_sites": 179660,
+  "n_blocks": 400
+ },
+ "concat_root": {
+  "rooting": "ncbi",
+  "ref_clades_matched": 41,
+  "ref_clades_total": 51,
+  "root_split_sizes": [
+   30,
+   48
+  ],
+  "n_internal_named_as_ncbi": 42,
+  "n_internal": 77
+ }
+}

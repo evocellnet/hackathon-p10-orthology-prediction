@@ -4,5 +4,28 @@
   "cpu_self_s": 4.32,
   "cpu_children_s": 0.0,
   "loadavg_start": 20.95751953125
+ },
+ "search": {
+  "wall_s": 756.73,
+  "cpu_self_s": 6.26,
+  "cpu_children_s": 3001.49,
+  "loadavg_start": 45.1376953125,
+  "search": {
+   "wall_s": 744.5777611732483,
+   "cpu_children_s": 2972.8099999999995,
+   "cmd_template": "diamond blastp --mid-sensitive -k 5 --max-hsps 1 -e 1e-05 -p 12"
+  }
+ },
+ "armA": {
+  "wall_s": 9.27,
+  "cpu_self_s": 8.15,
+  "cpu_children_s": 0.01,
+  "loadavg_start": 41.19140625
+ },
+ "armB": {
+  "wall_s": 1262.81,
+  "cpu_self_s": 24.63,
+  "cpu_children_s": 3577.27,
+  "loadavg_start": 33.4267578125
  }
 }

@@ -1,0 +1,38 @@
+{
+ "armA_bionj_ncbiroot": {
+  "rooting": "ncbi",
+  "ref_clades_matched": 35,
+  "ref_clades_total": 51,
+  "root_split_sizes": [
+   30,
+   48
+  ],
+  "n_internal_named_as_ncbi": 36,
+  "n_internal": 77,
+  "cmd": "fastme -i /scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/S1/qfo/fastme_bionj/dist.phy -o /scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/S1/qfo/fastme_bionj/fastme.nwk -m B -T 1 -I /scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/S1/qfo/fastme_bionj/fastme.info"
+ },
+ "armA_bionj_midroot": {
+  "rooting": "midpoint",
+  "n_internal_named_as_ncbi": 36,
+  "n_internal": 77,
+  "cmd": "fastme -i /scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/S1/qfo/fastme_bionj/dist.phy -o /scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/S1/qfo/fastme_bionj/fastme.nwk -m B -T 1 -I /scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/S1/qfo/fastme_bionj/fastme.info"
+ },
+ "armA_fastme_ncbiroot": {
+  "rooting": "ncbi",
+  "ref_clades_matched": 38,
+  "ref_clades_total": 51,
+  "root_split_sizes": [
+   30,
+   48
+  ],
+  "n_internal_named_as_ncbi": 39,
+  "n_internal": 77,
+  "cmd": "fastme -i /scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/S1/qfo/fastme_fastme/dist.phy -o /scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/S1/qfo/fastme_fastme/fastme.nwk -m B -T 1 -I /scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/S1/qfo/fastme_fastme/fastme.info -s -n"
+ },
+ "armA_fastme_midroot": {
+  "rooting": "midpoint",
+  "n_internal_named_as_ncbi": 39,
+  "n_internal": 77,
+  "cmd": "fastme -i /scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/S1/qfo/fastme_fastme/dist.phy -o /scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/S1/qfo/fastme_fastme/fastme.nwk -m B -T 1 -I /scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/S1/qfo/fastme_fastme/fastme.info -s -n"
+ }
+}

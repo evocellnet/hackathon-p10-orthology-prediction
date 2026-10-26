@@ -1,0 +1,12 @@
+{
+ "hybrid_ncbi_refined_by_armB_astralpro": {
+  "source": "armB_astralpro_ncbiroot",
+  "clades_added": 13,
+  "n_internal": 65
+ },
+ "hybrid_ncbi_refined_by_armA_fastme": {
+  "source": "armA_fastme_ncbiroot",
+  "clades_added": 11,
+  "n_internal": 63
+ }
+}

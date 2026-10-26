@@ -113,3 +113,9 @@ checksum manifests are kept next to the data (paths given); key checksums are li
 - `data/qfo/controls/random_pairs_2022.tsv` (2M random inter-species pairs, `81d8d1367def7f425f37655b2040c462`)
 - `data/qfo/controls/oracle_orthologs.tsv` (`0910b79d…`), `anti_oracle.tsv` (`b3e4dada…`)
 - `data/orthobench/controls/*.txt` (md5 in `bench_repo/README.md` generation is deterministic)
+
+## 11. NCBI Taxonomy dump (S1 guide tree, method input)
+- **Source:** https://ftp.ncbi.nlm.nih.gov/pub/taxonomy/taxdump.tar.gz (+ `.md5` from the same FTP dir); retrieved
+  2026-10-26T16:33:54+01:00 (`data/taxonomy/download_date.txt`); md5 `1c0b66d2a42fe185ddeba0fbd1584c53` (matches
+  NCBI's `.md5`). Public domain (NCBI). Local: `data/taxonomy/` (nodes.dmp, names.dmp, merged.dmp extracted).
+- Used by `ancestra/speciestree.py` (NCBI arm and internal-node names of all S1 trees). See `docs/S1_speciestree.md`.
