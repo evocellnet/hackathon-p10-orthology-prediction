@@ -1,0 +1,85 @@
+hog	target	locus_cls	gw_paralog_hits	gw_intact	gw_any	gw_any_contig	gw_any_start	gw_any_end	gw_any_qcov	gw_any_identity	gw_any_fs	gw_any_st	gw_any_n_introns	gw_any_query	gw_any_in_locus	gw_any_annotated	gw_any_gff	gw_any_biotype	gw_intact_contig	gw_intact_start	gw_intact_end	gw_intact_qcov	gw_intact_identity	gw_intact_fs	gw_intact_st	gw_intact_n_introns	gw_intact_query	gw_intact_in_locus	gw_intact_annotated	gw_intact_gff	gw_intact_biotype
+2112	Pan_troglodytes	B_pseudo	4	False	True	10	123933985.0	123939915.0	0.613	0.86	22.0	1.0	1.0	ENSP00000358001	True		TACC2	protein_coding													
+2292	Pan_troglodytes	B_pseudo	0	False	True	8	146331969.0	146337676.0	1.0	0.863	12.0	3.0	13.0	ENSP00000381857	True		-	protein_coding													
+2349	Pan_troglodytes	B_pseudo	8	True	True	1	135929850.0	135953801.0	1.0	0.981	0.0	1.0	10.0	ENSP00000357158	True		FCRL1	protein_coding	1	135935622.0	135937812.0	0.933	0.482	0.0	0.0	2.0	ENSMODP00000013971	True		FCRL1	protein_coding
+2523	Pan_troglodytes	B_pseudo	0	True	True	KV420928.1	512546.0	512836.0	1.0	0.948	0.0	0.0	0.0	ENSP00000455442	False				KV420928.1	512546.0	512836.0	1.0	0.948	0.0	0.0	0.0	ENSP00000455442	False			
+2644	Pan_troglodytes	B_partial	0	False	True	11	18429778.0	18432514.0	0.724	0.945	0.0	0.0	2.0	ENSP00000489337	True	ENSPTRP00000074682	-;-	protein_coding;protein_coding													
+2727	Pan_troglodytes	B_pseudo	5	True	True	11	5308409.0	5309833.0	1.0	0.973	0.0	1.0	0.0	ENSP00000369531	True		-	pseudogene	3	152482647.0	152484442.0	0.957	0.385	0.0	0.0	1.0	ENSMODP00000027637	False			
+2741	Pan_troglodytes	B_pseudo	0	False	True	19	53695191.0	53707233.0	1.0	0.961	0.0	2.0	5.0	ENSP00000379738	True																
+3161	Pan_troglodytes	C_deleted	3	True	True	1	14811829.0	14813682.0	1.0	0.992	0.0	0.0	0.0	ENSP00000341963	True		DDI2	protein_coding	1	14811829.0	14813682.0	1.0	0.992	0.0	0.0	0.0	ENSP00000341963	True		DDI2	protein_coding
+3265	Pan_troglodytes	C_deleted	2	False	True	AACZ04010465.1	5173.0	12045.0	0.6	0.496	0.0	0.0	4.0	ENSMUSP00000030627	False	ENSPTRP00000055141	-	protein_coding													
+3565	Pan_troglodytes	C_deleted	5	False	False																										
+3770	Pan_troglodytes	B_pseudo	0	False	True	4	156459322.0	156504754.0	0.973	0.649	3.0	0.0	6.0	ENSP00000302144	True																
+4037	Pan_troglodytes	C_deleted	5	False	False																										
+4966	Pan_troglodytes	B_pseudo	0	False	True	19	18247672.0	18315475.0	0.678	0.442	3.0	0.0	5.0	ENSRNOP00000042639	True		ANO8	protein_coding													
+5216	Pan_troglodytes	B_pseudo	0	False	True	2A	108911298.0	109299588.0	1.0	0.859	3.0	0.0	18.0	ENSCAFP00000052173	True	ENSPTRP00000070857	-	protein_coding													
+5325	Pan_troglodytes	B_pseudo	27	True	True	14	3653428.0	3654397.0	1.0	0.959	1.0	1.0	0.0	ENSP00000319511	True	ENSPTRP00000069025	-	protein_coding	14	3583176.0	3584075.0	0.94	0.657	0.0	0.0	0.0	ENSMODP00000057263	True			
+5336	Pan_troglodytes	B_pseudo	62	True	True	17	57452954.0	57453874.0	1.0	0.98	0.0	1.0	0.0	ENSP00000441354	True		-	pseudogene	14	3560338.0	3561240.0	0.968	0.558	0.0	0.0	0.0	ENSRNOP00000041274	False		-	pseudogene
+5395	Pan_troglodytes	C_deleted	77	True	True	9	82484067.0	82485011.0	1.0	0.48	0.0	0.0	0.0	ENSMODP00000014795	False				9	82484067.0	82485011.0	1.0	0.48	0.0	0.0	0.0	ENSMODP00000014795	False			
+5609	Pan_troglodytes	B_pseudo	10	True	True	7	148607540.0	148608472.0	1.0	0.987	0.0	1.0	0.0	ENSP00000492907	True		-	pseudogene	2B	131190288.0	131191196.0	0.956	0.584	0.0	0.0	0.0	ENSMODP00000033775	False			
+5618	Pan_troglodytes	B_pseudo	48	True	True	1	137448420.0	137449405.0	1.0	0.979	1.0	0.0	0.0	ENSP00000331789	True		-	pseudogene	1	137569180.0	137570112.0	1.0	0.788	0.0	0.0	0.0	ENSCAFP00000042678	True			
+5661	Pan_troglodytes	B_pseudo	34	True	True	11	58026084.0	58026987.0	1.0	0.97	1.0	0.0	0.0	ENSP00000378516	True		-	pseudogene	1	227509146.0	227510060.0	0.965	0.433	0.0	0.0	0.0	ENSMODP00000033720	False		TRIM58	protein_coding
+6054	Pan_troglodytes	B_pseudo	0	False	True	16	21272068.0	21344935.0	0.821	0.704	3.0	0.0	22.0	ENSMUSP00000044177	True		-	lincRNA													
+6217	Pan_troglodytes	B_pseudo	0	False	True	16	29376791.0	29416842.0	1.0	0.72	2.0	1.0	25.0	ENSP00000349252	True	ENSPTRP00000052270	ITGAL	protein_coding													
+6238	Pan_troglodytes	B_pseudo	28	True	True	11	5971279.0	5972251.0	1.0	0.962	1.0	0.0	0.0	ENSP00000432011	True		-	pseudogene	11	4184284.0	4185198.0	0.947	0.6	0.0	0.0	0.0	ENSCAFP00000034832	False			
+6796	Pan_troglodytes	B_pseudo	0	True	True	10	22315437.0	22318169.0	1.0	0.988	0.0	0.0	0.0	ENSP00000410041	True		SKIDA1	pseudogene	10	22315437.0	22318169.0	1.0	0.988	0.0	0.0	0.0	ENSP00000410041	True		SKIDA1	pseudogene
+7176	Pan_troglodytes	B_pseudo	1	False	True	13	99833936.0	99882589.0	1.0	0.776	3.0	1.0	13.0	ENSP00000331831	True																
+7262	Pan_troglodytes	B_pseudo	2	False	True	22	11902026.0	11978151.0	1.0	0.752	1.0	1.0	3.0	ENSP00000498905	True	ENSPTRP00000024418	CRYBB2;-	protein_coding;miRNA													
+7272	Pan_troglodytes	C_deleted	10	False	False																										
+7406	Pan_troglodytes	C_deleted	5	False	False																										
+7639	Pan_troglodytes	B_pseudo	0	False	True	15	49159772.0	49224854.0	1.0	0.763	5.0	1.0	5.0	ENSP00000445770	True	ENSPTRP00000012343	CLN6	protein_coding													
+7796	Pan_troglodytes	C_deleted	6	False	True	6	7381380.0	7382559.0	0.811	0.521	4.0	2.0	0.0	ENSMODP00000024789	False		CAGE1;-	protein_coding;protein_coding													
+7912	Pan_troglodytes	B_pseudo	0	False	True	9	111323618.0	111348601.0	1.0	0.732	19.0	2.0	11.0	ENSP00000501111	True																
+7979	Pan_troglodytes	C_deleted	0	False	True	13	96365248.0	96365778.0	0.757	0.792	0.0	0.0	0.0	ENSCAFP00000009116	True																
+8468	Pan_troglodytes	B_pseudo	0	False	True	17	58877433.0	58932753.0	1.0	0.819	11.0	2.0	17.0	ENSP00000251241	True		DHX40	protein_coding													
+8601	Pan_troglodytes	C_deleted	0	False	True	16	81524289.0	81524840.0	0.615	0.72	0.0	1.0	0.0	ENSP00000457625	True		GAS8	protein_coding													
+9246	Pan_troglodytes	C_deleted	1	True	True	10	47990835.0	47991855.0	1.0	0.984	1.0	0.0	0.0	ENSP00000462269	False		-	pseudogene	10	47910233.0	47991855.0	0.91	0.622	0.0	0.0	1.0	ENSCAFP00000023857	False		-	pseudogene
+9869	Pan_troglodytes	C_deleted	12	False	False																										
+10323	Pan_troglodytes	B_pseudo	26	True	True	11	4688395.0	4689336.0	1.0	0.984	0.0	1.0	0.0	ENSP00000493323	True		-	pseudogene	11	4606190.0	4651332.0	0.962	0.608	0.0	0.0	1.0	ENSMUSP00000150712	True			
+10875	Pan_troglodytes	B_pseudo	0	False	True	21	32855525.0	32878228.0	0.977	0.565	1.0	0.0	8.0	ENSP00000380856	True		-	protein_coding													
+10917	Pan_troglodytes	B_pseudo	0	True	True	6	171696570.0	171697676.0	1.0	0.746	0.0	0.0	0.0	ENSMUSP00000131153	True		FGFR1OP	protein_coding	6	171696564.0	171697676.0	0.992	0.995	0.0	0.0	0.0	ENSP00000493637	True		FGFR1OP	protein_coding
+12047	Pan_troglodytes	B_pseudo	0	False	True	19	41831842.0	41923601.0	1.0	0.775	12.0	0.0	17.0	ENSCAFP00000052149	True		FCGBP;-	protein_coding;protein_coding													
+12262	Pan_troglodytes	C_deleted	2	True	True	11	86987114.0	86988262.0	1.0	0.997	0.0	0.0	0.0	ENSP00000280258	True		-	pseudogene	11	86987114.0	86988262.0	1.0	0.997	0.0	0.0	0.0	ENSP00000280258	True		-	pseudogene
+12266	Pan_troglodytes	C_deleted	6	False	False																										
+12290	Pan_troglodytes	C_deleted	4	False	True	KV420772.1	667.0	21266.0	0.721	0.966	21.0	2.0	9.0	ENSP00000283195	False	ENSPTRP00000065291	RANBP2;-	protein_coding;protein_coding													
+12889	Pan_troglodytes	B_pseudo	2	False	True	20	58464007.0	58470054.0	1.0	0.972	0.0	2.0	2.0	ENSP00000482600	True		RTF2	protein_coding													
+13098	Pan_troglodytes	C_deleted	5	False	True	X	129958968.0	129959423.0	0.641	0.987	0.0	0.0	0.0	ENSCAFP00000027665	True																
+13182	Pan_troglodytes	C_deleted	0	True	True	5	141368860.0	141369906.0	1.0	1.0	0.0	0.0	0.0	ENSP00000312709	False		TAF7	pseudogene	5	141368860.0	141369906.0	1.0	1.0	0.0	0.0	0.0	ENSP00000312709	False		TAF7	pseudogene
+13407	Pan_troglodytes	C_deleted	5	False	False																										
+13892	Pan_troglodytes	C_deleted	0	False	True	9	60944256.0	60944562.0	0.316	0.416	1.0	0.0	0.0	ENSCAFP00000061018	True																
+14274	Pan_troglodytes	C_deleted	28	True	True	16	1415594.0	1446275.0	0.854	0.442	0.0	0.0	3.0	ENSP00000293851	False				16	1415594.0	1446275.0	0.854	0.442	0.0	0.0	3.0	ENSP00000293851	False			
+14486	Pan_troglodytes	C_deleted	6	False	False																										
+15078	Pan_troglodytes	B_pseudo	2	False	True	9	61172066.0	61235422.0	0.744	0.728	6.0	4.0	12.0	ENSMODP00000035142	True	ENSPTRP00000035996	KIF27;-	protein_coding;protein_coding													
+15262	Pan_troglodytes	B_pseudo	5	False	True	14	77296158.0	77569804.0	1.0	0.796	1.0	0.0	17.0	ENSP00000431840	True	ENSPTRP00000011339	-;-	protein_coding;lincRNA													
+15584	Pan_troglodytes	B_pseudo	0	False	True	15	9187317.0	9517652.0	1.0	0.72	8.0	1.0	80.0	ENSP00000261609	True		-;-;-	protein_coding;lincRNA;protein_coding													
+15706	Pan_troglodytes	C_deleted	14	True	True	KV421403.1	215564.0	216910.0	1.0	1.0	0.0	0.0	0.0	ENSP00000361927	False		-	pseudogene	KV421403.1	215564.0	216910.0	1.0	1.0	0.0	0.0	0.0	ENSP00000361927	False		-	pseudogene
+16405	Pan_troglodytes	B_partial	0	False	True	KV421013.1	613.0	33540.0	0.608	0.981	0.0	0.0	8.0	ENSP00000297440	False	ENSPTRP00000072873	-	protein_coding													
+16594	Pan_troglodytes	B_partial	5	True	True	X	102540659.0	102541504.0	1.0	0.737	0.0	0.0	0.0	ENSMODP00000020844	False		-	processed_pseudogene	X	102540659.0	102541504.0	1.0	0.737	0.0	0.0	0.0	ENSMODP00000020844	False		-	processed_pseudogene
+16897	Pan_troglodytes	C_deleted	5	False	False																										
+17955	Pan_troglodytes	D_undetermined	0	False	True	17	12868096.0	12883617.0	0.651	0.99	0.0	1.0	13.0	ENSP00000370258	False		-	protein_coding													
+18014	Pan_troglodytes	B_pseudo	0	True	True	X	48882099.0	48908958.0	1.0	0.746	1.0	2.0	26.0	ENSP00000334061	True		-;-	lincRNA;protein_coding	X	48882099.0	48908958.0	1.0	0.663	0.0	0.0	28.0	ENSRNOP00000009295	True		-;-	lincRNA;protein_coding
+18258	Pan_troglodytes	B_pseudo	0	False	True	16	65310901.0	65347219.0	0.778	0.863	14.0	2.0	15.0	ENSP00000288050	False																
+18584	Pan_troglodytes	C_deleted	5	False	False																										
+18612	Pan_troglodytes	C_deleted	6	False	False																										
+18675	Pan_troglodytes	B_pseudo	5	True	True	5	112976039.0	112977139.0	1.0	0.975	0.0	0.0	0.0	ENSP00000375081	False		MCC	protein_coding	5	112976039.0	112977139.0	1.0	0.975	0.0	0.0	0.0	ENSP00000375081	False		MCC	protein_coding
+18755	Pan_troglodytes	C_deleted	10	True	True	4	176782134.0	176782712.0	1.0	0.839	0.0	0.0	0.0	ENSMODP00000044513	False	ENSPTRP00000071175	GALNTL6;-	protein_coding;protein_coding	4	176782134.0	176782712.0	1.0	0.839	0.0	0.0	0.0	ENSMODP00000044513	False	ENSPTRP00000071175	GALNTL6;-	protein_coding;protein_coding
+18890	Pan_troglodytes	C_deleted	5	False	False																										
+18932	Pan_troglodytes	C_deleted	12	False	False																										
+19133	Pan_troglodytes	C_deleted	5	False	False																										
+19500	Pan_troglodytes	B_partial	0	False	True	11	62742637.0	62744017.0	0.552	1.0	0.0	0.0	2.0	ENSCAFP00000022766	True	ENSPTRP00000072905	-	protein_coding													
+19519	Pan_troglodytes	B_pseudo	18	False	False																										
+19592	Pan_troglodytes	C_deleted	10	False	False																										
+19968	Pan_troglodytes	C_deleted	7	False	False																										
+20150	Pan_troglodytes	B_pseudo	9	True	True	5	140126833.0	140127798.0	1.0	1.0	0.0	0.0	0.0	ENSP00000499133	True		PURA	pseudogene	5	140126833.0	140127798.0	1.0	1.0	0.0	0.0	0.0	ENSP00000499133	True		PURA	pseudogene
+20483	Pan_troglodytes	B_partial	0	False	True	KV420974.1	222152.0	243765.0	0.515	0.919	0.0	0.0	6.0	ENSRNOP00000001783	True																
+20615	Pan_troglodytes	B_partial	0	False	True	5	1362555.0	1369227.0	0.393	0.943	0.0	0.0	4.0	ENSCAFP00000015800	True																
+20799	Pan_troglodytes	C_deleted	10	False	True	19	54376010.0	54376419.0	1.0	0.547	3.0	1.0	0.0	ENSMUSP00000030626	False	ENSPTRP00000085872	ZNF616;-	protein_coding;protein_coding													
+20990	Pan_troglodytes	B_partial	5	False	True	AACZ04040945.1	6658.0	8250.0	0.671	0.945	0.0	0.0	0.0	ENSRNOP00000016939	False																
+21749	Pan_troglodytes	B_pseudo	23	False	True	3	158872810.0	158874688.0	1.0	0.606	5.0	3.0	0.0	ENSMODP00000053341	False	ENSPTRP00000089471	-	protein_coding													
+21884	Pan_troglodytes	B_pseudo	8	False	True	16	81167299.0	81177462.0	1.0	0.601	1.0	1.0	6.0	ENSP00000338673	True		-	protein_coding													
+22022	Pan_troglodytes	C_deleted	5	False	False																										
+22476	Pan_troglodytes	C_deleted	5	False	True	15	56119608.0	56120216.0	1.0	0.699	3.0	0.0	0.0	ENSCAFP00000042499	False																
+22515	Pan_troglodytes	B_pseudo	5	False	True	KV421403.1	72022.0	83521.0	1.0	0.663	3.0	3.0	1.0	ENSP00000367830	False																
+22955	Pan_troglodytes	C_deleted	5	False	False																										
+23091	Pan_troglodytes	B_pseudo	0	False	True	6	58042026.0	58257348.0	0.716	0.979	0.0	1.0	10.0	ENSP00000500708	True	ENSPTRP00000063848	-	protein_coding													
+23513	Pan_troglodytes	C_deleted	27	True	True	12	123512688.0	123513143.0	1.0	0.921	0.0	0.0	0.0	ENSP00000426976	False	ENSPTRP00000009382	-	protein_coding	12	123512688.0	123513143.0	1.0	0.921	0.0	0.0	0.0	ENSP00000426976	False	ENSPTRP00000009382	-	protein_coding

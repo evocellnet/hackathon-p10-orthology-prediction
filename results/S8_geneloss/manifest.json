@@ -1,0 +1,67 @@
+{
+ "stage": "S8 gene-loss validation (demo)",
+ "date": "2026-10-26T18:20:12",
+ "commands": [
+  "python scripts/S8_parse_gff_genes.py",
+  "python scripts/S8_parse_gff_cds.py",
+  "python scripts/run_S8_geneloss.py --species Homo_sapiens Mus_musculus Rattus_norvegicus --n-pos 100 --n-neg 100 --threads 6",
+  "python scripts/run_S8_geneloss.py --species Pan_troglodytes Canis_familiaris Monodelphis_domestica --n-pos 100 --n-neg 100 --threads 6",
+  "python scripts/summarize_S8.py",
+  "PYTHONPATH=scripts python scripts/S8_homininae_check.py"
+ ],
+ "params": {
+  "level": "Theria",
+  "outgroup_level": "Amniota",
+  "max_copies": 2,
+  "k_flank": 5,
+  "pad_bp": 200000,
+  "one_sided_pad_bp": 1000000,
+  "max_span_bp": 2000000,
+  "intact_qcov": 0.8,
+  "hit_qcov": 0.3,
+  "cds_overlap_frac": 0.2,
+  "max_nfrac": 0.2,
+  "miniprot_opts": "--gff --outs=0.5 -p 0.5 -N 20 --outc=0.1",
+  "seed": 8
+ },
+ "versions": {
+  "miniprot": "0.18-r281",
+  "samtools": "samtools 1.24"
+ },
+ "wall": {
+  "run_a (hs,mm,rn)": "4:03, peak RSS 24.9 GB",
+  "run_b (pt,cf,md)": "9:28, peak RSS 33.2 GB"
+ },
+ "inputs_md5": {
+  "work/core_v0_ob/run_v2/hogs.orthoxml": "32dc591b5b562e033d6990fd5b239814",
+  "results/S1_speciestree/ob/ncbi.nwk": "5396f5893379e5dfdbeb0e42eda2b802",
+  "data/genomes/orthobench/Caenorhabditis_elegans.parquet": "0374996d213ca7ce4390a449de719386",
+  "data/genomes/orthobench/Canis_familiaris.parquet": "b712ca1be5bce198b87c4507c45e05f0",
+  "data/genomes/orthobench/Ciona_intestinalis.parquet": "4279cf4b0829c517146dff77931b9079",
+  "data/genomes/orthobench/Danio_rerio.parquet": "0d21d9ca9d1f2a73a4bb04c9b2e5a29b",
+  "data/genomes/orthobench/Drosophila_melanogaster.parquet": "f0dfef2e9c06ddb07ebb1030401647e2",
+  "data/genomes/orthobench/Gallus_gallus.parquet": "90afab62792ea1f1e08129d03dfdc660",
+  "data/genomes/orthobench/Homo_sapiens.parquet": "a3d8ccf23edc234cf57ecfbcc5a463d7",
+  "data/genomes/orthobench/Monodelphis_domestica.parquet": "2bc42b5cc50063925b45e76986ad583a",
+  "data/genomes/orthobench/Mus_musculus.parquet": "3c0b8544c07c69d0342b849a11587e37",
+  "data/genomes/orthobench/Pan_troglodytes.parquet": "c7601922e9c50791228f1de93243c013",
+  "data/genomes/orthobench/Rattus_norvegicus.parquet": "c82ffd708722a28467ec9b7f07054dd5",
+  "data/genomes/orthobench/Tetraodon_nigroviridis.parquet": "1ae52e423c28308e2330a05ae076d61d",
+  "data/genomes_dna/Canis_familiaris.CanFam3.1.dna_sm.toplevel.fa.gz": "03c20dcfc34077229363943501fc60eb",
+  "data/genomes_dna/Homo_sapiens.GRCh38.dna_sm.primary_assembly.fa.gz": "239580e6119c7b16865d934f78b20a08",
+  "data/genomes_dna/Monodelphis_domestica.ASM229v1.dna_sm.toplevel.fa.gz": "bd505593846d907abe012d24f726497b",
+  "data/genomes_dna/Mus_musculus.GRCm38.dna_sm.primary_assembly.fa.gz": "f805d39d45cb2fbe6740004932c9267e",
+  "data/genomes_dna/Pan_troglodytes.Pan_tro_3.0.dna_sm.toplevel.fa.gz": "30502c220d5496d8657d710fc3d1f004",
+  "data/genomes_dna/Rattus_norvegicus.Rnor_6.0.dna_sm.toplevel.fa.gz": "efe847fc8d7598aa2af4cbabcbf0b5c7"
+ },
+ "code_md5": {
+  "ancestra/geneloss.py": "26c20e95a23d08e6c54ef220fa92562b",
+  "scripts/run_S8_geneloss.py": "a84a66961b0e7e0dc4bb936ec00593b5",
+  "scripts/summarize_S8.py": "1f3e9bd3f4843383467acfb78b458c16",
+  "scripts/S8_homininae_check.py": "a1a2d559320fd01ba197078256d3eab8",
+  "scripts/S8_parse_gff_genes.py": "6f59aeb1050aa35d51a9a9ddc071fc0a",
+  "scripts/S8_parse_gff_cds.py": "01e818f55d289c4c87b9398c39f3e03d",
+  "tests/test_geneloss.py": "e5c3b1660c0483d08e1db2c181b13128"
+ },
+ "note": "miniprot genome indexes (work/S8/*.mpi, 39 GB) deleted after the run; rebuilt automatically by the driver."
+}

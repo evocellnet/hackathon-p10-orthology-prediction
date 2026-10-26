@@ -1,0 +1,648 @@
+hog	target	locus_cls	gw_paralog_hits	gw_intact	gw_any	gw_any_contig	gw_any_start	gw_any_end	gw_any_qcov	gw_any_identity	gw_any_fs	gw_any_st	gw_any_n_introns	gw_any_query	gw_any_in_locus	gw_any_annotated	gw_any_gff	gw_any_biotype	gw_intact_contig	gw_intact_start	gw_intact_end	gw_intact_qcov	gw_intact_identity	gw_intact_fs	gw_intact_st	gw_intact_n_introns	gw_intact_query	gw_intact_in_locus	gw_intact_annotated	gw_intact_gff	gw_intact_biotype
+3107	Monodelphis_domestica	D_undetermined	5	False	False																										
+3123	Monodelphis_domestica	D_undetermined	0	False	True	DS029334.1	367512.0	393067.0	0.491	0.898	0.0	0.0	8.0	ENSRNOP00000031127	False																
+3126	Monodelphis_domestica	D_undetermined	5	False	False																										
+3137	Monodelphis_domestica	C_deleted	0	False	False																										
+3145	Monodelphis_domestica	D_undetermined	4	False	True	1	572478255.0	572516302.0	0.983	0.275	1.0	0.0	5.0	ENSMUSP00000145402	False	ENSMODP00000013545	-	protein_coding													
+3205	Monodelphis_domestica	D_undetermined	0	False	False																										
+3216	Monodelphis_domestica	D_undetermined	0	False	False																										
+3221	Monodelphis_domestica	D_undetermined	0	False	True	4	381981880.0	381986078.0	0.281	0.536	0.0	0.0	1.0	ENSMUSP00000030339	False																
+3228	Monodelphis_domestica	B_partial	7	False	True	4	363488158.0	363488565.0	0.561	0.621	0.0	0.0	0.0	ENSRNOP00000022130	True																
+3246	Monodelphis_domestica	B_pseudo	0	False	True	1	275215021.0	275217135.0	1.0	0.709	3.0	1.0	0.0	ENSCAFP00000024377	True		-	pseudogene													
+3286	Monodelphis_domestica	B_pseudo	0	False	True	8	92370218.0	92412147.0	0.982	0.676	1.0	0.0	16.0	ENSRNOP00000011215	True	ENSMODP00000000694	-	protein_coding													
+3308	Monodelphis_domestica	B_pseudo	0	False	True	1	621214145.0	621225312.0	1.0	0.492	1.0	0.0	3.0	ENSPTRP00000022692	True	ENSMODP00000028513	-;-	protein_coding;protein_coding													
+3333	Monodelphis_domestica	C_deleted	0	False	False																										
+3346	Monodelphis_domestica	B_pseudo	10	False	True	8	64825193.0	64916048.0	0.628	0.568	1.0	0.0	3.0	ENSPTRP00000024770	True	ENSMODP00000011965	-;-	protein_coding;protein_coding													
+3399	Monodelphis_domestica	C_deleted	0	False	False																										
+3407	Monodelphis_domestica	C_deleted	0	False	False																										
+3422	Monodelphis_domestica	D_undetermined	0	False	False																										
+3451	Monodelphis_domestica	B_pseudo	0	False	True	1	572478219.0	572516341.0	1.0	0.548	1.0	0.0	5.0	ENSCAFP00000037757	True	ENSMODP00000013545	-	protein_coding													
+3455	Monodelphis_domestica	C_deleted	0	False	False																										
+3465	Monodelphis_domestica	D_undetermined	0	False	True	1	343188283.0	343188420.0	0.14	0.32	0.0	0.0	0.0	ENSCAFP00000038837	False		-	protein_coding													
+3542	Monodelphis_domestica	D_undetermined	10	False	False																										
+3543	Monodelphis_domestica	D_undetermined	0	False	True	DS029589.1	30536.0	30757.0	0.689	0.527	0.0	0.0	0.0	ENSRNOP00000028914	False		-	lncRNA													
+3598	Monodelphis_domestica	D_undetermined	0	False	False																										
+3608	Monodelphis_domestica	C_deleted	0	False	False																										
+3613	Monodelphis_domestica	C_deleted	5	True	True	DS029772.1	7854.0	17879.0	1.0	0.419	0.0	0.0	4.0	ENSP00000254351	False		-	protein_coding	DS029772.1	7854.0	17879.0	1.0	0.419	0.0	0.0	4.0	ENSP00000254351	False		-	protein_coding
+3631	Monodelphis_domestica	D_undetermined	0	True	True	3	497575705.0	497740111.0	0.994	0.402	0.0	0.0	9.0	ENSCAFP00000016988	False	ENSMODP00000013005	-	protein_coding	3	497575705.0	497740111.0	0.994	0.402	0.0	0.0	9.0	ENSCAFP00000016988	False	ENSMODP00000013005	-	protein_coding
+3646	Monodelphis_domestica	C_deleted	1	False	True	DS029472.1	22529.0	22597.0	0.154	0.478	0.0	0.0	0.0	ENSRNOP00000070961	False																
+3662	Monodelphis_domestica	C_deleted	0	False	True	DS029442.1	21823.0	64073.0	0.973	0.492	4.0	0.0	19.0	ENSMUSP00000077697	False	ENSMODP00000057163	-	protein_coding													
+3691	Monodelphis_domestica	C_deleted	0	False	True	1	446410176.0	446410223.0	0.246	0.647	0.0	0.0	0.0	ENSCAFP00000034626	False		-	protein_coding													
+3724	Monodelphis_domestica	C_deleted	0	False	False																										
+3729	Monodelphis_domestica	B_pseudo	0	False	True	5	174077099.0	174118594.0	0.813	0.423	2.0	6.0	11.0	ENSCAFP00000002934	True																
+3731	Monodelphis_domestica	B_pseudo	0	False	True	2	37572932.0	37586904.0	0.994	0.406	1.0	1.0	2.0	ENSCAFP00000028021	True																
+3785	Monodelphis_domestica	C_deleted	0	False	True	8	271910346.0	271917720.0	0.168	0.947	0.0	0.0	1.0	ENSRNOP00000014520	True	ENSMODP00000047831	-	protein_coding													
+3800	Monodelphis_domestica	C_deleted	0	False	False																										
+3810	Monodelphis_domestica	C_deleted	3	False	True	1	200406981.0	200407716.0	1.0	0.344	1.0	0.0	0.0	ENSMUSP00000109887	False		TTBK2	protein_coding													
+3859	Monodelphis_domestica	C_deleted	0	False	True	2	39537405.0	39537530.0	0.221	0.333	0.0	0.0	0.0	ENSPTRP00000091533	False																
+3866	Monodelphis_domestica	D_undetermined	10	False	False																										
+3907	Monodelphis_domestica	C_deleted	0	False	False																										
+3987	Monodelphis_domestica	C_deleted	0	False	True	6	50978862.0	50981285.0	0.78	0.625	0.0	0.0	0.0	ENSMUSP00000046843	True		-	lncRNA													
+4024	Monodelphis_domestica	B_partial	0	False	True	7	252130788.0	252133902.0	0.341	0.694	0.0	0.0	3.0	ENSP00000385006	True	ENSMODP00000020071	-	protein_coding													
+4045	Monodelphis_domestica	C_deleted	3	False	True	8	209599968.0	209600171.0	0.404	0.321	0.0	0.0	0.0	ENSRNOP00000068894	False																
+4048	Monodelphis_domestica	D_undetermined	5	False	False																										
+4069	Monodelphis_domestica	B_pseudo	5	False	True	6	59942999.0	59970983.0	1.0	0.743	2.0	1.0	12.0	ENSPTRP00000056365	True	ENSMODP00000048597	-	protein_coding													
+4074	Monodelphis_domestica	B_pseudo	5	False	True	4	425055370.0	425084673.0	1.0	0.432	6.0	1.0	12.0	ENSCAFP00000066662	True																
+4084	Monodelphis_domestica	D_undetermined	47	True	True	DS029364.1	149609.0	248631.0	0.903	0.415	0.0	0.0	6.0	ENSRNOP00000038848	False	ENSMODP00000042034	-;-	protein_coding;protein_coding	DS029364.1	149708.0	248589.0	0.845	0.444	0.0	0.0	6.0	ENSP00000378292	False	ENSMODP00000042034	-;-	protein_coding;protein_coding
+4086	Monodelphis_domestica	D_undetermined	4	False	True	4	179016787.0	179075303.0	0.97	0.315	2.0	1.0	16.0	ENSMUSP00000111199	False																
+4096	Monodelphis_domestica	D_undetermined	0	False	True	2	205031845.0	205031919.0	0.258	0.32	0.0	0.0	0.0	ENSP00000475068	False		HIGD1B	protein_coding													
+4471	Monodelphis_domestica	D_undetermined	2	False	True	8	18570992.0	18571781.0	0.258	0.697	0.0	0.0	1.0	ENSRNOP00000065351	True																
+4497	Monodelphis_domestica	C_deleted	5	False	True	8	127161103.0	127212011.0	0.824	0.601	0.0	1.0	11.0	ENSRNOP00000071979	False																
+4502	Monodelphis_domestica	C_deleted	0	False	False																										
+4504	Monodelphis_domestica	C_deleted	5	False	False																										
+4540	Monodelphis_domestica	C_deleted	0	False	False																										
+4559	Monodelphis_domestica	D_undetermined	3	True	True	4	111908246.0	111908443.0	0.868	0.758	0.0	0.0	0.0	ENSCAFP00000036216	False	ENSMODP00000060504	-	protein_coding	4	111908246.0	111908443.0	0.868	0.758	0.0	0.0	0.0	ENSCAFP00000036216	False	ENSMODP00000060504	-	protein_coding
+4570	Monodelphis_domestica	B_pseudo	0	False	True	2	506690185.0	506703716.0	1.0	0.753	3.0	0.0	1.0	ENSCAFP00000035938	True		-;-	pseudogene;protein_coding													
+4573	Monodelphis_domestica	D_undetermined	0	False	True	4	23990371.0	23990523.0	0.281	0.321	0.0	0.0	0.0	ENSMUSP00000149532	False																
+4597	Monodelphis_domestica	C_deleted	0	False	True	4	321665678.0	321665722.0	0.155	0.533	0.0	0.0	0.0	ENSP00000362507	False		-	lncRNA													
+4602	Monodelphis_domestica	B_pseudo	0	False	True	3	512767923.0	512818711.0	1.0	0.733	2.0	0.0	15.0	ENSCAFP00000066180	True	ENSMODP00000012164	-;-	protein_coding;protein_coding													
+4610	Monodelphis_domestica	D_undetermined	1	False	False																										
+4633	Monodelphis_domestica	B_pseudo	0	False	True	1	448024945.0	448091808.0	0.998	0.459	2.0	1.0	38.0	ENSCAFP00000046691	True		-	lncRNA													
+4653	Monodelphis_domestica	C_deleted	23	False	False																										
+4667	Monodelphis_domestica	D_undetermined	0	False	True	8	217167627.0	217292552.0	0.765	0.35	0.0	0.0	37.0	ENSPTRP00000041051	False		-	protein_coding													
+4731	Monodelphis_domestica	D_undetermined	6	False	True	3	509060459.0	509119771.0	0.993	0.407	0.0	1.0	2.0	ENSP00000403535	False		-;-;PXN	pseudogene;lncRNA;protein_coding													
+4748	Monodelphis_domestica	D_undetermined	0	True	True	3	85726532.0	86269350.0	1.0	0.514	0.0	0.0	9.0	ENSPTRP00000016970	False		-;-	pseudogene;protein_coding	3	85726532.0	86269350.0	1.0	0.514	0.0	0.0	9.0	ENSPTRP00000016970	False		-;-	pseudogene;protein_coding
+4763	Monodelphis_domestica	B_partial	0	False	True	1	684760119.0	684761228.0	0.617	0.834	0.0	0.0	2.0	ENSCAFP00000030193	True																
+4794	Monodelphis_domestica	D_undetermined	0	True	True	AAFR03068698.1	4494.0	5414.0	0.981	0.414	0.0	0.0	0.0	ENSCAFP00000039728	False	ENSMODP00000056572	-	protein_coding	AAFR03068698.1	4491.0	5321.0	0.891	0.42	0.0	0.0	0.0	ENSP00000331087	False	ENSMODP00000056572	-	protein_coding
+4819	Monodelphis_domestica	C_deleted	0	False	False																										
+4891	Monodelphis_domestica	C_deleted	6	False	False																										
+4929	Monodelphis_domestica	B_pseudo	1	False	True	4	419130762.0	419161229.0	0.996	0.612	1.0	0.0	14.0	ENSMUSP00000054338	True		-	protein_coding													
+4957	Monodelphis_domestica	B_pseudo	0	False	True	8	7865321.0	7908465.0	1.0	0.588	1.0	0.0	17.0	ENSMUSP00000107195	True	ENSMODP00000055307	-;-;-	protein_coding;lncRNA;protein_coding													
+4980	Monodelphis_domestica	B_partial	0	False	True	8	27448829.0	27468120.0	0.512	0.589	0.0	0.0	7.0	ENSPTRP00000081698	True																
+4984	Monodelphis_domestica	C_deleted	0	False	False																										
+5000	Monodelphis_domestica	D_undetermined	0	True	True	1	295176460.0	295177485.0	0.915	0.567	0.0	0.0	0.0	ENSRNOP00000018613	True		-	lncRNA	1	295176463.0	295177497.0	0.913	0.612	0.0	0.0	0.0	ENSPTRP00000063923	True		-	lncRNA
+5010	Monodelphis_domestica	C_deleted	0	False	False																										
+5063	Monodelphis_domestica	D_undetermined	0	False	True	8	3000084.0	3004577.0	0.287	0.892	0.0	0.0	4.0	ENSP00000385689	True	ENSMODP00000019637	-	protein_coding													
+5077	Monodelphis_domestica	B_partial	0	False	True	3	459325112.0	459326248.0	0.491	0.374	0.0	0.0	1.0	ENSCAFP00000037892	True																
+5099	Monodelphis_domestica	D_undetermined	4	False	False																										
+5110	Monodelphis_domestica	C_deleted	1	False	True	2	519203560.0	519297295.0	0.261	0.351	0.0	0.0	1.0	ENSMUSP00000070551	False		-	lncRNA													
+5123	Monodelphis_domestica	C_deleted	5	False	False																										
+5135	Monodelphis_domestica	B_pseudo	0	True	True	7	251352919.0	251490607.0	0.994	0.398	0.0	0.0	31.0	ENSCAFP00000042060	False	ENSMODP00000019949	-;-	protein_coding;lncRNA	7	251352943.0	251490503.0	0.983	0.406	0.0	0.0	31.0	ENSRNOP00000011115	False	ENSMODP00000019949	-;-	protein_coding;lncRNA
+5186	Monodelphis_domestica	C_deleted	7	False	False																										
+5189	Monodelphis_domestica	C_deleted	10	False	False																										
+5215	Monodelphis_domestica	D_undetermined	0	False	False																										
+5230	Monodelphis_domestica	B_pseudo	0	False	True	4	381879172.0	381904861.0	0.649	0.421	1.0	0.0	3.0	ENSCAFP00000053688	True		-	lncRNA													
+5252	Monodelphis_domestica	C_deleted	0	False	True	DS029327.1	90.0	444.0	0.432	0.362	2.0	0.0	0.0	ENSP00000442793	False																
+5278	Monodelphis_domestica	B_pseudo	0	True	True	4	394683536.0	394688562.0	1.0	0.449	2.0	0.0	6.0	ENSMUSP00000025706	True				4	394683536.0	394749511.0	0.993	0.463	0.0	0.0	6.0	ENSRNOP00000052331	True		PLEKHG5	protein_coding
+5347	Monodelphis_domestica	B_pseudo	75	True	True	6	141794754.0	141795692.0	1.0	0.411	0.0	0.0	0.0	ENSP00000493028	False				1	170296499.0	170297395.0	0.968	0.528	0.0	0.0	0.0	ENSP00000493028	False			
+5475	Monodelphis_domestica	D_undetermined	0	False	False																										
+5507	Monodelphis_domestica	C_deleted	8	False	False																										
+5952	Monodelphis_domestica	B_pseudo	0	False	True	3	440689983.0	440726798.0	1.0	0.436	5.0	0.0	17.0	ENSMUSP00000112932	True		-	protein_coding													
+6059	Monodelphis_domestica	C_deleted	13	False	True	1	329001256.0	329001807.0	0.52	0.717	0.0	0.0	0.0	ENSMUSP00000012426	True																
+6161	Monodelphis_domestica	D_undetermined	0	True	True	6	19850592.0	19865210.0	1.0	0.711	0.0	0.0	1.0	ENSRNOP00000069735	False		-	lncRNA	6	19850592.0	19865210.0	1.0	0.711	0.0	0.0	1.0	ENSRNOP00000069735	False		-	lncRNA
+6163	Monodelphis_domestica	C_deleted	0	False	True	4	363489344.0	363489649.0	0.58	0.541	0.0	0.0	0.0	ENSRNOP00000071677	True		-	lncRNA													
+6169	Monodelphis_domestica	C_deleted	0	False	False																										
+6170	Monodelphis_domestica	C_deleted	0	False	False																										
+6213	Monodelphis_domestica	B_pseudo	1	False	True	3	267961345.0	268162503.0	1.0	0.823	2.0	0.0	47.0	ENSP00000326603	True	ENSMODP00000026823	-	protein_coding													
+6214	Monodelphis_domestica	C_deleted	5	False	False																										
+6223	Monodelphis_domestica	C_deleted	0	False	False																										
+6292	Monodelphis_domestica	C_deleted	0	False	True	4	382979218.0	382979628.0	1.0	0.686	3.0	0.0	0.0	ENSCAFP00000008353	True		-	pseudogene													
+6294	Monodelphis_domestica	B_pseudo	0	False	True	2	333823921.0	333857942.0	1.0	0.539	1.0	0.0	6.0	ENSPTRP00000031394	True		-;-	lncRNA;lncRNA													
+6313	Monodelphis_domestica	B_pseudo	0	False	True	2	75278932.0	75279901.0	1.0	0.566	1.0	0.0	0.0	ENSPTRP00000051455	True		-	pseudogene													
+6319	Monodelphis_domestica	D_undetermined	0	False	True	1	411282975.0	411411570.0	0.793	0.944	1.0	0.0	6.0	ENSRNOP00000007578	False																
+6326	Monodelphis_domestica	D_undetermined	5	False	False																										
+6611	Monodelphis_domestica	B_pseudo	0	False	True	8	64863867.0	64877791.0	1.0	0.784	1.0	0.0	4.0	ENSP00000384490	True	ENSMODP00000011965	-	protein_coding													
+6613	Monodelphis_domestica	C_deleted	3	False	False																										
+6641	Monodelphis_domestica	D_undetermined	4	True	True	4	349856529.0	349899628.0	0.973	0.43	0.0	0.0	9.0	ENSCAFP00000050023	False	ENSMODP00000025242	-	protein_coding	4	349856529.0	349899628.0	0.973	0.43	0.0	0.0	9.0	ENSCAFP00000050023	False	ENSMODP00000025242	-	protein_coding
+6642	Monodelphis_domestica	D_undetermined	0	True	True	4	349856529.0	349886234.0	0.982	0.342	0.0	0.0	7.0	ENSRNOP00000043888	False	ENSMODP00000025242	-	protein_coding	4	349856529.0	349886234.0	0.982	0.342	0.0	0.0	7.0	ENSRNOP00000043888	False	ENSMODP00000025242	-	protein_coding
+6647	Monodelphis_domestica	C_deleted	5	True	True	4	349856532.0	349899649.0	0.994	0.438	0.0	1.0	8.0	ENSMUSP00000078440	False	ENSMODP00000025242	-	protein_coding	4	349856532.0	349899643.0	0.99	0.444	0.0	0.0	7.0	ENSP00000375704	False	ENSMODP00000025242	-	protein_coding
+6649	Monodelphis_domestica	C_deleted	5	True	True	4	349863572.0	349899637.0	0.915	0.315	0.0	0.0	5.0	ENSMUSP00000139170	False	ENSMODP00000025242	-	protein_coding	4	349863572.0	349899637.0	0.915	0.315	0.0	0.0	5.0	ENSMUSP00000139170	False	ENSMODP00000025242	-	protein_coding
+6729	Monodelphis_domestica	C_deleted	5	False	False																										
+6752	Monodelphis_domestica	B_pseudo	24	False	True	1	2698139.0	2757864.0	1.0	0.496	2.0	0.0	8.0	ENSP00000339850	True		-	protein_coding													
+6781	Monodelphis_domestica	C_deleted	0	True	True	X	56979376.0	56980398.0	1.0	0.748	0.0	0.0	0.0	ENSP00000171757	True		-	lncRNA	X	56979385.0	56980398.0	0.869	0.763	0.0	0.0	0.0	ENSCAFP00000025475	True		-	lncRNA
+6788	Monodelphis_domestica	B_partial	0	True	True	3	194977502.0	195422745.0	0.823	0.493	0.0	0.0	14.0	ENSRNOP00000054310	True	ENSMODP00000013203	-	protein_coding	3	194977493.0	195422748.0	0.801	0.566	0.0	0.0	14.0	ENSP00000297423	True	ENSMODP00000013203	-	protein_coding
+6882	Monodelphis_domestica	C_deleted	0	False	False																										
+6903	Monodelphis_domestica	D_undetermined	0	False	True	5	291596397.0	291823231.0	0.821	0.282	1.0	1.0	8.0	ENSMUSP00000105638	False	ENSMODP00000025120	-;SLC43A3;SLC43A1	protein_coding;protein_coding;protein_coding													
+6927	Monodelphis_domestica	C_deleted	5	False	False																										
+6929	Monodelphis_domestica	C_deleted	0	False	False																										
+6944	Monodelphis_domestica	C_deleted	4	True	True	DS029555.1	5859.0	8033.0	0.988	0.655	0.0	0.0	1.0	ENSP00000313967	False	ENSMODP00000048712	-	protein_coding	DS029555.1	5859.0	8033.0	0.988	0.655	0.0	0.0	1.0	ENSP00000313967	False	ENSMODP00000048712	-	protein_coding
+6965	Monodelphis_domestica	D_undetermined	10	False	False																										
+6993	Monodelphis_domestica	D_undetermined	6	False	True	DS029483.1	78487.0	80416.0	0.606	0.72	0.0	0.0	4.0	ENSRNOP00000049386	False	ENSMODP00000020482	TNNT1	protein_coding													
+6994	Monodelphis_domestica	D_undetermined	0	False	False																										
+7008	Monodelphis_domestica	B_pseudo	9	False	True	DS029337.1	264838.0	278425.0	0.931	0.569	1.0	0.0	10.0	ENSPTRP00000063821	True	ENSMODP00000026100	-	protein_coding													
+7016	Monodelphis_domestica	D_undetermined	10	False	False																										
+7142	Monodelphis_domestica	C_deleted	5	False	False																										
+7193	Monodelphis_domestica	B_pseudo	0	False	True	8	7952223.0	7955042.0	1.0	0.679	2.0	0.0	3.0	ENSCAFP00000015716	True	ENSMODP00000053444	-	protein_coding													
+7242	Monodelphis_domestica	B_pseudo	5	False	True	4	389858020.0	389945129.0	0.906	0.684	0.0	1.0	9.0	ENSP00000367545	True	ENSMODP00000045775	-	protein_coding													
+7277	Monodelphis_domestica	D_undetermined	0	False	True	5	291702832.0	291767795.0	0.649	0.382	0.0	0.0	6.0	ENSCAFP00000060360	False	ENSMODP00000025120	-;SLC43A1	protein_coding;protein_coding													
+7287	Monodelphis_domestica	C_deleted	0	True	True	2	381086426.0	381087409.0	0.907	0.54	0.0	0.0	0.0	ENSCAFP00000064794	False	ENSMODP00000043484	MARCKS	protein_coding	2	381086426.0	381087409.0	0.901	0.64	0.0	0.0	0.0	ENSP00000478061	False	ENSMODP00000043484	MARCKS	protein_coding
+7325	Monodelphis_domestica	C_deleted	0	False	False																										
+7335	Monodelphis_domestica	D_undetermined	9	False	True	DS029444.1	101876.0	116943.0	0.472	0.494	0.0	0.0	5.0	ENSP00000346577	False	ENSMODP00000043452	-	protein_coding													
+7384	Monodelphis_domestica	B_pseudo	0	False	True	2	225779112.0	225866726.0	0.696	0.884	1.0	0.0	16.0	ENSP00000490658	True	ENSMODP00000043459	-;-	protein_coding;protein_coding													
+7421	Monodelphis_domestica	C_deleted	0	False	True	DS029362.1	632.0	24398.0	0.533	0.804	0.0	0.0	8.0	ENSP00000367629	False	ENSMODP00000026470	-	protein_coding													
+7427	Monodelphis_domestica	C_deleted	5	False	False																										
+7438	Monodelphis_domestica	C_deleted	0	False	True	6	290990815.0	290991801.0	0.419	0.551	0.0	0.0	2.0	ENSP00000266556	False																
+7462	Monodelphis_domestica	C_deleted	6	False	False																										
+7531	Monodelphis_domestica	B_pseudo	0	False	True	8	64863867.0	64877728.0	1.0	0.394	1.0	0.0	4.0	ENSMUSP00000026663	False	ENSMODP00000011965	-	protein_coding													
+7547	Monodelphis_domestica	C_deleted	5	False	False																										
+7557	Monodelphis_domestica	C_deleted	7	False	True	2	514224894.0	514323128.0	0.564	0.624	3.0	0.0	13.0	ENSMUSP00000098217	False																
+7619	Monodelphis_domestica	B_partial	0	False	True	DS029345.1	296312.0	299526.0	0.369	0.64	0.0	0.0	2.0	ENSP00000360421	True																
+7649	Monodelphis_domestica	B_pseudo	0	False	True	4	245958319.0	246118851.0	1.0	0.807	1.0	1.0	61.0	ENSP00000388058	True		-	protein_coding													
+7704	Monodelphis_domestica	D_undetermined	0	True	True	8	145552079.0	146175948.0	1.0	0.735	0.0	0.0	24.0	ENSMUSP00000030691	True	ENSMODP00000021208	-;-;-	protein_coding;protein_coding;protein_coding	8	145552079.0	146175948.0	1.0	0.735	0.0	0.0	24.0	ENSMUSP00000030691	True	ENSMODP00000021208	-;-;-	protein_coding;protein_coding;protein_coding
+7732	Monodelphis_domestica	C_deleted	1	False	False																										
+7746	Monodelphis_domestica	C_deleted	0	False	False																										
+7753	Monodelphis_domestica	B_partial	10	False	True	4	361632333.0	361727892.0	0.584	0.877	0.0	0.0	4.0	ENSMUSP00000050353	True		-	protein_coding													
+7766	Monodelphis_domestica	C_deleted	10	False	True	5	156420137.0	156422833.0	0.466	0.735	7.0	1.0	1.0	ENSCAFP00000051395	False		-;-	protein_coding;processed_pseudogene													
+7884	Monodelphis_domestica	C_deleted	5	True	True	5	235125207.0	235126175.0	0.841	0.597	0.0	0.0	0.0	ENSMUSP00000133620	True				5	235125207.0	235126175.0	0.841	0.597	0.0	0.0	0.0	ENSMUSP00000133620	True			
+7895	Monodelphis_domestica	B_pseudo	0	False	True	1	219530433.0	219648028.0	0.991	0.636	2.0	0.0	9.0	ENSMUSP00000060771	True	ENSMODP00000052842	-	protein_coding													
+7919	Monodelphis_domestica	D_undetermined	0	False	False																										
+7933	Monodelphis_domestica	C_deleted	0	False	False																										
+7969	Monodelphis_domestica	B_pseudo	0	False	True	2	161797718.0	161849033.0	1.0	0.323	4.0	2.0	16.0	ENSP00000258243	True																
+7974	Monodelphis_domestica	C_deleted	12	False	False																										
+7999	Monodelphis_domestica	C_deleted	0	True	True	1	422419686.0	422421197.0	1.0	0.925	0.0	0.0	0.0	ENSP00000317534	True		ZBTB43	protein_coding	1	422419662.0	422421197.0	0.987	0.914	0.0	0.0	0.0	ENSCAFP00000029906	True		ZBTB43	protein_coding
+8089	Monodelphis_domestica	D_undetermined	15	False	False																										
+8116	Monodelphis_domestica	B_pseudo	0	False	True	8	107196968.0	107420685.0	0.992	0.735	3.0	0.0	49.0	ENSPTRP00000007801	True		-	pseudogene													
+8127	Monodelphis_domestica	B_pseudo	5	False	True	8	306110568.0	306117726.0	1.0	0.84	1.0	0.0	6.0	ENSPTRP00000032379	True	ENSMODP00000001883	-	protein_coding													
+8131	Monodelphis_domestica	B_pseudo	0	False	True	1	22848636.0	22870824.0	1.0	0.897	1.0	0.0	8.0	ENSPTRP00000041962	True	ENSMODP00000011850	-;-	lncRNA;protein_coding													
+8144	Monodelphis_domestica	B_pseudo	5	False	True	4	784240.0	922448.0	1.0	0.52	4.0	3.0	15.0	ENSCAFP00000042631	True	ENSMODP00000026210	-;-	protein_coding;lncRNA													
+8195	Monodelphis_domestica	D_undetermined	5	False	False																										
+8259	Monodelphis_domestica	B_pseudo	0	False	True	4	370881543.0	370991835.0	0.632	0.591	5.0	0.0	13.0	ENSCAFP00000047189	True	ENSMODP00000003185	-;CLASRP;PEX14	protein_coding;protein_coding;protein_coding													
+8260	Monodelphis_domestica	C_deleted	5	False	True	2	251406.0	431054.0	0.574	0.789	0.0	0.0	1.0	ENSPTRP00000059348	False	ENSMODP00000024694	-	protein_coding													
+8262	Monodelphis_domestica	B_pseudo	0	False	True	3	393567342.0	393833547.0	0.995	0.756	2.0	0.0	44.0	ENSCAFP00000051570	True	ENSMODP00000059341	-;-	protein_coding;protein_coding													
+8263	Monodelphis_domestica	B_pseudo	0	True	True	2	232964557.0	233118160.0	1.0	0.645	1.0	0.0	22.0	ENSP00000462154	True		-	pseudogene	2	232964557.0	233118160.0	1.0	0.638	0.0	0.0	22.0	ENSPTRP00000085621	True		-	pseudogene
+8323	Monodelphis_domestica	B_pseudo	0	False	True	3	485236517.0	485276145.0	0.951	0.587	5.0	0.0	14.0	ENSRNOP00000001807	True		-	protein_coding													
+8365	Monodelphis_domestica	D_undetermined	0	False	True	DS029593.1	1.0	201.0	0.102	0.627	0.0	0.0	0.0	ENSMUSP00000021135	True																
+8376	Monodelphis_domestica	C_deleted	0	False	True	7	125543590.0	125543622.0	0.125	0.455	0.0	0.0	0.0	ENSCAFP00000040645	False																
+8443	Monodelphis_domestica	D_undetermined	0	False	True	DS029589.1	7.0	22659.0	0.465	0.677	0.0	0.0	16.0	ENSRNOP00000076295	False																
+8456	Monodelphis_domestica	B_partial	0	False	True	8	10224701.0	10225834.0	0.538	0.552	0.0	0.0	0.0	ENSRNOP00000000205	True	ENSMODP00000040510	-	protein_coding													
+8489	Monodelphis_domestica	D_undetermined	0	False	False																										
+8520	Monodelphis_domestica	B_partial	5	False	True	2	319784931.0	319969227.0	0.457	0.976	0.0	0.0	14.0	ENSP00000359630	True	ENSMODP00000047525	-	protein_coding													
+8541	Monodelphis_domestica	D_undetermined	0	False	True	8	221103701.0	221106488.0	0.757	0.419	3.0	5.0	2.0	ENSMUSP00000040416	False		-;-	lncRNA;lncRNA													
+8560	Monodelphis_domestica	B_pseudo	5	False	True	2	26526279.0	26610601.0	1.0	0.674	1.0	0.0	11.0	ENSMUSP00000043142	True	ENSMODP00000001487	-	protein_coding													
+8572	Monodelphis_domestica	B_pseudo	0	False	True	2	517886329.0	517903393.0	1.0	0.609	4.0	0.0	5.0	ENSCAFP00000028481	True		-	protein_coding													
+8587	Monodelphis_domestica	B_pseudo	0	False	True	DS029355.1	306032.0	325735.0	1.0	0.542	1.0	0.0	6.0	ENSPTRP00000033222	True	ENSMODP00000059857	-;PON2	protein_coding;protein_coding													
+8588	Monodelphis_domestica	C_deleted	0	False	False																										
+8589	Monodelphis_domestica	B_pseudo	0	False	True	3	369583971.0	369658747.0	0.759	0.563	0.0	1.0	1.0	ENSCAFP00000036202	True	ENSMODP00000006973	-	protein_coding													
+8599	Monodelphis_domestica	B_pseudo	0	False	True	4	363505023.0	363524225.0	1.0	0.568	2.0	0.0	17.0	ENSPTRP00000081491	True	ENSMODP00000017678	-	protein_coding													
+8625	Monodelphis_domestica	D_undetermined	35	False	False																										
+8631	Monodelphis_domestica	B_pseudo	0	True	True	4	4898757.0	5080015.0	0.992	0.5	1.0	0.0	41.0	ENSPTRP00000069829	True		-;-	protein_coding;protein_coding	4	4910564.0	5071053.0	0.916	0.534	0.0	0.0	38.0	ENSCAFP00000014371	True		-;-	protein_coding;protein_coding
+8678	Monodelphis_domestica	C_deleted	2	False	True	X	29464969.0	29465061.0	0.101	0.613	0.0	0.0	0.0	ENSMUSP00000024338	False	ENSMODP00000027586	-	protein_coding													
+8690	Monodelphis_domestica	C_deleted	0	True	True	6	255778977.0	255957463.0	1.0	0.628	2.0	0.0	16.0	ENSCAFP00000039777	False				6	255779058.0	255957463.0	0.976	0.646	0.0	0.0	16.0	ENSPTRP00000088075	False			
+8740	Monodelphis_domestica	D_undetermined	0	True	True	X	28737349.0	28738299.0	1.0	0.802	0.0	0.0	0.0	ENSCAFP00000027374	False				X	28737349.0	28738299.0	1.0	0.802	0.0	0.0	0.0	ENSCAFP00000027374	False			
+8803	Monodelphis_domestica	D_undetermined	5	False	True	7	260507282.0	260517698.0	0.206	0.865	0.0	0.0	2.0	ENSP00000445408	False	ENSMODP00000057909	-	protein_coding													
+8809	Monodelphis_domestica	C_deleted	10	False	False																										
+8811	Monodelphis_domestica	C_deleted	15	False	False																										
+8869	Monodelphis_domestica	B_partial	4	False	True	DS029507.1	55525.0	62016.0	0.434	0.726	0.0	0.0	3.0	ENSRNOP00000076346	True																
+8873	Monodelphis_domestica	D_undetermined	15	False	False																										
+8882	Monodelphis_domestica	B_pseudo	5	True	True	2	521401210.0	521420301.0	0.984	0.46	7.0	0.0	15.0	ENSCAFP00000018297	True	ENSMODP00000013356	-	protein_coding	4	396411208.0	396449591.0	0.892	0.397	0.0	0.0	19.0	ENSMUSP00000066620	False	ENSMODP00000042287	-	protein_coding
+8914	Monodelphis_domestica	B_pseudo	5	False	True	2	3727507.0	3829418.0	1.0	0.649	2.0	0.0	22.0	ENSMUSP00000135270	True	ENSMODP00000037982	-;-	protein_coding;protein_coding													
+8955	Monodelphis_domestica	B_pseudo	10	False	True	5	63557438.0	63562366.0	1.0	0.622	2.0	1.0	2.0	ENSP00000495061	True	ENSMODP00000059191	-	protein_coding													
+8973	Monodelphis_domestica	B_pseudo	9	False	False																										
+8974	Monodelphis_domestica	C_deleted	5	False	False																										
+8989	Monodelphis_domestica	B_pseudo	5	False	True	8	246546278.0	246787463.0	1.0	0.751	1.0	0.0	32.0	ENSPTRP00000004014	True		-;-;-	protein_coding;protein_coding;protein_coding													
+9004	Monodelphis_domestica	C_deleted	1	False	False																										
+9048	Monodelphis_domestica	D_undetermined	50	False	True	8	297391809.0	297421991.0	0.77	0.387	0.0	0.0	1.0	ENSCAFP00000041898	False	ENSMODP00000048937	-;HOXA2	protein_coding;protein_coding													
+9062	Monodelphis_domestica	D_undetermined	15	False	False																										
+9065	Monodelphis_domestica	D_undetermined	22	False	True	8	297391482.0	297392980.0	0.958	0.502	2.0	0.0	2.0	ENSMUSP00000097740	False	ENSMODP00000048937	-	protein_coding													
+9070	Monodelphis_domestica	D_undetermined	5	False	False																										
+9099	Monodelphis_domestica	B_pseudo	0	False	True	DS029345.1	253681.0	261333.0	0.972	0.643	0.0	1.0	3.0	ENSP00000354643	True	ENSMODP00000026690	-;-	protein_coding;protein_coding													
+9111	Monodelphis_domestica	D_undetermined	16	False	True	DS029486.1	5142.0	33184.0	0.499	0.597	2.0	0.0	6.0	ENSRNOP00000036043	False																
+9134	Monodelphis_domestica	B_pseudo	0	False	True	4	74819913.0	74873697.0	1.0	0.783	1.0	0.0	17.0	ENSP00000273395	True																
+9193	Monodelphis_domestica	B_pseudo	5	False	True	4	388727468.0	388801157.0	0.994	0.789	1.0	0.0	11.0	ENSRNOP00000068014	True																
+9266	Monodelphis_domestica	B_pseudo	2	False	True	2	9386018.0	9393469.0	0.892	0.611	1.0	0.0	12.0	ENSPTRP00000074478	True		-;TOE1	pseudogene;protein_coding													
+9272	Monodelphis_domestica	C_deleted	2	False	False																										
+9318	Monodelphis_domestica	D_undetermined	5	False	False																										
+9319	Monodelphis_domestica	D_undetermined	13	False	False																										
+9328	Monodelphis_domestica	B_pseudo	0	False	True	8	116314022.0	116333282.0	1.0	0.575	1.0	0.0	9.0	ENSCAFP00000023001	True																
+9346	Monodelphis_domestica	D_undetermined	10	False	False																										
+9361	Monodelphis_domestica	C_deleted	0	False	True	2	457323365.0	457323415.0	0.121	0.647	0.0	0.0	0.0	ENSP00000420618	False																
+9363	Monodelphis_domestica	D_undetermined	0	False	False																										
+9368	Monodelphis_domestica	C_deleted	0	False	False																										
+9377	Monodelphis_domestica	D_undetermined	0	False	False																										
+9390	Monodelphis_domestica	C_deleted	0	False	False																										
+9447	Monodelphis_domestica	C_deleted	8	False	False																										
+9478	Monodelphis_domestica	D_undetermined	0	False	True	8	97263549.0	97264739.0	0.504	0.279	0.0	0.0	0.0	ENSRNOP00000018809	False																
+9492	Monodelphis_domestica	B_pseudo	0	False	True	8	264660400.0	264756388.0	1.0	0.859	2.0	0.0	18.0	ENSPTRP00000087723	True	ENSMODP00000045719	-;-	protein_coding;protein_coding													
+9517	Monodelphis_domestica	B_pseudo	12	False	True	DS029430.1	33557.0	43027.0	0.634	0.963	0.0	0.0	7.0	ENSMUSP00000101194	True	ENSMODP00000023245	-;-	protein_coding;protein_coding													
+9562	Monodelphis_domestica	B_partial	17	False	True	7	173742723.0	173743449.0	0.487	0.896	0.0	0.0	1.0	ENSMUSP00000006721	True	ENSMODP00000051402	-	protein_coding													
+9577	Monodelphis_domestica	C_deleted	5	False	False																										
+9607	Monodelphis_domestica	B_pseudo	5	False	True	4	356613888.0	356711737.0	0.997	0.497	2.0	0.0	12.0	ENSRNOP00000048749	True		-;-	lncRNA;lncRNA													
+9780	Monodelphis_domestica	D_undetermined	0	False	False																										
+9802	Monodelphis_domestica	C_deleted	0	False	False																										
+9832	Monodelphis_domestica	D_undetermined	15	False	False																										
+9833	Monodelphis_domestica	C_deleted	4	False	False																										
+9843	Monodelphis_domestica	D_undetermined	10	False	False																										
+9846	Monodelphis_domestica	C_deleted	0	False	False																										
+9889	Monodelphis_domestica	B_partial	0	False	True	6	64414843.0	64427830.0	0.455	0.49	0.0	0.0	3.0	ENSPTRP00000075163	True	ENSMODP00000040884	-	protein_coding													
+9935	Monodelphis_domestica	C_deleted	0	False	False																										
+9954	Monodelphis_domestica	C_deleted	0	False	True	2	65000490.0	65000851.0	0.478	0.624	1.0	1.0	0.0	ENSRNOP00000003998	True																
+9962	Monodelphis_domestica	C_deleted	0	False	True	1	452801572.0	452801652.0	0.318	1.0	0.0	0.0	0.0	ENSCAFP00000040407	True																
+10057	Monodelphis_domestica	B_partial	0	False	True	1	5816512.0	5855185.0	0.526	0.675	0.0	0.0	9.0	ENSP00000263563	True																
+10062	Monodelphis_domestica	D_undetermined	15	False	False																										
+10084	Monodelphis_domestica	B_pseudo	8	False	True	2	506861606.0	506938537.0	1.0	0.514	5.0	1.0	13.0	ENSCAFP00000027819	True																
+10100	Monodelphis_domestica	D_undetermined	0	False	False																										
+10109	Monodelphis_domestica	D_undetermined	10	False	False																										
+10122	Monodelphis_domestica	D_undetermined	0	False	True	6	291239945.0	291250564.0	0.5	0.534	1.0	0.0	3.0	ENSCAFP00000056058	False																
+10144	Monodelphis_domestica	D_undetermined	10	False	True	DS029397.1	34901.0	150701.0	0.836	0.549	0.0	1.0	15.0	ENSRNOP00000073015	False		LRP1	protein_coding													
+10146	Monodelphis_domestica	C_deleted	0	False	True	8	70731835.0	70732463.0	1.0	0.852	1.0	3.0	0.0	ENSRNOP00000009155	False																
+10152	Monodelphis_domestica	D_undetermined	5	False	True	7	252747260.0	252750799.0	0.194	0.993	0.0	0.0	2.0	ENSCAFP00000020491	True																
+10165	Monodelphis_domestica	D_undetermined	0	False	True	2	507666758.0	507761612.0	0.478	0.763	0.0	0.0	2.0	ENSMUSP00000062489	False	ENSMODP00000007897	-	protein_coding													
+10176	Monodelphis_domestica	B_pseudo	0	False	True	8	111666797.0	111668040.0	1.0	0.783	1.0	0.0	0.0	ENSP00000441832	True		-	pseudogene													
+10183	Monodelphis_domestica	B_pseudo	0	False	True	7	154163991.0	154359991.0	1.0	0.742	2.0	0.0	13.0	ENSP00000440190	True		-	lncRNA													
+10184	Monodelphis_domestica	D_undetermined	10	False	True	DS029439.1	34423.0	34983.0	0.602	0.716	0.0	1.0	0.0	ENSCAFP00000066725	False																
+10212	Monodelphis_domestica	D_undetermined	1	False	True	4	384467377.0	384574054.0	0.792	0.462	2.0	0.0	7.0	ENSCAFP00000040411	False	ENSMODP00000056186	MAP3K10;-;-	protein_coding;protein_coding;lncRNA													
+10265	Monodelphis_domestica	C_deleted	0	False	False																										
+10284	Monodelphis_domestica	B_pseudo	0	False	True	4	1266676.0	1343752.0	1.0	0.47	1.0	2.0	13.0	ENSPTRP00000023975	True																
+10346	Monodelphis_domestica	B_pseudo	3	False	True	2	2667366.0	2689751.0	0.418	0.791	2.0	0.0	1.0	ENSMUSP00000060463	True																
+10526	Monodelphis_domestica	C_deleted	0	False	False																										
+10558	Monodelphis_domestica	C_deleted	0	False	False																										
+10583	Monodelphis_domestica	D_undetermined	5	False	False																										
+10600	Monodelphis_domestica	B_pseudo	0	False	True	5	238738337.0	238883047.0	0.977	0.787	2.0	0.0	35.0	ENSMUSP00000046992	True		-	protein_coding													
+10655	Monodelphis_domestica	C_deleted	5	False	False																										
+10697	Monodelphis_domestica	D_undetermined	0	False	False																										
+10710	Monodelphis_domestica	B_pseudo	5	False	True	8	311067230.0	311072579.0	0.742	0.459	0.0	0.0	3.0	ENSPTRP00000064905	True																
+10711	Monodelphis_domestica	D_undetermined	0	False	False																										
+10758	Monodelphis_domestica	B_pseudo	0	False	True	8	15435810.0	15535070.0	0.699	0.524	3.0	1.0	11.0	ENSCAFP00000045298	True	ENSMODP00000054721	-;MAPK8IP2	protein_coding;protein_coding													
+10805	Monodelphis_domestica	B_partial	0	False	True	4	394857700.0	394862655.0	0.507	0.72	0.0	0.0	2.0	ENSPTRP00000000176	True	ENSMODP00000007359	-	protein_coding													
+10837	Monodelphis_domestica	D_undetermined	0	True	True	4	90846605.0	90847279.0	1.0	0.822	0.0	0.0	0.0	ENSPTRP00000023819	False				4	90846605.0	90847279.0	1.0	0.822	0.0	0.0	0.0	ENSPTRP00000023819	False			
+10923	Monodelphis_domestica	C_deleted	33	False	True	8	269901137.0	269901820.0	0.605	0.746	0.0	0.0	0.0	ENSRNOP00000066146	False	ENSMODP00000043446	-	protein_coding													
+10930	Monodelphis_domestica	C_deleted	0	False	False																										
+10992	Monodelphis_domestica	B_partial	0	False	True	DS029632.1	26014.0	30552.0	0.287	0.674	0.0	0.0	2.0	ENSRNOP00000074961	True	ENSMODP00000060455	-	protein_coding													
+10997	Monodelphis_domestica	D_undetermined	0	False	False																										
+11020	Monodelphis_domestica	C_deleted	0	False	False																										
+11022	Monodelphis_domestica	B_partial	0	False	True	DS029451.1	19898.0	24021.0	0.659	0.457	0.0	0.0	4.0	ENSPTRP00000067348	True	ENSMODP00000057350	-;PNPLA2	protein_coding;protein_coding													
+11070	Monodelphis_domestica	D_undetermined	0	True	True	2	68666777.0	69004304.0	0.995	0.923	0.0	0.0	18.0	ENSRNOP00000048511	True	ENSMODP00000006906	COP1	protein_coding	2	68666777.0	69004388.0	0.875	0.904	0.0	0.0	18.0	ENSCAFP00000050058	True	ENSMODP00000006906	COP1	protein_coding
+11117	Monodelphis_domestica	D_undetermined	0	False	True	AAFR03066161.1	89744.0	90351.0	0.257	0.957	0.0	0.0	2.0	ENSCAFP00000037293	True																
+11281	Monodelphis_domestica	D_undetermined	5	False	True	4	69469310.0	69501337.0	0.98	0.427	0.0	1.0	1.0	ENSP00000362111	False																
+11426	Monodelphis_domestica	B_partial	0	False	True	6	289402381.0	289423242.0	0.696	0.647	0.0	0.0	2.0	ENSCAFP00000004798	True																
+11427	Monodelphis_domestica	B_pseudo	10	False	False																										
+11454	Monodelphis_domestica	C_deleted	10	False	True	AAFR03068384.1	6875.0	12132.0	0.481	0.773	0.0	0.0	2.0	ENSRNOP00000011138	False	ENSMODP00000003924	-	protein_coding													
+11461	Monodelphis_domestica	C_deleted	0	False	True	DS029377.1	229491.0	238204.0	0.252	0.627	0.0	0.0	1.0	ENSPTRP00000058108	True	ENSMODP00000038921	-	protein_coding													
+11507	Monodelphis_domestica	B_pseudo	0	False	True	5	303774674.0	303779095.0	0.405	0.422	0.0	0.0	5.0	ENSMUSP00000061308	True	ENSMODP00000039561	-	protein_coding													
+11528	Monodelphis_domestica	B_partial	15	False	True	5	14441162.0	14444007.0	0.635	0.804	0.0	0.0	2.0	ENSP00000240100	True	ENSMODP00000023720	-;-	protein_coding;protein_coding													
+11547	Monodelphis_domestica	D_undetermined	0	True	True	DS029368.1	5306.0	31828.0	0.815	0.757	0.0	0.0	15.0	ENSP00000345793	False	ENSMODP00000020653	-	protein_coding	DS029368.1	5306.0	31828.0	0.815	0.757	0.0	0.0	15.0	ENSP00000345793	False	ENSMODP00000020653	-	protein_coding
+11548	Monodelphis_domestica	B_pseudo	0	False	True	8	245012240.0	245221433.0	1.0	0.753	3.0	1.0	18.0	ENSMUSP00000157197	True	ENSMODP00000010230	-	protein_coding													
+11555	Monodelphis_domestica	C_deleted	4	True	True	X	26876237.0	27028318.0	1.0	0.897	0.0	0.0	9.0	ENSMUSP00000109516	False	ENSMODP00000026066	-	protein_coding	X	26876237.0	27028318.0	1.0	0.897	0.0	0.0	9.0	ENSMUSP00000109516	False	ENSMODP00000026066	-	protein_coding
+11598	Monodelphis_domestica	B_pseudo	0	False	True	1	716440925.0	716454744.0	1.0	0.675	1.0	0.0	8.0	ENSPTRP00000020874	True	ENSMODP00000011995	-;-;-	protein_coding;protein_coding;protein_coding													
+11617	Monodelphis_domestica	B_pseudo	0	False	True	3	412112151.0	412154476.0	1.0	0.709	1.0	0.0	4.0	ENSCAFP00000001594	True	ENSMODP00000034081	-	protein_coding													
+11654	Monodelphis_domestica	D_undetermined	0	False	True	2	38042257.0	38074110.0	0.785	0.613	0.0	0.0	9.0	ENSCAFP00000028085	False	ENSMODP00000043712	-	protein_coding													
+11752	Monodelphis_domestica	B_pseudo	0	False	True	6	249648654.0	249697322.0	1.0	0.569	1.0	0.0	9.0	ENSCAFP00000005681	True	ENSMODP00000009248	-;-	protein_coding;protein_coding													
+11765	Monodelphis_domestica	D_undetermined	0	False	True	DS029465.1	4040.0	46999.0	1.0	0.379	2.0	0.0	18.0	ENSCAFP00000036879	False	ENSMODP00000050349	-;-	protein_coding;lncRNA													
+11780	Monodelphis_domestica	D_undetermined	5	False	False																										
+11783	Monodelphis_domestica	B_pseudo	0	False	True	6	283475328.0	283562923.0	1.0	0.417	2.0	0.0	13.0	ENSCAFP00000037304	True	ENSMODP00000043813	-;-	protein_coding;lncRNA													
+11827	Monodelphis_domestica	B_pseudo	2	False	True	6	204497304.0	204949464.0	0.994	0.806	1.0	0.0	35.0	ENSMUSP00000126029	True		-	protein_coding													
+11864	Monodelphis_domestica	D_undetermined	8	True	True	8	65433524.0	65435131.0	0.865	0.474	0.0	0.0	0.0	ENSRNOP00000070003	False		POC1B	protein_coding	8	65433524.0	65435077.0	0.841	0.478	0.0	0.0	0.0	ENSP00000444171	False		POC1B	protein_coding
+11907	Monodelphis_domestica	B_pseudo	0	False	True	2	277604716.0	277697818.0	1.0	0.732	2.0	0.0	14.0	ENSPTRP00000046705	True		-	protein_coding													
+11939	Monodelphis_domestica	D_undetermined	5	False	False																										
+11973	Monodelphis_domestica	B_pseudo	5	False	True	8	188823468.0	188832742.0	1.0	0.531	1.0	0.0	6.0	ENSP00000418037	True	ENSMODP00000049678	-	protein_coding													
+11992	Monodelphis_domestica	D_undetermined	10	False	False																										
+12014	Monodelphis_domestica	B_partial	5	True	True	4	430995765.0	431007191.0	0.984	0.717	0.0	0.0	4.0	ENSRNOP00000067471	False	ENSMODP00000021301	-	protein_coding	4	430995765.0	431007191.0	0.899	0.727	0.0	0.0	4.0	ENSP00000357402	False	ENSMODP00000021301	-	protein_coding
+12097	Monodelphis_domestica	D_undetermined	7	False	True	DS029548.1	34014.0	47502.0	0.578	0.601	0.0	0.0	15.0	ENSCAFP00000014293	False		-	lncRNA													
+12109	Monodelphis_domestica	D_undetermined	0	False	False																										
+12113	Monodelphis_domestica	B_pseudo	0	False	True	4	132784030.0	132831103.0	0.998	0.684	1.0	0.0	17.0	ENSMUSP00000073190	True	ENSMODP00000047907	-;-;-	protein_coding;protein_coding;protein_coding													
+12122	Monodelphis_domestica	B_pseudo	0	False	True	4	421153040.0	421172113.0	1.0	0.551	0.0	1.0	3.0	ENSCAFP00000004870	True	ENSMODP00000029504	RSPO1	protein_coding													
+12140	Monodelphis_domestica	C_deleted	23	False	False																										
+12154	Monodelphis_domestica	C_deleted	5	False	False																										
+12221	Monodelphis_domestica	B_pseudo	12	False	True	2	254394785.0	254409044.0	0.83	0.521	4.0	5.0	11.0	ENSP00000369530	True		-	lncRNA													
+12306	Monodelphis_domestica	D_undetermined	0	False	False																										
+12331	Monodelphis_domestica	C_deleted	10	False	True	3	42886672.0	43044524.0	0.695	0.78	0.0	1.0	40.0	ENSRNOP00000059245	False		-	protein_coding													
+12337	Monodelphis_domestica	C_deleted	10	False	False																										
+12398	Monodelphis_domestica	B_pseudo	0	False	True	1	590350269.0	590380626.0	1.0	0.505	1.0	0.0	9.0	ENSPTRP00000020951	True	ENSMODP00000051994	-;-	protein_coding;lncRNA													
+12435	Monodelphis_domestica	D_undetermined	0	False	False																										
+12482	Monodelphis_domestica	B_pseudo	5	False	True	AAFR03067580.1	4885.0	8578.0	0.449	0.559	1.0	0.0	4.0	ENSCAFP00000005823	False		-	protein_coding													
+12488	Monodelphis_domestica	B_pseudo	0	False	True	4	397052572.0	397057390.0	1.0	0.46	1.0	0.0	8.0	ENSP00000471454	True	ENSMODP00000026900	-	protein_coding													
+12504	Monodelphis_domestica	B_pseudo	16	False	True	DS029399.1	96758.0	114465.0	1.0	0.562	6.0	2.0	18.0	ENSPTRP00000008697	True	ENSMODP00000024201	MYO1A	protein_coding													
+12578	Monodelphis_domestica	B_pseudo	0	False	True	3	145882294.0	145955853.0	1.0	0.522	1.0	0.0	16.0	ENSPTRP00000034871	True																
+12780	Monodelphis_domestica	C_deleted	5	False	False																										
+12784	Monodelphis_domestica	B_pseudo	0	False	True	8	107710357.0	107735505.0	0.933	0.658	2.0	0.0	11.0	ENSCAFP00000043026	True	ENSMODP00000044404	-;-	protein_coding;protein_coding													
+12786	Monodelphis_domestica	D_undetermined	9	False	False																										
+12839	Monodelphis_domestica	D_undetermined	10	False	True	5	299672138.0	299689384.0	0.544	0.769	0.0	0.0	3.0	ENSRNOP00000027756	False	ENSMODP00000009301	-	protein_coding													
+12840	Monodelphis_domestica	B_partial	5	False	False																										
+12872	Monodelphis_domestica	C_deleted	10	False	False																										
+12906	Monodelphis_domestica	D_undetermined	20	True	True	2	251478625.0	251479284.0	1.0	0.777	0.0	0.0	0.0	ENSCAFP00000056004	False	ENSMODP00000039907	-	protein_coding	2	251478625.0	251479284.0	1.0	0.777	0.0	0.0	0.0	ENSCAFP00000056004	False	ENSMODP00000039907	-	protein_coding
+12952	Monodelphis_domestica	D_undetermined	0	False	True	DS029515.1	2749.0	11949.0	0.228	0.94	0.0	0.0	4.0	ENSRNOP00000009645	False																
+12963	Monodelphis_domestica	B_pseudo	0	True	True	3	423556874.0	423862863.0	1.0	0.931	1.0	0.0	32.0	ENSCAFP00000051882	True		-;-;-	protein_coding;protein_coding;protein_coding	3	423556874.0	423862863.0	1.0	0.936	0.0	0.0	30.0	ENSP00000429082	True		-;-;-	protein_coding;protein_coding;protein_coding
+13011	Monodelphis_domestica	D_undetermined	10	False	False																										
+13032	Monodelphis_domestica	B_pseudo	0	False	True	6	176755274.0	176944417.0	1.0	0.779	1.0	0.0	45.0	ENSCAFP00000065045	True	ENSMODP00000027786	-;-	protein_coding;protein_coding													
+13033	Monodelphis_domestica	B_pseudo	0	False	True	2	29128405.0	29474814.0	1.0	0.723	1.0	0.0	41.0	ENSP00000494277	True	ENSMODP00000002978	-;-	protein_coding;protein_coding													
+13044	Monodelphis_domestica	D_undetermined	5	False	False																										
+13052	Monodelphis_domestica	D_undetermined	10	False	False																										
+13077	Monodelphis_domestica	C_deleted	28	False	False																										
+13089	Monodelphis_domestica	C_deleted	5	False	False																										
+13134	Monodelphis_domestica	D_undetermined	10	False	False																										
+13153	Monodelphis_domestica	B_partial	15	False	True	8	87309356.0	87375504.0	0.592	0.798	0.0	0.0	7.0	ENSMUSP00000113720	True	ENSMODP00000001534	-	protein_coding													
+13187	Monodelphis_domestica	B_partial	10	False	False																										
+13256	Monodelphis_domestica	D_undetermined	5	False	True	1	133713021.0	133718754.0	1.0	0.953	1.0	0.0	2.0	ENSRNOP00000014152	False	ENSMODP00000016036	NR2F2	protein_coding													
+13268	Monodelphis_domestica	B_pseudo	1	False	True	2	306764546.0	307378447.0	1.0	0.747	3.0	0.0	102.0	ENSCAFP00000039191	True		-;-;-	protein_coding;protein_coding;protein_coding													
+13292	Monodelphis_domestica	C_deleted	0	False	False																										
+13304	Monodelphis_domestica	B_pseudo	0	False	True	5	302772068.0	302773923.0	0.482	0.825	1.0	0.0	2.0	ENSRNOP00000028194	True																
+13340	Monodelphis_domestica	C_deleted	0	False	True	AAFR03070264.1	307.0	1468.0	0.531	0.607	0.0	0.0	2.0	ENSCAFP00000039820	False																
+13368	Monodelphis_domestica	C_deleted	0	False	False																										
+13370	Monodelphis_domestica	B_pseudo	0	False	True	5	301599782.0	301616476.0	0.604	0.653	2.0	0.0	4.0	ENSCAFP00000015044	True	ENSMODP00000038993	-	protein_coding													
+13396	Monodelphis_domestica	C_deleted	5	False	False																										
+13399	Monodelphis_domestica	D_undetermined	5	False	True	DS029693.1	4807.0	22403.0	0.338	0.734	0.0	1.0	9.0	ENSRNOP00000070114	False		-	protein_coding													
+13437	Monodelphis_domestica	C_deleted	5	False	False																										
+13486	Monodelphis_domestica	C_deleted	5	False	False																										
+13557	Monodelphis_domestica	D_undetermined	5	False	False																										
+13560	Monodelphis_domestica	D_undetermined	0	False	False																										
+13564	Monodelphis_domestica	C_deleted	0	False	False																										
+13565	Monodelphis_domestica	C_deleted	12	False	True	AAFR03067595.1	12434.0	17576.0	0.603	0.493	2.0	0.0	5.0	ENSP00000228468	False	ENSMODP00000038820	-	protein_coding													
+13567	Monodelphis_domestica	B_pseudo	5	False	True	AAFR03067595.1	12434.0	17546.0	0.551	0.919	0.0	0.0	7.0	ENSMUSP00000045598	False	ENSMODP00000038820	-	protein_coding													
+13643	Monodelphis_domestica	D_undetermined	7	False	False																										
+13703	Monodelphis_domestica	C_deleted	5	False	True	1	453431275.0	453432162.0	1.0	0.588	4.0	0.0	0.0	ENSP00000300784	False		-	pseudogene													
+13798	Monodelphis_domestica	B_partial	7	False	True	2	502780936.0	502814776.0	0.739	0.537	3.0	0.0	9.0	ENSCAFP00000025760	False	ENSMODP00000051284	-	protein_coding													
+13802	Monodelphis_domestica	B_partial	13	False	True	1	747225758.0	747230248.0	0.459	0.681	0.0	0.0	5.0	ENSPTRP00000020087	True																
+13823	Monodelphis_domestica	D_undetermined	5	False	True	DS029573.1	40047.0	40926.0	0.561	0.533	3.0	1.0	1.0	ENSPTRP00000019781	False																
+13865	Monodelphis_domestica	D_undetermined	5	False	False																										
+13917	Monodelphis_domestica	B_pseudo	0	False	True	1	72540101.0	72573876.0	1.0	0.774	1.0	1.0	15.0	ENSPTRP00000004956	True	ENSMODP00000004522	-	protein_coding													
+13930	Monodelphis_domestica	D_undetermined	0	True	True	1	728338497.0	728339972.0	1.0	0.868	0.0	0.0	0.0	ENSP00000385968	False				1	728338497.0	728339972.0	1.0	0.868	0.0	0.0	0.0	ENSP00000385968	False			
+13947	Monodelphis_domestica	B_pseudo	0	False	True	2	37702498.0	37721785.0	1.0	0.597	1.0	0.0	7.0	ENSRNOP00000009402	True																
+13960	Monodelphis_domestica	B_partial	1	False	True	2	536346313.0	536392342.0	0.454	0.599	1.0	0.0	8.0	ENSPTRP00000065768	False																
+14000	Monodelphis_domestica	C_deleted	6	False	False																										
+14009	Monodelphis_domestica	B_pseudo	0	False	True	1	109160615.0	109178086.0	0.775	0.673	2.0	3.0	9.0	ENSCAFP00000015137	True	ENSMODP00000047456	BORCS7	protein_coding													
+14053	Monodelphis_domestica	D_undetermined	2	False	False																										
+14064	Monodelphis_domestica	B_pseudo	0	False	True	2	284585695.0	284597433.0	1.0	0.806	1.0	0.0	7.0	ENSRNOP00000037517	True																
+14180	Monodelphis_domestica	C_deleted	12	True	True	7	84219854.0	84221200.0	0.975	0.359	0.0	0.0	0.0	ENSP00000254436	False				7	84162373.0	84163728.0	0.96	0.367	0.0	0.0	0.0	ENSP00000254436	False			
+14181	Monodelphis_domestica	C_deleted	36	True	True	7	84162337.0	84163737.0	1.0	0.319	0.0	0.0	0.0	ENSMUSP00000080813	False				7	84162337.0	84163737.0	1.0	0.319	0.0	0.0	0.0	ENSMUSP00000080813	False			
+14196	Monodelphis_domestica	B_pseudo	2	False	True	2	529827141.0	529833212.0	0.661	0.57	2.0	4.0	1.0	ENSP00000327994	True																
+14222	Monodelphis_domestica	C_deleted	0	False	False																										
+14230	Monodelphis_domestica	B_partial	0	False	True	DS029368.1	266131.0	266641.0	0.371	0.765	0.0	0.0	1.0	ENSMUSP00000086578	True	ENSMODP00000046809	-	protein_coding													
+14236	Monodelphis_domestica	D_undetermined	0	False	False																										
+14304	Monodelphis_domestica	C_deleted	24	True	True	8	205428902.0	205433159.0	0.992	0.4	0.0	0.0	3.0	ENSRNOP00000014319	False	ENSMODP00000001072	-	protein_coding	8	205428902.0	205433159.0	0.992	0.4	0.0	0.0	3.0	ENSRNOP00000014319	False	ENSMODP00000001072	-	protein_coding
+14425	Monodelphis_domestica	C_deleted	9	False	False																										
+14426	Monodelphis_domestica	C_deleted	2	False	False																										
+14446	Monodelphis_domestica	B_partial	5	False	True	8	86943886.0	87052046.0	0.613	0.896	0.0	0.0	14.0	ENSPTRP00000085448	True	ENSMODP00000054834	-;-	protein_coding;protein_coding													
+14482	Monodelphis_domestica	B_pseudo	5	False	True	X	70052413.0	70069518.0	0.97	0.538	5.0	1.0	24.0	ENSMUSP00000085260	True		-	lncRNA													
+14489	Monodelphis_domestica	C_deleted	0	False	False																										
+14521	Monodelphis_domestica	B_pseudo	5	False	True	7	174215750.0	174241748.0	1.0	0.836	2.0	0.0	18.0	ENSPTRP00000022084	True	ENSMODP00000019257	VIL1	protein_coding													
+14540	Monodelphis_domestica	D_undetermined	0	False	True	1	37905602.0	37943262.0	0.934	0.878	1.0	0.0	7.0	ENSRNOP00000033185	False	ENSMODP00000037029	-	protein_coding													
+14640	Monodelphis_domestica	B_pseudo	0	False	True	5	11090371.0	11123713.0	1.0	0.765	2.0	0.0	8.0	ENSP00000373474	True	ENSMODP00000051435	-	protein_coding													
+14646	Monodelphis_domestica	B_partial	0	False	True	8	293880100.0	293898491.0	0.501	0.986	0.0	0.0	3.0	ENSCAFP00000040564	True	ENSMODP00000019045	-	protein_coding													
+14672	Monodelphis_domestica	C_deleted	10	False	True	3	89193063.0	89193892.0	0.34	0.502	2.0	0.0	1.0	ENSRNOP00000051129	False																
+14681	Monodelphis_domestica	C_deleted	5	False	False																										
+14748	Monodelphis_domestica	D_undetermined	5	True	True	8	298215888.0	298217847.0	0.942	0.65	0.0	0.0	3.0	ENSMUSP00000113157	False	ENSMODP00000041725	CBX3	protein_coding	8	298215888.0	298217847.0	0.942	0.65	0.0	0.0	3.0	ENSMUSP00000113157	False	ENSMODP00000041725	CBX3	protein_coding
+14805	Monodelphis_domestica	C_deleted	5	False	True	3	135873375.0	135874135.0	0.996	0.619	2.0	3.0	0.0	ENSPTRP00000092826	False																
+14823	Monodelphis_domestica	D_undetermined	5	False	False																										
+14860	Monodelphis_domestica	D_undetermined	5	False	False																										
+14878	Monodelphis_domestica	B_pseudo	15	False	True	2	26507731.0	26521809.0	0.432	0.847	2.0	0.0	10.0	ENSMUSP00000099842	True	ENSMODP00000001468	-	protein_coding													
+14894	Monodelphis_domestica	D_undetermined	0	False	True	3	235340177.0	235340529.0	0.245	0.607	2.0	0.0	0.0	ENSRNOP00000062823	False																
+14906	Monodelphis_domestica	B_partial	0	False	True	DS029395.1	3078.0	19996.0	0.383	0.917	0.0	0.0	3.0	ENSPTRP00000008803	True																
+14995	Monodelphis_domestica	D_undetermined	40	False	False																										
+15020	Monodelphis_domestica	B_pseudo	0	False	True	3	510564279.0	510575801.0	1.0	0.826	1.0	1.0	19.0	ENSP00000496779	True		-;-	protein_coding;lncRNA													
+15033	Monodelphis_domestica	B_partial	0	False	True	1	215007441.0	215008046.0	1.0	0.424	2.0	2.0	0.0	ENSP00000175091	False		NOVA1	protein_coding													
+15073	Monodelphis_domestica	C_deleted	10	False	True	1	449695421.0	449696504.0	0.989	0.823	1.0	0.0	0.0	ENSP00000385746	False		-	pseudogene													
+15090	Monodelphis_domestica	C_deleted	9	False	False																										
+15097	Monodelphis_domestica	B_pseudo	21	False	True	2	385525499.0	385662237.0	0.918	0.36	26.0	15.0	30.0	ENSPTRP00000080823	True																
+15110	Monodelphis_domestica	B_partial	0	False	True	2	289283621.0	289295606.0	0.571	0.589	0.0	0.0	3.0	ENSPTRP00000031142	True	ENSMODP00000030288	-;AARS2	protein_coding;protein_coding													
+15155	Monodelphis_domestica	B_pseudo	12	False	True	3	451184598.0	451185800.0	1.0	0.703	1.0	0.0	1.0	ENSP00000252818	True																
+15177	Monodelphis_domestica	D_undetermined	15	False	True	6	192173529.0	192174790.0	0.843	0.657	3.0	1.0	0.0	ENSCAFP00000063524	False	ENSMODP00000018069	-	protein_coding													
+15231	Monodelphis_domestica	C_deleted	11	False	True	6	62432723.0	62433761.0	0.942	0.657	4.0	5.0	0.0	ENSP00000376309	False		USP42	protein_coding													
+15246	Monodelphis_domestica	D_undetermined	0	False	True	7	260485603.0	260488436.0	0.27	0.695	0.0	0.0	2.0	ENSRNOP00000009015	True	ENSMODP00000043292	-	protein_coding													
+15252	Monodelphis_domestica	C_deleted	8	False	False																										
+15254	Monodelphis_domestica	D_undetermined	10	False	False																										
+15267	Monodelphis_domestica	B_partial	0	False	True	2	32177863.0	32472235.0	0.68	0.806	0.0	0.0	10.0	ENSP00000360262	True	ENSMODP00000037054	-;-	protein_coding;protein_coding													
+15307	Monodelphis_domestica	C_deleted	6	False	False																										
+15331	Monodelphis_domestica	B_pseudo	0	False	True	3	516683940.0	516869331.0	0.511	0.863	2.0	0.0	9.0	ENSRNOP00000044499	True	ENSMODP00000029532	-	protein_coding													
+15400	Monodelphis_domestica	B_partial	0	False	True	DS029335.1	549449.0	552447.0	0.307	0.978	0.0	0.0	5.0	ENSCAFP00000003259	True																
+15403	Monodelphis_domestica	B_partial	5	False	False																										
+15429	Monodelphis_domestica	C_deleted	5	False	False																										
+15459	Monodelphis_domestica	B_pseudo	0	False	True	1	40297139.0	40348266.0	1.0	0.73	1.0	0.0	19.0	ENSP00000378897	True	ENSMODP00000050063	-;-	protein_coding;protein_coding													
+15510	Monodelphis_domestica	B_partial	0	False	True	8	30985587.0	31242004.0	0.585	0.653	0.0	0.0	14.0	ENSCAFP00000048907	True	ENSMODP00000041122	-;CCDC184;-	protein_coding;protein_coding;lncRNA													
+15707	Monodelphis_domestica	D_undetermined	10	True	True	4	349592143.0	349593369.0	1.0	0.68	0.0	0.0	0.0	ENSCAFP00000010469	False	ENSMODP00000045561	-	protein_coding	4	349592143.0	349593369.0	1.0	0.68	0.0	0.0	0.0	ENSCAFP00000010469	False	ENSMODP00000045561	-	protein_coding
+15738	Monodelphis_domestica	D_undetermined	5	False	False																										
+15753	Monodelphis_domestica	C_deleted	0	False	True	DS029360.1	208777.0	212814.0	0.526	0.611	0.0	0.0	1.0	ENSMUSP00000080224	False	ENSMODP00000043346	-	protein_coding													
+15754	Monodelphis_domestica	B_pseudo	0	False	True	2	540302313.0	540315399.0	1.0	0.413	10.0	1.0	9.0	ENSMUSP00000156080	True																
+15761	Monodelphis_domestica	B_pseudo	0	False	True	2	517599180.0	517780649.0	1.0	0.861	2.0	0.0	18.0	ENSPTRP00000014583	True	ENSMODP00000013305	-	protein_coding													
+15810	Monodelphis_domestica	D_undetermined	5	False	False																										
+15819	Monodelphis_domestica	B_pseudo	10	False	True	5	304444497.0	304452212.0	1.0	0.78	0.0	2.0	4.0	ENSP00000227507	True	ENSMODP00000005021	-;-	protein_coding;protein_coding													
+15822	Monodelphis_domestica	D_undetermined	3	False	True	1	382749361.0	382749579.0	0.151	0.395	0.0	0.0	0.0	ENSPTRP00000071446	False		NSD1	protein_coding													
+15826	Monodelphis_domestica	D_undetermined	7	False	False																										
+15845	Monodelphis_domestica	B_pseudo	0	False	True	DS029341.1	13435.0	15645.0	0.643	0.524	2.0	0.0	4.0	ENSCAFP00000039170	True																
+15878	Monodelphis_domestica	C_deleted	10	False	False																										
+15925	Monodelphis_domestica	C_deleted	6	True	True	X	27459186.0	27482342.0	0.986	0.379	1.0	0.0	11.0	ENSMUSP00000066403	False	ENSMODP00000012726	-	protein_coding	X	27460087.0	27482342.0	0.883	0.431	0.0	0.0	11.0	ENSCAFP00000040146	False	ENSMODP00000012726	-	protein_coding
+15926	Monodelphis_domestica	D_undetermined	5	True	True	X	27459409.0	27482339.0	0.967	0.548	0.0	0.0	12.0	ENSMUSP00000016383	False	ENSMODP00000012726	-	protein_coding	X	27459520.0	27482339.0	0.92	0.585	0.0	0.0	12.0	ENSP00000360690	False	ENSMODP00000012726	-	protein_coding
+15961	Monodelphis_domestica	B_partial	4	False	True	DS029341.1	71017.0	71583.0	0.469	0.77	0.0	0.0	2.0	ENSRNOP00000017562	True		-	lncRNA													
+15969	Monodelphis_domestica	D_undetermined	0	False	False																										
+16031	Monodelphis_domestica	B_pseudo	0	False	True	2	341792488.0	341869875.0	1.0	0.746	2.0	0.0	8.0	ENSMUSP00000034992	True	ENSMODP00000047471	-;-	protein_coding;protein_coding													
+16105	Monodelphis_domestica	B_partial	5	False	True	1	109675350.0	109678261.0	0.472	0.845	0.0	0.0	10.0	ENSMUSP00000072859	True		-	protein_coding													
+16127	Monodelphis_domestica	D_undetermined	6	False	False																										
+16129	Monodelphis_domestica	D_undetermined	5	False	False																										
+16158	Monodelphis_domestica	C_deleted	22	False	True	DS029407.1	76718.0	77230.0	0.497	0.549	0.0	0.0	0.0	ENSRNOP00000035797	False																
+16236	Monodelphis_domestica	C_deleted	5	True	True	4	137038535.0	137039062.0	0.871	0.453	0.0	0.0	0.0	ENSCAFP00000002255	False	ENSMODP00000057274	-	protein_coding	4	137038535.0	137039062.0	0.871	0.453	0.0	0.0	0.0	ENSCAFP00000002255	False	ENSMODP00000057274	-	protein_coding
+16260	Monodelphis_domestica	C_deleted	4	False	False																										
+16265	Monodelphis_domestica	D_undetermined	10	False	False																										
+16315	Monodelphis_domestica	B_pseudo	2	False	True	DS029507.1	19090.0	57668.0	0.778	0.393	1.0	0.0	3.0	ENSCAFP00000003349	True																
+16325	Monodelphis_domestica	C_deleted	0	False	True	7	28494867.0	28498006.0	1.0	0.726	1.0	0.0	0.0	ENSP00000370034	True		-	pseudogene													
+16357	Monodelphis_domestica	D_undetermined	0	False	True	6	279100768.0	279100920.0	0.172	0.882	0.0	0.0	0.0	ENSMUSP00000035092	False																
+16381	Monodelphis_domestica	D_undetermined	18	False	True	7	73557836.0	73560793.0	0.881	0.372	2.0	2.0	1.0	ENSPTRP00000059009	False	ENSMODP00000038698	-	protein_coding													
+16389	Monodelphis_domestica	D_undetermined	10	False	False																										
+16425	Monodelphis_domestica	D_undetermined	10	False	False																										
+16459	Monodelphis_domestica	D_undetermined	5	False	False																										
+16466	Monodelphis_domestica	D_undetermined	6	True	True	1	122377288.0	122380983.0	1.0	0.353	0.0	1.0	2.0	ENSMUSP00000131303	False		-	lncRNA	1	122377288.0	122380527.0	0.851	0.384	0.0	0.0	2.0	ENSCAFP00000018544	False		-	lncRNA
+16488	Monodelphis_domestica	B_pseudo	0	False	True	5	269620818.0	269626982.0	0.661	0.75	1.0	0.0	1.0	ENSP00000257818	True																
+16542	Monodelphis_domestica	B_pseudo	0	False	True	1	728240824.0	728252306.0	1.0	0.432	3.0	0.0	11.0	ENSP00000318977	True		-;-	lncRNA;protein_coding													
+16563	Monodelphis_domestica	B_pseudo	0	False	True	8	17511804.0	17512780.0	0.943	0.634	1.0	0.0	0.0	ENSPTRP00000055744	True	ENSMODP00000050573	-	protein_coding													
+16568	Monodelphis_domestica	D_undetermined	0	False	False																										
+16573	Monodelphis_domestica	C_deleted	0	True	True	2	130416825.0	130417520.0	1.0	0.616	0.0	0.0	0.0	ENSPTRP00000035446	False		BPNT1	protein_coding	2	130416825.0	130417520.0	1.0	0.616	0.0	0.0	0.0	ENSPTRP00000035446	False		BPNT1	protein_coding
+16591	Monodelphis_domestica	C_deleted	10	False	False																										
+16618	Monodelphis_domestica	B_pseudo	0	False	True	1	109641251.0	109646366.0	0.746	0.586	1.0	0.0	5.0	ENSP00000358953	True	ENSMODP00000014111	-	protein_coding													
+16639	Monodelphis_domestica	C_deleted	5	False	False																										
+16680	Monodelphis_domestica	B_pseudo	5	False	True	3	460214080.0	460242638.0	1.0	0.829	1.0	0.0	23.0	ENSP00000471851	True	ENSMODP00000004312	-;-	protein_coding;protein_coding													
+16691	Monodelphis_domestica	B_pseudo	10	False	True	1	5931868.0	6042098.0	1.0	0.574	2.0	0.0	18.0	ENSPTRP00000004497	True																
+16695	Monodelphis_domestica	C_deleted	5	False	False																										
+16701	Monodelphis_domestica	C_deleted	0	False	False																										
+16757	Monodelphis_domestica	D_undetermined	5	False	True	AAFR03071710.1	1669.0	4181.0	0.773	0.653	0.0	0.0	7.0	ENSCAFP00000028111	False		-	lncRNA													
+16795	Monodelphis_domestica	C_deleted	5	False	False																										
+16809	Monodelphis_domestica	B_partial	10	False	True	7	33044643.0	33112211.0	0.609	0.914	0.0	0.0	7.0	ENSP00000372499	True	ENSMODP00000053364	-	protein_coding													
+16849	Monodelphis_domestica	D_undetermined	0	False	True	3	193603283.0	193604539.0	0.851	0.544	7.0	9.0	0.0	ENSPTRP00000079211	False																
+16851	Monodelphis_domestica	D_undetermined	0	False	True	1	740850418.0	740852692.0	0.247	0.631	0.0	0.0	1.0	ENSRNOP00000020909	False	ENSMODP00000054916	-	protein_coding													
+16857	Monodelphis_domestica	D_undetermined	5	False	True	5	299577833.0	299584167.0	0.286	0.657	0.0	0.0	2.0	ENSP00000439694	True																
+16859	Monodelphis_domestica	C_deleted	10	True	True	1	252711331.0	252712221.0	0.994	0.561	0.0	0.0	0.0	ENSP00000452514	False	ENSMODP00000021328	-	protein_coding	1	252711331.0	252712221.0	0.993	0.648	0.0	0.0	0.0	ENSRNOP00000032191	False	ENSMODP00000021328	-	protein_coding
+16883	Monodelphis_domestica	C_deleted	10	False	False																										
+16912	Monodelphis_domestica	B_pseudo	0	False	True	5	243322712.0	243585577.0	0.952	0.673	1.0	0.0	10.0	ENSP00000265965	True	ENSMODP00000008334	-	protein_coding													
+16917	Monodelphis_domestica	C_deleted	10	False	True	DS029443.1	129249.0	141344.0	0.608	0.735	0.0	0.0	5.0	ENSMUSP00000095558	False	ENSMODP00000060421	-	protein_coding													
+16928	Monodelphis_domestica	B_pseudo	0	True	True	2	185227650.0	185237151.0	1.0	0.667	1.0	0.0	5.0	ENSP00000482704	True		-	protein_coding	2	185227650.0	185237151.0	1.0	0.662	0.0	0.0	5.0	ENSRNOP00000038582	True		-	protein_coding
+16932	Monodelphis_domestica	B_pseudo	0	False	True	2	214251457.0	214283262.0	0.965	0.747	1.0	0.0	2.0	ENSCAFP00000007036	True	ENSMODP00000052357	-	protein_coding													
+16934	Monodelphis_domestica	B_partial	0	False	True	5	218539279.0	218543090.0	0.975	0.449	13.0	6.0	2.0	ENSP00000297273	False																
+16942	Monodelphis_domestica	B_partial	0	False	True	3	485057817.0	485062741.0	0.658	0.69	0.0	0.0	2.0	ENSP00000347486	True																
+16946	Monodelphis_domestica	B_pseudo	0	False	True	8	248473080.0	248870882.0	1.0	0.743	1.0	0.0	20.0	ENSPTRP00000056557	True	ENSMODP00000011097	-;-	protein_coding;protein_coding													
+16956	Monodelphis_domestica	B_partial	5	False	True	3	474348349.0	474603334.0	0.66	0.556	0.0	0.0	5.0	ENSCAFP00000040184	False	ENSMODP00000019524	-	protein_coding													
+16977	Monodelphis_domestica	D_undetermined	0	False	False																										
+16995	Monodelphis_domestica	C_deleted	10	False	False																										
+17086	Monodelphis_domestica	C_deleted	14	False	False																										
+17127	Monodelphis_domestica	B_partial	13	False	True	4	368508610.0	368586727.0	0.535	0.891	0.0	0.0	13.0	ENSP00000334941	True	ENSMODP00000051417	-	protein_coding													
+17140	Monodelphis_domestica	B_partial	5	False	True	DS029374.1	2093.0	83990.0	0.629	0.958	0.0	0.0	4.0	ENSCAFP00000022903	False	ENSMODP00000026114	-	protein_coding													
+17142	Monodelphis_domestica	D_undetermined	5	False	False																										
+17161	Monodelphis_domestica	D_undetermined	0	True	True	2	259835596.0	260065042.0	1.0	0.959	0.0	0.0	11.0	ENSP00000410402	False	ENSMODP00000055638	-	protein_coding	2	259835596.0	260065042.0	1.0	0.959	0.0	0.0	11.0	ENSP00000410402	False	ENSMODP00000055638	-	protein_coding
+17213	Monodelphis_domestica	D_undetermined	5	True	True	5	199822398.0	199823030.0	0.986	0.744	0.0	1.0	0.0	ENSMUSP00000010974	False		-	pseudogene	8	65235925.0	65263618.0	0.962	0.862	0.0	0.0	3.0	ENSCAFP00000059273	False	ENSMODP00000012111	-;DDX17	protein_coding;protein_coding
+17279	Monodelphis_domestica	C_deleted	8	False	False																										
+17300	Monodelphis_domestica	B_pseudo	0	False	True	1	78752407.0	78862053.0	1.0	0.943	1.0	0.0	24.0	ENSPTRP00000050516	True	ENSMODP00000008223	-	protein_coding													
+17380	Monodelphis_domestica	B_pseudo	0	True	True	1	199111825.0	199208694.0	0.998	0.524	0.0	0.0	34.0	ENSRNOP00000070492	True		-	pseudogene	1	199111825.0	199208694.0	0.998	0.524	0.0	0.0	34.0	ENSRNOP00000070492	True		-	pseudogene
+17387	Monodelphis_domestica	B_pseudo	0	False	True	4	366196000.0	366307758.0	1.0	0.964	1.0	0.0	56.0	ENSP00000354558	True	ENSMODP00000057648	-;-	protein_coding;protein_coding													
+17392	Monodelphis_domestica	C_deleted	9	False	False																										
+17409	Monodelphis_domestica	B_pseudo	0	False	True	4	412759790.0	412766421.0	1.0	0.474	3.0	0.0	16.0	ENSP00000263274	True																
+17460	Monodelphis_domestica	D_undetermined	0	False	True	DS029439.1	67721.0	124607.0	0.383	0.728	0.0	0.0	4.0	ENSRNOP00000051774	False																
+17471	Monodelphis_domestica	B_partial	0	False	True	8	70087107.0	70089003.0	0.392	0.589	0.0	0.0	1.0	ENSRNOP00000066512	True	ENSMODP00000045307	-	protein_coding													
+17537	Monodelphis_domestica	B_pseudo	5	True	True	2	483158933.0	483164501.0	1.0	0.772	1.0	0.0	9.0	ENSPTRP00000041899	True		-	protein_coding	2	483158933.0	483164269.0	0.843	0.832	0.0	0.0	9.0	ENSRNOP00000016833	True		-	protein_coding
+17553	Monodelphis_domestica	B_partial	10	False	True	6	289650477.0	289797558.0	0.399	0.986	0.0	0.0	6.0	ENSMUSP00000072334	False	ENSMODP00000039165	-	protein_coding													
+17585	Monodelphis_domestica	B_pseudo	15	False	True	2	8698593.0	8885664.0	1.0	0.505	3.0	1.0	21.0	ENSCAFP00000038060	True	ENSMODP00000037803	-	protein_coding													
+17617	Monodelphis_domestica	C_deleted	0	False	False																										
+17625	Monodelphis_domestica	B_pseudo	10	False	True	4	394100973.0	394238585.0	1.0	0.73	4.0	1.0	33.0	ENSP00000262450	True	ENSMODP00000007809	-;-	protein_coding;protein_coding													
+17638	Monodelphis_domestica	D_undetermined	0	False	False																										
+17781	Monodelphis_domestica	B_pseudo	10	False	True	2	8637999.0	8679574.0	1.0	0.691	1.0	0.0	7.0	ENSCAFP00000006438	True	ENSMODP00000002600	-	protein_coding													
+17792	Monodelphis_domestica	B_pseudo	15	False	True	3	441205305.0	441218769.0	1.0	0.512	2.0	2.0	8.0	ENSPTRP00000017536	True																
+17804	Monodelphis_domestica	B_pseudo	0	False	True	3	507855146.0	507878534.0	1.0	0.698	1.0	0.0	3.0	ENSP00000281938	True																
+17811	Monodelphis_domestica	B_pseudo	0	False	True	1	377464038.0	377579099.0	0.996	0.9	1.0	0.0	20.0	ENSPTRP00000029725	True	ENSMODP00000007069	-	protein_coding													
+17825	Monodelphis_domestica	D_undetermined	4	False	True	2	444810806.0	444888631.0	0.426	0.602	0.0	0.0	1.0	ENSRNOP00000075137	False	ENSMODP00000029226	-	protein_coding													
+17832	Monodelphis_domestica	C_deleted	10	False	True	8	29709455.0	29831270.0	0.987	0.642	7.0	2.0	23.0	ENSPTRP00000074145	False	ENSMODP00000006060	-	protein_coding													
+17881	Monodelphis_domestica	D_undetermined	0	False	False																										
+17891	Monodelphis_domestica	B_pseudo	10	False	True	8	12069169.0	12075431.0	1.0	0.539	3.0	0.0	8.0	ENSRNOP00000025641	True	ENSMODP00000009589	-	protein_coding													
+17903	Monodelphis_domestica	D_undetermined	10	False	True	8	43742262.0	43753433.0	0.657	0.951	0.0	0.0	2.0	ENSCAFP00000000699	False	ENSMODP00000025573	-	protein_coding													
+17938	Monodelphis_domestica	C_deleted	0	False	True	DS029352.1	255713.0	257584.0	0.962	0.798	2.0	0.0	4.0	ENSPTRP00000025673	False	ENSMODP00000013578	-	protein_coding													
+17946	Monodelphis_domestica	B_pseudo	5	False	False																										
+17971	Monodelphis_domestica	C_deleted	24	False	False																										
+17981	Monodelphis_domestica	D_undetermined	0	False	True	DS029325.1	286964.0	376730.0	0.373	0.222	0.0	1.0	1.0	ENSCAFP00000049802	False		NEXMIF	protein_coding													
+18057	Monodelphis_domestica	C_deleted	0	False	True	4	363497238.0	363497435.0	0.5	0.791	0.0	0.0	0.0	ENSMUSP00000030644	True																
+18097	Monodelphis_domestica	B_pseudo	10	False	True	5	15794443.0	15874109.0	1.0	0.847	1.0	0.0	12.0	ENSP00000180173	True	ENSMODP00000023785	-;-	protein_coding;protein_coding													
+18125	Monodelphis_domestica	B_partial	1	False	True	7	172061366.0	172074939.0	0.431	0.803	0.0	0.0	6.0	ENSPTRP00000048866	True																
+18149	Monodelphis_domestica	D_undetermined	0	False	False																										
+18161	Monodelphis_domestica	D_undetermined	12	False	False																										
+18175	Monodelphis_domestica	B_pseudo	0	False	True	8	9551746.0	9649217.0	0.696	0.65	1.0	0.0	9.0	ENSMUSP00000122543	True																
+18179	Monodelphis_domestica	D_undetermined	8	False	True	AAFR03068698.1	8629.0	10722.0	0.356	0.771	0.0	0.0	2.0	ENSCAFP00000014870	False																
+18207	Monodelphis_domestica	D_undetermined	0	False	False																										
+18229	Monodelphis_domestica	C_deleted	10	False	False																										
+18359	Monodelphis_domestica	B_partial	12	False	True	6	85216591.0	85223716.0	0.923	0.511	1.0	0.0	8.0	ENSCAFP00000021435	False		-	protein_coding													
+18503	Monodelphis_domestica	D_undetermined	0	False	True	4	279499999.0	279500506.0	0.702	0.458	3.0	3.0	0.0	ENSMUSP00000045474	False																
+18522	Monodelphis_domestica	D_undetermined	0	True	True	2	160375617.0	160377800.0	1.0	0.951	0.0	0.0	0.0	ENSCAFP00000017348	False		-	lncRNA	2	160375617.0	160377800.0	1.0	0.951	0.0	0.0	0.0	ENSCAFP00000017348	False		-	lncRNA
+18580	Monodelphis_domestica	C_deleted	18	False	False																										
+18586	Monodelphis_domestica	D_undetermined	15	True	True	8	192251008.0	192834902.0	1.0	0.927	0.0	0.0	29.0	ENSPTRP00000059933	True		-;-;-	lncRNA;lncRNA;lncRNA	8	192251008.0	192834902.0	1.0	0.927	0.0	0.0	29.0	ENSPTRP00000059933	True		-;-;-	lncRNA;lncRNA;lncRNA
+18587	Monodelphis_domestica	B_pseudo	0	False	True	8	14995594.0	15023717.0	1.0	0.779	1.0	0.0	33.0	ENSRNOP00000072434	True	ENSMODP00000050561	-;-;-	protein_coding;protein_coding;protein_coding													
+18593	Monodelphis_domestica	D_undetermined	10	False	False																										
+18642	Monodelphis_domestica	B_pseudo	0	True	True	8	293647688.0	293648278.0	1.0	0.802	0.0	0.0	0.0	ENSP00000286428	False		-	pseudogene	8	293647685.0	293648278.0	0.85	0.803	0.0	0.0	0.0	ENSPTRP00000074899	False		-	pseudogene
+18733	Monodelphis_domestica	D_undetermined	10	False	False																										
+18735	Monodelphis_domestica	B_pseudo	0	False	True	4	336449456.0	336604160.0	1.0	0.9	2.0	0.0	46.0	ENSCAFP00000007700	True	ENSMODP00000006367	-;-	protein_coding;protein_coding													
+18741	Monodelphis_domestica	C_deleted	5	False	False																										
+18792	Monodelphis_domestica	C_deleted	0	False	False																										
+18872	Monodelphis_domestica	D_undetermined	10	False	True	8	96956736.0	96957793.0	1.0	0.697	1.0	1.0	0.0	ENSCAFP00000017524	False		-	pseudogene													
+18906	Monodelphis_domestica	B_pseudo	6	False	True	2	27720638.0	27776960.0	0.868	0.667	2.0	0.0	6.0	ENSRNOP00000013785	True																
+18908	Monodelphis_domestica	B_pseudo	5	False	True	1	659945103.0	659946782.0	0.603	0.639	0.0	0.0	0.0	ENSMUSP00000147497	False	ENSMODP00000011430	-	protein_coding													
+18910	Monodelphis_domestica	B_partial	5	False	True	1	659944983.0	659946785.0	0.619	0.929	0.0	0.0	0.0	ENSCAFP00000009692	True	ENSMODP00000011430	-	protein_coding													
+18935	Monodelphis_domestica	B_pseudo	0	False	True	5	220891131.0	220928161.0	1.0	0.483	0.0	2.0	8.0	ENSRNOP00000047534	True																
+18940	Monodelphis_domestica	D_undetermined	5	False	False																										
+18955	Monodelphis_domestica	D_undetermined	18	False	True	6	179579502.0	179580284.0	0.498	0.992	0.0	0.0	0.0	ENSP00000314067	False	ENSMODP00000043620	CCDC171;-	protein_coding;protein_coding													
+18974	Monodelphis_domestica	B_pseudo	40	False	True	4	96340386.0	96577246.0	0.721	0.717	0.0	0.0	12.0	ENSMUSP00000006112	False	ENSMODP00000023093	-	protein_coding													
+18981	Monodelphis_domestica	C_deleted	35	False	True	4	96340386.0	96577470.0	0.74	0.9	2.0	1.0	12.0	ENSP00000497153	False	ENSMODP00000023093	-	protein_coding													
+18989	Monodelphis_domestica	B_pseudo	5	False	True	2	273051467.0	273064618.0	1.0	0.587	3.0	0.0	6.0	ENSP00000244458	True	ENSMODP00000045919	-	protein_coding													
+18990	Monodelphis_domestica	C_deleted	5	False	True	2	273051467.0	273064618.0	0.998	0.412	4.0	0.0	6.0	ENSRNOP00000060074	False	ENSMODP00000045919	-	protein_coding													
+19044	Monodelphis_domestica	D_undetermined	0	False	True	X	10961454.0	10961495.0	0.113	0.429	0.0	0.0	0.0	ENSCAFP00000028582	False		-	lncRNA													
+19079	Monodelphis_domestica	C_deleted	10	True	True	4	363235500.0	363250476.0	0.881	0.492	0.0	0.0	6.0	ENSCAFP00000001179	False	ENSMODP00000054030	-	protein_coding	4	363235500.0	363250476.0	0.881	0.492	0.0	0.0	6.0	ENSCAFP00000001179	False	ENSMODP00000054030	-	protein_coding
+19080	Monodelphis_domestica	C_deleted	5	True	True	4	363235506.0	363252261.0	0.992	0.486	0.0	0.0	7.0	ENSRNOP00000008126	False	ENSMODP00000054030	-	protein_coding	4	363235503.0	363250515.0	0.894	0.518	0.0	0.0	6.0	ENSMUSP00000031037	False	ENSMODP00000054030	-	protein_coding
+19138	Monodelphis_domestica	D_undetermined	5	False	True	3	1347727.0	1388430.0	0.916	0.637	7.0	2.0	21.0	ENSCAFP00000011432	False	ENSMODP00000059889	-	protein_coding													
+19148	Monodelphis_domestica	B_pseudo	6	False	True	5	303738957.0	303740293.0	1.0	0.583	5.0	0.0	0.0	ENSMUSP00000020625	False	ENSMODP00000041578	-	protein_coding													
+19226	Monodelphis_domestica	B_pseudo	0	False	True	1	54078194.0	54535992.0	0.919	0.925	1.0	0.0	27.0	ENSCAFP00000022780	True	ENSMODP00000053890	-;-	protein_coding;protein_coding													
+19289	Monodelphis_domestica	D_undetermined	0	False	False																										
+19293	Monodelphis_domestica	B_pseudo	6	False	True	3	442246767.0	442361636.0	1.0	0.672	4.0	2.0	26.0	ENSP00000467537	True	ENSMODP00000045571	PTPRS	protein_coding													
+19294	Monodelphis_domestica	C_deleted	5	False	True	3	442246767.0	442361636.0	1.0	0.485	4.0	1.0	24.0	ENSP00000353030	False	ENSMODP00000045571	PTPRS	protein_coding													
+19301	Monodelphis_domestica	D_undetermined	10	False	False																										
+19361	Monodelphis_domestica	D_undetermined	5	False	False																										
+19366	Monodelphis_domestica	B_pseudo	2	False	True	2	114020795.0	114048465.0	1.0	0.416	4.0	1.0	18.0	ENSCAFP00000017158	True		-	protein_coding													
+19377	Monodelphis_domestica	D_undetermined	3	False	False																										
+19387	Monodelphis_domestica	B_partial	15	True	True	8	80538539.0	80659562.0	0.883	0.464	0.0	0.0	12.0	ENSRNOP00000025577	False	ENSMODP00000040833	-	protein_coding	8	80678593.0	80772771.0	0.867	0.475	0.0	0.0	12.0	ENSMUSP00000000809	False	ENSMODP00000056819	-;-	protein_coding;protein_coding
+19589	Monodelphis_domestica	B_pseudo	0	False	True	2	409945511.0	410078398.0	0.999	0.877	1.0	0.0	16.0	ENSP00000356811	True	ENSMODP00000021834	-;-	protein_coding;protein_coding													
+19597	Monodelphis_domestica	C_deleted	10	False	False																										
+19606	Monodelphis_domestica	C_deleted	5	True	True	6	256230195.0	256314168.0	1.0	0.682	0.0	0.0	6.0	ENSCAFP00000039833	False	ENSMODP00000010773	-	protein_coding	6	256230195.0	256314168.0	1.0	0.682	0.0	0.0	6.0	ENSCAFP00000039833	False	ENSMODP00000010773	-	protein_coding
+19671	Monodelphis_domestica	C_deleted	0	False	False																										
+19703	Monodelphis_domestica	B_partial	5	False	True	2	534483414.0	534614214.0	0.546	0.659	0.0	0.0	7.0	ENSP00000386897	True	ENSMODP00000003553	-	protein_coding													
+19769	Monodelphis_domestica	B_partial	15	False	True	DS029344.1	582.0	39591.0	0.372	0.646	0.0	0.0	2.0	ENSMUSP00000020278	True		HK1	protein_coding													
+19806	Monodelphis_domestica	B_pseudo	5	False	True	DS029446.1	69113.0	122559.0	1.0	0.51	7.0	1.0	16.0	ENSCAFP00000009656	True	ENSMODP00000059592	-	protein_coding													
+19811	Monodelphis_domestica	C_deleted	5	False	False																										
+19869	Monodelphis_domestica	B_partial	0	False	True	6	127747714.0	127750279.0	0.584	0.698	0.0	0.0	1.0	ENSP00000365522	True	ENSMODP00000035148	-	protein_coding													
+19891	Monodelphis_domestica	C_deleted	5	True	True	8	127053060.0	127083781.0	1.0	0.987	0.0	0.0	12.0	ENSP00000373684	False	ENSMODP00000020766	-;-	protein_coding;protein_coding	8	127053060.0	127083781.0	1.0	0.987	0.0	0.0	12.0	ENSP00000373684	False	ENSMODP00000020766	-;-	protein_coding;protein_coding
+19907	Monodelphis_domestica	B_partial	12	False	True	5	297133228.0	297134173.0	1.0	0.651	1.0	3.0	0.0	ENSMUSP00000001125	False	ENSMODP00000043978	-;-;-	protein_coding;protein_coding;protein_coding													
+19914	Monodelphis_domestica	C_deleted	5	True	True	7	77721845.0	77723284.0	1.0	0.77	0.0	0.0	0.0	ENSPTRP00000049526	False		PCID2	protein_coding	7	77721845.0	77723284.0	1.0	0.77	0.0	0.0	0.0	ENSPTRP00000049526	False		PCID2	protein_coding
+19977	Monodelphis_domestica	D_undetermined	0	False	False																										
+19982	Monodelphis_domestica	D_undetermined	20	False	False																										
+19986	Monodelphis_domestica	B_pseudo	32	False	True	1	332030582.0	332047268.0	0.98	0.372	7.0	0.0	12.0	ENSP00000427661	True																
+20029	Monodelphis_domestica	B_pseudo	5	False	True	1	203042570.0	203072526.0	1.0	0.768	3.0	0.0	31.0	ENSPTRP00000012012	True	ENSMODP00000022045	-	protein_coding													
+20080	Monodelphis_domestica	B_partial	15	False	True	5	299841034.0	299855050.0	0.665	0.713	0.0	0.0	7.0	ENSRNOP00000007320	True		-	protein_coding													
+20090	Monodelphis_domestica	B_partial	5	False	True	DS029335.1	471098.0	477599.0	0.397	0.868	0.0	0.0	3.0	ENSMUSP00000111182	True	ENSMODP00000057599	-	protein_coding													
+20232	Monodelphis_domestica	C_deleted	6	False	True	X	26245146.0	26261117.0	0.558	0.912	0.0	0.0	4.0	ENSP00000362601	False	ENSMODP00000026059	-	protein_coding													
+20236	Monodelphis_domestica	B_pseudo	10	False	True	2	1193833.0	1291388.0	0.976	0.459	1.0	0.0	18.0	ENSPTRP00000084032	True	ENSMODP00000038197	-	protein_coding													
+20326	Monodelphis_domestica	B_pseudo	5	False	True	3	484649283.0	484746173.0	0.987	0.515	1.0	0.0	14.0	ENSCAFP00000012271	True	ENSMODP00000015049	-;ANAPC5;P2RX4	protein_coding;protein_coding;protein_coding													
+20366	Monodelphis_domestica	B_pseudo	0	False	True	5	227480961.0	227535895.0	1.0	0.593	1.0	1.0	10.0	ENSPTRP00000065194	True																
+20434	Monodelphis_domestica	D_undetermined	7	False	False																										
+20445	Monodelphis_domestica	B_pseudo	5	False	True	4	208104431.0	208188377.0	1.0	0.904	1.0	0.0	17.0	ENSRNOP00000071972	True	ENSMODP00000014615	-;-	protein_coding;protein_coding													
+20522	Monodelphis_domestica	B_pseudo	5	False	True	1	299246925.0	299369510.0	1.0	0.786	2.0	0.0	15.0	ENSP00000379042	True	ENSMODP00000059414	-	protein_coding													
+20570	Monodelphis_domestica	D_undetermined	0	False	True	6	288922600.0	288935501.0	1.0	0.559	1.0	0.0	10.0	ENSP00000373918	False	ENSMODP00000026452	-	protein_coding													
+20628	Monodelphis_domestica	D_undetermined	0	False	True	5	236890266.0	236890319.0	0.117	0.333	0.0	0.0	0.0	ENSCAFP00000010415	False		IDUA;SLC26A1	protein_coding;protein_coding													
+20630	Monodelphis_domestica	B_partial	0	False	True	DS029366.1	788.0	2934.0	0.328	0.821	0.0	0.0	3.0	ENSP00000377846	True	ENSMODP00000046541	-	protein_coding													
+20652	Monodelphis_domestica	C_deleted	5	False	False																										
+20753	Monodelphis_domestica	D_undetermined	16	False	False																										
+20775	Monodelphis_domestica	D_undetermined	15	False	True	1	2926717.0	3056673.0	0.502	0.922	0.0	0.0	24.0	ENSMUSP00000081531	False	ENSMODP00000008552	-	protein_coding													
+20863	Monodelphis_domestica	C_deleted	44	False	True	3	161810291.0	161811904.0	1.0	0.653	0.0	2.0	0.0	ENSPTRP00000000718	False	ENSMODP00000045874	-	protein_coding													
+20873	Monodelphis_domestica	D_undetermined	0	False	False																										
+20899	Monodelphis_domestica	C_deleted	5	False	True	1	66289979.0	66341677.0	1.0	0.859	1.0	0.0	26.0	ENSCAFP00000019347	False	ENSMODP00000002419	-;-	protein_coding;protein_coding													
+20991	Monodelphis_domestica	D_undetermined	5	False	False																										
+21095	Monodelphis_domestica	B_pseudo	0	False	True	2	185797666.0	185804592.0	1.0	0.551	1.0	0.0	4.0	ENSMUSP00000018842	True		-	protein_coding													
+21096	Monodelphis_domestica	B_partial	0	False	True	3	495687953.0	495695023.0	0.704	0.965	0.0	0.0	3.0	ENSCAFP00000013426	True	ENSMODP00000004363	-;-	protein_coding;protein_coding													
+21108	Monodelphis_domestica	C_deleted	10	True	True	5	142989069.0	142989647.0	1.0	0.816	0.0	0.0	0.0	ENSMUSP00000067013	False	ENSMODP00000036133	-	protein_coding	5	142989093.0	142989647.0	0.944	0.919	0.0	0.0	0.0	ENSPTRP00000071746	False	ENSMODP00000036133	-	protein_coding
+21151	Monodelphis_domestica	B_pseudo	5	True	True	2	28720775.0	28850350.0	1.0	0.936	0.0	1.0	47.0	ENSPTRP00000072239	True		-;USP1;-	pseudogene;protein_coding;lncRNA	2	28740804.0	28850350.0	1.0	0.934	0.0	0.0	45.0	ENSCAFP00000037705	True		-;USP1;-	pseudogene;protein_coding;lncRNA
+21162	Monodelphis_domestica	C_deleted	10	True	True	1	30178334.0	31262534.0	1.0	0.875	0.0	0.0	10.0	ENSRNOP00000054759	True	ENSMODP00000021498	-;-	protein_coding;protein_coding	1	30178334.0	31262534.0	1.0	0.875	0.0	0.0	10.0	ENSRNOP00000054759	True	ENSMODP00000021498	-;-	protein_coding;protein_coding
+21185	Monodelphis_domestica	B_pseudo	10	False	True	X	72167389.0	72186992.0	0.968	0.583	3.0	1.0	36.0	ENSCAFP00000057861	False		CCDC22;-	protein_coding;pseudogene													
+21205	Monodelphis_domestica	D_undetermined	10	False	False																										
+21236	Monodelphis_domestica	C_deleted	15	False	False																										
+21266	Monodelphis_domestica	B_partial	5	False	True	2	492068617.0	492088421.0	0.634	0.823	0.0	0.0	6.0	ENSCAFP00000014843	True	ENSMODP00000040002	-	protein_coding													
+21302	Monodelphis_domestica	D_undetermined	5	False	False																										
+21316	Monodelphis_domestica	B_pseudo	5	False	True	2	486936981.0	486993811.0	1.0	0.634	0.0	1.0	8.0	ENSCAFP00000030553	True		-	protein_coding													
+21390	Monodelphis_domestica	B_pseudo	5	False	True	X	69081253.0	69130757.0	0.65	0.967	0.0	0.0	5.0	ENSP00000262839	True	ENSMODP00000006218	-	protein_coding													
+21437	Monodelphis_domestica	C_deleted	30	False	True	X	19143451.0	19145617.0	1.0	0.872	4.0	5.0	0.0	ENSMUSP00000024739	False		-	lncRNA													
+21492	Monodelphis_domestica	B_pseudo	0	True	True	3	487217692.0	487273103.0	1.0	0.674	1.0	0.0	7.0	ENSCAFP00000048273	True				3	487217692.0	487273100.0	1.0	0.637	0.0	0.0	6.0	ENSMUSP00000050014	True			
+21523	Monodelphis_domestica	B_partial	0	False	True	1	388770406.0	388836746.0	0.645	0.746	0.0	0.0	6.0	ENSPTRP00000043987	True	ENSMODP00000053473	-	protein_coding													
+21567	Monodelphis_domestica	D_undetermined	15	False	True	4	407801181.0	407802145.0	1.0	0.87	1.0	0.0	0.0	ENSP00000316905	False	ENSMODP00000043807	-;-	protein_coding;protein_coding													
+21576	Monodelphis_domestica	D_undetermined	0	False	False																										
+21683	Monodelphis_domestica	D_undetermined	10	False	True	DS029582.1	11161.0	31911.0	0.654	0.75	0.0	2.0	12.0	ENSPTRP00000043355	False	ENSMODP00000045422	-	protein_coding													
+21691	Monodelphis_domestica	B_pseudo	6	False	True	2	212752961.0	212795517.0	0.671	0.57	2.0	2.0	2.0	ENSMUSP00000054062	True		EXOC7	protein_coding													
+21697	Monodelphis_domestica	D_undetermined	0	False	False																										
+21744	Monodelphis_domestica	C_deleted	5	False	False																										
+21794	Monodelphis_domestica	B_pseudo	0	False	True	3	202350148.0	202351273.0	1.0	0.826	2.0	3.0	0.0	ENSCAFP00000035736	False	ENSMODP00000013934	-	protein_coding													
+21808	Monodelphis_domestica	B_partial	10	False	True	4	389595934.0	389607391.0	0.42	0.725	0.0	0.0	6.0	ENSP00000346733	True	ENSMODP00000038831	-	protein_coding													
+21848	Monodelphis_domestica	B_pseudo	5	False	True	8	291896194.0	291923509.0	0.531	0.963	1.0	0.0	9.0	ENSMUSP00000035010	True																
+21860	Monodelphis_domestica	D_undetermined	12	False	True	DS029686.1	4255.0	26160.0	0.749	0.52	1.0	0.0	8.0	ENSCAFP00000063296	False																
+21862	Monodelphis_domestica	D_undetermined	5	True	True	6	288816430.0	288911083.0	1.0	0.78	0.0	0.0	12.0	ENSCAFP00000004610	False	ENSMODP00000026451	-;TTC21A	protein_coding;protein_coding	6	288816430.0	288911083.0	1.0	0.78	0.0	0.0	12.0	ENSCAFP00000004610	False	ENSMODP00000026451	-;TTC21A	protein_coding;protein_coding
+21922	Monodelphis_domestica	C_deleted	10	True	True	8	280157061.0	280192975.0	1.0	0.819	0.0	0.0	4.0	ENSRNOP00000058595	False	ENSMODP00000041066	RAB5A	protein_coding	8	280157061.0	280192975.0	1.0	0.819	0.0	0.0	4.0	ENSRNOP00000058595	False	ENSMODP00000041066	RAB5A	protein_coding
+21928	Monodelphis_domestica	B_partial	0	False	True	DS029441.1	48720.0	57370.0	0.669	0.741	0.0	0.0	6.0	ENSRNOP00000021392	True	ENSMODP00000060218	-	protein_coding													
+21947	Monodelphis_domestica	B_partial	0	False	True	2	27930629.0	27951265.0	0.327	0.646	0.0	0.0	4.0	ENSMUSP00000095574	True	ENSMODP00000059800	-	protein_coding													
+21973	Monodelphis_domestica	D_undetermined	5	False	False																										
+21989	Monodelphis_domestica	D_undetermined	0	False	False																										
+22025	Monodelphis_domestica	B_pseudo	1	True	True	1	280407536.0	280565517.0	0.999	0.598	0.0	1.0	19.0	ENSPTRP00000010754	True		-	protein_coding	1	280407536.0	280565517.0	0.999	0.597	0.0	0.0	19.0	ENSP00000216286	True		-	protein_coding
+22026	Monodelphis_domestica	C_deleted	0	False	True	1	614086442.0	614086838.0	0.839	0.732	1.0	1.0	0.0	ENSCAFP00000040729	False																
+22091	Monodelphis_domestica	B_pseudo	40	True	True	1	172834132.0	172864074.0	1.0	0.693	0.0	0.0	36.0	ENSMUSP00000090672	False		MYH6	protein_coding	1	172834132.0	172864074.0	1.0	0.693	0.0	0.0	36.0	ENSMUSP00000090672	False		MYH6	protein_coding
+22148	Monodelphis_domestica	C_deleted	15	False	False																										
+22265	Monodelphis_domestica	D_undetermined	0	False	False																										
+22286	Monodelphis_domestica	D_undetermined	7	False	False																										
+22293	Monodelphis_domestica	C_deleted	5	False	False																										
+22346	Monodelphis_domestica	B_pseudo	15	False	True	8	51654147.0	51891827.0	1.0	0.822	2.0	0.0	23.0	ENSRNOP00000005862	True	ENSMODP00000025629	-	protein_coding													
+22399	Monodelphis_domestica	D_undetermined	5	False	False																										
+22435	Monodelphis_domestica	C_deleted	0	False	False																										
+22470	Monodelphis_domestica	C_deleted	15	False	True	4	109325138.0	109326504.0	0.489	0.438	1.0	0.0	2.0	ENSCAFP00000027808	False																
+22588	Monodelphis_domestica	C_deleted	10	False	False																										
+22605	Monodelphis_domestica	D_undetermined	6	True	True	DS029465.1	19277.0	38747.0	1.0	0.681	0.0	0.0	10.0	ENSPTRP00000014669	False	ENSMODP00000057299	-;-;-	protein_coding;lncRNA;lncRNA	DS029465.1	19277.0	38747.0	1.0	0.681	0.0	0.0	10.0	ENSPTRP00000014669	False	ENSMODP00000057299	-;-;-	protein_coding;lncRNA;lncRNA
+22674	Monodelphis_domestica	D_undetermined	0	True	True	DS029475.1	610.0	45871.0	0.956	0.818	0.0	0.0	15.0	ENSCAFP00000048564	False	ENSMODP00000013849	-	protein_coding	DS029475.1	610.0	45871.0	0.956	0.818	0.0	0.0	15.0	ENSCAFP00000048564	False	ENSMODP00000013849	-	protein_coding
+22705	Monodelphis_domestica	B_pseudo	15	True	True	2	108171260.0	108211764.0	1.0	0.687	1.0	0.0	18.0	ENSMUSP00000119242	True	ENSMODP00000001355	ATP2B4	protein_coding	1	579593975.0	579597175.0	0.909	0.554	0.0	0.0	0.0	ENSCAFP00000048092	False	ENSMODP00000012396	-	protein_coding
+22795	Monodelphis_domestica	D_undetermined	12	False	False																										
+22843	Monodelphis_domestica	C_deleted	0	False	False																										
+22864	Monodelphis_domestica	B_pseudo	0	False	True	2	20968594.0	21041592.0	0.596	0.59	1.0	0.0	5.0	ENSCAFP00000030288	True		ANKRD13C	protein_coding													
+22876	Monodelphis_domestica	C_deleted	12	False	True	6	152244703.0	152244976.0	1.0	0.823	1.0	0.0	0.0	ENSCAFP00000060934	False	ENSMODP00000021087	-	protein_coding													
+22884	Monodelphis_domestica	B_pseudo	5	False	True	2	251984478.0	251985605.0	0.646	0.88	0.0	1.0	0.0	ENSCAFP00000025650	True																
+22893	Monodelphis_domestica	D_undetermined	5	False	True	4	271870997.0	271871637.0	1.0	0.719	5.0	1.0	0.0	ENSP00000267023	False		MSANTD2;-	protein_coding;pseudogene													
+23023	Monodelphis_domestica	D_undetermined	16	False	True	7	260159423.0	260175726.0	0.478	0.622	1.0	0.0	5.0	ENSCAFP00000022673	False	ENSMODP00000020748	-	protein_coding													
+23047	Monodelphis_domestica	B_partial	0	False	True	2	212953492.0	213001081.0	0.747	0.917	0.0	0.0	9.0	ENSPTRP00000082599	True	ENSMODP00000009713	-	protein_coding													
+23094	Monodelphis_domestica	D_undetermined	12	False	True	3	56632323.0	56677303.0	0.635	0.786	0.0	0.0	7.0	ENSRNOP00000019351	False	ENSMODP00000019633	-	protein_coding													
+23103	Monodelphis_domestica	C_deleted	0	False	False																										
+23124	Monodelphis_domestica	B_pseudo	18	True	True	4	433898109.0	433927230.0	1.0	0.788	0.0	0.0	10.0	ENSP00000438873	False	ENSMODP00000049567	-	protein_coding	4	433898109.0	433927230.0	1.0	0.788	0.0	0.0	10.0	ENSP00000438873	False	ENSMODP00000049567	-	protein_coding
+23128	Monodelphis_domestica	C_deleted	0	False	False																										
+23132	Monodelphis_domestica	D_undetermined	0	False	False																										
+23268	Monodelphis_domestica	D_undetermined	5	False	False																										
+23306	Monodelphis_domestica	D_undetermined	16	False	True	3	526206123.0	526207317.0	0.963	0.518	1.0	1.0	0.0	ENSCAFP00000017366	False	ENSMODP00000058393	-;-;-	protein_coding;protein_coding;protein_coding													
+23428	Monodelphis_domestica	B_pseudo	10	False	False																										
+23482	Monodelphis_domestica	B_pseudo	0	False	True	1	703817558.0	703827206.0	1.0	0.546	3.0	0.0	4.0	ENSRNOP00000070302	True	ENSMODP00000002653	-	protein_coding													
+23541	Monodelphis_domestica	B_pseudo	15	True	True	X	28087805.0	28142085.0	1.0	0.816	3.0	0.0	9.0	ENSMUSP00000110894	True	ENSMODP00000012801	SEPTIN6	protein_coding	3	392299944.0	392301146.0	0.924	0.703	0.0	0.0	0.0	ENSMUSP00000110894	False	ENSMODP00000004965	-	protein_coding
+23560	Monodelphis_domestica	C_deleted	5	False	False																										
+23637	Monodelphis_domestica	C_deleted	13	False	False																										
+23659	Monodelphis_domestica	B_pseudo	0	False	True	6	83610637.0	83613658.0	1.0	0.757	1.0	0.0	3.0	ENSCAFP00000053896	True																
+23666	Monodelphis_domestica	C_deleted	6	False	False																										
+23705	Monodelphis_domestica	C_deleted	5	False	False																										
+23762	Monodelphis_domestica	B_pseudo	5	False	True	8	104399767.0	104408000.0	1.0	0.822	1.0	0.0	7.0	ENSRNOP00000013272	True	ENSMODP00000058371	NECAP1	protein_coding													
+23829	Monodelphis_domestica	C_deleted	10	True	True	6	156756906.0	156791237.0	0.962	0.633	0.0	0.0	1.0	ENSCAFP00000036273	False	ENSMODP00000020020	HS3ST6	protein_coding	6	156756906.0	156791237.0	0.962	0.633	0.0	0.0	1.0	ENSCAFP00000036273	False	ENSMODP00000020020	HS3ST6	protein_coding
+23830	Monodelphis_domestica	C_deleted	10	True	True	6	156757003.0	156791279.0	1.0	0.535	1.0	1.0	1.0	ENSPTRP00000087287	False	ENSMODP00000020020	HS3ST6	protein_coding	6	156756906.0	156791300.0	0.856	0.635	0.0	0.0	1.0	ENSCAFP00000026405	False	ENSMODP00000020020	HS3ST6	protein_coding
+23841	Monodelphis_domestica	D_undetermined	0	False	True	6	291911694.0	292016592.0	0.757	0.798	0.0	0.0	12.0	ENSRNOP00000020481	False	ENSMODP00000032653	-	protein_coding													

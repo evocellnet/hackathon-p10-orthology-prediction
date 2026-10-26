@@ -144,7 +144,7 @@ checksum manifests are kept next to the data (paths given); key checksums are li
   - `30502c220d5496d8657d710fc3d1f004  Pan_troglodytes.Pan_tro_3.0.dna_sm.toplevel.fa.gz` (sum 12960 982612)
   - `efe847fc8d7598aa2af4cbabcbf0b5c7  Rattus_norvegicus.Rnor_6.0.dna_sm.toplevel.fa.gz` (sum 38432 867385)
 - **Local path:** `data/genomes_dna/` (gz ~5.8 GB; decompressed `.fa` + samtools `.fai` by `decompress.sh`, ~16 GB;
-  miniprot indexes `work/S8/<species>.mpi`). Used only by `ancestra/geneloss.py` / `scripts/run_S8_geneloss.py`
+  miniprot genome indexes `work/S8/<species>.mpi` were deleted after the run (39 GB; the driver rebuilds them in about 1 min each)). Used only by `ancestra/geneloss.py` / `scripts/run_S8_geneloss.py`
   (`docs/S8_geneloss.md`); never by the core method.
 - Gene-level features of all biotypes (incl. GENCODE/Ensembl pseudogenes) and CDS segments of the input proteins were parsed
   from the section-2 GFF3 files into `work/S8/gff_genes_<sp>.parquet` and `work/S8/cds_<sp>.parquet`

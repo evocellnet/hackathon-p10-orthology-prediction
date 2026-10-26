@@ -1,0 +1,475 @@
+hog	target	locus_cls	gw_paralog_hits	gw_intact	gw_any	gw_any_contig	gw_any_start	gw_any_end	gw_any_qcov	gw_any_identity	gw_any_fs	gw_any_st	gw_any_n_introns	gw_any_query	gw_any_in_locus	gw_any_annotated	gw_any_gff	gw_any_biotype	gw_intact_contig	gw_intact_start	gw_intact_end	gw_intact_qcov	gw_intact_identity	gw_intact_fs	gw_intact_st	gw_intact_n_introns	gw_intact_query	gw_intact_in_locus	gw_intact_annotated	gw_intact_gff	gw_intact_biotype
+2163	Canis_familiaris	C_deleted	0	False	True	5	14402657.0	14402689.0	0.106	0.727	0.0	0.0	0.0	ENSPTRP00000060111	False																
+2174	Canis_familiaris	B_pseudo	0	True	True	30	26873795.0	26875141.0	1.0	0.449	1.0	0.0	1.0	ENSP00000347712	True		-	lncRNA	30	26784251.0	26785424.0	1.0	0.434	0.0	0.0	1.0	ENSP00000347712	True			
+2175	Canis_familiaris	B_pseudo	0	True	True	30	26873795.0	26875084.0	1.0	0.532	2.0	0.0	1.0	ENSMUSP00000131138	True		-	lncRNA	30	26784332.0	26785424.0	0.985	0.429	0.0	0.0	1.0	ENSMUSP00000131138	True			
+2181	Canis_familiaris	B_pseudo	0	True	True	28	959388.0	1047370.0	0.918	0.524	0.0	0.0	3.0	ENSRNOP00000027193	True		VSTM4	protein_coding	28	959388.0	1047370.0	0.918	0.524	0.0	0.0	3.0	ENSRNOP00000027193	True		VSTM4	protein_coding
+2182	Canis_familiaris	B_pseudo	0	False	True	28	1075940.0	1080608.0	0.912	0.611	1.0	0.0	4.0	ENSP00000363263	True		VSTM4	protein_coding													
+2209	Canis_familiaris	C_deleted	5	False	False																										
+2239	Canis_familiaris	B_pseudo	0	True	True	9	48448018.0	48448437.0	1.0	0.741	0.0	0.0	0.0	ENSMUSP00000045363	True		TUBB4B	protein_coding	9	48448018.0	48448437.0	1.0	0.741	0.0	0.0	0.0	ENSMUSP00000045363	True		TUBB4B	protein_coding
+2278	Canis_familiaris	B_pseudo	0	False	True	5	31682057.0	31683261.0	0.625	0.512	1.0	0.0	0.0	ENSMUSP00000104191	True		ENO3	protein_coding													
+2301	Canis_familiaris	C_deleted	1	False	True	38	22865071.0	22865350.0	0.289	0.586	3.0	0.0	0.0	ENSPTRP00000051692	True		-	lncRNA													
+2302	Canis_familiaris	C_deleted	0	False	True	35	5209000.0	5209176.0	0.182	0.738	0.0	0.0	0.0	ENSPTRP00000060169	True																
+2320	Canis_familiaris	C_deleted	4	False	True	20	44233304.0	44234024.0	0.669	0.724	2.0	0.0	0.0	ENSRNOP00000027275	True																
+2321	Canis_familiaris	C_deleted	7	False	True	4	39424146.0	39516110.0	0.95	0.557	2.0	1.0	3.0	ENSP00000442439	False		ERGIC1	protein_coding													
+2330	Canis_familiaris	C_deleted	0	False	True	35	25043499.0	25043558.0	0.172	0.55	0.0	0.0	0.0	ENSP00000478390	False																
+2426	Canis_familiaris	C_deleted	0	False	False																										
+2473	Canis_familiaris	C_deleted	0	False	True	13	16438811.0	16438951.0	0.305	0.766	0.0	0.0	0.0	ENSPTRP00000053074	True																
+2492	Canis_familiaris	B_partial	0	False	True	11	24092145.0	24092324.0	0.583	0.883	0.0	0.0	0.0	ENSP00000490028	True																
+2501	Canis_familiaris	C_deleted	0	False	True	5	32771233.0	32771364.0	0.247	0.818	0.0	0.0	0.0	ENSMODP00000043159	True																
+2509	Canis_familiaris	B_pseudo	0	False	True	22	1066346.0	1082711.0	1.0	0.602	3.0	1.0	2.0	ENSP00000427177	True																
+2510	Canis_familiaris	C_deleted	5	False	False																										
+2516	Canis_familiaris	B_partial	0	False	True	3	13982507.0	13982992.0	0.405	0.566	0.0	0.0	0.0	ENSMUSP00000049592	True																
+2576	Canis_familiaris	C_deleted	2	False	False																										
+2635	Canis_familiaris	C_deleted	3	False	True	30	26784251.0	26784649.0	0.349	0.391	0.0	0.0	0.0	ENSRNOP00000028263	False																
+2638	Canis_familiaris	B_pseudo	3	False	True	18	55409161.0	55416012.0	1.0	0.503	8.0	2.0	11.0	ENSP00000278853	True																
+2677	Canis_familiaris	C_deleted	9	False	False																										
+2711	Canis_familiaris	B_pseudo	0	False	True	34	16781069.0	16786067.0	0.716	0.438	1.0	0.0	2.0	ENSMODP00000038555	True		PARL	protein_coding													
+2733	Canis_familiaris	C_deleted	4	False	False																										
+2734	Canis_familiaris	C_deleted	11	True	True	12	23593475.0	23594602.0	1.0	0.585	0.0	0.0	0.0	ENSMUSP00000087633	False	ENSCAFP00000056057	-	protein_coding	12	23593475.0	23594611.0	0.982	0.609	0.0	0.0	0.0	ENSMODP00000025907	False	ENSCAFP00000056057	-	protein_coding
+2750	Canis_familiaris	B_pseudo	0	True	True	1	110674482.0	110691017.0	1.0	0.651	1.0	0.0	5.0	ENSP00000384887	True		ZNF180	protein_coding	1	110674482.0	110689895.0	0.908	0.569	0.0	0.0	3.0	ENSMUSP00000057433	True		ZNF180	protein_coding
+2757	Canis_familiaris	B_pseudo	0	False	True	27	38104845.0	38111462.0	1.0	0.908	7.0	0.0	8.0	ENSP00000349076	True		C27H12orf57;ATN1	protein_coding;pseudogene													
+2808	Canis_familiaris	C_deleted	4	False	False																										
+2812	Canis_familiaris	B_pseudo	6	False	True	36	19995332.0	19996293.0	0.78	0.749	1.0	0.0	1.0	ENSP00000328598	True	ENSCAFP00000038405	HOXD1	protein_coding													
+2820	Canis_familiaris	B_partial	0	False	True	17	39269562.0	39368745.0	0.789	0.748	0.0	0.0	2.0	ENSPTRP00000067429	True		-	protein_coding													
+2822	Canis_familiaris	B_pseudo	5	False	True	18	55355005.0	55363647.0	0.702	0.658	4.0	0.0	6.0	ENSMODP00000008082	True																
+2852	Canis_familiaris	C_deleted	6	False	False																										
+2889	Canis_familiaris	C_deleted	5	False	False																										
+2903	Canis_familiaris	B_pseudo	5	False	True	5	64525999.0	64528311.0	1.0	0.613	2.0	1.0	6.0	ENSPTRP00000053348	True		-	pseudogene													
+2907	Canis_familiaris	B_pseudo	0	False	True	15	31661382.0	31662737.0	1.0	0.505	1.0	1.0	1.0	ENSRNOP00000006455	True																
+2916	Canis_familiaris	C_deleted	6	False	False																										
+2946	Canis_familiaris	B_pseudo	0	False	True	2	9835335.0	9836838.0	1.0	0.581	1.0	0.0	0.0	ENSP00000365678	True																
+2947	Canis_familiaris	C_deleted	5	False	False																										
+2980	Canis_familiaris	B_pseudo	0	False	True	6	7446899.0	7480458.0	1.0	0.804	1.0	0.0	15.0	ENSPTRP00000033040	True	ENSCAFP00000036664	SRRM3	protein_coding													
+3035	Canis_familiaris	B_pseudo	0	True	True	10	69186926.0	69190286.0	1.0	0.477	1.0	0.0	3.0	ENSPTRP00000051909	True				10	69186926.0	69190289.0	1.0	0.39	0.0	0.0	4.0	ENSMUSP00000040746	True			
+3072	Canis_familiaris	B_pseudo	2	True	True	1	116971385.0	116973768.0	1.0	0.693	2.0	0.0	4.0	ENSP00000368312	True		ETV2	protein_coding	1	116971385.0	116973768.0	1.0	0.637	0.0	0.0	5.0	ENSRNOP00000036461	True		ETV2	protein_coding
+3140	Canis_familiaris	C_deleted	0	False	False																										
+3249	Canis_familiaris	B_pseudo	0	False	True	27	38260741.0	38266429.0	1.0	0.581	1.0	0.0	6.0	ENSP00000203629	True	ENSCAFP00000021640	LAG3;-	protein_coding;lncRNA													
+3267	Canis_familiaris	B_pseudo	0	False	True	28	29285427.0	29286373.0	1.0	0.59	1.0	2.0	1.0	ENSP00000393275	True	ENSCAFP00000035678	-;-	protein_coding;lncRNA													
+3281	Canis_familiaris	C_deleted	0	True	True	20	6970330.0	6970677.0	1.0	0.598	2.0	2.0	0.0	ENSRNOP00000017319	False		ATG7	protein_coding	20	45653739.0	45654053.0	0.882	0.638	0.0	0.0	0.0	ENSMODP00000036399	False		CPAMD8	protein_coding
+3312	Canis_familiaris	B_pseudo	2	False	True	24	46669822.0	46735079.0	1.0	0.617	1.0	1.0	5.0	ENSRNOP00000070754	True																
+3330	Canis_familiaris	B_pseudo	0	True	True	34	25500710.0	25522360.0	0.975	0.748	0.0	1.0	3.0	ENSP00000402153	True		-	protein_coding	34	25500710.0	25519898.0	0.936	0.874	0.0	0.0	2.0	ENSMUSP00000069544	True		-	protein_coding
+3341	Canis_familiaris	D_undetermined	4	False	True	22	108086.0	146373.0	0.909	0.612	9.0	3.0	18.0	ENSP00000497892	False																
+3356	Canis_familiaris	B_pseudo	15	False	True	15	1752507.0	1753561.0	0.615	0.896	1.0	0.0	0.0	ENSPTRP00000087614	True		-	lncRNA													
+3364	Canis_familiaris	B_pseudo	0	False	True	16	5633892.0	5637758.0	0.966	0.437	1.0	0.0	6.0	ENSRNOP00000037528	True		TPK1	protein_coding													
+3395	Canis_familiaris	C_deleted	5	False	False																										
+3400	Canis_familiaris	C_deleted	10	False	True	X	116158504.0	116159617.0	0.987	0.619	2.0	0.0	0.0	ENSMODP00000004780	False	ENSCAFP00000052937	-	protein_coding													
+3428	Canis_familiaris	C_deleted	5	False	False																										
+3439	Canis_familiaris	C_deleted	5	False	True	6	37909381.0	37912988.0	1.0	0.819	5.0	0.0	1.0	ENSP00000336931	False																
+3513	Canis_familiaris	C_deleted	6	False	False																										
+3516	Canis_familiaris	C_deleted	1	False	False																										
+3558	Canis_familiaris	B_partial	4	False	True	32	25473761.0	25492226.0	0.447	0.994	0.0	0.0	1.0	ENSRNOP00000067828	True	ENSCAFP00000057100	CXXC4	protein_coding													
+3648	Canis_familiaris	C_deleted	0	False	False																										
+3690	Canis_familiaris	D_undetermined	0	False	True	15	63941688.0	63952000.0	0.193	0.877	0.0	0.0	1.0	ENSRNOP00000003472	True	ENSCAFP00000036222	-	protein_coding													
+3695	Canis_familiaris	C_deleted	12	False	True	27	1316905.0	1408143.0	0.988	0.48	1.0	0.0	2.0	ENSMODP00000011934	False		HOXC13;-	protein_coding;lncRNA													
+3696	Canis_familiaris	C_deleted	28	True	True	27	1252817.0	1262444.0	0.963	0.408	0.0	0.0	3.0	ENSPTRP00000079436	False		-	protein_coding	27	1252817.0	1262444.0	0.963	0.401	0.0	0.0	2.0	ENSP00000249499	False		-	protein_coding
+3829	Canis_familiaris	C_deleted	0	False	False																										
+3902	Canis_familiaris	C_deleted	5	False	False																										
+3916	Canis_familiaris	C_deleted	3	False	False																										
+3929	Canis_familiaris	C_deleted	0	False	True	2	35791443.0	35792556.0	0.995	0.705	1.0	0.0	0.0	ENSP00000304236	True		-	pseudogene													
+3958	Canis_familiaris	C_deleted	4	False	True	16	50402488.0	50402541.0	0.141	0.444	0.0	0.0	0.0	ENSRNOP00000056569	False																
+4080	Canis_familiaris	B_pseudo	17	True	True	20	56186500.0	56347215.0	0.941	0.395	0.0	1.0	7.0	ENSPTRP00000069043	False	ENSCAFP00000046859	-;-;ZNF556	protein_coding;protein_coding;protein_coding	26	46496.0	109652.0	0.897	0.333	0.0	0.0	1.0	ENSMODP00000024360	False	ENSCAFP00000055836	ZNF268	protein_coding
+4095	Canis_familiaris	B_pseudo	4	False	True	29	32417015.0	32430482.0	0.991	0.67	7.0	2.0	3.0	ENSPTRP00000034884	True		-	lncRNA													
+4506	Canis_familiaris	B_pseudo	7	False	True	21	26217402.0	26220939.0	1.0	0.589	0.0	1.0	2.0	ENSPTRP00000005651	True																
+4513	Canis_familiaris	B_pseudo	5	False	True	14	31358141.0	31368420.0	1.0	0.473	2.0	0.0	4.0	ENSP00000308606	True		-	lncRNA													
+4555	Canis_familiaris	D_undetermined	5	False	False																										
+4600	Canis_familiaris	C_deleted	4	False	False																										
+4665	Canis_familiaris	B_pseudo	0	False	True	21	29807766.0	29886601.0	1.0	0.775	1.0	1.0	40.0	ENSPTRP00000048266	True		-;-	protein_coding;protein_coding													
+4671	Canis_familiaris	B_pseudo	0	False	True	8	62052955.0	62086085.0	0.994	0.486	7.0	3.0	8.0	ENSPTRP00000042464	True																
+4707	Canis_familiaris	C_deleted	7	False	False																										
+4714	Canis_familiaris	C_deleted	5	False	False																										
+4878	Canis_familiaris	B_partial	5	False	True	17	270799.0	273423.0	0.474	0.875	0.0	0.0	2.0	ENSMODP00000017823	True	ENSCAFP00000057906	-	protein_coding													
+4897	Canis_familiaris	B_partial	0	False	True	19	3067163.0	3070563.0	0.75	0.74	0.0	0.0	2.0	ENSRNOP00000068920	True																
+4898	Canis_familiaris	C_deleted	0	True	True	9	56441755.0	56443155.0	1.0	0.987	0.0	0.0	0.0	ENSP00000362563	True		ZBTB34	protein_coding	9	56441755.0	56443155.0	1.0	0.987	0.0	0.0	0.0	ENSP00000362563	True		ZBTB34	protein_coding
+4904	Canis_familiaris	B_pseudo	0	False	True	1	66131618.0	66142970.0	1.0	0.439	3.0	1.0	7.0	ENSPTRP00000081003	True																
+4939	Canis_familiaris	B_pseudo	0	False	True	16	35787649.0	35788397.0	1.0	0.585	1.0	0.0	0.0	ENSP00000428780	True																
+4978	Canis_familiaris	B_pseudo	0	False	True	19	31124325.0	31128757.0	1.0	0.54	2.0	0.0	1.0	ENSPTRP00000049224	True																
+5003	Canis_familiaris	B_pseudo	30	True	True	6	16433238.0	16434622.0	1.0	0.443	1.0	0.0	1.0	ENSP00000492766	True				15	13293743.0	13294270.0	0.815	0.467	0.0	0.0	0.0	ENSPTRP00000080849	False		-;-	lncRNA;lncRNA
+5035	Canis_familiaris	B_pseudo	1	False	True	16	18358202.0	18363837.0	1.0	0.756	5.0	0.0	2.0	ENSPTRP00000071578	True																
+5048	Canis_familiaris	C_deleted	12	False	False																										
+5101	Canis_familiaris	C_deleted	10	False	False																										
+5126	Canis_familiaris	B_pseudo	0	False	True	21	44255298.0	44256213.0	0.957	0.427	2.0	0.0	0.0	ENSPTRP00000005997	True	ENSCAFP00000040041	FANCF	protein_coding													
+5207	Canis_familiaris	B_pseudo	120	True	True	X	122594271.0	122595200.0	1.0	0.582	0.0	0.0	0.0	ENSRNOP00000045723	False		-	protein_coding	X	122594271.0	122595200.0	1.0	0.582	0.0	0.0	0.0	ENSRNOP00000045723	False		-	protein_coding
+5225	Canis_familiaris	B_partial	0	False	True	22	9202848.0	9205642.0	0.467	0.875	0.0	0.0	1.0	ENSRNOP00000060481	True		NAA16	protein_coding													
+5229	Canis_familiaris	B_partial	0	False	True	10	18119799.0	18154151.0	0.712	0.989	0.0	0.0	1.0	ENSMUSP00000155322	True	ENSCAFP00000001041	-	protein_coding													
+5523	Canis_familiaris	B_pseudo	10	False	True	17	15618947.0	15628501.0	0.928	0.465	2.0	0.0	3.0	ENSMODP00000048285	True	ENSCAFP00000038765	-;HS1BP3	protein_coding;protein_coding													
+5531	Canis_familiaris	D_undetermined	0	True	True	7	31656705.0	32023246.0	1.0	0.662	2.0	0.0	17.0	ENSP00000318884	False		FMN2	protein_coding	7	31657368.0	32023246.0	0.863	0.751	0.0	0.0	17.0	ENSMUSP00000030039	False		FMN2	protein_coding
+5669	Canis_familiaris	B_pseudo	92	True	True	18	39776405.0	39777334.0	1.0	0.894	0.0	1.0	0.0	ENSP00000303864	True		-;-	protein_coding;pseudogene	18	39476841.0	39477773.0	1.0	0.572	0.0	0.0	0.0	ENSRNOP00000013201	True		-	protein_coding
+5735	Canis_familiaris	B_pseudo	56	True	True	AAEX03023213.1	8836.0	9771.0	1.0	0.753	0.0	0.0	0.0	ENSMUSP00000149258	False				AAEX03023213.1	8836.0	9771.0	1.0	0.753	0.0	0.0	0.0	ENSMUSP00000149258	False			
+5948	Canis_familiaris	C_deleted	5	False	False																										
+5965	Canis_familiaris	C_deleted	5	False	False																										
+5973	Canis_familiaris	B_pseudo	0	False	True	25	39684253.0	39687971.0	1.0	0.918	1.0	0.0	0.0	ENSPTRP00000022194	True		IRS1;-	pseudogene;lncRNA													
+6094	Canis_familiaris	B_pseudo	0	False	True	8	70800435.0	70807683.0	0.969	0.382	1.0	0.0	5.0	ENSPTRP00000011506	True		-	lncRNA													
+6097	Canis_familiaris	B_partial	10	False	True	1	64632826.0	64639791.0	0.433	0.945	0.0	0.0	3.0	ENSP00000357348	True																
+6117	Canis_familiaris	C_deleted	1	False	False																										
+6123	Canis_familiaris	B_pseudo	0	False	True	24	46542100.0	46649975.0	0.874	0.537	1.0	0.0	6.0	ENSMODP00000020971	True	ENSCAFP00000018708	-;MRGBP;-	pseudogene;protein_coding;lncRNA													
+6165	Canis_familiaris	B_partial	0	False	True	6	33549377.0	33550988.0	0.55	0.844	0.0	0.0	1.0	ENSRNOP00000003749	True																
+6193	Canis_familiaris	C_deleted	28	True	True	12	44903555.0	44929175.0	0.933	0.458	0.0	0.0	7.0	ENSP00000362390	False	ENSCAFP00000065030	TBX18;-	protein_coding;protein_coding	12	44903555.0	44929175.0	0.933	0.458	0.0	0.0	7.0	ENSP00000362390	False	ENSCAFP00000065030	TBX18;-	protein_coding;protein_coding
+6230	Canis_familiaris	B_pseudo	0	False	True	5	15543632.0	15560441.0	1.0	0.825	1.0	0.0	4.0	ENSP00000322460	True	ENSCAFP00000018868	SCN4B	protein_coding													
+6609	Canis_familiaris	B_pseudo	3	True	True	1	107578449.0	107680690.0	1.0	0.358	0.0	0.0	10.0	ENSMODP00000045434	True		RASIP1;NTN5;DBP	protein_coding;protein_coding;protein_coding	1	107578449.0	107680690.0	1.0	0.358	0.0	0.0	10.0	ENSMODP00000045434	True		RASIP1;NTN5;DBP	protein_coding;protein_coding;protein_coding
+6614	Canis_familiaris	C_deleted	8	False	False																										
+6626	Canis_familiaris	C_deleted	5	False	True	1	113730024.0	113782721.0	0.901	0.242	1.0	0.0	7.0	ENSRNOP00000064607	False		DYRK1B;SUPT5H;-	protein_coding;protein_coding;protein_coding													
+6711	Canis_familiaris	B_partial	0	False	True	6	39861471.0	39862127.0	0.621	0.76	0.0	0.0	2.0	ENSPTRP00000012905	True	ENSCAFP00000060463	CCDC78;-	protein_coding;protein_coding													
+6797	Canis_familiaris	B_pseudo	0	True	True	16	125333.0	194104.0	0.991	0.517	0.0	1.0	45.0	ENSMUSP00000120803	True		HUS1	protein_coding	16	85763.0	194077.0	0.991	0.518	0.0	0.0	48.0	ENSRNOP00000006498	True		HUS1	protein_coding
+6804	Canis_familiaris	C_deleted	10	False	False																										
+6858	Canis_familiaris	B_pseudo	5	False	True	12	21295831.0	21424294.0	1.0	0.969	2.0	0.0	13.0	ENSPTRP00000031252	True	ENSCAFP00000037314	LRRC1	protein_coding													
+6872	Canis_familiaris	B_partial	5	False	True	19	29767685.0	29768464.0	0.695	0.919	0.0	0.0	0.0	ENSMODP00000059734	True	ENSCAFP00000007225	INHBB;RALB	protein_coding;protein_coding													
+6900	Canis_familiaris	B_pseudo	7	True	True	27	36654441.0	36699912.0	1.0	0.802	0.0	0.0	35.0	ENSPTRP00000056596	True		-	protein_coding	27	36654441.0	36699912.0	1.0	0.802	0.0	0.0	35.0	ENSPTRP00000056596	True		-	protein_coding
+6924	Canis_familiaris	B_partial	4	False	True	5	35425082.0	35562126.0	0.401	0.781	0.0	0.0	3.0	ENSMODP00000000291	True		SHISA6	protein_coding													
+6946	Canis_familiaris	C_deleted	15	False	False																										
+6966	Canis_familiaris	B_pseudo	7	False	True	X	54706428.0	54707512.0	1.0	0.774	3.0	3.0	0.0	ENSPTRP00000057506	True																
+6980	Canis_familiaris	B_pseudo	0	False	True	9	22247796.0	22248594.0	1.0	0.782	1.0	0.0	0.0	ENSP00000463752	True	ENSCAFP00000053574	CDC6;-	protein_coding;protein_coding													
+7015	Canis_familiaris	B_pseudo	0	False	True	14	664526.0	779354.0	1.0	0.696	13.0	0.0	98.0	ENSP00000355668	True		-;-	protein_coding;protein_coding													
+7040	Canis_familiaris	B_partial	0	False	True	10	12211394.0	12245669.0	0.467	0.969	0.0	0.0	1.0	ENSP00000258111	True		PTPRB	protein_coding													
+7051	Canis_familiaris	B_partial	10	False	True	1	117819228.0	117835773.0	0.689	0.794	0.0	0.0	6.0	ENSRNOP00000036074	True																
+7063	Canis_familiaris	C_deleted	6	False	False																										
+7069	Canis_familiaris	C_deleted	0	False	False																										
+7090	Canis_familiaris	C_deleted	5	False	True	38	22482222.0	22482801.0	0.91	0.529	2.0	0.0	0.0	ENSPTRP00000002570	True																
+7141	Canis_familiaris	C_deleted	12	False	False																										
+7164	Canis_familiaris	B_pseudo	2	False	True	15	7862422.0	8191414.0	0.975	0.927	3.0	0.0	64.0	ENSRNOP00000073789	True		-;-	protein_coding;protein_coding													
+7210	Canis_familiaris	C_deleted	5	False	False																										
+7225	Canis_familiaris	C_deleted	20	False	True	23	42536502.0	42537545.0	0.293	0.967	0.0	0.0	1.0	ENSMODP00000026563	True	ENSCAFP00000053089	-	protein_coding													
+7266	Canis_familiaris	B_pseudo	0	False	True	27	44819645.0	44821421.0	1.0	0.813	1.0	0.0	0.0	ENSP00000329318	True	ENSCAFP00000034965	TMEM121B	protein_coding													
+7461	Canis_familiaris	B_partial	5	False	True	36	25884840.0	25907339.0	0.514	0.874	0.0	0.0	4.0	ENSMODP00000013178	True	ENSCAFP00000034426	FRZB	protein_coding													
+7507	Canis_familiaris	C_deleted	10	False	False																										
+7556	Canis_familiaris	D_undetermined	0	True	True	11	33317690.0	33334835.0	1.0	0.894	0.0	0.0	6.0	ENSP00000373570	False		TYRP1	lncRNA	11	33317690.0	33334835.0	1.0	0.894	0.0	0.0	6.0	ENSP00000373570	False		TYRP1	lncRNA
+7599	Canis_familiaris	C_deleted	6	False	False																										
+7626	Canis_familiaris	B_pseudo	0	False	True	7	14514280.0	14528827.0	0.806	0.578	2.0	2.0	4.0	ENSPTRP00000090456	True		STX6	protein_coding													
+7653	Canis_familiaris	B_pseudo	5	False	True	20	57703731.0	57771960.0	0.967	0.633	2.0	0.0	8.0	ENSMODP00000007008	True		ARHGAP45;TMEM259;-	protein_coding;protein_coding;pseudogene													
+7655	Canis_familiaris	C_deleted	5	False	False																										
+7656	Canis_familiaris	C_deleted	6	False	False																										
+7661	Canis_familiaris	C_deleted	5	False	False																										
+7684	Canis_familiaris	D_undetermined	21	False	True	22	59902670.0	59903530.0	0.705	0.325	0.0	0.0	0.0	ENSPTRP00000090911	False																
+7705	Canis_familiaris	C_deleted	5	False	False																										
+7724	Canis_familiaris	C_deleted	6	False	False																										
+7731	Canis_familiaris	B_pseudo	0	False	True	2	81684880.0	81775825.0	1.0	0.859	2.0	0.0	14.0	ENSP00000364912	True		-	pseudogene													
+7786	Canis_familiaris	C_deleted	0	False	True	17	63713484.0	63713731.0	0.28	0.663	1.0	0.0	0.0	ENSMODP00000043083	True		-	lncRNA													
+7814	Canis_familiaris	C_deleted	5	False	False																										
+7846	Canis_familiaris	C_deleted	6	False	False																										
+7922	Canis_familiaris	C_deleted	5	False	False																										
+7945	Canis_familiaris	B_pseudo	1	False	True	1	118924268.0	118934242.0	1.0	0.762	2.0	0.0	4.0	ENSRNOP00000015384	True		LRP3	protein_coding													
+7978	Canis_familiaris	C_deleted	5	False	False																										
+8011	Canis_familiaris	C_deleted	7	False	False																										
+8045	Canis_familiaris	C_deleted	5	False	False																										
+8075	Canis_familiaris	C_deleted	5	False	True	6	74932789.0	74976573.0	0.246	0.846	0.0	0.0	1.0	ENSMUSP00000134137	True																
+8135	Canis_familiaris	B_pseudo	0	False	True	1	98436390.0	98533407.0	1.0	0.721	2.0	1.0	26.0	ENSP00000297954	True		WNK2;-	protein_coding;protein_coding													
+8197	Canis_familiaris	B_pseudo	0	True	True	1	112261813.0	112264506.0	1.0	0.92	0.0	0.0	0.0	ENSRNOP00000070796	True		POU2F2	protein_coding	1	112261813.0	112264506.0	1.0	0.92	0.0	0.0	0.0	ENSRNOP00000070796	True		POU2F2	protein_coding
+8223	Canis_familiaris	C_deleted	5	False	False																										
+8257	Canis_familiaris	B_pseudo	0	False	True	12	2843042.0	2857366.0	1.0	0.832	1.0	0.0	15.0	ENSMODP00000017635	True	ENSCAFP00000001433	ITPR3;SYNGAP1	protein_coding;protein_coding													
+8266	Canis_familiaris	B_pseudo	5	False	True	27	21464574.0	21467497.0	1.0	0.443	1.0	1.0	4.0	ENSP00000242728	True																
+8285	Canis_familiaris	B_pseudo	0	False	True	2	83622969.0	83652700.0	0.718	0.918	1.0	0.0	1.0	ENSPTRP00000000339	True	ENSCAFP00000038904	LRRC38	protein_coding													
+8296	Canis_familiaris	C_deleted	0	False	False																										
+8303	Canis_familiaris	B_pseudo	89	True	True	9	60043591.0	60044514.0	1.0	0.558	0.0	1.0	0.0	ENSMUSP00000149727	True		-	pseudogene	20	47145669.0	47146610.0	1.0	0.5	0.0	0.0	0.0	ENSMODP00000030385	False		-	protein_coding
+8377	Canis_familiaris	C_deleted	0	False	False																										
+8404	Canis_familiaris	B_pseudo	5	True	True	16	15196139.0	15213657.0	1.0	0.639	3.0	1.0	1.0	ENSMUSP00000085651	True				16	15196139.0	15213425.0	1.0	0.566	0.0	0.0	3.0	ENSMODP00000033527	True			
+8428	Canis_familiaris	B_partial	0	False	True	26	4938832.0	4961436.0	0.739	0.807	0.0	0.0	2.0	ENSMUSP00000037609	True		TMEM132B	protein_coding													
+8458	Canis_familiaris	B_pseudo	15	False	True	30	36635282.0	36680348.0	0.96	0.73	1.0	0.0	11.0	ENSRNOP00000012644	True	ENSCAFP00000042974	HCN4	protein_coding													
+8478	Canis_familiaris	B_pseudo	5	False	True	7	1065290.0	1066567.0	0.589	0.803	1.0	0.0	2.0	ENSP00000355064	True	ENSCAFP00000055213	-	protein_coding													
+8509	Canis_familiaris	C_deleted	5	False	False																										
+8539	Canis_familiaris	B_pseudo	1	False	True	25	48609340.0	48633234.0	1.0	0.786	0.0	2.0	8.0	ENSPTRP00000066210	True		SCLY	protein_coding													
+8571	Canis_familiaris	C_deleted	5	False	False																										
+8734	Canis_familiaris	B_pseudo	0	False	True	15	22118702.0	22217469.0	1.0	0.57	0.0	1.0	6.0	ENSPTRP00000008915	True																
+8735	Canis_familiaris	C_deleted	5	False	False																										
+8788	Canis_familiaris	B_pseudo	1	False	True	5	51122624.0	51123613.0	1.0	0.804	0.0	1.0	0.0	ENSP00000360269	True		-	pseudogene													
+8825	Canis_familiaris	B_pseudo	24	True	True	15	13182258.0	13274121.0	1.0	0.466	3.0	0.0	2.0	ENSPTRP00000092131	False		-;-	lncRNA;lncRNA	15	13206592.0	13274121.0	0.88	0.492	0.0	0.0	1.0	ENSP00000481581	False		-;-;-	lncRNA;lncRNA;lncRNA
+8848	Canis_familiaris	B_pseudo	0	True	True	3	61511254.0	61534994.0	1.0	0.735	0.0	0.0	6.0	ENSP00000321203	True		TNIP2	lncRNA	3	61511254.0	61534994.0	1.0	0.735	0.0	0.0	6.0	ENSP00000321203	True		TNIP2	lncRNA
+8859	Canis_familiaris	B_pseudo	0	True	True	24	46791371.0	46890582.0	1.0	0.67	0.0	0.0	2.0	ENSRNOP00000013690	True		-	lncRNA	24	46791371.0	46890582.0	1.0	0.67	0.0	0.0	2.0	ENSRNOP00000013690	True		-	lncRNA
+8868	Canis_familiaris	C_deleted	0	False	True	38	15376276.0	15376392.0	0.279	0.872	0.0	0.0	0.0	ENSRNOP00000003177	True	ENSCAFP00000036193	-	protein_coding													
+8902	Canis_familiaris	B_pseudo	0	False	True	2	68568807.0	68575534.0	1.0	0.754	3.0	1.0	6.0	ENSRNOP00000010688	True		-	protein_coding													
+8932	Canis_familiaris	B_pseudo	8	True	True	27	2289973.0	2296440.0	1.0	0.845	1.0	0.0	8.0	ENSPTRP00000008503	False		KRT3	protein_coding	27	2290191.0	2296440.0	1.0	0.866	0.0	0.0	8.0	ENSP00000448220	False		KRT3	protein_coding
+8933	Canis_familiaris	D_undetermined	7	True	True	27	2337929.0	2346247.0	1.0	0.753	0.0	0.0	8.0	ENSPTRP00000093079	False		KRT3	protein_coding	27	2337929.0	2346244.0	0.997	0.83	0.0	0.0	8.0	ENSP00000330101	False		KRT3	protein_coding
+8934	Canis_familiaris	D_undetermined	3	True	True	27	2447854.0	2454489.0	1.0	0.802	0.0	0.0	8.0	ENSPTRP00000055374	False	ENSCAFP00000010729	KRT3	protein_coding	27	2447854.0	2454489.0	1.0	0.802	0.0	0.0	8.0	ENSPTRP00000055374	False	ENSCAFP00000010729	KRT3	protein_coding
+9006	Canis_familiaris	B_pseudo	0	True	True	25	44965311.0	45019691.0	1.0	0.674	3.0	1.0	28.0	ENSP00000415434	True		-;-	protein_coding;protein_coding	25	44966268.0	45009048.0	0.876	0.578	0.0	0.0	18.0	ENSMODP00000009619	True		-	protein_coding
+9018	Canis_familiaris	B_pseudo	5	False	True	26	29529162.0	29536531.0	1.0	0.796	2.0	0.0	6.0	ENSPTRP00000024223	True	ENSCAFP00000021398	GP1BB;TBX1	protein_coding;protein_coding													
+9089	Canis_familiaris	B_pseudo	0	False	True	11	67662120.0	67662688.0	1.0	0.88	1.0	0.0	0.0	ENSP00000417176	True		-	pseudogene													
+9093	Canis_familiaris	C_deleted	5	False	True	37	2301905.0	2302702.0	0.626	0.733	0.0	0.0	0.0	ENSPTRP00000021805	True		-	lncRNA													
+9136	Canis_familiaris	B_partial	0	False	True	13	24216866.0	24217585.0	0.774	0.942	0.0	0.0	0.0	ENSP00000302578	True																
+9137	Canis_familiaris	B_pseudo	0	False	True	15	17763402.0	17770537.0	0.724	0.456	3.0	0.0	2.0	ENSMUSP00000154785	True	ENSCAFP00000038212	-;TEP1	protein_coding;protein_coding													
+9144	Canis_familiaris	C_deleted	0	False	False																										
+9207	Canis_familiaris	B_pseudo	18	True	True	28	30240079.0	30240594.0	1.0	0.399	0.0	1.0	0.0	ENSRNOP00000019646	False	ENSCAFP00000055370	-	protein_coding	14	27524215.0	27524694.0	0.896	0.419	0.0	0.0	0.0	ENSRNOP00000019646	False		-	lncRNA
+9289	Canis_familiaris	C_deleted	5	False	False																										
+9292	Canis_familiaris	C_deleted	50	True	True	28	7333610.0	7334167.0	0.898	0.656	0.0	0.0	0.0	ENSP00000238738	False	ENSCAFP00000041464	EXOC6;-	protein_coding;protein_coding	28	7333610.0	7334167.0	0.898	0.656	0.0	0.0	0.0	ENSP00000238738	False	ENSCAFP00000041464	EXOC6;-	protein_coding;protein_coding
+9314	Canis_familiaris	B_pseudo	0	False	True	22	57314144.0	57793292.0	1.0	0.782	1.0	1.0	38.0	ENSP00000401633	True	ENSCAFP00000009088	MYO16	protein_coding													
+9399	Canis_familiaris	B_pseudo	0	False	True	12	11781927.0	11787661.0	1.0	0.705	7.0	2.0	9.0	ENSP00000361666	True																
+9426	Canis_familiaris	D_undetermined	5	False	True	9	8275049.0	8278169.0	1.0	0.941	3.0	0.0	2.0	ENSP00000245479	False		SOX9;-	pseudogene;lncRNA													
+9473	Canis_familiaris	C_deleted	5	False	False																										
+9514	Canis_familiaris	B_partial	5	False	True	14	60095929.0	60096781.0	0.343	0.92	0.0	0.0	1.0	ENSP00000411145	True																
+9522	Canis_familiaris	C_deleted	10	False	False																										
+9560	Canis_familiaris	B_pseudo	5	False	True	37	25548581.0	25552209.0	1.0	0.729	4.0	1.0	2.0	ENSRNOP00000024190	True	ENSCAFP00000065580	-	protein_coding													
+9620	Canis_familiaris	B_partial	0	False	True	1	63962519.0	64084847.0	0.649	0.954	0.0	0.0	5.0	ENSRNOP00000017831	True	ENSCAFP00000039146	RNF217	protein_coding													
+9659	Canis_familiaris	C_deleted	5	False	True	8	44151840.0	44152288.0	1.0	0.831	1.0	1.0	0.0	ENSRNOP00000023388	False		-	protein_coding													
+9664	Canis_familiaris	C_deleted	0	False	False																										
+9683	Canis_familiaris	B_pseudo	2	False	True	6	39865570.0	39867274.0	0.986	0.501	7.0	0.0	2.0	ENSRNOP00000026676	True		CCDC78	protein_coding													
+9789	Canis_familiaris	C_deleted	5	False	False																										
+9828	Canis_familiaris	B_partial	0	False	True	8	34684570.0	34685688.0	0.772	0.759	0.0	0.0	0.0	ENSRNOP00000005933	True																
+9876	Canis_familiaris	B_partial	6	False	True	14	11917906.0	11924423.0	0.985	0.36	1.0	0.0	2.0	ENSP00000356257	False	ENSCAFP00000002584	LMOD2;ASB15	protein_coding;protein_coding													
+9914	Canis_familiaris	C_deleted	5	False	False																										
+9917	Canis_familiaris	B_pseudo	5	False	True	20	48427947.0	48430367.0	1.0	0.708	2.0	1.0	4.0	ENSPTRP00000044673	True		-	protein_coding													
+9958	Canis_familiaris	B_partial	1	False	True	4	8378401.0	8397604.0	0.682	0.769	0.0	0.0	1.0	ENSRNOP00000025705	True																
+9974	Canis_familiaris	B_pseudo	0	False	True	20	52381718.0	52391200.0	0.964	0.743	1.0	0.0	14.0	ENSMODP00000060368	True		CAMSAP3	pseudogene													
+10010	Canis_familiaris	C_deleted	5	False	False																										
+10054	Canis_familiaris	B_pseudo	5	False	True	36	10681348.0	10853750.0	1.0	0.71	1.0	0.0	5.0	ENSMODP00000008004	True	ENSCAFP00000038496	CSRNP3	protein_coding													
+10070	Canis_familiaris	B_pseudo	0	False	True	18	48091356.0	48094388.0	1.0	0.437	1.0	0.0	1.0	ENSRNOP00000066289	True																
+10129	Canis_familiaris	B_partial	10	False	True	24	28771947.0	28772537.0	0.61	0.964	0.0	0.0	0.0	ENSPTRP00000052159	True	ENSCAFP00000034242	MAFB	protein_coding													
+10154	Canis_familiaris	B_partial	2	False	True	5	22405684.0	22406252.0	0.845	0.452	1.0	0.0	0.0	ENSRNOP00000059602	False	ENSCAFP00000066226	-	protein_coding													
+10197	Canis_familiaris	B_partial	10	False	True	8	72270184.0	72343998.0	0.701	0.554	0.0	0.0	1.0	ENSPTRP00000059989	True		-	protein_coding													
+10201	Canis_familiaris	C_deleted	5	False	False																										
+10204	Canis_familiaris	C_deleted	5	False	False																										
+10231	Canis_familiaris	B_pseudo	0	False	True	10	16621480.0	16665348.0	0.944	0.795	2.0	0.0	15.0	ENSMODP00000044213	True		-;-	lncRNA;protein_coding													
+10266	Canis_familiaris	B_pseudo	0	True	True	15	2168002.0	2184976.0	0.935	0.459	1.0	0.0	1.0	ENSP00000361721	True		-	lncRNA	15	2132493.0	2184976.0	0.927	0.417	0.0	0.0	2.0	ENSRNOP00000064826	True		-	lncRNA
+10280	Canis_familiaris	B_pseudo	1	True	True	JH373345.1	52628.0	54994.0	0.981	0.472	0.0	1.0	1.0	ENSRNOP00000016420	True		-;-	lncRNA;lncRNA	10	16773662.0	16819058.0	0.964	0.398	0.0	0.0	3.0	ENSMUSP00000068321	False		NCAPH2;LMF2;-	protein_coding;pseudogene;lncRNA
+10288	Canis_familiaris	B_pseudo	0	False	True	5	54199225.0	54205316.0	0.746	0.39	8.0	0.0	6.0	ENSMODP00000004695	True																
+10290	Canis_familiaris	C_deleted	20	False	False																										
+10402	Canis_familiaris	B_partial	0	False	True	13	4805528.0	4811164.0	0.794	0.995	0.0	0.0	2.0	ENSP00000330523	True	ENSCAFP00000000926	SLC25A32;CTHRC1	protein_coding;protein_coding													
+10416	Canis_familiaris	B_pseudo	18	False	True	24	47126257.0	47131457.0	0.989	0.628	9.0	0.0	7.0	ENSRNOP00000017337	True		-	pseudogene													
+10507	Canis_familiaris	B_pseudo	0	False	True	17	4468210.0	4564490.0	0.764	0.659	0.0	1.0	5.0	ENSP00000256722	True		RNF144A	protein_coding													
+10538	Canis_familiaris	C_deleted	5	False	False																										
+10540	Canis_familiaris	B_partial	0	False	True	38	22344722.0	22344907.0	0.413	0.984	0.0	0.0	0.0	ENSP00000357089	True	ENSCAFP00000037280	-	protein_coding													
+10559	Canis_familiaris	C_deleted	7	False	False																										
+10641	Canis_familiaris	C_deleted	5	False	False																										
+10659	Canis_familiaris	C_deleted	5	False	False																										
+10661	Canis_familiaris	B_pseudo	0	False	True	26	30904416.0	30905951.0	1.0	0.835	1.0	0.0	4.0	ENSMUSP00000069864	True	ENSCAFP00000022543	YDJC	protein_coding													
+10696	Canis_familiaris	B_pseudo	0	True	True	X	101068278.0	101068919.0	1.0	0.738	0.0	0.0	0.0	ENSMUSP00000054771	False	ENSCAFP00000027606	-	protein_coding	X	101068278.0	101068919.0	1.0	0.738	0.0	0.0	0.0	ENSMUSP00000054771	False	ENSCAFP00000027606	-	protein_coding
+10751	Canis_familiaris	C_deleted	7	False	False																										
+10753	Canis_familiaris	C_deleted	10	False	False																										
+10759	Canis_familiaris	B_pseudo	1	False	True	11	73897062.0	73911012.0	1.0	0.69	1.0	1.0	11.0	ENSRNOP00000025528	True	ENSCAFP00000005324	PHF19;-	lncRNA;protein_coding													
+10787	Canis_familiaris	B_pseudo	0	False	True	20	57440872.0	57442376.0	0.762	0.701	1.0	0.0	3.0	ENSMUSP00000020359	True		SBNO2;REEP6	protein_coding;protein_coding													
+10860	Canis_familiaris	B_pseudo	0	False	True	2	59102770.0	59124126.0	1.0	0.94	1.0	0.0	3.0	ENSPTRP00000013918	True	ENSCAFP00000049359	PLLP	protein_coding													
+10936	Canis_familiaris	B_pseudo	0	True	True	37	28576289.0	28636771.0	0.912	0.609	1.0	0.0	4.0	ENSRNOP00000018882	True		-;-	lncRNA;lncRNA	37	28576277.0	28636771.0	0.82	0.665	0.0	0.0	5.0	ENSPTRP00000078528	True		-;-	lncRNA;lncRNA
+11023	Canis_familiaris	C_deleted	6	False	False																										
+11102	Canis_familiaris	B_partial	2	True	True	1	118752402.0	118849647.0	0.899	0.39	0.0	0.0	4.0	ENSMODP00000013188	False	ENSCAFP00000011002	-;PEPD	protein_coding;protein_coding	1	118752402.0	118849647.0	0.899	0.39	0.0	0.0	4.0	ENSMODP00000013188	False	ENSCAFP00000011002	-;PEPD	protein_coding;protein_coding
+11168	Canis_familiaris	B_partial	0	False	True	18	1593935.0	1698021.0	0.739	0.615	0.0	0.0	9.0	ENSRNOP00000033938	True		IKZF1	protein_coding													
+11180	Canis_familiaris	B_partial	0	False	True	16	53358371.0	53369481.0	0.769	0.705	0.0	0.0	4.0	ENSRNOP00000067346	True	ENSCAFP00000037482	SPATA4;WDR17	protein_coding;protein_coding													
+11196	Canis_familiaris	C_deleted	6	False	False																										
+11232	Canis_familiaris	B_partial	5	False	True	22	3032549.0	3051040.0	0.755	0.95	0.0	0.0	8.0	ENSP00000389910	True	ENSCAFP00000006607	RCBTB2	protein_coding													
+11235	Canis_familiaris	D_undetermined	0	True	True	16	54317881.0	54458646.0	0.976	0.736	0.0	0.0	28.0	ENSMUSP00000081225	False	ENSCAFP00000020133	-;ARHGEF10	protein_coding;protein_coding	16	54292313.0	54376709.0	0.88	0.801	0.0	0.0	29.0	ENSPTRP00000072141	False	ENSCAFP00000020133	-;ARHGEF10	protein_coding;protein_coding
+11317	Canis_familiaris	C_deleted	6	False	False																										
+11394	Canis_familiaris	B_partial	0	False	True	25	42207580.0	42287625.0	0.676	0.843	0.0	0.0	2.0	ENSRNOP00000022901	True	ENSCAFP00000043549	FBXO36;TRIP12	protein_coding;protein_coding													
+11399	Canis_familiaris	C_deleted	5	False	False																										
+11408	Canis_familiaris	D_undetermined	20	False	True	4	75951600.0	75999097.0	1.0	0.853	1.0	0.0	10.0	ENSP00000265071	False	ENSCAFP00000027985	CDH6;-	protein_coding;protein_coding													
+11439	Canis_familiaris	C_deleted	5	False	False																										
+11513	Canis_familiaris	D_undetermined	0	False	True	2	13151557.0	13903905.0	1.0	0.736	6.0	4.0	41.0	ENSP00000412763	False																
+11575	Canis_familiaris	B_pseudo	5	False	True	31	33458359.0	33632213.0	1.0	0.958	3.0	0.0	9.0	ENSP00000414150	True	ENSCAFP00000014613	ERG;-	protein_coding;lncRNA													
+11590	Canis_familiaris	B_pseudo	0	False	True	16	14669754.0	14670532.0	1.0	0.869	1.0	0.0	0.0	ENSPTRP00000044257	True		REPIN1;-	protein_coding;pseudogene													
+11684	Canis_familiaris	B_pseudo	5	False	True	X	53293170.0	53303849.0	0.965	0.951	1.0	1.0	4.0	ENSP00000204961	True	ENSCAFP00000060585	EFNB1	protein_coding													
+11710	Canis_familiaris	B_pseudo	0	True	True	7	25518833.0	25556377.0	1.0	0.895	1.0	0.0	4.0	ENSP00000331268	True		SLC9C2	protein_coding	7	25518821.0	25553873.0	0.894	0.784	0.0	0.0	3.0	ENSMUSP00000059923	True		SLC9C2	protein_coding
+11716	Canis_familiaris	B_partial	0	False	True	22	9746299.0	9765723.0	0.788	0.848	0.0	0.0	4.0	ENSMODP00000018430	True	ENSCAFP00000007213	CNMD	protein_coding													
+11741	Canis_familiaris	B_pseudo	1	False	True	34	10926106.0	10930543.0	1.0	0.673	2.0	0.0	4.0	ENSP00000482393	True	ENSCAFP00000015338	IRX4	protein_coding													
+11751	Canis_familiaris	C_deleted	5	False	False																										
+11781	Canis_familiaris	C_deleted	6	False	False																										
+11873	Canis_familiaris	B_pseudo	6	True	True	7	43494885.0	43495877.0	1.0	0.465	0.0	0.0	1.0	ENSMUSP00000022186	False	ENSCAFP00000025859	S100A5	protein_coding	7	43494885.0	43495877.0	1.0	0.465	0.0	0.0	1.0	ENSMUSP00000022186	False	ENSCAFP00000025859	S100A5	protein_coding
+11875	Canis_familiaris	D_undetermined	1	True	True	7	43494885.0	43495883.0	1.0	0.95	0.0	0.0	1.0	ENSP00000357704	False	ENSCAFP00000025859	S100A5	protein_coding	7	43494885.0	43495883.0	1.0	0.95	0.0	0.0	1.0	ENSP00000357704	False	ENSCAFP00000025859	S100A5	protein_coding
+11883	Canis_familiaris	D_undetermined	0	False	True	6	29134779.0	29134820.0	0.113	0.467	0.0	0.0	0.0	ENSRNOP00000015351	False																
+11909	Canis_familiaris	B_pseudo	0	True	True	24	47523970.0	47545109.0	0.979	0.429	0.0	0.0	1.0	ENSP00000310801	True		OPRL1	protein_coding	24	47523970.0	47545109.0	0.979	0.429	0.0	0.0	1.0	ENSP00000310801	True		OPRL1	protein_coding
+11986	Canis_familiaris	B_pseudo	0	False	True	22	55617216.0	55639924.0	1.0	0.97	1.0	0.0	3.0	ENSP00000383059	True	ENSCAFP00000033308	ARGLU1	protein_coding													
+12052	Canis_familiaris	C_deleted	5	False	False																										
+12054	Canis_familiaris	C_deleted	5	False	False																										
+12065	Canis_familiaris	C_deleted	10	False	False																										
+12107	Canis_familiaris	C_deleted	2	False	False																										
+12143	Canis_familiaris	C_deleted	9	False	True	JH373704.1	23089.0	26069.0	0.493	0.636	0.0	0.0	6.0	ENSMODP00000045518	False																
+12234	Canis_familiaris	C_deleted	5	False	False																										
+12236	Canis_familiaris	C_deleted	15	False	False																										
+12271	Canis_familiaris	C_deleted	5	False	False																										
+12279	Canis_familiaris	C_deleted	5	False	False																										
+12328	Canis_familiaris	C_deleted	5	False	False																										
+12390	Canis_familiaris	B_pseudo	0	False	True	17	60750051.0	60758917.0	0.931	0.768	0.0	1.0	3.0	ENSP00000420280	True	ENSCAFP00000030947	RIIAD1	protein_coding													
+12491	Canis_familiaris	B_pseudo	0	False	True	6	38803516.0	38864496.0	1.0	0.798	2.0	0.0	45.0	ENSP00000262304	True		TRAF7;PKD1	protein_coding;pseudogene													
+12589	Canis_familiaris	C_deleted	5	False	False																										
+12632	Canis_familiaris	B_pseudo	0	False	True	9	31455389.0	31456057.0	0.931	0.888	3.0	0.0	0.0	ENSPTRP00000016018	True		-;NOG;-	lncRNA;pseudogene;lncRNA													
+12652	Canis_familiaris	B_pseudo	0	False	True	35	18357826.0	18358634.0	1.0	0.801	1.0	0.0	1.0	ENSMUSP00000021810	True	ENSCAFP00000014976	ID4	protein_coding													
+12675	Canis_familiaris	B_pseudo	0	False	True	9	48589264.0	48630178.0	1.0	0.865	1.0	0.0	45.0	ENSP00000481105	True		RABL6;ABCA2;ANAPC2	protein_coding;pseudogene;protein_coding													
+12715	Canis_familiaris	C_deleted	5	False	False																										
+12800	Canis_familiaris	C_deleted	5	False	False																										
+12805	Canis_familiaris	B_pseudo	2	False	True	38	20352466.0	20614612.0	1.0	0.875	0.0	1.0	10.0	ENSP00000355133	True		-	protein_coding													
+12818	Canis_familiaris	C_deleted	5	False	False																										
+12841	Canis_familiaris	B_pseudo	5	True	True	18	54533424.0	54547256.0	1.0	0.878	1.0	0.0	11.0	ENSP00000278829	True		RAB3IL1	protein_coding	18	54541300.0	54547256.0	0.952	0.783	0.0	0.0	9.0	ENSMODP00000009324	True		RAB3IL1	protein_coding
+12962	Canis_familiaris	B_pseudo	5	False	True	30	8541716.0	8550108.0	1.0	0.506	9.0	3.0	17.0	ENSP00000263800	True																
+13024	Canis_familiaris	B_partial	25	True	True	13	59196011.0	59196523.0	1.0	0.474	0.0	0.0	0.0	ENSPTRP00000032689	False	ENSCAFP00000047500	UGT2A1;-	protein_coding;protein_coding	13	59196011.0	59196523.0	1.0	0.474	0.0	0.0	0.0	ENSPTRP00000032689	False	ENSCAFP00000047500	UGT2A1;-	protein_coding;protein_coding
+13049	Canis_familiaris	B_pseudo	5	False	True	15	51087026.0	51141512.0	1.0	0.724	3.0	0.0	12.0	ENSMODP00000042853	True		MND1;-	protein_coding;protein_coding													
+13092	Canis_familiaris	B_partial	10	False	True	JH373737.1	5547.0	7384.0	1.0	0.606	0.0	2.0	3.0	ENSMODP00000043231	False		-;-	lncRNA;lncRNA													
+13191	Canis_familiaris	B_partial	10	True	True	2	76198744.0	76199868.0	0.972	0.612	0.0	0.0	0.0	ENSMUSP00000139389	False		KDM1A	protein_coding	2	76198849.0	76199868.0	0.877	0.668	0.0	0.0	0.0	ENSP00000358963	False		KDM1A	protein_coding
+13194	Canis_familiaris	C_deleted	10	False	True	5	37678280.0	37679343.0	1.0	0.875	3.0	1.0	0.0	ENSP00000445618	False		-	pseudogene													
+13441	Canis_familiaris	C_deleted	7	True	True	11	55258504.0	55272360.0	0.996	0.703	0.0	0.0	5.0	ENSRNOP00000074379	False	ENSCAFP00000038979	NANS	protein_coding	11	55258504.0	55272360.0	0.924	0.717	0.0	0.0	4.0	ENSP00000417864	False	ENSCAFP00000038979	NANS	protein_coding
+13480	Canis_familiaris	C_deleted	5	False	False																										
+13495	Canis_familiaris	C_deleted	5	False	False																										
+13529	Canis_familiaris	B_pseudo	5	False	True	20	56966753.0	56976509.0	1.0	0.842	1.0	0.0	12.0	ENSP00000467811	True	ENSCAFP00000028723	MKNK2;-	protein_coding;protein_coding													
+13532	Canis_familiaris	C_deleted	5	False	False																										
+13543	Canis_familiaris	B_pseudo	0	False	True	1	758462.0	800882.0	0.941	0.914	1.0	0.0	4.0	ENSRNOP00000074262	True	ENSCAFP00000050334	SLC66A2;CTDP1	protein_coding;protein_coding													
+13813	Canis_familiaris	C_deleted	5	False	False																										
+13877	Canis_familiaris	B_pseudo	10	False	True	33	5001327.0	5044632.0	0.989	0.684	4.0	1.0	9.0	ENSMUSP00000109980	True		-	lncRNA													
+13878	Canis_familiaris	C_deleted	10	False	False																										
+13898	Canis_familiaris	B_pseudo	0	False	True	10	67340843.0	67356752.0	0.89	0.932	1.0	0.0	2.0	ENSP00000263655	True	ENSCAFP00000040461	CNRIP1	protein_coding													
+13924	Canis_familiaris	B_pseudo	12	False	True	1	805898.0	829269.0	1.0	0.587	9.0	0.0	1.0	ENSP00000315654	True	ENSCAFP00000038692	CTDP1;-	protein_coding;protein_coding													
+14102	Canis_familiaris	B_pseudo	0	False	True	32	485720.0	504250.0	0.659	0.873	0.0	1.0	7.0	ENSPTRP00000027800	True		-	pseudogene													
+14107	Canis_familiaris	C_deleted	5	False	False																										
+14122	Canis_familiaris	B_partial	6	False	True	3	11420901.0	11427003.0	0.546	0.864	0.0	0.0	1.0	ENSPTRP00000082101	True	ENSCAFP00000039695	-;-	protein_coding;lncRNA													
+14134	Canis_familiaris	B_pseudo	0	False	True	16	24262451.0	24302893.0	0.924	0.972	1.0	0.0	2.0	ENSP00000220772	True	ENSCAFP00000037572	SFRP1	protein_coding													
+14152	Canis_familiaris	C_deleted	5	False	False																										
+14159	Canis_familiaris	B_pseudo	1	False	True	25	120561.0	128892.0	0.579	0.554	2.0	1.0	5.0	ENSMODP00000053565	True																
+14173	Canis_familiaris	C_deleted	14	False	False																										
+14210	Canis_familiaris	C_deleted	9	False	False																										
+14219	Canis_familiaris	C_deleted	0	False	True	8	13317295.0	13317396.0	0.479	0.971	0.0	0.0	0.0	ENSP00000298130	True																
+14281	Canis_familiaris	C_deleted	31	False	False																										
+14336	Canis_familiaris	C_deleted	1	False	False																										
+14341	Canis_familiaris	C_deleted	6	False	False																										
+14345	Canis_familiaris	B_pseudo	5	False	True	20	41970229.0	41974005.0	0.89	0.369	1.0	0.0	3.0	ENSMODP00000017423	True		MYL3;-	protein_coding;protein_coding													
+14390	Canis_familiaris	B_partial	6	False	True	30	35378421.0	35381819.0	0.405	0.926	0.0	0.0	2.0	ENSMUSP00000034831	True	ENSCAFP00000061829	-	protein_coding													
+14481	Canis_familiaris	B_pseudo	0	False	True	6	39084564.0	39127049.0	1.0	0.637	1.0	0.0	7.0	ENSMUSP00000126878	True	ENSCAFP00000028826	SPSB3;-;HAGH	protein_coding;protein_coding;protein_coding													
+14544	Canis_familiaris	C_deleted	15	False	False																										
+14568	Canis_familiaris	C_deleted	5	False	False																										
+14588	Canis_familiaris	B_partial	0	False	True	12	67674646.0	67719982.0	0.785	0.849	0.0	0.0	4.0	ENSMUSP00000090227	True	ENSCAFP00000005836	SLC16A10	protein_coding													
+14645	Canis_familiaris	B_pseudo	13	False	True	16	26558429.0	26654703.0	1.0	0.648	1.0	0.0	9.0	ENSMODP00000013256	True	ENSCAFP00000008772	HTRA4	protein_coding													
+14651	Canis_familiaris	B_pseudo	0	False	True	6	9102423.0	9112416.0	1.0	0.884	0.0	1.0	17.0	ENSP00000309689	True		GIGYF1;NYAP1	protein_coding;protein_coding													
+14661	Canis_familiaris	B_partial	0	False	True	6	39922253.0	39923013.0	0.667	0.64	0.0	0.0	2.0	ENSMODP00000020855	True		JMJD8;WDR90	protein_coding;protein_coding													
+14727	Canis_familiaris	C_deleted	10	False	False																										
+14791	Canis_familiaris	C_deleted	8	False	False																										
+14799	Canis_familiaris	C_deleted	5	False	False																										
+14822	Canis_familiaris	B_pseudo	4	False	True	24	27054502.0	27074208.0	0.963	0.542	7.0	4.0	12.0	ENSPTRP00000023161	True		RALGAPB	protein_coding													
+14938	Canis_familiaris	B_partial	0	False	True	3	91419841.0	91420920.0	0.364	0.792	0.0	0.0	1.0	ENSRNOP00000008262	True																
+14974	Canis_familiaris	C_deleted	6	False	False																										
+15052	Canis_familiaris	B_pseudo	0	False	True	4	21110922.0	21117863.0	1.0	0.562	2.0	0.0	3.0	ENSRNOP00000035866	True																
+15089	Canis_familiaris	B_pseudo	8	False	True	26	10471281.0	10501617.0	1.0	0.69	1.0	1.0	5.0	ENSP00000257600	True																
+15111	Canis_familiaris	B_partial	0	False	True	13	36783501.0	36785844.0	0.452	0.872	0.0	0.0	1.0	ENSP00000338607	True																
+15260	Canis_familiaris	B_partial	5	False	True	14	60422020.0	60422850.0	0.73	0.389	0.0	0.0	0.0	ENSMODP00000002143	False		CADPS2	protein_coding													
+15292	Canis_familiaris	C_deleted	13	False	False																										
+15297	Canis_familiaris	B_pseudo	3	False	True	14	34789005.0	34790314.0	1.0	0.683	3.0	0.0	0.0	ENSPTRP00000056099	True	ENSCAFP00000044124	-	protein_coding													
+15395	Canis_familiaris	D_undetermined	5	False	False																										
+15423	Canis_familiaris	C_deleted	5	False	True	20	57296517.0	57306886.0	0.99	0.587	2.0	0.0	5.0	ENSMODP00000013828	False	ENSCAFP00000057168	SBNO2;MBD3	protein_coding;protein_coding													
+15533	Canis_familiaris	B_pseudo	0	False	True	8	72269633.0	72281791.0	1.0	0.671	2.0	1.0	19.0	ENSP00000376410	True	ENSCAFP00000027086	-;-	protein_coding;protein_coding													
+15660	Canis_familiaris	B_pseudo	3	False	True	1	25644881.0	25645892.0	1.0	0.686	2.0	3.0	0.0	ENSMODP00000029420	True																
+15661	Canis_familiaris	C_deleted	0	False	True	AAEX03020335.1	14328.0	15371.0	1.0	0.782	3.0	2.0	0.0	ENSRNOP00000030671	False																
+15666	Canis_familiaris	B_pseudo	6	False	True	1	25644890.0	25645883.0	0.976	0.413	2.0	3.0	0.0	ENSRNOP00000037691	True																
+15747	Canis_familiaris	B_partial	22	False	True	22	5994366.0	5994892.0	0.836	0.522	3.0	0.0	0.0	ENSPTRP00000004647	False		GPALPP1	protein_coding													
+15964	Canis_familiaris	B_partial	4	False	True	8	67930558.0	68004889.0	0.64	0.886	0.0	0.0	6.0	ENSMUSP00000125757	True	ENSCAFP00000036212	CCDC85C;CCNK	protein_coding;protein_coding													
+16014	Canis_familiaris	C_deleted	5	False	False																										
+16018	Canis_familiaris	B_pseudo	0	False	True	18	38479674.0	38480227.0	1.0	0.852	0.0	1.0	2.0	ENSP00000434511	True																
+16062	Canis_familiaris	B_pseudo	0	False	True	2	10069949.0	10071336.0	1.0	0.842	3.0	1.0	1.0	ENSPTRP00000083121	True		PTF1A	pseudogene													
+16068	Canis_familiaris	B_pseudo	0	True	True	10	23298913.0	23299704.0	1.0	0.423	0.0	0.0	0.0	ENSPTRP00000079215	False				26	9004941.0	9005767.0	0.897	0.657	0.0	0.0	1.0	ENSRNOP00000034778	True		SH2B3	protein_coding
+16074	Canis_familiaris	B_partial	0	False	True	25	51450556.0	51450783.0	0.362	0.895	0.0	0.0	0.0	ENSPTRP00000059900	True	ENSCAFP00000036994	-	protein_coding													
+16169	Canis_familiaris	B_pseudo	0	False	True	29	36009439.0	36030372.0	0.554	0.948	1.0	0.0	2.0	ENSRNOP00000009759	True	ENSCAFP00000052216	TMEM64	protein_coding													
+16200	Canis_familiaris	C_deleted	0	False	False																										
+16272	Canis_familiaris	C_deleted	0	False	True	8	8275966.0	8278833.0	0.883	0.657	1.0	1.0	1.0	ENSP00000339004	False		-	lncRNA													
+16282	Canis_familiaris	C_deleted	0	False	True	1	38565205.0	38565267.0	0.121	0.952	0.0	0.0	0.0	ENSPTRP00000049547	True																
+16327	Canis_familiaris	C_deleted	0	True	True	X	9396771.0	9399884.0	1.0	0.724	0.0	0.0	0.0	ENSRNOP00000066040	True		PRPS2;-	protein_coding;protein_coding	X	9396765.0	9399884.0	0.982	0.774	0.0	0.0	0.0	ENSP00000312082	True		PRPS2;-	protein_coding;protein_coding
+16401	Canis_familiaris	C_deleted	5	False	False																										
+16420	Canis_familiaris	C_deleted	9	False	False																										
+16423	Canis_familiaris	B_pseudo	8	False	True	37	25617725.0	25622974.0	1.0	0.929	1.0	1.0	2.0	ENSP00000295731	True		CFAP65	protein_coding													
+16427	Canis_familiaris	B_pseudo	10	False	True	22	31994743.0	31996761.0	1.0	0.74	4.0	3.0	1.0	ENSMUSP00000060798	True																
+16441	Canis_familiaris	B_pseudo	0	False	True	2	82339818.0	82449334.0	1.0	0.938	2.0	0.0	13.0	ENSRNOP00000019447	True	ENSCAFP00000049399	-;-	pseudogene;protein_coding													
+16540	Canis_familiaris	C_deleted	5	False	False																										
+16685	Canis_familiaris	B_pseudo	1	True	True	4	73888227.0	74185400.0	1.0	0.718	1.0	0.0	27.0	ENSP00000422554	True		ADAMTS12	protein_coding	4	74057872.0	74185400.0	0.949	0.723	0.0	0.0	22.0	ENSMODP00000025523	True			
+16752	Canis_familiaris	C_deleted	5	False	False																										
+16773	Canis_familiaris	C_deleted	5	False	False																										
+16786	Canis_familiaris	B_pseudo	0	False	True	31	35936401.0	35959537.0	1.0	0.725	2.0	0.0	11.0	ENSPTRP00000023965	True	ENSCAFP00000041591	MX2;-	protein_coding;protein_coding													
+16825	Canis_familiaris	C_deleted	5	False	True	X	39412575.0	39413293.0	1.0	0.683	1.0	3.0	1.0	ENSMUSP00000069578	False		-	lncRNA													
+17019	Canis_familiaris	C_deleted	5	False	False																										
+17023	Canis_familiaris	B_pseudo	1	False	True	29	28804839.0	28805992.0	0.952	0.512	6.0	7.0	0.0	ENSMUSP00000077808	True																
+17035	Canis_familiaris	C_deleted	14	False	True	6	24811346.0	24837562.0	0.97	0.642	5.0	2.0	10.0	ENSPTRP00000067365	True																
+17044	Canis_familiaris	C_deleted	5	False	False																										
+17048	Canis_familiaris	B_pseudo	0	False	True	1	112577560.0	112578750.0	1.0	0.831	0.0	1.0	0.0	ENSPTRP00000018934	True		-;-	protein_coding;pseudogene													
+17080	Canis_familiaris	B_pseudo	4	False	True	8	63303554.0	63335816.0	0.817	0.386	2.0	1.0	3.0	ENSMUSP00000048357	True		SERPINA11	protein_coding													
+17150	Canis_familiaris	C_deleted	4	True	True	1	102181097.0	102181786.0	0.974	0.836	0.0	0.0	0.0	ENSPTRP00000060275	True		SBK3	protein_coding	1	102181097.0	102181786.0	0.974	0.836	0.0	0.0	0.0	ENSPTRP00000060275	True		SBK3	protein_coding
+17167	Canis_familiaris	C_deleted	9	False	False																										
+17170	Canis_familiaris	C_deleted	5	False	False																										
+17185	Canis_familiaris	B_pseudo	10	False	True	7	497411.0	502029.0	0.839	0.834	2.0	1.0	6.0	ENSRNOP00000006637	True	ENSCAFP00000056726	SYT2	protein_coding													
+17278	Canis_familiaris	B_pseudo	0	False	True	27	4735864.0	4750827.0	0.989	0.894	1.0	0.0	4.0	ENSP00000293599	True	ENSCAFP00000012302	AQP5;AQP2	protein_coding;protein_coding													
+17295	Canis_familiaris	B_partial	8	False	True	26	5007356.0	5008498.0	0.55	0.997	0.0	0.0	0.0	ENSPTRP00000050925	True		-;-;-	pseudogene;lncRNA;lncRNA													
+17301	Canis_familiaris	B_pseudo	0	False	True	8	71747319.0	71840266.0	1.0	0.736	2.0	0.0	14.0	ENSRNOP00000017454	True	ENSCAFP00000027058	ASPG;KIF26A;-	protein_coding;protein_coding;lncRNA													
+17363	Canis_familiaris	B_partial	4	True	True	5	37806374.0	37806613.0	1.0	0.625	0.0	0.0	0.0	ENSMODP00000049978	False	ENSCAFP00000052883	-	protein_coding	5	37806374.0	37806613.0	1.0	0.625	0.0	0.0	0.0	ENSMODP00000049978	False	ENSCAFP00000052883	-	protein_coding
+17590	Canis_familiaris	C_deleted	5	False	False																										
+17600	Canis_familiaris	C_deleted	6	False	True	AAEX03023460.1	41.0	6798.0	0.539	0.905	0.0	0.0	12.0	ENSPTRP00000041584	False																
+17628	Canis_familiaris	C_deleted	5	True	True	2	75709053.0	75711130.0	0.996	0.681	0.0	0.0	8.0	ENSPTRP00000082217	False	ENSCAFP00000042861	PITHD1	protein_coding	2	75709053.0	75711130.0	0.996	0.681	0.0	0.0	8.0	ENSPTRP00000082217	False	ENSCAFP00000042861	PITHD1	protein_coding
+17636	Canis_familiaris	B_partial	0	False	True	25	50589536.0	50594020.0	0.713	0.758	0.0	0.0	2.0	ENSP00000384894	True	ENSCAFP00000032136	-	protein_coding													
+17896	Canis_familiaris	C_deleted	5	False	False																										
+18000	Canis_familiaris	B_pseudo	1	False	True	32	443956.0	471812.0	1.0	0.762	3.0	0.0	15.0	ENSP00000286719	True		-	protein_coding													
+18094	Canis_familiaris	C_deleted	5	False	True	7	35561562.0	35562486.0	1.0	0.752	4.0	6.0	0.0	ENSP00000350874	False		CATSPERE	protein_coding													
+18203	Canis_familiaris	C_deleted	5	False	False																										
+18256	Canis_familiaris	B_pseudo	2	False	True	13	61148834.0	61164808.0	1.0	0.732	4.0	0.0	2.0	ENSMUSP00000040033	True		NPFFR2	pseudogene													
+18399	Canis_familiaris	C_deleted	10	False	False																										
+18437	Canis_familiaris	B_pseudo	0	False	True	9	22793854.0	22806318.0	1.0	0.837	2.0	0.0	7.0	ENSPTRP00000015505	True	ENSCAFP00000051939	PGAP3;TCAP	protein_coding;protein_coding													
+18481	Canis_familiaris	C_deleted	10	False	False																										
+18488	Canis_familiaris	B_pseudo	0	False	True	9	42933750.0	42939517.0	1.0	0.918	2.0	0.0	6.0	ENSP00000262395	True	ENSCAFP00000027741	TRAF4	protein_coding													
+18497	Canis_familiaris	B_pseudo	15	False	True	JH373408.1	44271.0	59419.0	0.55	0.745	1.0	0.0	10.0	ENSP00000379098	True	ENSCAFP00000042385	-	protein_coding													
+18606	Canis_familiaris	C_deleted	6	False	False																										
+18615	Canis_familiaris	C_deleted	5	False	False																										
+18628	Canis_familiaris	C_deleted	5	False	False																										
+18655	Canis_familiaris	B_pseudo	0	False	True	13	37621605.0	37623358.0	1.0	0.821	1.0	0.0	5.0	ENSP00000321320	True		HGH1	pseudogene													
+18666	Canis_familiaris	C_deleted	5	False	False																										
+18702	Canis_familiaris	B_pseudo	11	False	True	20	57132282.0	57160020.0	0.992	0.631	1.0	0.0	22.0	ENSP00000311336	True		ATP8B3;REXO1	pseudogene;protein_coding													
+18924	Canis_familiaris	C_deleted	6	False	False																										
+18941	Canis_familiaris	C_deleted	5	False	False																										
+19144	Canis_familiaris	B_pseudo	0	False	True	12	64984862.0	65028527.0	1.0	0.518	3.0	2.0	9.0	ENSP00000357998	True																
+19210	Canis_familiaris	B_pseudo	12	False	True	24	37108683.0	37119944.0	1.0	0.805	0.0	1.0	2.0	ENSP00000360672	True		-;-	lncRNA;lncRNA													
+19217	Canis_familiaris	C_deleted	5	False	False																										
+19253	Canis_familiaris	C_deleted	5	False	False																										
+19263	Canis_familiaris	B_pseudo	0	False	True	15	18094962.0	18099011.0	0.743	0.773	1.0	0.0	9.0	ENSMUSP00000130200	True	ENSCAFP00000053592	-	protein_coding													
+19518	Canis_familiaris	B_partial	4	False	False																										
+19538	Canis_familiaris	C_deleted	5	False	False																										
+19637	Canis_familiaris	C_deleted	10	False	False																										
+19672	Canis_familiaris	B_pseudo	0	False	True	6	39422224.0	39430772.0	1.0	0.805	2.0	0.0	29.0	ENSMUSP00000138188	True	ENSCAFP00000028971	BAIAP3	protein_coding													
+19762	Canis_familiaris	C_deleted	5	False	False																										
+19832	Canis_familiaris	C_deleted	11	False	False																										
+19862	Canis_familiaris	B_pseudo	14	False	True	30	35785834.0	35813347.0	1.0	0.837	1.0	0.0	9.0	ENSPTRP00000075853	True	ENSCAFP00000026110	-;-	protein_coding;protein_coding													
+19870	Canis_familiaris	B_pseudo	0	False	True	8	64383227.0	64392415.0	1.0	0.806	2.0	0.0	1.0	ENSP00000328570	True	ENSCAFP00000031487	GLRX5	protein_coding													
+19886	Canis_familiaris	C_deleted	5	False	False																										
+19889	Canis_familiaris	C_deleted	5	False	False																										
+20085	Canis_familiaris	B_partial	0	False	True	6	28386108.0	28390420.0	0.48	0.819	0.0	0.0	2.0	ENSPTRP00000078272	True	ENSCAFP00000039067	-	protein_coding													
+20118	Canis_familiaris	C_deleted	5	False	False																										
+20141	Canis_familiaris	C_deleted	10	False	False																										
+20149	Canis_familiaris	D_undetermined	9	False	True	JH373278.1	194687.0	195601.0	1.0	0.927	0.0	1.0	0.0	ENSPTRP00000060793	False		-	pseudogene													
+20286	Canis_familiaris	B_partial	0	False	True	1	64834765.0	64848389.0	0.721	0.765	0.0	0.0	3.0	ENSMUSP00000125552	True		TRMT11	protein_coding													
+20386	Canis_familiaris	D_undetermined	5	True	True	19	49642632.0	49723157.0	1.0	0.992	0.0	0.0	10.0	ENSMUSP00000067305	False	ENSCAFP00000055829	ACVR2A	protein_coding	19	49642632.0	49723157.0	1.0	0.992	0.0	0.0	10.0	ENSMUSP00000067305	False	ENSCAFP00000055829	ACVR2A	protein_coding
+20447	Canis_familiaris	B_pseudo	2	False	True	24	46315298.0	46346198.0	0.994	0.453	5.0	0.0	40.0	ENSP00000252999	True		RPS21;ADRM1;-	protein_coding;protein_coding;pseudogene													
+20544	Canis_familiaris	B_pseudo	14	False	True	37	9680663.0	9748963.0	0.998	0.729	7.0	3.0	33.0	ENSMUSP00000001027	True		SGO2	protein_coding													
+20599	Canis_familiaris	C_deleted	8	False	False																										
+20625	Canis_familiaris	B_pseudo	0	False	True	10	953057.0	975885.0	1.0	0.912	0.0	1.0	12.0	ENSPTRP00000041095	True	ENSCAFP00000000208	-	protein_coding													
+20673	Canis_familiaris	B_partial	0	False	True	6	39260538.0	39308670.0	0.722	0.829	0.0	0.0	17.0	ENSMODP00000020197	True	ENSCAFP00000028903	-	protein_coding													
+20742	Canis_familiaris	C_deleted	0	True	True	20	39043718.0	39044662.0	0.997	0.749	0.0	0.0	0.0	ENSMUSP00000091300	True		HYAL3	protein_coding	20	39043718.0	39044662.0	0.994	0.8	0.0	0.0	0.0	ENSP00000346927	True		HYAL3	protein_coding
+20815	Canis_familiaris	C_deleted	8	True	True	28	41079171.0	41088948.0	1.0	0.773	0.0	0.0	8.0	ENSP00000440689	False		CYP2E1	protein_coding	28	41079171.0	41088948.0	1.0	0.773	0.0	0.0	8.0	ENSP00000440689	False		CYP2E1	protein_coding
+20874	Canis_familiaris	D_undetermined	0	False	False																										
+20951	Canis_familiaris	D_undetermined	0	False	True	18	25345212.0	25355594.0	1.0	0.539	1.0	0.0	2.0	ENSRNOP00000074987	False	ENSCAFP00000043801	-;ODF3	protein_coding;protein_coding													
+21005	Canis_familiaris	B_pseudo	7	False	True	10	10971770.0	10997780.0	0.88	0.673	2.0	0.0	5.0	ENSP00000448517	True																
+21031	Canis_familiaris	B_pseudo	0	False	True	18	16864487.0	16894080.0	1.0	0.896	1.0	0.0	15.0	ENSP00000368565	True	ENSCAFP00000065567	-;DNAJC2	protein_coding;protein_coding													
+21115	Canis_familiaris	C_deleted	5	False	False																										
+21117	Canis_familiaris	D_undetermined	12	False	False																										
+21270	Canis_familiaris	C_deleted	5	False	False																										
+21289	Canis_familiaris	B_partial	0	False	True	6	38756620.0	38757479.0	0.786	0.834	0.0	0.0	1.0	ENSMODP00000027714	True	ENSCAFP00000028677	-	protein_coding													
+21315	Canis_familiaris	B_pseudo	5	False	True	38	21820754.0	21828717.0	1.0	0.519	1.0	2.0	6.0	ENSMODP00000049628	True		NCSTN	protein_coding													
+21348	Canis_familiaris	B_pseudo	7	False	True	5	62393457.0	62411530.0	0.951	0.452	4.0	1.0	9.0	ENSP00000383698	True		-	lncRNA													
+21455	Canis_familiaris	C_deleted	10	False	False																										
+21515	Canis_familiaris	B_pseudo	0	False	True	1	119306823.0	119311842.0	1.0	0.49	1.0	0.0	2.0	ENSPTRP00000055463	True																
+21701	Canis_familiaris	B_pseudo	0	False	True	13	37555098.0	37564128.0	1.0	0.856	3.0	0.0	23.0	ENSP00000480476	True		OPLAH	pseudogene													
+21801	Canis_familiaris	B_partial	5	False	True	8	36185445.0	36186104.0	0.623	0.864	0.0	0.0	0.0	ENSMUSP00000037476	True																
+21840	Canis_familiaris	B_pseudo	5	False	True	30	39816737.0	39817784.0	0.499	0.86	1.0	0.0	1.0	ENSP00000290759	True	ENSCAFP00000042246	-	protein_coding													
+21856	Canis_familiaris	B_pseudo	5	False	True	9	6924340.0	6928975.0	0.988	0.529	1.0	0.0	4.0	ENSMODP00000038500	True		FAM104A	protein_coding													
+21959	Canis_familiaris	D_undetermined	2	False	True	JH373278.1	383501.0	385840.0	0.395	0.719	0.0	0.0	1.0	ENSRNOP00000065524	False																
+22046	Canis_familiaris	C_deleted	5	False	False																										
+22079	Canis_familiaris	C_deleted	5	False	False																										
+22080	Canis_familiaris	B_pseudo	5	False	True	20	61633.0	98934.0	0.605	0.782	0.0	0.0	12.0	ENSRNOP00000065882	True	ENSCAFP00000055122	ALDH1L1	protein_coding													
+22201	Canis_familiaris	B_pseudo	0	True	True	17	20431294.0	20467694.0	1.0	0.952	0.0	1.0	9.0	ENSP00000260585	True		SELENOI	protein_coding	17	20431294.0	20467661.0	1.0	0.953	0.0	0.0	9.0	ENSPTRP00000052120	True		SELENOI	protein_coding
+22207	Canis_familiaris	B_pseudo	6	False	True	22	60752424.0	60778155.0	1.0	0.819	1.0	0.0	5.0	ENSRNOP00000070767	True	ENSCAFP00000009537	DCUN1D2	protein_coding													
+22222	Canis_familiaris	C_deleted	0	False	False																										
+22235	Canis_familiaris	C_deleted	6	False	False																										
+22341	Canis_familiaris	C_deleted	14	False	True	8	24674709.0	24676213.0	0.949	0.866	9.0	2.0	0.0	ENSMUSP00000034834	False	ENSCAFP00000037082	-	protein_coding													
+22348	Canis_familiaris	B_pseudo	15	False	True	1	107309802.0	107335973.0	1.0	0.911	3.0	0.0	27.0	ENSPTRP00000074089	True	ENSCAFP00000005705	SNRNP70;PPFIA3;-	protein_coding;protein_coding;protein_coding													
+22378	Canis_familiaris	D_undetermined	28	False	True	JH373316.1	60824.0	69875.0	0.53	0.943	1.0	0.0	6.0	ENSPTRP00000043519	False	ENSCAFP00000004364	-	protein_coding													
+22494	Canis_familiaris	C_deleted	39	False	False																										
+22521	Canis_familiaris	C_deleted	0	False	True	8	40715700.0	40800890.0	0.743	0.456	3.0	1.0	2.0	ENSRNOP00000076309	False		GPHN	protein_coding													
+22529	Canis_familiaris	C_deleted	12	False	False																										
+22755	Canis_familiaris	D_undetermined	5	False	True	3	58446252.0	58449525.0	0.401	0.982	0.0	0.0	1.0	ENSP00000299529	False																
+22786	Canis_familiaris	B_pseudo	0	False	True	20	55841186.0	55844862.0	0.987	0.81	2.0	0.0	7.0	ENSRNOP00000028002	True	ENSCAFP00000028341	HMG20B;-	protein_coding;lncRNA													
+22814	Canis_familiaris	B_pseudo	6	True	True	3	54129620.0	54176985.0	1.0	0.551	0.0	0.0	14.0	ENSMUSP00000106154	False		PDE8A	protein_coding	3	54131732.0	54176985.0	0.926	0.585	0.0	0.0	13.0	ENSP00000315006	False		PDE8A	protein_coding
+22832	Canis_familiaris	C_deleted	15	True	True	6	39609119.0	39628575.0	0.889	0.507	0.0	0.0	1.0	ENSMODP00000047653	False		UBE2I	protein_coding	6	39609137.0	39629044.0	0.856	0.54	0.0	0.0	1.0	ENSP00000255008	False		UBE2I	protein_coding
+22866	Canis_familiaris	C_deleted	5	False	True	AAEX03025528.1	1721.0	4634.0	0.275	0.75	0.0	0.0	2.0	ENSMODP00000013113	False																
+22902	Canis_familiaris	B_pseudo	0	True	True	7	79029135.0	79057398.0	1.0	0.667	2.0	0.0	8.0	ENSP00000285093	True		-	protein_coding	7	79029135.0	79057398.0	1.0	0.646	0.0	0.0	7.0	ENSPTRP00000017023	True		-	protein_coding
+22951	Canis_familiaris	C_deleted	6	False	False																										
+23140	Canis_familiaris	C_deleted	5	False	False																										
+23141	Canis_familiaris	B_pseudo	0	False	True	9	7055939.0	7244946.0	0.635	0.728	1.0	0.0	4.0	ENSMUSP00000037331	True	ENSCAFP00000061555	-	protein_coding													
+23213	Canis_familiaris	B_pseudo	5	False	True	15	10707185.0	10748065.0	0.979	0.557	3.0	0.0	4.0	ENSRNOP00000059247	True		-;-	lncRNA;lncRNA													
+23330	Canis_familiaris	C_deleted	5	False	False																										
+23352	Canis_familiaris	C_deleted	10	False	False																										
+23357	Canis_familiaris	C_deleted	15	False	False																										
+23396	Canis_familiaris	C_deleted	5	False	False																										
+23421	Canis_familiaris	C_deleted	12	False	False																										
+23424	Canis_familiaris	B_pseudo	1	True	True	20	43713317.0	43720967.0	1.0	0.8	1.0	0.0	5.0	ENSP00000426964	True		CILP2	protein_coding	20	43713317.0	43720967.0	1.0	0.817	0.0	0.0	5.0	ENSRNOP00000061892	True		CILP2	protein_coding
+23806	Canis_familiaris	C_deleted	0	True	True	22	6540462.0	6560853.0	1.0	0.894	0.0	0.0	2.0	ENSMODP00000026591	False	ENSCAFP00000058946	SERP2	protein_coding	22	6540462.0	6560853.0	1.0	0.894	0.0	0.0	2.0	ENSMODP00000026591	False	ENSCAFP00000058946	SERP2	protein_coding
+23818	Canis_familiaris	C_deleted	10	False	False																										

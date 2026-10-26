@@ -1,0 +1,158 @@
+hog	target	locus_cls	gw_paralog_hits	gw_intact	gw_intact_contig	gw_intact_start	gw_intact_end	gw_intact_qcov	gw_intact_identity	gw_intact_fs	gw_intact_st	gw_intact_n_introns	gw_intact_query	gw_intact_in_locus	gw_intact_annotated	gw_intact_gff	gw_intact_biotype	gw_any	gw_any_contig	gw_any_start	gw_any_end	gw_any_qcov	gw_any_identity	gw_any_fs	gw_any_st	gw_any_n_introns	gw_any_query	gw_any_in_locus	gw_any_annotated	gw_any_gff	gw_any_biotype
+2109	Rattus_norvegicus	B_pseudo	0	True	3	110540717.0	110541130.0	1.0	0.725	0.0	0.0	0.0	ENSMODP00000055723	True		AABR07053500.2;AABR07053500.1	protein_coding;pseudogene	True	3	110540717.0	110541167.0	1.0	0.947	1.0	0.0	0.0	ENSMUSP00000150273	True		AABR07053500.2;AABR07053500.1	protein_coding;pseudogene
+2144	Rattus_norvegicus	B_pseudo	0	False														True	15	26081236.0	26106347.0	0.802	0.676	4.0	1.0	5.0	ENSMUSP00000022398	True			
+2173	Rattus_norvegicus	B_pseudo	0	False														True	3	142781427.0	142783593.0	1.0	0.868	1.0	0.0	1.0	ENSMUSP00000096876	True		Cd93	processed_transcript
+2178	Rattus_norvegicus	B_pseudo	0	True	19	37974871.0	37984914.0	1.0	0.932	0.0	0.0	1.0	ENSMUSP00000153824	True				True	19	37974871.0	37984914.0	1.0	0.932	0.0	0.0	1.0	ENSMUSP00000153824	True			
+2293	Rattus_norvegicus	B_pseudo	0	False														True	13	91827374.0	91828809.0	1.0	0.796	1.0	1.0	1.0	ENSMUSP00000045134	True			
+2393	Rattus_norvegicus	B_pseudo	0	False														True	2	27571242.0	27742900.0	1.0	0.447	11.0	0.0	21.0	ENSPTRP00000092517	True	ENSRNOP00000034334	AABR07007769.1;Gcnt4;AABR07007765.1	protein_coding;protein_coding;lincRNA
+2395	Rattus_norvegicus	B_pseudo	0	False														True	6	125153764.0	125348873.0	0.753	0.547	2.0	2.0	16.0	ENSPTRP00000011313	True			
+2454	Rattus_norvegicus	B_pseudo	79	False														True	8	42682592.0	42683518.0	0.994	0.832	0.0	1.0	0.0	ENSP00000485661	False			
+2625	Rattus_norvegicus	B_pseudo	0	False														True	9	26165840.0	26734763.0	1.0	0.861	16.0	1.0	65.0	ENSMUSP00000085794	True	ENSRNOP00000072399	AABR07067023.1;AABR07067024.1	protein_coding;protein_coding
+2884	Rattus_norvegicus	C_deleted	5	False														False													
+2898	Rattus_norvegicus	B_pseudo	0	False														True	18	52602947.0	52769970.0	1.0	0.775	1.0	0.0	7.0	ENSMUSP00000078674	True			
+2931	Rattus_norvegicus	B_pseudo	0	False														True	9	65784495.0	65879509.0	1.0	0.797	1.0	0.0	20.0	ENSMUSP00000159118	True	ENSRNOP00000017517	C2cd6;AABR07067812.1	protein_coding;protein_coding
+2942	Rattus_norvegicus	B_pseudo	0	False														True	X	15774091.0	15783784.0	0.479	0.686	15.0	0.0	2.0	ENSP00000055335	True			
+2981	Rattus_norvegicus	C_deleted	6	True	14	113212157.0	113294562.0	0.9	0.522	0.0	0.0	6.0	ENSMODP00000011413	False	ENSRNOP00000004764	Efemp1	protein_coding	True	14	113212157.0	113294562.0	0.9	0.522	0.0	0.0	6.0	ENSMODP00000011413	False	ENSRNOP00000004764	Efemp1	protein_coding
+3025	Rattus_norvegicus	C_deleted	0	False														False													
+3067	Rattus_norvegicus	C_deleted	0	False														False													
+3195	Rattus_norvegicus	B_partial	0	False														True	5	1972701.0	1989446.0	0.575	0.859	0.0	0.0	2.0	ENSMUSP00000026881	True			
+3406	Rattus_norvegicus	B_pseudo	0	False														True	6	114760437.0	115141057.0	1.0	0.898	2.0	0.0	22.0	ENSMUSP00000115679	True		Cep128	processed_transcript
+3471	Rattus_norvegicus	D_undetermined	0	True	2	109487248.0	110187023.0	0.901	0.909	0.0	0.0	11.0	ENSMUSP00000144706	False				True	2	109487248.0	110187014.0	0.938	0.677	0.0	0.0	11.0	ENSMODP00000026642	False			
+3570	Rattus_norvegicus	B_pseudo	0	True	3	150048542.0	150062308.0	1.0	0.949	0.0	0.0	12.0	ENSMUSP00000000895	True		Necab3	protein_coding	True	3	150048542.0	150062308.0	1.0	0.949	0.0	0.0	12.0	ENSMUSP00000000895	True		Necab3	protein_coding
+3650	Rattus_norvegicus	B_pseudo	0	False														True	1	236680098.0	236947005.0	1.0	0.87	1.0	0.0	19.0	ENSMUSP00000084977	True		Prune2;AABR07006480.1	protein_coding;protein_coding
+3804	Rattus_norvegicus	D_undetermined	2	False														True	16	80863266.0	80949728.0	0.626	0.303	4.0	1.0	4.0	ENSCAFP00000038864	False		Tmco3	protein_coding
+4106	Rattus_norvegicus	B_pseudo	2	False														True	2	44895461.0	44964786.0	1.0	0.649	4.0	2.0	11.0	ENSMUSP00000104867	True			
+4441	Rattus_norvegicus	C_deleted	5	False														False													
+4529	Rattus_norvegicus	D_undetermined	1	False														True	15	32451163.0	32451433.0	0.817	0.72	1.0	0.0	0.0	ENSMUSP00000100450	False		AABR07017902.1	protein_coding
+4618	Rattus_norvegicus	B_pseudo	0	False														True	14	48578491.0	48679238.0	1.0	0.817	7.0	3.0	9.0	ENSMUSP00000158635	True		Dthd1	processed_transcript
+4660	Rattus_norvegicus	B_partial	0	False														True	2	189915441.0	189916031.0	0.567	0.949	0.0	0.0	1.0	ENSMUSP00000142428	True			
+4810	Rattus_norvegicus	B_pseudo	32	False														True	1	169094349.0	169095303.0	1.0	0.953	1.0	0.0	0.0	ENSMUSP00000102476	True		AC113925.1	pseudogene
+4862	Rattus_norvegicus	B_pseudo	0	False														True	10	76581578.0	76590840.0	1.0	0.504	1.0	0.0	2.0	ENSP00000380959	True			
+4912	Rattus_norvegicus	B_pseudo	0	False														True	3	80550318.0	80554744.0	1.0	0.817	3.0	1.0	4.0	ENSMUSP00000097301	True			
+5132	Rattus_norvegicus	B_pseudo	5	False														True	X	144035886.0	144037294.0	1.0	0.751	6.0	0.0	0.0	ENSMUSP00000115237	True		AABR07041949.1	pseudogene
+5145	Rattus_norvegicus	C_deleted	0	False														True	16	26576045.0	26576116.0	0.444	0.917	0.0	0.0	0.0	ENSMUSP00000140510	True			
+5315	Rattus_norvegicus	C_deleted	78	True	15	27163558.0	27164496.0	0.975	0.786	0.0	0.0	0.0	ENSP00000492928	True		AC122990.1	pseudogene	True	15	27163528.0	27164591.0	1.0	0.891	2.0	0.0	0.0	ENSMUSP00000056851	True		AC122990.1	pseudogene
+5326	Rattus_norvegicus	B_pseudo	100	True	3	102801421.0	102802338.0	0.987	0.533	0.0	0.0	0.0	ENSMODP00000034429	False	ENSRNOP00000046029	Olr768	protein_coding	True	15	26923734.0	26924665.0	1.0	0.952	1.0	0.0	0.0	ENSMUSP00000149796	True		Olr1629	pseudogene
+5582	Rattus_norvegicus	B_pseudo	111	True	1	230234489.0	230235400.0	0.974	0.484	0.0	0.0	0.0	ENSCAFP00000011877	False				True	3	76079455.0	76080390.0	1.0	0.532	0.0	1.0	0.0	ENSMUSP00000149051	False			
+5955	Rattus_norvegicus	B_pseudo	0	False														True	13	50063226.0	50096294.0	0.727	0.67	1.0	2.0	13.0	ENSMODP00000057311	True		Atp2b4	protein_coding
+6102	Rattus_norvegicus	C_deleted	11	False														True	1	114145463.0	114152402.0	1.0	0.473	3.0	1.0	3.0	ENSMUSP00000130632	False		Siglech	protein_coding
+6282	Rattus_norvegicus	C_deleted	4	False														False													
+6328	Rattus_norvegicus	B_pseudo	0	False														True	19	14726112.0	14734724.0	1.0	0.928	4.0	2.0	1.0	ENSMUSP00000138433	False			
+6887	Rattus_norvegicus	C_deleted	3	False														False													
+6958	Rattus_norvegicus	B_pseudo	2	False														True	10	3060864.0	3072628.0	1.0	0.661	10.0	0.0	1.0	ENSMODP00000005885	True			
+7140	Rattus_norvegicus	B_pseudo	0	False														True	20	21713864.0	21880715.0	1.0	0.769	2.0	0.0	8.0	ENSMODP00000021339	True		Arid5b	processed_transcript
+7258	Rattus_norvegicus	B_partial	5	False														True	9	16086333.0	16089784.0	0.439	0.961	0.0	0.0	1.0	ENSMUSP00000024773	True			
+7363	Rattus_norvegicus	B_pseudo	4	False														True	6	26387525.0	26388287.0	0.364	0.964	2.0	0.0	2.0	ENSMUSP00000127404	True	ENSRNOP00000068500	AABR07063279.1	protein_coding
+7443	Rattus_norvegicus	B_pseudo	0	False														True	X	147584271.0	147586777.0	1.0	0.987	1.0	0.0	0.0	ENSMUSP00000064443	True		AABR07042077.1	pseudogene
+7518	Rattus_norvegicus	D_undetermined	0	False														True	7	86675798.0	87170336.0	0.825	0.992	3.0	0.0	57.0	ENSMUSP00000124775	False		AABR07057765.1	processed_transcript
+7529	Rattus_norvegicus	B_pseudo	0	False														True	5	142643636.0	142644989.0	1.0	0.993	1.0	0.0	0.0	ENSP00000362103	True		Pou3f1	pseudogene
+7625	Rattus_norvegicus	B_pseudo	5	False														True	1	135336377.0	135406700.0	1.0	0.982	1.0	0.0	5.0	ENSMUSP00000026896	True		St8sia2	processed_transcript
+7691	Rattus_norvegicus	B_pseudo	0	False														True	6	98884471.0	99152662.0	1.0	0.85	4.0	0.0	112.0	ENSMUSP00000047697	True		AABR07064873.1;AABR07064878.1	processed_transcript;lincRNA
+7719	Rattus_norvegicus	B_pseudo	0	False														True	3	117825367.0	117889378.0	1.0	0.845	2.0	0.0	26.0	ENSMUSP00000087208	True			
+7866	Rattus_norvegicus	B_pseudo	5	False														True	17	34151419.0	34156056.0	1.0	0.878	12.0	1.0	1.0	ENSMUSP00000046789	True		AABR07027494.1	miRNA
+7879	Rattus_norvegicus	B_partial	0	False														True	10	94857894.0	94886253.0	0.464	0.826	0.0	0.0	8.0	ENSMUSP00000067111	True			
+7920	Rattus_norvegicus	C_deleted	7	False														True	14	30375821.0	30389227.0	0.618	0.646	1.0	0.0	6.0	ENSMODP00000006007	False			
+7925	Rattus_norvegicus	C_deleted	5	False														False													
+7971	Rattus_norvegicus	C_deleted	5	False														False													
+8025	Rattus_norvegicus	C_deleted	5	False														False													
+8078	Rattus_norvegicus	B_pseudo	15	False														True	3	7077337.0	7079623.0	0.873	0.584	3.0	2.0	1.0	ENSP00000361110	True			
+8218	Rattus_norvegicus	B_partial	11	False														True	X	22419002.0	22419601.0	0.536	1.0	0.0	0.0	0.0	ENSMUSP00000065533	True		AABR07037489.1	protein_coding
+8250	Rattus_norvegicus	C_deleted	0	False														True	12	8282076.0	8303664.0	0.668	0.341	0.0	0.0	2.0	ENSMODP00000047979	False		Mtus2	protein_coding
+8311	Rattus_norvegicus	B_pseudo	0	False														True	3	145344722.0	145346093.0	1.0	0.707	3.0	2.0	1.0	ENSMUSP00000044048	False			
+8349	Rattus_norvegicus	B_pseudo	0	False														True	14	85526501.0	85677082.0	1.0	0.825	6.0	0.0	9.0	ENSMUSP00000105493	True			
+8570	Rattus_norvegicus	C_deleted	0	False														False													
+8576	Rattus_norvegicus	B_pseudo	5	False														True	3	132736433.0	132808543.0	0.629	0.897	0.0	0.0	4.0	ENSP00000262487	True			
+8621	Rattus_norvegicus	B_pseudo	0	False														True	7	115766713.0	115827931.0	1.0	0.923	1.0	1.0	27.0	ENSMUSP00000046097	True		AABR07058422.1	processed_transcript
+8753	Rattus_norvegicus	B_pseudo	0	False														True	1	41609128.0	42077500.0	1.0	0.924	1.0	0.0	144.0	ENSMUSP00000150262	True		AABR07001382.1	processed_transcript
+8864	Rattus_norvegicus	C_deleted	10	False														False													
+8883	Rattus_norvegicus	B_pseudo	13	False														True	9	20344091.0	20362548.0	0.409	0.626	0.0	0.0	8.0	ENSPTRP00000090090	True			
+8968	Rattus_norvegicus	C_deleted	10	False														True	9	95786511.0	95787094.0	1.0	0.807	6.0	0.0	0.0	ENSMUSP00000057085	True		AABR07068285.2	pseudogene
+8994	Rattus_norvegicus	B_partial	0	False														True	8	46231970.0	46287172.0	0.481	0.903	0.0	0.0	23.0	ENSCAFP00000017344	True			
+9088	Rattus_norvegicus	B_pseudo	5	False														True	18	14984475.0	15031111.0	0.938	0.708	10.0	2.0	5.0	ENSCAFP00000026599	True			
+9133	Rattus_norvegicus	B_pseudo	0	False														True	15	36819888.0	36910809.0	1.0	0.769	4.0	0.0	33.0	ENSMUSP00000124258	True	ENSRNOP00000068234	AABR07018038.1;AABR07018038.3	protein_coding;protein_coding
+9223	Rattus_norvegicus	B_pseudo	0	False														True	12	15802564.0	15844170.0	1.0	0.929	5.0	0.0	22.0	ENSMUSP00000082941	True		AABR07035470.1	processed_transcript
+9248	Rattus_norvegicus	C_deleted	10	False														False													
+9433	Rattus_norvegicus	C_deleted	5	False														False													
+9476	Rattus_norvegicus	C_deleted	5	False														True	1	57895086.0	57896219.0	1.0	0.698	5.0	3.0	0.0	ENSMUSP00000129315	False			
+9559	Rattus_norvegicus	B_pseudo	0	False														True	10	82272039.0	82276509.0	0.679	0.836	6.0	0.0	3.0	ENSMUSP00000037361	True			
+9613	Rattus_norvegicus	D_undetermined	5	False														False													
+9618	Rattus_norvegicus	B_pseudo	2	False														True	X	113014364.0	113018054.0	1.0	0.873	1.0	1.0	0.0	ENSMUSP00000067085	True		AABR07040887.1	processed_transcript
+9883	Rattus_norvegicus	B_pseudo	0	False														True	2	180857244.0	180880413.0	1.0	0.592	3.0	2.0	7.0	ENSMUSP00000029649	True		AABR07011996.1	lincRNA
+10021	Rattus_norvegicus	D_undetermined	10	False														False													
+10567	Rattus_norvegicus	B_pseudo	19	False														True	4	69024351.0	69105921.0	0.939	0.636	1.0	0.0	44.0	ENSCAFP00000005737	True			
+10822	Rattus_norvegicus	C_deleted	5	False														False													
+10874	Rattus_norvegicus	B_pseudo	2	False														True	13	99904374.0	100072617.0	0.826	0.52	2.0	0.0	54.0	ENSMODP00000007201	True		AABR07021946.1;AABR07021946.2	protein_coding;lincRNA
+10893	Rattus_norvegicus	B_pseudo	0	False														True	10	105283085.0	105289347.0	1.0	0.736	5.0	0.0	1.0	ENSMUSP00000038351	True		AABR07030823.1	pseudogene
+10922	Rattus_norvegicus	D_undetermined	29	False														False													
+11034	Rattus_norvegicus	C_deleted	0	True	17	67899036.0	67904776.0	1.0	0.975	0.0	0.0	3.0	ENSMUSP00000000080	False	ENSRNOP00000023033	Klf6	protein_coding	True	17	67899036.0	67904776.0	1.0	0.975	0.0	0.0	3.0	ENSMUSP00000000080	False	ENSRNOP00000023033	Klf6	protein_coding
+11069	Rattus_norvegicus	B_pseudo	1	False														True	20	45658505.0	45668963.0	0.385	0.604	0.0	0.0	2.0	ENSP00000357915	True			
+11699	Rattus_norvegicus	B_pseudo	0	False														True	3	150114903.0	150171749.0	1.0	0.965	1.0	0.0	14.0	ENSMUSP00000080596	True	ENSRNOP00000043308	AABR07054367.1	protein_coding
+11901	Rattus_norvegicus	B_pseudo	0	False														True	13	73951444.0	74023800.0	1.0	0.752	4.0	1.0	23.0	ENSMUSP00000148420	True	ENSRNOP00000071946	AABR07021465.1	protein_coding
+12030	Rattus_norvegicus	C_deleted	5	False														False													
+12163	Rattus_norvegicus	B_pseudo	0	False														True	5	154995717.0	155004868.0	0.437	0.491	3.0	2.0	3.0	ENSMUSP00000138455	True			
+12665	Rattus_norvegicus	B_pseudo	1	False														True	1	21145585.0	21146778.0	1.0	0.935	0.0	1.0	0.0	ENSMUSP00000034742	False		Akap7;AABR07000658.2	protein_coding;pseudogene
+12831	Rattus_norvegicus	B_pseudo	0	False														True	X	20102465.0	20143239.0	1.0	0.989	1.0	0.0	17.0	ENSMUSP00000026296	True		AABR07037410.1	processed_transcript
+12843	Rattus_norvegicus	B_pseudo	0	False														True	14	43335109.0	43523077.0	1.0	0.92	4.0	2.0	13.0	ENSPTRP00000089147	True	ENSRNOP00000041399	Apbb2	protein_coding
+12902	Rattus_norvegicus	B_pseudo	0	False														True	3	10385238.0	10536320.0	1.0	0.931	2.0	1.0	97.0	ENSMUSP00000109160	True		AABR07072853.5	processed_transcript
+13868	Rattus_norvegicus	C_deleted	4	False														True	7	118911362.0	118912151.0	0.773	0.429	1.0	0.0	0.0	ENSCAFP00000002475	False		RGD1309808;AABR07058479.1	protein_coding;pseudogene
+13938	Rattus_norvegicus	B_pseudo	5	False														True	9	111233147.0	111284627.0	1.0	0.966	2.0	0.0	29.0	ENSMUSP00000108466	True	ENSRNOP00000068346	Ppip5k2	protein_coding
+14045	Rattus_norvegicus	C_deleted	15	False														False													
+14088	Rattus_norvegicus	B_pseudo	1	False														True	15	103208261.0	103244494.0	1.0	0.934	2.0	0.0	7.0	ENSMUSP00000022725	True		AABR07019383.1	processed_transcript
+14433	Rattus_norvegicus	B_pseudo	0	False														True	8	124028921.0	124299570.0	1.0	0.974	1.0	0.0	13.0	ENSMUSP00000113240	True			
+14484	Rattus_norvegicus	D_undetermined	0	True	15	100560883.0	100630107.0	1.0	0.757	0.0	0.0	2.0	ENSMODP00000011765	False				True	15	100560883.0	100630107.0	1.0	0.757	0.0	0.0	2.0	ENSMODP00000011765	False			
+14531	Rattus_norvegicus	B_pseudo	0	False														True	1	236031995.0	236463405.0	1.0	0.945	2.0	0.0	37.0	ENSMUSP00000025618	True	ENSRNOP00000016164	Pcsk5	protein_coding
+14933	Rattus_norvegicus	C_deleted	5	False														False													
+15341	Rattus_norvegicus	B_pseudo	4	False														True	X	128928495.0	129561668.0	1.0	0.969	5.0	0.0	32.0	ENSMUSP00000110711	True		AABR07041411.1;AABR07041418.1	lincRNA;lincRNA
+15465	Rattus_norvegicus	B_pseudo	0	False														True	20	50439898.0	50474278.0	1.0	0.923	4.0	0.0	6.0	ENSMUSP00000093382	True		Bves	processed_transcript
+15482	Rattus_norvegicus	B_pseudo	5	False														True	1	189688875.0	189864935.0	1.0	0.919	3.0	2.0	60.0	ENSMUSP00000042857	True		AABR07005597.1;AABR07005596.1;AABR07005593.1	protein_coding;lincRNA;lincRNA
+15621	Rattus_norvegicus	B_pseudo	0	False														True	1	187785783.0	187882814.0	1.0	0.978	2.0	1.0	62.0	ENSMUSP00000032891	True		Smg1	processed_transcript
+15668	Rattus_norvegicus	B_partial	1	False														True	19	43477123.0	43498988.0	0.678	0.766	0.0	0.0	8.0	ENSMUSP00000043780	True			
+15792	Rattus_norvegicus	B_pseudo	0	False														True	8	64817194.0	65003167.0	1.0	0.884	7.0	0.0	11.0	ENSCAFP00000026009	True		AABR07070310.1;AABR07070307.1	processed_transcript;processed_transcript
+15799	Rattus_norvegicus	B_pseudo	0	False														True	5	58883249.0	58884501.0	0.937	0.595	7.0	2.0	1.0	ENSMUSP00000058980	True			
+16012	Rattus_norvegicus	B_pseudo	0	False														True	4	151987078.0	151989678.0	1.0	0.986	1.0	0.0	1.0	ENSCAFP00000062618	True		AABR07061902.1	pseudogene
+16024	Rattus_norvegicus	B_pseudo	3	False														True	16	18823857.0	18859987.0	1.0	0.929	1.0	0.0	17.0	ENSMUSP00000004494	True	ENSRNOP00000064384	Sin3b	protein_coding
+16048	Rattus_norvegicus	C_deleted	4	False														True	14	78817963.0	78823279.0	0.454	0.949	0.0	0.0	1.0	ENSCAFP00000004512	False		Ppp2r2c	protein_coding
+16112	Rattus_norvegicus	B_pseudo	18	False														True	10	12871989.0	12965986.0	0.595	0.689	1.0	0.0	5.0	ENSMUSP00000024696	True		Zscan10	protein_coding
+16273	Rattus_norvegicus	B_pseudo	6	False														True	8	4548131.0	4549355.0	1.0	0.945	1.0	0.0	0.0	ENSMUSP00000053223	True		Pdgfd;Ddi1	protein_coding;pseudogene
+16449	Rattus_norvegicus	B_pseudo	1	False														True	2	210337959.0	210338457.0	0.878	0.705	3.0	0.0	0.0	ENSMUSP00000100577	True		AABR07012843.1	pseudogene
+16860	Rattus_norvegicus	B_pseudo	19	True	X	115269799.0	115270665.0	0.938	0.462	0.0	0.0	0.0	ENSP00000410561	False		AABR07040938.1	pseudogene	True	X	115269799.0	115270699.0	0.977	0.467	1.0	0.0	0.0	ENSCAFP00000007463	False		AABR07040938.1	pseudogene
+17034	Rattus_norvegicus	B_pseudo	0	False														True	3	149261324.0	149324830.0	1.0	0.82	1.0	0.0	26.0	ENSMUSP00000135661	True		AABR07054352.1	protein_coding
+17542	Rattus_norvegicus	B_pseudo	5	False														True	12	10497334.0	10561321.0	1.0	0.968	2.0	1.0	12.0	ENSMUSP00000031640	True		AABR07035338.1	processed_transcript
+17742	Rattus_norvegicus	B_partial	5	False														True	4	5644269.0	5672527.0	0.746	0.968	0.0	0.0	7.0	ENSP00000256001	True	ENSRNOP00000041576	Actr3b	protein_coding
+17826	Rattus_norvegicus	B_pseudo	0	True	X	71412303.0	71484887.0	1.0	0.929	0.0	0.0	39.0	ENSPTRP00000090345	True		Taf1	processed_transcript	True	X	71412303.0	71484887.0	1.0	0.946	1.0	1.0	38.0	ENSMUSP00000098895	True		Taf1	processed_transcript
+17842	Rattus_norvegicus	B_pseudo	1	False														True	12	14449240.0	15098804.0	1.0	0.887	4.0	0.0	43.0	ENSCAFP00000023921	True		AABR07035437.1	processed_transcript
+17863	Rattus_norvegicus	D_undetermined	4	False														True	3	25201599.0	26430441.0	0.975	0.955	8.0	1.0	87.0	ENSMUSP00000054275	False		AABR07051892.1;AABR07051878.1;AABR07051882.2	protein_coding;protein_coding;lincRNA
+18056	Rattus_norvegicus	B_pseudo	0	False														True	20	22448063.0	22448842.0	1.0	0.865	2.0	0.0	0.0	ENSMUSP00000075107	True		Ado	pseudogene
+18173	Rattus_norvegicus	B_pseudo	0	False														True	6	26390764.0	26484992.0	1.0	0.98	6.0	1.0	47.0	ENSMUSP00000049335	True	ENSRNOP00000070902	AABR07063281.1	protein_coding
+18212	Rattus_norvegicus	C_deleted	4	False														False													
+18213	Rattus_norvegicus	C_deleted	5	False														False													
+18232	Rattus_norvegicus	D_undetermined	0	False														True	16	58028359.0	58206347.0	0.762	0.872	0.0	0.0	5.0	ENSMODP00000023803	False			
+18573	Rattus_norvegicus	D_undetermined	6	False														False													
+18622	Rattus_norvegicus	B_pseudo	5	False														True	15	10262975.0	10319741.0	1.0	0.806	6.0	3.0	30.0	ENSMUSP00000017629	True		Top2b	processed_transcript
+18875	Rattus_norvegicus	C_deleted	5	False														False													
+19237	Rattus_norvegicus	C_deleted	10	False														False													
+19457	Rattus_norvegicus	C_deleted	5	False														False													
+20018	Rattus_norvegicus	D_undetermined	5	False														True	14	62157364.0	62158305.0	0.671	0.596	0.0	0.0	0.0	ENSCAFP00000009491	False		AABR07015531.1	miRNA
+20128	Rattus_norvegicus	C_deleted	8	False														False													
+20393	Rattus_norvegicus	B_pseudo	0	False														True	12	11538768.0	11624459.0	1.0	0.995	1.0	0.0	70.0	ENSMUSP00000148419	True		Trrap	processed_transcript
+20457	Rattus_norvegicus	B_pseudo	0	False														True	11	70057659.0	70172117.0	1.0	0.951	3.0	0.0	14.0	ENSMUSP00000069416	True		Itgb5;AC133403.1	processed_transcript;protein_coding
+20740	Rattus_norvegicus	B_partial	5	False														True	X	36849352.0	36925912.0	0.58	0.905	0.0	0.0	18.0	ENSMODP00000021354	True	ENSRNOP00000063787	AABR07037995.1	protein_coding
+20776	Rattus_norvegicus	C_deleted	7	False														False													
+20931	Rattus_norvegicus	C_deleted	13	False														False													
+21026	Rattus_norvegicus	B_pseudo	0	False														True	20	47039310.0	47208718.0	1.0	0.685	8.0	0.0	8.0	ENSMUSP00000036149	True		AABR07045431.1;AABR07045427.1	processed_transcript;lincRNA
+21118	Rattus_norvegicus	B_pseudo	5	False														True	14	53783195.0	53783830.0	0.323	0.466	0.0	0.0	0.0	ENSP00000358747	False			
+21480	Rattus_norvegicus	B_pseudo	0	False														True	15	61069581.0	61466378.0	1.0	0.946	1.0	0.0	44.0	ENSMUSP00000048925	True		Vwa8	protein_coding
+21484	Rattus_norvegicus	B_pseudo	0	False														True	1	91261943.0	91284806.0	0.579	0.805	1.0	0.0	5.0	ENSP00000498922	True			
+21681	Rattus_norvegicus	B_pseudo	10	False														True	1	197856903.0	197874874.0	1.0	0.952	3.0	1.0	20.0	ENSMUSP00000032974	True		AABR07005775.1	protein_coding
+21850	Rattus_norvegicus	B_partial	7	False														True	6	112603537.0	112984122.0	0.534	0.994	0.0	0.0	10.0	ENSMUSP00000129678	True		Nrxn3	protein_coding
+21932	Rattus_norvegicus	D_undetermined	10	False														True	4	48309836.0	48310951.0	0.59	1.0	0.0	0.0	0.0	ENSMUSP00000080257	False			
+22096	Rattus_norvegicus	B_pseudo	25	False														True	10	53873071.0	53927134.0	1.0	0.934	2.0	0.0	36.0	ENSMUSP00000104324	True		Myh8;AABR07029836.1	protein_coding;protein_coding
+22101	Rattus_norvegicus	B_partial	0	False														True	17	36956382.0	37157897.0	0.479	0.917	0.0	0.0	5.0	ENSMUSP00000006353	True	ENSRNOP00000024854	Cdkal1	protein_coding
+22206	Rattus_norvegicus	C_deleted	5	False														False													
+22468	Rattus_norvegicus	C_deleted	10	True	15	105253482.0	105254195.0	1.0	0.929	0.0	0.0	0.0	ENSMODP00000048638	True		Hs6st3	processed_transcript	True	15	105253482.0	105254195.0	1.0	0.929	0.0	0.0	0.0	ENSMODP00000048638	True		Hs6st3	processed_transcript
+22506	Rattus_norvegicus	B_pseudo	5	False														True	15	104245264.0	104404731.0	0.996	0.815	2.0	1.0	35.0	ENSMUSP00000121249	True		AABR07019403.1	processed_transcript
+22791	Rattus_norvegicus	C_deleted	5	False														False													
+22974	Rattus_norvegicus	B_pseudo	5	False														True	12	31758484.0	31760231.0	1.0	0.967	1.0	0.0	0.0	ENSMUSP00000114114	True		Fzd10	pseudogene
+23341	Rattus_norvegicus	B_pseudo	4	False														True	2	145013352.0	145596898.0	0.998	0.963	5.0	0.0	57.0	ENSMUSP00000029374	True			
+23530	Rattus_norvegicus	B_pseudo	5	False														True	10	31281238.0	31378951.0	1.0	0.995	1.0	0.0	30.0	ENSP00000479719	True	ENSRNOP00000068584	Cyfip2	protein_coding
+23562	Rattus_norvegicus	C_deleted	5	False														True	2	230660681.0	230662081.0	0.783	0.976	0.0	0.0	0.0	ENSMUSP00000091511	True		AABR07013255.1	pseudogene

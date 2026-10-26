@@ -1,0 +1,500 @@
+{
+ "species_done": [
+  "Homo_sapiens",
+  "Pan_troglodytes",
+  "Mus_musculus",
+  "Rattus_norvegicus",
+  "Canis_familiaris",
+  "Monodelphis_domestica"
+ ],
+ "ortholog_identity_p05": {
+  "Canis_familiaris|Homo_sapiens": 0.737,
+  "Canis_familiaris|Mus_musculus": 0.594,
+  "Canis_familiaris|Pan_troglodytes": 0.738,
+  "Canis_familiaris|Rattus_norvegicus": 0.801,
+  "Homo_sapiens|Canis_familiaris": 0.754,
+  "Homo_sapiens|Pan_troglodytes": 0.973,
+  "Monodelphis_domestica|Canis_familiaris": 0.521,
+  "Monodelphis_domestica|Homo_sapiens": 0.563,
+  "Monodelphis_domestica|Pan_troglodytes": 0.616,
+  "Monodelphis_domestica|Rattus_norvegicus": 0.627,
+  "Mus_musculus|Canis_familiaris": 0.662,
+  "Mus_musculus|Homo_sapiens": 0.732,
+  "Mus_musculus|Rattus_norvegicus": 0.851,
+  "Pan_troglodytes|Homo_sapiens": 0.974,
+  "Rattus_norvegicus|Homo_sapiens": 0.668,
+  "Rattus_norvegicus|Mus_musculus": 0.869
+ },
+ "final_counts": {
+  "Homo_sapiens": {
+   "A_annotated": 16,
+   "A_otherHOG": 19,
+   "A_gap": 6,
+   "B_annot": 0,
+   "B_pseudo": 20,
+   "B_partial": 0,
+   "C_deleted": 5,
+   "C_relocated": 1,
+   "D_undetermined": 0,
+   "D_relocated": 0,
+   "n": 67
+  },
+  "Pan_troglodytes": {
+   "A_annotated": 31,
+   "A_otherHOG": 19,
+   "A_gap": 49,
+   "B_annot": 14,
+   "B_pseudo": 29,
+   "B_partial": 4,
+   "C_deleted": 13,
+   "C_relocated": 4,
+   "D_undetermined": 1,
+   "D_relocated": 0,
+   "n": 164
+  },
+  "Mus_musculus": {
+   "A_annotated": 14,
+   "A_otherHOG": 2,
+   "A_gap": 5,
+   "B_annot": 1,
+   "B_pseudo": 13,
+   "B_partial": 1,
+   "C_deleted": 2,
+   "C_relocated": 1,
+   "D_undetermined": 6,
+   "D_relocated": 0,
+   "n": 45
+  },
+  "Rattus_norvegicus": {
+   "A_annotated": 63,
+   "A_otherHOG": 15,
+   "A_gap": 81,
+   "B_annot": 16,
+   "B_pseudo": 80,
+   "B_partial": 8,
+   "C_deleted": 24,
+   "C_relocated": 1,
+   "D_undetermined": 11,
+   "D_relocated": 2,
+   "n": 301
+  },
+  "Canis_familiaris": {
+   "A_annotated": 301,
+   "A_otherHOG": 110,
+   "A_gap": 234,
+   "B_annot": 88,
+   "B_pseudo": 125,
+   "B_partial": 28,
+   "C_deleted": 95,
+   "C_relocated": 5,
+   "D_undetermined": 16,
+   "D_relocated": 7,
+   "n": 1009
+  },
+  "Monodelphis_domestica": {
+   "A_annotated": 184,
+   "A_otherHOG": 34,
+   "A_gap": 106,
+   "B_annot": 138,
+   "B_pseudo": 84,
+   "B_partial": 22,
+   "C_deleted": 148,
+   "C_relocated": 16,
+   "D_undetermined": 183,
+   "D_relocated": 22,
+   "n": 937
+  },
+  "all": {
+   "A_annotated": 609,
+   "A_otherHOG": 199,
+   "A_gap": 481,
+   "B_annot": 257,
+   "B_pseudo": 351,
+   "B_partial": 63,
+   "C_deleted": 287,
+   "C_relocated": 28,
+   "D_undetermined": 217,
+   "D_relocated": 31,
+   "n": 2523
+  }
+ },
+ "controls": {
+  "per_species": {
+   "Homo_sapiens": {
+    "pos_n": 100,
+    "pos_recovered": 95,
+    "sens": 0.95,
+    "sens_CI95": [
+     0.888,
+     0.978
+    ],
+    "sens_gap_rule": 0.94,
+    "pos_with_locus": 100,
+    "pos_called_loss(B/C)": 0,
+    "pos_B_annot": 2,
+    "mask_n": 100,
+    "mask_intact_FP": 1,
+    "neg_n": 67,
+    "neg_intact_FP": 0,
+    "neg_any_hit_qcov>=0.3": 0,
+    "neg_B": 0,
+    "mask_B": 0
+   },
+   "Pan_troglodytes": {
+    "pos_n": 100,
+    "pos_recovered": 96,
+    "sens": 0.96,
+    "sens_CI95": [
+     0.902,
+     0.984
+    ],
+    "sens_gap_rule": 0.95,
+    "pos_with_locus": 100,
+    "pos_called_loss(B/C)": 0,
+    "pos_B_annot": 3,
+    "mask_n": 100,
+    "mask_intact_FP": 1,
+    "neg_n": 100,
+    "neg_intact_FP": 0,
+    "neg_any_hit_qcov>=0.3": 1,
+    "neg_B": 1,
+    "mask_B": 3
+   },
+   "Mus_musculus": {
+    "pos_n": 100,
+    "pos_recovered": 98,
+    "sens": 0.98,
+    "sens_CI95": [
+     0.93,
+     0.994
+    ],
+    "sens_gap_rule": 0.97,
+    "pos_with_locus": 100,
+    "pos_called_loss(B/C)": 0,
+    "pos_B_annot": 2,
+    "mask_n": 100,
+    "mask_intact_FP": 0,
+    "neg_n": 45,
+    "neg_intact_FP": 0,
+    "neg_any_hit_qcov>=0.3": 0,
+    "neg_B": 0,
+    "mask_B": 0
+   },
+   "Rattus_norvegicus": {
+    "pos_n": 100,
+    "pos_recovered": 90,
+    "sens": 0.9,
+    "sens_CI95": [
+     0.826,
+     0.945
+    ],
+    "sens_gap_rule": 0.9,
+    "pos_with_locus": 100,
+    "pos_called_loss(B/C)": 0,
+    "pos_B_annot": 8,
+    "mask_n": 100,
+    "mask_intact_FP": 1,
+    "neg_n": 100,
+    "neg_intact_FP": 0,
+    "neg_any_hit_qcov>=0.3": 0,
+    "neg_B": 0,
+    "mask_B": 5
+   },
+   "Canis_familiaris": {
+    "pos_n": 100,
+    "pos_recovered": 89,
+    "sens": 0.89,
+    "sens_CI95": [
+     0.814,
+     0.937
+    ],
+    "sens_gap_rule": 0.87,
+    "pos_with_locus": 100,
+    "pos_called_loss(B/C)": 2,
+    "pos_B_annot": 8,
+    "mask_n": 100,
+    "mask_intact_FP": 1,
+    "neg_n": 100,
+    "neg_intact_FP": 0,
+    "neg_any_hit_qcov>=0.3": 0,
+    "neg_B": 0,
+    "mask_B": 1
+   },
+   "Monodelphis_domestica": {
+    "pos_n": 100,
+    "pos_recovered": 85,
+    "sens": 0.85,
+    "sens_CI95": [
+     0.767,
+     0.907
+    ],
+    "sens_gap_rule": 0.82,
+    "pos_with_locus": 100,
+    "pos_called_loss(B/C)": 3,
+    "pos_B_annot": 6,
+    "mask_n": 100,
+    "mask_intact_FP": 1,
+    "neg_n": 100,
+    "neg_intact_FP": 0,
+    "neg_any_hit_qcov>=0.3": 0,
+    "neg_B": 0,
+    "mask_B": 2
+   }
+  },
+  "pooled": {
+   "pos_n": 600,
+   "pos_recovered": 553,
+   "sens": 0.922,
+   "sens_CI95": [
+    0.897,
+    0.941
+   ],
+   "sens_gap_rule": 0.908,
+   "pos_called_loss": 5,
+   "false_loss_rate": 0.0083,
+   "false_loss_CI95": [
+    0.004,
+    0.019
+   ],
+   "mask_n": 600,
+   "mask_intact_FP": 5,
+   "mask_FP_CI95": [
+    0.004,
+    0.019
+   ],
+   "neg_n": 512,
+   "neg_intact_FP": 0,
+   "neg_FP_CI95": [
+    0.0,
+    0.007
+   ]
+  }
+ },
+ "precision_estimates": {
+  "Homo_sapiens": {
+   "loss_calls": 25,
+   "present_calls": 41,
+   "P(loss|present)": 0.02,
+   "exp_false_loss": 0.9,
+   "precision_loss": 0.965,
+   "P(intact|absent)": 0.0045,
+   "exp_false_present": 0.1,
+   "precision_present": 0.997
+  },
+  "Pan_troglodytes": {
+   "loss_calls": 42,
+   "present_calls": 99,
+   "P(loss|present)": 0.03,
+   "exp_false_loss": 3.1,
+   "precision_loss": 0.926,
+   "P(intact|absent)": 0.0045,
+   "exp_false_present": 0.2,
+   "precision_present": 0.998
+  },
+  "Mus_musculus": {
+   "loss_calls": 15,
+   "present_calls": 21,
+   "P(loss|present)": 0.02,
+   "exp_false_loss": 0.4,
+   "precision_loss": 0.971,
+   "P(intact|absent)": 0.0045,
+   "exp_false_present": 0.1,
+   "precision_present": 0.997
+  },
+  "Rattus_norvegicus": {
+   "loss_calls": 104,
+   "present_calls": 159,
+   "P(loss|present)": 0.08,
+   "exp_false_loss": 14.1,
+   "precision_loss": 0.864,
+   "P(intact|absent)": 0.0045,
+   "exp_false_present": 0.5,
+   "precision_present": 0.997
+  },
+  "Canis_familiaris": {
+   "loss_calls": 220,
+   "present_calls": 645,
+   "P(loss|present)": 0.1,
+   "exp_false_loss": 72.5,
+   "precision_loss": 0.671,
+   "P(intact|absent)": 0.0045,
+   "exp_false_present": 1.0,
+   "precision_present": 0.998
+  },
+  "Monodelphis_domestica": {
+   "loss_calls": 232,
+   "present_calls": 324,
+   "P(loss|present)": 0.09,
+   "exp_false_loss": 34.3,
+   "precision_loss": 0.852,
+   "P(intact|absent)": 0.0045,
+   "exp_false_present": 1.0,
+   "precision_present": 0.997
+  },
+  "all": {
+   "loss_calls": 638,
+   "present_calls": 1289,
+   "P(loss|present)": 0.057,
+   "exp_false_loss": 125.3,
+   "precision_loss": 0.804,
+   "P(intact|absent)": 0.0045,
+   "exp_false_present": 2.9,
+   "precision_present": 0.998
+  }
+ },
+ "gencode_check_human_mouse": {
+  "B_pseudo": {
+   "n": 33,
+   "pseudogene": 23,
+   "protein_coding": 6,
+   "none": 0
+  },
+  "A_gap": {
+   "n": 11,
+   "pseudogene": 5,
+   "protein_coding": 3,
+   "none": 0
+  },
+  "B_partial": {
+   "n": 1,
+   "pseudogene": 0,
+   "protein_coding": 0,
+   "none": 0
+  }
+ },
+ "known": [
+  {
+   "gene": "GULO",
+   "target": "Homo_sapiens",
+   "cls": "B_pseudo",
+   "locus_kind": "bracketed",
+   "contig": 8,
+   "hit_start": 27560271,
+   "hit_end": 27589070,
+   "query": "ENSRNOP00000022703",
+   "qcov": 0.832,
+   "identity": 0.498,
+   "fs": 3,
+   "st": 1,
+   "nq_intact": 0,
+   "nq_disrupted": 4,
+   "gff_names": "GULOP",
+   "gff_biotypes": "unitary_pseudogene",
+   "hog_species": "Canis_familiaris,Monodelphis_domestica,Mus_musculus,Rattus_norvegicus",
+   "in_candidates": false
+  },
+  {
+   "gene": "UOX",
+   "target": "Homo_sapiens",
+   "cls": "B_pseudo",
+   "locus_kind": "bracketed",
+   "contig": 1,
+   "hit_start": 84365424,
+   "hit_end": 84397831,
+   "query": "ENSMUSP00000029837",
+   "qcov": 1.0,
+   "identity": 0.845,
+   "fs": 0,
+   "st": 3,
+   "nq_intact": 1,
+   "nq_disrupted": 4,
+   "gff_names": "UOX;SAMD13",
+   "gff_biotypes": "transcribed_unitary_pseudogene;protein_coding",
+   "hog_species": "Canis_familiaris,Monodelphis_domestica,Mus_musculus,Pan_troglodytes,Rattus_norvegicus",
+   "in_candidates": true
+  },
+  {
+   "gene": "GULO",
+   "target": "Pan_troglodytes",
+   "cls": "B_pseudo",
+   "locus_kind": "bracketed",
+   "contig": 8,
+   "hit_start": 27014178,
+   "hit_end": 27043079,
+   "query": "ENSRNOP00000022703",
+   "qcov": 0.832,
+   "identity": 0.505,
+   "fs": 3,
+   "st": 1,
+   "nq_intact": 0,
+   "nq_disrupted": 4,
+   "gff_names": NaN,
+   "gff_biotypes": NaN,
+   "hog_species": "Canis_familiaris,Monodelphis_domestica,Mus_musculus,Rattus_norvegicus",
+   "in_candidates": false
+  },
+  {
+   "gene": "UOX",
+   "target": "Pan_troglodytes",
+   "cls": "B_pseudo",
+   "locus_kind": "bracketed",
+   "contig": 1,
+   "hit_start": 84787166,
+   "hit_end": 84819609,
+   "query": "ENSMUSP00000029837",
+   "qcov": 1.0,
+   "identity": 0.849,
+   "fs": 0,
+   "st": 4,
+   "nq_intact": 0,
+   "nq_disrupted": 4,
+   "gff_names": "-",
+   "gff_biotypes": "protein_coding",
+   "hog_species": "Canis_familiaris,Monodelphis_domestica,Mus_musculus,Pan_troglodytes,Rattus_norvegicus",
+   "in_candidates": true
+  }
+ ],
+ "presence_correction": {
+  "Canis_familiaris": {
+   "apparent_losses": 1009,
+   "present_after_DNA": 657,
+   "confirmed_loss": 220,
+   "unresolved": 132,
+   "frac_not_loss": 0.651
+  },
+  "Homo_sapiens": {
+   "apparent_losses": 67,
+   "present_after_DNA": 42,
+   "confirmed_loss": 25,
+   "unresolved": 0,
+   "frac_not_loss": 0.627
+  },
+  "Monodelphis_domestica": {
+   "apparent_losses": 937,
+   "present_after_DNA": 362,
+   "confirmed_loss": 232,
+   "unresolved": 343,
+   "frac_not_loss": 0.386
+  },
+  "Mus_musculus": {
+   "apparent_losses": 45,
+   "present_after_DNA": 22,
+   "confirmed_loss": 15,
+   "unresolved": 8,
+   "frac_not_loss": 0.489
+  },
+  "Pan_troglodytes": {
+   "apparent_losses": 164,
+   "present_after_DNA": 103,
+   "confirmed_loss": 42,
+   "unresolved": 19,
+   "frac_not_loss": 0.628
+  },
+  "Rattus_norvegicus": {
+   "apparent_losses": 301,
+   "present_after_DNA": 162,
+   "confirmed_loss": 104,
+   "unresolved": 35,
+   "frac_not_loss": 0.538
+  },
+  "all": {
+   "apparent_losses": 2523,
+   "present_after_DNA": 1348,
+   "confirmed_loss": 638,
+   "unresolved": 537,
+   "frac_not_loss": 0.534
+  }
+ },
+ "n_present": 1348,
+ "n_lost": 638
+}

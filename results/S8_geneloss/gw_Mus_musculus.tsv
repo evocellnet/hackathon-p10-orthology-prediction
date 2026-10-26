@@ -1,0 +1,27 @@
+hog	target	locus_cls	gw_paralog_hits	gw_intact	gw_any	gw_any_contig	gw_any_start	gw_any_end	gw_any_qcov	gw_any_identity	gw_any_fs	gw_any_st	gw_any_n_introns	gw_any_query	gw_any_in_locus	gw_any_annotated	gw_any_gff	gw_any_biotype	gw_intact_contig	gw_intact_start	gw_intact_end	gw_intact_qcov	gw_intact_identity	gw_intact_fs	gw_intact_st	gw_intact_n_introns	gw_intact_query	gw_intact_in_locus	gw_intact_annotated	gw_intact_gff	gw_intact_biotype
+2343	Mus_musculus	B_partial	4	False	True	13	40984255.0	40991276.0	0.694	0.578	0.0	0.0	1.0	ENSRNOP00000057088	True		A730081D07Rik	lncRNA													
+2704	Mus_musculus	B_pseudo	0	False	True	6	48508260.0	48530442.0	0.996	0.788	3.0	2.0	5.0	ENSRNOP00000051389	True		Zfp862-ps	transcribed_unitary_pseudogene													
+2792	Mus_musculus	C_deleted	0	False	True	16	9793217.0	9793327.0	0.294	0.432	0.0	0.0	0.0	ENSRNOP00000027297	False		Grin2a	protein_coding													
+2837	Mus_musculus	B_pseudo	0	True	True	2	106229397.0	106401188.0	0.966	0.783	3.0	1.0	17.0	ENSRNOP00000049224	True		Dcdc5	transcribed_unitary_pseudogene	2	106351492.0	106404027.0	0.905	0.432	0.0	0.0	13.0	ENSMODP00000011947	True		Dcdc5	transcribed_unitary_pseudogene
+3157	Mus_musculus	B_pseudo	0	False	True	16	4965538.0	4977735.0	1.0	0.824	1.0	0.0	7.0	ENSRNOP00000074365	True		4930451G09Rik	transcribed_unitary_pseudogene													
+3461	Mus_musculus	C_deleted	5	False	False																										
+3641	Mus_musculus	B_pseudo	4	False	True	1	183327343.0	183345296.0	1.0	0.615	1.0	0.0	21.0	ENSMODP00000045241	True		Mia3	protein_coding													
+7271	Mus_musculus	C_deleted	3	True	True	8	94172848.0	94173424.0	1.0	0.967	0.0	0.0	2.0	ENSRNOP00000062585	False	ENSMUSP00000148308	Mt2;Gm45774	protein_coding;lncRNA	8	94172848.0	94173424.0	1.0	0.967	0.0	0.0	2.0	ENSRNOP00000062585	False	ENSMUSP00000148308	Mt2;Gm45774	protein_coding;lncRNA
+8108	Mus_musculus	D_undetermined	15	False	False																										
+8565	Mus_musculus	D_undetermined	0	False	True	17	3088205.0	3096175.0	1.0	0.583	8.0	0.0	4.0	ENSRNOP00000070864	False																
+10072	Mus_musculus	B_pseudo	0	True	True	4	156221782.0	156228491.0	1.0	0.891	1.0	0.0	14.0	ENSRNOP00000031799	True		Plekhn1	protein_coding	4	156221782.0	156228491.0	1.0	0.671	0.0	0.0	15.0	ENSCAFP00000028592	True		Plekhn1	protein_coding
+11267	Mus_musculus	B_pseudo	0	False	True	1	130670249.0	130691503.0	1.0	0.74	0.0	2.0	5.0	ENSRNOP00000005505	True		Gm29427;C4bp-ps1;Pfkfb2	protein_coding;unprocessed_pseudogene;protein_coding													
+11869	Mus_musculus	B_pseudo	5	False	True	2	173793408.0	173847669.0	1.0	0.506	4.0	1.0	3.0	ENSCAFP00000036413	True		Gm14371	unprocessed_pseudogene													
+12473	Mus_musculus	C_deleted	4	True	True	X	166482223.0	166483617.0	1.0	0.849	0.0	0.0	0.0	ENSRNOP00000055963	False		Gm15229	processed_pseudogene	X	166482223.0	166483617.0	1.0	0.849	0.0	0.0	0.0	ENSRNOP00000055963	False		Gm15229	processed_pseudogene
+12774	Mus_musculus	D_undetermined	5	False	True	7	20976109.0	20978853.0	0.205	0.288	1.0	0.0	1.0	ENSRNOP00000070153	False																
+13168	Mus_musculus	C_deleted	0	False	False																										
+13665	Mus_musculus	B_pseudo	5	False	True	2	21044811.0	21141954.0	1.0	0.84	0.0	1.0	8.0	ENSRNOP00000037534	True		Gm13377;Gm13376	unprocessed_pseudogene;lncRNA													
+15044	Mus_musculus	B_pseudo	0	False	True	1	183266592.0	183269574.0	0.715	0.487	1.0	1.0	1.0	ENSP00000354070	True		AC122792.1	unitary_pseudogene													
+15586	Mus_musculus	D_undetermined	10	False	False																										
+15967	Mus_musculus	B_pseudo	11	True	True	3	25211076.0	25212605.0	1.0	0.489	0.0	0.0	0.0	ENSRNOP00000039571	False		Gm10259	processed_pseudogene	3	25211076.0	25212605.0	1.0	0.489	0.0	0.0	0.0	ENSRNOP00000039571	False		Gm10259	processed_pseudogene
+17328	Mus_musculus	B_pseudo	0	False	True	4	118360033.0	118362654.0	1.0	0.921	1.0	0.0	7.0	ENSRNOP00000053659	True	ENSMUSP00000141952	Hyi	polymorphic_pseudogene													
+17500	Mus_musculus	D_undetermined	0	False	True	14	51434943.0	51436569.0	0.452	0.651	2.0	0.0	2.0	ENSRNOP00000033754	False		Gm7247	protein_coding													
+20079	Mus_musculus	B_pseudo	11	False	True	4	117145257.0	117148634.0	1.0	0.747	4.0	2.0	8.0	ENSRNOP00000025348	True		Best4-ps	unitary_pseudogene													
+20965	Mus_musculus	D_undetermined	30	False	True	3	63173112.0	63173798.0	0.967	0.61	2.0	0.0	0.0	ENSCAFP00000041266	False		Gm8388	processed_pseudogene													
+21380	Mus_musculus	B_pseudo	0	False	True	5	50217247.0	50387957.0	1.0	0.882	3.0	2.0	4.0	ENSRNOP00000069571	True		Gm7205	unprocessed_pseudogene													
+22254	Mus_musculus	B_pseudo	3	True	True	15	58341877.0	58364148.0	0.984	0.805	1.0	0.0	7.0	ENSRNOP00000060692	True		Anxa13	lncRNA	15	58341877.0	58364148.0	0.871	0.712	0.0	0.0	7.0	ENSCAFP00000001437	True		Anxa13	lncRNA
