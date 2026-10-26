@@ -188,7 +188,8 @@ def normalize_groups(groups: Iterable[Child]) -> list[Group]:
 # ----------------------------------------------------------------------------
 
 def write_orthoxml(ox: OrthoXML, dest: Union[str, IO[str]], version: str = "0.5",
-                   include_taxonomy: bool = True, group_id_prefix: str = "HOG") -> None:
+                   include_taxonomy: bool = True, group_id_prefix: str = "HOG",
+                   pyham_compat: bool = False) -> None:
     """Write an :class:`OrthoXML` object.
 
     Parameters
@@ -196,28 +197,41 @@ def write_orthoxml(ox: OrthoXML, dest: Union[str, IO[str]], version: str = "0.5"
     version : "0.5" (default; adds ``<taxonomy>`` and ``taxonId`` when a species
         tree is attached), "0.4" or "0.3" (no taxonomy; v0.3 forbids top-level
         paralogGroups, which are then written as their children).
+    pyham_compat : pyham (1.1.x) crashes on a top-level paralogGroup that
+        directly contains a geneRef. With ``True``, every top-level
+        paralogGroup is replaced by its child groups (recursively; direct
+        genes become singletons). Ortholog pairs (QfO flattening) are
+        unchanged; only paralog relations across the split are lost. Also
+        implied by ``version="0.3"``.
     """
     if version not in ("0.3", "0.4", "0.5"):
         raise ValueError("version must be 0.3, 0.4 or 0.5")
     own = isinstance(dest, str)
     fh = open(dest, "w") if own else dest
     try:
-        _write(ox, fh, version, include_taxonomy, group_id_prefix)
+        _write(ox, fh, version, include_taxonomy, group_id_prefix, pyham_compat)
     finally:
         if own:
             fh.close()
 
 
-def _write(ox: OrthoXML, fh: IO[str], version: str, include_taxonomy: bool, prefix: str) -> None:
+def _split_toplevel_paralogs(groups: list[Group]) -> list[Group]:
+    out: list[Group] = []
+    stack = list(reversed(groups))
+    while stack:
+        g = stack.pop()
+        if g.kind == "paralog":
+            stack.extend(reversed([c for c in g.children if isinstance(c, Group)]))
+        else:
+            out.append(g)
+    return out
+
+
+def _write(ox: OrthoXML, fh: IO[str], version: str, include_taxonomy: bool, prefix: str,
+           pyham_compat: bool = False) -> None:
     groups = normalize_groups(ox.groups)
-    if version == "0.3":
-        flat = []
-        for g in groups:
-            if g.kind == "paralog":
-                flat.extend(c for c in g.children if isinstance(c, Group))
-            else:
-                flat.append(g)
-        groups = normalize_groups(flat)
+    if version == "0.3" or pyham_compat:
+        groups = _split_toplevel_paralogs(groups)
     use_tax = version == "0.5" and include_taxonomy and ox.species_tree is not None
     taxid: dict[str, int] = {}
     if use_tax:
