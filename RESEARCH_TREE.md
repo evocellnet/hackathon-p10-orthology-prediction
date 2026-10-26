@@ -5,6 +5,15 @@ Clock: START.txt = 2026-10-26T14:40 CET; hard deadline 2026-10-28T14:40 CET (48 
 
 ## Status summary (latest first)
 
+### M2 — 2026-10-26 ~19:15 (T+4h35) — core method works on OrthoBench dev; layers triaged
+The Ancestra core is built and tuned on OrthoBench **dev** only (34 RefOGs, split by homology component; test never scored): two-level S0 families (dev completeness 0.794) → hybrid DIAMOND/MMseqs2 in-family scoring → level-synchronous k-way merge along the NCBI taxdump guide tree, with local NJ trees for ambiguous clusters at divergent nodes → OrthoXML. With **constrained synteny** (gene order may only re-rank partners within the synteny-off root HOG, plus a veto), dev OG-F is **79.2** and pair F1 0.783, against 72.5 / 0.740 without gene order; shuffled gene order gives 72.5–73.3 / 0.740. One e2e OrthoBench run takes 28.5 min and 14 GB on a shared node. The layer triage, each with a shuffled control:
+- synteny: kept (pair-level gain with CI > 0, now OG-level too);
+- structure: positive for S0 completeness (0.853, above the sequence ceiling), negative in the merge;
+- expression and isoforms: killed per pre-registered criteria;
+- gene-loss validation with genome DNA: works (92% control recovery; GULO/UOX recovered) and revealed that 32% of apparent losses are our own fission errors.
+
+Open risk: S0 is non-deterministic across thread counts (ARI 0.78), and that alone moves dev pair F1 0.78→0.64. All merge tuning so far used one partition, so the dev numbers above may be optimistic until it is replicated on a deterministic S0 (fix in progress). QfO dry run (S0 + scoring) is in progress. OrthoBench competitor baselines are still running. Decision M2: no new features until S0 is deterministic and the key arms are replicated on ≥2 partitions. Then freeze a config for QfO peek 1 (T+~8–10h), and the T+12h gate vs the OrthoFinder dev number.
+
 ### M1 — 2026-10-26 16:05 (T+1h25) — design v2
 Design went through two review rounds (8 reviews in docs/reviews/). v0 (pure progressive ancestral merging) was rejected on cost grounds: the compute review estimated only a ~2.5× saving over all-vs-all on QfO because ancestral pan-proteomes are large. v1/v2 restructure it as **family partition (near-linear, two-level) → within-family scores → level-synchronous ancestral merging across all families, with ancestral gene-order context inside the merge**. Leakage fixes: the OrthoBench split is by homology component; at most 3 QfO peeks before freeze; VGNC is not dev evidence. The success rule is non-inferiority (lower 95% bound of Δ ≥ −0.03).
 
