@@ -101,6 +101,35 @@ def read_fasta_ids(path: str) -> list[str]:
     return ids
 
 
+def _canonical_fasta(fasta: str, outdir: str):
+    """Write ``outdir/canonical_input.fa``: sequences sorted by (length desc, sequence,
+    original id), renamed ``c0000000``.. by rank. Returns (path, {canonical id: original id})."""
+    recs, name, buf = [], None, []
+    with open(fasta) as fh:
+        for line in fh:
+            if line.startswith(">"):
+                if name is not None:
+                    recs.append((name, "".join(buf)))
+                tok = line[1:].split(None, 1)
+                name, buf = (tok[0] if tok else ""), []
+            else:
+                buf.append(line.strip())
+    if name is not None:
+        recs.append((name, "".join(buf)))
+    # same normalisation as ancestra.io.load_proteomes (terminal '*' stripped, internal '*' -> X)
+    recs = [(n, sq.rstrip("*").replace("*", "X").upper()) for n, sq in recs]
+    recs.sort(key=lambda r: (-len(r[1]), r[1], r[0]))
+    width = max(7, len(str(len(recs))))
+    out = os.path.join(outdir, "canonical_input.fa")
+    c2o = {}
+    with open(out, "w") as fh:
+        for i, (nm, sq) in enumerate(recs):
+            cid = f"c{i:0{width}d}"
+            c2o[cid] = nm
+            fh.write(f">{cid}\n{sq}\n")
+    return out, c2o
+
+
 def read_pairs_tsv(path: str, cols=(0, 1)) -> list[tuple[str, str]]:
     """Read 2-column (representative, member) cluster TSVs (DIAMOND / MMseqs createtsv).
 
@@ -220,6 +249,8 @@ class FamilyConfig:
     s2_cov: float = 0.0               # coverage threshold (fraction 0..1) for reps edges
     s2_cov_mode: str = "min"          # min: both qcov,scov >= c ; max: either ; shorter: cov of shorter seq
     s2_max_target: int = 500
+    s2_block: float = 4.0             # DIAMOND -b for the stage-2 search (pinned: thread-independent)
+    s2_chunks: int = 1                # DIAMOND -c
     s2_bitscore: float = 0.0
     s2_query: str = "reps"            # reps: reps vs reps ; all: every gene vs reps (N x R)
     s2_gmax: float | None = None      # split connected components larger than this many genes with Leiden;
@@ -406,9 +437,15 @@ def run_families(fasta: str, outdir: str, cfg: FamilyConfig) -> dict:
     fasta = os.path.abspath(fasta)
     t0 = time.time()
     timings = {}
-    gene_ids = read_fasta_ids(fasta)
-    if len(set(gene_ids)) != len(gene_ids):
+    orig_ids = read_fasta_ids(fasta)
+    if len(set(orig_ids)) != len(orig_ids):
         raise ValueError("duplicate sequence ids in input FASTA")
+    # Canonical input (determinism): DIAMOND's greedy clustering breaks ties by input order
+    # and IDs, so the same sequences in another order / with other names gave a different
+    # partition (ARI 0.78 on OrthoBench). We cluster a canonical copy -- sorted by
+    # (length desc, sequence, original id), IDs = canonical rank -- and map back at the end.
+    fasta, canon2orig = _canonical_fasta(fasta, outdir)
+    gene_ids = sorted(canon2orig)
     flagged = {}
     with open(os.path.join(outdir, "commands.log"), "a") as log:
         t = time.time()
@@ -417,6 +454,8 @@ def run_families(fasta: str, outdir: str, cfg: FamilyConfig) -> dict:
             for k in STAGE1_FIELDS:
                 if prev["config"].get(k) != getattr(cfg, k):
                     raise ValueError(f"s1_reuse: stage-1 field {k} differs from {cfg.s1_reuse}")
+            if not prev.get("canonical_input"):
+                raise ValueError(f"s1_reuse: {cfg.s1_reuse} was not run on canonical input (pre-fix S0)")
             s1 = os.path.join(outdir, "stage1_clusters.tsv")
             shutil.copyfile(os.path.join(cfg.s1_reuse, "stage1_clusters.tsv"), s1)
             timings["stage1_reused_s"] = prev["timings"].get("stage1_s", prev["timings"].get("stage1_reused_s"))
@@ -453,7 +492,10 @@ def run_families(fasta: str, outdir: str, cfg: FamilyConfig) -> dict:
             if cfg.s2_query not in ("reps", "all"):
                 raise ValueError(cfg.s2_query)
             _run(["diamond", "makedb", "--in", rfa, "-d", dmnd, "--threads", cfg.threads], log)
+            # -b/-c pinned: DIAMOND's automatic block/chunk sizing depends on --threads and
+            # changed ~0.02% of hits between 12 and 24 threads (-> different families)
             cmd = ["diamond", "blastp", "-q", query, "-d", dmnd, "-o", hits, "--threads", cfg.threads,
+                   "-b", cfg.s2_block, "-c", cfg.s2_chunks,
                    "-k", cfg.s2_max_target, "-e", cfg.s2_evalue,
                    "--outfmt", "6", "qseqid", "sseqid", "evalue", "bitscore", "qlen", "slen",
                    "qstart", "qend", "sstart", "send"]
@@ -471,7 +513,7 @@ def run_families(fasta: str, outdir: str, cfg: FamilyConfig) -> dict:
                 k = (ra, rb) if ra < rb else (rb, ra)
                 if w > best.get(k, -1.0):
                     best[k] = w
-            edges = [(a, b, w) for (a, b), w in best.items()]
+            edges = sorted((a, b, w) for (a, b), w in best.items())   # order-independent
             if cfg.stage2 == "cc":
                 rep_pairs = [(a, b) for a, b, _ in edges]
             elif cfg.stage2 == "mcl":
@@ -489,7 +531,7 @@ def run_families(fasta: str, outdir: str, cfg: FamilyConfig) -> dict:
                 big = {root for root, rs in comp.items() if sum(rep_size[r] for r in rs) > gmax}
                 if big:
                     by_comp = defaultdict(list)
-                    for a, b, w in edges:
+                    for a, b, w in edges:   # sorted -> Leiden sees a fixed edge order
                         if rep2root[a] in big and rep2root[a] == rep2root[b]:
                             by_comp[rep2root[a]].append((a, b, w))
                     for root in sorted(big):
@@ -519,10 +561,13 @@ def run_families(fasta: str, outdir: str, cfg: FamilyConfig) -> dict:
                 if os.path.exists(f):
                     os.remove(f)
         gene2fam = label_families(g2r)
+    canon_fam = gene2fam
+    gene2fam = {canon2orig[g]: f for g, f in canon_fam.items()}
     write_families_tsv(gene2fam, os.path.join(outdir, "families.tsv"))
+    os.remove(fasta)
     if flagged:
         fam_from = {}
-        for g, f in gene2fam.items():
+        for g, f in canon_fam.items():
             r = gene2rep[g]
             if r in flagged:
                 fam_from.setdefault(f, flagged[r])
@@ -540,6 +585,7 @@ def run_families(fasta: str, outdir: str, cfg: FamilyConfig) -> dict:
     stats["timings"] = timings
     stats["config"] = asdict(cfg)
     stats["config_hash"] = cfg.hash()
+    stats["canonical_input"] = True
     with open(os.path.join(outdir, "stats.json"), "w") as fh:
         json.dump(stats, fh, indent=1)
     return stats

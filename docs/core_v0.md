@@ -445,7 +445,39 @@ The total is **28.5 min wall** with **14.2 GB max RSS** (`/usr/bin/time -v`), on
 - Decisions so far were made on one fixed family partition (run_v2) and are internally consistent. **Absolute numbers carry roughly ±4 OG-F and ±0.15 pair F1 of S0-induced variation.**
 
 
-### 7.6 Next steps
+### 7.6 S0 determinism (fixed; `ancestra/families.py`, `tests/test_s0_determinism.py`)
+**Cause.** The non-reproducibility (ARI 0.78 between two runs of the same config) had two sources.
+1. **Input order and ID names, not threads.** DIAMOND `cluster` is greedy, and ties follow input order and IDs. The S0 agent ran on `ob_all.fa` with protein IDs in file order; the pipeline wrote integer IDs in gene-table order. Stage-1 clusters differed.
+   - A pure thread check (4 vs 16 threads, 80k proteins; 12 vs 24 on full OrthoBench) gave identical stage-1 output, and repeat runs were identical.
+2. **The stage-2 `diamond blastp` search was thread-dependent.** DIAMOND's automatic block and chunk sizing follows `--threads`. 463 of 2.95M hits (0.016%) changed between 12 and 24 threads; this is not a `-k` truncation effect (max 278 hits per query). Connected components amplified it into different families.
+
+**Fix.**
+- `run_families` clusters a *canonical* copy of the input:
+  - sequences normalised as in `io.load_proteomes` (terminal `*` stripped, internal `*` → X);
+  - sorted by (length desc, sequence, original ID);
+  - renamed by rank, then mapped back.
+- The stage-2 search pins `-b 4 -c 1` (`FamilyConfig.s2_block`, `s2_chunks`).
+- Rep edges are sorted before connected components and Leiden; Leiden keeps seed 11.
+- The pipeline passes protein names to S0.
+- Stage-1 reuse (`s1_reuse`) is refused for pre-fix runs.
+
+**Verification.**
+- `test_s0_determinism`: the toy at 2 vs 8 threads, plus shuffled order, renamed IDs and terminal `*`, with and without forced Leiden splits. It gives identical partitions, and identical family IDs for identical input.
+- OrthoBench: `families.tsv` is **byte-identical** (md5 5561551b…) for `ob_all.fa` at 24 threads, `ob_all.fa` at 12 threads, and the pipeline-ordered FASTA at 12 threads. Stage-1 clusters and stage-2 hits are also identical.
+- The deterministic partition has 22,643 families, the largest 7,269, with 1 Leiden-split component and 940 genes reassigned.
+
+**Partition sensitivity of the dev metrics** (same merge code; three partitions):
+
+| partition | off: OG-F / pair F1 micro / macro | constrained synteny + veto: OG-F / micro / macro | shuffled (3 seeds): OG-F / micro | + locus repair: OG-F / micro / macro |
+|---|---|---|---|---|
+| S0-agent (old, run_v2) | 72.5 / 0.740 / 0.768 | 79.2 / 0.783 / 0.791 | 72.5–73.3 / 0.740 | 75.5 / 0.800 / 0.800 |
+| old pipeline order (run_e2e) | 71.4 / 0.739 / 0.769 | 75.6 / 0.636 / 0.763 | 71.4 / 0.739 | 79.1 / 0.701 / 0.775 |
+| **deterministic (run_det)** | see §7.7 | | | |
+
+- The micro pair F1 is dominated by RefOG021 (125 genes, lineage-specific expansions). On run_e2e, synteny raises its FP pairs from 27 to 1,800 of the 2,392 total; elsewhere it removes FPs (RefOG033 24 → 0, RefOG048 254 → 159).
+- Macro pair F1 (mean over dev RefOGs) is far more stable.
+
+### 7.8 Next steps
 1. **Precision of tree mode and over-merges in large S0 families** (OG-P 63–75%):
    - check ambiguity clusters against FAMSA + FastTree trees on a sample;
    - add an outgroup-based witness test before tree merges.

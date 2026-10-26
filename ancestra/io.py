@@ -114,13 +114,15 @@ def load_proteomes(directory: str) -> GeneTable:
     return GeneTable(names, species, np.asarray(sp_of, dtype=np.int32), lengths, seqs)
 
 
-def write_fasta(gt: GeneTable, path: str, genes=None) -> None:
-    """FASTA with integer headers (gene IDs); optionally a subset of genes."""
+def write_fasta(gt: GeneTable, path: str, genes=None, names: bool = False) -> None:
+    """FASTA with integer headers (gene IDs), or protein IDs with ``names=True``;
+    optionally a subset of genes."""
     tmp = path + ".tmp"
     it = range(gt.n) if genes is None else genes
     with open(tmp, "w") as fh:
         for g in it:
-            fh.write(f">{int(g)}\n{gt.seqs[g]}\n")
+            h = gt.names[g] if names else int(g)
+            fh.write(f">{h}\n{gt.seqs[g]}\n")
     os.replace(tmp, path)
 
 

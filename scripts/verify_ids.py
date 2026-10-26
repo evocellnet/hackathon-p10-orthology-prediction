@@ -17,6 +17,10 @@ Checks (exit status 1 if any fails; report as JSON with ``--json``):
                        protein maps to one benchmark species, species map 1:1, and no two
                        input IDs map to the same protein.
 6. ``tree_leaves``     (with ``--tree``) guide-tree leaves == proteome species.
+7. ``gene_order``      (with ``--gene-order DIR``) one ``<species>.parquet`` per species; every
+                       ``protein_id`` is an input protein of that species, listed once, and
+                       (contig, order) positions are unique. Coverage per species is reported
+                       (S5 expectation: 0.931 overall), not thresholded.
 
     python scripts/verify_ids.py [--proteomes data/inputs/qfo2022/proteomes] \
         [--tree data/inputs/qfo2022/guide_tree_ncbi.nwk] [--json out.json]
@@ -69,7 +73,41 @@ def raw_header_ids(path: str):
                 yield p[1] if len(p) >= 3 else tok
 
 
-def run(proteomes: str, tree: str | None, mapping_path: str, release: str) -> dict:
+def check_gene_order(go_dir: str, ids_by_sp: dict) -> dict:
+    import pandas as pd
+    missing, foreign, dup_ids, dup_pos, cov = [], {}, {}, {}, {}
+    n_in = n_all = 0
+    for sp, ids in ids_by_sp.items():
+        p = os.path.join(go_dir, sp + ".parquet")
+        if not os.path.exists(p):
+            missing.append(sp)
+            continue
+        df = pd.read_parquet(p, columns=["protein_id", "contig", "order"])
+        idset = set(ids)
+        f = int((~df["protein_id"].isin(idset)).sum())
+        d = int(df["protein_id"].duplicated().sum())
+        dp = int(df.duplicated(["contig", "order"]).sum())
+        if f:
+            foreign[sp] = f
+        if d:
+            dup_ids[sp] = d
+        if dp:
+            dup_pos[sp] = dp
+        n = int(df["protein_id"].isin(idset).sum()) - d
+        cov[sp] = round(n / max(1, len(ids)), 4)
+        n_in += n
+        n_all += len(ids)
+    return {"ok": not (missing or foreign or dup_ids or dup_pos), "dir": go_dir,
+            "missing_species": missing, "foreign_protein_ids": foreign,
+            "duplicate_protein_ids": dup_ids, "duplicate_positions": dup_pos,
+            "coverage_overall": round(n_in / max(1, n_all), 4),
+            "min_species_coverage": min(cov.values()) if cov else None,
+            "n_species_coverage_lt_0.5": sum(v < 0.5 for v in cov.values()),
+            "coverage_per_species": cov}
+
+
+def run(proteomes: str, tree: str | None, mapping_path: str, release: str,
+        gene_order: str | None = None) -> dict:
     from ancestra.io import FASTA_EXT, species_name
     res: dict = {"proteomes": os.path.abspath(proteomes), "release": os.path.abspath(release),
                  "checks": {}}
@@ -184,6 +222,8 @@ def run(proteomes: str, tree: str | None, mapping_path: str, release: str) -> di
         ck["tree_leaves"] = {"ok": leaves == set(species), "tree": tree,
                              "only_in_tree": sorted(leaves - set(species)),
                              "only_in_proteomes": sorted(set(species) - leaves)}
+    if gene_order:
+        ck["gene_order"] = check_gene_order(gene_order, ids_by_sp)
     res["ok"] = all(c["ok"] for c in ck.values())
     return res
 
@@ -194,11 +234,12 @@ def main(argv=None) -> int:
     ap.add_argument("--tree", default=None)
     ap.add_argument("--mapping", default=MAPPING)
     ap.add_argument("--release", default=RELEASE)
+    ap.add_argument("--gene-order", help="S5 gene-order table dir (<species>.parquet)")
     ap.add_argument("--json")
     a = ap.parse_args(argv)
-    res = run(a.proteomes, a.tree, a.mapping, a.release)
+    res = run(a.proteomes, a.tree, a.mapping, a.release, a.gene_order)
     for name, c in res["checks"].items():
-        brief = {k: v for k, v in c.items() if k not in ("per_species", "species_code", "ok")
+        brief = {k: v for k, v in c.items() if k not in ("per_species", "species_code", "ok", "coverage_per_species")
                  and not (isinstance(v, (list, dict)) and not v)}
         print(f"[verify_ids] {'PASS' if c['ok'] else 'FAIL'} {name}: "
               f"{json.dumps(brief, default=str)[:400]}")

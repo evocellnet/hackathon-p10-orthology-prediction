@@ -27,7 +27,7 @@ from orthobench_dev_eval import dev_eval  # noqa: E402
 LOG = os.path.join(ROOT, "results/core_v0_orthobench/runs.tsv")
 COLS = ["time", "label", "run", "config_hash", "F", "precision", "recall", "exact", "n_refogs_split",
         "n_refogs_with_fp", "n_pred_groups", "merge_s", "config", "pairP", "pairR", "pairF1",
-        "s8_5of6", "s8_fission_cand"]
+        "s8_5of6", "s8_fission_cand", "pairF1_macro"]
 
 
 class ConstrainedContext:
@@ -153,7 +153,15 @@ def main():
     ev = dev_eval(ogs)
     s8 = s8_fission_candidates(ox, gt)
     from orthobench_dev_pairs_eval import evaluate as pair_eval
-    pm, _, _ = pair_eval(ox)
+    pm, parr, prefogs = pair_eval(ox)
+    import numpy as np
+    per = parr.sum(axis=1)                          # RefOG x [TP, FN, FP, TN]
+    tp, fn, fp = per[:, 0].astype(float), per[:, 1].astype(float), per[:, 2].astype(float)
+    with np.errstate(invalid="ignore", divide="ignore"):
+        f1_r = 2 * tp / (2 * tp + fp + fn)
+    pm["macro_F1"] = round(float(np.nanmean(f1_r)), 4)
+    pm["macro_n_refogs"] = int(np.isfinite(f1_r).sum())
+    pm["per_refog"] = {r: [int(x) for x in per[i]] for i, r in enumerate(prefogs)}   # TP FN FP TN
     json.dump(pm, open(os.path.join(out, "dev_pairs_eval.json"), "w"), indent=1)
     json.dump(ev, open(os.path.join(out, "dev_eval.json"), "w"), indent=1)
     row = dict(time=datetime.now().isoformat(timespec="seconds"), label=a.label or a.arm, run=a.run,
@@ -161,7 +169,7 @@ def main():
                recall=round(ev["recall"], 2), exact=ev["exact"], n_refogs_split=ev["n_refogs_split"],
                n_refogs_with_fp=ev["n_refogs_with_fp"], n_pred_groups=ev["n_pred_groups"],
                pairP=pm["all"]["P"], pairR=pm["all"]["R"], pairF1=pm["all"]["F1"],
-               s8_5of6=s8[0], s8_fission_cand=s8[1],
+               s8_5of6=s8[0], s8_fission_cand=s8[1], pairF1_macro=pm["macro_F1"],
                merge_s=round(ms, 1), config=json.dumps(dict(asdict(cfg), scores=a.scores, synteny=a.synteny,
                                                    synteny_kw=syn_kw, syn_constrain=a.syn_constrain),
                                               sort_keys=True))
@@ -182,7 +190,7 @@ def main():
         fh.write("\t".join(str(row[c]) for c in COLS) + "\n")
     print(f"{row['label']} [{ch}] DEV F={row['F']} P={row['precision']} R={row['recall']} exact={row['exact']} "
           f"split={row['n_refogs_split']} withFP={row['n_refogs_with_fp']} | pairs P={row['pairP']} "
-          f"R={row['pairR']} F1={row['pairF1']} | S8 5/6-mammal HOGs={s8[0]} fission-candidates={s8[1]} "
+          f"R={row['pairR']} F1={row['pairF1']} macroF1={row['pairF1_macro']} | S8 5/6-mammal HOGs={s8[0]} fission-candidates={s8[1]} "
           f"| merge={ms:.1f}s -> {out}")
 
 

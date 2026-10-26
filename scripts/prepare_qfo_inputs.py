@@ -11,6 +11,10 @@ Creates (all under data/, gitignored):
         ancestra.io and is identical to the leaf names of the S1 QfO trees.
   data/inputs/qfo2022/guide_tree_ncbi.nwk
         copy of results/S1_speciestree/qfo/ncbi.nwk (NCBI taxdump tree, S1 default).
+  data/inputs/qfo2022/gene_order/<species>.parquet
+        symlinks to the S5 gene-order tables data/genomes/qfo2022/<UPid_taxid>.parquet
+        (ancestra/genomes_qfo.py; docs/S5_synteny.md §1.2) for ``--gene-order`` merges;
+        only the 78 species tables are linked (no coverage.tsv), md5 in inputs.json.
   data/inputs/qfo2022/subsets/sub<k>_s<seed>/
         symlinks for a seeded, domain-stratified species subset (cost extrapolation).
   data/inputs/qfo2022/inputs.json
@@ -36,6 +40,7 @@ sys.path.insert(0, ROOT)
 SRC = os.path.join(ROOT, "data/qfo/proteomes_2022_02_updZEBRAFISH")
 OUT = os.path.join(ROOT, "data/inputs/qfo2022")
 TREE_SRC = os.path.join(ROOT, "results/S1_speciestree/qfo/ncbi.nwk")
+GO_SRC = os.path.join(ROOT, "data/genomes/qfo2022")
 CANON = re.compile(r"^UP[0-9]+_[0-9]+\.fasta$")
 DOMAINS = ("Archaea", "Bacteria", "Eukaryota")
 
@@ -67,13 +72,13 @@ def release_md5() -> dict[str, str]:
     return m
 
 
-def link_dir(d: str, files: dict[str, str]) -> None:
+def link_dir(d: str, files: dict[str, str], ext: str = ".fasta") -> None:
     os.makedirs(d, exist_ok=True)
     for f in os.listdir(d):        # remove stale entries
-        if f.removesuffix(".fasta") not in files:
+        if f.removesuffix(ext) not in files or not f.endswith(ext):
             os.remove(os.path.join(d, f))
     for sp, path in files.items():
-        dst = os.path.join(d, sp + ".fasta")
+        dst = os.path.join(d, sp + ext)
         if os.path.islink(dst) and os.readlink(dst) == path:
             continue
         if os.path.lexists(dst):
@@ -129,6 +134,13 @@ def main(argv=None) -> int:
     t = load_guide_tree(tree_dst, sorted(cf))
     n_int = sum(1 for nd in t.preorder() if nd.children)
 
+    # gene-order tables (S5): one parquet per species, linked when present
+    go = {sp: os.path.join(GO_SRC, sp + ".parquet") for sp in cf
+          if os.path.exists(os.path.join(GO_SRC, sp + ".parquet"))}
+    link_dir(os.path.join(OUT, "gene_order"), go, ext=".parquet")
+    go_info = {"source": os.path.relpath(GO_SRC, ROOT), "n_species_with_table": len(go),
+               "missing": sorted(set(cf) - set(go)), "md5": {sp: md5(p) for sp, p in go.items()}}
+
     sub = stratified_subset(cf, a.subset, a.seed)
     sub_name = f"sub{a.subset}_s{a.seed}"
     link_dir(os.path.join(OUT, "subsets", sub_name), {sp: cf[sp][1] for sp in sub})
@@ -140,6 +152,7 @@ def main(argv=None) -> int:
             "guide_tree": {"source": os.path.relpath(TREE_SRC, ROOT), "md5": md5(tree_dst),
                            "n_leaves": len(leaves), "n_internal_after_load": n_int,
                            "leaf_names_match_proteome_stems": True},
+            "gene_order": go_info,
             "subsets": {sub_name: {"seed": a.seed, "k": a.subset, "species": sub,
                                    "domains": {d: sum(cf[s][0] == d for s in sub) for d in DOMAINS}}}}
     old = os.path.join(OUT, "inputs.json")
@@ -150,7 +163,7 @@ def main(argv=None) -> int:
         json.dump(info, fh, indent=1)
     os.replace(old + ".tmp", old)
     print(f"[prepare] 78 proteomes linked, md5 OK; tree leaves match ({n_int} internal nodes); "
-          f"subset {sub_name}: {sub}")
+          f"gene-order tables {len(go)}/78; subset {sub_name}: {sub}")
     return 0
 
 

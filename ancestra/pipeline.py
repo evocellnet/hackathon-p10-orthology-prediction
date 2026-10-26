@@ -301,7 +301,7 @@ def run_pipeline(proteomes: str, tree_path: str, outdir: str, families: str | No
                 cfg = FamilyConfig(**(family_config or DEFAULT_FAMILY_CONFIG))
                 cfg.threads = threads
                 fa = os.path.join(d, "genes.fa")
-                write_fasta(gt, fa)
+                write_fasta(gt, fa, names=True)   # S0 is canonical: same result as on raw proteomes
                 st = run_families(fa, os.path.join(d, "s0"), cfg)
                 m = read_families_tsv(os.path.join(d, "s0", "families.tsv"))
                 os.remove(fa)
