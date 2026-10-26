@@ -66,7 +66,8 @@ Decision note M0: benchmark lives in its own repo (bench_repo/) as the prompt re
 - [~] 8a. Competitor baselines on OrthoBench (bench_repo/results/orthobench_competitors/; eval identical to official benchmark.py). **OrthoFinder default: dev F 70.5** (P 60.8, R 84.0), all-70 F 70.1; OrthoFinder -M msa?/mcl variant dev 54.2; SonicParanoid2 default dev 34.2 (all 47.4). → **T+12h gate passed early**: Ancestra dev 75.6–79.2 (two partitions) vs OrthoFinder 70.5. Paired bootstrap pending on a deterministic partition.
 - [ ] 4. Sub-task: gene-tree inference (AA vs AA+3Di) — own benchmark
 - [ ] 5. Sub-task: species tree (universal vs inferred vs family-local) — own benchmark
-- [~] 6a. S4 gene-tree inference sub-benchmark: NJ(−ln S) vs FAMSA+FastTree vs 3Di vs AA+3Di vs FoldTree-style, on dev RefOG reference trees; metric = ortholog-label accuracy + nRF (agent)
+- [x] 6a. S4 gene-tree inference sub-benchmark (docs/S4_trees.md; 32 dev RefOGs, 3Di subset): ortholog-label accuracy NJ(−ln S) 0.928; FAMSA+FastTree 0.955 (+0.027 [0.004, 0.060]; all genes +0.034 [0.020, 0.061]); AA+3Di partitioned IQ-TREE 0.956 (+0.029) but 3.3 CPU-h; 3Di-only 0.88–0.90; FoldTree-style fident-NJ 0.924. Random tree 0.76. 3Di over AA with the same method: +0.009 [−0.014, 0.062]. FastTree ≈1 CPU-h for OrthoBench's 15k clusters.
+  - [ ] 6b. Candidate: FastTree (representative sequences per unit) in localtree → dev merge arm
 - [ ] 6. Sub-task: reconciliation → HOGs → OrthoXML — own benchmark
 - [~] 7. Extra layers
   - [!] 7.0 S6 structure (docs/S6_structure.md). **Sub-task positive:** Foldseek 3Di+AA rescue of S0 clusters lifts dev completeness 0.794 → 0.853 (29/34), above the 0.82 sequence ceiling; shuffled 3Di stays at 27/34. RefOG057's worm singleton has no sequence hit.
