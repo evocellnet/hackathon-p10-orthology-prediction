@@ -52,6 +52,8 @@ def summarize(r: dict, tree_depth: dict) -> dict:
                 fp_cross_family=p["fp_different_families"], fp_other=p["fp_other"],
                 root_exact=h["families"]["exact"], root_jacc=h["families"]["mean_best_jaccard"],
                 root_fissions=h["families"]["fissions"], root_fusions=h["families"]["fusions"],
+                root_pairP=h["families"]["pair_precision"], root_pairR=h["families"]["pair_recall"],
+                root_pairF1=h["families"]["pair_f1"],
                 lvl_exact=m(list(lv.values()), "exact"), lvl_jacc=m(list(lv.values()), "mean_best_jaccard"),
                 lvl_pairF1=m(list(lv.values()), "pair_f1"),
                 deep_exact=m(deep, "exact"), shallow_exact=m(shallow, "exact"),

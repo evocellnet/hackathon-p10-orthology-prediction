@@ -52,6 +52,11 @@ def arms():
         A[f"real_w{w}_l0.3_cap5"] = dict(syn=dict(mode="multiplicative", lam=0.3, w=w, cap=5, anchor="amb"))
         A[f"real_w{w}_l0.3_ctxall"] = dict(syn=dict(mode="multiplicative", lam=0.3, w=w, anchor="amb"),
                                           cfg=dict(ctx_mode="all"))
+    # grid 3: anchor definition at the grid-2 best (w10, lam 0.5)
+    A["real_w10_l0.5_coreanch"] = dict(syn=dict(mode="multiplicative", lam=0.5, w=10, anchor="core"))
+    A["real_w10_l0.5_amb0.8"] = dict(syn=dict(mode="multiplicative", lam=0.5, w=10, anchor="amb", amb=0.8))
+    A["real_w10_l0.5_amb0.95"] = dict(syn=dict(mode="multiplicative", lam=0.5, w=10, anchor="amb", amb=0.95))
+    A["real_w10_l0.5_minsp"] = dict(syn=dict(mode="multiplicative", lam=0.5, w=10, anchor="amb", cap=1))
     for k in [k for k in A if k.startswith("real_")]:
         for sd in (11, 23, 47):
             v = json.loads(json.dumps(A[k]))

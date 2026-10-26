@@ -1,0 +1,156 @@
+{
+ "arm": "real_w20_l0.3_ctxall",
+ "spec": {
+  "syn": {
+   "mode": "multiplicative",
+   "lam": 0.3,
+   "w": 20,
+   "anchor": "amb"
+  },
+  "cfg": {
+   "ctx_mode": "all"
+  }
+ },
+ "cfg": {
+  "link": "avg",
+  "score": "norm_max",
+  "tol": 0.95,
+  "inparalogs": true,
+  "inpar_factor": 1.0,
+  "inpar_rule": "ortholog",
+  "repair": true,
+  "repair_ratio": 0.9,
+  "min_cov": 0.0,
+  "min_score": 0.0,
+  "rd_hidden": false,
+  "rd_z": 3.0,
+  "rd_inpar": false,
+  "rd_inpar_factor": 1.0,
+  "engine": "numba",
+  "tree_mode": false,
+  "tree_tau": 0.9,
+  "tree_max_units": 60,
+  "tree_require_outgroup": false,
+  "tree_conservative": false,
+  "tree_nodes": "",
+  "tree_min_d": 0.0,
+  "ctx_mode": "all",
+  "ctx_window": 0.75,
+  "orphan_min": 0.0,
+  "orphan_merge": "off"
+ },
+ "pair": {
+  "all": {
+   "P": 0.8081,
+   "R": 0.6789,
+   "F1": 0.7379,
+   "tp": 3045,
+   "fn": 1440,
+   "fp": 723,
+   "tn": 13938
+  },
+  "mammal-mammal": {
+   "P": 0.933,
+   "R": 0.7691,
+   "F1": 0.8431,
+   "tp": 989,
+   "fn": 297,
+   "fp": 71,
+   "tn": 6293
+  },
+  "tetrapod-tetrapod": {
+   "P": 0.8944,
+   "R": 0.7568,
+   "F1": 0.8199,
+   "tp": 305,
+   "fn": 98,
+   "fp": 36,
+   "tn": 1724
+  },
+  "vert-teleost": {
+   "P": 0.7604,
+   "R": 0.631,
+   "F1": 0.6897,
+   "tp": 838,
+   "fn": 490,
+   "fp": 264,
+   "tn": 4948
+  },
+  "teleost-teleost": {
+   "P": 0.9184,
+   "R": 0.7965,
+   "F1": 0.8531,
+   "tp": 90,
+   "fn": 23,
+   "fp": 8,
+   "tn": 456
+  },
+  "vert-invert": {
+   "P": 0.6938,
+   "R": 0.6379,
+   "F1": 0.6647,
+   "tp": 775,
+   "fn": 440,
+   "fp": 342,
+   "tn": 447
+  },
+  "invert-invert": {
+   "P": 0.96,
+   "R": 0.3429,
+   "F1": 0.5053,
+   "tp": 48,
+   "fn": 92,
+   "fp": 2,
+   "tn": 70
+  }
+ },
+ "og": {
+  "F": 69.78994537436762,
+  "P": 77.89125059107434,
+  "R": 63.21507801260602,
+  "exact": 11
+ },
+ "merge_s": 28.2,
+ "refogs": [
+  "RefOG002",
+  "RefOG004",
+  "RefOG005",
+  "RefOG006",
+  "RefOG007",
+  "RefOG008",
+  "RefOG010",
+  "RefOG013",
+  "RefOG015",
+  "RefOG019",
+  "RefOG021",
+  "RefOG023",
+  "RefOG024",
+  "RefOG028",
+  "RefOG030",
+  "RefOG033",
+  "RefOG034",
+  "RefOG035",
+  "RefOG038",
+  "RefOG043",
+  "RefOG044",
+  "RefOG045",
+  "RefOG046",
+  "RefOG048",
+  "RefOG052",
+  "RefOG054",
+  "RefOG055",
+  "RefOG057",
+  "RefOG059",
+  "RefOG061",
+  "RefOG065",
+  "RefOG066",
+  "RefOG067",
+  "RefOG068"
+ ],
+ "n_ctx_bonus": 0,
+ "n_anchors": 140617,
+ "ctx_stats": {
+  "n_cand": 2923069,
+  "n_supported": 316046
+ }
+}

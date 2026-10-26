@@ -491,7 +491,7 @@ if __name__ == '__main__':
     s = sp.add_parser('ob'); s.add_argument('prefix'); s.add_argument('ob_dir'); s.add_argument('map'); s.add_argument('out_fa'); s.add_argument('out_stats'); s.add_argument('--ref-3di')
     s = sp.add_parser('seqscan'); s.add_argument('db'); s.add_argument('out'); s.add_argument('fasta', nargs='+'); s.add_argument('--procs', type=int, default=16); s.add_argument('--chunks', type=int, default=64)
     s = sp.add_parser('wanted'); s.add_argument('qfo_json'); s.add_argument('sec_ac'); s.add_argument('out'); s.add_argument('out_alias'); s.add_argument('extra', nargs='*')
-    s = sp.add_parser('fsexact'); s.add_argument('db'); s.add_argument('qfo_dir'); s.add_argument('ob_dir'); s.add_argument('out_prefix'); s.add_argument('--procs', type=int, default=16); s.add_argument('--chunks', type=int, default=64)
+    s = sp.add_parser('fsexact'); s.add_argument('db'); s.add_argument('qfo_dir'); s.add_argument('ob_dir'); s.add_argument('out_prefix'); s.add_argument('--procs', type=int, default=16); s.add_argument('--chunks', type=int, default=64); s.add_argument('--ob-cand')
     s = sp.add_parser('merge'); s.add_argument('kind', choices=['qfo', 'ob']); s.add_argument('dir'); s.add_argument('out'); s.add_argument('src', nargs='+')
     a = ap.parse_args()
     {'select': cmd_select, 'extract': cmd_extract, 'qfo': cmd_qfo, 'obcand': cmd_obcand, 'ob': cmd_ob, 'seqscan': cmd_seqscan, 'wanted': cmd_wanted, 'fsexact': cmd_fsexact, 'merge': cmd_merge}[a.cmd](a)

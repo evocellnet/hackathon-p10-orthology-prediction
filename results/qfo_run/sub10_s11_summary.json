@@ -1,0 +1,475 @@
+{
+ "run_dir": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/qfo2022/sub10_s11",
+ "stage_stats": {
+  "input": {
+   "n_genes": 129119,
+   "n_species": 10,
+   "n_internal_nodes": 6
+  },
+  "families": {
+   "source": "ancestra.families",
+   "s0_timings": {
+    "stage1_s": 144.78955554962158,
+    "stage2_search_s": 83.22864890098572,
+    "stage2_s": 95.17115116119385,
+    "total_s": 240.6739308834076
+   },
+   "n_families": 33073,
+   "n_singletons": 25536,
+   "max_family": 6321,
+   "sum_g2": 207199609
+  },
+  "scores": {
+   "backend": "hybrid",
+   "n_families": 33073,
+   "sum_g2": 207199609,
+   "max_family": 6321,
+   "n_cross_family_hits": 465255,
+   "n_raw_hits": 10910424,
+   "n_blocks": 2,
+   "diamond_s": 162.16,
+   "n_pairs_diamond": 5409670,
+   "n_pairs_rescue_candidates": 2697927,
+   "n_pairs_aligned_mmseqs": 2697927,
+   "pairs_write_s": 1.43,
+   "align_s": 11.11,
+   "n_families_over_cap": 4,
+   "n_families_over_gmax": 0,
+   "n_pairs_dropped_by_cap": 2557094,
+   "pairs_dropped_per_family": {
+    "3": 288336,
+    "14": 93582,
+    "42": 85550,
+    "77": 2089626
+   },
+   "wall_s": 181.8,
+   "n_scored_pairs": 2425047,
+   "n_self_scores": 129119,
+   "rescue_joins": 126,
+   "rescue_rescored_genes": 58038,
+   "rescue_wall_s": 120.56,
+   "n_families_after_rescue": 32947,
+   "n_families_before_rescue": 33073
+  },
+  "merge": {
+   "n_root_groups": 8151,
+   "n_root_anc_genes": 92155,
+   "merge_s_sum_nodes": 3.967
+  },
+  "output": {
+   "xsd_valid": true,
+   "n_top_groups": 8151,
+   "n_pairs": 149346,
+   "n_ogs_multi": 8151
+  }
+ },
+ "input": {
+  "n_genes": 129119,
+  "n_species": 10,
+  "n_internal_nodes": 6
+ },
+ "families_S0": {
+  "n_families": 33073,
+  "n_multi_gene": 7537,
+  "n_singletons": 25536,
+  "frac_genes_singleton": 0.1978,
+  "largest": [
+   6321,
+   5548,
+   5242,
+   5056,
+   4439,
+   3668,
+   3109,
+   2893,
+   2557,
+   2381
+  ],
+  "n_over_5000": 4,
+  "n_over_7500": 0,
+  "sum_g2": 207199609,
+  "sum_g2_over_N2": 0.012428
+ },
+ "families_after_rescue": {
+  "n_families": 32947,
+  "n_multi_gene": 7411,
+  "n_singletons": 25536,
+  "frac_genes_singleton": 0.1978,
+  "largest": [
+   7500,
+   7498,
+   7453,
+   7289,
+   7043,
+   6279,
+   5365,
+   4977,
+   1797,
+   1183
+  ],
+  "n_over_5000": 7,
+  "n_over_7500": 0,
+  "sum_g2": 371262669,
+  "sum_g2_over_N2": 0.022269
+ },
+ "runtime_per_stage": {
+  "input": {
+   "wall_s": 0.08,
+   "cpu_total_s": 0.1,
+   "cpu_self_s": 0.1,
+   "cpu_children_s": 0.0,
+   "peak_rss_mb": 114.3,
+   "children_maxrss_mb_so_far": 114.3,
+   "load_start": [
+    26.9,
+    24.6,
+    30.0
+   ],
+   "load_end": [
+    26.9,
+    24.6,
+    30.0
+   ],
+   "threads": 12
+  },
+  "families": {
+   "wall_s": 241.15,
+   "cpu_total_s": 1588.9,
+   "cpu_self_s": 13.0,
+   "cpu_children_s": 1575.9,
+   "peak_rss_mb": 528.0,
+   "children_maxrss_mb_so_far": 1356.8,
+   "load_start": [
+    26.9,
+    24.6,
+    30.0
+   ],
+   "load_end": [
+    40.6,
+    32.9,
+    32.1
+   ],
+   "threads": 12
+  },
+  "scores": {
+   "wall_s": 302.75,
+   "cpu_total_s": 2078.4,
+   "cpu_self_s": 29.3,
+   "cpu_children_s": 2049.1,
+   "peak_rss_mb": 2193.2,
+   "children_maxrss_mb_so_far": 2193.2,
+   "load_start": [
+    40.6,
+    32.9,
+    32.1
+   ],
+   "load_end": [
+    40.9,
+    40.1,
+    35.5
+   ],
+   "threads": 12
+  },
+  "merge": {
+   "wall_s": 4.15,
+   "cpu_total_s": 4.1,
+   "cpu_self_s": 4.1,
+   "cpu_children_s": 0.0,
+   "peak_rss_mb": 881.2,
+   "children_maxrss_mb_so_far": 2193.2,
+   "load_start": [
+    40.9,
+    40.1,
+    35.5
+   ],
+   "load_end": [
+    40.9,
+    40.1,
+    35.5
+   ],
+   "threads": 12
+  },
+  "output": {
+   "wall_s": 2.2,
+   "cpu_total_s": 2.2,
+   "cpu_self_s": 2.2,
+   "cpu_children_s": 0.0,
+   "peak_rss_mb": 640.0,
+   "children_maxrss_mb_so_far": 2193.2,
+   "load_start": [
+    40.9,
+    40.1,
+    35.5
+   ],
+   "load_end": [
+    39.7,
+    39.9,
+    35.5
+   ],
+   "threads": 12
+  }
+ },
+ "timelogs": {
+  "sub10_s11.log": {
+   "wall": "9:11.70",
+   "user_s": "3638.11",
+   "sys_s": "37.69",
+   "cpu_pct": "666",
+   "max_rss_kb": "2245832",
+   "exit": "0",
+   "wall_s": 551.7,
+   "max_rss_gb": 2.14,
+   "cpu_h": 1.021
+  }
+ },
+ "root_hogs": {
+  "n_toplevel_groups": 8151,
+  "n_toplevel_paralogGroups": 0,
+  "n_genes": 129119,
+  "n_genes_in_groups": 45115,
+  "n_singleton_genes": 84004,
+  "largest": [
+   {
+    "genes": 414,
+    "species": 9,
+    "level": "cellular organisms",
+    "kind": "ortholog"
+   },
+   {
+    "genes": 308,
+    "species": 7,
+    "level": "cellular organisms",
+    "kind": "ortholog"
+   },
+   {
+    "genes": 252,
+    "species": 8,
+    "level": "cellular organisms",
+    "kind": "ortholog"
+   },
+   {
+    "genes": 220,
+    "species": 4,
+    "level": "Eukaryota",
+    "kind": "ortholog"
+   },
+   {
+    "genes": 190,
+    "species": 3,
+    "level": "Eukaryota",
+    "kind": "ortholog"
+   },
+   {
+    "genes": 159,
+    "species": 4,
+    "level": "Eukaryota",
+    "kind": "ortholog"
+   },
+   {
+    "genes": 141,
+    "species": 8,
+    "level": "cellular organisms",
+    "kind": "ortholog"
+   },
+   {
+    "genes": 125,
+    "species": 7,
+    "level": "cellular organisms",
+    "kind": "ortholog"
+   },
+   {
+    "genes": 102,
+    "species": 4,
+    "level": "cellular organisms",
+    "kind": "ortholog"
+   },
+   {
+    "genes": 86,
+    "species": 5,
+    "level": "Eukaryota",
+    "kind": "ortholog"
+   }
+  ],
+  "toplevel_by_level": {
+   "Eukaryota": 3393,
+   "cellular organisms": 1916,
+   "Bilateria": 1317,
+   "Opisthokonta": 784,
+   "Bacteria": 600,
+   "Bacillati": 141
+  }
+ },
+ "orthologGroups_by_taxrange": {
+  "Bilateria": 4701,
+  "Eukaryota": 4630,
+  "Opisthokonta": 3687,
+  "cellular organisms": 1916,
+  "Bacteria": 1523,
+  "Bacillati": 976
+ },
+ "hogs_per_level": {
+  "cellular organisms": {
+   "depth": 0,
+   "n_species": 10,
+   "n_hogs": 8151,
+   "n_genes_in_hogs": 45115,
+   "max_hog": 414
+  },
+  "Bacteria": {
+   "depth": 1,
+   "n_species": 3,
+   "n_hogs": 1778,
+   "n_genes_in_hogs": 4964,
+   "max_hog": 63
+  },
+  "Bacillati": {
+   "depth": 2,
+   "n_species": 2,
+   "n_hogs": 976,
+   "n_genes_in_hogs": 2177,
+   "max_hog": 10
+  },
+  "Eukaryota": {
+   "depth": 1,
+   "n_species": 6,
+   "n_hogs": 6916,
+   "n_genes_in_hogs": 36842,
+   "max_hog": 220
+  },
+  "Opisthokonta": {
+   "depth": 2,
+   "n_species": 4,
+   "n_hogs": 5608,
+   "n_genes_in_hogs": 21002,
+   "max_hog": 189
+  },
+  "Bilateria": {
+   "depth": 3,
+   "n_species": 2,
+   "n_hogs": 4701,
+   "n_genes_in_hogs": 13498,
+   "max_hog": 189
+  }
+ },
+ "merge_nodes": [
+  {
+   "node": "Bilateria",
+   "n_children": 2,
+   "n_units": 35734,
+   "n_anc_out": 26937,
+   "n_merged_groups": 4701,
+   "n_edges": 902673,
+   "wall_s": 1.2309
+  },
+  {
+   "node": "Opisthokonta",
+   "n_children": 3,
+   "n_units": 50570,
+   "n_anc_out": 43973,
+   "n_merged_groups": 3687,
+   "n_edges": 841689,
+   "wall_s": 0.6739
+  },
+  {
+   "node": "Eukaryota",
+   "n_children": 3,
+   "n_units": 98529,
+   "n_anc_out": 83997,
+   "n_merged_groups": 4630,
+   "n_edges": 1062713,
+   "wall_s": 1.057
+  },
+  {
+   "node": "Bacillati",
+   "n_children": 2,
+   "n_units": 7845,
+   "n_anc_out": 6644,
+   "n_merged_groups": 976,
+   "n_edges": 10865,
+   "wall_s": 0.0243
+  },
+  {
+   "node": "Bacteria",
+   "n_children": 2,
+   "n_units": 12208,
+   "n_anc_out": 10223,
+   "n_merged_groups": 1523,
+   "n_edges": 25292,
+   "wall_s": 0.0411
+  },
+  {
+   "node": "cellular organisms",
+   "n_children": 3,
+   "n_units": 96007,
+   "n_anc_out": 92155,
+   "n_merged_groups": 1916,
+   "n_edges": 961154,
+   "wall_s": 0.9394
+  }
+ ],
+ "total_wall_s_pipeline": 551.197,
+ "config": {
+  "threads": 12,
+  "scoring": {
+   "backend": "hybrid",
+   "evalue": 10.0,
+   "block_genes": 100000,
+   "diamond_sens": "--sensitive",
+   "diamond_b": 4.0,
+   "cap_all": 5000,
+   "g_max": 20000,
+   "top_per_species": 2,
+   "top_same": 20,
+   "family_rescue": true,
+   "rescue_cov": 0.5,
+   "rescue_max_join": 7500,
+   "rescue_max_family": 1000,
+   "rescue_evalue": 1e-05,
+   "threads": 12
+  },
+  "merge": {
+   "link": "avg",
+   "score": "norm_max",
+   "tol": 0.95,
+   "inparalogs": true,
+   "inpar_factor": 1.0,
+   "inpar_rule": "ortholog",
+   "repair": true,
+   "repair_ratio": 0.9,
+   "min_cov": 0.5,
+   "min_score": 0.0,
+   "rd_hidden": false,
+   "rd_z": 3.0,
+   "rd_inpar": false,
+   "rd_inpar_factor": 1.0,
+   "engine": "numba",
+   "tree_mode": false,
+   "tree_tau": 0.9,
+   "tree_max_units": 60,
+   "ctx_mode": "r1",
+   "ctx_window": 0.75,
+   "orphan_min": 0.0,
+   "orphan_merge": "off"
+  },
+  "families": {
+   "default_clustering": {
+    "backend": "diamond",
+    "dmnd_cmd": "cluster",
+    "approx_id": 30,
+    "member_cover": 50,
+    "stage2": "cc",
+    "s2_query": "all",
+    "s2_sens": "--sensitive",
+    "s2_evalue": 1e-05,
+    "s2_cov": 0.3,
+    "s2_cov_mode": "shorter",
+    "s2_gmax": 7500,
+    "s2_reassign": true
+   }
+  }
+ },
+ "git": {
+  "commit": "3b950b65c5b029c90c4d81517bfccbe2bf6ee0c5",
+  "ancestra_dirty": true
+ }
+}

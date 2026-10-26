@@ -1,0 +1,110 @@
+{
+ "orthoxml": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/qfo2022/sub10_s11/hogs.orthoxml",
+ "tree": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/qfo2022/sub10_s11/stages/input/guide_tree.nwk",
+ "checks": {
+  "xsd": {
+   "ok": true,
+   "errors": []
+  },
+  "generef_integrity": {
+   "ok": true,
+   "n_genes_declared": 129119,
+   "n_generefs": 45115,
+   "n_groups": 23538,
+   "dup_gene_ids": [],
+   "dup_protids": [],
+   "dangling_generefs": [],
+   "dup_group_ids": []
+  },
+  "genes_once": {
+   "n_genes_in_groups": 45115,
+   "n_singletons": 84004,
+   "n_genes_referenced_more_than_once": 0,
+   "examples": [],
+   "gene_table": "work/qfo2022/sub10_s11/stages/input/genes.tsv",
+   "n_input_genes": 129119,
+   "n_missing": 0,
+   "n_extra": 0,
+   "n_wrong_species": 0,
+   "examples_missing": [],
+   "examples_extra": [],
+   "examples_wrong_species": [],
+   "ok": true
+  },
+  "taxrange_lca": {
+   "ok": true,
+   "n_orthologGroups": 17433,
+   "n_paralogGroups": 6105,
+   "n_taxrange_ne_lca": 0,
+   "examples_taxrange_ne_lca": [],
+   "n_taxonid_ne_taxrange": 0,
+   "examples_taxonid": [],
+   "n_nesting_violations": 0,
+   "examples_nesting": [],
+   "n_paralog_level_violations": 0,
+   "examples_paralog": [],
+   "n_unknown_levels": 0,
+   "examples_unknown": [],
+   "orthologGroups_per_level": {
+    "Bilateria": 4701,
+    "Eukaryota": 4630,
+    "Opisthokonta": 3687,
+    "cellular organisms": 1916,
+    "Bacteria": 1523,
+    "Bacillati": 976
+   }
+  },
+  "pairs_count": {
+   "ok": true,
+   "n_pairs_hogs": 149346,
+   "n_lines_pairs_tsv": 149346
+  },
+  "flattening_vs_qfo": {
+   "ok": true,
+   "mapping": "qfo2022 mapping.json.gz",
+   "qfo_mapping_checks_ok": true,
+   "n_toplevel_units": 8151,
+   "n_sampled_units": 3005,
+   "n_largest_included": 5,
+   "largest_unit_genes": 414,
+   "n_sample_genes": 17267,
+   "n_pairs_qfo": 60328,
+   "n_pairs_ours": 60328,
+   "n_pairs_tsv": 60328,
+   "ours_minus_qfo": 0,
+   "qfo_minus_ours": 0,
+   "tsv_sym_diff_ours": 0,
+   "n_toplevel_seen": 8151
+  },
+  "pyham": {
+   "ok": true,
+   "n_top_level_hogs_pyham": 8151,
+   "n_expected": 8151,
+   "n_genes": 45115,
+   "load_s": 1.2,
+   "mode": "full"
+  },
+  "orthobench_export": {
+   "n_ogs_read": 8151,
+   "n_col_skip": 1,
+   "n_duplicate_genes": 0,
+   "n_unknown_genes": 0,
+   "n_multi_gene_toplevel_groups": 8151,
+   "ogs_equal_toplevel_groups": true,
+   "official_check_orthogroups": "skipped (input is not the OrthoBench gene set)",
+   "ok": true
+  }
+ },
+ "timing_s": {
+  "xsd": 1.1,
+  "generef_integrity": 1.0,
+  "genes_once": 1.0,
+  "read_orthoxml": 1.9,
+  "taxrange_lca": 0.7,
+  "pairs_count": 0.3,
+  "flattening_vs_qfo": 9.0,
+  "pyham": 2.6,
+  "orthobench_export": 0.7
+ },
+ "ok": true
+}

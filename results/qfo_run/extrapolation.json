@@ -1,0 +1,40 @@
+{
+ "date": "2026-10-26",
+ "N_full": 988778,
+ "N_subset": 129119,
+ "ratio": 7.658,
+ "subset": "sub10_s11 (seed 11, domain-stratified: 6 Euk, 3 Bact, 1 Arch)",
+ "threads": 12,
+ "node_load_during_subset": "27-41 on 24 CPUs (wall times are upper bounds)",
+ "slope_scores_from_subset_and_orthobench": 1.567,
+ "orthobench_point": {
+  "N": 251378,
+  "scores_wall_s": 860.183,
+  "run": "work/core_v0_ob/run_v2"
+ },
+ "estimates": {
+  "families": {
+   "subset_wall_s": 241.15,
+   "linear_h": 0.51,
+   "quadratic_h": 3.93,
+   "powerlaw_h": 1.63
+  },
+  "scores": {
+   "subset_wall_s": 302.75,
+   "linear_h": 0.64,
+   "quadratic_h": 4.93,
+   "powerlaw_h": 2.04
+  },
+  "merge": {
+   "subset_wall_s": 4.15,
+   "linear_h": 0.01,
+   "quadratic_h": 0.07
+  },
+  "output": {
+   "subset_wall_s": 2.2,
+   "linear_h": 0.0,
+   "quadratic_h": 0.04
+  }
+ },
+ "decision": "max extrapolated scoring time (quadratic-in-N bound) 4.9 h < 6 h -> full run launched"
+}

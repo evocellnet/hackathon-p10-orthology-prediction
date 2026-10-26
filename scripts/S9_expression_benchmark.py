@@ -115,6 +115,7 @@ def conservation(c, q50, q95):
 
 def query_rows(c, col, near):
     """S5 query_decisions over candidates with expression data; returns (summary, rows)."""
+    c = c.assign(a=c.gene_a.values, b=c.gene_b.values)   # S5 query_table groups by 'a' / 'b'
     qs = [x + (False,) for x in query_table(c)]
     return query_decisions(c, qs, col, near=near, return_rows=True)
 

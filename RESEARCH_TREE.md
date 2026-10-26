@@ -51,6 +51,8 @@ Decision note M0: benchmark lives in its own repo (bench_repo/) as the prompt re
 - [ ] 4. Sub-task: gene-tree inference (AA vs AA+3Di) — own benchmark
 - [ ] 5. Sub-task: species tree (universal vs inferred vs family-local) — own benchmark
 - [ ] 6. Sub-task: reconciliation → HOGs → OrthoXML — own benchmark
-- [ ] 7. Extra layers: structure (3Di), synteny (GFF), isoforms, omics, DNA gene-loss validation
+- [~] 7. Extra layers
+  - [-] 7.1 S9 expression (Bgee v15.2), standalone on dev: AUC ortholog vs paralog 0.667 (shuffled ~0.5), but on hard cases the gain is −0.019 [−0.20, 0.15] (primary) and −0.116 [−0.18, −0.05] (28 vertebrate pairs). When expression decides it is right only 40–47%. KILLED per pre-registered criterion. Conservation report: 16% of ortholog pairs conserved vs 26% broken (paralogs 4.5% vs 47%); zebrafish has 29–45% breaks (docs/S9_expression.md).
+  - [-] 7.2 S7 isoforms (Ensembl 99): best-isoform scoring AUC 0.760 vs 0.759 canonical; hard-case gain +0.013 [−0.018, 0.044]; costs 2–5× more search. KILLED. Finding: for 21% of ortholog pairs the best-matching isoform pair is not the canonical pair (orthologous-isoform evidence).
 - [ ] 8. Full pipeline benchmark vs competitors (accuracy + runtime + scaling)
 - [ ] 9. REPORT.md

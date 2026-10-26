@@ -126,6 +126,8 @@ ARMS = {   # named arms of the S3/S4 benchmark (docs/core_v0.md)
     "rd_inpar": replace(_D, rd_inpar=True),
     "rd_both": replace(_D, rd_hidden=True, rd_inpar=True),
     "tree": replace(_D, tree_mode=True),
+    "seq_ob": replace(_D, min_cov=0.0),
+    "tree_ob": replace(_D, min_cov=0.0, tree_mode=True, tree_require_outgroup=True, tree_min_d=0.5),
     "tree+rd": replace(_D, tree_mode=True, rd_hidden=True, rd_inpar=True),
 }
 
