@@ -1,0 +1,93 @@
+Using Cached Shard Index for conda-forge/linux-64                                                   ✔ Done
+Using Cached Shard Index for conda-forge/noarch                                                     ✔ Done
+Fetching and Parsing Packages' Shards                                                           ⧖ Starting
+Fetching and Parsing Packages' Shards                                                     ✔ Done (1.3 sec)
+Using Cached Shard Index for bioconda/linux-64                                                      ✔ Done
+Using Cached Shard Index for bioconda/noarch                                                        ✔ Done
+Fetching and Parsing Packages' Shards                                                           ⧖ Starting
+Fetching and Parsing Packages' Shards                                                     ✔ Done (0.3 sec)
+Using Cached Shard Index for conda-forge/linux-64                                                   ✔ Done
+Using Cached Shard Index for conda-forge/noarch                                                     ✔ Done
+Fetching and Parsing Packages' Shards                                                           ⧖ Starting
+Fetching and Parsing Packages' Shards                                                     ✔ Done (1.5 sec)
+Using Cached Shard Index for bioconda/linux-64                                                      ✔ Done
+Using Cached Shard Index for bioconda/noarch                                                        ✔ Done
+Fetching and Parsing Packages' Shards                                                           ⧖ Starting
+Fetching and Parsing Packages' Shards                                                     ✔ Done (0.0 sec)
+
+Pinned packages:
+
+  - python=3.11
+
+Resolving Environment                                                                           ⧖ Starting
+Resolving Environment                                                                     ✔ Done (4.8 sec)
+
+Transaction
+
+  Prefix: /scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/conda_envs/orth
+
+  Updating specs:
+
+   - sonicparanoid
+
+
+  Package            Version  Build               Channel           Size
+──────────────────────────────────────────────────────────────────────────
+  Install:
+──────────────────────────────────────────────────────────────────────────
+
+  + ast-serialize     0.13.1  py311hf77984d_0     conda-forge        1MB
+  + filelock           4.2.4  pyhd8ed1ab_0        conda-forge      124kB
+  + filetype           1.2.0  pyhd8ed1ab_0        conda-forge       20kB
+  + gdown              6.4.2  pyhd8ed1ab_0        conda-forge       50kB
+  + gensim             4.4.0  py311hebf75a8_5     conda-forge       22MB
+  + mypy               2.4.0  py311h194be0f_0     conda-forge       23MB
+  + mypy_extensions    1.1.0  pyha770c72_0        conda-forge       12kB
+  + pathspec           1.1.1  pyhd8ed1ab_0        conda-forge       57kB
+  + python-librt      0.16.0  py311h194be0f_0     conda-forge      168kB
+  + pytz              2026.5  pyh5ded981_0        conda-forge      202kB
+  + smart-open         8.0.4  h27df9f1_0          conda-forge        5kB
+  + smart_open         8.0.4  pyh5ded981_0        conda-forge       62kB
+  + sonicparanoid      2.0.9  py311h93dcfea_0     bioconda          99MB
+
+  Downgrade:
+──────────────────────────────────────────────────────────────────────────
+
+  - pandas             3.0.6  np2py311h1e9b377_0  conda-forge     Cached
+  + pandas             2.3.3  py311hed34c8f_2     conda-forge       15MB
+  - scipy             1.17.1  py311hbe70eeb_1     conda-forge     Cached
+  + scipy             1.12.0  py311h64a7726_2     conda-forge       17MB
+
+  Summary:
+
+  Install: 13 packages
+  Downgrade: 2 packages
+
+  Total download: 178MB
+
+──────────────────────────────────────────────────────────────────────────
+
+
+warning  libmamba Security Warning: This transaction includes executing package scripts (pre/post-link/unlink) if present. These scripts can contain arbitrary code. Please ensure you trust the package sources.
+
+Transaction starting
+Unlinking scipy-1.17.1-py311hbe70eeb_1
+Unlinking pandas-3.0.6-np2py311h1e9b377_0
+Linking filetype-1.2.0-pyhd8ed1ab_0
+Linking smart_open-8.0.4-pyh5ded981_0
+Linking filelock-4.2.4-pyhd8ed1ab_0
+Linking pytz-2026.5-pyh5ded981_0
+Linking pathspec-1.1.1-pyhd8ed1ab_0
+Linking mypy_extensions-1.1.0-pyha770c72_0
+Linking smart-open-8.0.4-h27df9f1_0
+Linking gdown-6.4.2-pyhd8ed1ab_0
+Linking scipy-1.12.0-py311h64a7726_2
+Linking python-librt-0.16.0-py311h194be0f_0
+Linking ast-serialize-0.13.1-py311hf77984d_0
+Linking pandas-2.3.3-py311hed34c8f_2
+Linking gensim-4.4.0-py311hebf75a8_5
+Linking mypy-2.4.0-py311h194be0f_0
+Linking sonicparanoid-2.0.9-py311h93dcfea_0
+
+Transaction finished
+

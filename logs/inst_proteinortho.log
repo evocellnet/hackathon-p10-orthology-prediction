@@ -1,0 +1,58 @@
+Using Cached Shard Index for conda-forge/linux-64                                                   ✔ Done
+Using Cached Shard Index for conda-forge/noarch                                                     ✔ Done
+Fetching and Parsing Packages' Shards                                                           ⧖ Starting
+Fetching and Parsing Packages' Shards                                                     ✔ Done (1.3 sec)
+Using Cached Shard Index for bioconda/linux-64                                                      ✔ Done
+Using Cached Shard Index for bioconda/noarch                                                        ✔ Done
+Fetching and Parsing Packages' Shards                                                           ⧖ Starting
+Fetching and Parsing Packages' Shards                                                     ✔ Done (0.2 sec)
+Using Cached Shard Index for conda-forge/linux-64                                                   ✔ Done
+Using Cached Shard Index for conda-forge/noarch                                                     ✔ Done
+Fetching and Parsing Packages' Shards                                                           ⧖ Starting
+Fetching and Parsing Packages' Shards                                                     ✔ Done (1.4 sec)
+Using Cached Shard Index for bioconda/linux-64                                                      ✔ Done
+Using Cached Shard Index for bioconda/noarch                                                        ✔ Done
+Fetching and Parsing Packages' Shards                                                           ⧖ Starting
+Fetching and Parsing Packages' Shards                                                     ✔ Done (0.0 sec)
+
+Pinned packages:
+
+  - python=3.11
+
+Resolving Environment                                                                           ⧖ Starting
+Resolving Environment                                                                     ✔ Done (4.8 sec)
+
+Transaction
+
+  Prefix: /scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/conda_envs/orth
+
+  Updating specs:
+
+   - proteinortho
+
+
+  Package         Version  Build                 Channel          Size
+────────────────────────────────────────────────────────────────────────
+  Install:
+────────────────────────────────────────────────────────────────────────
+
+  + liblapacke     3.11.0  11_h6ae95b6_openblas  conda-forge      18kB
+  + proteinortho    6.3.6  h2b77389_0            bioconda        381kB
+
+  Summary:
+
+  Install: 2 packages
+
+  Total download: 399kB
+
+────────────────────────────────────────────────────────────────────────
+
+
+warning  libmamba Security Warning: This transaction includes executing package scripts (pre/post-link/unlink) if present. These scripts can contain arbitrary code. Please ensure you trust the package sources.
+
+Transaction starting
+Linking liblapacke-3.11.0-11_h6ae95b6_openblas
+Linking proteinortho-6.3.6-h2b77389_0
+
+Transaction finished
+

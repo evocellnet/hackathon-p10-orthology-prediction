@@ -1,0 +1,167 @@
+Using Cached Shard Index for conda-forge/linux-64                                                   ✔ Done
+Using Cached Shard Index for conda-forge/noarch                                                     ✔ Done
+Fetching and Parsing Packages' Shards                                                           ⧖ Starting
+Fetching and Parsing Packages' Shards                                                     ✔ Done (1.3 sec)
+Using Cached Shard Index for bioconda/linux-64                                                      ✔ Done
+Using Cached Shard Index for bioconda/noarch                                                        ✔ Done
+Fetching and Parsing Packages' Shards                                                           ⧖ Starting
+Fetching and Parsing Packages' Shards                                                     ✔ Done (0.4 sec)
+Using Cached Shard Index for conda-forge/linux-64                                                   ✔ Done
+Using Cached Shard Index for conda-forge/noarch                                                     ✔ Done
+Fetching and Parsing Packages' Shards                                                           ⧖ Starting
+Fetching and Parsing Packages' Shards                                                     ✔ Done (2.7 sec)
+Using Cached Shard Index for bioconda/linux-64                                                      ✔ Done
+Using Cached Shard Index for bioconda/noarch                                                        ✔ Done
+Fetching and Parsing Packages' Shards                                                           ⧖ Starting
+Fetching and Parsing Packages' Shards                                                     ✔ Done (0.1 sec)
+
+Pinned packages:
+
+  - python=3.11
+
+Resolving Environment                                                                           ⧖ Starting
+Resolving Environment                                                                     ✔ Done (5.1 sec)
+
+Transaction
+
+  Prefix: /scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/conda_envs/orth
+
+  Updating specs:
+
+   - snakemake
+
+
+  Package                                   Version  Build            Channel           Size
+──────────────────────────────────────────────────────────────────────────────────────────────
+  Install:
+──────────────────────────────────────────────────────────────────────────────────────────────
+
+  + amply                                     0.1.7  pyhd8ed1ab_0     conda-forge       27kB
+  + annotated-doc                             0.0.5  pyhcf101f3_0     conda-forge       17kB
+  + annotated-types                           0.8.0  pyhd8ed1ab_0     conda-forge       19kB
+  + argparse-dataclass                        2.0.0  pyhd8ed1ab_1     conda-forge       13kB
+  + coin-or-cbc                             2.10.13  h4d16d09_1       conda-forge      910kB
+  + coin-or-cgl                             0.60.10  hc46dffc_1       conda-forge      534kB
+  + coin-or-clp                             1.17.11  hc03379b_1       conda-forge        1MB
+  + coin-or-osi                            0.108.12  hf4fecb4_1       conda-forge      378kB
+  + coin-or-utils                           2.11.13  hc93afbd_1       conda-forge      664kB
+  + coloredlogs                              15.0.1  pyhd8ed1ab_4     conda-forge       44kB
+  + conda-inject                              1.3.2  pyhd8ed1ab_0     conda-forge       10kB
+  + configargparse                            1.8.0  pyh5ded981_0     conda-forge       65kB
+  + connection_pool                           0.0.3  pyhd3deb0d_0     conda-forge        8kB
+  + docutils                                 0.22.4  pyhd8ed1ab_0     conda-forge      438kB
+  + dpath                                     2.2.0  pyha770c72_1     conda-forge       22kB
+  + eido                                      0.2.6  pyhd8ed1ab_0     conda-forge       21kB
+  + gitdb                                    4.0.12  pyhd8ed1ab_0     conda-forge       53kB
+  + gitpython                                 3.2.1  pyh5ded981_0     conda-forge      186kB
+  + greenlet                                  3.5.6  py311hdfc3925_0  conda-forge      281kB
+  + immutables                                 0.21  py311h0d48ccd_3  conda-forge       56kB
+  + logmuse                                   0.3.0  pyhcf101f3_0     conda-forge       16kB
+  + pephubclient                              0.6.0  pyhd8ed1ab_0     conda-forge       28kB
+  + peppy                                    0.40.8  pyhd8ed1ab_0     conda-forge       30kB
+  + pulp                                      3.3.2  pyh3697e0e_0     conda-forge      102kB
+  + pydantic                                 2.14.1  pyh5ded981_0     conda-forge      359kB
+  + pydantic-core                            2.50.1  py311ha6e1976_1  conda-forge        2MB
+  + shellingham                               1.5.4  pyhd8ed1ab_2     conda-forge       15kB
+  + slack-sdk                                3.45.0  pyh5ded981_0     conda-forge      174kB
+  + slack_sdk                                3.45.0  pyh488d6b2_0     conda-forge        8kB
+  + smmap                                     5.0.3  pyhcf101f3_1     conda-forge       27kB
+  + snakemake                                9.27.1  hdfd78af_0       bioconda          11kB
+  + snakemake-interface-common               1.23.1  pyhdfd78af_0     bioconda          23kB
+  + snakemake-interface-executor-plugins      9.4.0  pyh84498cf_0     bioconda          25kB
+  + snakemake-interface-logger-plugins        2.1.0  pyhdfd78af_0     bioconda          21kB
+  + snakemake-interface-report-plugins        1.3.0  pyhd4c3c12_0     bioconda          14kB
+  + snakemake-interface-scheduler-plugins     2.0.2  pyhd4c3c12_0     bioconda          16kB
+  + snakemake-interface-storage-plugins       4.4.1  pyh84498cf_0     bioconda          23kB
+  + snakemake-minimal                        9.27.1  pyhdfd78af_0     bioconda         891kB
+  + sqlalchemy                               2.0.54  py311h194be0f_1  conda-forge        4MB
+  + sqlmodel                                 0.0.37  pyhcf101f3_0     conda-forge       31kB
+  + tabulate                                 0.10.0  pyhcf101f3_0     conda-forge       44kB
+  + throttler                                 1.2.2  pyhd8ed1ab_0     conda-forge       12kB
+  + typer                                    0.27.3  pyh5ded981_0     conda-forge      189kB
+  + typing-inspection                         0.4.4  pyhcf101f3_0     conda-forge       21kB
+  + ubiquerg                                  0.9.3  pyhd8ed1ab_0     conda-forge       23kB
+  + yte                                       1.9.4  pyhd8ed1ab_0     conda-forge       16kB
+
+  Downgrade:
+──────────────────────────────────────────────────────────────────────────────────────────────
+
+  - packaging                                  26.3  pyhc364b38_0     conda-forge     Cached
+  + packaging                                  25.0  pyh29332c3_1     conda-forge       62kB
+  - smart-open                                8.0.4  h27df9f1_0       conda-forge     Cached
+  + smart-open                                7.7.1  h9779530_0       conda-forge        5kB
+  - smart_open                                8.0.4  pyh5ded981_0     conda-forge     Cached
+  + smart_open                                7.7.1  pyhcf101f3_0     conda-forge       57kB
+  - wrapt                                     2.5.1  py311h194be0f_0  conda-forge     Cached
+  + wrapt                                    1.17.3  py311h49ec1c0_1  conda-forge       65kB
+
+  Summary:
+
+  Install: 46 packages
+  Downgrade: 4 packages
+
+  Total download: 13MB
+
+──────────────────────────────────────────────────────────────────────────────────────────────
+
+
+warning  libmamba Security Warning: This transaction includes executing package scripts (pre/post-link/unlink) if present. These scripts can contain arbitrary code. Please ensure you trust the package sources.
+
+Transaction starting
+Unlinking packaging-26.3-pyhc364b38_0
+Unlinking wrapt-2.5.1-py311h194be0f_0
+Unlinking smart_open-8.0.4-pyh5ded981_0
+Unlinking smart-open-8.0.4-h27df9f1_0
+Linking connection_pool-0.0.3-pyhd3deb0d_0
+Linking throttler-1.2.2-pyhd8ed1ab_0
+Linking packaging-25.0-pyh29332c3_1
+Linking docutils-0.22.4-pyhd8ed1ab_0
+Linking dpath-2.2.0-pyha770c72_1
+Linking configargparse-1.8.0-pyh5ded981_0
+Linking conda-inject-1.3.2-pyhd8ed1ab_0
+Linking tabulate-0.10.0-pyhcf101f3_0
+Linking slack-sdk-3.45.0-pyh5ded981_0
+Linking typing-inspection-0.4.4-pyhcf101f3_0
+Linking ubiquerg-0.9.3-pyhd8ed1ab_0
+Linking logmuse-0.3.0-pyhcf101f3_0
+Linking argparse-dataclass-2.0.0-pyhd8ed1ab_1
+Linking annotated-types-0.8.0-pyhd8ed1ab_0
+Linking smmap-5.0.3-pyhcf101f3_1
+Linking coloredlogs-15.0.1-pyhd8ed1ab_4
+Linking shellingham-1.5.4-pyhd8ed1ab_2
+Linking annotated-doc-0.0.5-pyhcf101f3_0
+Linking amply-0.1.7-pyhd8ed1ab_0
+Linking slack_sdk-3.45.0-pyh488d6b2_0
+Linking yte-1.9.4-pyhd8ed1ab_0
+Linking gitdb-4.0.12-pyhd8ed1ab_0
+Linking typer-0.27.3-pyh5ded981_0
+Linking gitpython-3.2.1-pyh5ded981_0
+Linking wrapt-1.17.3-py311h49ec1c0_1
+Linking immutables-0.21-py311h0d48ccd_3
+Linking pydantic-core-2.50.1-py311ha6e1976_1
+Linking greenlet-3.5.6-py311hdfc3925_0
+Linking coin-or-utils-2.11.13-hc93afbd_1
+Linking sqlalchemy-2.0.54-py311h194be0f_1
+Linking coin-or-osi-0.108.12-hf4fecb4_1
+Linking coin-or-clp-1.17.11-hc03379b_1
+Linking coin-or-cgl-0.60.10-hc46dffc_1
+Linking coin-or-cbc-2.10.13-h4d16d09_1
+Linking snakemake-interface-common-1.23.1-pyhdfd78af_0
+Linking snakemake-interface-report-plugins-1.3.0-pyhd4c3c12_0
+Linking snakemake-interface-scheduler-plugins-2.0.2-pyhd4c3c12_0
+Linking snakemake-interface-logger-plugins-2.1.0-pyhdfd78af_0
+Linking snakemake-interface-executor-plugins-9.4.0-pyh84498cf_0
+Linking snakemake-interface-storage-plugins-4.4.1-pyh84498cf_0
+Linking smart_open-7.7.1-pyhcf101f3_0
+Linking pydantic-2.14.1-pyh5ded981_0
+Linking pulp-3.3.2-pyh3697e0e_0
+Linking smart-open-7.7.1-h9779530_0
+Linking peppy-0.40.8-pyhd8ed1ab_0
+Linking pephubclient-0.6.0-pyhd8ed1ab_0
+Linking sqlmodel-0.0.37-pyhcf101f3_0
+Linking eido-0.2.6-pyhd8ed1ab_0
+Linking snakemake-minimal-9.27.1-pyhdfd78af_0
+Linking snakemake-9.27.1-hdfd78af_0
+
+Transaction finished
+

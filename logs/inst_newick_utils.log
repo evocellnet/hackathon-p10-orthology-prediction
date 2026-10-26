@@ -1,0 +1,59 @@
+Using Cached Shard Index for conda-forge/linux-64                                                   ✔ Done
+Using Cached Shard Index for conda-forge/noarch                                                     ✔ Done
+Fetching and Parsing Packages' Shards                                                           ⧖ Starting
+Fetching and Parsing Packages' Shards                                                     ✔ Done (1.3 sec)
+Using Cached Shard Index for bioconda/linux-64                                                      ✔ Done
+Using Cached Shard Index for bioconda/noarch                                                        ✔ Done
+Fetching and Parsing Packages' Shards                                                           ⧖ Starting
+Fetching and Parsing Packages' Shards                                                     ✔ Done (0.1 sec)
+Using Cached Shard Index for conda-forge/linux-64                                                   ✔ Done
+Using Cached Shard Index for conda-forge/noarch                                                     ✔ Done
+Fetching and Parsing Packages' Shards                                                           ⧖ Starting
+Fetching and Parsing Packages' Shards                                                     ✔ Done (1.3 sec)
+Using Cached Shard Index for bioconda/linux-64                                                      ✔ Done
+Using Cached Shard Index for bioconda/noarch                                                        ✔ Done
+Fetching and Parsing Packages' Shards                                                           ⧖ Starting
+Fetching and Parsing Packages' Shards                                                     ✔ Done (0.0 sec)
+
+Pinned packages:
+
+  - python=3.11
+
+Resolving Environment                                                                           ⧖ Starting
+Resolving Environment                                                                     ✔ Done (4.8 sec)
+error    libmamba Could not set lock (Resource temporarily unavailable)
+warning  libmamba Cannot lock '/tmp/conda_pkgs'
+    Waiting for other mamba process to finish
+
+Transaction
+
+  Prefix: /scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/conda_envs/orth
+
+  Updating specs:
+
+   - newick_utils
+
+
+  Package         Version  Build       Channel       Size
+───────────────────────────────────────────────────────────
+  Install:
+───────────────────────────────────────────────────────────
+
+  + newick_utils      1.6  hd747bf3_9  bioconda     130kB
+
+  Summary:
+
+  Install: 1 packages
+
+  Total download: 130kB
+
+───────────────────────────────────────────────────────────
+
+
+warning  libmamba Security Warning: This transaction includes executing package scripts (pre/post-link/unlink) if present. These scripts can contain arbitrary code. Please ensure you trust the package sources.
+
+Transaction starting
+Linking newick_utils-1.6-hd747bf3_9
+
+Transaction finished
+

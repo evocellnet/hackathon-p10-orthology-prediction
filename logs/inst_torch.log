@@ -1,0 +1,288 @@
+Using Cached Shard Index for conda-forge/linux-64                                                   ✔ Done
+Using Cached Shard Index for conda-forge/noarch                                                     ✔ Done
+Fetching and Parsing Packages' Shards                                                           ⧖ Starting
+Fetching and Parsing Packages' Shards                                                     ✔ Done (2.8 sec)
+Using Cached Shard Index for bioconda/linux-64                                                      ✔ Done
+Using Cached Shard Index for bioconda/noarch                                                        ✔ Done
+Fetching and Parsing Packages' Shards                                                           ⧖ Starting
+Fetching and Parsing Packages' Shards                                                     ✔ Done (0.1 sec)
+Using Cached Shard Index for conda-forge/linux-64                                                   ✔ Done
+Using Cached Shard Index for conda-forge/noarch                                                     ✔ Done
+Fetching and Parsing Packages' Shards                                                           ⧖ Starting
+Fetching and Parsing Packages' Shards                                                     ✔ Done (1.6 sec)
+Using Cached Shard Index for bioconda/linux-64                                                      ✔ Done
+Using Cached Shard Index for bioconda/noarch                                                        ✔ Done
+Fetching and Parsing Packages' Shards                                                           ⧖ Starting
+Fetching and Parsing Packages' Shards                                                     ✔ Done (0.0 sec)
+
+Pinned packages:
+
+  - python=3.11
+
+Resolving Environment                                                                           ⧖ Starting
+Resolving Environment                                                                     ✔ Done (5.6 sec)
+
+Transaction
+
+  Prefix: /scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/conda_envs/orth
+
+  Updating specs:
+
+   - pytorch-cpu
+   - transformers
+   - fair-esm
+
+
+  Package                                Version  Build                         Channel           Size
+────────────────────────────────────────────────────────────────────────────────────────────────────────
+  Install:
+────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+  + biotite                               0.41.0  py311h4332511_0               conda-forge       33MB
+  + fair-esm                               2.0.0  pyhd8ed1ab_1                  conda-forge       65kB
+  + fsspec                              2026.9.0  pyhd8ed1ab_0                  conda-forge      164kB
+  + gmpy2                                  2.3.2  py311hbc40be8_0               conda-forge      313kB
+  + hf-xet                                 1.7.0  py311h30674b1_0               conda-forge        3MB
+  + huggingface_hub                       1.32.0  pyh5ded981_0                  conda-forge      580kB
+  + libtorch                               2.7.1  cpu_generic_h1322af4_3        conda-forge       59MB
+  + libuv                                 1.52.1  h280c20c_1                    conda-forge      420kB
+  + llvm-openmp                           23.1.4  h7148c6a_0                    conda-forge        6MB
+  + mpc                                    1.4.0  ha2cb11d_1                    conda-forge      101kB
+  + mpmath                                 1.4.1  pyhd8ed1ab_0                  conda-forge      465kB
+  + msgpack-python                         1.2.3  py311h4c6fd42_0               conda-forge      121kB
+  + optree                                0.20.0  py311h5f908af_1               conda-forge      573kB
+  + pybind11                               3.1.0  pyh293190f_0                  conda-forge      255kB
+  + pybind11-global                        3.1.0  pyh648e204_0                  conda-forge      247kB
+  + python-xxhash                          3.7.0  py311h6cc6551_1               conda-forge       25kB
+  + pytorch                                2.7.1  cpu_generic_py311_h7108385_3  conda-forge       30MB
+  + pytorch-cpu                            2.7.1  cpu_generic_hd752803_3        conda-forge       48kB
+  + pytorch_geometric                      2.8.1  pyhc455866_0                  conda-forge      732kB
+  + regex                              2026.9.29  py311h0d48ccd_0               conda-forge      428kB
+  + safetensors                            0.8.0  py311ha6e1976_1               conda-forge      496kB
+  + sleef                                  3.9.0  ha0421bc_0                    conda-forge        2MB
+  + sympy                                 1.14.0  pyh2585a3b_106                conda-forge        5MB
+  + tokenizers                            0.23.3  py311hacde8a9_2               conda-forge        3MB
+  + torch-scatter                          2.1.1  cpu_h729419b_16               conda-forge      311kB
+  + transformers                          5.20.2  pyh5ded981_0                  conda-forge        5MB
+  + xxhash                                 0.8.3  hec8ed23_1                    conda-forge      109kB
+
+  Change:
+────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+  - _openmp_mutex                            4.5  20_gnu                        conda-forge     Cached
+  + _openmp_mutex                            4.5  8_kmp_llvm                    conda-forge        8kB
+  - azure-identity-cpp                    1.13.3  h71f81a8_2                    conda-forge     Cached
+  + azure-identity-cpp                    1.13.3  hed0cdb0_1                    conda-forge      251kB
+  - libre2-11                         2025.11.05  hbb87c76_2                    conda-forge     Cached
+  + libre2-11                         2025.11.05  h7b12aa8_0                    conda-forge      211kB
+  - libsentencepiece                       0.2.1  hc0a105b_6                    conda-forge     Cached
+  + libsentencepiece                       0.2.1  h1d72405_2                    conda-forge      858kB
+  - re2                               2025.11.05  hbf548d4_2                    conda-forge     Cached
+  + re2                               2025.11.05  h5301d42_0                    conda-forge       27kB
+  - sentencepiece                          0.2.1  py311h42af872_6               conda-forge     Cached
+  + sentencepiece                          0.2.1  ha8de79c_2                    conda-forge       20kB
+  - sentencepiece-python                   0.2.1  py311h521682c_6               conda-forge     Cached
+  + sentencepiece-python                   0.2.1  py311h7a9bf01_2               conda-forge        4MB
+  - sentencepiece-spm                      0.2.1  h8ea024e_6                    conda-forge     Cached
+  + sentencepiece-spm                      0.2.1  h1d72405_2                    conda-forge       86kB
+
+  Downgrade:
+────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+  - aws-c-auth                            0.10.4  hb7a77c6_1                    conda-forge     Cached
+  + aws-c-auth                             0.9.3  hef928c7_0                    conda-forge      133kB
+  - aws-c-cal                             0.9.14  h2aa3ae6_4                    conda-forge     Cached
+  + aws-c-cal                             0.9.13  h2c9d079_1                    conda-forge       56kB
+  - aws-c-common                          0.14.2  hb03c661_0                    conda-forge     Cached
+  + aws-c-common                          0.12.6  hb03c661_0                    conda-forge      240kB
+  - aws-c-compression                      0.3.2  h720e601_4                    conda-forge     Cached
+  + aws-c-compression                      0.3.1  h8b1a151_9                    conda-forge       22kB
+  - aws-c-event-stream                     0.7.1  h6ffeea8_4                    conda-forge     Cached
+  + aws-c-event-stream                     0.5.7  h28f887f_1                    conda-forge       59kB
+  - aws-c-http                            0.11.0  h38ae05a_4                    conda-forge     Cached
+  + aws-c-http                            0.10.7  ha8fc4e3_5                    conda-forge      225kB
+  - aws-c-io                              0.27.3  h6f4d18d_1                    conda-forge     Cached
+  + aws-c-io                              0.23.3  hdaf4b65_5                    conda-forge      181kB
+  - aws-c-mqtt                            0.16.0  h21f4ec5_2                    conda-forge     Cached
+  + aws-c-mqtt                            0.13.3  hc63082f_11                   conda-forge      216kB
+  - aws-c-s3                              0.12.8  h46fcd08_1                    conda-forge     Cached
+  + aws-c-s3                              0.11.3  h06ab39a_1                    conda-forge      151kB
+  - aws-c-sdkutils                         0.2.7  h720e601_2                    conda-forge     Cached
+  + aws-c-sdkutils                         0.2.4  h8b1a151_4                    conda-forge       59kB
+  - aws-checksums                         0.2.10  h720e601_4                    conda-forge     Cached
+  + aws-checksums                          0.2.7  h8b1a151_5                    conda-forge       77kB
+  - aws-crt-cpp                           0.40.1  h102d43b_3                    conda-forge     Cached
+  + aws-crt-cpp                           0.35.4  h8824e59_0                    conda-forge      409kB
+  - aws-sdk-cpp                         1.11.833  hc7390e0_9                    conda-forge     Cached
+  + aws-sdk-cpp                         1.11.606  h20b40b1_10                   conda-forge        3MB
+  - azure-core-cpp                        1.16.3  h206d751_0                    conda-forge     Cached
+  + azure-core-cpp                        1.16.2  h206d751_0                    conda-forge      349kB
+  - azure-storage-blobs-cpp              12.18.0  h74b55db_1                    conda-forge     Cached
+  + azure-storage-blobs-cpp              12.16.0  hf824e48_2                    conda-forge      581kB
+  - azure-storage-common-cpp             12.14.0  hf596fc9_1                    conda-forge     Cached
+  + azure-storage-common-cpp             12.13.0  ha7a2c86_0                    conda-forge      159kB
+  - azure-storage-files-datalake-cpp     12.16.0  h1f05bef_1                    conda-forge     Cached
+  + azure-storage-files-datalake-cpp     12.14.0  h539c000_2                    conda-forge      303kB
+  - libabseil                         20260526.0  cxx17_h0dc7533_3              conda-forge     Cached
+  + libabseil                         20250512.1  cxx17_hba17884_0              conda-forge        1MB
+  - libarrow                              25.0.0  hcc2f0d9_4_cpu                conda-forge     Cached
+  + libarrow                              23.0.0  h40b5c2d_2_cpu                conda-forge        6MB
+  - libarrow-acero                        25.0.0  h635bf11_4_cpu                conda-forge     Cached
+  + libarrow-acero                        23.0.0  h635bf11_2_cpu                conda-forge      613kB
+  - libarrow-compute                      25.0.0  h53684a4_4_cpu                conda-forge     Cached
+  + libarrow-compute                      23.0.0  h8c2c5c3_2_cpu                conda-forge        3MB
+  - libarrow-dataset                      25.0.0  h635bf11_4_cpu                conda-forge     Cached
+  + libarrow-dataset                      23.0.0  h635bf11_2_cpu                conda-forge      612kB
+  - libarrow-substrait                    25.0.0  h66fbfdd_4_cpu                conda-forge     Cached
+  + libarrow-substrait                    23.0.0  h3f74fd7_2_cpu                conda-forge      520kB
+  - libgoogle-cloud                        3.8.0  hbc29df5_0                    conda-forge     Cached
+  + libgoogle-cloud                       2.39.0  hdb79228_0                    conda-forge        1MB
+  - libgoogle-cloud-storage                3.8.0  hdbdcf42_0                    conda-forge     Cached
+  + libgoogle-cloud-storage               2.39.0  hdbdcf42_0                    conda-forge      804kB
+  - libgrpc                               1.82.1  h284dbb2_1                    conda-forge     Cached
+  + libgrpc                               1.73.1  h3288cfb_1                    conda-forge        8MB
+  - libopentelemetry-cpp                  1.27.0  h3133023_1                    conda-forge     Cached
+  + libopentelemetry-cpp                  1.21.0  hb9b0907_1                    conda-forge      885kB
+  - libopentelemetry-cpp-headers          1.27.0  ha770c72_1                    conda-forge     Cached
+  + libopentelemetry-cpp-headers          1.21.0  ha770c72_1                    conda-forge      363kB
+  - libparquet                            25.0.0  h7376487_4_cpu                conda-forge     Cached
+  + libparquet                            23.0.0  h7376487_2_cpu                conda-forge        1MB
+  - libprotobuf                           7.35.1  h622638d_3                    conda-forge     Cached
+  + libprotobuf                           6.31.1  hfb7daa7_5                    conda-forge        4MB
+  - orc                                    2.3.1  h443056b_0                    conda-forge     Cached
+  + orc                                    2.2.2  h19cb568_0                    conda-forge        1MB
+  - pyarrow                               25.0.0  py311h38be061_1               conda-forge     Cached
+  + pyarrow                               23.0.0  py311h38be061_0               conda-forge       27kB
+  - pyarrow-core                          25.0.0  py311h1358635_1_cpu           conda-forge     Cached
+  + pyarrow-core                          23.0.0  py311h66caee6_0_cpu           conda-forge        6MB
+  - s2n                                    1.7.5  h7e3ee7f_1                    conda-forge     Cached
+  + s2n                                    1.6.2  he8a4886_1                    conda-forge      394kB
+
+  Summary:
+
+  Install: 27 packages
+  Change: 8 packages
+  Downgrade: 34 packages
+
+  Total download: 199MB
+
+────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+warning  libmamba Security Warning: This transaction includes executing package scripts (pre/post-link/unlink) if present. These scripts can contain arbitrary code. Please ensure you trust the package sources.
+
+Transaction starting
+Unlinking libabseil-20260526.0-cxx17_h0dc7533_3
+Unlinking libopentelemetry-cpp-headers-1.27.0-ha770c72_1
+Unlinking aws-c-common-0.14.2-hb03c661_0
+Unlinking s2n-1.7.5-h7e3ee7f_1
+Unlinking azure-core-cpp-1.16.3-h206d751_0
+Unlinking libre2-11-2025.11.05-hbb87c76_2
+Unlinking libprotobuf-7.35.1-h622638d_3
+Unlinking aws-checksums-0.2.10-h720e601_4
+Unlinking aws-c-compression-0.3.2-h720e601_4
+Unlinking aws-c-cal-0.9.14-h2aa3ae6_4
+Unlinking aws-c-sdkutils-0.2.7-h720e601_2
+Unlinking azure-storage-common-cpp-12.14.0-hf596fc9_1
+Unlinking azure-identity-cpp-1.13.3-h71f81a8_2
+Unlinking _openmp_mutex-4.5-20_gnu
+Unlinking re2-2025.11.05-hbf548d4_2
+Unlinking libsentencepiece-0.2.1-hc0a105b_6
+Unlinking orc-2.3.1-h443056b_0
+Unlinking aws-c-io-0.27.3-h6f4d18d_1
+Unlinking azure-storage-blobs-cpp-12.18.0-h74b55db_1
+Unlinking libgrpc-1.82.1-h284dbb2_1
+Unlinking sentencepiece-spm-0.2.1-h8ea024e_6
+Unlinking sentencepiece-python-0.2.1-py311h521682c_6
+Unlinking aws-c-http-0.11.0-h38ae05a_4
+Unlinking aws-c-event-stream-0.7.1-h6ffeea8_4
+Unlinking azure-storage-files-datalake-cpp-12.16.0-h1f05bef_1
+Unlinking libgoogle-cloud-3.8.0-hbc29df5_0
+Unlinking libopentelemetry-cpp-1.27.0-h3133023_1
+Unlinking sentencepiece-0.2.1-py311h42af872_6
+Unlinking aws-c-auth-0.10.4-hb7a77c6_1
+Unlinking aws-c-mqtt-0.16.0-h21f4ec5_2
+Unlinking libgoogle-cloud-storage-3.8.0-hdbdcf42_0
+Unlinking aws-c-s3-0.12.8-h46fcd08_1
+Unlinking aws-crt-cpp-0.40.1-h102d43b_3
+Unlinking aws-sdk-cpp-1.11.833-hc7390e0_9
+Unlinking libarrow-25.0.0-hcc2f0d9_4_cpu
+Unlinking libarrow-compute-25.0.0-h53684a4_4_cpu
+Unlinking libparquet-25.0.0-h7376487_4_cpu
+Unlinking pyarrow-core-25.0.0-py311h1358635_1_cpu
+Unlinking libarrow-acero-25.0.0-h635bf11_4_cpu
+Unlinking libarrow-dataset-25.0.0-h635bf11_4_cpu
+Unlinking libarrow-substrait-25.0.0-h66fbfdd_4_cpu
+Unlinking pyarrow-25.0.0-py311h38be061_1
+Linking libabseil-20250512.1-cxx17_hba17884_0
+Linking libopentelemetry-cpp-headers-1.21.0-ha770c72_1
+Linking aws-c-common-0.12.6-hb03c661_0
+Linking s2n-1.6.2-he8a4886_1
+Linking azure-core-cpp-1.16.2-h206d751_0
+Linking regex-2026.9.29-py311h0d48ccd_0
+Linking msgpack-python-1.2.3-py311h4c6fd42_0
+Linking llvm-openmp-23.1.4-h7148c6a_0
+Linking libuv-1.52.1-h280c20c_1
+Linking optree-0.20.0-py311h5f908af_1
+Linking xxhash-0.8.3-hec8ed23_1
+Linking hf-xet-1.7.0-py311h30674b1_0
+Linking safetensors-0.8.0-py311ha6e1976_1
+Linking mpc-1.4.0-ha2cb11d_1
+Linking libre2-11-2025.11.05-h7b12aa8_0
+Linking libprotobuf-6.31.1-hfb7daa7_5
+Linking aws-checksums-0.2.7-h8b1a151_5
+Linking aws-c-compression-0.3.1-h8b1a151_9
+Linking aws-c-cal-0.9.13-h2c9d079_1
+Linking aws-c-sdkutils-0.2.4-h8b1a151_4
+Linking azure-storage-common-cpp-12.13.0-ha7a2c86_0
+Linking azure-identity-cpp-1.13.3-hed0cdb0_1
+Linking biotite-0.41.0-py311h4332511_0
+Linking _openmp_mutex-4.5-8_kmp_llvm
+Linking python-xxhash-3.7.0-py311h6cc6551_1
+Linking gmpy2-2.3.2-py311hbc40be8_0
+Linking re2-2025.11.05-h5301d42_0
+Linking libsentencepiece-0.2.1-h1d72405_2
+Linking orc-2.2.2-h19cb568_0
+Linking aws-c-io-0.23.3-hdaf4b65_5
+Linking azure-storage-blobs-cpp-12.16.0-hf824e48_2
+Linking sleef-3.9.0-ha0421bc_0
+Linking libgrpc-1.73.1-h3288cfb_1
+Linking sentencepiece-spm-0.2.1-h1d72405_2
+Linking sentencepiece-python-0.2.1-py311h7a9bf01_2
+Linking aws-c-http-0.10.7-ha8fc4e3_5
+Linking aws-c-event-stream-0.5.7-h28f887f_1
+Linking azure-storage-files-datalake-cpp-12.14.0-h539c000_2
+Linking libtorch-2.7.1-cpu_generic_h1322af4_3
+Linking libgoogle-cloud-2.39.0-hdb79228_0
+Linking libopentelemetry-cpp-1.21.0-hb9b0907_1
+Linking sentencepiece-0.2.1-ha8de79c_2
+Linking aws-c-auth-0.9.3-hef928c7_0
+Linking aws-c-mqtt-0.13.3-hc63082f_11
+Linking libgoogle-cloud-storage-2.39.0-hdbdcf42_0
+Linking aws-c-s3-0.11.3-h06ab39a_1
+Linking aws-crt-cpp-0.35.4-h8824e59_0
+Linking aws-sdk-cpp-1.11.606-h20b40b1_10
+Linking libarrow-23.0.0-h40b5c2d_2_cpu
+Linking libarrow-compute-23.0.0-h8c2c5c3_2_cpu
+Linking libparquet-23.0.0-h7376487_2_cpu
+Linking pyarrow-core-23.0.0-py311h66caee6_0_cpu
+Linking libarrow-acero-23.0.0-h635bf11_2_cpu
+Linking libarrow-dataset-23.0.0-h635bf11_2_cpu
+Linking libarrow-substrait-23.0.0-h3f74fd7_2_cpu
+Linking pyarrow-23.0.0-py311h38be061_0
+Linking fsspec-2026.9.0-pyhd8ed1ab_0
+Linking mpmath-1.4.1-pyhd8ed1ab_0
+Linking pybind11-global-3.1.0-pyh648e204_0
+Linking huggingface_hub-1.32.0-pyh5ded981_0
+Linking pytorch_geometric-2.8.1-pyhc455866_0
+Linking sympy-1.14.0-pyh2585a3b_106
+Linking pybind11-3.1.0-pyh293190f_0
+Linking tokenizers-0.23.3-py311hacde8a9_2
+Linking pytorch-2.7.1-cpu_generic_py311_h7108385_3
+Linking torch-scatter-2.1.1-cpu_h729419b_16
+Linking pytorch-cpu-2.7.1-cpu_generic_hd752803_3
+Linking transformers-5.20.2-pyh5ded981_0
+Linking fair-esm-2.0.0-pyhd8ed1ab_1
+
+Transaction finished
+

@@ -1,0 +1,47 @@
+Using Cached Shard Index for conda-forge/linux-64                                                   ✔ Done
+Using Cached Shard Index for conda-forge/noarch                                                     ✔ Done
+Fetching and Parsing Packages' Shards                                                           ⧖ Starting
+Fetching and Parsing Packages' Shards                                                     ✔ Done (1.6 sec)
+
+Pinned packages:
+
+  - python=3.11
+
+Resolving Environment                                                                           ⧖ Starting
+Resolving Environment                                                                     ✔ Done (6.2 sec)
+
+Transaction
+
+  Prefix: /scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/conda_envs/orth
+
+  Updating specs:
+
+   - tiktoken
+   - protobuf
+
+
+  Package     Version  Build            Channel          Size
+───────────────────────────────────────────────────────────────
+  Install:
+───────────────────────────────────────────────────────────────
+
+  + protobuf   6.31.1  py311h425ed32_2  conda-forge     487kB
+  + tiktoken   0.14.0  py311hc3af579_1  conda-forge       1MB
+
+  Summary:
+
+  Install: 2 packages
+
+  Total download: 2MB
+
+───────────────────────────────────────────────────────────────
+
+
+warning  libmamba Security Warning: This transaction includes executing package scripts (pre/post-link/unlink) if present. These scripts can contain arbitrary code. Please ensure you trust the package sources.
+
+Transaction starting
+Linking protobuf-6.31.1-py311h425ed32_2
+Linking tiktoken-0.14.0-py311hc3af579_1
+
+Transaction finished
+
