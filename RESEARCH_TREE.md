@@ -14,10 +14,12 @@ Decision note M0: benchmark lives in its own repo (bench_repo/) as the prompt re
 
 ## Tree
 - [~] 0. Infrastructure
-  - [~] 0.1 Conda env + tool timing calibration (agent)
+  - [x] 0.1 Conda env (conda_envs/orth, all tools incl. orthofinder/fastoma/sonicparanoid) — diamond human-vs-human sensitive 12 s, mmseqs s7.5 88 s
   - [~] 0.2 Benchmark data + local runners: OrthoBench, QfO (SwissTree, TreeFam-A, STD, GO/EC), competitor results (agent)
-- [~] 1. Literature review → LITERATURE.md (agent)
-- [ ] 2. Design → DESIGN.md, ≤3 review rounds
+- [x] 1. Literature review → LITERATURE.md (agent). [!] Open space: no method uses structure/synteny/expression inside inference; competitor QfO predictions downloadable (21 sets, table in LIT §7.4); predict on QfO 2022_02 (not 2026) proteomes.
+- [~] 2. Design → DESIGN.md, ≤3 review rounds. v0 drafted: 'Ancestra' progressive ancestral-proteome merging along guide tree with synteny/3Di evidence. Review round 1 running (5 reviewers).
+  - [~] 2.1 Structure feasibility probe (ProstT5 CPU throughput, AFDB coverage)
+  - [~] 2.2 Toy simulator + OrthoXML utils (design-independent)
 - [ ] 3. Sub-task: family placement / clustering (sub-quadratic) — own benchmark
 - [ ] 4. Sub-task: gene-tree inference (AA vs AA+3Di) — own benchmark
 - [ ] 5. Sub-task: species tree (universal vs inferred vs family-local) — own benchmark
