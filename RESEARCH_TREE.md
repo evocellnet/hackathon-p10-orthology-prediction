@@ -67,7 +67,7 @@ Decision note M0: benchmark lives in its own repo (bench_repo/) as the prompt re
 - [ ] 4. Sub-task: gene-tree inference (AA vs AA+3Di) — own benchmark
 - [ ] 5. Sub-task: species tree (universal vs inferred vs family-local) — own benchmark
 - [x] 6a. S4 gene-tree inference sub-benchmark (docs/S4_trees.md; 32 dev RefOGs, 3Di subset): ortholog-label accuracy NJ(−ln S) 0.928; FAMSA+FastTree 0.955 (+0.027 [0.004, 0.060]; all genes +0.034 [0.020, 0.061]); AA+3Di partitioned IQ-TREE 0.956 (+0.029) but 3.3 CPU-h; 3Di-only 0.88–0.90; FoldTree-style fident-NJ 0.924. Random tree 0.76. 3Di over AA with the same method: +0.009 [−0.014, 0.062]. FastTree ≈1 CPU-h for OrthoBench's 15k clusters.
-  - [ ] 6b. Candidate: FastTree (representative sequences per unit) in localtree → dev merge arm
+  - [!] 6b. FAMSA+FastTree -lg with medoid leaves in localtree: **dev OG-F 80.4** (P 76.2, R 85.0), macro pair F1 0.799, vs NJ 75.7 / 0.772. Passes the adoption rule. Cost: merge 64 s → 1,039 s wall, 2.1 CPU-h (two passes, 9k jobs/pass). 'all leaves' variant is worse (79.5) at 3× cost. Decision: presets `accurate` (FastTree, default) and `fast` (NJ) are both reported on the accuracy–runtime frontier.
 - [ ] 6. Sub-task: reconciliation → HOGs → OrthoXML — own benchmark
 - [~] 7. Extra layers
   - [!] 7.0 S6 structure (docs/S6_structure.md). **Sub-task positive:** Foldseek 3Di+AA rescue of S0 clusters lifts dev completeness 0.794 → 0.853 (29/34), above the 0.82 sequence ceiling; shuffled 3Di stays at 27/34. RefOG057's worm singleton has no sequence hit.

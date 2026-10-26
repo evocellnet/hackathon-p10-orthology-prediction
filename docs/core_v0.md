@@ -501,11 +501,13 @@ Arms (gene order on, i.e. constrained synteny + veto + R3; `run_det` scores; `re
 |---|---|---|---|---|---|---|---|
 | NJ (default) | 75.71 | 72.2 | 79.6 | 11 | 0.722 | 0.772 | 64 s wall, 61 CPU-s |
 | FastTree, medoid leaves | **80.36** | 76.2 | 85.0 | 11 | 0.804 | **0.799** | 1,039 s wall, 7,558 CPU-s (2.1 CPU-h) |
-| FastTree, all leaves (≤60 genes) | FTALL_ROW |
+| FastTree, all leaves (≤60 genes) | 79.53 | 74.3 | 85.6 | 12 | 0.794 | 0.781 | 2,160 s wall, 21,909 CPU-s (6.1 CPU-h) |
 
 - FastTree-medoid gives +4.65 OG-F and +0.027 macro pair F1, with OG precision and recall both up. That meets the rule.
 - Cost: 9,077 jobs per merge pass (Euteleostomi 5,088, Chordata 2,607, Ecdysozoa 1,382), 480 s wall with 12 workers.
+- FastTree-all (gene leaves) is worse than medoid on both metrics at 3× the cost; not recommended.
 - The NJ rerun after the refactor reproduces 75.71 / 0.772 exactly.
+- **Recommendation:** make `tree_method="fasttree"` with medoid leaves the default for the next frozen config. It is **not** switched in code yet, because the QfO run in progress uses the current default.
 - At QfO scale, S4 estimates ~11.6 CPU-h for FastTree on all tree clusters (×2 with constrained synteny's two passes); one option is to keep the off-pass on NJ.
 
 ### 7.8 Next steps
