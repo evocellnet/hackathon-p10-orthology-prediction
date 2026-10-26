@@ -1,0 +1,374 @@
+{
+ "rows": [
+  {
+   "variant": "off",
+   "config": "-",
+   "n_refogs": 34,
+   "completeness": 0.7941176470588235,
+   "n_complete": 27,
+   "mean_n_fam": 1.3235294117647058,
+   "median_n_fam": 1.0,
+   "max_n_fam": 4,
+   "mean_best_frac": 0.9875691520865802,
+   "gene_weighted_best_frac": 0.9862869198312236,
+   "frac_refogs_best_frac_ge95": 0.8823529411764706,
+   "frac_refogs_le1_stray": 0.8823529411764706,
+   "median_size_ratio": 10.009746588693957,
+   "mean_size_ratio": 49.229032554919456,
+   "max_size_ratio": 250.3846153846154,
+   "fusion_rate": 0.29411764705882354,
+   "mean_foreign_refog_frac": 0.007489647769292203,
+   "pair_recall": 0.9729836140972152,
+   "pair_precision": 0.010372406420159325,
+   "n_families": 22631,
+   "n_singletons": 15344,
+   "max_family": 7478,
+   "sum_g2_over_N2": 0.007543369320873736,
+   "incomplete": [
+    "RefOG002",
+    "RefOG013",
+    "RefOG021",
+    "RefOG054",
+    "RefOG055",
+    "RefOG057",
+    "RefOG066"
+   ]
+  },
+  {
+   "variant": "real",
+   "config": "{\"evalue\": 0.001, \"small_max\": 10, \"cov_shorter\": 0.3}",
+   "n_refogs": 34,
+   "completeness": 0.8529411764705882,
+   "n_complete": 29,
+   "mean_n_fam": 1.2647058823529411,
+   "median_n_fam": 1.0,
+   "max_n_fam": 4,
+   "mean_best_frac": 0.9904967119994343,
+   "gene_weighted_best_frac": 0.9883966244725738,
+   "frac_refogs_best_frac_ge95": 0.9117647058823529,
+   "frac_refogs_le1_stray": 0.8823529411764706,
+   "median_size_ratio": 151.65441176470588,
+   "mean_size_ratio": 233.89658281738366,
+   "max_size_ratio": 833.3333333333334,
+   "fusion_rate": 0.5588235294117647,
+   "mean_foreign_refog_frac": 0.0067958773849711275,
+   "pair_recall": 0.9772030233799156,
+   "pair_precision": 0.0027905747653795988,
+   "n_families": 17405,
+   "n_singletons": 12498,
+   "max_family": 7500,
+   "sum_g2_over_N2": 0.017845411568999322,
+   "link": {
+    "n_links": 1001209,
+    "n_links_used": 344833,
+    "n_joins": 5226,
+    "n_capped": 149008,
+    "n_families_before": 22631,
+    "n_families_after": 17405
+   },
+   "incomplete": [
+    "RefOG002",
+    "RefOG021",
+    "RefOG054",
+    "RefOG055",
+    "RefOG066"
+   ],
+   "s": 0.9
+  },
+  {
+   "variant": "real",
+   "config": "{\"evalue\": 0.001, \"small_max\": null, \"cov_shorter\": 0.3}",
+   "n_refogs": 34,
+   "completeness": 0.8529411764705882,
+   "n_complete": 29,
+   "mean_n_fam": 1.2647058823529411,
+   "median_n_fam": 1.0,
+   "max_n_fam": 4,
+   "mean_best_frac": 0.9904967119994343,
+   "gene_weighted_best_frac": 0.9883966244725738,
+   "frac_refogs_best_frac_ge95": 0.9117647058823529,
+   "frac_refogs_le1_stray": 0.8823529411764706,
+   "median_size_ratio": 163.35227272727275,
+   "mean_size_ratio": 241.73021650868995,
+   "max_size_ratio": 833.3333333333334,
+   "fusion_rate": 0.5882352941176471,
+   "mean_foreign_refog_frac": 0.005517232781850867,
+   "pair_recall": 0.9772030233799156,
+   "pair_precision": 0.002639425660262921,
+   "n_families": 16923,
+   "n_singletons": 12568,
+   "max_family": 7500,
+   "sum_g2_over_N2": 0.02001036213017324,
+   "link": {
+    "n_links": 1001209,
+    "n_links_used": 1001209,
+    "n_joins": 5708,
+    "n_capped": 716299,
+    "n_families_before": 22631,
+    "n_families_after": 16923
+   },
+   "incomplete": [
+    "RefOG002",
+    "RefOG021",
+    "RefOG054",
+    "RefOG055",
+    "RefOG066"
+   ],
+   "s": 2.0
+  },
+  {
+   "variant": "real",
+   "config": "{\"evalue\": 1e-05, \"small_max\": 10, \"cov_shorter\": 0.3}",
+   "n_refogs": 34,
+   "completeness": 0.8235294117647058,
+   "n_complete": 28,
+   "mean_n_fam": 1.2941176470588236,
+   "median_n_fam": 1.0,
+   "max_n_fam": 4,
+   "mean_best_frac": 0.9886584767053167,
+   "gene_weighted_best_frac": 0.9873417721518988,
+   "frac_refogs_best_frac_ge95": 0.8823529411764706,
+   "frac_refogs_le1_stray": 0.8823529411764706,
+   "median_size_ratio": 120.13729977116705,
+   "mean_size_ratio": 194.03333749635757,
+   "max_size_ratio": 833.3333333333334,
+   "fusion_rate": 0.47058823529411764,
+   "mean_foreign_refog_frac": 0.00650827112812803,
+   "pair_recall": 0.9750933187385654,
+   "pair_precision": 0.0031767945888542116,
+   "n_families": 18993,
+   "n_singletons": 13268,
+   "max_family": 7500,
+   "sum_g2_over_N2": 0.01471429079853505,
+   "link": {
+    "n_links": 494508,
+    "n_links_used": 160989,
+    "n_joins": 3638,
+    "n_capped": 60047,
+    "n_families_before": 22631,
+    "n_families_after": 18993
+   },
+   "incomplete": [
+    "RefOG002",
+    "RefOG021",
+    "RefOG054",
+    "RefOG055",
+    "RefOG057",
+    "RefOG066"
+   ],
+   "s": 0.5
+  },
+  {
+   "variant": "real",
+   "config": "{\"evalue\": 1e-05, \"small_max\": null, \"cov_shorter\": 0.3}",
+   "n_refogs": 34,
+   "completeness": 0.8235294117647058,
+   "n_complete": 28,
+   "mean_n_fam": 1.2941176470588236,
+   "median_n_fam": 1.0,
+   "max_n_fam": 4,
+   "mean_best_frac": 0.9886584767053167,
+   "gene_weighted_best_frac": 0.9873417721518988,
+   "frac_refogs_best_frac_ge95": 0.8823529411764706,
+   "frac_refogs_le1_stray": 0.8823529411764706,
+   "median_size_ratio": 120.13729977116705,
+   "mean_size_ratio": 209.52856282882337,
+   "max_size_ratio": 833.3333333333334,
+   "fusion_rate": 0.47058823529411764,
+   "mean_foreign_refog_frac": 0.005088515406162465,
+   "pair_recall": 0.9750933187385654,
+   "pair_precision": 0.0030343505119092284,
+   "n_families": 18658,
+   "n_singletons": 13415,
+   "max_family": 7500,
+   "sum_g2_over_N2": 0.016725117361285104,
+   "link": {
+    "n_links": 494508,
+    "n_links_used": 494508,
+    "n_joins": 3973,
+    "n_capped": 333798,
+    "n_families_before": 22631,
+    "n_families_after": 18658
+   },
+   "incomplete": [
+    "RefOG002",
+    "RefOG021",
+    "RefOG054",
+    "RefOG055",
+    "RefOG057",
+    "RefOG066"
+   ],
+   "s": 1.3
+  }
+ ],
+ "stray_diag": {
+  "RefOG002": {
+   "size": 19,
+   "main_family_has_3di_rep": true,
+   "strays": [
+    {
+     "gene": "FBpp0073985",
+     "len": 16223,
+     "has_3di": false,
+     "is_struct_rep": false,
+     "family_size": 7,
+     "best_e_real": null
+    },
+    {
+     "gene": "ENSP00000371923",
+     "len": 2400,
+     "has_3di": true,
+     "is_struct_rep": true,
+     "family_size": 7217,
+     "best_e_real": 6.695e-34
+    }
+   ]
+  },
+  "RefOG013": {
+   "size": 27,
+   "main_family_has_3di_rep": true,
+   "strays": [
+    {
+     "gene": "FBpp0072181",
+     "len": 716,
+     "has_3di": true,
+     "is_struct_rep": true,
+     "family_size": 1,
+     "best_e_real": 5.562e-31
+    }
+   ]
+  },
+  "RefOG021": {
+   "size": 125,
+   "main_family_has_3di_rep": true,
+   "strays": [
+    {
+     "gene": "FBpp0309618",
+     "len": 3417,
+     "has_3di": false,
+     "is_struct_rep": false,
+     "family_size": 42,
+     "best_e_real": null
+    },
+    {
+     "gene": "ENSP00000357789",
+     "len": 4061,
+     "has_3di": false,
+     "is_struct_rep": false,
+     "family_size": 2,
+     "best_e_real": null
+    },
+    {
+     "gene": "ENSPTRP00000051765",
+     "len": 3364,
+     "has_3di": false,
+     "is_struct_rep": false,
+     "family_size": 2,
+     "best_e_real": null
+    },
+    {
+     "gene": "ENSGALP00000027831",
+     "len": 1690,
+     "has_3di": false,
+     "is_struct_rep": false,
+     "family_size": 3386,
+     "best_e_real": 6.124e-18
+    }
+   ]
+  },
+  "RefOG054": {
+   "size": 44,
+   "main_family_has_3di_rep": true,
+   "strays": [
+    {
+     "gene": "FBpp0291497",
+     "len": 690,
+     "has_3di": true,
+     "is_struct_rep": true,
+     "family_size": 12,
+     "best_e_real": 1.461e-05
+    },
+    {
+     "gene": "FBpp0291496",
+     "len": 683,
+     "has_3di": true,
+     "is_struct_rep": false,
+     "family_size": 12,
+     "best_e_real": 1.461e-05
+    }
+   ]
+  },
+  "RefOG055": {
+   "size": 29,
+   "main_family_has_3di_rep": true,
+   "strays": [
+    {
+     "gene": "ENSCAFP00000051664",
+     "len": 206,
+     "has_3di": true,
+     "is_struct_rep": false,
+     "family_size": 4,
+     "best_e_real": null
+    },
+    {
+     "gene": "ENSCINP00000012544",
+     "len": 589,
+     "has_3di": true,
+     "is_struct_rep": false,
+     "family_size": 7478,
+     "best_e_real": null
+    }
+   ]
+  },
+  "RefOG057": {
+   "size": 16,
+   "main_family_has_3di_rep": true,
+   "strays": [
+    {
+     "gene": "WBGene00044438.1",
+     "len": 276,
+     "has_3di": true,
+     "is_struct_rep": true,
+     "family_size": 1,
+     "best_e_real": 0.0001493
+    }
+   ]
+  },
+  "RefOG066": {
+   "size": 14,
+   "main_family_has_3di_rep": true,
+   "strays": [
+    {
+     "gene": "ENSCINP00000033401",
+     "len": 92,
+     "has_3di": true,
+     "is_struct_rep": true,
+     "family_size": 1,
+     "best_e_real": null
+    }
+   ]
+  }
+ },
+ "grid": [
+  {
+   "evalue": 0.001,
+   "small_max": 10,
+   "cov_shorter": 0.3
+  },
+  {
+   "evalue": 0.001,
+   "small_max": null,
+   "cov_shorter": 0.3
+  },
+  {
+   "evalue": 1e-05,
+   "small_max": 10,
+   "cov_shorter": 0.3
+  },
+  {
+   "evalue": 1e-05,
+   "small_max": null,
+   "cov_shorter": 0.3
+  }
+ ]
+}

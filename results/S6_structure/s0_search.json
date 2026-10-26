@@ -1,0 +1,9 @@
+{
+ "n_clusters": 42732,
+ "n_struct_reps": 38802,
+ "real": {
+  "n_hits": 2137195,
+  "wall_s": 827.1,
+  "cpu_s": 4853.4
+ }
+}

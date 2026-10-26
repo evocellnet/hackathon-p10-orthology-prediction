@@ -26,7 +26,8 @@ from orthobench_dev_eval import dev_eval  # noqa: E402
 
 LOG = os.path.join(ROOT, "results/core_v0_orthobench/runs.tsv")
 COLS = ["time", "label", "run", "config_hash", "F", "precision", "recall", "exact", "n_refogs_split",
-        "n_refogs_with_fp", "n_pred_groups", "merge_s", "config", "pairP", "pairR", "pairF1"]
+        "n_refogs_with_fp", "n_pred_groups", "merge_s", "config", "pairP", "pairR", "pairF1",
+        "s8_5of6", "s8_fission_cand"]
 
 
 class ConstrainedContext:
@@ -47,6 +48,42 @@ class ConstrainedContext:
 
     def support(self, ctx):
         return self.base.support(ctx) * self._same(ctx)
+
+    def locus_support(self, ctx):
+        return self.base.support(ctx)
+
+
+MAMMALS = ("Homo_sapiens", "Pan_troglodytes", "Mus_musculus", "Rattus_norvegicus",
+           "Canis_familiaris", "Monodelphis_domestica")
+
+
+def s8_fission_candidates(ox, gt):
+    """S8-style diagnostic: Theria-level HOGs with genes from exactly 5 of the 6 mammals
+    whose missing species has a species-only Theria-level HOG in the same root HOG/family."""
+    from ancestra.orthoxml import hogs_at_level
+    sp = {g: gt.species[gt.species_of[i]].split(".")[0] for i, g in enumerate(gt.names)}
+    top = {}
+    for k, grp in enumerate(ox.groups):
+        for g in grp.genes():
+            top[g] = k
+    hogs = hogs_at_level(ox, "Theria", include_singletons=True)
+    only = {}
+    for h in hogs:
+        sps = {sp[g] for g in h}
+        if len(sps) == 1:
+            g0 = next(iter(h))
+            only.setdefault((top.get(g0, -1), next(iter(sps))), 0)
+            only[(top.get(g0, -1), next(iter(sps)))] += 1
+    n5 = cand = 0
+    for h in hogs:
+        sps = {sp[g] for g in h} & set(MAMMALS)
+        if len(sps) == 5:
+            n5 += 1
+            miss = (set(MAMMALS) - sps).pop()
+            t = top.get(next(iter(h)), -2)
+            if t >= 0 and only.get((t, miss), 0) > 0:
+                cand += 1
+    return n5, cand
 
 
 def parse_val(v):
@@ -114,6 +151,7 @@ def main():
     to_orthobench_ogs(ox, None, ogs)
     json.dump(res.node_stats, open(os.path.join(out, "node_stats.json"), "w"))
     ev = dev_eval(ogs)
+    s8 = s8_fission_candidates(ox, gt)
     from orthobench_dev_pairs_eval import evaluate as pair_eval
     pm, _, _ = pair_eval(ox)
     json.dump(pm, open(os.path.join(out, "dev_pairs_eval.json"), "w"), indent=1)
@@ -123,6 +161,7 @@ def main():
                recall=round(ev["recall"], 2), exact=ev["exact"], n_refogs_split=ev["n_refogs_split"],
                n_refogs_with_fp=ev["n_refogs_with_fp"], n_pred_groups=ev["n_pred_groups"],
                pairP=pm["all"]["P"], pairR=pm["all"]["R"], pairF1=pm["all"]["F1"],
+               s8_5of6=s8[0], s8_fission_cand=s8[1],
                merge_s=round(ms, 1), config=json.dumps(dict(asdict(cfg), scores=a.scores, synteny=a.synteny,
                                                    synteny_kw=syn_kw, syn_constrain=a.syn_constrain),
                                               sort_keys=True))
@@ -143,7 +182,8 @@ def main():
         fh.write("\t".join(str(row[c]) for c in COLS) + "\n")
     print(f"{row['label']} [{ch}] DEV F={row['F']} P={row['precision']} R={row['recall']} exact={row['exact']} "
           f"split={row['n_refogs_split']} withFP={row['n_refogs_with_fp']} | pairs P={row['pairP']} "
-          f"R={row['pairR']} F1={row['pairF1']} | merge={ms:.1f}s -> {out}")
+          f"R={row['pairR']} F1={row['pairF1']} | S8 5/6-mammal HOGs={s8[0]} fission-candidates={s8[1]} "
+          f"| merge={ms:.1f}s -> {out}")
 
 
 if __name__ == "__main__":

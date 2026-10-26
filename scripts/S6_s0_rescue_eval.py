@@ -22,6 +22,11 @@ S0 = os.path.join(ROOT, "work/S0/2sA_dc30_cc_sh30_RA")
 W = os.path.join(ROOT, "work/S6/s0")
 OUT = os.path.join(ROOT, "results/S6_structure")
 GRID = [dict(evalue=e, small_max=s, cov_shorter=0.3) for e, s in itertools.product([1e-3, 1e-5], [10, None])]
+# exploratory (added after seeing the real-3Di grid, flagged as post hoc in the doc): singletons only,
+# and a bidirectional coverage guard against the fusion increase seen in the grid
+EXPLORATORY = [dict(evalue=1e-3, small_max=1, cov_shorter=0.3),
+               dict(evalue=1e-3, small_max=10, cov_shorter=0.3, cov_min=0.5),
+               dict(evalue=1e-3, small_max=1, cov_shorter=0.3, cov_min=0.5)]
 VARIANTS = ["real", "shuf11", "shuf23", "shuf47"]
 
 
@@ -84,7 +89,7 @@ def main():
                 m = ((fam[h["q"]] == fam[g]) & (fam[h["t"]] == main_f)) | ((fam[h["t"]] == fam[g]) & (fam[h["q"]] == main_f))
                 s[f"best_e_{v}"] = float(h["evalue"][m].min()) if m.any() else None
     for v, h in hits.items():
-        for cfg in GRID:
+        for cfg in GRID + EXPLORATORY:
             t0 = time.time()
             lab, st = S.link_families(fam, h, gt.lengths, max_size=7500, **cfg)
             r = ev(lab)

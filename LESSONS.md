@@ -10,3 +10,4 @@
 - For iteration, use only the fast QfO tests (GO EC VGNC SwissTrees TreeFam-A, ~5 min); STD tests take 15 min–1.5 h each. Evidence: data agent timings.
 - The toy simulator lacks fragments/bad gene models and 2R-like WGD, so check toy-tuned defaults on real dev data before trusting them. Evidence: coverage guard 0.5 was best on toy and −9 F on OrthoBench dev.
 - Pick metrics that are sensitive to the decision being tested. Evidence: synteny changes which paralog is chosen as the ortholog, so it was null at OrthoBench OG level but +0.03–0.05 pair F1 on the dev pair metric.
+- Before tuning on a cached upstream output, check that the stage is deterministic. Evidence: S0 thread-dependence (ARI 0.78) moved dev pair F1 0.78→0.64, after all merge tuning had been done on one partition.

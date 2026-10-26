@@ -205,8 +205,8 @@ def align_pairs(db: str, keys_of_gene: dict, q: np.ndarray, t: np.ndarray, wd: s
 # ----------------------------------------------------------------------------
 
 def link_families(fam: np.ndarray, hits: dict, lengths: np.ndarray, evalue: float = 1e-3,
-                  cov_shorter: float = 0.3, max_size: int = 7500, small_max: int | None = None
-                  ) -> tuple[np.ndarray, dict]:
+                  cov_shorter: float = 0.3, max_size: int = 7500, small_max: int | None = None,
+                  cov_min: float = 0.0) -> tuple[np.ndarray, dict]:
     """Join S0 families linked by structure hits.
 
     A hit (q, t) links fam[q] and fam[t] if e <= ``evalue`` and the alignment covers >=
@@ -214,6 +214,7 @@ def link_families(fam: np.ndarray, hits: dict, lengths: np.ndarray, evalue: floa
     ``small_max``, only links where at least one side has <= small_max genes (singletons
     and small fragments of a split family) are used. Links are applied in increasing
     e-value; a join that would exceed ``max_size`` genes is skipped (no giant families).
+    ``cov_min``: additionally both qcov and tcov >= cov_min (bidirectional guard).
     Returns new labels (old family id of the representative) and stats."""
     fam = np.asarray(fam).copy()
     q, t, e = hits["q"], hits["t"], hits["evalue"]
@@ -223,6 +224,8 @@ def link_families(fam: np.ndarray, hits: dict, lengths: np.ndarray, evalue: floa
     cov_sh = np.maximum(alen_q, alen_t) / np.minimum(L[q], L[t])   # aligned span / shorter length
     fq, ft = fam[q], fam[t]
     ok = (e <= evalue) & (cov_sh >= cov_shorter) & (fq != ft)
+    if cov_min > 0:
+        ok &= (hits["qcov"] >= cov_min) & (hits["tcov"] >= cov_min)
     uniq, inv, size0 = np.unique(fam, return_inverse=True, return_counts=True)
     a, b, ee = inv[q[ok]], inv[t[ok]], e[ok]
     if small_max is not None:

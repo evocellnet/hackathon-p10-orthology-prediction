@@ -10,7 +10,7 @@
 Status: v0, toy-verified, 2026-10-26 (built T+0h50 to T+1h55, read from `scripts/clock.sh`).
 
 - **Code:** `ancestra/io.py`, `ancestra/scoring.py`, `ancestra/merge.py`, `ancestra/pipeline.py` and `ancestra/__main__.py`.
-- **Tests:** `tests/test_merge.py` has 16 tests. They cover exact hand-made HOGs with duplications, a polytomy, the coverage guard, the cap rule, the family join, and the pipeline end to end with resume.
+- **Tests:** `tests/test_merge.py` has 24 tests. They cover exact hand-made HOGs with duplications, a polytomy, the coverage guard, the cap rule, the family join, and the pipeline end to end with resume.
 - **Benchmark:** `scripts/run_core_v0_toy.py` writes `results/core_v0/toy_grid.jsonl` (600 records). `scripts/summarize_core_v0.py` turns it into `results/core_v0/toy_tables.md`.
 - **Sweep:** `scripts/sweep_core_v0.py` writes `results/core_v0/sweep.tsv`.
 - **Cross-family rescue experiment:** `scripts/exp_family_rescue.py` writes `results/core_v0/exp_family_rescue.tsv`.
@@ -402,6 +402,13 @@ The grid jobs (3 threads each, 8 in parallel, load 30–80) took 5–7 s (8 spec
    - The R2/R3 veto (support 0 while a competitor has ≥2) adds +0.8 OG-F. R3 partner choice alone has no effect.
    - Shuffled controls are flat.
 
+8. **Locus-aware fission repair** (S8 proposal; `MergeConfig.locus_repair`, numba engine).
+   - Mechanism: a still-alone unit whose genes all come from one species joins the group lacking its child with the highest synteny support (≥ `locus_min_support`), using any in-family-scored partner. Support is unmasked, so the join can cross synteny-off root HOGs.
+   - Result (support ≥ 2, vs constrained + veto + R3): pair F1 0.7996 (+0.016), S8 5/6-mammal fission candidates 639 → 350 (−45%), but **OG-F 79.2 → 75.5** (OG-P −4).
+   - Shuffled controls (seeds 11, 23): OG-F 72.1–73.1, pair F1 0.740, ~815 candidates. The effect is real.
+   - Without the single-species restriction, OG-F falls to 68.1.
+   - Off by default (trade-off, not a gain on both metrics); a decision for the PI.
+
 ### 7.4 Toy settings resembling OrthoBench (new; `ancestra.simulate`)
 **Simulator changes** (backward-compatible): `--wgd-branch` accepts several WGDs (`N@pos,...`), and `--lineage-rates node:factor` sets per-lineage substitution rates.
 - `twoR12`: an OrthoBench-shaped 12-species tree (`work/core_v0/twoR_tree.nwk`), two WGDs above Euteleostomi (positions 0.3, 0.7), a teleost WGD, fractionation 0.6, Ciona 2.5× faster; 1000 families.
@@ -418,7 +425,25 @@ The grid jobs (3 threads each, 8 in parallel, load 30–80) took 5–7 s (8 spec
 On the standard 12 toy sims, the v0.2 default is within ±0.004 F1 of `seq_ob` and at least v0 in most settings (`results/core_v0/toy_grid.jsonl`, arms `default`, `v0_default`, `seq_ob`).
 
 ### 7.5 Runtime on OrthoBench (12 threads, shared node, load 45–60)
-RUNTIME_PLACEHOLDER
+**Full end-to-end run with the v0.2 default and synteny** (`python -m ancestra run --proteomes .../Input --tree results/S1_speciestree/ob/ncbi.nwk --gene-order data/genomes/orthobench --threads 12`; manifest in `results/core_v0_orthobench/e2e_default_manifest.json`):
+
+| stage | wall | peak RSS (own) | notes |
+|---|---|---|---|
+| input | 0.3 s | 0.2 GB | 251,378 genes, 12 species |
+| families (S0 `2sA_dc30_cc_sh30_RA`) | 435 s | 0.9 GB (children 4.6 GB) | 22,629 families, max 7,527 |
+| scores (hybrid + capped rescue) | 1,186 s | 12.9 GB (children 13.9 GB) | DIAMOND 912 s, MMseqs2 rescue 24 s, family rescue 195 s (85 joins); 15.4M scored pairs |
+| merge (two-pass constrained synteny, trees) | 75 s | 2.8 GB | 15,456 tree clusters (79,782 units), 5.4 s in trees |
+| output (OrthoXML + XSD + pairs + OGs) | 13 s | 1.7 GB | 15,761 root HOGs |
+
+The total is **28.5 min wall** with **14.2 GB max RSS** (`/usr/bin/time -v`), on a shared node at load 45–60.
+
+**Dev result of this fresh run:** OG-F 75.6 (P 72.8, R 78.6), pair F1 0.636.
+
+**S0 reproducibility caveat.** The iteration runs reused the S0 agent's families for the *same* config (dev OG-F 79.2, pair F1 0.783). Those families differ from the freshly computed ones: ARI 0.78; largest families 7,478 vs 7,527.
+- The likely cause is DIAMOND `cluster` thread-count sensitivity (24 vs 12 threads). It is being reported to the S0 owner.
+- The dev pair metric is dominated by a few large RefOGs (RefOG021 alone: 7.9k–9.4k FP pairs), so it is volatile under such changes.
+- Decisions so far were made on one fixed family partition (run_v2) and are internally consistent. **Absolute numbers carry roughly ±4 OG-F and ±0.15 pair F1 of S0-induced variation.**
+
 
 ### 7.6 Next steps
 1. **Precision of tree mode and over-merges in large S0 families** (OG-P 63–75%):

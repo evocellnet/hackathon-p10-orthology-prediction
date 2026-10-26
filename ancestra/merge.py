@@ -105,6 +105,10 @@ class MergeConfig:
     ctx_r3: bool = False         # also use score+bonus for R3 (fission repair) partner choice
     ctx_veto: bool = False       # R2/R3 join of u blocked if its support is 0 while another
     ctx_veto_min: float = 2.0    #   candidate of u has support >= ctx_veto_min (needs .support)
+    locus_repair: bool = False   # locus-aware fission repair (S8 proposal): a still-alone unit u
+    locus_single_species: bool = True  # only units whose genes are all from one species
+    locus_min_support: float = 1.0  # joins the group lacking child(u) with the highest context
+                                 # support (>= locus_min_support) among in-family-scored partners
     orphan_min: float = 0.0      # R4: minimum (normalised, linked) score of an orphan-merge edge
     orphan_merge: str = "off"    # R4: off | root | all -- merge partner-less same-child units
                                  # (no cross-child homolog at the node) connected by same-child
@@ -243,6 +247,7 @@ def decide_node(n: int, child: np.ndarray, lu: np.ndarray, lv: np.ndarray, score
         for x, o, sc_ in zip(out_edges[0].tolist(), out_edges[1].tolist(), out_edges[2].tolist()):
             out_adj[x][o] = sc_
     ctx_support = None
+    locus_sup = None
     child_l = child.tolist()
     cross = child[lu] != child[lv]
     ca, cb, cs = lu[cross], lv[cross], score[cross].astype(np.float64)
@@ -288,10 +293,13 @@ def decide_node(n: int, child: np.ndarray, lu: np.ndarray, lv: np.ndarray, score
         if bonus.shape != cs.shape:
             raise ValueError("context function must return one value per candidate edge")
         stats["n_anchors"] = int(anchors.sum())
-        if (cfg.ctx_r3 or cfg.ctx_veto) and cfg.engine != "numba":
+        if (cfg.ctx_r3 or cfg.ctx_veto or cfg.locus_repair) and cfg.engine != "numba":
             raise NotImplementedError("ctx_r3 / ctx_veto are implemented in the numba engine only")
         if cfg.ctx_veto and hasattr(context, "support"):
             ctx_support = np.asarray(context.support(ctx), dtype=np.float64)
+        if cfg.locus_repair and hasattr(context, "support"):
+            fn = getattr(context, "locus_support", context.support)   # unmasked if constrained
+            locus_sup = np.asarray(fn(ctx), dtype=np.float64)
         if cfg.ctx_mode == "all":
             cs = cs + bonus
             cs_sel = cs
@@ -313,7 +321,8 @@ def decide_node(n: int, child: np.ndarray, lu: np.ndarray, lv: np.ndarray, score
         stats["seed_median_d"] = float(np.median(-np.log(np.clip(cs[mb], 1e-6, 1.0))))
     if cfg.engine == "numba":
         return _decide_numba(n, k, child, ca, cb, cs, sa, sb, ss, mb, cfg, out_edges, stats,
-                             resolver, node_name, lu, lv, score, cs_sel, cs_r3, ctx_support)
+                             resolver, node_name, lu, lv, score, cs_sel, cs_r3, ctx_support, locus_sup,
+                             (node_info or {}).get("unit_nsp"))
     # best cross score per unit (any child) and cross adjacency
     best_any = np.full(n, -np.inf)
     np.maximum.at(best_any, ca, cs)
@@ -558,11 +567,52 @@ def _orphan_merge(n, child, lu, lv, labels, stats, score=None, min_score=0.0):
     return new
 
 
+def _locus_repair(n, child, ca, cb, cs, sup, labels, min_sup, stats, eligible=None):
+    """Locus-aware fission repair: a unit that is still alone joins the group (lacking its
+    child) to which it has the highest context support >= min_sup (ties: higher score),
+    using any in-family-scored partner. Each group gains at most one unit per child."""
+    labels = labels.copy()
+    size = np.bincount(labels, minlength=int(labels.max()) + 1)
+    alone = size[labels] == 1
+    if eligible is not None:
+        alone = alone & eligible
+    m = (sup >= min_sup) & (alone[ca] | alone[cb])
+    stats["locus_repaired"] = 0
+    if not m.any():
+        return labels
+    a, b, sc, sp = ca[m], cb[m], cs[m], sup[m]
+    u = np.where(alone[a], a, b)
+    v = np.where(alone[a], b, a)
+    order = np.lexsort((-sc, -sp))
+    group_children = {}
+    gsize = {}
+    for i in range(n):
+        group_children.setdefault(int(labels[i]), set()).add(int(child[i]))
+        gsize[int(labels[i])] = gsize.get(int(labels[i]), 0) + 1
+    done = set()
+    for k in order.tolist():
+        uu, vv = int(u[k]), int(v[k])
+        if uu in done or labels[uu] == labels[vv] or gsize[int(labels[uu])] > 1:
+            continue
+        g = int(labels[vv])
+        cu = int(child[uu])
+        if cu in group_children[g]:
+            continue
+        gsize[int(labels[uu])] -= 1
+        labels[uu] = g
+        gsize[g] += 1
+        group_children[g].add(cu)
+        done.add(uu)
+    stats["locus_repaired"] = len(done)
+    return labels
+
+
 _RULE_CODE = {"ortholog": 0, "self": 1, "either": 2, "quartet": 3}
 
 
 def _decide_numba(n, k, child, ca, cb, cs, sa, sb, ss, mb, cfg, out_edges, stats,
-                  resolver, node_name, lu, lv, score, cs_sel=None, cs_r3=None, ctx_support=None):
+                  resolver, node_name, lu, lv, score, cs_sel=None, cs_r3=None, ctx_support=None,
+                  locus_sup=None, unit_nsp=None):
     from . import merge_numba as mn
     child = np.ascontiguousarray(child, dtype=np.int64)
     ca = np.ascontiguousarray(ca, dtype=np.int64)
@@ -601,6 +651,10 @@ def _decide_numba(n, k, child, ca, cb, cs, sa, sb, ss, mb, cfg, out_edges, stats
                            np.ascontiguousarray(np.zeros(len(cs)) if ctx_support is None else ctx_support,
                                                 dtype=np.float64),
                            bool(cfg.ctx_veto and ctx_support is not None), float(cfg.ctx_veto_min))
+    if cfg.locus_repair and locus_sup is not None:
+        eligible = (unit_nsp == 1) if (cfg.locus_single_species and unit_nsp is not None) else None
+        labels = _locus_repair(n, child, ca, cb, cs, locus_sup, labels, cfg.locus_min_support, stats,
+                               eligible)
     stats.update(r1_unions=int(cnt[0]), r1_blocked=int(cnt[1]), r2_absorbed=int(cnt[2]),
                  r2_rd_absorbed=int(cnt[3]), r2_quartet_tests=int(cnt[4]), r3_repaired=int(cnt[5]))
     if resolver is not None:
@@ -789,6 +843,13 @@ def run_merge(gt: GeneTable, tree: Node, st: ScoreTable, cfg: MergeConfig,
             b_m = np.searchsorted(ga_local[o_m], np.arange(n + 1))
             g_sorted = genes[o_m]
             node_info["members"] = lambda i, _g=g_sorted, _b=b_m: _g[_b[i]:_b[i + 1]]
+            if cfg.locus_repair:
+                sp_sorted = gt.species_of[g_sorted].astype(np.int64)
+                nsp = np.zeros(n, dtype=np.int64)
+                for i in range(n):
+                    seg = sp_sorted[b_m[i]:b_m[i + 1]]
+                    nsp[i] = len(np.unique(seg)) if len(seg) else 0
+                node_info["unit_nsp"] = nsp
             if npairs is not None:
                 from .genome import unit_adjacency
                 unit_of_gene = np.full(N, -1, dtype=np.int64)
@@ -901,6 +962,10 @@ class ConstrainedContext:
 
     def support(self, ctx):
         return np.asarray(self.base.support(ctx), dtype=np.float64) * self._same(ctx)
+
+    def locus_support(self, ctx):
+        """Unmasked support (locus-aware fission repair may join across off-mode root HOGs)."""
+        return np.asarray(self.base.support(ctx), dtype=np.float64)
 
 
 def run_merge_constrained(gt, tree, st, cfg, context, **kw) -> "MergeResult":
