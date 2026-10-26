@@ -8,3 +8,4 @@
 - The node is shared (load 40–90 seen against our 24-CPU allocation). Always record CPU time (user+sys) and load next to wall time; wall times from busy periods are upper bounds. Evidence: ProstT5 probe saw identical wall time at 12 and 24 threads.
 - Never edit a running bash script; copy it to a new version instead. Evidence: the data agent lost 2 QfO runs this way.
 - For iteration, use only the fast QfO tests (GO EC VGNC SwissTrees TreeFam-A, ~5 min); STD tests take 15 min–1.5 h each. Evidence: data agent timings.
+- The toy simulator lacks fragments/bad gene models and 2R-like WGD, so check toy-tuned defaults on real dev data before trusting them. Evidence: coverage guard 0.5 was best on toy and −9 F on OrthoBench dev.

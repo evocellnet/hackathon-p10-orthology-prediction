@@ -90,6 +90,9 @@ class MergeConfig:
     rd_inpar: bool = False       # R2: absorb u if r(u, w) <= rd_inpar_factor * median seed r
     rd_inpar_factor: float = 1.0
     engine: str = "numba"        # numba | python (reference implementation)
+    orphan_merge: str = "off"    # R4: off | root | all -- merge partner-less same-child units
+                                 # (no cross-child homolog at the node) connected by same-child
+                                 # edges into one paralogGroup (parsimony: 1 dup vs dup + losses)
 
     def key(self) -> dict:
         return asdict(self)
@@ -459,6 +462,35 @@ def decide_node(n: int, child: np.ndarray, lu: np.ndarray, lv: np.ndarray, score
     return labels, stats
 
 
+def _orphan_merge(n, child, lu, lv, labels, stats):
+    """R4: units that are still alone and have no cross-child edge at this node are merged
+    with other such units of the same child they share an edge with (connected components)."""
+    from scipy.sparse import coo_matrix
+    from scipy.sparse.csgraph import connected_components
+    cross = child[lu] != child[lv]
+    has_cross = np.zeros(n, bool)
+    has_cross[lu[cross]] = True
+    has_cross[lv[cross]] = True
+    alone = np.bincount(labels, minlength=n)[labels] == 1
+    cand = alone & ~has_cross
+    m = ~cross & cand[lu] & cand[lv]
+    stats["r4_orphan_merged"] = 0
+    if not m.any():
+        return labels
+    g = coo_matrix((np.ones(int(m.sum())), (lu[m], lv[m])), shape=(n, n))
+    nc, comp = connected_components(g, directed=False)
+    sizes = np.bincount(comp)
+    new = labels.copy()
+    sel = cand & (sizes[comp] > 1)
+    rep = np.full(nc, -1, dtype=np.int64)
+    for i in np.flatnonzero(sel):
+        if rep[comp[i]] < 0:
+            rep[comp[i]] = labels[i]
+        new[i] = rep[comp[i]]
+    stats["r4_orphan_merged"] = int(sel.sum() - (rep >= 0).sum())
+    return new
+
+
 _RULE_CODE = {"ortholog": 0, "self": 1, "either": 2, "quartet": 3}
 
 
@@ -692,6 +724,8 @@ def run_merge(gt: GeneTable, tree: Node, st: ScoreTable, cfg: MergeConfig,
                                                         unit_of_gene, gt.species_of, n)
         labels, stt = decide_node(n, child, lu, lv, score, cfg, context, resolver, nd.name,
                                   out_edges, node_info)
+        if cfg.orphan_merge == "all" or (cfg.orphan_merge == "root" and nd.parent is None):
+            labels = _orphan_merge(n, child, lu, lv, labels, stt)
         pos[units] = -1
         # build ancestral genes
         newid = {}
