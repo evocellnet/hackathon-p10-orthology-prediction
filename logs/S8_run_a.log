@@ -9,3 +9,32 @@
 [S8] Mus_musculus pos: n=100 {'A_annotated': 98, 'B_pseudo': 2} (8s)
 [S8] Mus_musculus mask: n=100 {'C_deleted': 98, 'D_undetermined': 2} (11s)
 [S8] Mus_musculus neg: n=45 {'C_deleted': 43, 'D_undetermined': 2} (13s)
+[S8] Mus_musculus genome-wide: n=26 intact_elsewhere=6 (58s)
+[S8] Rattus_norvegicus cand: n=301 {'B_pseudo': 93, 'A_gap': 81, 'A_annotated': 63, 'C_deleted': 40, 'D_undetermined': 13, 'B_partial': 11} (23s)
+[S8] Rattus_norvegicus pos: n=100 {'A_annotated': 90, 'B_pseudo': 7, 'D_undetermined': 2, 'B_partial': 1} (28s)
+[S8] Rattus_norvegicus mask: n=100 {'C_deleted': 88, 'D_undetermined': 6, 'B_pseudo': 3, 'B_partial': 2, 'A_annotated': 1} (32s)
+[S8] Rattus_norvegicus neg: n=100 {'C_deleted': 100} (35s)
+[S8] Rattus_norvegicus genome-wide: n=157 intact_elsewhere=13 (114s)
+	Command being timed: "python scripts/run_S8_geneloss.py --species Homo_sapiens Mus_musculus Rattus_norvegicus --n-pos 100 --n-neg 100 --threads 6"
+	User time (seconds): 698.64
+	System time (seconds): 35.69
+	Percent of CPU this job got: 302%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 4:02.76
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 24899436
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 1
+	Minor (reclaiming a frame) page faults: 3127242
+	Voluntary context switches: 51446
+	Involuntary context switches: 84863
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 0
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

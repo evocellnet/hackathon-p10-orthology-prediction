@@ -1,0 +1,15 @@
+{
+ "n_genes": 251378,
+ "n_3di": 202475,
+ "n_len_mismatch": 0,
+ "load_s": 1.4,
+ "shuf11_residue_identity_to_real": 0.1609,
+ "shuf23_residue_identity_to_real": 0.1615,
+ "shuf47_residue_identity_to_real": 0.161,
+ "build_real_s": 1.7,
+ "build_shuf11_s": 2.0,
+ "build_shuf23_s": 1.8,
+ "build_shuf47_s": 2.1,
+ "wall_s": 22.5,
+ "cpu_s": 12.1
+}

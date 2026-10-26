@@ -353,7 +353,81 @@ The grid jobs (3 threads each, 8 in parallel, load 30–80) took 5–7 s (8 spec
 5. **HOG level of lineage-specific duplicates without a partner.** Two copies in one child with no partner in a sibling pass up separately and are joined only where they meet a common partner. Their paralogGroup is then placed at that higher level, or at the MRCA if it is unknown, rather than at the true duplication branch. Pair metrics are unaffected; per-level HOG exactness is slightly affected.
 6. **Not tested by the toy.** HGT (the sims use none), guide-tree errors (the guide tree is the true tree), multi-domain proteins and fusion/fission genes, fragments and isoforms, and families above 132 genes (the cap rule has a unit test only).
 
-## 7. Next steps (priority)
+## 7. OrthoBench DEV (v0 → v0.2)
+### 7.1 Setup
+- **Input:** 12 proteomes (251,378 genes) and the S1 NCBI-taxdump guide tree (`results/S1_speciestree/ob/ncbi.nwk`, clade-named internal nodes).
+- **Families:** S0 `2sA_dc30_cc_sh30_RA`, the pipeline default. Iterations reuse the S0 agent's precomputed families TSV, which is the same config.
+- **Scoring:** hybrid + capped cross-family rescue (`work/core_v0_ob/run_v2`). Merge iterations reuse these scores (`scripts/ob_merge_iter.py`).
+- **Scoring (DEV only; test RefOGs are never scored or read):**
+  - **OG level:** `scripts/orthobench_dev_eval.py`. It calls the official `benchmark.py` `calculate_benchmarks_pairwise` on the 34 dev RefOGs of `splits/orthobench_split.json`. It reproduces the controls: positive 100, split-halves 65.1, merged-pairs 47.0.
+  - **Pair level:** `scripts/orthobench_dev_pairs_eval.py` (S5 agent; ortholog/paralog labels from the RefOG trees).
+- **Log:** every configuration is in `results/core_v0_orthobench/runs.tsv` (shared with the S5 agent's `S5p2` rows).
+- **Error analysis:** `scripts/diagnose_orthobench.py` (S0 split vs merge split vs over-merge, per dev RefOG).
+
+### 7.2 Main results (dev, 34 RefOGs; OG = OrthoBench pairwise-on-OGs, pair = ortholog pairs)
+| config | OG-F | OG-P | OG-R | exact | pair P | pair R | pair F1 |
+|---|---|---|---|---|---|---|---|
+| v0 default (cov guard 0.5) | 59.0 | 75.4 | 48.5 | 3 | 0.736 | 0.596 | 0.659 |
+| `min_cov` 0 (`seq_ob`) | 68.1 | 71.2 | 65.3 | 11 | 0.756 | 0.705 | 0.730 |
+| + local-tree mode (**default v0.2**, `tree_ob`) | 72.5 | 63.2 | 85.0 | 9 | 0.810 | 0.681 | 0.740 |
+| + synteny R1-only, unconstrained (w10 λ0.3 core) | 70.2 | 59.7 | 85.2 | 9 | 0.843 | 0.726 | 0.780 |
+| + synteny R1-only, **constrained** (two-pass) | 78.5 | 75.0 | 82.3 | 9 | 0.837 | 0.736 | 0.783 |
+| + constrained + veto + R3 choice (**pipeline default with `--gene-order`**) | **79.2** | 73.9 | 85.4 | 9 | 0.841 | 0.733 | **0.783** |
+| shuffled order, constrained + veto + R3 (seeds 11 / 23 / 47) | 72.5 / 73.3 / 72.5 | | | | | | 0.740 / 0.740 / 0.740 |
+
+Δ(real − shuffled) is +6 to +7 OG-F and +0.043 pair F1. These are point estimates on 34 RefOGs; no CI has been computed for the combined configuration.
+
+### 7.3 What was learned
+1. **The coverage guard is the largest single lever (+9 OG-F).**
+   - OrthoBench is full of fragments and odd gene models: alt haplotypes, partial genes. A bidirectional ≥50% coverage guard isolates them as singletons.
+   - The toy has none of these, so it could not show this. 0.3 gives 66.3; 0 gives 68.1–68.6.
+   - The multi-domain fusion risk that the guard was meant for did not show up on dev. Re-test on QfO.
+2. **The cross-family rescue needs a size cap.** Uncapped, it rebuilt the 89,721-gene component that S0 had Leiden-split; the top-2 cap then removed most edges in 13 dev RefOGs' family. Capped at 7,500 (= S0 `s2_gmax`), it gives +1.5 OG-F over no rescue (scores_pass1).
+3. **Large S0 families** (6 > 5,000 genes, 28M hits dropped by the cap) hold several RefOGs, i.e. deep paralogs. This is where the precision errors live.
+4. **Dev error classes (seq_ob):**
+   - **Merge splits (20/34):** in vertebrate-only families, the 2R ohnolog subfamilies are not united. The pieces do have weak Ciona partners (not partner-less), and in-family scores sit at the noise floor (RefOG061: median normalised score 0.058 inside vs 0.044 to other family genes).
+   - **Over-merges (13/34):** fast Ciona genes bridge a vertebrate RefOG to a deep-paralog vertebrate subfamily at Chordata (RefOG007 +104 genes, RefOG033 +82).
+   - **S0 splits:** 7/34.
+5. **Score-rule fixes do not transfer from the toy.**
+   - RD tests: toy +0.3 F1, dev −1.3 OG-F, and −4.7 combined with trees.
+   - Root parsimony merge R4: unrestricted −4 OG-F; mutual-best with t ≥ 0.2 is neutral.
+   - max-link: −6 OG-F.
+   - All remain as options, off by default.
+6. **Local-tree mode** (§3.7) fixes the 2R splits: RefOG021 TP 506 → 7,261, and RefOG019/043/054 repaired.
+   - Applied everywhere it over-merges (OG-P 41%). The root and shallow nodes are the bad places.
+   - Divergent nodes with an outgroup: +4.4 OG-F; pair P +0.05, pair R −0.02.
+7. **Synteny (S5, `ancestra/synteny.py`, applied through the NodeContext hook, R1-only).**
+   - Unconstrained, it improves pairs (+0.040) but fuses OGs (−2.3 OG-F).
+   - Constrained to the synteny-off root HOGs (two-pass, `merge.run_merge_constrained`), it keeps the pair gain and *raises* OG-F to 78.5. The partner swaps then reorganise HOGs inside a root HOG instead of linking two.
+   - The R2/R3 veto (support 0 while a competitor has ≥2) adds +0.8 OG-F. R3 partner choice alone has no effect.
+   - Shuffled controls are flat.
+
+### 7.4 Toy settings resembling OrthoBench (new; `ancestra.simulate`)
+**Simulator changes** (backward-compatible): `--wgd-branch` accepts several WGDs (`N@pos,...`), and `--lineage-rates node:factor` sets per-lineage substitution rates.
+- `twoR12`: an OrthoBench-shaped 12-species tree (`work/core_v0/twoR_tree.nwk`), two WGDs above Euteleostomi (positions 0.3, 0.7), a teleost WGD, fractionation 0.6, Ciona 2.5× faster; 1000 families.
+- `twoRstem12`: the same plus a 0.6 stem branch above Bilateria. Families then hold several Bilateria-level HOGs (deep paralogs), as OrthoBench families do; the OrthoBench analogue is the Bilateria-level HOG partition.
+
+| setting, truth families | arm | ortholog-pair F1 | Bilateria-level HOG pair F1 (P / R) |
+|---|---|---|---|
+| twoRstem12 | v0_default | 0.881 | 0.851 (0.910 / 0.799) |
+| twoRstem12 | seq_ob | 0.887 | 0.863 (0.903 / 0.828) |
+| twoRstem12 | **default (tree_ob)** | 0.887 | **0.898** (0.936 / 0.864) |
+| twoRstem12 | tree at all nodes | 0.877 | 0.925 (0.896 / 0.956) |
+| twoR12 | seq_ob / default | 0.937 / 0.933 | root OG F1 0.923 / 0.938 |
+
+On the standard 12 toy sims, the v0.2 default is within ±0.004 F1 of `seq_ob` and at least v0 in most settings (`results/core_v0/toy_grid.jsonl`, arms `default`, `v0_default`, `seq_ob`).
+
+### 7.5 Runtime on OrthoBench (12 threads, shared node, load 45–60)
+RUNTIME_PLACEHOLDER
+
+### 7.6 Next steps
+1. **Precision of tree mode and over-merges in large S0 families** (OG-P 63–75%):
+   - check ambiguity clusters against FAMSA + FastTree trees on a sample;
+   - add an outgroup-based witness test before tree merges.
+2. **Root (Bilateria) decisions** have no outgroup and remain score-based. Options: bring in the deep-node S6 structure evidence, or a second outgroup from S0 families of other clades.
+3. **QfO run** with the frozen v0.2 config (peek 1), including the min_cov question on multi-domain proteins.
+
+## 8. Next steps (priority, v0 list; see §7.6 for the current list)
 1. Numba for `decide_node` and `_aggregate` before QfO; QfO deep nodes have about 1e8 edges.
 2. A rate-robust in-paralog test, i.e. a Scoredist-like calibrated distance plus the quartet with outgroup and the local-tree mode for flagged clusters. This targets failure 1, the largest FN class.
 3. Against hidden paralogy (failure 4, all FPs): the relative-divergence test above, using the existing outgroup edges (`out_edges`), plus the OMA-style witness test. Then the synteny `context` hook (S5) with a shuffled-order control.

@@ -1,0 +1,40 @@
+[S8] loaded in 2s; candidates 2523; complete 1:1 HOGs 9829
+[S8] Pan_troglodytes cand: n=164 {'A_gap': 49, 'B_pseudo': 40, 'C_deleted': 36, 'A_annotated': 31, 'B_partial': 7, 'D_undetermined': 1} (13s)
+[S8] Pan_troglodytes pos: n=100 {'A_annotated': 96, 'B_pseudo': 2, 'B_partial': 1, 'D_undetermined': 1} (18s)
+[S8] Pan_troglodytes mask: n=100 {'C_deleted': 93, 'B_pseudo': 3, 'D_undetermined': 3, 'A_gap': 1} (22s)
+[S8] Pan_troglodytes neg: n=100 {'C_deleted': 96, 'D_undetermined': 3, 'B_pseudo': 1} (25s)
+[S8] Pan_troglodytes known: [('GULO', 'B_pseudo', 3, 1, 0.832), ('UOX', 'B_pseudo', 0, 4, 1.0)]
+[S8] Pan_troglodytes genome-wide: n=84 intact_elsewhere=25 (99s)
+[S8] Canis_familiaris cand: n=1009 {'A_annotated': 301, 'A_gap': 234, 'C_deleted': 210, 'B_pseudo': 185, 'B_partial': 56, 'D_undetermined': 23} (58s)
+[S8] Canis_familiaris pos: n=100 {'A_annotated': 90, 'B_pseudo': 7, 'C_deleted': 2, 'B_partial': 1} (64s)
+[S8] Canis_familiaris mask: n=100 {'C_deleted': 98, 'B_pseudo': 1, 'A_annotated': 1} (68s)
+[S8] Canis_familiaris neg: n=100 {'C_deleted': 100} (71s)
+[S8] Canis_familiaris genome-wide: n=474 intact_elsewhere=64 (173s)
+[S8] Monodelphis_domestica cand: n=937 {'D_undetermined': 205, 'C_deleted': 198, 'A_annotated': 184, 'B_pseudo': 180, 'A_gap': 106, 'B_partial': 64} (76s)
+[S8] Monodelphis_domestica pos: n=100 {'A_annotated': 85, 'D_undetermined': 6, 'B_pseudo': 4, 'C_deleted': 3, 'B_partial': 2} (87s)
+[S8] Monodelphis_domestica mask: n=100 {'C_deleted': 88, 'D_undetermined': 9, 'B_partial': 2, 'A_gap': 1} (95s)
+[S8] Monodelphis_domestica neg: n=100 {'C_deleted': 99, 'D_undetermined': 1} (100s)
+[S8] Monodelphis_domestica genome-wide: n=647 intact_elsewhere=76 (293s)
+	Command being timed: "python scripts/run_S8_geneloss.py --species Pan_troglodytes Canis_familiaris Monodelphis_domestica --n-pos 100 --n-neg 100 --threads 6"
+	User time (seconds): 1617.90
+	System time (seconds): 58.50
+	Percent of CPU this job got: 295%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 9:28.08
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 33194792
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 1
+	Minor (reclaiming a frame) page faults: 7454386
+	Voluntary context switches: 110222
+	Involuntary context switches: 173785
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 0
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
