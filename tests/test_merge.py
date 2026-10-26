@@ -140,7 +140,7 @@ def test_old_dup_not_absorbed_without_inparalog_signal():
 def test_coverage_guard_blocks_merge():
     gt, st, tree = make_case({"A": ["a"], "B": ["b"]}, {("a", "b"): 500}, "(A,B)root;")
     st.qcov[:] = 0.3
-    _, got = predicted(gt, st, tree)
+    _, got = predicted(gt, st, tree, MergeConfig(min_cov=0.5))
     assert got == set()
     _, got = predicted(gt, st, tree, MergeConfig(min_cov=0.2))
     assert got == {("ortholog", "root", frozenset({"a", "b"}))}
@@ -315,3 +315,22 @@ def test_numba_engine_matches_python(sim_complex, arm, tmp_path):
     res = {e: hogs_to_pairs(to_orthoxml(run_merge(gt, tree, st, replace(ARMS[arm], engine=e)), gt, tree))
            for e in ("python", "numba")}
     assert res["python"] == res["numba"]
+
+
+def test_localtree_labelling():
+    from ancestra.localtree import tree_groups
+
+    def D_from(pairs, m):
+        D = np.zeros((m, m))
+        for (i, j), v in pairs.items():
+            D[i, j] = D[j, i] = v
+        return D
+    # fast-evolving in-paralog a2 of a1 (sisters), b1 in the other child, outgroup leaf 3
+    D = D_from({(0, 1): 1.7, (0, 2): 1.0, (1, 2): 2.3, (0, 3): 2.5, (1, 3): 3.8, (2, 3): 2.5}, 4)
+    assert sorted(map(sorted, tree_groups(D, [0, 0, 1, -1], 3))) == [[0, 1, 2]]
+    # out-paralog a2 (duplication before X, partner lost): kept apart
+    D = D_from({(0, 1): 2.0, (0, 2): 1.0, (1, 2): 2.0, (0, 3): 3.0, (1, 3): 3.0, (2, 3): 3.0}, 4)
+    assert sorted(map(sorted, tree_groups(D, [0, 0, 1, -1], 3))) == [[0, 2], [1]]
+    # old duplication with both copies kept, no outgroup: ((a1,b1),(a2,b2))
+    D = D_from({(0, 1): 3, (0, 2): 1, (0, 3): 3, (1, 2): 3, (1, 3): 1, (2, 3): 3}, 4)
+    assert sorted(map(sorted, tree_groups(D, [0, 0, 1, 1], None))) == [[0, 2], [1, 3]]

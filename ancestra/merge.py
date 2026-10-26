@@ -101,6 +101,9 @@ class MergeConfig:
                                          # -ln S >= this (divergent nodes; rules suffice shallow)
     ctx_mode: str = "r1"         # context evidence used only for R1 partner choice | "all" (additive)
     ctx_window: float = 0.75     # R1-only: bonus only for candidates >= window x best raw score
+    ctx_r3: bool = False         # also use score+bonus for R3 (fission repair) partner choice
+    ctx_veto: bool = False       # R2/R3 join of u blocked if its support is 0 while another
+    ctx_veto_min: float = 2.0    #   candidate of u has support >= ctx_veto_min (needs .support)
     orphan_min: float = 0.0      # R4: minimum (normalised, linked) score of an orphan-merge edge
     orphan_merge: str = "off"    # R4: off | root | all -- merge partner-less same-child units
                                  # (no cross-child homolog at the node) connected by same-child
@@ -238,6 +241,7 @@ def decide_node(n: int, child: np.ndarray, lu: np.ndarray, lv: np.ndarray, score
     if out_edges is not None:
         for x, o, sc_ in zip(out_edges[0].tolist(), out_edges[1].tolist(), out_edges[2].tolist()):
             out_adj[x][o] = sc_
+    ctx_support = None
     child_l = child.tolist()
     cross = child[lu] != child[lv]
     ca, cb, cs = lu[cross], lv[cross], score[cross].astype(np.float64)
@@ -283,6 +287,10 @@ def decide_node(n: int, child: np.ndarray, lu: np.ndarray, lv: np.ndarray, score
         if bonus.shape != cs.shape:
             raise ValueError("context function must return one value per candidate edge")
         stats["n_anchors"] = int(anchors.sum())
+        if (cfg.ctx_r3 or cfg.ctx_veto) and cfg.engine != "numba":
+            raise NotImplementedError("ctx_r3 / ctx_veto are implemented in the numba engine only")
+        if cfg.ctx_veto and hasattr(context, "support"):
+            ctx_support = np.asarray(context.support(ctx), dtype=np.float64)
         if cfg.ctx_mode == "all":
             cs = cs + bonus
             cs_sel = cs
@@ -294,15 +302,17 @@ def decide_node(n: int, child: np.ndarray, lu: np.ndarray, lv: np.ndarray, score
             elig = (cs >= cfg.ctx_window * ba) & (cs >= cfg.ctx_window * bb)
             cs_sel = cs + np.where(elig, bonus, 0.0)
             stats["n_ctx_bonus"] = int(((bonus != 0) & elig).sum())
+        cs_r3 = cs_sel if cfg.ctx_r3 else cs
     else:
         cs_sel = cs
+        cs_r3 = cs
     mb = mutual_best(cs_sel, cfg.tol)
     stats["n_mb"] = int(mb.sum())
     if mb.any():   # node divergence: median distance -ln S of the mutual-best seeds
         stats["seed_median_d"] = float(np.median(-np.log(np.clip(cs[mb], 1e-6, 1.0))))
     if cfg.engine == "numba":
         return _decide_numba(n, k, child, ca, cb, cs, sa, sb, ss, mb, cfg, out_edges, stats,
-                             resolver, node_name, lu, lv, score, cs_sel)
+                             resolver, node_name, lu, lv, score, cs_sel, cs_r3, ctx_support)
     # best cross score per unit (any child) and cross adjacency
     best_any = np.full(n, -np.inf)
     np.maximum.at(best_any, ca, cs)
@@ -551,7 +561,7 @@ _RULE_CODE = {"ortholog": 0, "self": 1, "either": 2, "quartet": 3}
 
 
 def _decide_numba(n, k, child, ca, cb, cs, sa, sb, ss, mb, cfg, out_edges, stats,
-                  resolver, node_name, lu, lv, score, cs_sel=None):
+                  resolver, node_name, lu, lv, score, cs_sel=None, cs_r3=None, ctx_support=None):
     from . import merge_numba as mn
     child = np.ascontiguousarray(child, dtype=np.int64)
     ca = np.ascontiguousarray(ca, dtype=np.int64)
@@ -585,7 +595,11 @@ def _decide_numba(n, k, child, ca, cb, cs, sa, sb, ss, mb, cfg, out_edges, stats
     labels, cnt = mn.rules(n, k, child, ca, cb, cs, sa, sb, ss, idx, veto, float(cfg.min_score),
                            bool(cfg.inparalogs), float(cfg.inpar_factor), _RULE_CODE[cfg.inpar_rule],
                            bool(cfg.rd_inpar), float(cfg.rd_inpar_factor), med_r,
-                           bool(cfg.repair), float(cfg.repair_ratio), optr, onbr, osc, has_out)
+                           bool(cfg.repair), float(cfg.repair_ratio), optr, onbr, osc, has_out,
+                           np.ascontiguousarray(cs if cs_r3 is None else cs_r3, dtype=np.float64),
+                           np.ascontiguousarray(np.zeros(len(cs)) if ctx_support is None else ctx_support,
+                                                dtype=np.float64),
+                           bool(cfg.ctx_veto and ctx_support is not None), float(cfg.ctx_veto_min))
     stats.update(r1_unions=int(cnt[0]), r1_blocked=int(cnt[1]), r2_absorbed=int(cnt[2]),
                  r2_rd_absorbed=int(cnt[3]), r2_quartet_tests=int(cnt[4]), r3_repaired=int(cnt[5]))
     if resolver is not None:

@@ -156,7 +156,7 @@ def _has_child_count(head, nxt, child, root, c, mark, stamp):
 @nb.njit(cache=True)
 def rules(n, k, child, ca, cb, cs, sa, sb, ss, idx, veto, min_score,
           inpar_on, inpar_factor, rule_code, rd_inpar, rd_factor, med_r,
-          repair_on, repair_ratio, optr, onbr, osc, has_out):
+          repair_on, repair_ratio, optr, onbr, osc, has_out, cs_r3, sup, veto_on, veto_min):
     """R1 (greedy mutual-best union with in-paralog constraint), R2 (absorption),
     R3 (fission repair). rule_code: 0 ortholog, 1 self, 2 either, 3 quartet.
     Returns labels and counters [r1_unions, r1_blocked, r2_absorbed, r2_rd_absorbed,
@@ -165,6 +165,14 @@ def rules(n, k, child, ca, cb, cs, sa, sb, ss, idx, veto, min_score,
     keep = cs > min_score
     xptr, xnbr, xsc = csr_undirected(n, ca[keep], cb[keep], cs[keep])
     sptr, snbr, ssc = csr_undirected(n, sa, sb, ss)
+    # context evidence (synteny): R3 selection scores and support, same CSR layout as xsc
+    _p2, _n2, xsel = csr_undirected(n, ca[keep], cb[keep], cs_r3[keep])
+    _p3, _n3, xsup = csr_undirected(n, ca[keep], cb[keep], sup[keep])
+    maxsup = np.zeros(n)
+    for u in range(n):
+        for i in range(xptr[u], xptr[u + 1]):
+            if xsup[i] > maxsup[u]:
+                maxsup[u] = xsup[i]
     best_any = np.full(n, NEG)
     for i in range(len(ca)):
         if cs[i] > best_any[ca[i]]:
@@ -313,6 +321,9 @@ def rules(n, k, child, ca, cb, cs, sa, sb, ss, idx, veto, min_score,
                             cnt[3] += 1
                             break
                     w = nxt[w]
+                if ok and veto_on and maxsup[u] >= veto_min:
+                    if lookup(_p3, _n3, xsup, u, v) <= 0:
+                        ok = False          # synteny precision veto (support 0 vs >= veto_min)
                 if ok:
                     union(parent, size, head, tail, nxt, u, v)
                     cnt[2] += 1
@@ -354,8 +365,8 @@ def rules(n, k, child, ca, cb, cs, sa, sb, ss, idx, veto, min_score,
                             touched.append(g)
                     if hc_val[g]:
                         continue
-                    if xsc[i] > pg_val[g]:
-                        pg_val[g] = xsc[i]
+                    if xsel[i] > pg_val[g]:
+                        pg_val[g] = xsel[i]
                 if len(touched) == 0:
                     continue
                 bg = touched[0]
@@ -363,7 +374,11 @@ def rules(n, k, child, ca, cb, cs, sa, sb, ss, idx, veto, min_score,
                     if pg_val[g] > pg_val[bg]:
                         bg = g
                 s = pg_val[bg]
-                if s < repair_ratio * best_any[u]:
+                raw = NEG
+                for i in range(xptr[u], xptr[u + 1]):
+                    if find(parent, xnbr[i]) == bg and xsc[i] > raw:
+                        raw = xsc[i]
+                if raw < repair_ratio * best_any[u]:
                     continue
                 ub_g[u] = bg
                 ub_s[u] = s
@@ -397,7 +412,14 @@ def rules(n, k, child, ca, cb, cs, sa, sb, ss, idx, veto, min_score,
                         q = head[g]
                         if ub_g[q] != -1 and ub_g[q] != find(parent, u):
                             continue
-                        if s < repair_ratio * best_any[q]:
+                        if lookup(xptr, xnbr, xsc, u, q) < repair_ratio * best_any[q]:
+                            continue
+                    if veto_on and maxsup[u] >= veto_min:
+                        bs = 0.0
+                        for i in range(xptr[u], xptr[u + 1]):
+                            if find(parent, xnbr[i]) == g and xsup[i] > bs:
+                                bs = xsup[i]
+                        if bs <= 0:
                             continue
                     union(parent, size, head, tail, nxt, u, g)
                     cnt[5] += 1

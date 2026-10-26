@@ -26,7 +26,7 @@ from orthobench_dev_eval import dev_eval  # noqa: E402
 
 LOG = os.path.join(ROOT, "results/core_v0_orthobench/runs.tsv")
 COLS = ["time", "label", "run", "config_hash", "F", "precision", "recall", "exact", "n_refogs_split",
-        "n_refogs_with_fp", "n_pred_groups", "merge_s", "config"]
+        "n_refogs_with_fp", "n_pred_groups", "merge_s", "config", "pairP", "pairR", "pairF1"]
 
 
 def parse_val(v):
@@ -67,7 +67,7 @@ def main():
                                      os.path.join(ROOT, "data/genomes/orthobench"))
         famf = os.path.join(a.run, "stages/scores/families_final.npy")
         fam = np.load(famf if os.path.exists(famf) else os.path.join(a.run, "stages/families/families.npy"))
-        syn_kw = dict(mode="multiplicative", lam=0.1, anchor="amb", w=5)
+        syn_kw = dict(mode="multiplicative", lam=0.3, anchor="core", w=10)   # PI lock (S5 phase 2)
         syn_kw.update({k: parse_val(v) for k, v in (kv.split("=", 1) for kv in a.syn)})
         if a.synteny == "shuffled":
             syn_kw["shuffle_seed"] = 11
@@ -80,21 +80,35 @@ def main():
     to_orthobench_ogs(ox, None, ogs)
     json.dump(res.node_stats, open(os.path.join(out, "node_stats.json"), "w"))
     ev = dev_eval(ogs)
+    from orthobench_dev_pairs_eval import evaluate as pair_eval
+    pm, _, _ = pair_eval(ox)
+    json.dump(pm, open(os.path.join(out, "dev_pairs_eval.json"), "w"), indent=1)
     json.dump(ev, open(os.path.join(out, "dev_eval.json"), "w"), indent=1)
     row = dict(time=datetime.now().isoformat(timespec="seconds"), label=a.label or a.arm, run=a.run,
                config_hash=ch, F=round(ev["F"], 2), precision=round(ev["precision"], 2),
                recall=round(ev["recall"], 2), exact=ev["exact"], n_refogs_split=ev["n_refogs_split"],
                n_refogs_with_fp=ev["n_refogs_with_fp"], n_pred_groups=ev["n_pred_groups"],
+               pairP=pm["all"]["P"], pairR=pm["all"]["R"], pairF1=pm["all"]["F1"],
                merge_s=round(ms, 1), config=json.dumps(dict(asdict(cfg), scores=a.scores, synteny=a.synteny,
                                                    synteny_kw=syn_kw), sort_keys=True))
     new = not os.path.exists(LOG)
     os.makedirs(os.path.dirname(LOG), exist_ok=True)
+    if not new:   # upgrade an older header (rows without pair metrics get NA)
+        lines = open(LOG).read().splitlines()
+        if lines and lines[0].split("\t") != COLS:
+            old = lines[0].split("\t")
+            fixed = ["\t".join(COLS)]
+            for l in lines[1:]:
+                d = dict(zip(old, l.split("\t")))
+                fixed.append("\t".join(d.get(c, "NA") for c in COLS))
+            open(LOG, "w").write("\n".join(fixed) + "\n")
     with open(LOG, "a") as fh:
         if new:
             fh.write("\t".join(COLS) + "\n")
         fh.write("\t".join(str(row[c]) for c in COLS) + "\n")
     print(f"{row['label']} [{ch}] DEV F={row['F']} P={row['precision']} R={row['recall']} exact={row['exact']} "
-          f"split={row['n_refogs_split']} withFP={row['n_refogs_with_fp']} merge={ms:.1f}s -> {out}")
+          f"split={row['n_refogs_split']} withFP={row['n_refogs_with_fp']} | pairs P={row['pairP']} "
+          f"R={row['pairR']} F1={row['pairF1']} | merge={ms:.1f}s -> {out}")
 
 
 if __name__ == "__main__":
