@@ -529,6 +529,40 @@ The NJ off pass is within noise by the PI's rule (ΔOG-F −0.67 > −1, Δmacro
 
 **Determinism.** FAMSA runs with `-t 1`, and FastTree is deterministic for a given input (fixed default seed). Pool results are collected in submission order. `test_localtree_fasttree_deterministic_across_workers` runs 2 vs 4 workers plus a repeat and gets identical outputs.
 
+### 7.11 QfO recall: species-overlap labelling (pre-fixed 6-arm grid; dev only)
+**Problem** (QfO peek 1, docs/qfo_run.md §8): recall is low (TreeFam-A dev TPR 0.572 vs OrthoFinder 0.732). FN classes: paralog call inside the same root HOG (2,411), different root HOGs (2,239), S0 split (1,286).
+
+**The "coverage guard".** The QfO run used `min_cov` 0, and no other code path filters scored pairs by coverage: hybrid scoring has no coverage filter; S0 stage 2 (`s2_cov`) and the family rescue (`rescue_cov`) act on families, not pairs. So nothing rejects the 743 low-coverage scored FN pairs. A plausible soft cause is `norm_max` (bits / larger self-score), which penalises fragment vs full-length pairs. Arm A5 (`norm_min`) tests this.
+
+**New options** (`MergeConfig`; off by default; omitted from `key()` at their defaults):
+- `so_struct` (species-overlap structure): inside a group, same-child units with *disjoint species sets* are combined as a speciation, i.e. an orthologGroup at their species MRCA. Previously they formed a paralogGroup at the child. Overlapping units stay paralogs.
+- `so_absorb` (species-overlap absorption): a still-alone unit whose best partner's group contains only species-disjoint units of its own child joins that group, as a missed speciation.
+- Test: `test_species_overlap_missed_speciation`.
+
+**Evaluation setup.**
+- QfO: merge-only reruns on hard-linked det_go stages (`work/qfo_recall/base`), `fast` preset (NJ).
+- TreeFam-A DEV is scored in memory by `scripts/qfo_treefam_dev_fast.py`: the dev reference pairs come from the peek-1 raw RefPhyloTest output, with the official formula. It reproduces the official dev values exactly (TP 8,009, FP 623, FN 5,984, TN 10,797). SwissTree and test families are never read.
+- OrthoBench: `run_det` with the `accurate` preset base.
+- Rule (PI): TreeFam-A dev TPR up, with PPV drop ≤ 0.01 and OrthoBench dev OG-F ≥ −1.
+
+| arm | TF-A dev TPR | TF-A dev PPV | OrthoBench OG-F | OB macro pair F1 | S8 fission cand. | rule |
+|---|---|---|---|---|---|---|
+| A0 baseline | 0.5723 | 0.9276 | 79.69 | 0.803 | 706 | – |
+| **A1 so_struct** | **0.6088** (+0.037) | 0.9229 (−0.005) | **79.69** (±0) | **0.806** | 512 | **pass** |
+| A2 so_struct + so_absorb | 0.6113 | 0.9161 (−0.012) | 79.01 | 0.808 | 238 | fail (PPV) |
+| A3 A2 + repair_ratio 0.5 | 0.6125 | 0.9205 (−0.007) | 78.14 (−1.55) | 0.800 | 161 | fail (OB) |
+| A4 A2 + tol 0.8 | 0.6479 (+0.076) | 0.9156 (−0.012) | 71.15 (−8.5) | 0.803 | 269 | fail |
+| A5 A2 + norm_min | 0.5866 | 0.9245 | 51.05 | 0.820 | 187 | fail (OB) |
+
+**Merge cost on QfO** (`fast`): 6–7 min wall and ~0.1 CPU-h per arm, 9 GB.
+- `accurate` on QfO is estimated at ~12 CPU-h, about 1 h wall at 12 workers for the on-pass. The estimate scales from OrthoBench: 177.7k QfO tree clusters vs 15.5k → ~100k FastTree jobs.
+
+**Adopted by the rule:** A1 (`so_struct=True`). It is not yet switched on in the presets, pending the PI's go and coordination with the QfO A-accurate run.
+
+**Observations.**
+- Looser mutual best (A4) recovers the most TreeFam recall but fuses OrthoBench OGs.
+- `so_absorb` and the relaxed repair cut the S8 fission candidates by 66–77% but cost PPV or OG-F.
+
 ### 7.8 Next steps
 1. **Precision of tree mode and over-merges in large S0 families** (OG-P 63–75%):
    - check ambiguity clusters against FAMSA + FastTree trees on a sample;
