@@ -101,7 +101,7 @@ def preview(path):
 if os.path.exists(f"{R}/pair_benchmark_orthobench_dev.json"):
     pair_tables(f"{R}/pair_benchmark_orthobench_dev.json", "OrthoBench dev")
 for p in sorted(glob.glob(f"{R}/pair_benchmark_toy_*.json")):
-    pair_tables(p, f"Toy ({os.path.basename(p)[20:-5]})")
+    pair_tables(p, f"Toy ({os.path.basename(p)[19:-5]})")
 for p in sorted(glob.glob(f"{R}/ancestral_toy_*.json")):
     ancestral(p)
 if os.path.exists(f"{R}/merge_preview_toy.json"):

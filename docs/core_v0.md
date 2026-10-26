@@ -165,6 +165,37 @@ Named arms are in `merge.ARMS`: `default`, `rbh`, `max`, `max+repair`, `avg`, `a
 
 **Cost.** Each call computes adjacency from N·w neighbour pairs, which is O(N·w) per node.
 
+### 3.6 Relative-divergence (RD) tests and the numba engine (added after v0)
+**Definition.** r(a,b) = d(a,b) / mean(d(a,o), d(b,o)).
+- d = −ln S, where S is the normalised (avg-link) score.
+- o is the outgroup gene with the highest S(a,o)+S(b,o). The outgroups are genes of X's sibling clades, with their scores to the units (`out_edges`).
+- For true orthologs at X, r ≈ T_X/T_parent. The family's rate multiplies every d, so it cancels.
+
+**`rd_hidden` (veto of hidden paralogy).** At each node, r is computed for all R1 mutual-best seeds that have an outgroup (≥10 needed). Seeds with r > median + `rd_z`·1.4826·MAD are not merged at X.
+- An out-paralog pair then meets at the parent.
+- There both are typically absorbed as in-paralogs relative to the outgroup gene, which gives the right paralogGroup.
+
+**`rd_inpar` (rate-robust absorption).** In R2, if the InParanoid test fails for (u, w), u is still absorbed when r(u,w) ≤ `rd_inpar_factor` × the node's median seed r. This means the u–w split is younger than X; the rate of a fast duplicate u enters both numerator and denominator.
+
+**Toy sweep** (12 truth-family sims, hybrid+rescue scores, `results/core_v0/sweep_rd.tsv`; same pre-stated rule):
+
+| config | P | R | F1 |
+|---|---|---|---|
+| default | 0.9895 | 0.9595 | 0.9742 |
+| rd_hidden z=3 | 0.9913 | 0.9592 | 0.9749 |
+| rd_inpar f=1.0 | 0.9885 | 0.9653 | 0.9767 |
+| **rd_both (z=3, f=1)** | **0.9902** | **0.9651** | **0.9774** |
+| rd_inpar f=1.2 | 0.9818 | 0.9720 | 0.9768 |
+
+Both precision and recall improve. `rd_both` is arm `rd_both`; OrthoBench dev results are in §7.
+
+**Numba engine.** The per-node rules R1–R3, RD and quartet run in `ancestra/merge_numba.py` (`MergeConfig.engine="numba"`, default).
+- It uses CSR adjacencies with binary-search lookups and an array union-find with member lists.
+- The pure-Python `decide_node` stays as the reference (`engine="python"`).
+- On three toy sims and six arms the two engines give **identical** ortholog-pair sets (`test_numba_engine_matches_python`).
+- Ties between exactly equal scores could in principle break differently, so the engines are not guaranteed bit-identical.
+- Compilation takes ~10 s once and is cached. On OrthoBench (251k genes, 11 internal nodes) the merge takes 7–13 s.
+
 ## 4. Complexity
 - **S2:** DIAMOND blocks ~N·B. The rescue cost is proportional to the pairs DIAMOND missed (5–12% of Σ g_f(g_f+1)/2 on the toy). The cross-family rescue re-scores only the joined families (3–14% of genes on the toy, 2–15 s).
 - **S3:**

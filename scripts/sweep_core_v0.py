@@ -35,6 +35,15 @@ for v in (0.3, 0.5, 0.7, 0.9):
     GRID.append((f"repair_ratio={v}", replace(D, repair=True, repair_ratio=v)))
 for v in (0.3, 0.0):
     GRID.append((f"min_cov={v}", replace(D, min_cov=v)))
+if GRID_NAME == "ob":   # toy check of OrthoBench-dev candidate configs
+    GRID = [("default", D)]
+    for nm, kw in (("min_cov=0", dict(min_cov=0.0)), ("rd_both", dict(rd_hidden=True, rd_inpar=True)),
+                   ("rd_both min_cov=0", dict(rd_hidden=True, rd_inpar=True, min_cov=0.0)),
+                   ("max min_cov=0", dict(link="max", min_cov=0.0)),
+                   ("max rd_both min_cov=0", dict(link="max", rd_hidden=True, rd_inpar=True, min_cov=0.0)),
+                   ("min_cov=0.3", dict(min_cov=0.3)),
+                   ("rd_both min_cov=0.3", dict(rd_hidden=True, rd_inpar=True, min_cov=0.3))):
+        GRID.append((nm, replace(D, **kw)))
 if GRID_NAME == "rd":   # pre-stated rule as above (P >= default P - 0.003, max F1)
     GRID = [("default", D)]
     for z in (2.0, 3.0, 4.0, 6.0):

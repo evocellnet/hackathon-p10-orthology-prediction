@@ -38,7 +38,10 @@ Decision note M0: benchmark lives in its own repo (bench_repo/) as the prompt re
   - Failure modes: fast-evolving young duplicates fail the in-paralog test; hidden paralogy via complementary loss (all FPs are true paralogs); saturated deep families.
   - [~] 3c. v0 on OrthoBench dev + diagnostics + relative-divergence in-paralog test (agent)
 - [x] 4. S1 guide species tree arms (docs/S1_speciestree.md). NCBI taxdump tree: 0% split conflict vs published QfO reference (evaluation only), nRF 0.128 due to polytomies. Data-derived trees: ASTRAL-Pro 12% conflict, FastME 17%, BIONJ 21%; errors are classic long-branch (dog/cow+primates, C. elegans, Nematostella) and Bacteria 25–30% conflict (HGT). Decision: NCBI = default guide; ablation arms = NCBI+ASTRAL-refined, ASTRAL-Pro, FastME, NNI-perturbed (seeds 11/23/47), random (negative control).
-- [~] 5. S5 synteny phase 1: gene-order tables, standalone ortholog-vs-paralog discrimination benchmark with shuffled control, ancestral adjacency API (agent)
+- [x] 5. S5 synteny phase 1 (docs/S5_synteny.md). Coverage: OrthoBench ~100%; QfO 93% (zebrafish 0.64, amphioxus 0.08). PI approved versioned-UniProt-ID matching and Ensembl Fungi 52 for S. pombe, each reported separately.
+  - [!] 5.1 Synteny discriminates orthologs vs paralogs (OrthoBench dev, AUC at w=20): human/mouse 0.92, human/chicken 0.93, zebrafish/Tetraodon 0.82, human/zebrafish 0.70, human/fly 0.49; shuffled 0.50. On 157 hard cases (sequence 50% correct), synteny decides 70 with 84% precision; re-rank gain +0.16 [0.05, 0.26], shuffled −0.006.
+  - [-] 5.2 Naive additive bonus in merge (toy): halves FP paralog pairs but loses 4–8 recall, because it disturbs in-paralog absorption. Fix: apply only at partner choice (R1).
+  - [ ] 5.3 Phase 2: integrated merge on OrthoBench dev, real vs shuffled vs off
 - [~] 8a. Competitor baselines on OrthoBench (OrthoFinder, SonicParanoid2, …) + orthobench_eval.py with dev/test + bootstrap (agent)
 - [ ] 4. Sub-task: gene-tree inference (AA vs AA+3Di) — own benchmark
 - [ ] 5. Sub-task: species tree (universal vs inferred vs family-local) — own benchmark

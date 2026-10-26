@@ -43,16 +43,17 @@ def main():
     ap.add_argument("--set", nargs="*", default=[])
     ap.add_argument("--label")
     ap.add_argument("--out")
+    ap.add_argument("--scores", default="scores.npz", help="file in RUN/stages/scores/ (e.g. scores_pass1.npz)")
     a = ap.parse_args()
     cfg = ARMS[a.arm]
     over = dict(kv.split("=", 1) for kv in a.set)
     cfg = replace(cfg, **{k: parse_val(v) for k, v in over.items()})
-    ch = hashlib.sha256(json.dumps(asdict(cfg), sort_keys=True).encode()).hexdigest()[:10]
+    ch = hashlib.sha256((json.dumps(asdict(cfg), sort_keys=True) + a.scores).encode()).hexdigest()[:10]
     out = a.out or os.path.join(a.run, "iter", ch)
     os.makedirs(out, exist_ok=True)
     gt = read_gene_table(os.path.join(a.run, "stages/input/genes.tsv"))
     tree = load_guide_tree(os.path.join(a.run, "stages/input/guide_tree.nwk"), gt.species)
-    st = ScoreTable.load(os.path.join(a.run, "stages/scores/scores.npz"))
+    st = ScoreTable.load(os.path.join(a.run, "stages/scores", a.scores))
     t0 = time.time()
     res = run_merge(gt, tree, st, cfg)
     ms = time.time() - t0
@@ -66,7 +67,7 @@ def main():
                config_hash=ch, F=round(ev["F"], 2), precision=round(ev["precision"], 2),
                recall=round(ev["recall"], 2), exact=ev["exact"], n_refogs_split=ev["n_refogs_split"],
                n_refogs_with_fp=ev["n_refogs_with_fp"], n_pred_groups=ev["n_pred_groups"],
-               merge_s=round(ms, 1), config=json.dumps(asdict(cfg), sort_keys=True))
+               merge_s=round(ms, 1), config=json.dumps(dict(asdict(cfg), scores=a.scores), sort_keys=True))
     new = not os.path.exists(LOG)
     os.makedirs(os.path.dirname(LOG), exist_ok=True)
     with open(LOG, "a") as fh:
