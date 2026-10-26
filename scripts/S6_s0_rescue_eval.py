@@ -26,8 +26,12 @@ GRID = [dict(evalue=e, small_max=s, cov_shorter=0.3) for e, s in itertools.produ
 # and a bidirectional coverage guard against the fusion increase seen in the grid
 EXPLORATORY = [dict(evalue=1e-3, small_max=1, cov_shorter=0.3),
                dict(evalue=1e-3, small_max=10, cov_shorter=0.3, cov_min=0.5),
-               dict(evalue=1e-3, small_max=1, cov_shorter=0.3, cov_min=0.5)]
+               dict(evalue=1e-3, small_max=1, cov_shorter=0.3, cov_min=0.5),
+               dict(evalue=1e-3, small_max=1, cov_shorter=0.3, mode="attach"),
+               dict(evalue=1e-3, small_max=10, cov_shorter=0.3, mode="attach"),
+               dict(evalue=1e-5, small_max=10, cov_shorter=0.3, mode="attach")]
 VARIANTS = ["real", "shuf11", "shuf23", "shuf47"]
+EXPORT = dict(evalue=1e-3, small_max=10, cov_shorter=0.3, mode="attach")   # for the downstream run
 
 
 def fam_stats(lab):
@@ -93,6 +97,11 @@ def main():
             t0 = time.time()
             lab, st = S.link_families(fam, h, gt.lengths, max_size=7500, **cfg)
             r = ev(lab)
+            if cfg == EXPORT:
+                fo = os.path.join(W, v, "families_attach_e1e-3_sm10.tsv")
+                with open(fo, "w") as fh:
+                    fh.write("#gene_id\tfamily_id\n")
+                    fh.write("".join(f"{gt.names[i]}\tS6F{int(lab[i])}\n" for i in range(gt.n)))
             rows.append(dict(variant=v, config=json.dumps(cfg), **r["aggregate"], **fam_stats(lab), link=st,
                              incomplete=sorted(k for k, x in r["per_refog"].items() if not x["complete"]),
                              s=round(time.time() - t0, 1)))

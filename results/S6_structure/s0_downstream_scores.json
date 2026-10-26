@@ -1,0 +1,54 @@
+{
+ "real": {
+  "link": {
+   "n_links": 992121,
+   "n_links_used": 4629,
+   "n_joins": 3889,
+   "n_capped": 141,
+   "n_families_before": 22546,
+   "n_families_after": 18657
+  },
+  "n_new_pairs_aligned": 7108333,
+  "n_new_scored": 164792,
+  "wall_s": 56.8
+ },
+ "shuf11": {
+  "link": {
+   "n_links": 1953443,
+   "n_links_used": 8642,
+   "n_joins": 7411,
+   "n_capped": 358,
+   "n_families_before": 22546,
+   "n_families_after": 15135
+  },
+  "n_new_pairs_aligned": 13873185,
+  "n_new_scored": 8082,
+  "wall_s": 104.5
+ },
+ "shuf23": {
+  "link": {
+   "n_links": 1964209,
+   "n_links_used": 8701,
+   "n_joins": 7414,
+   "n_capped": 350,
+   "n_families_before": 22546,
+   "n_families_after": 15132
+  },
+  "n_new_pairs_aligned": 14320730,
+  "n_new_scored": 8677,
+  "wall_s": 95.0
+ },
+ "shuf47": {
+  "link": {
+   "n_links": 1960863,
+   "n_links_used": 8699,
+   "n_joins": 7430,
+   "n_capped": 333,
+   "n_families_before": 22546,
+   "n_families_after": 15116
+  },
+  "n_new_pairs_aligned": 16030197,
+  "n_new_scored": 21366,
+  "wall_s": 104.8
+ }
+}

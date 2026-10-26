@@ -105,3 +105,15 @@ def test_build_db_and_align_pairs(tmp_path):
                       str(tmp_path / "aln"), threads=1)
     d = {(int(a), int(b)): float(x) for a, b, x in zip(h["q"], h["t"], h["bits"])}
     assert d[(0, 3)] == d[(0, 0)] == d[(3, 3)] > 0
+
+
+def test_link_families_attach_no_big_big():
+    # fam 0 (3 genes) and fam 1 (3 genes) both hit singleton fam 2; attach keeps 0 and 1 apart
+    fam = np.array([0, 0, 0, 1, 1, 1, 2])
+    L = np.full(7, 100.0)
+    hits = dict(q=np.array([6, 6, 0]), t=np.array([0, 3, 3]), evalue=np.array([1e-9, 1e-6, 1e-20]),
+                qcov=np.ones(3), tcov=np.ones(3))
+    new, st = S.link_families(fam, hits, L, evalue=1e-3, small_max=1, mode="attach")
+    assert new[6] == new[0] and new[3] != new[0]          # best link (1e-9) wins, big-big ignored
+    new_u, _ = S.link_families(fam, hits, L, evalue=1e-3, small_max=1)
+    assert new_u[6] == new_u[0] == new_u[3]               # union mode chains through the singleton

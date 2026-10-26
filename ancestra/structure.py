@@ -206,7 +206,7 @@ def align_pairs(db: str, keys_of_gene: dict, q: np.ndarray, t: np.ndarray, wd: s
 
 def link_families(fam: np.ndarray, hits: dict, lengths: np.ndarray, evalue: float = 1e-3,
                   cov_shorter: float = 0.3, max_size: int = 7500, small_max: int | None = None,
-                  cov_min: float = 0.0) -> tuple[np.ndarray, dict]:
+                  cov_min: float = 0.0, mode: str = "union") -> tuple[np.ndarray, dict]:
     """Join S0 families linked by structure hits.
 
     A hit (q, t) links fam[q] and fam[t] if e <= ``evalue`` and the alignment covers >=
@@ -215,6 +215,10 @@ def link_families(fam: np.ndarray, hits: dict, lengths: np.ndarray, evalue: floa
     and small fragments of a split family) are used. Links are applied in increasing
     e-value; a join that would exceed ``max_size`` genes is skipped (no giant families).
     ``cov_min``: additionally both qcov and tcov >= cov_min (bidirectional guard).
+    ``mode="attach"`` (needs ``small_max``): each small family (<= small_max genes) is joined
+    only to the family of its single best link (lowest e-value); families above small_max
+    have no outgoing link. This is a functional graph whose sinks are the large families,
+    so two large families are never joined (no chaining through small units).
     Returns new labels (old family id of the representative) and stats."""
     fam = np.asarray(fam).copy()
     q, t, e = hits["q"], hits["t"], hits["evalue"]
@@ -228,7 +232,18 @@ def link_families(fam: np.ndarray, hits: dict, lengths: np.ndarray, evalue: floa
         ok &= (hits["qcov"] >= cov_min) & (hits["tcov"] >= cov_min)
     uniq, inv, size0 = np.unique(fam, return_inverse=True, return_counts=True)
     a, b, ee = inv[q[ok]], inv[t[ok]], e[ok]
-    if small_max is not None:
+    if mode == "attach":
+        if small_max is None:
+            raise ValueError("attach mode needs small_max")
+        src = np.concatenate([a, b]); dst = np.concatenate([b, a]); e2 = np.concatenate([ee, ee])
+        m = size0[src] <= small_max
+        src, dst, e2 = src[m], dst[m], e2[m]
+        o = np.lexsort((-size0[dst], e2, src))          # per source: lowest e, then larger partner
+        src, dst, e2 = src[o], dst[o], e2[o]
+        first = np.ones(len(src), bool)
+        first[1:] = src[1:] != src[:-1]
+        a, b, ee = src[first], dst[first], e2[first]
+    elif small_max is not None:
         sm = (size0[a] <= small_max) | (size0[b] <= small_max)
         a, b, ee = a[sm], b[sm], ee[sm]
     parent = np.arange(len(uniq))
@@ -295,7 +310,7 @@ def _pair_key(q, t, n):
 def combine_scores(gt: GeneTable, st: ScoreTable, fs: dict, fs_self: np.ndarray,
                    mode: str = "avg", node_mask: np.ndarray | None = None,
                    fs_genes: np.ndarray | None = None, add_missing: bool = True,
-                   fit: tuple | None = None) -> tuple[ScoreTable, dict]:
+                   fit: tuple | None = None, miss_evalue: float = 1e-3) -> tuple[ScoreTable, dict]:
     """Structure-aware ScoreTable.
 
     ``fs``: 3Di+AA pair hits (gene ids, bits); ``fs_self``: 3Di+AA self bits per gene (NaN =
@@ -315,17 +330,19 @@ def combine_scores(gt: GeneTable, st: ScoreTable, fs: dict, fs_self: np.ndarray,
     fq, ft = fs["q"].astype(np.int64), fs["t"].astype(np.int64)
     m = fq != ft
     fq, ft, fb = fq[m], ft[m], fs["bits"][m].astype(np.float64)
+    fe = fs["evalue"][m].astype(np.float64) if "evalue" in fs else np.zeros(len(fq))
     den = np.maximum(fs_self[fq], fs_self[ft])
     s3 = fb / den
     ok = np.isfinite(s3) & (s3 > 0)
-    fq, ft, s3 = fq[ok], ft[ok], np.minimum(s3[ok], 1.0)
+    fq, ft, s3, fe = fq[ok], ft[ok], np.minimum(s3[ok], 1.0), fe[ok]
     k3 = _pair_key(fq, ft, n)
     o = np.argsort(k3)
-    k3, s3, fq, ft = k3[o], s3[o], fq[o], ft[o]
+    k3, s3, fq, ft, fe = k3[o], s3[o], fq[o], ft[o], fe[o]
     # duplicates (both directions): keep max
     u, first = np.unique(k3, return_index=True)
     s3m = np.maximum.reduceat(s3, first) if len(s3) else s3
-    k3, s3, fq, ft = u, s3m, fq[first], ft[first]
+    fem = np.minimum.reduceat(fe, first) if len(fe) else fe
+    k3, s3, fq, ft, fe = u, s3m, fq[first], ft[first], fem
     k0 = _pair_key(q0, t0, n)
     pos = np.searchsorted(k3, k0)
     pos = np.minimum(pos, max(len(k3) - 1, 0))
@@ -347,7 +364,7 @@ def combine_scores(gt: GeneTable, st: ScoreTable, fs: dict, fs_self: np.ndarray,
         return np.exp(-(a + b * (-np.log(np.clip(s, 1e-6, 1.0)))))
 
     # merged pair list: sequence pairs + structure-only pairs
-    only3 = ~np.isin(k3, k0)
+    only3 = ~np.isin(k3, k0) & (fe <= miss_evalue)   # structure-only pairs need e <= miss_evalue
     if add_missing:
         q = np.concatenate([q0, fq[only3]])
         t = np.concatenate([t0, ft[only3]])

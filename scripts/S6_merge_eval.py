@@ -33,15 +33,15 @@ DEEP_CLS = ["vert-teleost", "vert-invert", "invert-invert"]
 
 
 def load_fs(variant, sets, n):
-    qs, ts, bs = [], [], []
+    qs, ts, bs, es = [], [], [], []
     for s in sets:
         z = np.load(os.path.join(ROOT, "work/S6/pairs", s, variant, "fs.npz"))
-        qs.append(z["q"]); ts.append(z["t"]); bs.append(z["bits"])
-    q, t, b = np.concatenate(qs), np.concatenate(ts), np.concatenate(bs)
+        qs.append(z["q"]); ts.append(z["t"]); bs.append(z["bits"]); es.append(z["evalue"])
+    q, t, b, e = np.concatenate(qs), np.concatenate(ts), np.concatenate(bs), np.concatenate(es)
     self_ = np.full(n, np.nan)
     m = q == t
     self_[q[m]] = b[m]
-    return dict(q=q[~m], t=t[~m], bits=b[~m]), self_
+    return dict(q=q[~m], t=t[~m], bits=b[~m], evalue=e[~m]), self_
 
 
 def main():
@@ -49,11 +49,13 @@ def main():
     ap.add_argument("--arms", nargs="*", default=["off", "deep:avg:seq", "all:avg:seq", "deep:max:seq"])
     ap.add_argument("--variants", nargs="*", default=["real", "shuf11", "shuf23", "shuf47"])
     ap.add_argument("--tag", default="")
+    ap.add_argument("--base-scores", default=os.path.join(RUN, "stages/scores/scores.npz"),
+                    help="sequence ScoreTable (default run_v2; e.g. work/S6/s0_down/real/scores.npz)")
     a = ap.parse_args()
     os.makedirs(W, exist_ok=True)
     gt = read_gene_table(os.path.join(RUN, "stages/input/genes.tsv"))
     tree = load_guide_tree(os.path.join(RUN, "stages/input/guide_tree.nwk"), gt.species)
-    st0 = ScoreTable.load(os.path.join(RUN, "stages/scores/scores.npz"))
+    st0 = ScoreTable.load(a.base_scores)
     cfg = ARMS["default"]
     truth = load_truth()
     has = np.zeros(gt.n, bool); has[np.load(os.path.join(ROOT, "work/S6/db/real/genes.npy"))] = True
@@ -92,7 +94,7 @@ def main():
         ms = time.time() - t1
         ox = to_orthoxml(res, gt, tree)
         h = hashlib.sha256(f"{arm}|{v}".encode()).hexdigest()[:8]
-        out = os.path.join(W, f"{arm.replace(':', '_')}_{v}")
+        out = os.path.join(W, f"{a.tag}{arm.replace(':', '_')}_{v}")
         os.makedirs(out, exist_ok=True)
         ogs = os.path.join(out, "orthobench_ogs.txt")
         to_orthobench_ogs(ox, None, ogs)
@@ -126,7 +128,7 @@ def main():
         np.save(os.path.join(out, "pair_counts.npy"), arr)
         with open(resf, "a") as fh:
             fh.write(json.dumps(row) + "\n")
-        print(f"{arm:16s} {v:7s} F={row['F']} P={row['P_og']} R={row['R_og']} ex={row['exact']} | pair P={row['pairP']} "
+        print(f"{a.tag}{arm:16s} {v:7s} F={row['F']} P={row['P_og']} R={row['R_og']} ex={row['exact']} | pair P={row['pairP']} "
               f"R={row['pairR']} F1={row['pairF1']} | deep F1={grp['deep']['F1']} shallow F1={grp['shallow']['F1']} | "
               f"cov both={covm['both_3di']['F1']} one={covm['one_3di']['F1']} none={covm['no_3di']['F1']} | "
               f"fit={cst.get('fit_a', 0):.3f},{cst.get('fit_b', 1):.3f} changed={cst.get('n_pairs_changed')} "

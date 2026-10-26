@@ -1,0 +1,42 @@
+{
+ "ortholog_deep": {
+  "n": 2683,
+  "with_seq_score": 2445,
+  "unscored": 238,
+  "unscored_both_3di": 182,
+  "struct_rescued_real": 2,
+  "struct_rescued_shuf11": 0,
+  "struct_rescued_shuf23": 0,
+  "struct_rescued_shuf47": 0
+ },
+ "ortholog_shallow": {
+  "n": 1802,
+  "with_seq_score": 1791,
+  "unscored": 11,
+  "unscored_both_3di": 6,
+  "struct_rescued_real": 0,
+  "struct_rescued_shuf11": 0,
+  "struct_rescued_shuf23": 0,
+  "struct_rescued_shuf47": 0
+ },
+ "paralog_deep": {
+  "n": 6073,
+  "with_seq_score": 4454,
+  "unscored": 1619,
+  "unscored_both_3di": 581,
+  "struct_rescued_real": 184,
+  "struct_rescued_shuf11": 0,
+  "struct_rescued_shuf23": 0,
+  "struct_rescued_shuf47": 0
+ },
+ "paralog_shallow": {
+  "n": 8588,
+  "with_seq_score": 6182,
+  "unscored": 2406,
+  "unscored_both_3di": 850,
+  "struct_rescued_real": 470,
+  "struct_rescued_shuf11": 0,
+  "struct_rescued_shuf23": 0,
+  "struct_rescued_shuf47": 1
+ }
+}

@@ -1,0 +1,42 @@
+{
+ "created": "2026-10-26T19:49:30+01:00",
+ "foldseek": "10.941cd33",
+ "git": "46d8008bbbe6e4b05bec36a8469520187e68e36d",
+ "inputs": {
+  "data/structure/orthobench_3di_best.fa": "3aa615f0dd509cd7bb83fa81e32ff5230ba00ca01b31194c4cf62ed9651cb148",
+  "work/S0/2sA_dc30_cc_sh30_RA/families.tsv": "9b63fa5d8f7a77627a786e7ad1c4a5fd925f5c99f2a0f4e0696917d8339eb6ac",
+  "work/S0/2sA_dc30_cc_sh30_RA/stage1_clusters.tsv": "d8d597d49cd03f506a1420ac15bc150306409e549fd68baacda40288c43c8a7e",
+  "work/core_v0_ob/run_v2/stages/scores/scores.npz": "b7fe3d8ebaa736816abfba5af5667942604af964d82a917848f0ad97782aad25",
+  "work/core_v0_ob/run_v2/stages/scores/families_final.npy": "ab62c9d2a9d3bab5a7171b5e34b16bf550071bf4b0a0e7b230180284418a09f2",
+  "splits/orthobench_split.json": "90920164d52aa18339c6bd466b5f1cc8562c6121179eede8ce6197eed019a4fb",
+  "work/S5/refog_pair_labels.parquet": "c8d30e397022ce6b7525e344bc15156753271c998d6807c4ce394f8ada468f93"
+ },
+ "code": {
+  "ancestra/structure.py": "1f9f8a0e3cedc32c172649b6f5d96bc230e68a514516b5b0d970b0ffb77ec714",
+  "tests/test_structure.py": "a2970faf3759bba31c723f1906895c98ecf09813f65e6cad1cfe513ada5dc0b6",
+  "scripts/S6_build_dbs.py": "d8fa9ff404764addacbda792abd1df8896c5e5dc8fc4a5eb788bdfda47490483",
+  "scripts/S6_discrimination.py": "b79fe6aafab11c45928923a818a253d110366699130fbf28d49ec96d25eea820",
+  "scripts/S6_merge_eval.py": "10a5564137f79ce7e579f3eeec1442de9808c3d4e992c16e1586db1a8305698d",
+  "scripts/S6_pair_coverage.py": "fc0dc4b5ac3ed794d532f2eafdf0758e9e7264e0fcf59d13e3436fa0cb6355fa",
+  "scripts/S6_pair_scores.py": "1ff65be3638e66b97aabbcf2dd1ecac1533412abb95d6d5551a87477f5e3c28e",
+  "scripts/S6_s0_downstream.py": "c7e7b5f76229e9a0a5603c4525c5dd6a16bb7033ce11bb2e7d65fd2552decd27",
+  "scripts/S6_s0_rescue_eval.py": "078e0663354fac5bc432e3d84619ee32cb61505f491aedbd77d38901e55644ed",
+  "scripts/S6_s0_search.py": "951e60c051546e2acf61d0621b552d9f0279f0414fc52404d1d81b5c1f013dc2",
+  "scripts/S6_summarize.py": "c2058d1427a9f756a520a158165a7abffd502ae36c02eed467d29311330775fe"
+ },
+ "commands": [
+  "python scripts/S6_build_dbs.py",
+  "python scripts/S6_s0_search.py",
+  "python scripts/S6_s0_rescue_eval.py",
+  "python scripts/S6_s0_downstream.py --threads 8",
+  "python scripts/S6_pair_scores.py --set seq",
+  "python scripts/S6_pair_scores.py --set miss --threads 9",
+  "python scripts/S6_merge_eval.py  (default arms; then --arms off deep:avg:seq+miss deep:max:seq+miss with --variants)",
+  "python scripts/S6_merge_eval.py --arms off --tag s0down_<v>_ --base-scores work/S6/s0_down/<v>/scores.npz",
+  "python scripts/S6_discrimination.py",
+  "python scripts/S6_pair_coverage.py",
+  "python scripts/S6_summarize.py"
+ ],
+ "node_note": "shared node, load average 47-79 on 48 logical CPUs during all runs; <=10 threads used",
+ "test_subset_scored": false
+}

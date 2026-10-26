@@ -1,0 +1,27 @@
+{
+ "set": "seq",
+ "n_dev_families": 38,
+ "n_genes_dev_families": 56252,
+ "n_genes_with_3di": 42817,
+ "n_pairs": 1935768,
+ "real": {
+  "n_aligned": 1935768,
+  "wall_s": 90.4,
+  "cpu_s": 578.4
+ },
+ "shuf11": {
+  "n_aligned": 1935768,
+  "wall_s": 52.3,
+  "cpu_s": 441.8
+ },
+ "shuf23": {
+  "n_aligned": 1935768,
+  "wall_s": 49.9,
+  "cpu_s": 438.5
+ },
+ "shuf47": {
+  "n_aligned": 1935768,
+  "wall_s": 72.1,
+  "cpu_s": 430.8
+ }
+}
