@@ -35,12 +35,15 @@ def main():
         if r["arm"] not in arms:
             arms.append(r["arm"])
     print("## Headline: default configuration (arm `default`); mean±sd over seeds 11/23/47\n")
+    print("Families: `truth` = simulator root families; `s0b` = current S0 default `2sA_dc30_cc_sh30_RA`; "
+          "`s0` = earlier S0 default (dc30 reps-vs-reps CC, min-cov 50%).\n")
     print("Scoring `hybrid+rescue` = final default (DIAMOND blocks + MMseqs2 rescue of missed in-family "
           "pairs + cross-family S0 rescue); `hybrid` = without the family rescue.\n")
     print("| setting | families | scoring | P | R | F1 | FP paralog | root exact | level exact | level Jacc | deep exact (d<=1) | shallow exact (d>=2) |")
     print("|---|---|---|---|---|---|---|---|---|---|---|---|")
     for st in settings:
-        for fams, be in (("truth", "hybrid+rescue"), ("truth", "hybrid"), ("s0", "hybrid+rescue"), ("s0", "hybrid")):
+        for fams, be in (("truth", "hybrid+rescue"), ("truth", "hybrid"), ("s0b", "hybrid+rescue"), ("s0b", "hybrid"),
+                         ("s0", "hybrid+rescue"), ("s0", "hybrid")):
             rs = [r for r in recs if (r["setting"], r["n_species"]) == st and r["families"] == fams
                   and r["backend"] == be and r["arm"] == "default"]
             if rs:
@@ -121,10 +124,16 @@ def main():
     print("| setting | S0 families | truth families exactly recovered | fissions | fusions | S0 wall s |")
     print("|---|---|---|---|---|---|")
     for st in settings:
-        rs = [r for r in recs if (r["setting"], r["n_species"]) == st and r["families"] == "s0"
-              and r["arm"] == arms[0] and r["backend"] == "diamond"]
+      for fsrc in ("s0", "s0b"):
+        rs = [r for r in recs if (r["setting"], r["n_species"]) == st and r["families"] == fsrc
+              and r.get("s0_exact") is not None]
+        best = {}
+        for r in rs:   # keep the record that actually ran S0 (cached reruns report ~0 s)
+            if r["sim"] not in best or (r.get("s0_wall_s") or 0) > (best[r["sim"]].get("s0_wall_s") or 0):
+                best[r["sim"]] = r
+        rs = list(best.values())
         if rs:
-            print(f"| {st[0]}{st[1]} | {ms([r['s0_n_families'] for r in rs], '{:.0f}')} | "
+            print(f"| {st[0]}{st[1]} {fsrc} | {ms([r['s0_n_families'] for r in rs], '{:.0f}')} | "
                   f"{ms([r['s0_exact'] for r in rs])} | {ms([r['s0_fissions'] for r in rs], '{:.0f}')} | "
                   f"{ms([r['s0_fusions'] for r in rs], '{:.0f}')} | {ms([r['s0_wall_s'] for r in rs], '{:.0f}')} |")
     print("\n## Merge wall time (s, all nodes, one process)\n")
