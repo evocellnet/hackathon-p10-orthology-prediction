@@ -24,6 +24,8 @@ from ancestra.scoring import ScoreTable  # noqa: E402
 SIMS = os.path.join(ROOT, "work/core_v0/sims")
 RUNS = os.path.join(ROOT, "work/core_v0/runs")
 D = MergeConfig()
+GRID_NAME = os.environ.get("SWEEP_GRID", "base")
+SCORES = os.environ.get("SWEEP_SCORES", "scores_hybrid_e10.npz")
 GRID = [("default", D)]
 for v in (0.8, 0.9, 0.95, 1.05):
     GRID.append((f"inpar_factor={v}", replace(D, inpar_factor=v)))
@@ -33,13 +35,22 @@ for v in (0.3, 0.5, 0.7, 0.9):
     GRID.append((f"repair_ratio={v}", replace(D, repair=True, repair_ratio=v)))
 for v in (0.3, 0.0):
     GRID.append((f"min_cov={v}", replace(D, min_cov=v)))
+if GRID_NAME == "rd":   # pre-stated rule as above (P >= default P - 0.003, max F1)
+    GRID = [("default", D)]
+    for z in (2.0, 3.0, 4.0, 6.0):
+        GRID.append((f"rd_hidden z={z}", replace(D, rd_hidden=True, rd_z=z)))
+    for f in (0.8, 1.0, 1.2):
+        GRID.append((f"rd_inpar f={f}", replace(D, rd_inpar=True, rd_inpar_factor=f)))
+    for z, f in ((3.0, 1.0), (4.0, 1.0), (3.0, 0.8)):
+        GRID.append((f"rd_both z={z} f={f}", replace(D, rd_hidden=True, rd_z=z, rd_inpar=True,
+                                                      rd_inpar_factor=f)))
 
 
 def one(sim):
     d = os.path.join(SIMS, sim)
     gt = load_proteomes(os.path.join(d, "proteomes"))
     tree = load_guide_tree(os.path.join(d, "species_tree.nwk"), gt.species)
-    st = ScoreTable.load(os.path.join(RUNS, sim, "truth", "scores_hybrid_e10.npz"))
+    st = ScoreTable.load(os.path.join(RUNS, sim, "truth", SCORES))
     truth = set(hogs_to_pairs(read_orthoxml(os.path.join(d, "truth", "hogs.orthoxml"))))
     out = []
     for name, cfg in GRID:

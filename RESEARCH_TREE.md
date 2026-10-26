@@ -37,7 +37,7 @@ Decision note M0: benchmark lives in its own repo (bench_repo/) as the prompt re
 - [x] 3b. Core engine v0 (docs/core_v0.md): hybrid scoring (DIAMOND + MMseqs2 re-align of in-family misses, which recovers the 6–10% of pairs DIAMOND alone misses); level-synchronous k-way merge (mutual-best seeds, in-paralog absorption, avg-link, normalised scores, coverage guard 0.5). Toy pair F1 0.94–0.98 (precision 0.986–0.993); RBH-only arm 0.74. 33k proteins/32 spp end-to-end 35 s.
   - Failure modes: fast-evolving young duplicates fail the in-paralog test; hidden paralogy via complementary loss (all FPs are true paralogs); saturated deep families.
   - [~] 3c. v0 on OrthoBench dev + diagnostics + relative-divergence in-paralog test (agent)
-- [~] 4. S1 guide species tree arms (agent)
+- [x] 4. S1 guide species tree arms (docs/S1_speciestree.md). NCBI taxdump tree: 0% split conflict vs published QfO reference (evaluation only), nRF 0.128 due to polytomies. Data-derived trees: ASTRAL-Pro 12% conflict, FastME 17%, BIONJ 21%; errors are classic long-branch (dog/cow+primates, C. elegans, Nematostella) and Bacteria 25–30% conflict (HGT). Decision: NCBI = default guide; ablation arms = NCBI+ASTRAL-refined, ASTRAL-Pro, FastME, NNI-perturbed (seeds 11/23/47), random (negative control).
 - [~] 5. S5 synteny phase 1: gene-order tables, standalone ortholog-vs-paralog discrimination benchmark with shuffled control, ancestral adjacency API (agent)
 - [~] 8a. Competitor baselines on OrthoBench (OrthoFinder, SonicParanoid2, …) + orthobench_eval.py with dev/test + bootstrap (agent)
 - [ ] 4. Sub-task: gene-tree inference (AA vs AA+3Di) — own benchmark

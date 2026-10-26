@@ -66,8 +66,9 @@ $PY qfo "$W/sub_fs" "$S/qfo_fasta" "$W/qfo_3di_foldcomp.fa" "$W/qfo_foldcomp.sta
 $PY ob "$W/sub_fs" "$OB_IN" "$W/ob_candidates.tsv" "$W/orthobench_3di_foldcomp.fa" "$W/ob_foldcomp.stats.tsv"
 
 # 6. True-3Di tables from the Foldseek AFDB DB by exact sequence (Alphafold/UniProt preferred, else Alphafold/Proteome)
-FSDB=$S/afdb_uniprot_fs/afdb_uniprot; FSLAB=fsuniprot
-if [ ! -s "$FSDB" ] || [ ! -s "${FSDB}_ss" ]; then FSDB=$S/afdb_proteome_db/afdbp; FSLAB=fsproteome; fi
+[ "${SKIP_FSDB:-0}" = 1 ] || [ -f "$S/afdb_uniprot_fs/ex/.extracted" ] || "$ROOT/scripts/get_foldseek_afdb_uniprot.sh"   # 491 GB download + parallel extract
+FSDB=$S/afdb_uniprot_fs/ex/afdb; FSLAB=fsuniprot
+if [ ! -f "$S/afdb_uniprot_fs/ex/.extracted" ]; then FSDB=$S/afdb_proteome_db/afdbp; FSLAB=fsproteome; fi
 log "exact-sequence route on $FSDB"
 $PY fsexact "$FSDB" "$S/qfo_fasta" "$OB_IN" "$W/$FSLAB" --procs "$THREADS"
 

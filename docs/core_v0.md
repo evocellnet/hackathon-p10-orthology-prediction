@@ -122,12 +122,48 @@ Other scoring rules:
 
 Named arms are in `merge.ARMS`: `default`, `rbh`, `max`, `max+repair`, `avg`, `avg+repair`, `*/bits`, `*/quartet` and `avg+repair/either`.
 
-### 3.4 Extension hooks (not used in v0)
-- `run_merge(..., context=f)`: `f(node, a, b, s) -> bonus` is added to every cross-child candidate score before R1. This is the slot for synteny (S5): the per-node unit IDs and the edges are available, and the units' leaf members give their adjacencies.
-- `run_merge(..., resolver=g)`: `g(node, child, lu, lv, score, labels) -> labels` may rewrite the partition. This is the slot for the local-tree mode on ambiguous clusters (FAMSA + FastTree + species overlap).
-- The outgroup machinery (`out_edges` in `decide_node`) already gives every unit its scores to sibling-clade genes. It is reusable for the OMA-style witness test against hidden paralogy (r2 external PI, S1).
-- `scoring.BACKENDS["foldseek3di"]`: a 3Di backend with the same `ScoreTable` interface. A second score column can be added to `leaf_scores`.
-- `run_merge(..., trace={})` records, per node, each clade gene's ancestral ID before and after the node. `diagnose_core_v0.py` uses it.
+### 3.4 Extension hooks
+- **Context evidence / synteny (S5): `run_merge(..., context=f, gene_order=go, adjacency_w=5)`.** Specified in §3.5.
+- **Relative-divergence tests (added after v0, §3.6):** `MergeConfig(rd_hidden=True, rd_inpar=True)`.
+- **Local-tree mode:** `run_merge(..., resolver=g)`, where `g(node, child, lu, lv, score, labels) -> labels` may rewrite the partition. This is the slot for ambiguous clusters (FAMSA + FastTree + species overlap).
+- **3Di backend:** `scoring.BACKENDS["foldseek3di"]` has the same `ScoreTable` interface. A second score column can be added to `leaf_scores`.
+- **Diagnostics:** `run_merge(..., trace={})` records, per node, each clade gene's ancestral ID before and after the node. `diagnose_core_v0.py` uses it.
+
+### 3.5 Synteny interface (for the S5 agent; data layer done, no scoring implemented)
+**Gene order.** `ancestra.genome.load_gene_order_gff3(gff_dir, gene_table) -> GeneOrder` reads Ensembl-style GFF3 (protein → transcript → gene; WormBase `<gene_id>.1` IDs fall back to the gene ID).
+- `GeneOrder` holds, per integer gene ID: `contig` (global index into `contig_names = "species:seqid"`), `rank` along the contig among *proteome genes* (gap-tolerant with respect to unannotated loci), `start` and `strand`. Genes without coordinates have `contig = -1`.
+- For human, mouse and zebrafish the `chr_patch_hapl_scaff` file is used, because OrthoBench contains alt-haplotype genes. Those genes sit on their own contigs, so they only get neighbours there.
+- `GeneOrder.shuffled(seed)` is the pre-registered shuffled-order control: ranks are permuted within each species.
+- **OrthoBench (Ensembl 99) coverage:** 100% for 10 species, 99.99% for human and mouse. 3,837 contigs, 1.22M neighbour pairs at w=5, 32 s to load (`work/core_v0_ob/gene_order.npz`).
+- **Toy:** `SIM/gff/` gives 100% coverage.
+
+**Neighbours.** `genome.neighbor_pairs(go, w)` returns all same-contig pairs (a, b, rank distance ≤ w).
+
+**Adjacency.** `genome.unit_adjacency(...)` maps those pairs through gene → ancestral-gene maps. Two ancestral genes are adjacent if some member genes are neighbours in at least one species; the weight is the number of such species, plus the minimal distance.
+
+**What the context function receives.** At each node X, `run_merge` calls `f(ctx)` with an `ancestra.merge.NodeContext`:
+
+| field | content |
+|---|---|
+| `node`, `children` | X and its child names; child index = position in `children` |
+| `units`, `child` | local unit i ↔ global ancestral-gene ID; child index of each unit (units = ancestral genes of X's children) |
+| `cand_a`, `cand_b`, `cand_score` | every scored cross-child unit pair (local indices) and its sequence score (avg- or max-link of the normalised leaf scores) |
+| `anchors` | bool per candidate: pass-1 anchors, i.e. strict mutual best with each unit in exactly one strict mutual-best pair (sequence only) |
+| `adjacency` | `(ua, ub, n_species, min_dist)`: within-child adjacencies between local units at window w (built from the members' gene order in that child's species); `None` without `gene_order` |
+| `members(i)` | leaf gene IDs of local unit i (for gene-level features such as strand, tandem arrays or contig) |
+
+**What it returns.** A float array of length `len(cand_a)`. It is an additive bonus on the candidate scores, in the same units as `cand_score` (normalised, ≤1); NaN counts as 0.
+
+**When it is applied.** The bonus is applied **before** R1–R3: mutual-best, in-paralog absorption and repair are recomputed on `score + bonus`. That makes the scheme three-pass and non-circular:
+1. Anchors come from sequence only.
+2. The context is scored against the anchors.
+3. The rules run on the adjusted scores.
+
+**Using it for S5.** The DESIGN S5 support for (a,b) is the number of anchor pairs (n_a, n_b) with n_a adjacent to a and n_b adjacent to b. It can be computed from `adjacency` (two adjacency lists, one per child) and `anchors`. Tandem duplicates (members adjacent to each other) should abstain.
+
+**Guarantees** (tested in `test_gene_order_and_context_hook`): a zero bonus reproduces the sequence-only result exactly, adjacency is always within-child, and the context is called once per internal node.
+
+**Cost.** Each call computes adjacency from N·w neighbour pairs, which is O(N·w) per node.
 
 ## 4. Complexity
 - **S2:** DIAMOND blocks ~N·B. The rescue cost is proportional to the pairs DIAMOND missed (5–12% of Σ g_f(g_f+1)/2 on the toy). The cross-family rescue re-scores only the joined families (3–14% of genes on the toy, 2–15 s).

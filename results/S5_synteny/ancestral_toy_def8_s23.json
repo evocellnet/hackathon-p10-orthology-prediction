@@ -1,0 +1,368 @@
+{
+ "sim": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/S5/toy/def8_s23",
+ "params": {
+  "seed": 23,
+  "params": {
+   "n_species": 8,
+   "n_genes": 1500,
+   "n_chromosomes": 4,
+   "newick": null,
+   "tree_height": null,
+   "dup_rate": 0.2,
+   "loss_rate": 0.2,
+   "inversion_rate": 0.05,
+   "translocation_rate": 0.02,
+   "hgt_rate": 0.0,
+   "dispersed_dup_frac": 0.2,
+   "block_mean": 4.0,
+   "wgd_branch": null,
+   "wgd_position": 0.5,
+   "wgd_fractionation": 0.5,
+   "gamma_shape": 1.0,
+   "gamma_categories": 4,
+   "family_rate_shape": 2.0,
+   "indel_rate": 0.02,
+   "indel_mean_len": 3.0,
+   "indel_max_len": 20,
+   "neo_factor": 1.0,
+   "neo_duration": 0.05,
+   "len_min": 150,
+   "len_max": 600,
+   "min_protein_len": 50
+  },
+  "version": "0.1.0",
+  "runtime_s": 3.683,
+  "stats": {
+   "n_proteins": 11949,
+   "n_families_surviving": 1477,
+   "n_true_ortholog_pairs": 41704,
+   "n_events": {
+    "duplication": 1126,
+    "loss": 1113,
+    "inversion": 268,
+    "translocation": 112,
+    "hgt": 0,
+    "wgd": 0
+   },
+   "wgd_branch": null
+  }
+ },
+ "windows": [
+  5,
+  10
+ ],
+ "amb": 0.9,
+ "shuffle_seeds": [
+  11,
+  23,
+  47
+ ],
+ "nodes": [
+  {
+   "node": "N6",
+   "depth": 3,
+   "n_children": 2,
+   "n_units": 3043,
+   "n_cand": 1806,
+   "n_orth": 1515,
+   "n_hard": 186,
+   "n_anchors": 1015,
+   "anchor_precision": 0.9950738916256158,
+   "n_oracle_anchors": 1045,
+   "seq_auc": 0.6324,
+   "seq_auc_hard": 0.5386,
+   "w5": {
+    "auc": 0.7163,
+    "auc_hard": 0.7179,
+    "auc_oracle": 0.7286,
+    "auc_hard_oracle": 0.7165,
+    "frac_orth_sup": 0.9525,
+    "frac_par_sup": 0.6838,
+    "n_adj_edges": 15095,
+    "shuf_auc": 0.5011,
+    "shuf_auc_hard": 0.5019
+   },
+   "w10": {
+    "auc": 0.6764,
+    "auc_hard": 0.6964,
+    "auc_oracle": 0.6845,
+    "auc_hard_oracle": 0.7048,
+    "frac_orth_sup": 0.9564,
+    "frac_par_sup": 0.7182,
+    "n_adj_edges": 29990,
+    "shuf_auc": 0.5027,
+    "shuf_auc_hard": 0.5019
+   }
+  },
+  {
+   "node": "N5",
+   "depth": 2,
+   "n_children": 2,
+   "n_units": 2982,
+   "n_cand": 1698,
+   "n_orth": 1436,
+   "n_hard": 186,
+   "n_anchors": 1094,
+   "anchor_precision": 0.9990859232175503,
+   "n_oracle_anchors": 1151,
+   "seq_auc": 0.6449,
+   "seq_auc_hard": 0.6026,
+   "w5": {
+    "auc": 0.7383,
+    "auc_hard": 0.6597,
+    "auc_oracle": 0.7374,
+    "auc_hard_oracle": 0.6622,
+    "frac_orth_sup": 0.9666,
+    "frac_par_sup": 0.7176,
+    "n_adj_edges": 16368,
+    "shuf_auc": 0.4995,
+    "shuf_auc_hard": 0.4972
+   },
+   "w10": {
+    "auc": 0.6889,
+    "auc_hard": 0.6123,
+    "auc_oracle": 0.6893,
+    "auc_hard_oracle": 0.6199,
+    "frac_orth_sup": 0.9694,
+    "frac_par_sup": 0.7328,
+    "n_adj_edges": 32273,
+    "shuf_auc": 0.5008,
+    "shuf_auc_hard": 0.501
+   }
+  },
+  {
+   "node": "N4",
+   "depth": 1,
+   "n_children": 2,
+   "n_units": 2985,
+   "n_cand": 1721,
+   "n_orth": 1459,
+   "n_hard": 194,
+   "n_anchors": 1130,
+   "anchor_precision": 1.0,
+   "n_oracle_anchors": 1187,
+   "seq_auc": 0.6337,
+   "seq_auc_hard": 0.576,
+   "w5": {
+    "auc": 0.7633,
+    "auc_hard": 0.6475,
+    "auc_oracle": 0.7673,
+    "auc_hard_oracle": 0.6479,
+    "frac_orth_sup": 0.9733,
+    "frac_par_sup": 0.7443,
+    "n_adj_edges": 17897,
+    "shuf_auc": 0.499,
+    "shuf_auc_hard": 0.4999
+   },
+   "w10": {
+    "auc": 0.7239,
+    "auc_hard": 0.6289,
+    "auc_oracle": 0.7306,
+    "auc_hard_oracle": 0.6381,
+    "frac_orth_sup": 0.9781,
+    "frac_par_sup": 0.7634,
+    "n_adj_edges": 35069,
+    "shuf_auc": 0.5021,
+    "shuf_auc_hard": 0.5001
+   }
+  },
+  {
+   "node": "N3",
+   "depth": 3,
+   "n_children": 2,
+   "n_units": 2966,
+   "n_cand": 1981,
+   "n_orth": 1482,
+   "n_hard": 155,
+   "n_anchors": 1402,
+   "anchor_precision": 1.0,
+   "n_oracle_anchors": 1470,
+   "seq_auc": 0.7978,
+   "seq_auc_hard": 0.5751,
+   "w5": {
+    "auc": 0.9131,
+    "auc_hard": 0.8511,
+    "auc_oracle": 0.9517,
+    "auc_hard_oracle": 0.9056,
+    "frac_orth_sup": 0.9993,
+    "frac_par_sup": 0.7735,
+    "n_adj_edges": 14710,
+    "shuf_auc": 0.4998,
+    "shuf_auc_hard": 0.5006
+   },
+   "w10": {
+    "auc": 0.8444,
+    "auc_hard": 0.787,
+    "auc_oracle": 0.9116,
+    "auc_hard_oracle": 0.8728,
+    "frac_orth_sup": 0.9993,
+    "frac_par_sup": 0.7735,
+    "n_adj_edges": 29220,
+    "shuf_auc": 0.5002,
+    "shuf_auc_hard": 0.4973
+   }
+  },
+  {
+   "node": "N2",
+   "depth": 2,
+   "n_children": 2,
+   "n_units": 2958,
+   "n_cand": 1950,
+   "n_orth": 1481,
+   "n_hard": 133,
+   "n_anchors": 1346,
+   "anchor_precision": 1.0,
+   "n_oracle_anchors": 1392,
+   "seq_auc": 0.7897,
+   "seq_auc_hard": 0.567,
+   "w5": {
+    "auc": 0.8581,
+    "auc_hard": 0.7415,
+    "auc_oracle": 0.8782,
+    "auc_hard_oracle": 0.7842,
+    "frac_orth_sup": 0.9946,
+    "frac_par_sup": 0.7527,
+    "n_adj_edges": 14770,
+    "shuf_auc": 0.4995,
+    "shuf_auc_hard": 0.5059
+   },
+   "w10": {
+    "auc": 0.7673,
+    "auc_hard": 0.6781,
+    "auc_oracle": 0.7995,
+    "auc_hard_oracle": 0.7018,
+    "frac_orth_sup": 0.9946,
+    "frac_par_sup": 0.7527,
+    "n_adj_edges": 29384,
+    "shuf_auc": 0.5021,
+    "shuf_auc_hard": 0.5003
+   }
+  },
+  {
+   "node": "N1",
+   "depth": 1,
+   "n_children": 2,
+   "n_units": 2960,
+   "n_cand": 1954,
+   "n_orth": 1481,
+   "n_hard": 144,
+   "n_anchors": 1365,
+   "anchor_precision": 1.0,
+   "n_oracle_anchors": 1425,
+   "seq_auc": 0.776,
+   "seq_auc_hard": 0.5646,
+   "w5": {
+    "auc": 0.8403,
+    "auc_hard": 0.7745,
+    "auc_oracle": 0.8755,
+    "auc_hard_oracle": 0.7986,
+    "frac_orth_sup": 0.998,
+    "frac_par_sup": 0.759,
+    "n_adj_edges": 15164,
+    "shuf_auc": 0.5004,
+    "shuf_auc_hard": 0.5023
+   },
+   "w10": {
+    "auc": 0.7626,
+    "auc_hard": 0.6804,
+    "auc_oracle": 0.8083,
+    "auc_hard_oracle": 0.6972,
+    "frac_orth_sup": 0.998,
+    "frac_par_sup": 0.7611,
+    "n_adj_edges": 30200,
+    "shuf_auc": 0.4993,
+    "shuf_auc_hard": 0.5006
+   }
+  },
+  {
+   "node": "N0",
+   "depth": 0,
+   "n_children": 2,
+   "n_units": 2977,
+   "n_cand": 1343,
+   "n_orth": 1343,
+   "n_hard": 0,
+   "n_anchors": 878,
+   "anchor_precision": 1.0,
+   "n_oracle_anchors": 832,
+   "seq_auc": null,
+   "seq_auc_hard": null,
+   "w5": {
+    "auc": null,
+    "auc_hard": null,
+    "auc_oracle": null,
+    "auc_hard_oracle": null,
+    "frac_orth_sup": 0.9263,
+    "frac_par_sup": null,
+    "n_adj_edges": 19941,
+    "shuf_auc": null,
+    "shuf_auc_hard": null
+   },
+   "w10": {
+    "auc": null,
+    "auc_hard": null,
+    "auc_oracle": null,
+    "auc_hard_oracle": null,
+    "frac_orth_sup": 0.933,
+    "frac_par_sup": null,
+    "n_adj_edges": 39100,
+    "shuf_auc": null,
+    "shuf_auc_hard": null
+   }
+  }
+ ],
+ "by_depth": {
+  "0": {
+   "nodes": [
+    "N0"
+   ],
+   "n_cand": 1343,
+   "n_orth": 1343,
+   "n_hard": 0,
+   "w5_auc": null,
+   "w5_auc_hard": null,
+   "w10_auc": null,
+   "w10_auc_hard": null
+  },
+  "1": {
+   "nodes": [
+    "N4",
+    "N1"
+   ],
+   "n_cand": 3675,
+   "n_orth": 2940,
+   "n_hard": 338,
+   "w5_auc": 0.748,
+   "w5_auc_hard": 0.6752,
+   "w10_auc": 0.6686,
+   "w10_auc_hard": 0.6267
+  },
+  "2": {
+   "nodes": [
+    "N5",
+    "N2"
+   ],
+   "n_cand": 3648,
+   "n_orth": 2917,
+   "n_hard": 319,
+   "w5_auc": 0.7418,
+   "w5_auc_hard": 0.6542,
+   "w10_auc": 0.6544,
+   "w10_auc_hard": 0.5975
+  },
+  "3": {
+   "nodes": [
+    "N6",
+    "N3"
+   ],
+   "n_cand": 3787,
+   "n_orth": 2997,
+   "n_hard": 341,
+   "w5_auc": 0.718,
+   "w5_auc_hard": 0.7036,
+   "w10_auc": 0.6521,
+   "w10_auc_hard": 0.6484
+  }
+ },
+ "wall_s": 93.6
+}

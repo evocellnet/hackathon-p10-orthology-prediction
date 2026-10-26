@@ -72,6 +72,9 @@ class ScoringConfig:
     top_same: int = 20
     family_rescue: bool = True      # join S0 families linked by a cross-family hit (S0 fission repair)
     rescue_cov: float = 0.5         # ... with min(qcov, tcov) >= rescue_cov
+    rescue_max_join: int = 7500     # never join families into one larger than this (S0 s2_gmax)
+    rescue_max_family: int = 1000   # hybrid: MMseqs2 re-alignment of DIAMOND-missed pairs only in
+                                    # families <= this size (bounded cost; big families get many hits)
     rescue_evalue: float = 1e-5     # ... and evalue <= rescue_evalue
     threads: int = 24
 
@@ -166,10 +169,42 @@ def _reduce_records(q, t, bits, qcov, tcov, pid, ev, n_genes):
 
 
 def _read_m8(path, ncol):
+    """Read a tab-separated hit table (ids first two columns) with the pandas C parser."""
     if os.path.getsize(path) == 0:
         return [np.zeros(0)] * ncol
-    a = np.loadtxt(path, dtype=np.float64, ndmin=2)
-    return [a[:, i] for i in range(ncol)]
+    import pandas as pd
+    df = pd.read_csv(path, sep="\t", header=None, engine="c",
+                     dtype={i: (np.int64 if i < 2 else np.float32) for i in range(ncol)})
+    return [df[i].to_numpy() for i in range(ncol)]
+
+
+def _iter_m8(path, ncol, chunksize=20_000_000):
+    """Chunked version of _read_m8 for very large DIAMOND outputs."""
+    if os.path.getsize(path) == 0:
+        return
+    import pandas as pd
+    for df in pd.read_csv(path, sep="\t", header=None, engine="c", chunksize=chunksize,
+                          dtype={i: (np.int64 if i < 2 else np.float32) for i in range(ncol)}):
+        yield [df[i].to_numpy() for i in range(ncol)]
+
+
+def _orient_dedup(c):
+    """Orient non-self records to q<t (swapping coverages) and keep the best record per pair.
+    Self records (q == t) are kept unchanged."""
+    q, t = c[0], c[1]
+    selfm = q == t
+    out_self = [x[selfm] for x in c]
+    q, t, bits, qcov, tcov, pid, ev = (x[~selfm] for x in c)
+    sw = q > t
+    q, t = np.where(sw, t, q), np.where(sw, q, t)
+    qcov, tcov = np.where(sw, tcov, qcov), np.where(sw, qcov, tcov)
+    order = np.lexsort((-bits, t, q))
+    q, t, bits, qcov, tcov, pid, ev = (x[order] for x in (q, t, bits, qcov, tcov, pid, ev))
+    keep = np.ones(len(q), bool)
+    if len(q):
+        keep[1:] = (q[1:] != q[:-1]) | (t[1:] != t[:-1])
+    red = [x[keep] for x in (q, t, bits, qcov, tcov, pid, ev)]
+    return [np.concatenate([a, b]) for a, b in zip(out_self, red)]
 
 
 # ----------------------------------------------------------------------------
@@ -213,8 +248,9 @@ def apply_cap(st: ScoreTable, fam: np.ndarray, species_of: np.ndarray, cfg: "Sco
         per_fam = {int(a): int(n) for a, n in zip(f, c)}
     stats["n_pairs_dropped_by_cap"] = int(len(dropped))
     stats["pairs_dropped_per_family"] = per_fam
-    return ScoreTable(*(getattr(st, k)[keep_e] for k in ("q", "t", "bits", "qcov", "tcov",
-                                                         "pident", "evalue")), st.self_bits)
+    out = ScoreTable(*(getattr(st, k)[keep_e] for k in ("q", "t", "bits", "qcov", "tcov",
+                                                        "pident", "evalue")), st.self_bits)
+    return out
 
 
 # ----------------------------------------------------------------------------
@@ -257,12 +293,20 @@ def _diamond_blocks(gt, fam, blocks, cfg, wd, log, stats):
         if cfg.diamond_sens:
             cmd.append(cfg.diamond_sens)
         _run(cmd, log)
-        c = _read_m8(out, 7)
-        q, t = c[0].astype(np.int64), c[1].astype(np.int64)
-        keep = fam[q] == fam[t]
-        stats["n_cross_family_hits"] = stats.get("n_cross_family_hits", 0) + int((~keep).sum())
-        stats.setdefault("_cross", []).append([x[~keep] for x in c])   # S0-fission signal
-        cols.append([x[keep] for x in c])
+        bcols = []
+        for c in _iter_m8(out, 7):
+            q, t = c[0], c[1]
+            keep = fam[q] == fam[t]
+            stats["n_cross_family_hits"] = stats.get("n_cross_family_hits", 0) + int((~keep).sum())
+            stats["n_raw_hits"] = stats.get("n_raw_hits", 0) + int(len(q))
+            cr = [x[~keep] for x in c]
+            # cross-family hits: only those that could join families are kept (S0-fission signal)
+            good = np.minimum(cr[3], cr[4]) >= 100 * cfg.rescue_cov * 0.6
+            stats.setdefault("_cross", []).append([x[good] for x in cr])
+            bcols.append([x[keep] for x in c])
+        if bcols:
+            cols.append(_orient_dedup([np.concatenate([x[i] for x in bcols]) for i in range(7)]))
+        del bcols
         for f in (fa, fa + ".dmnd", out):
             os.remove(f)
     stats["n_blocks"] = stats.get("n_blocks", 0) + len(blocks)
@@ -347,7 +391,7 @@ def _backend_hybrid(gt: GeneTable, fam: np.ndarray, cfg: ScoringConfig, wd: str,
     """DIAMOND blocks first; then mmseqs align only the in-family pairs (families <= cap_all)
     that DIAMOND did not report (targeted rescue of divergent pairs)."""
     c = _diamond_blocks(gt, fam, pack_blocks(fam, cfg.block_genes), cfg, wd, log, stats)
-    q, t, _ = _all_small_family_pairs(fam, cfg.cap_all)
+    q, t, _ = _all_small_family_pairs(fam, min(cfg.cap_all, cfg.rescue_max_family))
     M = gt.n + 1
     dq, dt = c[0].astype(np.int64), c[1].astype(np.int64)
     found = np.unique(np.minimum(dq, dt) * M + np.maximum(dq, dt))
@@ -375,36 +419,47 @@ BACKENDS = {"mmseqs": _backend_mmseqs, "diamond": _backend_diamond, "hybrid": _b
             "foldseek3di": _backend_foldseek3di}
 
 
-def join_families(fam: np.ndarray, cross: dict, cov: float, evalue: float):
-    """Union families linked by a cross-family hit passing the coverage/e-value guard.
+def join_families(fam: np.ndarray, cross: dict, cov: float, evalue: float, max_size: int | None = None):
+    """Union families linked by a cross-family hit passing the coverage/e-value guard
+    (strongest hits first; a join that would exceed ``max_size`` genes is skipped, so
+    S0's deliberate splits of giant components are not undone).
     Returns (new family array relabelled 0.., number of joins)."""
     parent = np.arange(int(fam.max()) + 1)
+    fsize = np.bincount(fam, minlength=len(parent)).astype(np.int64)
 
     def find(x):
         while parent[x] != x:
             parent[x] = parent[parent[x]]
             x = parent[x]
         return x
-    m = (np.minimum(cross["qcov"], cross["tcov"]) >= cov) & (cross["evalue"] <= evalue)
+    m = np.flatnonzero((np.minimum(cross["qcov"], cross["tcov"]) >= cov) & (cross["evalue"] <= evalue))
+    m = m[np.argsort(-np.asarray(cross["bits"])[m], kind="stable")] if "bits" in cross else m
     n = 0
     for a, b in zip(fam[cross["q"][m]].tolist(), fam[cross["t"][m]].tolist()):
         ra, rb = find(a), find(b)
         if ra != rb:
-            parent[max(ra, rb)] = min(ra, rb)
+            if max_size is not None and fsize[ra] + fsize[rb] > max_size:
+                continue
+            lo_, hi_ = min(ra, rb), max(ra, rb)
+            parent[hi_] = lo_
+            fsize[lo_] += fsize[hi_]
             n += 1
     roots = np.array([find(f) for f in range(len(parent))])
     _, new = np.unique(roots[fam], return_inverse=True)
     return new.astype(np.int32), n
 
 
-def score_with_rescue(gt: GeneTable, fam: np.ndarray, cfg: ScoringConfig, workdir: str):
+def score_with_rescue(gt: GeneTable, fam: np.ndarray, cfg: ScoringConfig, workdir: str,
+                      pass1_path: str | None = None):
     """score_families + cross-family rescue: families joined by ``join_families`` are
     re-scored (only those); returns (ScoreTable, final families, stats)."""
     st, stats = score_families(gt, fam, cfg, workdir)
     if not cfg.family_rescue or st.cross is None or len(st.cross["q"]) == 0:
         stats["rescue_joins"] = 0
         return st, fam, stats
-    fam2, nj = join_families(fam, st.cross, cfg.rescue_cov, cfg.rescue_evalue)
+    fam2, nj = join_families(fam, st.cross, cfg.rescue_cov, cfg.rescue_evalue, cfg.rescue_max_join)
+    if pass1_path:
+        st.save(pass1_path)
     stats["rescue_joins"] = nj
     if nj == 0:
         return st, fam, stats

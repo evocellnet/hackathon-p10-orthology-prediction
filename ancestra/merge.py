@@ -83,6 +83,13 @@ class MergeConfig:
     repair_ratio: float = 0.9
     min_cov: float = 0.5         # bidirectional coverage guard on leaf pairs
     min_score: float = 0.0       # minimum aggregated score for a candidate edge
+    # relative-divergence (RD) tests with the closest outgroup gene o (needs a norm_* score):
+    # r(a,b) = d(a,b) / mean(d(a,o), d(b,o)), d = -ln S; calibrated per node on the R1 seeds
+    rd_hidden: bool = False      # veto R1 seeds with r > median + rd_z * 1.4826 * MAD (hidden paralogy)
+    rd_z: float = 3.0
+    rd_inpar: bool = False       # R2: absorb u if r(u, w) <= rd_inpar_factor * median seed r
+    rd_inpar_factor: float = 1.0
+    engine: str = "numba"        # numba | python (reference implementation)
 
     def key(self) -> dict:
         return asdict(self)
@@ -101,7 +108,32 @@ ARMS = {   # named arms of the S3/S4 benchmark (docs/core_v0.md)
     "max+repair/quartet": replace(_D, link="max", repair=True, inpar_rule="quartet", repair_ratio=0.5),
     "avg+repair/quartet": replace(_D, link="avg", repair=True, inpar_rule="quartet", repair_ratio=0.5),
     "avg+repair/either": replace(_D, link="avg", repair=True, inpar_rule="either", repair_ratio=0.5),
+    "rd_hidden": replace(_D, rd_hidden=True),
+    "rd_inpar": replace(_D, rd_inpar=True),
+    "rd_both": replace(_D, rd_hidden=True, rd_inpar=True),
 }
+
+
+@dataclass
+class NodeContext:
+    """What a context-evidence function (synteny, S5) receives at one node X.
+
+    All unit indices are *local* (0..n-1) to the node; a unit is an ancestral gene of one
+    of X's children. The function returns a float array of length ``len(cand_a)``: an
+    additive bonus (same scale as ``cand_score``; NaN = 0) applied before R1-R3.
+    """
+    node: str                        # species-tree node name X
+    children: list | None            # child node names; child index = position in this list
+    units: np.ndarray | None         # local unit -> global ancestral-gene ID
+    child: np.ndarray                # local unit -> child index
+    cand_a: np.ndarray               # cross-child candidate edges (local units, a in one child,
+    cand_b: np.ndarray               #   b in another), every scored pair of units
+    cand_score: np.ndarray           # sequence score of each candidate (avg/max link)
+    anchors: np.ndarray              # bool per candidate: pass-1 anchor (strict mutual best, 1:1)
+    adjacency: tuple | None          # (ua, ub, n_species, min_dist): within-child ancestral
+                                     #   adjacencies between local units (genome.unit_adjacency,
+                                     #   window w), None without gene order
+    members: object = None           # callable: local unit -> array of leaf gene IDs
 
 
 @dataclass
@@ -170,7 +202,8 @@ class _UF:
 # ----------------------------------------------------------------------------
 
 def decide_node(n: int, child: np.ndarray, lu: np.ndarray, lv: np.ndarray, score: np.ndarray,
-                cfg: MergeConfig, context=None, resolver=None, node_name=None, out_edges=None):
+                cfg: MergeConfig, context=None, resolver=None, node_name=None, out_edges=None,
+                node_info=None):
     """Partition ``n`` local units into ancestral genes of the node.
 
     ``child[i]``: child index of unit i; edges ``(lu, lv, score)`` undirected,
@@ -186,8 +219,6 @@ def decide_node(n: int, child: np.ndarray, lu: np.ndarray, lv: np.ndarray, score
     child_l = child.tolist()
     cross = child[lu] != child[lv]
     ca, cb, cs = lu[cross], lv[cross], score[cross].astype(np.float64)
-    if context is not None:          # hook: synteny / context evidence (additive bonus)
-        cs = cs + context(node_name, ca, cb, cs)
     sa, sb, ss = lu[~cross], lv[~cross], score[~cross]
     same = {}
     for x, y, s in zip(sa.tolist(), sb.tolist(), ss.tolist()):
@@ -199,17 +230,40 @@ def decide_node(n: int, child: np.ndarray, lu: np.ndarray, lv: np.ndarray, score
         return np.array([uf.find(i) for i in range(n)]), stats
     # best(A, j) for both endpoints
     dkey = np.concatenate([ca.astype(np.int64) * k + child[cb], cb.astype(np.int64) * k + child[ca]])
-    dval = np.concatenate([cs, cs])
     uniq, inv = np.unique(dkey, return_inverse=True)
-    best = np.full(len(uniq), -np.inf)
-    np.maximum.at(best, inv, dval)
-    best_a, best_b = best[inv[:E]], best[inv[E:]]
-    if cfg.tol >= 1.0:
-        mb = (cs >= best_a) & (cs >= best_b)
-    else:
-        mb = (cs >= cfg.tol * best_a) & (cs >= cfg.tol * best_b)
-    mb &= cs > cfg.min_score
+
+    def mutual_best(sc, tol):
+        best = np.full(len(uniq), -np.inf)
+        np.maximum.at(best, inv, np.concatenate([sc, sc]))
+        best_a, best_b = best[inv[:E]], best[inv[E:]]
+        if tol >= 1.0:
+            m = (sc >= best_a) & (sc >= best_b)
+        else:
+            m = (sc >= tol * best_a) & (sc >= tol * best_b)
+        return m & (sc > cfg.min_score)
+
+    if context is not None:
+        # three-pass context evidence (DESIGN S5): pass 1 = sequence-only anchors
+        # (strict mutual best, 1:1), pass 2 = context function scores every candidate
+        # against the anchors, pass 3 = the usual rules on score + bonus.
+        strict = mutual_best(cs, 1.0)
+        deg = np.bincount(np.concatenate([ca[strict], cb[strict]]), minlength=n)
+        anchors = strict & (deg[ca] == 1) & (deg[cb] == 1)
+        ctx = NodeContext(node=node_name, children=(node_info or {}).get("children"),
+                          units=(node_info or {}).get("units"), child=child, cand_a=ca,
+                          cand_b=cb, cand_score=cs.copy(), anchors=anchors,
+                          adjacency=(node_info or {}).get("adjacency"),
+                          members=(node_info or {}).get("members"))
+        bonus = np.asarray(context(ctx), dtype=np.float64)
+        if bonus.shape != cs.shape:
+            raise ValueError("context function must return one value per candidate edge")
+        cs = cs + np.nan_to_num(bonus)
+        stats["n_anchors"] = int(anchors.sum())
+    mb = mutual_best(cs, cfg.tol)
     stats["n_mb"] = int(mb.sum())
+    if cfg.engine == "numba":
+        return _decide_numba(n, k, child, ca, cb, cs, sa, sb, ss, mb, cfg, out_edges, stats,
+                             resolver, node_name, lu, lv, score)
     # best cross score per unit (any child) and cross adjacency
     best_any = np.full(n, -np.inf)
     np.maximum.at(best_any, ca, cs)
@@ -223,10 +277,52 @@ def decide_node(n: int, child: np.ndarray, lu: np.ndarray, lv: np.ndarray, score
     def same_sim(x, y):
         return same.get((x, y) if x < y else (y, x), -np.inf)
 
-    # ---- R1: greedy union of mutual-best edges with in-paralog constraint
+    # ---- relative divergence with the closest outgroup gene (RD tests)
+    def _d(v):
+        return -np.log(min(max(v, 1e-6), 1.0))
+
+    def rel_div(a, b, s_ab):
+        if not out_adj:
+            return None
+        oa, ob_ = out_adj[a], out_adj[b]
+        if len(oa) > len(ob_):
+            oa, ob_ = ob_, oa
+        best_o, best_v = None, -1.0
+        for z, va in oa.items():
+            vb = ob_.get(z)
+            if vb is not None and va + vb > best_v:
+                best_o, best_v = z, va + vb
+        if best_o is None:
+            return None
+        den = 0.5 * (_d(oa[best_o]) + _d(ob_[best_o]))
+        return _d(s_ab) / den if den > 0 else None
+
     idx = np.flatnonzero(mb)
     idx = idx[np.argsort(-cs[idx], kind="stable")]
+    med_r = None
+    veto = set()
+    if (cfg.rd_hidden or cfg.rd_inpar) and out_adj:
+        rs = {}
+        for e in idx.tolist():
+            r = rel_div(int(ca[e]), int(cb[e]), float(cs[e]))
+            if r is not None:
+                rs[e] = r
+        if len(rs) >= 10:
+            arr = np.fromiter(rs.values(), dtype=np.float64)
+            med_r = float(np.median(arr))
+            mad = float(np.median(np.abs(arr - med_r))) * 1.4826
+            stats["rd_median"] = round(med_r, 4)
+            stats["rd_mad"] = round(mad, 4)
+            stats["rd_n"] = len(rs)
+            if cfg.rd_hidden and mad > 0:
+                thr = med_r + cfg.rd_z * mad
+                veto = {e for e, r in rs.items() if r > thr}
+    stats["r1_rd_veto"] = len(veto)
+
+    # ---- R1: greedy union of mutual-best edges with in-paralog constraint
     for e in idx.tolist():
+        if e in veto:
+            continue
         x, y, s = int(ca[e]), int(cb[e]), float(cs[e])
         rx, ry = uf.find(x), uf.find(y)
         if rx == ry:
@@ -297,6 +393,12 @@ def decide_node(n: int, child: np.ndarray, lu: np.ndarray, lv: np.ndarray, score
                             sw >= cfg.inpar_factor * d_in_group(w, g):
                         ok = True       # w is closer to u than to its orthologs in G
                         break
+                    if cfg.rd_inpar and med_r is not None:
+                        r = rel_div(u, w, sw)   # u-w split younger than X (rate-robust)
+                        if r is not None and r <= cfg.rd_inpar_factor * med_r:
+                            ok = True
+                            stats["r2_rd_absorbed"] = stats.get("r2_rd_absorbed", 0) + 1
+                            break
                 if ok:
                     uf.union(u, v)
                     stats["r2_absorbed"] += 1
@@ -353,6 +455,51 @@ def decide_node(n: int, child: np.ndarray, lu: np.ndarray, lv: np.ndarray, score
                 break
     labels = np.array([uf.find(i) for i in range(n)], dtype=np.int64)
     if resolver is not None:         # hook: local-tree mode for ambiguous clusters
+        labels = resolver(node_name, child, lu, lv, score, labels)
+    return labels, stats
+
+
+_RULE_CODE = {"ortholog": 0, "self": 1, "either": 2, "quartet": 3}
+
+
+def _decide_numba(n, k, child, ca, cb, cs, sa, sb, ss, mb, cfg, out_edges, stats,
+                  resolver, node_name, lu, lv, score):
+    from . import merge_numba as mn
+    child = np.ascontiguousarray(child, dtype=np.int64)
+    ca = np.ascontiguousarray(ca, dtype=np.int64)
+    cb = np.ascontiguousarray(cb, dtype=np.int64)
+    cs = np.ascontiguousarray(cs, dtype=np.float64)
+    sa = np.ascontiguousarray(sa, dtype=np.int64)
+    sb = np.ascontiguousarray(sb, dtype=np.int64)
+    ss = np.ascontiguousarray(ss, dtype=np.float64)
+    idx = np.flatnonzero(mb)
+    idx = idx[np.argsort(-cs[idx], kind="stable")].astype(np.int64)
+    has_out = out_edges is not None and len(out_edges[0]) > 0
+    if has_out:
+        optr, onbr, osc = mn.csr_directed_sorted(n, out_edges[0].astype(np.int64),
+                                                 out_edges[1].astype(np.int64),
+                                                 out_edges[2].astype(np.float64))
+    else:
+        optr, onbr, osc = np.zeros(n + 1, np.int64), np.zeros(0, np.int64), np.zeros(0)
+    med_r = np.nan
+    veto = np.zeros(len(idx), np.bool_)
+    if (cfg.rd_hidden or cfg.rd_inpar) and has_out:
+        r = mn.rd_values(optr, onbr, osc, ca, cb, cs, idx)
+        ok = ~np.isnan(r)
+        if ok.sum() >= 10:
+            med_r = float(np.median(r[ok]))
+            mad = float(np.median(np.abs(r[ok] - med_r))) * 1.4826
+            stats.update(rd_median=round(med_r, 4), rd_mad=round(mad, 4), rd_n=int(ok.sum()))
+            if cfg.rd_hidden and mad > 0:
+                veto = ok & (r > med_r + cfg.rd_z * mad)
+    stats["r1_rd_veto"] = int(veto.sum())
+    labels, cnt = mn.rules(n, k, child, ca, cb, cs, sa, sb, ss, idx, veto, float(cfg.min_score),
+                           bool(cfg.inparalogs), float(cfg.inpar_factor), _RULE_CODE[cfg.inpar_rule],
+                           bool(cfg.rd_inpar), float(cfg.rd_inpar_factor), med_r,
+                           bool(cfg.repair), float(cfg.repair_ratio), optr, onbr, osc, has_out)
+    stats.update(r1_unions=int(cnt[0]), r1_blocked=int(cnt[1]), r2_absorbed=int(cnt[2]),
+                 r2_rd_absorbed=int(cnt[3]), r2_quartet_tests=int(cnt[4]), r3_repaired=int(cnt[5]))
+    if resolver is not None:
         labels = resolver(node_name, child, lu, lv, score, labels)
     return labels, stats
 
@@ -446,18 +593,28 @@ def _lca_matrix(tree: Node, species: list[str]):
 
 
 def run_merge(gt: GeneTable, tree: Node, st: ScoreTable, cfg: MergeConfig,
-              context=None, resolver=None, log=None, trace: dict | None = None) -> MergeResult:
+              context=None, resolver=None, log=None, trace: dict | None = None,
+              gene_order=None, adjacency_w: int = 5) -> MergeResult:
     """Run the bottom-up merge over all families at once.
 
-    Hooks: ``context(node, a, b, s) -> bonus array`` (added to cross-child
-    candidate scores); ``resolver(node, child, lu, lv, score, labels) -> labels``.
+    Hooks: ``context(ctx: NodeContext) -> bonus array`` (added to the cross-child
+    candidate scores, three-pass: anchors -> context -> rules; see NodeContext);
+    ``resolver(node, child, lu, lv, score, labels) -> labels``. ``gene_order``
+    (:class:`ancestra.genome.GeneOrder`) enables ``NodeContext.adjacency`` (window
+    ``adjacency_w``).
     ``trace`` (dict, diagnostics): filled with node -> (clade genes, their ancestral
     gene ID at the children, at the node).
     """
+    if (cfg.rd_hidden or cfg.rd_inpar) and cfg.score not in ("norm_max", "norm_min"):
+        raise ValueError("relative-divergence tests need a normalised score (norm_max/norm_min)")
     N = gt.n
     cap = 2 * N + 2
     nodes, nid, lca, clade_sp = _lca_matrix(tree, gt.species)
     sp_genes = gt.genes_of_species()
+    npairs = None
+    if gene_order is not None and context is not None:
+        from .genome import neighbor_pairs
+        npairs = neighbor_pairs(gene_order, adjacency_w)
     # leaf-pair scores
     q, t = st.q.astype(np.int64), st.t.astype(np.int64)
     keep = np.minimum(st.qcov, st.tcov) >= cfg.min_cov
@@ -502,7 +659,7 @@ def run_merge(gt: GeneTable, tree: Node, st: ScoreTable, cfg: MergeConfig,
         assert (lu >= 0).all() and (lv >= 0).all()
         score = em if cfg.link == "max" else es / np.maximum(ec, 1)
         out_edges = None
-        if cfg.inpar_rule == "quartet" and nd.parent is not None:
+        if (cfg.inpar_rule == "quartet" or cfg.rd_hidden or cfg.rd_inpar) and nd.parent is not None:
             pi = nid[nd.parent.name]
             pq, pt, ps = q[bounds[pi]:bounds[pi + 1]], t[bounds[pi]:bounds[pi + 1]], s[bounds[pi]:bounds[pi + 1]]
             in_x = np.zeros(len(gt.species), bool)
@@ -518,8 +675,23 @@ def run_merge(gt: GeneTable, tree: Node, st: ScoreTable, cfg: MergeConfig,
                 # _aggregate orders each pair as (min, max): unit index < og + cap always
                 osc = omax if cfg.link == "max" else osum / np.maximum(ocnt, 1)
                 out_edges = (ou, oo - cap, osc)
+        node_info = None
+        if context is not None:
+            node_info = {"children": kids, "units": units.copy()}
+            # members: local unit -> leaf genes (gene_anc is still at the children level)
+            ga_local = pos[gene_anc[genes]]
+            o_m = np.argsort(ga_local, kind="stable")
+            b_m = np.searchsorted(ga_local[o_m], np.arange(n + 1))
+            g_sorted = genes[o_m]
+            node_info["members"] = lambda i, _g=g_sorted, _b=b_m: _g[_b[i]:_b[i + 1]]
+            if npairs is not None:
+                from .genome import unit_adjacency
+                unit_of_gene = np.full(N, -1, dtype=np.int64)
+                unit_of_gene[genes] = ga_local
+                node_info["adjacency"] = unit_adjacency(npairs[0], npairs[1], npairs[2],
+                                                        unit_of_gene, gt.species_of, n)
         labels, stt = decide_node(n, child, lu, lv, score, cfg, context, resolver, nd.name,
-                                  out_edges)
+                                  out_edges, node_info)
         pos[units] = -1
         # build ancestral genes
         newid = {}

@@ -1,0 +1,76 @@
+ob armA_bionj_midroot {'ncbi': 0.111}
+ob armA_bionj_ncbiroot {'ncbi': 0.111}
+ob armA_fastme_midroot {'ncbi': 0.111}
+ob armA_fastme_ncbiroot {'ncbi': 0.111}
+ob armB_astralpro_ncbiroot {'ncbi': 0.111}
+ob armB_astralpro_sc1_ncbiroot {'ncbi': 0.111}
+ob armB_concat_fasttree_ncbiroot {'ncbi': 0.111}
+ob armB_concat_fasttree_sc1_ncbiroot {'ncbi': 0.111}
+ob hybrid_ncbi_refined_by_armA_fastme {'ncbi': 0.0}
+ob hybrid_ncbi_refined_by_armB_astralpro {'ncbi': 0.0}
+ob perturbed_ncbi_nni1_s11 {'ncbi': 0.111}
+ob perturbed_ncbi_nni1_s23 {'ncbi': 0.111}
+ob perturbed_ncbi_nni1_s47 {'ncbi': 0.111}
+ob perturbed_ncbi_nni3_s11 {'ncbi': 0.222}
+ob perturbed_ncbi_nni3_s23 {'ncbi': 0.333}
+ob perturbed_ncbi_nni3_s47 {'ncbi': 0.333}
+ob random_s11 {'ncbi': 0.778}
+ob random_s23 {'ncbi': 1.0}
+ob random_s47 {'ncbi': 0.667}
+qfo armA_bionj_midroot {'ncbi': 0.444, 'published': 0.458}
+qfo armA_bionj_ncbiroot {'ncbi': 0.444, 'published': 0.458}
+qfo armA_fastme_midroot {'ncbi': 0.397, 'published': 0.39}
+qfo armA_fastme_ncbiroot {'ncbi': 0.397, 'published': 0.39}
+qfo armB_astralpro_ncbiroot {'ncbi': 0.333, 'published': 0.373}
+qfo armB_concat_fasttree_ncbiroot {'ncbi': 0.349, 'published': 0.39}
+qfo hybrid_ncbi_refined_by_armA_fastme {'ncbi': 0.097, 'published': 0.219}
+qfo hybrid_ncbi_refined_by_armB_astralpro {'ncbi': 0.113, 'published': 0.234}
+qfo perturbed_ncbi_nni13_s11 {'ncbi': 0.235, 'published': 0.319}
+qfo perturbed_ncbi_nni13_s23 {'ncbi': 0.255, 'published': 0.34}
+qfo perturbed_ncbi_nni13_s47 {'ncbi': 0.196, 'published': 0.34}
+qfo perturbed_ncbi_nni3_s11 {'ncbi': 0.039, 'published': 0.17}
+qfo perturbed_ncbi_nni3_s23 {'ncbi': 0.059, 'published': 0.149}
+qfo perturbed_ncbi_nni3_s47 {'ncbi': 0.059, 'published': 0.191}
+qfo perturbed_ncbi_nni5_s11 {'ncbi': 0.078, 'published': 0.213}
+qfo perturbed_ncbi_nni5_s23 {'ncbi': 0.098, 'published': 0.191}
+qfo perturbed_ncbi_nni5_s47 {'ncbi': 0.098, 'published': 0.234}
+qfo random_s11 {'ncbi': 1.0, 'published': 1.0}
+qfo random_s23 {'ncbi': 1.0, 'published': 1.0}
+qfo random_s47 {'ncbi': 0.984, 'published': 1.0}
+
+### ob
+
+| tree | ncbi nRF / recall / conflict / qd_res |
+|---|---|
+| armA_bionj_midroot | 0.111 / 0.889 / 0.111 / 0.057 |
+| armA_bionj_ncbiroot | 0.111 / 0.889 / 0.111 / 0.057 |
+| armA_fastme_midroot | 0.111 / 0.889 / 0.111 / 0.057 |
+| armA_fastme_ncbiroot | 0.111 / 0.889 / 0.111 / 0.057 |
+| armB_astralpro_ncbiroot | 0.111 / 0.889 / 0.111 / 0.057 |
+| armB_astralpro_sc1_ncbiroot | 0.111 / 0.889 / 0.111 / 0.057 |
+| armB_concat_fasttree_ncbiroot | 0.111 / 0.889 / 0.111 / 0.057 |
+| armB_concat_fasttree_sc1_ncbiroot | 0.111 / 0.889 / 0.111 / 0.057 |
+| hybrid_ncbi_refined_by_armA_fastme | 0.000 / 1.000 / 0.000 / 0.000 |
+| hybrid_ncbi_refined_by_armB_astralpro | 0.000 / 1.000 / 0.000 / 0.000 |
+| perturbed_ncbi_nni1_s* | 0.111 / 0.889 / 0.111 / 0.044 |
+| perturbed_ncbi_nni3_s* | 0.296 / 0.704 / 0.296 / 0.119 |
+| random_s* | 0.815 / 0.185 / 0.815 / 0.541 |
+
+### qfo
+
+| tree | ncbi nRF / recall / conflict / qd_res | published nRF / recall / conflict / qd_res | published nRF (conflict) Bact / Arch / Euk | domains monophyletic (B,A,E) |
+|---|---|---|---|---|
+| armA_bionj_midroot | 0.444 / 0.686 / 0.400 / 0.065 | 0.458 / 0.744 / 0.213 / 0.031 | 0.76 (0.30) / 1.00 (0.25) / 0.34 (0.18) | 1,1,1 |
+| armA_bionj_ncbiroot | 0.444 / 0.686 / 0.400 / 0.065 | 0.458 / 0.744 / 0.213 / 0.031 | 0.76 (0.30) / 1.00 (0.25) / 0.34 (0.18) | 1,1,1 |
+| armA_fastme_midroot | 0.397 / 0.745 / 0.347 / 0.050 | 0.390 / 0.837 / 0.173 / 0.020 | 0.76 (0.30) / 0.60 (0.00) / 0.24 (0.09) | 1,1,1 |
+| armA_fastme_ncbiroot | 0.397 / 0.745 / 0.347 / 0.050 | 0.390 / 0.837 / 0.173 / 0.020 | 0.76 (0.30) / 0.60 (0.00) / 0.24 (0.09) | 1,1,1 |
+| armB_astralpro_ncbiroot | 0.333 / 0.824 / 0.267 / 0.045 | 0.373 / 0.860 / 0.120 / 0.013 | 0.76 (0.25) / 0.60 (0.00) / 0.24 (0.09) | 1,1,1 |
+| armB_concat_fasttree_ncbiroot | 0.349 / 0.804 / 0.267 / 0.045 | 0.390 / 0.837 / 0.133 / 0.012 | 0.76 (0.25) / 0.60 (0.00) / 0.24 (0.09) | 1,1,1 |
+| hybrid_ncbi_refined_by_armA_fastme | 0.097 / 1.000 / 0.000 / 0.000 | 0.219 / 0.953 / 0.000 / 0.000 | 0.60 (0.00) / 0.60 (0.00) / 0.12 (0.00) | 1,1,1 |
+| hybrid_ncbi_refined_by_armB_astralpro | 0.113 / 1.000 / 0.000 / 0.000 | 0.234 / 0.953 / 0.016 / 0.000 | 0.65 (0.08) / 0.60 (0.00) / 0.12 (0.00) | 1,1,1 |
+| perturbed_ncbi_nni13_s* | 0.229 / 0.771 / 0.229 / 0.036 | 0.333 / 0.729 / 0.196 / 0.037 | 0.64 (0.12) / 0.50 (0.00) / 0.25 (0.21) | 0.67,0.67,0.67 |
+| perturbed_ncbi_nni3_s* | 0.052 / 0.948 / 0.052 / 0.001 | 0.170 / 0.907 / 0.039 / 0.001 | 0.54 (0.00) / 0.50 (0.00) / 0.09 (0.06) | 1,1,1 |
+| perturbed_ncbi_nni5_s* | 0.092 / 0.908 / 0.092 / 0.024 | 0.213 / 0.860 / 0.078 / 0.025 | 0.59 (0.04) / 0.50 (0.00) / 0.11 (0.08) | 1,0.67,0.67 |
+| random_s* | 0.995 / 0.007 / 0.987 / 0.662 | 1.000 / 0.000 / 0.987 / 0.660 | 1.00 (0.77) / 1.00 (0.83) / 1.00 (0.99) | 0,0,0 |
+
+NCBI vs published (SwissTree lineage tree): nRF 0.128, recall 0.953, conflict 0.000; splits NCBI 51, published 43, binary max 75.

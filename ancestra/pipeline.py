@@ -42,7 +42,7 @@ import numpy as np
 from .io import (GeneTable, families_from_mapping, load_families, load_guide_tree,
                  load_proteomes, write_fasta, write_gene_table)
 from .merge import ARMS, MergeConfig, MergeResult, run_merge, to_orthoxml
-from .orthoxml import hogs_to_pairs, to_orthobench_ogs, validate_xsd, write_orthoxml
+from .orthoxml import to_orthobench_ogs, validate_xsd, write_orthoxml
 from .scoring import ScoreTable, ScoringConfig, score_with_rescue
 
 __all__ = ["run_pipeline", "main", "DEFAULT_FAMILY_CONFIG"]
@@ -119,6 +119,48 @@ def atomic_write_text(path: str, text: str) -> None:
     with open(tmp, "w") as fh:
         fh.write(text)
     os.replace(tmp, path)
+
+
+def write_pairs_streaming(ox, path: str) -> int:
+    """Write ortholog pairs (QfO flattening, identical to orthoxml.hogs_to_pairs) without
+    holding them in memory: each pair is emitted once, at its deepest common orthologGroup."""
+    from .orthoxml import Group
+    sp = {k: v.species for k, v in ox.genes.items()}
+    n = 0
+    tmp = path + ".tmp"
+    with open(tmp, "w") as fh:
+        fh.write("#gene_a\tgene_b\tlevel\n")
+        for top in ox.groups:
+            if not isinstance(top, Group):
+                continue
+            stack = [(top, 0)]
+            memo: dict = {}
+            while stack:
+                g, st = stack.pop()
+                if st == 0:
+                    stack.append((g, 1))
+                    stack.extend((c, 0) for c in g.children if isinstance(c, Group))
+                    continue
+                kids = [memo.pop(id(c)) if isinstance(c, Group) else [c] for c in g.children]
+                if g.kind == "ortholog":
+                    buf = []
+                    for i in range(len(kids)):
+                        for j in range(i + 1, len(kids)):
+                            for a in kids[i]:
+                                sa = sp[a]
+                                for b in kids[j]:
+                                    if sa != sp[b]:
+                                        x, y = (a, b) if a < b else (b, a)
+                                        buf.append(f"{x}\t{y}\t{g.level}\n")
+                        if len(buf) > 1_000_000:
+                            fh.write("".join(buf))
+                            n += len(buf)
+                            buf = []
+                    fh.write("".join(buf))
+                    n += len(buf)
+                memo[id(g)] = [x for k in kids for x in k]
+    os.replace(tmp, path)
+    return n
 
 
 class Runner:
@@ -274,7 +316,8 @@ def run_pipeline(proteomes: str, tree_path: str, outdir: str, families: str | No
 
     # 3. scores
     def s_scores(d):
-        st, fam2, stats = score_with_rescue(gt, fam, scoring, os.path.join(d, "work"))
+        st, fam2, stats = score_with_rescue(gt, fam, scoring, os.path.join(d, "work"),
+                                            pass1_path=os.path.join(d, "scores_pass1.npz"))
         st.save(os.path.join(d, "scores.npz"))
         np.save(os.path.join(d, "families_final.npy"), fam2)
         if st.cross is not None:   # S0-fission signal: hits between different families
@@ -308,13 +351,9 @@ def run_pipeline(proteomes: str, tree_path: str, outdir: str, families: str | No
         ok, errs = validate_xsd(x)
         if not ok:
             raise RuntimeError("OrthoXML failed XSD validation: " + "; ".join(errs[:5]))
-        pairs = hogs_to_pairs(ox, with_level=True)
-        with open(os.path.join(d, "pairs.tsv"), "w") as fh:
-            fh.write("#gene_a\tgene_b\tlevel\n")
-            for (a, b), lvl in sorted(pairs.items()):
-                fh.write(f"{a}\t{b}\t{lvl}\n")
+        n_pairs = write_pairs_streaming(ox, os.path.join(d, "pairs.tsv"))
         ogs = to_orthobench_ogs(ox, None, os.path.join(d, "orthobench_ogs.txt"))
-        return {"xsd_valid": ok, "n_top_groups": len(ox.groups), "n_pairs": len(pairs),
+        return {"xsd_valid": ok, "n_top_groups": len(ox.groups), "n_pairs": n_pairs,
                 "n_ogs_multi": sum(1 for o in ogs if len(o) > 1)}
     d_o, k_o = R.stage("output", {"up": k_m}, s_out)
     for f in ("hogs.orthoxml", "pairs.tsv", "orthobench_ogs.txt"):

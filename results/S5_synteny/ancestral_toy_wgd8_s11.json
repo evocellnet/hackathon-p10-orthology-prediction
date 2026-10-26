@@ -1,0 +1,401 @@
+{
+ "sim": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/S5/toy/wgd8_s11",
+ "params": {
+  "seed": 11,
+  "params": {
+   "n_species": 8,
+   "n_genes": 1500,
+   "n_chromosomes": 4,
+   "newick": null,
+   "tree_height": null,
+   "dup_rate": 0.3,
+   "loss_rate": 0.2,
+   "inversion_rate": 0.05,
+   "translocation_rate": 0.02,
+   "hgt_rate": 0.0,
+   "dispersed_dup_frac": 0.2,
+   "block_mean": 4.0,
+   "wgd_branch": "random",
+   "wgd_position": 0.5,
+   "wgd_fractionation": 0.5,
+   "gamma_shape": 1.0,
+   "gamma_categories": 4,
+   "family_rate_shape": 2.0,
+   "indel_rate": 0.02,
+   "indel_mean_len": 3.0,
+   "indel_max_len": 20,
+   "neo_factor": 1.0,
+   "neo_duration": 0.05,
+   "len_min": 150,
+   "len_max": 600,
+   "min_protein_len": 50
+  },
+  "version": "0.1.0",
+  "runtime_s": 7.649,
+  "stats": {
+   "n_proteins": 14025,
+   "n_families_surviving": 1498,
+   "n_true_ortholog_pairs": 55758,
+   "n_events": {
+    "duplication": 3645,
+    "loss": 2106,
+    "inversion": 366,
+    "translocation": 150,
+    "hgt": 0,
+    "wgd": 1
+   },
+   "wgd_branch": "sp0"
+  }
+ },
+ "windows": [
+  5,
+  10
+ ],
+ "amb": 0.9,
+ "shuffle_seeds": [
+  11,
+  23,
+  47
+ ],
+ "nodes": [
+  {
+   "node": "N6",
+   "depth": 6,
+   "n_children": 2,
+   "n_units": 3242,
+   "n_cand": 2461,
+   "n_orth": 1620,
+   "n_hard": 237,
+   "n_anchors": 1513,
+   "anchor_precision": 1.0,
+   "n_oracle_anchors": 1588,
+   "seq_auc": 0.8324,
+   "seq_auc_hard": 0.6679,
+   "w5": {
+    "auc": 0.9088,
+    "auc_hard": 0.8616,
+    "auc_oracle": 0.9421,
+    "auc_hard_oracle": 0.9002,
+    "frac_orth_sup": 0.9981,
+    "frac_par_sup": 0.7182,
+    "n_adj_edges": 16090,
+    "shuf_auc": 0.5,
+    "shuf_auc_hard": 0.5
+   },
+   "w10": {
+    "auc": 0.8501,
+    "auc_hard": 0.814,
+    "auc_oracle": 0.9031,
+    "auc_hard_oracle": 0.8529,
+    "frac_orth_sup": 0.9981,
+    "frac_par_sup": 0.7229,
+    "n_adj_edges": 31980,
+    "shuf_auc": 0.5005,
+    "shuf_auc_hard": 0.4957
+   }
+  },
+  {
+   "node": "N5",
+   "depth": 5,
+   "n_children": 2,
+   "n_units": 3259,
+   "n_cand": 2423,
+   "n_orth": 1642,
+   "n_hard": 231,
+   "n_anchors": 1398,
+   "anchor_precision": 1.0,
+   "n_oracle_anchors": 1476,
+   "seq_auc": 0.7956,
+   "seq_auc_hard": 0.5558,
+   "w5": {
+    "auc": 0.824,
+    "auc_hard": 0.7741,
+    "auc_oracle": 0.844,
+    "auc_hard_oracle": 0.778,
+    "frac_orth_sup": 0.9866,
+    "frac_par_sup": 0.7337,
+    "n_adj_edges": 16318,
+    "shuf_auc": 0.4991,
+    "shuf_auc_hard": 0.4985
+   },
+   "w10": {
+    "auc": 0.748,
+    "auc_hard": 0.7144,
+    "auc_oracle": 0.7703,
+    "auc_hard_oracle": 0.7197,
+    "frac_orth_sup": 0.9866,
+    "frac_par_sup": 0.7388,
+    "n_adj_edges": 32407,
+    "shuf_auc": 0.4973,
+    "shuf_auc_hard": 0.5013
+   }
+  },
+  {
+   "node": "N4",
+   "depth": 4,
+   "n_children": 2,
+   "n_units": 3256,
+   "n_cand": 2393,
+   "n_orth": 1650,
+   "n_hard": 305,
+   "n_anchors": 1326,
+   "anchor_precision": 1.0,
+   "n_oracle_anchors": 1417,
+   "seq_auc": 0.7542,
+   "seq_auc_hard": 0.6043,
+   "w5": {
+    "auc": 0.7823,
+    "auc_hard": 0.7418,
+    "auc_oracle": 0.7986,
+    "auc_hard_oracle": 0.751,
+    "frac_orth_sup": 0.9855,
+    "frac_par_sup": 0.7376,
+    "n_adj_edges": 16834,
+    "shuf_auc": 0.5018,
+    "shuf_auc_hard": 0.5007
+   },
+   "w10": {
+    "auc": 0.7209,
+    "auc_hard": 0.6953,
+    "auc_oracle": 0.735,
+    "auc_hard_oracle": 0.7014,
+    "frac_orth_sup": 0.9867,
+    "frac_par_sup": 0.7483,
+    "n_adj_edges": 33308,
+    "shuf_auc": 0.5021,
+    "shuf_auc_hard": 0.5028
+   }
+  },
+  {
+   "node": "N3",
+   "depth": 3,
+   "n_children": 2,
+   "n_units": 3235,
+   "n_cand": 2259,
+   "n_orth": 1668,
+   "n_hard": 263,
+   "n_anchors": 1185,
+   "anchor_precision": 0.99915611814346,
+   "n_oracle_anchors": 1250,
+   "seq_auc": 0.6946,
+   "seq_auc_hard": 0.6122,
+   "w5": {
+    "auc": 0.7305,
+    "auc_hard": 0.6834,
+    "auc_oracle": 0.7447,
+    "auc_hard_oracle": 0.6876,
+    "frac_orth_sup": 0.9634,
+    "frac_par_sup": 0.7445,
+    "n_adj_edges": 17454,
+    "shuf_auc": 0.5008,
+    "shuf_auc_hard": 0.5023
+   },
+   "w10": {
+    "auc": 0.6756,
+    "auc_hard": 0.6414,
+    "auc_oracle": 0.6921,
+    "auc_hard_oracle": 0.6502,
+    "frac_orth_sup": 0.9664,
+    "frac_par_sup": 0.753,
+    "n_adj_edges": 34409,
+    "shuf_auc": 0.4983,
+    "shuf_auc_hard": 0.4986
+   }
+  },
+  {
+   "node": "N2",
+   "depth": 2,
+   "n_children": 2,
+   "n_units": 3246,
+   "n_cand": 2120,
+   "n_orth": 1667,
+   "n_hard": 278,
+   "n_anchors": 1085,
+   "anchor_precision": 1.0,
+   "n_oracle_anchors": 1152,
+   "seq_auc": 0.6275,
+   "seq_auc_hard": 0.5697,
+   "w5": {
+    "auc": 0.6938,
+    "auc_hard": 0.6056,
+    "auc_oracle": 0.7,
+    "auc_hard_oracle": 0.6071,
+    "frac_orth_sup": 0.9526,
+    "frac_par_sup": 0.7174,
+    "n_adj_edges": 18534,
+    "shuf_auc": 0.5006,
+    "shuf_auc_hard": 0.4995
+   },
+   "w10": {
+    "auc": 0.6458,
+    "auc_hard": 0.5929,
+    "auc_oracle": 0.6654,
+    "auc_hard_oracle": 0.5892,
+    "frac_orth_sup": 0.9568,
+    "frac_par_sup": 0.7506,
+    "n_adj_edges": 36359,
+    "shuf_auc": 0.488,
+    "shuf_auc_hard": 0.4682
+   }
+  },
+  {
+   "node": "N1",
+   "depth": 1,
+   "n_children": 2,
+   "n_units": 4097,
+   "n_cand": 2363,
+   "n_orth": 2330,
+   "n_hard": 56,
+   "n_anchors": 548,
+   "anchor_precision": 0.9963503649635036,
+   "n_oracle_anchors": 427,
+   "seq_auc": 0.6476,
+   "seq_auc_hard": 0.5606,
+   "w5": {
+    "auc": 0.6613,
+    "auc_hard": 0.5103,
+    "auc_oracle": 0.6481,
+    "auc_hard_oracle": 0.5013,
+    "frac_orth_sup": 0.6549,
+    "frac_par_sup": 0.3939,
+    "n_adj_edges": 24008,
+    "shuf_auc": 0.5055,
+    "shuf_auc_hard": 0.5146
+   },
+   "w10": {
+    "auc": 0.5632,
+    "auc_hard": 0.5335,
+    "auc_oracle": 0.5743,
+    "auc_hard_oracle": 0.5406,
+    "frac_orth_sup": 0.8167,
+    "frac_par_sup": 0.7879,
+    "n_adj_edges": 47028,
+    "shuf_auc": 0.515,
+    "shuf_auc_hard": 0.5065
+   }
+  },
+  {
+   "node": "N0",
+   "depth": 0,
+   "n_children": 2,
+   "n_units": 3142,
+   "n_cand": 1434,
+   "n_orth": 1434,
+   "n_hard": 0,
+   "n_anchors": 868,
+   "anchor_precision": 1.0,
+   "n_oracle_anchors": 832,
+   "seq_auc": null,
+   "seq_auc_hard": null,
+   "w5": {
+    "auc": null,
+    "auc_hard": null,
+    "auc_oracle": null,
+    "auc_hard_oracle": null,
+    "frac_orth_sup": 0.9114,
+    "frac_par_sup": null,
+    "n_adj_edges": 22424,
+    "shuf_auc": null,
+    "shuf_auc_hard": null
+   },
+   "w10": {
+    "auc": null,
+    "auc_hard": null,
+    "auc_oracle": null,
+    "auc_hard_oracle": null,
+    "frac_orth_sup": 0.9219,
+    "frac_par_sup": null,
+    "n_adj_edges": 43231,
+    "shuf_auc": null,
+    "shuf_auc_hard": null
+   }
+  }
+ ],
+ "by_depth": {
+  "0": {
+   "nodes": [
+    "N0"
+   ],
+   "n_cand": 1434,
+   "n_orth": 1434,
+   "n_hard": 0,
+   "w5_auc": null,
+   "w5_auc_hard": null,
+   "w10_auc": null,
+   "w10_auc_hard": null
+  },
+  "1": {
+   "nodes": [
+    "N1"
+   ],
+   "n_cand": 2363,
+   "n_orth": 2330,
+   "n_hard": 56,
+   "w5_auc": 0.6613,
+   "w5_auc_hard": 0.5103,
+   "w10_auc": 0.5632,
+   "w10_auc_hard": 0.5335
+  },
+  "2": {
+   "nodes": [
+    "N2"
+   ],
+   "n_cand": 2120,
+   "n_orth": 1667,
+   "n_hard": 278,
+   "w5_auc": 0.6938,
+   "w5_auc_hard": 0.6056,
+   "w10_auc": 0.6458,
+   "w10_auc_hard": 0.5929
+  },
+  "3": {
+   "nodes": [
+    "N3"
+   ],
+   "n_cand": 2259,
+   "n_orth": 1668,
+   "n_hard": 263,
+   "w5_auc": 0.7305,
+   "w5_auc_hard": 0.6834,
+   "w10_auc": 0.6756,
+   "w10_auc_hard": 0.6414
+  },
+  "4": {
+   "nodes": [
+    "N4"
+   ],
+   "n_cand": 2393,
+   "n_orth": 1650,
+   "n_hard": 305,
+   "w5_auc": 0.7823,
+   "w5_auc_hard": 0.7418,
+   "w10_auc": 0.7209,
+   "w10_auc_hard": 0.6953
+  },
+  "5": {
+   "nodes": [
+    "N5"
+   ],
+   "n_cand": 2423,
+   "n_orth": 1642,
+   "n_hard": 231,
+   "w5_auc": 0.824,
+   "w5_auc_hard": 0.7741,
+   "w10_auc": 0.748,
+   "w10_auc_hard": 0.7144
+  },
+  "6": {
+   "nodes": [
+    "N6"
+   ],
+   "n_cand": 2461,
+   "n_orth": 1620,
+   "n_hard": 237,
+   "w5_auc": 0.9088,
+   "w5_auc_hard": 0.8616,
+   "w10_auc": 0.8501,
+   "w10_auc_hard": 0.814
+  }
+ },
+ "wall_s": 12.0
+}

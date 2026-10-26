@@ -1,3 +1,4 @@
 [16:39:42] ob search
 {"wall_s": 33.26, "cpu_self_s": 1.34, "cpu_children_s": 278.28, "loadavg_start": 22.5654296875, "search": {"wall_s": 29.661280632019043, "cpu_children_s": 270.32, "cmd_template": "diamond blastp --mid-sensitive -k 5 --max-hsps 1 -e 1e-05 -p 12"}}
 [16:40:15] qfo search
+{"wall_s": 756.73, "cpu_self_s": 6.26, "cpu_children_s": 3001.49, "loadavg_start": 45.1376953125, "search": {"wall_s": 744.5777611732483, "cpu_children_s": 2972.8099999999995, "cmd_template": "diamond blastp --mid-sensitive -k 5 --max-hsps 1 -e 1e-05 -p 12"}}

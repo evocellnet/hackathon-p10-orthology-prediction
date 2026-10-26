@@ -254,3 +254,64 @@ def test_join_families_guard():
     assert n == 1                                  # 0-1 joined; 1-2 fails coverage; 2-3 fails e-value
     assert new[0] == new[2] and new[2] != new[4] and new[4] != new[5]
     assert sorted(set(new.tolist())) == [0, 1, 2]
+
+
+# ----------------------------------------------------------------- synteny hook (S5 prep)
+
+def test_gene_order_and_context_hook(sim_basic):
+    from ancestra.genome import load_gene_order_gff3, neighbor_pairs
+    from ancestra.merge import NodeContext
+    from ancestra.orthoxml import hogs_to_pairs
+    res_sim, simdir = sim_basic
+    gt = load_proteomes(os.path.join(simdir, "proteomes"))
+    tree = load_guide_tree(os.path.join(simdir, "species_tree.nwk"), gt.species)
+    go = load_gene_order_gff3(os.path.join(simdir, "gff"), gt)
+    assert all(v == 1.0 for v in go.coverage.values())
+    # ranks follow the simulator's genomic order (protein IDs are numbered in that order)
+    sp0 = gt.genes_of_species()[0]
+    first_contig = sp0[go.contig[sp0] == go.contig[sp0[0]]]
+    assert list(go.rank[first_contig]) == list(range(len(first_contig)))
+    a, b, d = neighbor_pairs(go, 5)
+    assert (go.contig[a] == go.contig[b]).all() and ((go.rank[b] - go.rank[a]) == d).all()
+    assert d.min() == 1 and d.max() == 5
+    fam = load_families(os.path.join(simdir, "truth", "gene_families.tsv"), gt, 0, 2)
+    from ancestra.scoring import ScoringConfig, score_families
+    st, _ = score_families(gt, fam, ScoringConfig(backend="mmseqs", threads=4),
+                           os.path.join(simdir, "_hooktest"))
+    seen = []
+
+    def null_context(ctx: NodeContext):
+        assert len(ctx.cand_a) == len(ctx.cand_b) == len(ctx.cand_score) == len(ctx.anchors)
+        assert (ctx.child[ctx.cand_a] != ctx.child[ctx.cand_b]).all()
+        ua, ub, nsp, dmin = ctx.adjacency
+        assert (ctx.child[ua] == ctx.child[ub]).all()      # adjacency is within-child
+        assert (nsp >= 1).all() and (dmin >= 1).all() and (dmin <= 5).all()
+        assert len(ctx.members(0)) >= 1
+        seen.append((ctx.node, int(ctx.anchors.sum()), len(ua)))
+        return np.zeros(len(ctx.cand_a))
+    base = run_merge(gt, tree, st, MergeConfig())
+    hooked = run_merge(gt, tree, st, MergeConfig(), context=null_context, gene_order=go)
+    assert len(seen) == 7 and all(n_adj > 0 for _, _, n_adj in seen)
+    p0 = hogs_to_pairs(to_orthoxml(base, gt, tree))
+    p1 = hogs_to_pairs(to_orthoxml(hooked, gt, tree))
+    assert p0 == p1                                      # zero bonus = sequence-only result
+    sh = go.shuffled(11)
+    for s_ in range(len(gt.species)):                    # shuffle keeps the per-species gene set
+        g = gt.genes_of_species()[s_]
+        assert sorted(sh.contig[g]) == sorted(go.contig[g])
+
+
+@pytest.mark.parametrize("arm", ["default", "rbh", "max+repair", "avg+repair/quartet",
+                                 "avg+repair/either", "rd_both"])
+def test_numba_engine_matches_python(sim_complex, arm, tmp_path):
+    from dataclasses import replace
+    from ancestra.orthoxml import hogs_to_pairs
+    from ancestra.scoring import ScoringConfig, score_families
+    _, simdir = sim_complex
+    gt = load_proteomes(os.path.join(simdir, "proteomes"))
+    tree = load_guide_tree(os.path.join(simdir, "species_tree.nwk"), gt.species)
+    fam = load_families(os.path.join(simdir, "truth", "gene_families.tsv"), gt, 0, 2)
+    st, _ = score_families(gt, fam, ScoringConfig(backend="mmseqs", threads=4), str(tmp_path))
+    res = {e: hogs_to_pairs(to_orthoxml(run_merge(gt, tree, st, replace(ARMS[arm], engine=e)), gt, tree))
+           for e in ("python", "numba")}
+    assert res["python"] == res["numba"]

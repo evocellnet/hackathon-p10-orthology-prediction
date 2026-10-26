@@ -1,0 +1,83 @@
+UP000006548_3702	0.977	gcoord_multi_gene=174; no_2026_gff; proteins_sharing_gene=61
+UP000002277_9598	0.983	gcoord_multi_gene=630; gff_match:multi_gene=529,unmapped=379,xref=18038; qfo2026_gcoord_md5_vs_placed_concordance=0.039(n=22525); qfo2026_gcoord_md5_skipped(assembly_not_verified); qfo2026_gff_md5_vs_placed_concordance=0.999(n=18038); proteins_sharing_gene=14
+UP000002254_9615	0.975	gcoord_multi_gene=67; 2026_proteome=UP000805418; gff_match:multi_gene=65,unmapped=527,xref=17000; qfo2026_gcoord_md5_vs_placed_concordance=0.013(n=20334); qfo2026_gcoord_md5_skipped(assembly_not_verified); qfo2026_gff_vxref_vs_placed_concordance=1.000(n=20154); qfo2026_gff_md5_vs_placed_concordance=1.000(n=17000); proteins_sharing_gene=3
+UP000000589_10090	0.925	gcoord_multi_gene=263; gff_match:multi_gene=221,unmapped=1620,xref=18608; qfo2026_gcoord_md5_vs_placed_concordance=0.000(n=19447); qfo2026_gcoord_md5_skipped(assembly_not_verified); qfo2026_gff_md5_vs_placed_concordance=0.999(n=18285); qfo2026_gff_vxref_vs_placed_concordance=0.999(n=4479); proteins_sharing_gene=26
+UP000001519_9595	0.992	gcoord_multi_gene=129; gff_match:multi_gene=122,unmapped=183,xref=18898; qfo2026_gcoord_md5_vs_placed_concordance=0.016(n=21453); qfo2026_gcoord_md5_skipped(assembly_not_verified); qfo2026_gff_md5_vs_placed_concordance=0.999(n=18898); proteins_sharing_gene=2
+UP000009136_9913	0.918	gcoord_multi_gene=78; gff_match:multi_gene=55,unmapped=3117,xref=7525; qfo2026_gcoord_md5_vs_placed_concordance=0.004(n=9690); qfo2026_gcoord_md5_skipped(assembly_not_verified); qfo2026_gff_md5_vs_placed_concordance=0.994(n=7384); qfo2026_gff_vxref_vs_placed_concordance=0.997(n=6589); proteins_sharing_gene=104
+UP000001038_8090	0.998	gcoord_multi_gene=37; gff_match:unmapped=22764,xref=16; qfo2026_gcoord_md5_vs_placed_concordance=0.001(n=23404); qfo2026_gcoord_md5_skipped(assembly_not_verified); qfo2026_gff_md5_vs_placed_concordance=0.000(n=13); qfo2026_gff_md5_skipped(assembly_not_verified)
+UP000002280_13616	0.999	gcoord_multi_gene=42; gff_match:multi_gene=42,unmapped=22,xref=19517; qfo2026_gcoord_md5_vs_placed_concordance=0.039(n=21063); qfo2026_gcoord_md5_skipped(assembly_not_verified); qfo2026_gff_md5_vs_placed_concordance=0.999(n=19517)
+UP000000539_9031	0.924	gcoord_multi_gene=63; gff_match:multi_gene=25,unmapped=1614,xref=3322; qfo2026_gcoord_md5_vs_placed_concordance=0.000(n=4436); qfo2026_gcoord_md5_skipped(assembly_not_verified); qfo2026_gff_md5_vs_placed_concordance=0.054(n=3199); qfo2026_gff_md5_skipped(assembly_not_verified); proteins_sharing_gene=2
+UP000002494_10116	0.829	gcoord_multi_gene=96; gff_match:multi_gene=68,unmapped=3959,xref=10058; qfo2026_gcoord_md5_vs_placed_concordance=0.000(n=11067); qfo2026_gcoord_md5_skipped(assembly_not_verified); qfo2026_gff_md5_vs_placed_concordance=0.027(n=9388); qfo2026_gff_md5_skipped(assembly_not_verified); qfo2026_gff_vxref_vs_placed_concordance=0.026(n=7680); qfo2026_gff_vxref_skipped(assembly_not_verified); proteins_sharing_gene=10
+UP000018468_7918	1.000	gcoord_multi_gene=18; gff_match:multi_gene=18,unmapped=2,xref=17620; qfo2026_gcoord_md5_vs_placed_concordance=0.060(n=17927); qfo2026_gcoord_md5_skipped(assembly_not_verified); qfo2026_gff_md5_vs_placed_concordance=0.999(n=17620)
+UP000007062_7165	0.980	gcoord_multi_gene=68; gbff_match:gene_xref=41,multi_gene=70,unmapped=12,xref=11881; qfo2026_gbff_md5_vs_placed_concordance=0.000(n=11677); qfo2026_gbff_md5_skipped(assembly_not_verified)
+UP000015101_6412	0.994	gcoord2022_unusable(empty chromosome); gbff_match:multi_gene=71,unmapped=1,xref=23175; qfo2026_gbff_md5_vs_placed_concordance=0.000(n=23175); qfo2026_gbff_md5_skipped(assembly_not_verified)
+UP000007305_4577	0.970	gcoord_multi_gene=125; gff_match:multi_gene=374,unmapped=674,xref=27796; qfo2026_gcoord_md5_vs_placed_concordance=1.000(n=20483); qfo2026_gff_md5_vs_placed_concordance=1.000(n=27590); proteins_sharing_gene=2
+UP000001555_6945	0.998	gcoord_multi_gene=13; 2026_proteome=UP001735580; no_2026_gff; qfo2026_gcoord_md5_vs_placed_concordance=0.000(n=3); qfo2026_gcoord_md5_skipped(assembly_not_verified)
+UP000008144_7719	0.999	gcoord_multi_gene=6; gff_match:multi_gene=6,unmapped=17,xref=16227; qfo2026_gcoord_md5_vs_placed_concordance=0.292(n=16525); qfo2026_gcoord_md5_skipped(assembly_not_verified); qfo2026_gff_md5_vs_placed_concordance=0.999(n=16227)
+UP000000536_69014	1.000	gff_match:multi_gene=4,xref=2296; qfo2026_gff_md5_vs_placed_concordance=1.000(n=2296)
+UP000000554_64091	0.999	gff_match:multi_gene=105,unmapped=3,xref=2420; qfo2026_gff_vxref_vs_placed_concordance=1.000(n=2420)
+UP000000792_436308	1.000	gbff_match:xref=1795; qfo2026_gff_vxref_vs_placed_concordance=1.000(n=1795)
+UP000000805_243232	0.990	gff_match:multi_gene=1,unmapped=18,xref=1764; qfo2026_gff_md5_vs_placed_concordance=1.000(n=1764)
+UP000001686_374847	1.000	gff_match:xref=1602; qfo2026_gff_vxref_vs_placed_concordance=1.000(n=1602)
+UP000001974_273057	0.999	gff_match:gene_xref=2,multi_gene=34,unmapped=2,xref=2931; qfo2026_gff_vxref_vs_placed_concordance=1.000(n=2931); proteins_sharing_gene=2
+UP000002487_188937	1.000	gff_match:gene_xref=1,multi_gene=34,unmapped=1,xref=4466; qfo2026_gff_vxref_vs_placed_concordance=1.000(n=4466); proteins_sharing_gene=1
+UP000000425_122586	0.999	gff_match:multi_gene=56,unmapped=2,xref=1999; qfo2026_gff_vxref_vs_placed_concordance=1.000(n=1999)
+UP000005238_164328	0.996	gcoord2022_unusable(empty chromosome); gbff_match:unmapped=15282; qfo2026_gbff_md5_vs_placed_concordance=nan(n=0); qfo2026_gbff_md5_skipped(assembly_not_verified)
+UP000000429_85962	0.999	gff_match:gene_xref=4,multi_gene=11,unmapped=1,xref=1549; qfo2026_gff_vxref_vs_placed_concordance=1.000(n=1549); proteins_sharing_gene=4
+UP000000431_272561	1.000	gff_match:gene_xref=1,xref=894; qfo2026_gff_vxref_vs_placed_concordance=1.000(n=894); proteins_sharing_gene=1
+UP000000557_251221	1.000	gff_match:gene_xref=1,multi_gene=14,unmapped=1,xref=4404; qfo2026_gff_vxref_vs_placed_concordance=1.000(n=4404); proteins_sharing_gene=5
+UP000000577_243231	1.000	gff_match:multi_gene=12,unmapped=1,xref=3400; qfo2026_gff_md5_vs_placed_concordance=1.000(n=3400)
+UP000000718_289376	1.000	gff_match:multi_gene=50,xref=1982; qfo2026_gff_vxref_vs_placed_concordance=1.000(n=1982)
+UP000000798_224324	0.998	gff_match:gene_xref=1,multi_gene=3,unmapped=3,xref=1548; qfo2026_gff_vxref_vs_placed_concordance=1.000(n=1548); proteins_sharing_gene=1
+UP000000807_243273	0.986	gff_match:unmapped=7,xref=476; qfo2026_gff_vxref_vs_placed_concordance=1.000(n=476)
+UP000002311_559292	0.979	gcoord_multi_gene=100; gff_match:gene_xref=6,multi_gene=5,unmapped=64,xref=5981; qfo2026_gff_md5_vs_placed_concordance=0.000(n=5868); qfo2026_gff_md5_skipped(assembly_not_verified); qfo2026_gff_vxref_vs_placed_concordance=0.000(n=5864); qfo2026_gff_vxref_skipped(assembly_not_verified); proteins_sharing_gene=52
+UP000000625_83333	0.977	gff_match:gene_xref=15,uniprot=4272,unmapped=96,xref=15; qfo2026_gff_vxref_vs_placed_concordance=1.000(n=4208)
+UP000001408_189518	1.000	gff_match:gene_xref=1,multi_gene=6,unmapped=1,xref=3674; qfo2026_gff_vxref_vs_placed_concordance=1.000(n=3674); proteins_sharing_gene=1
+UP000001414_226186	1.000	gff_match:multi_gene=15,xref=4782; qfo2026_gff_vxref_vs_placed_concordance=1.000(n=4782)
+UP000001025_243090	1.000	gff_match:multi_gene=22,uniprot=6910,xref=361; qfo2026_gff_vxref_vs_placed_concordance=1.000(n=7271)
+UP000001425_1111708	1.000	gff_match:gene_xref=1,multi_gene=38,unmapped=1,xref=3503; qfo2026_gff_md5_vs_placed_concordance=1.000(n=3503); proteins_sharing_gene=7
+UP000001570_224308	0.993	gff_match:gene_xref=17,multi_gene=1,unmapped=29,xref=4211; qfo2026_gff_vxref_vs_placed_concordance=1.000(n=4197)
+UP000001584_83332	0.996	gff_match:gene_xref=3,multi_gene=12,uniprot=1932,unmapped=15,xref=2025; qfo2026_gff_md5_vs_placed_concordance=1.000(n=3957); proteins_sharing_gene=2
+UP000002008_324602	1.000	gff_match:multi_gene=3,xref=3850; qfo2026_gff_vxref_vs_placed_concordance=1.000(n=3850)
+UP000001973_100226	1.000	gff_match:multi_gene=107,uniprot=6956,xref=1071; qfo2026_gff_md5_vs_placed_concordance=1.000(n=8027)
+UP000002521_190304	0.699	2026_proteome=UP000241660; gff_match:xref=1430
+UP000002524_243230	0.999	gff_match:multi_gene=6,unmapped=2,xref=3081; qfo2026_gff_vxref_vs_placed_concordance=1.000(n=3079)
+UP000002438_208964	1.000	gff_match:gene_xref=3,multi_gene=6,unmapped=1,xref=5551; qfo2026_gff_md5_vs_placed_concordance=1.000(n=5551); proteins_sharing_gene=3
+UP000007719_515635	1.000	gff_match:multi_gene=1,xref=1743; qfo2026_gff_vxref_vs_placed_concordance=1.000(n=1743)
+UP000008183_243274	0.999	gff_match:gene_xref=5,multi_gene=1,unmapped=2,xref=1842; qfo2026_gff_vxref_vs_placed_concordance=1.000(n=1842); proteins_sharing_gene=5
+UP000002526_224911	1.000	gff_match:multi_gene=27,unmapped=1,xref=8252; qfo2026_gff_vxref_vs_placed_concordance=1.000(n=8252); proteins_sharing_gene=2
+UP000000559_237561	0.997	gff_match:multi_gene=11,unmapped=16,xref=6015; qfo2026_gff_md5_vs_placed_concordance=1.000(n=6015)
+UP000000542_5664	1.000	gff_match:multi_gene=135,uniprot=7969,xref=45; qfo2026_gff_md5_vs_placed_concordance=1.000(n=8014)
+UP000000561_237631	0.996	gff_match:multi_gene=3,unmapped=26,xref=6667; qfo2026_gff_md5_vs_placed_concordance=1.000(n=6667)
+UP000000600_5888	0.997	gff_match:multi_gene=225,uniprot=39344; qfo2026_gff_md5_vs_placed_concordance=1.000(n=39344)
+UP000001055_321614	0.000	2026_proteome=UP000663193; gff_match:xref=2
+UP000000803_7227	0.996	gff_match:multi_gene=35,unmapped=13,xref=12309; qfo2026_gff_md5_vs_placed_concordance=1.000(n=12285); proteins_sharing_gene=1
+UP000001300_284591	0.996	gff_match:multi_gene=8,uniprot=5798,unmapped=24,xref=627; qfo2026_gff_vxref_vs_placed_concordance=1.000(n=6425)
+UP000001357_81824	0.997	gff_match:multi_gene=10,xref=9153; qfo2026_gff_md5_vs_placed_concordance=1.000(n=9153)
+UP000001312_665079	1.000	gff_match:multi_gene=23,xref=14438; qfo2026_gff_md5_vs_placed_concordance=1.000(n=14438)
+UP000001450_36329	0.998	gff_match:multi_gene=11,uniprot=5029,xref=312; qfo2026_gff_md5_vs_placed_concordance=1.000(n=5341)
+UP000001449_35128	0.991	gff_match:multi_gene=50,unmapped=106,xref=11607; qfo2026_gff_md5_vs_placed_concordance=1.000(n=11607)
+UP000001548_184922	1.000	gff_match:multi_gene=60,xref=4899; qfo2026_gff_md5_vs_placed_concordance=1.000(n=4899)
+UP000005640_9606	0.951	gcoord_multi_gene=1045; gff_match:multi_gene=337,unmapped=1035,xref=19100; qfo2026_gff_vxref_vs_placed_concordance=0.996(n=18915); qfo2026_gcoord_md5_vs_placed_concordance=0.000(n=19182); qfo2026_gcoord_md5_skipped(assembly_not_verified); qfo2026_gff_md5_vs_placed_concordance=0.994(n=19065); proteins_sharing_gene=17; non_primary_contigs=CHR_HG109_PATCH,CHR_HG1277_PATCH,CHR_HG142_HG150_NOVEL_TEST,CHR_HG151_NOVEL_TEST,CHR_HG2021_PATCH,...(11)
+UP000001542_5722	1.000	gff_match:multi_gene=2148,xref=50088; qfo2026_gff_md5_vs_placed_concordance=1.000(n=50088)
+UP000001805_367110	1.000	gff_match:multi_gene=1,unmapped=2,xref=9754; qfo2026_gff_md5_vs_placed_concordance=1.000(n=9754); proteins_sharing_gene=1
+UP000001593_45351	1.000	gff_match:multi_gene=188,xref=24412; qfo2026_gff_md5_vs_placed_concordance=1.000(n=24412)
+UP000002149_214684	0.991	gff_match:multi_gene=26,xref=6544; qfo2026_gff_vxref_vs_placed_concordance=1.000(n=6514); proteins_sharing_gene=1
+UP000001940_6239	0.993	gff_match:multi_gene=119,unmapped=25,xref=19503; qfo2026_gff_md5_vs_placed_concordance=1.000(n=19419); proteins_sharing_gene=14
+UP000002195_44689	0.996	gff_match:multi_gene=338,unmapped=54,xref=12643; qfo2026_gff_md5_vs_placed_concordance=1.000(n=12643); proteins_sharing_gene=1
+UP000002485_284812	1.000	no_2026_gff; eg52_match:gene_xref=58,multi_gene=87,xref=5064; proteins_sharing_gene=70
+UP000002530_330879	0.998	gff_match:multi_gene=2,unmapped=20,xref=9624; qfo2026_gff_md5_vs_placed_concordance=1.000(n=9624)
+UP000001554_7739	0.078	gff_match:multi_gene=19,unmapped=32,xref=1976; qfo2026_gff_md5_vs_placed_concordance=0.998(n=1976); qfo2026_gff_vxref_vs_placed_concordance=1.000(n=11); qfo2026_gff_vxref_skipped(assembly_not_verified)
+UP000007241_684364	0.966	gff_match:multi_gene=62,unmapped=291,xref=8319; qfo2026_gff_vxref_vs_placed_concordance=1.000(n=8319)
+UP000006906_3055	0.996	gff_match:multi_gene=90,unmapped=75,xref=17243; qfo2026_gff_md5_vs_placed_concordance=1.000(n=17243)
+UP000007266_7070	0.999	gff_match:multi_gene=25,unmapped=12,xref=16454; qfo2026_gff_md5_vs_placed_concordance=1.000(n=16453)
+UP000006727_3218	0.986	gff_match:gene_xref=22049,multi_gene=693,unmapped=139,xref=8794; qfo2026_gff_vxref_vs_placed_concordance=1.000(n=8792)
+UP000008783_418459	1.000	gff_match:multi_gene=101,xref=15688; qfo2026_gff_vxref_vs_placed_concordance=1.000(n=15688)
+UP000059680_39947	0.979	gff_match:multi_gene=211,unmapped=905,xref=42093; qfo2026_gff_md5_vs_placed_concordance=1.000(n=42091); proteins_sharing_gene=4
+UP000000437_7955	0.644	gff_match:gene_xref=38,multi_gene=25,unmapped=613,xref=6732; qfo2026_gcoord_md5_vs_placed_concordance=0.988(n=7175); qfo2026_gff_md5_vs_placed_concordance=0.998(n=6740); proteins_sharing_gene=118
+UP000008143_8364	0.996	gff_match:multi_gene=81,unmapped=121,xref=16713; qfo2026_gcoord_md5_vs_placed_concordance=0.993(n=17758); qfo2026_gff_md5_vs_placed_concordance=0.993(n=16713); proteins_sharing_gene=893
+            n   mean  median  n_ge90
+domain                              
+Archaea     7  0.998   1.000       7
+Bacteria   23  0.985   1.000      22
+Eukaryota  48  0.937   0.996      44
