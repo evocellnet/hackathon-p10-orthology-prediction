@@ -85,5 +85,6 @@ Decision note M0: benchmark lives in its own repo (bench_repo/) as the prompt re
   - [!] 8b4. QfO recall grid (fast base, TreeFam-A dev + OrthoBench dev; results/core_v0_qfo/runs.tsv). **A1 so_struct** (same-child units with disjoint species → speciation): TF-A dev TPR .572→.609, PPV .928→.923; OB OG-F 79.69 unchanged; S8 fission candidates 706→512. **Adopted** into both presets. Failed rule: so_absorb (PPV −0.012), fission repair 0.5 (OB −1.55), global tol 0.8 (TPR .648 but OB 71.2), norm_min (OB 51.1). There was no coverage guard on scored pairs (743 FNs = low-coverage pairs scored low by norm_max).
   - [x] 8b5. Deep nodes defined generically (median seed −ln S ≥1.5: cellular organisms, Eukaryota, Opisthokonta, Fungi…; no OrthoBench node qualifies). Relaxed tolerance at deep nodes: TPR +0.04 but PPV −0.033 → fail. **deep so_absorb: TPR .616, PPV .920 → adopted.** Remaining dev FNs: different root HOG 2,306 (Bilateria 841), paralog call 1,776, S0 split 1,286 (Opisthokonta 746).
   - [~] 8b6. Frozen-candidate `accurate` QfO run → peek 2 (agent)
+  - [~] 8b7. S0 rescue re-test with the new merge: 3Di attach, MMseqs2 profile, both, merge-guarded (fresh agent)
   - [~] 8c. Scaling: nested QfO subsets 8/16/32/64(/78), Ancestra vs OrthoFinder 3.2 vs SonicParanoid2, CPU-h primary, 6 h cap (agent)
 - [ ] 9. REPORT.md
