@@ -1,0 +1,12 @@
+{
+ "_rule": "Pre-stated selection rule (fixed before any grid run, 2026-10-26 15:25 CET): among configs with sum_g2 <= 0.05*N^2 AND max_family <= 0.03*N, pick the one with the highest DEV completeness (RefOGs minus low-certainty genes); ties -> higher dev pair_recall, then lower wall time. Test RefOGs are scored once, for the chosen config only.",
+ "dc_a30_c50": {"backend": "diamond", "dmnd_cmd": "cluster", "approx_id": 30, "member_cover": 50},
+ "deep_c50": {"backend": "diamond", "dmnd_cmd": "deepclust", "approx_id": 0, "member_cover": 50},
+ "deep_c20": {"backend": "diamond", "dmnd_cmd": "deepclust", "approx_id": 0, "member_cover": 20},
+ "mm_s7.5_c50": {"backend": "mmseqs", "mm_cmd": "cluster", "min_seq_id": 0.0, "cov": 0.5, "cov_mode": 1, "sens": 7.5, "cluster_mode": 0},
+ "mm_s5.7_c30_cc": {"backend": "mmseqs", "mm_cmd": "cluster", "min_seq_id": 0.0, "cov": 0.3, "cov_mode": 0, "sens": 5.7, "cluster_mode": 1},
+ "2s_dc30_cc_min50": {"backend": "diamond", "dmnd_cmd": "cluster", "approx_id": 30, "member_cover": 50, "stage2": "cc", "s2_sens": "--sensitive", "s2_evalue": 1e-5, "s2_cov": 0.5, "s2_cov_mode": "min"},
+ "2s_dc30_cc_min30": {"backend": "diamond", "dmnd_cmd": "cluster", "approx_id": 30, "member_cover": 50, "stage2": "cc", "s2_sens": "--sensitive", "s2_evalue": 1e-5, "s2_cov": 0.3, "s2_cov_mode": "min"},
+ "2s_dc30_mcl_I1.4": {"backend": "diamond", "dmnd_cmd": "cluster", "approx_id": 30, "member_cover": 50, "stage2": "mcl", "s2_sens": "--sensitive", "s2_evalue": 1e-5, "s2_cov": 0.0, "mcl_I": 1.4},
+ "2s_dc30_mcl_min30_I1.4": {"backend": "diamond", "dmnd_cmd": "cluster", "approx_id": 30, "member_cover": 50, "stage2": "mcl", "s2_sens": "--sensitive", "s2_evalue": 1e-5, "s2_cov": 0.3, "s2_cov_mode": "min", "mcl_I": 1.4}
+}

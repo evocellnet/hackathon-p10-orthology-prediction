@@ -1,4 +1,4 @@
-# DESIGN.md — v1 (PI, 2026-10-26 15:20 CET, T+0h40; after review round 1)
+# DESIGN.md — v2 (PI, 2026-10-26 ~16:05 CET; after review rounds 1–2)
 
 The project goal and its parts are fixed (PROMPT.md). Round-1 reviews are in docs/reviews/r1_*.md, and the change log is in §10. Time is always read with `scripts/clock.sh`, never estimated (the v0 draft mis-stamped T+1h15 when it was T+0h26).
 
@@ -35,13 +35,13 @@ We describe the method as "a scalable, synteny-aware descendant of SYNERGY and H
 ## 3. Sub-tasks and their benchmarks
 | ID | Sub-task | Arms | Benchmark (dev split) | Metric |
 |---|---|---|---|---|
-| S0 | Family partition | DeepClust · linclust/cluster cascades · thresholds | OrthoBench dev RefOGs: fusion/fission, RefOG completeness; toy sim truth; runtime | % RefOGs fully within one family, fusion rate, CPU-h |
-| S1 | Guide species tree | NCBI taxdump-derived · sketch distance + NJ · single-copy HOGs → ASTRAL-Pro · *perturbed (NNI/SPR)* · *random (negative control)* | nRF vs NCBI and published trees; downstream dev F | nRF; downstream |
-| S2 | Within-family scoring | DIAMOND (mode) · MMseqs2 align on in-family pairs · SIMD SW (pyopal/parasail) | toy sim; OrthoBench dev pairs recall; CPU-h | recall, CPU-h |
+| S0 | Family partition (two-level: DeepClust/linclust → representative all-vs-all (DIAMOND sensitive) → link clusters with ≥50% bidirectional coverage → connected components; >20k-gene families split by Leiden and flagged for root rescue) | DeepClust · linclust/cluster cascades · coverage thresholds · **pre-registered target ≥95% dev RefOGs in one family** | OrthoBench dev RefOGs: fusion/fission, RefOG completeness; toy sim truth; runtime | % RefOGs fully within one family, fusion rate, CPU-h |
+| S1 | Guide species tree and discordance policy | Topology arms: NCBI taxdump-derived · sketch distance + NJ · single-copy HOGs → ASTRAL-Pro · *perturbed (NNI/SPR)* · *random (negative control)*. **Policy arms (universal-tree alternatives):** strict universal tree · delayed merge (unmatched passes up; discordant families merge higher) · per-family local labelling (species-overlap on the family's own local tree). Count families flagged as discordant, split into prokaryote and eukaryote | nRF vs NCBI and published trees; downstream dev F | nRF; downstream |
+| S2 | Within-family scoring | DIAMOND on whole families packed into ~100k-protein blocks (`-k 0 --max-hsps 1 --sensitive`), in-family pairs kept · MMseqs2 align on an explicit pair list. Cap: ≤5k genes all pairs; 5k–20k top-2 per target species plus ≤20 same-species; >20k split in S0. A missing pair is *unknown*, not zero. Length/self-score normalisation | toy sim; OrthoBench dev pairs recall; CPU-h | recall, CPU-h |
 | S3 | Merge rule at a node | RBH-only · mutual-best + in-paralogs · + fission repair · hybrid with local trees | toy sim (exact); OrthoBench dev rooted RefOG trees (speciation vs duplication labels from Data_for_RefOGs trees) | pair P/R/F1 |
 | S3b | Multi-level HOG correctness | same | Zombi or ALF simulation with gene order, DTL, LGT (if installable within 1 h), else in-house simulator | per-level HOG Jaccard, pair F1 |
 | S4 | Ancestral representation for scoring/rescue | max-link · avg-link · medoid · k-diverse rescue (capped at 1.2·n) | dev deep-level recall/fission | Δ |
-| S5 | Synteny evidence | off · anchors-only tie-break · additive score · **shuffled-order control** | OrthoBench dev + toy sim; also reported on QfO test at freeze only | Δ(real − shuffled) |
+| S5 | Synteny evidence (**core novelty, not optional**: start by T+14h, ≥8 h budget). Ancestral adjacency: two ancestral genes at X are adjacent if, in ≥1 member species of each child lineage, their member genes lie within w genes (w=5, gap-tolerant) on the same contig. Merge support for a candidate (a,b) = number of anchor pairs (unambiguous mutual-best 1:1 matches from pass 1) adjacent to a and to b. Pre-registered target cases: paralog resolution after WGD (teleost: zebrafish/Tetraodon in OrthoBench; yeast in QfO) and after tandem duplications (abstain) | off · anchors-only tie-break · additive score · **shuffled-order control** | OrthoBench dev + toy sim; also reported on QfO test at freeze only | Δ(real − shuffled) |
 | S6 | Structure evidence | off · 3Di (ProstT5/AFDB) for deep/ambiguous · **shuffled-3Di control** | dev deep fission/recall | Δ(real − shuffled) |
 | S7 | Isoforms | canonical · best-isoform-pair scoring (QfO `_additional.fasta`, Ensembl isoforms) | dev pairs | ΔF1 |
 | S8 | Gene-loss validation | demo: search for the missing HOG member in the syntenic locus of the genome (Ensembl mammals) | small set of known losses | precision of "lost" vs "not annotated" |
@@ -52,8 +52,8 @@ We describe the method as "a scalable, synteny-aware descendant of SYNERGY and H
 - Prediction input is QfO 2022_02_with_updated_UP000000437 only (bare accessions, canonical set). `scripts/verify_ids.py` runs before every QfO run (≥99.5% coverage, no isoforms leaking).
 - Synteny coordinates come from the 2022 `_gcoord.xml` first; 2026 coordinates are used only when the sequence MD5 matches; Ensembl GFF3 for OrthoBench uses the primary assembly only. Coverage is reported per species.
 - **Split** (fixed seed 11, hashes committed in `splits/`):
-  - Dev: toy simulations; 35 OrthoBench RefOGs; S0/S2 tuning on unlabeled data.
-  - Test: the other 35 RefOGs; every QfO test (SwissTree, TreeFam-A, VGNC, GO, EC, FAS, STD, G-STD2).
+  - Dev: toy simulations; ~35 OrthoBench RefOGs, split **by homology component** (paralogous RefOGs, e.g. {016,026,027,032,037,039,058}, always on the same side), stratified by size, seed 11; S0/S2 tuning on unlabeled data; a 30% hash-split of TreeFam-A families as QfO dev, if the local QfO pipeline can restrict families (otherwise documented).
+  - Test: the other RefOGs; the other 70% of TreeFam-A; every other QfO test (SwissTree, VGNC, GO, EC, FAS, STD, G-STD2).
 - At most 3 logged QfO "peeks" before the freeze (`results/test_log.tsv`: config hash, time, reason).
 - VGNC is not used as development evidence for synteny, because VGNC is partly synteny-derived.
 - `tests/test_no_leak.py`: method code may read only declared inputs (proteomes, GFF/gcoord, guide tree, optional structure/expression). It fails on references to reference_data, RefOG, SwissTree, TreeFam, lineage_tree or species_tree_samples. The NCBI guide tree comes from the NCBI taxdump.
@@ -61,7 +61,8 @@ We describe the method as "a scalable, synteny-aware descendant of SYNERGY and H
 ## 5. Evaluation protocol (pre-registered)
 - **Primary comparators:** Hieranoid 2, OrthoFinder, FastOMA, InParanoid 5, SonicParanoid2-sens-g (public QfO rows). Their public predictions are re-scored locally and must match OpenEBench within 0.005, otherwise the local QfO pipeline is not trusted. FastOMA's advantage from the OMA database is flagged.
 - **OrthoBench:** all measures, paired bootstrap over RefOGs (B=2000) for the CI of the difference vs comparators run locally (OrthoFinder; FastOMA and SonicParanoid if feasible).
-- **QfO:** report each test as (recall proxy, precision proxy) with n. "Comparable" means no comparator dominates us on both axes beyond the 95% CI (bootstrap over families or pairs where the test allows; otherwise point estimates, labelled as such).
+- **Primary endpoints:** OrthoBench-test F (as a fraction); QfO SwissTree (TPR, PPV); TreeFam-A test (TPR, PPV); G-STD2-Eukaryota (RF with n); EC (Schlicker with n). All other tests are exploratory.
+- **Success rule (non-inferiority):** for a primary endpoint we are "comparable" to a comparator if the lower 95% bound of Δ(ours − comparator) ≥ −0.03 on the relevant axis. Simulation in r2 gives a paired-bootstrap SE of ΔF ≈ 0.02–0.04 on 35 RefOGs, so a merely non-dominated result is not a claim. When there is no CI (point estimates only), we write "inconclusive", not "comparable".
 - **Layers:** add-one and leave-one-out ablations against shuffled-layer controls, with Holm correction across layers. Null effects are reported with an equivalence bound.
 - **Runtime:** `/usr/bin/time -v`, 24 threads, node load logged; nested species subsets (8/16/32/64/78) with fixed seeds; log-log slope with CI. All preprocessing counts (ProstT5, DB builds). Censored runs are reported as "> T".
 - **Primary output** is the HOG OrthoXML. The secondary pair export rule is fixed on dev; we never pick the better export per test.
@@ -81,8 +82,8 @@ We describe the method as "a scalable, synteny-aware descendant of SYNERGY and H
 | T+8h | v0 end-to-end (S0 → S2 → S3 → OrthoXML) on toy and OrthoBench dev. Competitor timings started (sequential, fixed threads) |
 | **T+12h gate** | If OrthoBench-dev F < OrthoFinder −0.10, switch the core merge to the hybrid local-tree mode before any layer work |
 | T+16h | First QfO full run (peek 1). S1 arms |
-| **T+20h gate** | If v0 is dominated by Hieranoid 2 on both SwissTree and TreeFam-A by more than 2 SE, fix the core before layers |
-| T+20–34h | Layers S5/S6/S7 (time-box 4 h each), S8 (3 h), S9 (2 h). Each is killed if Δ(real − shuffled) ≤ 0 on dev at its time-box |
+| **T+20h gate** | On *dev* only (TreeFam-A dev 30% and OrthoBench dev): if v0 is dominated by Hieranoid 2 (lower TPR *and* lower PPV, by >0.03 each), fix the core before further layers |
+| T+14–34h | S5 synteny (≥8 h, core). S6/S7 (4 h each), S8 (3 h), S9 (2 h). A layer is kept only if Δ(real − shuffled) > 0 *and* Δ(real − off) > seed spread on dev; otherwise it is reported as negative |
 | T+24h | REPORT.md skeleton |
 | T+36h | Code freeze. T+38h final runs started. T+44h independent review of results. T+47h REPORT.md final |
 
@@ -99,6 +100,16 @@ Python 3.11 with numpy, numba and pyarrow. Integer gene IDs and a species ID map
 - QfO local run without Docker fails → fallback to reimplementing the pairwise tests, validated against public submissions.
 
 ## 10. Change log
+- v2, after round 2 (docs/reviews/r2_*.md):
+  - Two-level S0 with a pre-registered ≥95% dev RefOG target (default DeepClust kept only 37% of FastOMA root HOGs in one cluster).
+  - Concrete scoring backend and large-family caps; missing pair = unknown.
+  - RefOG split by homology component (the random split leaked through paralogous RefOGs).
+  - Non-inferiority success rule with named primary endpoints.
+  - T+20h gate moved to dev data.
+  - Synteny promoted to core with a concrete ancestral-adjacency definition and pre-registered target cases.
+  - Fallback novelty claim if synteny gives no gain: a reference-free, near-linear, level-synchronous HOG reconstruction with an explicit multi-arm guide-tree discordance policy, plus a documented negative result for synteny.
+  - Species-tree policy arms (strict / delayed / per-family).
+  - Stricter layer keep rule.
 - v1, after round 1:
   - Added S0 family partition, which fixes the cost blow-up of v0's pan-proteome searches (r1_algorithms_compute: v0 saving only ~2.5× over all-vs-all).
   - Replaced the "linear" claim with a cost model.

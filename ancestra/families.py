@@ -479,7 +479,7 @@ def run_families(fasta: str, outdir: str, cfg: FamilyConfig) -> dict:
             hits = os.path.join(outdir, "reps_hits.tsv")
             _run(["diamond", "makedb", "--in", rfa, "-d", dmnd, "--threads", cfg.threads], log)
             cmd = ["diamond", "blastp", "-q", rfa, "-d", dmnd, "-o", hits, "--threads", cfg.threads,
-                   "-k", cfg.s2_max_target, "-e", cfg.s2_evalue, "-M", f"{cfg.memory_gb}G",
+                   "-k", cfg.s2_max_target, "-e", cfg.s2_evalue,
                    "--outfmt", "6", "qseqid", "sseqid", "evalue", "bitscore", "qlen", "slen",
                    "qstart", "qend", "sstart", "send"]
             if cfg.s2_sens:
