@@ -221,3 +221,14 @@ organisms), 2131/26 @Eukaryota, 1930/44 @Eukaryota, 1824/27 @Eukaryota, 1777/49,
   zinc-finger or olfactory-receptor-like superfamily, and a precision risk.
 
 HOGs per level: `results/qfo_run/det_{go,nogo}_summary.md`. Size distribution and top 20: `results/qfo_run/det_root_hog_size_distribution.json`.
+
+## 7. QfO peek 1 (PI-authorised; fast tests only)
+- **Logging and inputs.** Logged in `results/test_log.tsv` before scoring: one line per arm, with config hashes
+  6452b3441294 (A) and 92e5bf6dcf4b (B) and git 855db34. The code sha256s equal the manifest's.
+- **Scoring.** `bench_repo/scripts/run_qfo_local.sh` scored `work/qfo2022_det/det_{go,nogo}/hogs.orthoxml` on GO, EC,
+  VGNC, SwissTrees, TreeFam-A and SP. That took about 5 min per arm; outputs are in `work/qfo_peek1/<arm>/`.
+- **Competitors.** Their public prediction files were re-scored locally on SwissTrees, TreeFam-A, VGNC and SP
+  (`scripts/qfo_peek1_rescore_competitors.sh`) to get evaluated-pair counts (TP+FP from the raw files). This
+  reproduces the published TPR/PPV exactly (60/60 values; `results/qfo_peek1/competitor_reproduction.tsv`).
+- **Table.** `scripts/make_qfo_peek1_table.py` writes `results/qfo_peek1/summary.{tsv,md}`.
+- **Not run:** STD and G_STD2 tests (kept for the final run).

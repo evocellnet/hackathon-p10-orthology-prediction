@@ -120,9 +120,10 @@ class MergeConfig:
     def key(self) -> dict:
         d = asdict(self)
         # options added after the QfO freeze: omitted at their defaults (stable stage hashes)
-        for k, v in (("tree_method", "nj"), ("tree_ft_mode", "medoid"), ("tree_ft_workers", 12)):
+        for k, v in (("tree_method", "nj"), ("tree_ft_mode", "medoid")):
             if d.get(k) == v:
                 d.pop(k)
+        d.pop("tree_ft_workers", None)   # results do not depend on the pool size (tested)
         return d
 
 
@@ -982,9 +983,10 @@ class ConstrainedContext:
         return np.asarray(self.base.support(ctx), dtype=np.float64)
 
 
-def run_merge_constrained(gt, tree, st, cfg, context, **kw) -> "MergeResult":
-    """Context-off merge -> root HOGs -> merge with ``ConstrainedContext(context)``."""
-    off = run_merge(gt, tree, st, cfg, **kw)
+def run_merge_constrained(gt, tree, st, cfg, context, off_cfg=None, **kw) -> "MergeResult":
+    """Context-off merge (``off_cfg``, default ``cfg``) -> root HOGs -> merge with
+    ``ConstrainedContext(context)`` under ``cfg``."""
+    off = run_merge(gt, tree, st, off_cfg or cfg, **kw)
     return run_merge(gt, tree, st, cfg, context=ConstrainedContext(context, root_labels(off, gt.n)), **kw)
 
 

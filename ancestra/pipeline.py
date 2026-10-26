@@ -45,12 +45,31 @@ from .merge import ARMS, MergeConfig, MergeResult, run_merge, to_orthoxml
 from .orthoxml import to_orthobench_ogs, validate_xsd, write_orthoxml
 from .scoring import ScoreTable, ScoringConfig, score_with_rescue
 
-__all__ = ["run_pipeline", "main", "DEFAULT_FAMILY_CONFIG", "SYNTENY_DEFAULT"]
+__all__ = ["run_pipeline", "main", "DEFAULT_FAMILY_CONFIG", "SYNTENY_DEFAULT", "PRESETS", "apply_preset"]
 
 # synteny (S5) defaults, locked by the PI after OrthoBench dev (docs/S5_synteny.md §8,
 # docs/core_v0.md §7): R1-only multiplicative bonus, window 10, lambda 0.3, core 1:1 anchors;
 # constrained to the synteny-off root HOGs; plus the R2/R3 veto and R3 partner choice.
 SYNTENY_DEFAULT = dict(mode="multiplicative", lam=0.3, anchor="core", w=10)
+
+# Named presets (PI decision after OrthoBench dev, docs/core_v0.md §7.9-7.10):
+#   accurate (default of the frozen config): local trees with FAMSA + FastTree -lg on
+#            length-medoid leaves; `off_tree_method` = tree method of the synteny-off pass of
+#            the constrained two-pass synteny merge.
+#   fast:    NJ on -ln S everywhere (v0.2 behaviour; used for scaling claims).
+PRESETS = {
+    "accurate": {"tree_method": "fasttree", "tree_ft_mode": "medoid", "off_tree_method": "OFF_TREE_TBD"},
+    "fast": {"tree_method": "nj", "tree_ft_mode": "medoid", "off_tree_method": "nj"},
+    "custom": None,   # leave the merge config as given (off pass uses its tree_method)
+}
+
+
+def apply_preset(merge: MergeConfig, preset: str, threads: int = 12) -> MergeConfig:
+    p = PRESETS[preset]
+    if p is None:
+        return replace(merge, tree_ft_workers=threads)
+    return replace(merge, tree_method=p["tree_method"], tree_ft_mode=p["tree_ft_mode"],
+                   tree_ft_workers=threads)
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # S0 default = `2sA_dc30_cc_sh30_RA` (docs/S0_families.md, selected on OrthoBench DEV RefOGs):
@@ -257,11 +276,15 @@ def _fallback_families(gt: GeneTable, wd: str, threads: int) -> dict:
 def run_pipeline(proteomes: str, tree_path: str, outdir: str, families: str | None = None,
                  fam_cols: tuple = (0, 1), threads: int = 24, scoring: ScoringConfig | None = None,
                  merge: MergeConfig | None = None, family_config: dict | None = None,
-                 force: bool = False, log=print, gene_order_dir: str | None = None) -> dict:
+                 force: bool = False, log=print, gene_order_dir: str | None = None,
+                 preset: str = "accurate") -> dict:
     os.makedirs(outdir, exist_ok=True)
     scoring = scoring or ScoringConfig()
     scoring.threads = threads
-    merge = merge or MergeConfig()
+    if preset not in PRESETS:
+        raise ValueError(f"unknown preset {preset!r}")
+    merge = apply_preset(merge or MergeConfig(), preset, threads)
+    off_tree = PRESETS[preset]["off_tree_method"] if PRESETS[preset] else merge.tree_method
     R = Runner(outdir, force=force, log=log)
     t_all = time.time()
     gt = load_proteomes(proteomes)
@@ -273,7 +296,8 @@ def run_pipeline(proteomes: str, tree_path: str, outdir: str, families: str | No
               "families": md5_file(families) if families else None}
     R.manifest.update(tool="ancestra core v0", argv=sys.argv, git=_git_commit(),
                       versions=_tool_versions(), inputs=inputs,
-                      config={"threads": threads, "scoring": asdict(scoring), "merge": asdict(merge),
+                      config={"threads": threads, "preset": preset, "off_tree_method": off_tree,
+                              "scoring": asdict(scoring), "merge": asdict(merge),
                               "families": {"file": families, "cols": list(fam_cols)} if families
                               else {"default_clustering": family_config or DEFAULT_FAMILY_CONFIG}},
                       n_genes=gt.n, n_species=len(gt.species))
@@ -355,7 +379,8 @@ def run_pipeline(proteomes: str, tree_path: str, outdir: str, families: str | No
             famx = np.load(famf) if os.path.exists(famf) else fam
             ctx = SyntenyContext(cc, oo, family=famx, **SYNTENY_DEFAULT)
             mcfg = replace(merge, ctx_veto=True, ctx_r3=True)
-            res = run_merge_constrained(gt, tree, st, mcfg, ctx)
+            res = run_merge_constrained(gt, tree, st, mcfg, ctx,
+                                        off_cfg=replace(mcfg, tree_method=off_tree))
             info["synteny_coverage"] = cov
         else:
             res = run_merge(gt, tree, st, merge)
@@ -370,7 +395,8 @@ def run_pipeline(proteomes: str, tree_path: str, outdir: str, families: str | No
                 "tree_units": int(sum(s.get("tree_units", 0) for s in res.node_stats)),
                 "tree_s": round(sum(s.get("tree_s", 0) for s in res.node_stats), 2)})
         return info
-    d_m, k_m = R.stage("merge", {"up": k_sc, "cfg": merge.key(), "synteny": syn_info}, s_merge)
+    d_m, k_m = R.stage("merge", {"up": k_sc, "cfg": merge.key(), "synteny": syn_info,
+                                 "preset": preset, "off_tree_method": off_tree}, s_merge)
     with open(os.path.join(d_m, "merge.pkl"), "rb") as fh:
         res: MergeResult = pickle.load(fh)
     R.manifest["nodes"] = [{k: s[k] for k in ("node", "n_children", "n_units", "n_anc_out",
@@ -416,6 +442,9 @@ def build_parser(ap: argparse.ArgumentParser | None = None) -> argparse.Argument
     ap.add_argument("--out", required=True)
     ap.add_argument("--threads", type=int, default=24)
     ap.add_argument("--backend", default="hybrid", choices=["hybrid", "diamond", "mmseqs"])
+    ap.add_argument("--preset", default="accurate", choices=sorted(PRESETS),
+                    help="accurate (default; FastTree local trees) | fast (NJ local trees) | "
+                         "custom (use --config merge fields as given)")
     ap.add_argument("--arm", default=None, choices=sorted(ARMS),
                     help="named merge configuration (default: MergeConfig defaults)")
     ap.add_argument("--config", help="JSON {'scoring': {...}, 'merge': {...}} overriding defaults")
@@ -428,7 +457,7 @@ def build_parser(ap: argparse.ArgumentParser | None = None) -> argparse.Argument
 def main(argv=None) -> int:
     a = build_parser().parse_args(argv)
     sc = ScoringConfig(backend=a.backend)
-    mc = MergeConfig(**asdict(ARMS[a.arm])) if a.arm else MergeConfig()
+    mc = apply_preset(MergeConfig(**asdict(ARMS[a.arm])) if a.arm else MergeConfig(), a.preset, a.threads)
     if a.config:
         with open(a.config) as fh:
             c = json.load(fh)
@@ -443,7 +472,8 @@ def main(argv=None) -> int:
     cols = tuple(int(x) for x in a.families_cols.split(","))
     m = run_pipeline(a.proteomes, a.tree, a.out, families=a.families, fam_cols=cols,
                      threads=a.threads, scoring=sc, merge=mc, family_config=fc, force=a.force,
-                     log=lambda s: print(s, file=sys.stderr), gene_order_dir=a.gene_order)
+                     log=lambda s: print(s, file=sys.stderr), gene_order_dir=a.gene_order,
+                     preset=a.preset)
     print(f"[ancestra] done in {m['total_wall_s']:.1f}s -> {a.out}/hogs.orthoxml", file=sys.stderr)
     return 0
 

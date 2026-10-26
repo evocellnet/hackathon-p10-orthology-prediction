@@ -1,0 +1,238 @@
+[
+ {
+  "started": "2026-10-26T22:09:26+0100",
+  "argv": [
+   "scripts/qfo_pipeline_driver.py",
+   "--proteomes",
+   "work/scaling/inputs/sub32",
+   "--tree",
+   "results/scaling/subsets/sub32.nwk",
+   "--out",
+   "work/scaling/runs/anc_32_go",
+   "--threads",
+   "8",
+   "--gene-order",
+   "data/inputs/qfo2022/gene_order"
+  ],
+  "threads": 8,
+  "gene_order": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/data/inputs/qfo2022/gene_order",
+  "stop_after": null,
+  "invalidated": [],
+  "adopted_unrecorded": [],
+  "code_keys": {
+   "input": "f88bcb3b394df2f2",
+   "families": "df43339fea1e7020",
+   "scores": "d702ca61d3c2a3c5",
+   "merge": "eb59dc8d60f4031d",
+   "output": "3a6281d87829b84a"
+  },
+  "stages": {
+   "input": {
+    "skipped": false,
+    "wall_s": 0.22,
+    "cpu_self_s": 0.2,
+    "cpu_children_s": 0.0,
+    "children_maxrss_mb_so_far": 267.4,
+    "load_start": [
+     30.1,
+     34.4,
+     36.3
+    ],
+    "load_end": [
+     30.1,
+     34.4,
+     36.3
+    ],
+    "cpu_total_s": 0.2,
+    "pipeline_wall_s": 0.215,
+    "peak_rss_mb": 256.5,
+    "stats": {
+     "n_genes": 354664,
+     "n_species": 32,
+     "n_internal_nodes": 20
+    }
+   },
+   "families": {
+    "skipped": false,
+    "wall_s": 657.92,
+    "cpu_self_s": 65.9,
+    "cpu_children_s": 4144.5,
+    "children_maxrss_mb_so_far": 2145.4,
+    "load_start": [
+     30.1,
+     34.4,
+     36.3
+    ],
+    "load_end": [
+     30.5,
+     37.1,
+     38.2
+    ],
+    "cpu_total_s": 4210.4,
+    "pipeline_wall_s": 657.918,
+    "peak_rss_mb": 1728.5,
+    "stats": {
+     "source": "ancestra.families",
+     "s0_timings": {
+      "stage1_s": 357.89030051231384,
+      "stage2_search_s": 234.1985468864441,
+      "stage2_s": 293.4970362186432,
+      "total_s": 656.5041716098785
+     },
+     "n_families": 69124,
+     "n_singletons": 55039,
+     "max_family": 7319,
+     "sum_g2": 595952248
+    }
+   },
+   "scores": {
+    "skipped": false,
+    "wall_s": 1125.18,
+    "cpu_self_s": 126.7,
+    "cpu_children_s": 7257.7,
+    "children_maxrss_mb_so_far": 5778.4,
+    "load_start": [
+     30.5,
+     37.1,
+     38.2
+    ],
+    "load_end": [
+     25.4,
+     35.2,
+     37.5
+    ],
+    "cpu_total_s": 7384.4,
+    "pipeline_wall_s": 1125.18,
+    "peak_rss_mb": 5778.4,
+    "stats": {
+     "backend": "hybrid",
+     "n_families": 69124,
+     "sum_g2": 595952248,
+     "max_family": 7319,
+     "n_cross_family_hits": 9816374,
+     "n_raw_hits": 61632284,
+     "n_blocks": 4,
+     "diamond_s": 706.85,
+     "n_pairs_diamond": 26815189,
+     "n_pairs_rescue_candidates": 9216071,
+     "n_pairs_aligned_mmseqs": 9216071,
+     "pairs_write_s": 5.3,
+     "align_s": 69.41,
+     "n_families_over_cap": 7,
+     "n_families_over_gmax": 0,
+     "n_pairs_dropped_by_cap": 6371088,
+     "pairs_dropped_per_family": {
+      "15": 3317498,
+      "18": 597923,
+      "19": 604772,
+      "21": 406141,
+      "51": 329323,
+      "55": 662732,
+      "68": 452699
+     },
+     "wall_s": 812.89,
+     "n_scored_pairs": 13328666,
+     "n_self_scores": 354624,
+     "rescue_joins": 226,
+     "rescue_rescored_genes": 78443,
+     "rescue_wall_s": 309.94,
+     "n_families_after_rescue": 68898,
+     "n_families_before_rescue": 69124
+    }
+   },
+   "merge": {
+    "skipped": false,
+    "wall_s": 86.12,
+    "cpu_self_s": 85.2,
+    "cpu_children_s": 0.0,
+    "children_maxrss_mb_so_far": 5778.4,
+    "load_start": [
+     25.4,
+     35.2,
+     37.5
+    ],
+    "load_end": [
+     27.3,
+     33.1,
+     36.6
+    ],
+    "cpu_total_s": 85.2,
+    "pipeline_wall_s": 86.114,
+    "peak_rss_mb": 2247.1,
+    "stats": {
+     "synteny_coverage": {
+      "UP000000539_9031": 0.924194,
+      "UP000000559_237561": 0.997349,
+      "UP000000561_237631": 0.99617,
+      "UP000000625_83333": 0.977283,
+      "UP000000718_289376": 1.0,
+      "UP000000792_436308": 1.0,
+      "UP000000798_224324": 0.998068,
+      "UP000000803_7227": 0.995949,
+      "UP000001025_243090": 1.0,
+      "UP000001038_8090": 0.997671,
+      "UP000001300_284591": 0.996278,
+      "UP000001414_226186": 1.0,
+      "UP000001449_35128": 0.990953,
+      "UP000001519_9595": 0.991601,
+      "UP000001548_184922": 1.0,
+      "UP000001554_7739": 0.07764,
+      "UP000001686_374847": 1.0,
+      "UP000001805_367110": 0.999795,
+      "UP000001940_6239": 0.992787,
+      "UP000001973_100226": 1.0,
+      "UP000001974_273057": 0.999319,
+      "UP000002195_44689": 0.995757,
+      "UP000002277_9598": 0.983429,
+      "UP000002521_190304": 0.698925,
+      "UP000002524_243230": 0.999351,
+      "UP000002530_330879": 0.997927,
+      "UP000005640_9606": 0.95082,
+      "UP000006906_3055": 0.995742,
+      "UP000008144_7719": 0.998981,
+      "UP000008183_243274": 0.99892,
+      "UP000015101_6412": 0.993484,
+      "UP000018468_7918": 0.999891
+     },
+     "n_root_groups": 20516,
+     "n_root_anc_genes": 112508,
+     "merge_s_sum_nodes": 40.758,
+     "tree_clusters": 55134,
+     "tree_units": 254845,
+     "tree_s": 15.6
+    }
+   },
+   "output": {
+    "skipped": false,
+    "wall_s": 10.45,
+    "cpu_self_s": 10.3,
+    "cpu_children_s": 0.0,
+    "children_maxrss_mb_so_far": 5778.4,
+    "load_start": [
+     27.3,
+     33.1,
+     36.6
+    ],
+    "load_end": [
+     27.1,
+     32.9,
+     36.4
+    ],
+    "cpu_total_s": 10.3,
+    "pipeline_wall_s": 10.452,
+    "peak_rss_mb": 1842.8,
+    "stats": {
+     "xsd_valid": true,
+     "n_top_groups": 20516,
+     "n_pairs": 2249670,
+     "n_ogs_multi": 20516
+    }
+   }
+  },
+  "total_wall_s": 1882.38,
+  "finished": true,
+  "driver_wall_s": 1882.6,
+  "cpu_self_s": 292.9,
+  "cpu_children_s": 11402.3
+ }
+]

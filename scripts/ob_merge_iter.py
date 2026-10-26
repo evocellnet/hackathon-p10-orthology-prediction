@@ -103,6 +103,8 @@ def main():
     ap.add_argument("--scores", default="scores.npz", help="file in RUN/stages/scores/ (e.g. scores_pass1.npz)")
     ap.add_argument("--synteny", default="off", choices=["off", "real", "shuffled"])
     ap.add_argument("--syn", nargs="*", default=[], help="SyntenyContext kwargs k=v (JSON values)")
+    ap.add_argument("--off-set", nargs="*", default=[],
+                    help="overrides for the synteny-off pass of --syn-constrain (k=v)")
     ap.add_argument("--syn-constrain", action="store_true",
                     help="two-pass: synteny acts only inside the synteny-off root HOGs")
     a = ap.parse_args()
@@ -110,7 +112,8 @@ def main():
     over = dict(kv.split("=", 1) for kv in a.set)
     cfg = replace(cfg, **{k: parse_val(v) for k, v in over.items()})
     ch = hashlib.sha256((json.dumps(asdict(cfg), sort_keys=True) + a.scores + a.synteny
-                         + " ".join(a.syn) + ("C" if a.syn_constrain else "")).encode()).hexdigest()[:10]
+                         + " ".join(a.syn) + ("C" if a.syn_constrain else "")
+                         + " ".join(a.off_set)).encode()).hexdigest()[:10]
     out = a.out or os.path.join(a.run, "iter", ch)
     os.makedirs(out, exist_ok=True)
     gt = read_gene_table(os.path.join(a.run, "stages/input/genes.tsv"))
@@ -139,7 +142,8 @@ def main():
             syn_kw.setdefault("shuffle_seed", 11)
         context = SyntenyContext(cc, oo, family=fam, **syn_kw)
         if a.syn_constrain:
-            off = run_merge(gt, tree, st, cfg)
+            off_cfg = replace(cfg, **{k: parse_val(v) for k, v in (kv.split("=", 1) for kv in a.off_set)})
+            off = run_merge(gt, tree, st, off_cfg)
             root_lab = np.full(gt.n, -1, dtype=np.int64)
             for k, x in enumerate(off.roots):
                 stack = [x]

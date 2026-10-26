@@ -1,0 +1,4 @@
+orthofinder -f work/scaling/inputs/sub32 -t 8 -a 8 -mog -o work/scaling/runs/of_32
+cap_s=21600
+start=2026-10-26T22:40:50.278299+01:00
+load_at_start=26.94 32.78 36.38 29/3107 3136605

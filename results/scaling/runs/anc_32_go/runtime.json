@@ -1,0 +1,30 @@
+{
+ "label": "anc_32_go",
+ "kind": "anc_go",
+ "n_species": 32,
+ "n_proteins": 354664,
+ "threads": 8,
+ "cap_s": 21600,
+ "start": "2026-10-26T22:09:25.896723+01:00",
+ "end": "2026-10-26T22:40:50.267962+01:00",
+ "node_cores": 48,
+ "returncode": 0,
+ "censored": false,
+ "wall_s": 1883.27,
+ "user_s": 11609.03,
+ "sys_s": 86.57,
+ "max_rss_gb": 5.642948150634766,
+ "exit_status": 0,
+ "major_faults": 4,
+ "cpu_pct": "621%",
+ "cpu_s": 11695.6,
+ "cpu_h": 3.2487777777777778,
+ "wall_h": 0.5231305555555555,
+ "node_load_1min": {
+  "n": 32,
+  "load1_mean": 38.1453125,
+  "load1_max": 59.58,
+  "load1_min": 23.62
+ },
+ "ok": true
+}

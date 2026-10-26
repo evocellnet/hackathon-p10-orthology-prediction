@@ -358,3 +358,47 @@ def test_localtree_fasttree_backend_runs(sim_complex, tmp_path, mode):
     assert validate_xsd(p)[0]
     assert MergeConfig().key() == {k: v for k, v in MergeConfig().key().items()} and \
         "tree_method" not in MergeConfig().key()          # default hash unchanged
+
+
+def test_localtree_fasttree_deterministic_across_workers(sim_complex, tmp_path):
+    import shutil
+    from dataclasses import replace
+    from ancestra.orthoxml import hogs_to_pairs
+    if not (shutil.which("famsa") and shutil.which("FastTree")):
+        pytest.skip("famsa/FastTree not available")
+    from ancestra.scoring import ScoringConfig, score_families
+    _, simdir = sim_complex
+    gt = load_proteomes(os.path.join(simdir, "proteomes"))
+    tree = load_guide_tree(os.path.join(simdir, "species_tree.nwk"), gt.species)
+    fam = load_families(os.path.join(simdir, "truth", "gene_families.tsv"), gt, 0, 2)
+    st, _ = score_families(gt, fam, ScoringConfig(backend="mmseqs", threads=4), str(tmp_path))
+    base = replace(ARMS["default"], tree_require_outgroup=False, tree_min_d=0.0, tree_method="fasttree")
+    outs = []
+    for w in (2, 4, 4):
+        res = run_merge(gt, tree, st, replace(base, tree_ft_workers=w))
+        assert sum(s.get("tree_fasttree_jobs", 0) for s in res.node_stats) > 0
+        outs.append(([s.get("tree_changed") for s in res.node_stats],
+                     hogs_to_pairs(to_orthoxml(res, gt, tree))))
+    assert outs[0] == outs[1] == outs[2]
+
+
+def test_pipeline_presets_do_not_share_cache(sim_basic, tmp_path):
+    import shutil
+    from ancestra.pipeline import run_pipeline
+    if not (shutil.which("famsa") and shutil.which("FastTree")):
+        pytest.skip("famsa/FastTree not available")
+    _, simdir = sim_basic
+    out = str(tmp_path / "run")
+    kw = dict(families=os.path.join(simdir, "truth", "gene_families.tsv"), fam_cols=(0, 2), threads=2,
+              log=lambda s: None)
+    args = (os.path.join(simdir, "proteomes"), os.path.join(simdir, "species_tree.nwk"), out)
+    m1 = run_pipeline(*args, preset="fast", **kw)
+    m2 = run_pipeline(*args, preset="accurate", **kw)
+    m3 = run_pipeline(*args, preset="accurate", **kw)
+    assert m1["config"]["preset"] == "fast" and m2["config"]["preset"] == "accurate"
+    assert m2["stages"]["merge"]["skipped"] is False            # preset change -> new merge
+    assert m2["stages"]["scores"]["skipped"] is True
+    assert m3["stages"]["merge"]["skipped"] is True              # same preset -> cached
+    assert m2["stages"]["merge"]["key"] != m1["stages"]["merge"]["key"]
+    with pytest.raises(ValueError):
+        run_pipeline(*args, preset="nonsense", **kw)
