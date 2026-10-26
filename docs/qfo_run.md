@@ -232,3 +232,20 @@ HOGs per level: `results/qfo_run/det_{go,nogo}_summary.md`. Size distribution an
   reproduces the published TPR/PPV exactly (60/60 values; `results/qfo_peek1/competitor_reproduction.tsv`).
 - **Table.** `scripts/make_qfo_peek1_table.py` writes `results/qfo_peek1/summary.{tsv,md}`.
 - **Not run:** STD and G_STD2 tests (kept for the final run).
+
+## 8. TreeFam-A dev split and dev-only diagnosis (after peek 1)
+- **Split** (`scripts/make_treefamA_split.py` → `splits/treefamA_split.json`, sha256 in `splits/SHA256SUMS`).
+  - The QfO 2022 reference stores TreeFam-A as **one case** with no family IDs.
+  - Families are therefore the connected components of the reference relation graph: 1,108 families, 11,182
+    proteins, 1,013 of them complete cliques.
+  - Family ID = `TFA:<smallest UniProt accession>`; dev = `int(sha256(id),16) % 10 < 3`.
+  - Result: **359 dev families** (32.4%; 13,993 S / 11,420 D relations) and 749 test families.
+- **Subset scoring** (`scripts/qfo_treefam_subset.py RUN_DIR…`) runs on the official raw RefPhyloTest pairs with
+  the official formula.
+  - Note: RefPhyloTest counts every reference pair as 1/2, on top of a pseudocount of 1.
+  - Pooled dev+test equals the official TPR/PPV to 1e-8 for arms A and B and for OrthoFinder.
+  - It refuses test-only values without `--allow-test`.
+  - Dev results: A TPR 0.572 / PPV 0.928; B 0.575 / 0.931; OrthoFinder 0.732 / 0.920
+    (`results/qfo_dev_diag/treefamA_dev_scores.json`).
+- **Diagnosis** (`scripts/qfo_dev_diag.py`; dev pairs only, test pairs are skipped at parse time): see
+  `results/qfo_dev_diag/diag_summary.json` and `diag_pairs.tsv`.
