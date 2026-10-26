@@ -510,6 +510,25 @@ Arms (gene order on, i.e. constrained synteny + veto + R3; `run_det` scores; `re
 - **Recommendation:** make `tree_method="fasttree"` with medoid leaves the default for the next frozen config. It is **not** switched in code yet, because the QfO run in progress uses the current default.
 - At QfO scale, S4 estimates ~11.6 CPU-h for FastTree on all tree clusters (×2 with constrained synteny's two passes); one option is to keep the off-pass on NJ.
 
+### 7.10 Presets (frozen config) and FastTree determinism
+| arm (deterministic partition, gene order on) | OG-F | macro pair F1 | micro pair F1 | merge cost |
+|---|---|---|---|---|
+| FastTree on both passes | 80.36 | 0.799 | 0.804 | 1,039 s wall, 2.1 CPU-h |
+| **on-pass FastTree, off-pass NJ** | 79.69 | 0.803 | 0.804 | 428 s wall, 1.05 CPU-h |
+
+The NJ off pass is within noise by the PI's rule (ΔOG-F −0.67 > −1, Δmacro +0.004 > −0.005) at half the cost, so it is preferred.
+
+**Presets.** `python -m ancestra run ... --preset {accurate,fast,custom}`; `PRESETS` and `apply_preset` are in `ancestra/pipeline.py`.
+- **`accurate` (default of the frozen config):** local trees use FAMSA + FastTree -lg on length-medoid leaves. With `--gene-order`, the synteny-off pass of the constrained two-pass uses NJ.
+- **`fast`:** NJ everywhere (the v0.2 behaviour); used for scaling claims.
+- **`custom`:** the merge config is used as given via `--config`.
+- The merge-stage key includes the preset and the off-pass tree method, so caches never mix (`test_pipeline_presets_do_not_share_cache`).
+- `tree_ft_workers` follows `--threads` and is excluded from the key, because results do not depend on it.
+
+**Check through the CLI.** A merge-only rerun on `run_det` with `--preset accurate` reproduces OG-F 79.69 (436 s wall). Manifest: `results/core_v0_orthobench/det_accurate_manifest.json`.
+
+**Determinism.** FAMSA runs with `-t 1`, and FastTree is deterministic for a given input (fixed default seed). Pool results are collected in submission order. `test_localtree_fasttree_deterministic_across_workers` runs 2 vs 4 workers plus a repeat and gets identical outputs.
+
 ### 7.8 Next steps
 1. **Precision of tree mode and over-merges in large S0 families** (OG-P 63–75%):
    - check ambiguity clusters against FAMSA + FastTree trees on a sample;
