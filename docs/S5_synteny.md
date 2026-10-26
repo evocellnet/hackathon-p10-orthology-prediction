@@ -24,6 +24,7 @@ All numbers come from `results/S5_synteny/*.json`. The tables in §3 to §5 were
   - Leaf pairs: hard AUC 0.68 vs shuffled 0.50.
   - Ancestral levels (2 sims, every internal node): w=5 AUC is 0.66 to 0.91 (hard 0.51 to 0.86), against shuffled 0.49 to 0.51. Anchor precision is ≥ 0.995.
   - The toy has 80% tandem duplications and about 0.07 rearrangements per gene per unit branch length, so its gene order decays faster than vertebrate gene order. The toy is therefore a lower bound, not a calibration.
+- **Phase 2 (§8), OrthoBench DEV pair-level, core merge with R1-only synteny.** Pair F1 rises from 0.730 (off) to 0.762 to 0.776, i.e. **+0.032 to +0.046** with CIs > 0. Δ vs shuffled is the same, and shuffled is null. Vert–teleost (WGD) gains +0.07 to +0.09. The keep rule passes.
 - **Integration preview** (unmodified core merge, 8 toy sims, §5).
   - A multiplicative bonus (λ=0.1) halves the FP paralog pairs: 0.44× of `off`, against 0.91× for the shuffled arm. That is a real precision effect, with P going from 0.989 to 0.995.
   - It also costs recall (R 0.920 → 0.880, ΔF1 −0.019 against −0.005 shuffled), because the bonus inflates cross-child scores and so breaks the R2 in-paralog comparison.
@@ -411,3 +412,87 @@ Lower-level functions: `context_support`, `select_anchors`, `AncestralAdjacency`
 - **Scripts:** `scripts/build_gene_order.sh`, `build_gene_order_orthobench.py`, `S5_diamond_pairs.sh`, `S5_refog_labels.py`, `S5_pair_benchmark.py`, `S5_ancestral_toy.py`, `S5_merge_preview.py`, `summarize_S5.py` and `S5_manifest.py`.
 - **Results:** `results/S5_synteny/pair_benchmark_orthobench_dev.json`, `pair_benchmark_toy_wgd8_s11.json`, `ancestral_toy_*.json`, `merge_preview_toy.json`, `tables.md` and `manifest.json`.
 - **Work:** `work/S5/` (DIAMOND hits, labels, per-pair scores parquet).
+
+## 8. Phase 2: pair-level OrthoBench DEV evaluation of synteny inside the core merge
+Status: T+2h54 to T+3h15, 2026-10-26.
+
+The core owner implemented R1-only synteny (`MergeConfig.ctx_mode="r1"`): the bonus may change only R1 partner choice, among candidates within `ctx_window`=0.75 of the best raw score for both endpoints. R2, R3 and the RD tests keep raw scores. The core merge files were not edited.
+
+### 8.1 Pair-level metric (`scripts/orthobench_dev_pairs_eval.py`)
+This is the DESIGN §3 S3 metric. The module functions are `load_truth`, `read_pred`, `counts`, `metrics` and `paired_bootstrap`.
+
+**Truth.** All cross-species pairs inside each DEV RefOG (34 RefOGs, 19,146 pairs: 4,485 orthologs and 14,661 paralogs), labelled by species overlap on the rooted RefOG trees (§2).
+- **Prediction:** `pairs.tsv`, or an OrthoXML flattened with `hogs_to_pairs` (restricted to groups that contain DEV genes).
+- **Counts:** TP, FN, FP and TN over truth pairs only. Pairs between RefOGs, or outside DEV, are not counted.
+- **Classes:** mammal–mammal, tetrapod–tetrapod (with chicken), vert–teleost, teleost–teleost, vert–invert (fly/worm/Ciona), invert–invert.
+- **Bootstrap:** paired over RefOGs (B=2000, seed 11), on summed counts.
+
+**Validation.**
+- Truth vs itself gives P=R=F1=1 in every class (`phase2/eval_truth_self.json`).
+- The sequence-only pipeline run `work/core_v0_ob/run_v2/pairs.tsv` (min_cov 0.5) gives F1 0.659 (P 0.736, R 0.596; `phase2/eval_base_run_v2.json`).
+
+**Caveat:** the labels inherit topology errors from the RefOG trees. Vert–invert "paralogs" (789 pairs) are the most suspect: species overlap labels a duplication whenever a fly or worm gene nests inside the vertebrate clade.
+
+### 8.2 Arms (`scripts/S5_phase2_arms.py`, analysis `scripts/S5_phase2_analyze.py`)
+**Setup.** The cached `work/core_v0_ob/run_v2` stages are reused (gene table, tree, `scores.npz`, `families_final.npy`). Each arm is merge + flatten only, about 20 s, with 4 workers.
+- **Base:** the core's current dev reference, `ARMS['default']` + `min_cov=0` + `ctx_mode="r1"`. Off reproduces the core's "E syn=off" OG F=68.10 exactly.
+- **Real arms:** `SyntenyContext(mode="multiplicative")`. Gene order comes from `data/genomes/orthobench` (alt haplotypes projected), and anchor families from `families_final.npy`.
+- **Shuffled:** every real config is also run with `shuffle_seed` 11/23/47.
+- **Logging:** every arm is appended to `results/core_v0_orthobench/runs.tsv` (label `S5p2 …`).
+
+**Grids** (all dev; 34 real configs, 102 shuffled runs):
+- Grid 1: w ∈ {5,10,20} × λ ∈ {0.05,0.1,0.3}, plus tiebreak, ctx_window 0.9/0.5, core anchors, and `ctx_mode="all"`.
+- Grid 2: added *after* grid 1 showed λ=0.3 best. λ ∈ {0.5,1.0}, window 0.5, cap 5, ctx_all at λ 0.3.
+- Grid 3: anchor definition at w=10, λ=0.5.
+
+All arms are in `results/S5_synteny/phase2/tables.md` and `summary.json`.
+
+**Pair-level F1 per class**, with Δ vs off and 95% CI from the paired RefOG bootstrap. The seed spread is the max−min pair F1 over the 3 shuffled seeds.
+
+| arm                    | all                            | mammal-mammal                  | tetrapod-tetrapod              | vert-teleost                   | teleost-teleost                | vert-invert                    | ΔF1 vs shuffled (all)   |   seed spread |   OG F |
+|:-----------------------|:-------------------------------|:-------------------------------|:-------------------------------|:-------------------------------|:-------------------------------|:-------------------------------|:------------------------|--------------:|-------:|
+| real_w5_l0.1           | 0.737 (+0.007 [+0.001,+0.014]) | 0.862 (+0.015 [+0.000,+0.031]) | 0.788 (+0.003 [+0.000,+0.009]) | 0.693 (+0.009 [-0.001,+0.025]) | 0.841 (+0.013 [+0.000,+0.030]) | 0.647 (+0.000 [+0.000,+0.000]) | +0.007 [0.0007, 0.0138] |        0.0003 |  68.01 |
+| real_w10_l0.1          | 0.739 (+0.009 [+0.001,+0.019]) | 0.862 (+0.015 [+0.000,+0.031]) | 0.788 (+0.003 [+0.000,+0.009]) | 0.693 (+0.009 [-0.007,+0.030]) | 0.860 (+0.032 [+0.007,+0.064]) | 0.654 (+0.007 [-0.001,+0.020]) | +0.009 [0.001, 0.019]   |        0.0007 |  68.01 |
+| real_w10_l0.3          | 0.762 (+0.032 [+0.009,+0.062]) | 0.881 (+0.034 [+0.000,+0.080]) | 0.819 (+0.035 [+0.000,+0.083]) | 0.743 (+0.059 [+0.008,+0.120]) | 0.861 (+0.033 [-0.012,+0.092]) | 0.653 (+0.006 [-0.003,+0.020]) | +0.033 [0.0093, 0.0619] |        0.0027 |  66.44 |
+| real_w10_l0.5          | 0.768 (+0.038 [+0.013,+0.070]) | 0.884 (+0.038 [+0.000,+0.089]) | 0.823 (+0.039 [+0.000,+0.097]) | 0.756 (+0.071 [+0.020,+0.133]) | 0.872 (+0.044 [-0.020,+0.113]) | 0.654 (+0.007 [-0.003,+0.020]) | +0.038 [0.0135, 0.0688] |        0.0052 |  66.72 |
+| real_w10_l0.5_coreanch | 0.776 (+0.046 [+0.019,+0.072]) | 0.884 (+0.038 [+0.000,+0.089]) | 0.837 (+0.052 [+0.000,+0.106]) | 0.777 (+0.092 [+0.029,+0.147]) | 0.886 (+0.058 [-0.006,+0.126]) | 0.654 (+0.007 [-0.003,+0.020]) | +0.046 [0.019, 0.0712]  |        0.0058 |  66.72 |
+| real_w10_l0.3_ctxall   | 0.759 (+0.030 [+0.003,+0.062]) | 0.858 (+0.012 [-0.030,+0.057]) | 0.817 (+0.032 [-0.013,+0.080]) | 0.759 (+0.074 [+0.011,+0.142]) | 0.845 (+0.017 [-0.048,+0.098]) | 0.654 (+0.007 [-0.002,+0.020]) | +0.029 [0.0024, 0.0603] |        0.004  |  65.49 |
+| real_w10_tiebreak      | 0.730 (+0.000 [+0.000,+0.000]) | 0.847 (+0.000 [+0.000,+0.000]) | 0.785 (+0.000 [+0.000,+0.000]) | 0.685 (+0.000 [+0.000,+0.000]) | 0.828 (+0.000 [+0.000,+0.000]) | 0.647 (+0.000 [+0.000,+0.000]) | +0.000 [0.0, 0.0]       |        0      |  68.1  |
+
+Off (sequence only) per class:
+
+| cls               |      P |      R |     F1 |   tp |   fn |   fp |    tn |
+|:------------------|-------:|-------:|-------:|-----:|-----:|-----:|------:|
+| all               | 0.7563 | 0.7046 | 0.7295 | 3160 | 1325 | 1018 | 13643 |
+| mammal-mammal     | 0.876  | 0.8188 | 0.8465 | 1053 |  233 |  149 |  6215 |
+| tetrapod-tetrapod | 0.8063 | 0.7643 | 0.7847 |  308 |   95 |   74 |  1686 |
+| vert-teleost      | 0.6885 | 0.6807 | 0.6846 |  904 |  424 |  409 |  4803 |
+| teleost-teleost   | 0.8725 | 0.7876 | 0.8279 |   89 |   24 |   13 |   451 |
+| vert-invert       | 0.6714 | 0.6239 | 0.6468 |  758 |  457 |  371 |   418 |
+| invert-invert     | 0.96   | 0.3429 | 0.5053 |   48 |   92 |    2 |    70 |
+
+### 8.3 Findings
+1. **The keep rule (DESIGN §7) passes.** Δ(real − shuffled) > 0 with CI > 0, and Δ(real − off) ≫ seed spread.
+   - It holds for every multiplicative config at w ≤ 10, including the phase-1 default (w5, λ0.1): +0.007 [+0.001, +0.014].
+   - The shuffled arms are null: pair F1 0.716 to 0.730, with Δ(shuffled − off) CIs that include 0.
+   - The best arm, `real_w10_l0.5_coreanch`, gives **+0.046 [+0.019, +0.072]** (P +0.070, R +0.027).
+   - It was selected among 34 dev configs, so expect shrinkage on test. A conservative choice is `real_w10_l0.3` (+0.032), which sits on the plateau.
+2. **Teleost WGD pairs gain most:** vert–teleost +0.071 to +0.092 (CI > 0), teleost–teleost +0.044 to +0.058 (CI includes 0; only 113 ortholog pairs). Mammal–mammal gains +0.038, mostly precision (+0.056 P); its CI lower bound is about 0. Vert–invert does not change (+0.007, CI includes 0), as expected from the standalone benchmark.
+3. **R1-only beats additive-everywhere.** `ctx_mode="all"` buys precision (+0.062 P) with no recall, and has lower F1 than R1-only at the same λ. Tiebreak (1e-6·support) never fires: there are no exact ties.
+4. **Settings.**
+   - w=10 is best in the merge; w=20 is +0.017 to +0.021 with a CI that touches 0.
+   - Gains saturate at λ ≈ 0.5 (λ=1.0 is the same).
+   - A ctx_window of 0.5, 0.75 or 0.9 hardly matters.
+   - More anchors are better: core strict 1:1 (`anchor="core"`), or amb=0.95, beats the more conservative amb 0.9 and 0.8.
+5. **OG-level F does not move with pair F1.** Strong arms show 66.4 to 66.7 against 68.1 off. But the *shuffled* seeds alone span 66.9 to 69.8 while their pair F1 is unchanged, so OG F on 34 dev RefOGs is dominated by a few root-level membership flips. It is unsuitable for S3/S5 decisions; use the pair metric.
+
+### 8.4 Proposed merge-rule changes (for the core owner, via the PI)
+1. **Default S5 config:** `ctx_mode="r1"`, `ctx_window=0.75`, `SyntenyContext(mode="multiplicative", lam=0.3–0.5, w=10, anchor="core")`. Lock it before any test peek, preferably λ=0.3 on the plateau.
+2. **Use synteny in R3 fission-repair partner choice too.** It currently uses raw scores only. R3 attaches units to groups with no member of that child, which is the same partner-choice problem.
+3. **Precision veto in R2/R3 instead of a bonus.** The ctx_all result (P +0.06) shows that context recognises hidden paralogy. Block an in-paralog absorption or a repair join when the joining unit has support 0 to the group's partner in the other child but ≥2 to a competing candidate. That captures the precision without the recall loss of inflating cross-child scores.
+4. **Adopt the pair-level dev metric** (this script) alongside OG F for S3/S5 decisions. Δ(OG F) has a ±1.4-point null spread here.
+5. Pass the adjacency `n_species` weights at deep nodes (later; deep nodes are where vert–invert fails, and synteny cannot help there).
+
+### 8.5 Outputs
+- `results/S5_synteny/phase2/`: `arms/<arm>.json` and `.npy` (counts [RefOG, class, TP/FN/FP/TN]), `summary.json`, `tables.md`, `eval_truth_self.json`, `eval_base_run_v2.json`.
+- Per-arm OrthoBench OGs: `work/S5/phase2/<arm>/orthobench_ogs.txt`.
