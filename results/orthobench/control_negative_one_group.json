@@ -1,0 +1,9 @@
+{
+ "label": "control_negative_one_group",
+ "F": 0.01,
+ "precision": 0.01,
+ "recall": 100.0,
+ "exact_refogs": 0,
+ "n_pred_groups": 1,
+ "n_genes_assigned": 251378
+}

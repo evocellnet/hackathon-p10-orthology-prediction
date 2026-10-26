@@ -1,0 +1,7 @@
+label	F	precision	recall	exact_refogs
+control_intermediate_merged_pairs	47.9	31.5	100.0	0
+control_intermediate_split_halves	65.3	100.0	48.4	0
+control_negative_one_group	0.0	0.0	100.0	0
+control_negative_random10	0.0	0.0	0.0	0
+control_negative_shuffled_refog_sizes	0.0	0.0	0.0	0
+control_positive_refogs	100.0	100.0	100.0	70

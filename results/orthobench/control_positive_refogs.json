@@ -1,0 +1,9 @@
+{
+ "label": "control_positive_refogs",
+ "F": 100.0,
+ "precision": 100.0,
+ "recall": 100.0,
+ "exact_refogs": 70,
+ "n_pred_groups": 249504,
+ "n_genes_assigned": 251378
+}

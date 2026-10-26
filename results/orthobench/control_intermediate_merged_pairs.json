@@ -1,0 +1,9 @@
+{
+ "label": "control_intermediate_merged_pairs",
+ "F": 47.88,
+ "precision": 31.48,
+ "recall": 100.0,
+ "exact_refogs": 0,
+ "n_pred_groups": 249469,
+ "n_genes_assigned": 251378
+}

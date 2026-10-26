@@ -1,0 +1,9 @@
+{
+ "label": "control_negative_shuffled_refog_sizes",
+ "F": 0.0,
+ "precision": 0.0,
+ "recall": 0.0,
+ "exact_refogs": 0,
+ "n_pred_groups": 249503,
+ "n_genes_assigned": 251378
+}

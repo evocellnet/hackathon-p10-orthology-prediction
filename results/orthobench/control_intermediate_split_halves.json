@@ -1,0 +1,9 @@
+{
+ "label": "control_intermediate_split_halves",
+ "F": 65.26,
+ "precision": 100.0,
+ "recall": 48.44,
+ "exact_refogs": 0,
+ "n_pred_groups": 249574,
+ "n_genes_assigned": 251378
+}

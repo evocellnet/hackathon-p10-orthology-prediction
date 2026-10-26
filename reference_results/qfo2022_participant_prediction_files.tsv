@@ -1,0 +1,23 @@
+tool	record	file	size	checksum	url	publication_date
+BBH_(SW_alignments)	dfwf8-tva07	bbh.tsv.gz	71363495	md5:5b9edfe6ba264994bf2cbd7bba1660e7	https://b2share.eudat.eu/api/records/dfwf8-tva07/files/bbh.tsv.gz/content	2023-12-13
+Domainoid+	hrmsy-tje90	mergedResults_domainoid.tsv	204421590	md5:f42517c14b920b81c197e0397814b036	https://b2share.eudat.eu/api/records/hrmsy-tje90/files/mergedResults_domainoid.tsv/content	2023-12-13
+Ensembl_Compara	mnbxy-pnx93	qfo_2022_02.default.orthoxml.xml.gz	252032626	md5:7c6aadecdbe50957cb7a47b68b3f391a	https://b2share.eudat.eu/api/records/mnbxy-pnx93/files/qfo_2022_02.default.orthoxml.xml.gz/content	2023-12-13
+FastOMA_v0.1.4_nov	r2hs8-wcx45	FastOMA_v0.1.4_qfo2022_17Nov3.orthoxml	171203352	md5:12ee0dcb1ff290077305648d342c552f	https://b2share.eudat.eu/api/records/r2hs8-wcx45/files/FastOMA_v0.1.4_qfo2022_17Nov3.orthoxml/content	2023-12-13
+Hieranoid_2	rx86s-23p86	pairs_hieranoid-diamond.tsv	134537332	md5:6293759ca2e46bbfdcf85306b3ef0726	https://b2share.eudat.eu/api/records/rx86s-23p86/files/pairs_hieranoid-diamond.tsv/content	2023-12-13
+InParanoid5	ca8wf-v9w65	InParanoid_QFO22.pairs_1.gz	53488033	md5:fbe494871c7b1bd63851023786fb0ca4	https://b2share.eudat.eu/api/records/ca8wf-v9w65/files/InParanoid_QFO22.pairs_1.gz/content	2023-12-13
+MetaPhOrs_v2.5	j0yhx-8g173	metaphors.Oldest_seed.CS0.5.2022.tsv	125742078	md5:ae950944f06718a0a6d084688dfe1287	https://b2share.eudat.eu/api/records/j0yhx-8g173/files/metaphors.Oldest_seed.CS0.5.2022.tsv/content	2023-12-13
+OMA_Groups	t7a3g-ap796	MergedOMAGroups.orthoxml.gz	8211495	md5:d46d2f6bb8ab082f2556062ef57489d9	https://b2share.eudat.eu/api/records/t7a3g-ap796/files/MergedOMAGroups.orthoxml.gz/content	2023-12-13
+OMA_HOGs	gmf9z-vn551	HierarchicalGroups.orthoxml.gz	9754812	md5:28b1a161c32712d1655f9a9f021757d8	https://b2share.eudat.eu/api/records/gmf9z-vn551/files/HierarchicalGroups.orthoxml.gz/content	2023-12-13
+OMA_Pairs	w3r7b-da890	OMA.2.5.0-VPairs.txt.gz	47726062	md5:2c0c7c70a5e4024d75f7514065f330eb	https://b2share.eudat.eu/api/records/w3r7b-da890/files/OMA.2.5.0-VPairs.txt.gz/content	2023-12-13
+OrthoFFGC	4hky9-h2996	ffgc.l2.I1.4.xml	63533555	md5:8a39a99d5c6c33eb09f7f3e171b59d66	https://b2share.eudat.eu/api/records/4hky9-h2996/files/ffgc.l2.I1.4.xml/content	2023-12-13
+OrthoFinder	d8nrr-9fs80	OrthoFinder.txt	213999764	md5:43f7d28eb0b3c659c686caa717de8c69	https://b2share.eudat.eu/api/records/d8nrr-9fs80/files/OrthoFinder.txt/content	2023-12-13
+OrthoFinder	r5jz7-fsr77	OrthoFinder.txt	213999764	md5:43f7d28eb0b3c659c686caa717de8c69	https://b2share.eudat.eu/api/records/r5jz7-fsr77/files/OrthoFinder.txt/content	2023-12-13
+OrthoInspector_3.5	bvb0m-dkz52	outputbench2022.tsv	164433506	md5:c1bec34b9ec632edb2a8dc6653abb186	https://b2share.eudat.eu/api/records/bvb0m-dkz52/files/outputbench2022.tsv/content	2023-12-13
+PANTHER_(v18)_LDO	rv6b7-bpk11	PANTHER18_ldo	75652558	md5:3b172d6340b6c21a95e72da34fb20591	https://b2share.eudat.eu/api/records/rv6b7-bpk11/files/PANTHER18_ldo/content	2023-12-13
+PANTHER_(v18)_all	c9wp1-7dh03	PANTHER18_all_1	269934650	md5:f35f2fe8fc39d1bcac6216d97bef4449	https://b2share.eudat.eu/api/records/c9wp1-7dh03/files/PANTHER18_all_1/content	2023-12-13
+RSD_(SW-Alignments)	kzf58-3z834	rsd.txt.gz	72351075	md5:830fe676628e2a679ec9e3858656ea06	https://b2share.eudat.eu/api/records/kzf58-3z834/files/rsd.txt.gz/content	2023-12-13
+SonicParanoid2-sens	e5k5r-vsk83	qfo22-challenge.sp2-sens.tsv.gz	83528440	md5:2f51087ab2d67e02b8cc3f1bd311742c	https://b2share.eudat.eu/api/records/e5k5r-vsk83/files/qfo22-challenge.sp2-sens.tsv.gz/content	2023-12-13
+SonicParanoid2-sens-g	bvfjw-k3d26	qfo22-challenge.sp2-sens-g.tsv.gz	69077720	md5:39753e6b4f81c799455ea04a300fbb43	https://b2share.eudat.eu/api/records/bvfjw-k3d26/files/qfo22-challenge.sp2-sens-g.tsv.gz/content	2023-12-13
+pbDOOD (eggnog v7)	0798b-qh662	pbdood_pairs.tsv	378069816	md5:b82c87ec646c43d0c04cb0831fdb482d	https://b2share.eudat.eu/api/records/0798b-qh662/files/pbdood_pairs.tsv/content	2026-06-19
+pbDOOD (midpoint)	eqm9x-5sr17	pbdood_pairs_midpoint.tsv	363395492	md5:4d6ca9f536ae92259b11b6b31a788e69	https://b2share.eudat.eu/api/records/eqm9x-5sr17/files/pbdood_pairs_midpoint.tsv/content	2026-06-19
+phylomedb_v5	yvdbk-8te46	orthologs.farthest.30Cl.2022.txt.gz	95665628	md5:ccfa3ac3a0f8056243f576a284ecebd9	https://b2share.eudat.eu/api/records/yvdbk-8te46/files/orthologs.farthest.30Cl.2022.txt.gz/content	2023-12-13

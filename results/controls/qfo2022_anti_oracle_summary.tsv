@@ -1,0 +1,5 @@
+benchmark	challenge_id	metric	value	stderr
+SwissTrees	SwissTrees	TPR	0.031456831	0.024544056
+SwissTrees	SwissTrees	PPV	0.10210763	0.066791637
+TreeFam-A	TreeFam-A	TPR	4.5528011e-05	8.923287e-05
+TreeFam-A	TreeFam-A	PPV	7.5052537e-05	0.00014709745

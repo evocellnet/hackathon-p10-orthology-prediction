@@ -1,0 +1,12 @@
+# raw data / large outputs never committed
+external/
+results/qfo/
+*.db
+*.orthoxml
+*.orthoxml.gz
+*.fa
+*.fasta
+*.gz
+__pycache__/
+*.pyc
+tmp/
