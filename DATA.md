@@ -24,7 +24,7 @@ checksum manifests are kept next to the data (paths given); key checksums are li
   missing), 99.996% mouse (1 missing); release 100 gave 99.77% human. Human, mouse and zebrafish need
   the `*.chr_patch_hapl_scaff.gff3.gz` files (OrthoBench includes alt-haplotype genes, e.g. HSCHR6_MHC_*).
 - **License:** Ensembl data — no restrictions (https://www.ensembl.org/info/about/legal/)
-- **Local path:** `data/orthobench/ensembl_99/gff3/` (15 files, ~260 MB); coverage report `gff3_coverage.tsv`
+- **Local path:** `data/orthobench/ensembl_99/gff3/` (14 files + dog symlink Canis_familiaris→Canis_lupus_familiaris, ~335 MB); coverage report `gff3_coverage.tsv`
 - **Checksums:** `data/orthobench/ensembl_99/gff3/md5sums.txt`, e.g.
   `9dfe1b87a939d0449f921b14b0551bcd Homo_sapiens.GRCh38.99.chr_patch_hapl_scaff.gff3.gz`,
   `2c9604f63380f24653c08c4777dd200c Mus_musculus.GRCm38.99.chr_patch_hapl_scaff.gff3.gz`,

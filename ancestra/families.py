@@ -324,14 +324,18 @@ class FamilyConfig:
     s2_cov_mode: str = "min"          # min: both qcov,scov >= c ; max: either ; shorter: cov of shorter seq
     s2_max_target: int = 500
     s2_bitscore: float = 0.0
+    s2_query: str = "reps"            # reps: reps vs reps ; all: every gene vs reps (N x R)
+    s2_gmax: int | None = None        # split connected components larger than this (genes) with Leiden
     mcl_I: float = 1.4
+    s1_reuse: str | None = None       # outdir of an earlier run with identical stage-1 params: reuse its clusters
+    seed: int = 11
     # resources
     threads: int = 24
     memory_gb: int = 64
 
     def hash(self) -> str:
         d = asdict(self)
-        d.pop("name"); d.pop("threads"); d.pop("memory_gb")
+        d.pop("name"); d.pop("threads"); d.pop("memory_gb"); d.pop("s1_reuse")
         return hashlib.sha256(json.dumps(d, sort_keys=True).encode()).hexdigest()[:12]
 
 
@@ -436,6 +440,44 @@ def _mcl(edges, outdir, cfg: FamilyConfig, log) -> list[tuple[str, str]]:
     return pairs
 
 
+STAGE1_FIELDS = ("backend", "dmnd_cmd", "approx_id", "member_cover", "mutual_cover", "dmnd_sens", "dmnd_extra",
+                 "mm_cmd", "min_seq_id", "cov", "cov_mode", "sens", "cluster_mode", "evalue", "mm_extra")
+
+
+def leiden_split(nodes: list, edges: list, node_w: dict, gmax: int, seed: int = 11):
+    """Recursively split a connected node set whose total weight exceeds ``gmax``.
+
+    Uses Leiden (RBConfiguration) with the smallest resolution in a fixed ladder that
+    yields more than one community, so splits are as coarse as possible; parts still
+    above ``gmax`` are split again. Returns a list of node lists.
+    """
+    import igraph as ig
+    import leidenalg
+    ladder = (0.01, 0.02, 0.05, 0.1, 0.2, 0.5, 1.0, 2.0, 5.0, 10.0, 50.0)
+    out, queue = [], [list(nodes)]
+    while queue:
+        ns = queue.pop()
+        if len(ns) == 1 or sum(node_w[n] for n in ns) <= gmax:
+            out.append(ns)
+            continue
+        idx = {n: i for i, n in enumerate(ns)}
+        es = [(idx[a], idx[b], w) for a, b, w in edges if a in idx and b in idx]
+        g = ig.Graph(n=len(ns), edges=[(a, b) for a, b, _ in es])
+        g.es["weight"] = [w for _, _, w in es]
+        parts = None
+        for gamma in ladder:
+            p = leidenalg.find_partition(g, leidenalg.RBConfigurationVertexPartition, weights="weight",
+                                         resolution_parameter=gamma, seed=seed)
+            if len(p) > 1:
+                parts = [[ns[i] for i in c] for c in p]
+                break
+        if parts is None:  # cannot split further (e.g. a clique): keep as is
+            out.append(ns)
+            continue
+        queue.extend(parts)
+    return out
+
+
 def run_families(fasta: str, outdir: str, cfg: FamilyConfig) -> dict:
     """Run S0 with ``cfg``; write families.tsv + stats.json in ``outdir``; return stats."""
     os.makedirs(outdir, exist_ok=True)
@@ -445,9 +487,19 @@ def run_families(fasta: str, outdir: str, cfg: FamilyConfig) -> dict:
     gene_ids = read_fasta_ids(fasta)
     if len(set(gene_ids)) != len(gene_ids):
         raise ValueError("duplicate sequence ids in input FASTA")
+    flagged = {}
     with open(os.path.join(outdir, "commands.log"), "a") as log:
         t = time.time()
-        if cfg.backend == "diamond":
+        if cfg.s1_reuse:
+            prev = json.load(open(os.path.join(cfg.s1_reuse, "stats.json")))
+            for k in STAGE1_FIELDS:
+                if prev["config"].get(k) != getattr(cfg, k):
+                    raise ValueError(f"s1_reuse: stage-1 field {k} differs from {cfg.s1_reuse}")
+            s1 = os.path.join(outdir, "stage1_clusters.tsv")
+            shutil.copyfile(os.path.join(cfg.s1_reuse, "stage1_clusters.tsv"), s1)
+            timings["stage1_reused_s"] = prev["timings"].get("stage1_s", prev["timings"].get("stage1_reused_s"))
+            log.write(f"# stage 1 reused from {cfg.s1_reuse}\n")
+        elif cfg.backend == "diamond":
             s1 = _diamond_cluster(fasta, outdir, cfg, log)
         elif cfg.backend == "mmseqs":
             s1 = _mmseqs_cluster(fasta, outdir, cfg, log)
@@ -456,29 +508,30 @@ def run_families(fasta: str, outdir: str, cfg: FamilyConfig) -> dict:
         timings["stage1_s"] = time.time() - t
         pairs = read_pairs_tsv(s1)
         g2r = partition_from_pairs(gene_ids, pairs)
-        reps = sorted(set(g2r.values()))
-        n_stage1 = len(reps)
+        n_stage1 = len(set(g2r.values()))
         extra = {"n_stage1_clusters": n_stage1}
         if cfg.stage2:
             t = time.time()
             # use the tool's own representative (first column) where available
-            rep_of = {}
-            for r, m in pairs:
-                rep_of[m] = r
+            rep_of = {m: r for r, m in pairs}
             root2rep = {}
             for g in gene_ids:
-                root = g2r[g]
-                if g in rep_of and rep_of[g] == g:
-                    root2rep[root] = g
+                if rep_of.get(g) == g:
+                    root2rep[g2r[g]] = g
             for g in gene_ids:  # clusters without explicit rep (singletons)
                 root2rep.setdefault(g2r[g], g2r[g])
             rep_set = set(root2rep.values())
+            gene2rep = {g: root2rep[g2r[g]] for g in gene_ids}
+            rep_size = Counter(gene2rep.values())
             rfa = os.path.join(outdir, "reps.fa")
             _write_subset_fasta(fasta, rep_set, rfa)
             dmnd = os.path.join(outdir, "reps.dmnd")
             hits = os.path.join(outdir, "reps_hits.tsv")
+            query = rfa if cfg.s2_query == "reps" else fasta
+            if cfg.s2_query not in ("reps", "all"):
+                raise ValueError(cfg.s2_query)
             _run(["diamond", "makedb", "--in", rfa, "-d", dmnd, "--threads", cfg.threads], log)
-            cmd = ["diamond", "blastp", "-q", rfa, "-d", dmnd, "-o", hits, "--threads", cfg.threads,
+            cmd = ["diamond", "blastp", "-q", query, "-d", dmnd, "-o", hits, "--threads", cfg.threads,
                    "-k", cfg.s2_max_target, "-e", cfg.s2_evalue,
                    "--outfmt", "6", "qseqid", "sseqid", "evalue", "bitscore", "qlen", "slen",
                    "qstart", "qend", "sstart", "send"]
@@ -487,7 +540,16 @@ def run_families(fasta: str, outdir: str, cfg: FamilyConfig) -> dict:
             _run(cmd, log)
             timings["stage2_search_s"] = time.time() - t
             with open(hits) as fh:
-                edges = filter_hits((l.rstrip("\n").split("\t") for l in fh), cfg)
+                gene_edges = filter_hits((l.rstrip("\n").split("\t") for l in fh), cfg)
+            best = {}
+            for a, b, w in gene_edges:   # lift gene-level edges to stage-1 cluster (rep) edges
+                ra, rb = gene2rep[a], gene2rep[b]
+                if ra == rb:
+                    continue
+                k = (ra, rb) if ra < rb else (rb, ra)
+                if w > best.get(k, -1.0):
+                    best[k] = w
+            edges = [(a, b, w) for (a, b), w in best.items()]
             if cfg.stage2 == "cc":
                 rep_pairs = [(a, b) for a, b, _ in edges]
             elif cfg.stage2 == "mcl":
@@ -495,14 +557,46 @@ def run_families(fasta: str, outdir: str, cfg: FamilyConfig) -> dict:
             else:
                 raise ValueError(cfg.stage2)
             rep2root = partition_from_pairs(sorted(rep_set), rep_pairs)
-            g2r = {g: rep2root[root2rep[g2r[g]]] for g in gene_ids}
+            n_split = 0
+            if cfg.s2_gmax:
+                comp = defaultdict(list)
+                for r, root in rep2root.items():
+                    comp[root].append(r)
+                big = {root for root, rs in comp.items() if sum(rep_size[r] for r in rs) > cfg.s2_gmax}
+                if big:
+                    by_comp = defaultdict(list)
+                    for a, b, w in edges:
+                        if rep2root[a] in big and rep2root[a] == rep2root[b]:
+                            by_comp[rep2root[a]].append((a, b, w))
+                    for root in sorted(big):
+                        parts = leiden_split(sorted(comp[root]), by_comp[root], rep_size, cfg.s2_gmax, cfg.seed)
+                        n_split += 1
+                        for part in parts:
+                            proot = min(part)
+                            for r in part:
+                                rep2root[r] = proot
+                                flagged[r] = root
+            g2r = {g: rep2root[gene2rep[g]] for g in gene_ids}
             timings["stage2_s"] = time.time() - t
-            extra.update(n_reps=len(rep_set), n_rep_edges=len(edges))
+            extra.update(n_reps=len(rep_set), n_gene_edges=len(gene_edges), n_rep_edges=len(edges),
+                         n_components_split=n_split)
             for f in (dmnd, rfa, os.path.join(outdir, "reps_graph.abc")):
                 if os.path.exists(f):
                     os.remove(f)
         gene2fam = label_families(g2r)
     write_families_tsv(gene2fam, os.path.join(outdir, "families.tsv"))
+    if flagged:
+        fam_from = {}
+        for g, f in gene2fam.items():
+            r = gene2rep[g]
+            if r in flagged:
+                fam_from.setdefault(f, flagged[r])
+        with open(os.path.join(outdir, "families_split_flags.tsv"), "w") as fh:
+            fh.write("#family_id\tsplit_from_component\n")
+            for f in sorted(fam_from):
+                fh.write(f"{f}\t{fam_from[f]}\n")
+        extra["n_split_families"] = len(fam_from)
+        extra["genes_in_split_families"] = sum(1 for g, f in gene2fam.items() if f in fam_from)
     timings["total_s"] = time.time() - t0
     stats = family_stats(gene2fam)
     stats.update(extra)

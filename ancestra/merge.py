@@ -30,10 +30,18 @@ R1 *seeds* -- for every unit A (ancestral gene of child i) and child j != i,
    the same child into one group is allowed only if they are in-paralogs:
    S_same(P_c, Q_c) >= inpar_factor * S(edge).
 R2 *in-paralog absorption* -- an unassigned unit u (child c) whose best
-   cross-child partner v lies in group G joins G if for some w in G of child c,
-   S(u, w) >= inpar_factor * d(w), d(w) = w's best score to G's members in the
-   other children (u is closer to w than w is to its orthologs => duplication
-   after X on the branch to c).
+   cross-child partner v lies in group G joins G if for some w in G of child c
+   ``inpar_rule="ortholog"`` (InParanoid): S(u, w) >= inpar_factor * d(w), d(w) =
+   w's best score to G's members in the other children; ``"self"``: S(u, w) >=
+   inpar_factor * S(u, v) (u is closer to w than to its own best ortholog;
+   robust to a fast-evolving duplicate u, since on an additive tree the path
+   u-w is shorter than u-v whenever the duplication is after X); ``"either"``.
+   ``"quartet"``: rate-robust four-point test with the closest outgroup gene o
+   (a gene of a sibling clade of X scored against u, w and v): absorb iff
+   S(u,w)*S(v,o) >= inpar_factor * S(w,v)*S(u,o), i.e. d(u,w)+d(v,o) <=
+   d(w,v)+d(u,o) for d = -ln S, topology ((u,w),(v,o)); falls back to
+   ``"ortholog"`` when no outgroup gene has scores to all three.
+   => duplication after X on the branch to c.
 R3 *fission repair* -- iterated mutual-best between remaining unassigned units
    and groups that have no member of the unit's child, accepted only if the
    score is >= repair_ratio * (the unit's best cross-child score), so out-
@@ -51,7 +59,7 @@ mode). Their signatures are documented on :func:`run_merge`.
 from __future__ import annotations
 
 import time
-from dataclasses import asdict, dataclass
+from dataclasses import asdict, dataclass, replace
 
 import numpy as np
 
@@ -66,10 +74,11 @@ __all__ = ["MergeConfig", "MergeResult", "run_merge", "to_orthoxml", "decide_nod
 @dataclass
 class MergeConfig:
     link: str = "max"            # max | avg
-    score: str = "bits"          # bits | norm (bits / max(self_a, self_b))
+    score: str = "norm_max"      # bits | norm_min | norm_max | of (see leaf_scores)
     tol: float = 0.95            # mutual-best tolerance (1.0 = strict RBH)
     inparalogs: bool = True      # R2
     inpar_factor: float = 1.0
+    inpar_rule: str = "ortholog"  # ortholog | self | either | quartet (see module docstring)
     repair: bool = True          # R3
     repair_ratio: float = 0.5
     min_cov: float = 0.5         # bidirectional coverage guard on leaf pairs
@@ -79,12 +88,18 @@ class MergeConfig:
         return asdict(self)
 
 
-ARMS = {
-    "rbh": MergeConfig(tol=1.0, inparalogs=False, repair=False),
-    "max": MergeConfig(link="max", repair=False),
-    "max+repair": MergeConfig(link="max", repair=True),
-    "avg": MergeConfig(link="avg", repair=False),
-    "avg+repair": MergeConfig(link="avg", repair=True),
+_D = MergeConfig()
+ARMS = {   # named arms of the S3/S4 benchmark (docs/core_v0.md)
+    "rbh": replace(_D, score="bits", tol=1.0, inparalogs=False, repair=False),
+    "max": replace(_D, link="max", repair=False),
+    "max+repair": replace(_D, link="max", repair=True),
+    "avg": replace(_D, link="avg", repair=False),
+    "avg+repair": replace(_D, link="avg", repair=True),
+    "max+repair/bits": replace(_D, link="max", repair=True, score="bits"),
+    "avg+repair/bits": replace(_D, link="avg", repair=True, score="bits"),
+    "max+repair/quartet": replace(_D, link="max", repair=True, inpar_rule="quartet"),
+    "avg+repair/quartet": replace(_D, link="avg", repair=True, inpar_rule="quartet"),
+    "avg+repair/either": replace(_D, link="avg", repair=True, inpar_rule="either"),
 }
 
 
@@ -154,13 +169,19 @@ class _UF:
 # ----------------------------------------------------------------------------
 
 def decide_node(n: int, child: np.ndarray, lu: np.ndarray, lv: np.ndarray, score: np.ndarray,
-                cfg: MergeConfig, context=None, resolver=None, node_name=None):
+                cfg: MergeConfig, context=None, resolver=None, node_name=None, out_edges=None):
     """Partition ``n`` local units into ancestral genes of the node.
 
     ``child[i]``: child index of unit i; edges ``(lu, lv, score)`` undirected,
-    lu != lv. Returns (labels array length n, stats dict).
+    lu != lv. ``out_edges`` = (unit, outgroup_gene, score) arrays for the quartet
+    rule. Returns (labels array length n, stats dict).
     """
-    stats = dict(n_units=n, n_mb=0, r1_unions=0, r1_blocked=0, r2_absorbed=0, r3_repaired=0)
+    stats = dict(n_units=n, n_mb=0, r1_unions=0, r1_blocked=0, r2_absorbed=0, r3_repaired=0,
+                 r2_quartet_tests=0)
+    out_adj: list[dict] = [dict() for _ in range(n)] if out_edges is not None else []
+    if out_edges is not None:
+        for x, o, sc_ in zip(out_edges[0].tolist(), out_edges[1].tolist(), out_edges[2].tolist()):
+            out_adj[x][o] = sc_
     child_l = child.tolist()
     cross = child[lu] != child[lv]
     ca, cb, cs = lu[cross], lv[cross], score[cross].astype(np.float64)
@@ -256,8 +277,24 @@ def decide_node(n: int, child: np.ndarray, lu: np.ndarray, lv: np.ndarray, score
                 ok = False
                 for w in mem[cu]:
                     sw = same_sim(u, w)
-                    if sw > -np.inf and sw >= cfg.inpar_factor * d_in_group(w, g):
-                        ok = True
+                    if sw == -np.inf:
+                        continue
+                    if cfg.inpar_rule == "quartet" and out_adj:
+                        swv = adj[w].get(v)
+                        common = out_adj[u].keys() & out_adj[w].keys() & out_adj[v].keys()
+                        if swv is not None and common:
+                            o = max(common, key=lambda z: out_adj[w][z] + out_adj[v][z])
+                            stats["r2_quartet_tests"] += 1
+                            if sw * out_adj[v][o] >= cfg.inpar_factor * swv * out_adj[u][o]:
+                                ok = True
+                                break
+                            continue
+                    if cfg.inpar_rule in ("self", "either") and sw >= cfg.inpar_factor * s:
+                        ok = True       # u is closer to w than to its best ortholog in G
+                        break
+                    if cfg.inpar_rule in ("ortholog", "either", "quartet") and \
+                            sw >= cfg.inpar_factor * d_in_group(w, g):
+                        ok = True       # w is closer to u than to its orthologs in G
                         break
                 if ok:
                     uf.union(u, v)
@@ -323,6 +360,69 @@ def decide_node(n: int, child: np.ndarray, lu: np.ndarray, lv: np.ndarray, score
 # driver
 # ----------------------------------------------------------------------------
 
+def _of_normalise(bits, x, sp_pair, min_hits=100, nbins=50, top=0.05):
+    """OrthoFinder-style: per species pair fit log10(bits) ~ a + b*log10(len_q*len_t)
+    on the top 5% hits of each length bin; score = bits / 10^(a + b x)."""
+    y = np.log10(np.maximum(bits, 1e-3))
+
+    def fit(xx, yy):
+        if len(xx) < 10:
+            return None
+        edges = np.quantile(xx, np.linspace(0, 1, nbins + 1))
+        bi = np.clip(np.searchsorted(edges, xx, side="right") - 1, 0, nbins - 1)
+        xs, ys = [], []
+        for b in range(nbins):
+            m = bi == b
+            if not m.any():
+                continue
+            yb, xb = yy[m], xx[m]
+            k = max(1, int(np.ceil(top * m.sum())))
+            o = np.argsort(-yb)[:k]
+            xs.append(xb[o])
+            ys.append(yb[o])
+        xs, ys = np.concatenate(xs), np.concatenate(ys)
+        if np.ptp(xs) == 0:
+            return None
+        b1, b0 = np.polyfit(xs, ys, 1)
+        return b0, b1
+    glob = fit(x, y) or (0.0, 0.0)
+    out = np.empty_like(bits, dtype=np.float64)
+    order = np.argsort(sp_pair, kind="stable")
+    sp_sorted = sp_pair[order]
+    cuts = np.flatnonzero(np.diff(sp_sorted)) + 1
+    for grp in np.split(order, cuts):
+        if len(grp) == 0:
+            continue
+        f = fit(x[grp], y[grp]) if len(grp) >= min_hits else None
+        b0, b1 = f if f is not None else glob
+        out[grp] = bits[grp] / 10 ** (b0 + b1 * x[grp])
+    return out
+
+
+def leaf_scores(gt: GeneTable, st: ScoreTable, mode: str) -> np.ndarray:
+    """Leaf-pair similarity used by the merge.
+
+    ``bits``: raw bitscore; ``norm_min`` / ``norm_max``: bits / min|max(self_a, self_b);
+    ``of``: OrthoFinder-style length normalisation per species pair.
+    """
+    q, t = st.q.astype(np.int64), st.t.astype(np.int64)
+    bits = st.bits.astype(np.float64)
+    if mode == "bits":
+        return bits
+    if mode in ("norm_min", "norm_max"):
+        sb = st.self_bits_filled(gt.lengths)
+        f = np.minimum if mode == "norm_min" else np.maximum
+        return bits / f(sb[q], sb[t])
+    if mode == "of":
+        L = gt.lengths.astype(np.float64)
+        x = np.log10(L[q] * L[t])
+        a, b = gt.species_of[q].astype(np.int64), gt.species_of[t].astype(np.int64)
+        S = len(gt.species)
+        sp_pair = np.minimum(a, b) * S + np.maximum(a, b)
+        return _of_normalise(bits, x, sp_pair)
+    raise ValueError(f"unknown score mode {mode!r}")
+
+
 def _lca_matrix(tree: Node, species: list[str]):
     nodes = list(tree.postorder())
     nid = {nd.name: i for i, nd in enumerate(nodes)}
@@ -345,11 +445,13 @@ def _lca_matrix(tree: Node, species: list[str]):
 
 
 def run_merge(gt: GeneTable, tree: Node, st: ScoreTable, cfg: MergeConfig,
-              context=None, resolver=None, log=None) -> MergeResult:
+              context=None, resolver=None, log=None, trace: dict | None = None) -> MergeResult:
     """Run the bottom-up merge over all families at once.
 
     Hooks: ``context(node, a, b, s) -> bonus array`` (added to cross-child
     candidate scores); ``resolver(node, child, lu, lv, score, labels) -> labels``.
+    ``trace`` (dict, diagnostics): filled with node -> (clade genes, their ancestral
+    gene ID at the children, at the node).
     """
     N = gt.n
     cap = 2 * N + 2
@@ -358,12 +460,8 @@ def run_merge(gt: GeneTable, tree: Node, st: ScoreTable, cfg: MergeConfig,
     # leaf-pair scores
     q, t = st.q.astype(np.int64), st.t.astype(np.int64)
     keep = np.minimum(st.qcov, st.tcov) >= cfg.min_cov
-    if cfg.score == "norm":
-        sb = st.self_bits_filled(gt.lengths)
-        s = st.bits / np.maximum(sb[q], sb[t])
-    else:
-        s = st.bits.astype(np.float64)
-    q, t, s = q[keep], t[keep], np.asarray(s, dtype=np.float64)[keep]
+    s = leaf_scores(gt, st, cfg.score)
+    q, t, s = q[keep], t[keep], s[keep]
     plca = lca[gt.species_of[q], gt.species_of[t]]
     order = np.argsort(plca, kind="stable")
     q, t, s, plca = q[order], t[order], s[order], plca[order]
@@ -402,7 +500,25 @@ def run_merge(gt: GeneTable, tree: Node, st: ScoreTable, cfg: MergeConfig,
         lu, lv = pos[eu], pos[ev]
         assert (lu >= 0).all() and (lv >= 0).all()
         score = em if cfg.link == "max" else es / np.maximum(ec, 1)
-        labels, stt = decide_node(n, child, lu, lv, score, cfg, context, resolver, nd.name)
+        out_edges = None
+        if cfg.inpar_rule == "quartet" and nd.parent is not None:
+            pi = nid[nd.parent.name]
+            pq, pt, ps = q[bounds[pi]:bounds[pi + 1]], t[bounds[pi]:bounds[pi + 1]], s[bounds[pi]:bounds[pi + 1]]
+            in_x = np.zeros(len(gt.species), bool)
+            in_x[clade_sp[nd.name]] = True
+            a_in, b_in = in_x[gt.species_of[pq]], in_x[gt.species_of[pt]]
+            m1, m2 = a_in & ~b_in, b_in & ~a_in
+            ug = np.concatenate([pq[m1], pt[m2]])
+            og = np.concatenate([pt[m1], pq[m2]])
+            os_ = np.concatenate([ps[m1], ps[m2]])
+            if len(ug):
+                ou, oo, osum, ocnt, omax = _aggregate(pos[gene_anc[ug]], og + cap, os_,
+                                                      np.ones_like(os_), os_, 2 * cap + 2)
+                # _aggregate orders each pair as (min, max): unit index < og + cap always
+                osc = omax if cfg.link == "max" else osum / np.maximum(ocnt, 1)
+                out_edges = (ou, oo - cap, osc)
+        labels, stt = decide_node(n, child, lu, lv, score, cfg, context, resolver, nd.name,
+                                  out_edges)
         pos[units] = -1
         # build ancestral genes
         newid = {}
@@ -442,7 +558,10 @@ def run_merge(gt: GeneTable, tree: Node, st: ScoreTable, cfg: MergeConfig,
         node_anc[nd.name] = out_units
         for c in kids:
             del node_anc[c]
+        before = gene_anc[genes].copy() if trace is not None else None
         gene_anc[genes] = remap[gene_anc[genes]]
+        if trace is not None:
+            trace[nd.name] = (genes.copy(), before, gene_anc[genes].copy())
         cu_, cv_ = remap[eu], remap[ev]
         k = cu_ != cv_
         node_edges[nd.name] = _aggregate(cu_[k], cv_[k], es[k], ec[k], em[k], cap)

@@ -96,6 +96,8 @@ def run_one(name, cfg, fasta, input_sums, force=False):
         raise SystemExit(f"{name} failed")
     runtime = parse_time_v(p.stderr)
     stats = json.load(open(os.path.join(outdir, "stats.json")))
+    reused = stats["timings"].get("stage1_reused_s") or 0.0
+    runtime["wall_incl_reused_stage1_s"] = runtime.get("wall_s", 0.0) + reused
     g2f = F.read_families_tsv(os.path.join(outdir, "families.tsv"))
     split = json.load(open(os.path.join(ROOT, "splits/orthobench_split.json")))
     refdir = os.path.join(ROOT, "data/orthobench/Open_Orthobench/BENCHMARKS/RefOGs")
@@ -126,6 +128,25 @@ def run_one(name, cfg, fasta, input_sums, force=False):
           f"recall={a['pair_recall']:.3f} fusion={a['fusion_rate']:.3f} sizeratio_med={a['median_size_ratio']:.2f} "
           f"sumg2/N2={fs['sum_g2_over_N2']:.4f} max={fs['max_family']} wall={runtime.get('wall_s')}", flush=True)
     return out
+
+
+def rescore(name):
+    """Recompute DEV metrics of an existing result from its saved families.tsv (e.g. after the split changed)."""
+    p = os.path.join(RES, f"{name}.json")
+    res = json.load(open(p))
+    fam = os.path.join(ROOT, res["manifest"]["families_tsv"])
+    assert sha256(fam) == res["manifest"]["families_tsv_sha256"], "families.tsv changed"
+    split = json.load(open(os.path.join(ROOT, "splits/orthobench_split.json")))
+    refdir = os.path.join(ROOT, "data/orthobench/Open_Orthobench/BENCHMARKS/RefOGs")
+    g2f = F.read_families_tsv(fam)
+    res["dev"] = F.evaluate_refogs(g2f, F.read_refogs(refdir, split["dev"], remove_uncertain=True))
+    res["dev_keep_uncertain_aggregate"] = F.evaluate_refogs(
+        g2f, F.read_refogs(refdir, split["dev"], remove_uncertain=False))["aggregate"]
+    res["manifest"]["inputs"]["split_sha256"] = sha256(os.path.join(ROOT, "splits/orthobench_split.json"))
+    res["manifest"]["rescored"] = datetime.datetime.now().astimezone().isoformat(timespec="seconds")
+    json.dump(res, open(p, "w"), indent=1)
+    a = res["dev"]["aggregate"]
+    print(f"[rescored] {name}: compl={a['completeness']:.3f} n={a['n_refogs']}")
 
 
 def final_test(name, reason):
@@ -159,10 +180,17 @@ if __name__ == "__main__":
     ap.add_argument("--only", nargs="*")
     ap.add_argument("--force", action="store_true")
     ap.add_argument("--final")
+    ap.add_argument("--rescore", nargs="*", help="recompute dev metrics for these result names (all if empty)")
     ap.add_argument("--reason", default="S0 final chosen config (pre-stated rule)")
     a = ap.parse_args()
     if a.final:
         final_test(a.final, a.reason)
+        sys.exit()
+    if a.rescore is not None:
+        names = a.rescore or sorted(f[:-5] for f in os.listdir(RES)
+                                    if f.endswith(".json") and not f.endswith(".TEST.json") and f != "configs.json")
+        for n in names:
+            rescore(n)
         sys.exit()
     fasta, sums = combined_fasta()
     cfgs = json.load(open(a.configs))

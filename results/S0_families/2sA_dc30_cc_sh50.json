@@ -1,0 +1,497 @@
+{
+ "name": "2sA_dc30_cc_sh50",
+ "subset": "dev",
+ "dev": {
+  "aggregate": {
+   "n_refogs": 34,
+   "completeness": 0.7058823529411765,
+   "n_complete": 24,
+   "mean_n_fam": 1.4705882352941178,
+   "median_n_fam": 1.0,
+   "max_n_fam": 5,
+   "mean_best_frac": 0.9747439682118606,
+   "median_size_ratio": 6.449013157894737,
+   "mean_size_ratio": 73.88490541437598,
+   "max_size_ratio": 429.4,
+   "fusion_rate": 0.4117647058823529,
+   "mean_foreign_refog_frac": 0.011276685357270189,
+   "pair_recall": 0.9530004591610183,
+   "pair_precision": 0.008488900724479232
+  },
+  "per_refog": {
+   "RefOG002": {
+    "size": 19,
+    "complete": false,
+    "n_fam": 2,
+    "best_frac": 0.9473684210526315,
+    "best_fam_size": 61,
+    "size_ratio": 3.210526315789474,
+    "foreign_refog_frac": 0.0,
+    "n_refogs_in_best": 1
+   },
+   "RefOG004": {
+    "size": 12,
+    "complete": true,
+    "n_fam": 1,
+    "best_frac": 1.0,
+    "best_fam_size": 4294,
+    "size_ratio": 357.8333333333333,
+    "foreign_refog_frac": 0.002095947834187238,
+    "n_refogs_in_best": 2
+   },
+   "RefOG005": {
+    "size": 34,
+    "complete": true,
+    "n_fam": 1,
+    "best_frac": 1.0,
+    "best_fam_size": 465,
+    "size_ratio": 13.676470588235293,
+    "foreign_refog_frac": 0.1032258064516129,
+    "n_refogs_in_best": 2
+   },
+   "RefOG006": {
+    "size": 48,
+    "complete": true,
+    "n_fam": 1,
+    "best_frac": 1.0,
+    "best_fam_size": 465,
+    "size_ratio": 9.6875,
+    "foreign_refog_frac": 0.07311827956989247,
+    "n_refogs_in_best": 2
+   },
+   "RefOG007": {
+    "size": 57,
+    "complete": true,
+    "n_fam": 1,
+    "best_frac": 1.0,
+    "best_fam_size": 2351,
+    "size_ratio": 41.24561403508772,
+    "foreign_refog_frac": 0.0,
+    "n_refogs_in_best": 1
+   },
+   "RefOG008": {
+    "size": 14,
+    "complete": false,
+    "n_fam": 2,
+    "best_frac": 0.9285714285714286,
+    "best_fam_size": 1278,
+    "size_ratio": 91.28571428571429,
+    "foreign_refog_frac": 0.0,
+    "n_refogs_in_best": 1
+   },
+   "RefOG010": {
+    "size": 3,
+    "complete": true,
+    "n_fam": 1,
+    "best_frac": 1.0,
+    "best_fam_size": 3,
+    "size_ratio": 1.0,
+    "foreign_refog_frac": 0.0,
+    "n_refogs_in_best": 1
+   },
+   "RefOG013": {
+    "size": 27,
+    "complete": false,
+    "n_fam": 4,
+    "best_frac": 0.7037037037037037,
+    "best_fam_size": 276,
+    "size_ratio": 10.222222222222221,
+    "foreign_refog_frac": 0.0,
+    "n_refogs_in_best": 1
+   },
+   "RefOG015": {
+    "size": 23,
+    "complete": true,
+    "n_fam": 1,
+    "best_frac": 1.0,
+    "best_fam_size": 2686,
+    "size_ratio": 116.78260869565217,
+    "foreign_refog_frac": 0.03462397617274758,
+    "n_refogs_in_best": 4
+   },
+   "RefOG019": {
+    "size": 13,
+    "complete": true,
+    "n_fam": 1,
+    "best_frac": 1.0,
+    "best_fam_size": 13,
+    "size_ratio": 1.0,
+    "foreign_refog_frac": 0.0,
+    "n_refogs_in_best": 1
+   },
+   "RefOG021": {
+    "size": 125,
+    "complete": false,
+    "n_fam": 5,
+    "best_frac": 0.96,
+    "best_fam_size": 199,
+    "size_ratio": 1.592,
+    "foreign_refog_frac": 0.0,
+    "n_refogs_in_best": 1
+   },
+   "RefOG023": {
+    "size": 69,
+    "complete": true,
+    "n_fam": 1,
+    "best_frac": 1.0,
+    "best_fam_size": 2686,
+    "size_ratio": 38.927536231884055,
+    "foreign_refog_frac": 0.017498138495904692,
+    "n_refogs_in_best": 4
+   },
+   "RefOG024": {
+    "size": 51,
+    "complete": true,
+    "n_fam": 1,
+    "best_frac": 1.0,
+    "best_fam_size": 6677,
+    "size_ratio": 130.92156862745097,
+    "foreign_refog_frac": 0.010783285906844391,
+    "n_refogs_in_best": 3
+   },
+   "RefOG028": {
+    "size": 24,
+    "complete": true,
+    "n_fam": 1,
+    "best_frac": 1.0,
+    "best_fam_size": 76,
+    "size_ratio": 3.1666666666666665,
+    "foreign_refog_frac": 0.0,
+    "n_refogs_in_best": 1
+   },
+   "RefOG030": {
+    "size": 13,
+    "complete": true,
+    "n_fam": 1,
+    "best_frac": 1.0,
+    "best_fam_size": 31,
+    "size_ratio": 2.3846153846153846,
+    "foreign_refog_frac": 0.0,
+    "n_refogs_in_best": 1
+   },
+   "RefOG033": {
+    "size": 30,
+    "complete": true,
+    "n_fam": 1,
+    "best_frac": 1.0,
+    "best_fam_size": 6677,
+    "size_ratio": 222.56666666666666,
+    "foreign_refog_frac": 0.01392841096300734,
+    "n_refogs_in_best": 3
+   },
+   "RefOG034": {
+    "size": 21,
+    "complete": true,
+    "n_fam": 1,
+    "best_frac": 1.0,
+    "best_fam_size": 2988,
+    "size_ratio": 142.28571428571428,
+    "foreign_refog_frac": 0.004350736278447122,
+    "n_refogs_in_best": 2
+   },
+   "RefOG035": {
+    "size": 32,
+    "complete": true,
+    "n_fam": 1,
+    "best_frac": 1.0,
+    "best_fam_size": 722,
+    "size_ratio": 22.5625,
+    "foreign_refog_frac": 0.0,
+    "n_refogs_in_best": 1
+   },
+   "RefOG038": {
+    "size": 9,
+    "complete": true,
+    "n_fam": 1,
+    "best_frac": 1.0,
+    "best_fam_size": 2686,
+    "size_ratio": 298.44444444444446,
+    "foreign_refog_frac": 0.03983618763961281,
+    "n_refogs_in_best": 4
+   },
+   "RefOG043": {
+    "size": 17,
+    "complete": true,
+    "n_fam": 1,
+    "best_frac": 1.0,
+    "best_fam_size": 17,
+    "size_ratio": 1.0,
+    "foreign_refog_frac": 0.0,
+    "n_refogs_in_best": 1
+   },
+   "RefOG044": {
+    "size": 14,
+    "complete": true,
+    "n_fam": 1,
+    "best_frac": 1.0,
+    "best_fam_size": 25,
+    "size_ratio": 1.7857142857142858,
+    "foreign_refog_frac": 0.0,
+    "n_refogs_in_best": 1
+   },
+   "RefOG045": {
+    "size": 13,
+    "complete": true,
+    "n_fam": 1,
+    "best_frac": 1.0,
+    "best_fam_size": 2988,
+    "size_ratio": 229.84615384615384,
+    "foreign_refog_frac": 0.007028112449799197,
+    "n_refogs_in_best": 2
+   },
+   "RefOG046": {
+    "size": 32,
+    "complete": true,
+    "n_fam": 1,
+    "best_frac": 1.0,
+    "best_fam_size": 32,
+    "size_ratio": 1.0,
+    "foreign_refog_frac": 0.0,
+    "n_refogs_in_best": 1
+   },
+   "RefOG048": {
+    "size": 40,
+    "complete": false,
+    "n_fam": 2,
+    "best_frac": 0.95,
+    "best_fam_size": 38,
+    "size_ratio": 0.95,
+    "foreign_refog_frac": 0.0,
+    "n_refogs_in_best": 1
+   },
+   "RefOG052": {
+    "size": 15,
+    "complete": true,
+    "n_fam": 1,
+    "best_frac": 1.0,
+    "best_fam_size": 2686,
+    "size_ratio": 179.06666666666666,
+    "foreign_refog_frac": 0.037602382725241995,
+    "n_refogs_in_best": 4
+   },
+   "RefOG054": {
+    "size": 44,
+    "complete": false,
+    "n_fam": 2,
+    "best_frac": 0.9545454545454546,
+    "best_fam_size": 6677,
+    "size_ratio": 151.75,
+    "foreign_refog_frac": 0.01213119664519994,
+    "n_refogs_in_best": 3
+   },
+   "RefOG055": {
+    "size": 29,
+    "complete": false,
+    "n_fam": 3,
+    "best_frac": 0.9310344827586207,
+    "best_fam_size": 27,
+    "size_ratio": 0.9310344827586207,
+    "foreign_refog_frac": 0.0,
+    "n_refogs_in_best": 1
+   },
+   "RefOG057": {
+    "size": 16,
+    "complete": false,
+    "n_fam": 2,
+    "best_frac": 0.9375,
+    "best_fam_size": 15,
+    "size_ratio": 0.9375,
+    "foreign_refog_frac": 0.0,
+    "n_refogs_in_best": 1
+   },
+   "RefOG059": {
+    "size": 10,
+    "complete": true,
+    "n_fam": 1,
+    "best_frac": 1.0,
+    "best_fam_size": 10,
+    "size_ratio": 1.0,
+    "foreign_refog_frac": 0.0,
+    "n_refogs_in_best": 1
+   },
+   "RefOG061": {
+    "size": 30,
+    "complete": true,
+    "n_fam": 1,
+    "best_frac": 1.0,
+    "best_fam_size": 63,
+    "size_ratio": 2.1,
+    "foreign_refog_frac": 0.0,
+    "n_refogs_in_best": 1
+   },
+   "RefOG065": {
+    "size": 10,
+    "complete": false,
+    "n_fam": 2,
+    "best_frac": 0.9,
+    "best_fam_size": 4294,
+    "size_ratio": 429.4,
+    "foreign_refog_frac": 0.0027945971122496508,
+    "n_refogs_in_best": 2
+   },
+   "RefOG066": {
+    "size": 14,
+    "complete": false,
+    "n_fam": 2,
+    "best_frac": 0.9285714285714286,
+    "best_fam_size": 13,
+    "size_ratio": 0.9285714285714286,
+    "foreign_refog_frac": 0.0,
+    "n_refogs_in_best": 1
+   },
+   "RefOG067": {
+    "size": 13,
+    "complete": true,
+    "n_fam": 1,
+    "best_frac": 1.0,
+    "best_fam_size": 14,
+    "size_ratio": 1.0769230769230769,
+    "foreign_refog_frac": 0.0,
+    "n_refogs_in_best": 1
+   },
+   "RefOG068": {
+    "size": 27,
+    "complete": true,
+    "n_fam": 1,
+    "best_frac": 1.0,
+    "best_fam_size": 41,
+    "size_ratio": 1.5185185185185186,
+    "foreign_refog_frac": 0.024390243902439025,
+    "n_refogs_in_best": 2
+   }
+  }
+ },
+ "dev_keep_uncertain_aggregate": {
+  "n_refogs": 34,
+  "completeness": 0.6764705882352942,
+  "n_complete": 23,
+  "mean_n_fam": 1.5294117647058822,
+  "median_n_fam": 1.0,
+  "max_n_fam": 5,
+  "mean_best_frac": 0.972905732917743,
+  "median_size_ratio": 6.449013157894737,
+  "mean_size_ratio": 73.07647765317488,
+  "max_size_ratio": 429.4,
+  "fusion_rate": 0.38235294117647056,
+  "mean_foreign_refog_frac": 0.01078927574838368,
+  "pair_recall": 0.9494884910559142,
+  "pair_precision": 0.008570447897422798
+ },
+ "family_stats": {
+  "n_genes": 251378,
+  "n_families": 25121,
+  "n_singletons": 16962,
+  "n_families_ge2": 8159,
+  "frac_genes_in_singletons": 0.06747607189173277,
+  "sum_g2": 402558954,
+  "sum_g2_over_N2": 0.006370521089421127,
+  "max_family": 7165,
+  "max_family_over_N": 0.02850289205897095,
+  "top_sizes": [
+   7165,
+   7074,
+   6677,
+   5536,
+   5075,
+   4891,
+   4770,
+   4294,
+   4263,
+   3946
+  ],
+  "size_quantiles_ge2": {
+   "0.5": 10,
+   "0.9": 34,
+   "0.99": 216,
+   "0.999": 4263
+  },
+  "n_stage1_clusters": 42732,
+  "n_reps": 42732,
+  "n_gene_edges": 1089919,
+  "n_rep_edges": 84738,
+  "n_components_split": 1,
+  "n_split_families": 98,
+  "genes_in_split_families": 101755,
+  "config_hash": "a556fbd2c766"
+ },
+ "runtime": {
+  "wall_s": 92.91,
+  "peak_rss_gb": 1.100624,
+  "user_s": 1050.66,
+  "sys_s": 4.21,
+  "cpu_h": 0.2930194444444445,
+  "wall_incl_reused_stage1_s": 424.7034336662292,
+  "stage_timings": {
+   "stage1_reused_s": 331.79343366622925,
+   "stage1_s": 0.030506372451782227,
+   "stage2_search_s": 80.89402151107788,
+   "stage2_s": 90.6770224571228,
+   "total_s": 92.44966340065002
+  },
+  "node_loadavg_at_start": [
+   "47.70",
+   "59.14",
+   "68.04"
+  ]
+ },
+ "manifest": {
+  "config": {
+   "name": "2sA_dc30_cc_sh50",
+   "backend": "diamond",
+   "dmnd_cmd": "cluster",
+   "approx_id": 30,
+   "member_cover": 50,
+   "mutual_cover": null,
+   "dmnd_sens": null,
+   "dmnd_extra": [],
+   "mm_cmd": "cluster",
+   "min_seq_id": 0.0,
+   "cov": 0.5,
+   "cov_mode": 1,
+   "sens": 4.0,
+   "cluster_mode": 0,
+   "evalue": 0.001,
+   "mm_extra": [],
+   "stage2": "cc",
+   "s2_sens": "--sensitive",
+   "s2_evalue": 1e-05,
+   "s2_cov": 0.5,
+   "s2_cov_mode": "shorter",
+   "s2_max_target": 500,
+   "s2_bitscore": 0.0,
+   "s2_query": "all",
+   "s2_gmax": 7500,
+   "mcl_I": 1.4,
+   "s1_reuse": "work/S0/dc_a30_c50",
+   "seed": 11,
+   "threads": 24,
+   "memory_gb": 64
+  },
+  "config_hash": "a556fbd2c766",
+  "commit": "69c2e21c7f9602c330f2a88e1ae1a7c968460ed4+dirty(families.py)",
+  "families_py_sha256": "61f9b0c23de733ed54fc7c6bfe502eaa0271f5baff4f6c6a35b0a4a04127e5db",
+  "inputs": {
+   "orthobench_input_sha256": {
+    "Caenorhabditis_elegans.WBcel235.pep.all.fa": "7efd2a0912e3b75db88f152e1b0095e010c1d22b6dc2cfac5d2e1fcafbbbd03a",
+    "Canis_familiaris.CanFam3.1.pep.all.fa": "0d87161a9990b9d8b0d56b4e71dfbe74c6016b0dda3352247b35d85501c33b33",
+    "Ciona_intestinalis.KH.pep.all.fa": "729f930f526b3b60493f9685f345aab100705b81559b32359ad769b08802809a",
+    "Danio_rerio.GRCz11.pep.all.fa": "e1045fcca6bd927363608a1dd6d34e79ba859e051ef1059aa427fe0a4575d5bf",
+    "Drosophila_melanogaster.BDGP6.28.pep.all.fa": "3c047761101292d8d1be65c54657a64aefd969c99697fea58d0eca63c4aa70e9",
+    "Gallus_gallus.GRCg6a.pep.all.fa": "9dc452b11ac1c53a60370d2065ac6a8f7fc467184820560d693884f4f6ef2161",
+    "Homo_sapiens.GRCh38.pep.all.fa": "bff5d1f0f259c801dc607045e4c13bfc759098f17d536b307c13a89a523569ac",
+    "Monodelphis_domestica.ASM229v1.pep.all.fa": "6c7275ee1b2147ae803eebdd9f28fad6a748c7099b8bcdb51f82171e9be9bb48",
+    "Mus_musculus.GRCm38.pep.all.fa": "3b6e0a68688294135324824e1879de86c1715a9f3c655406f6ec8fcfdd75db1a",
+    "Pan_troglodytes.Pan_tro_3.0.pep.all.fa": "03e4ab186ff6c30fc1df8af7ce897270cc5bae77ef8211d428e36d985d45a39b",
+    "Rattus_norvegicus.Rnor_6.0.pep.all.fa": "60a255888f79a473e402b8ced1d5bc942bb6741148565bc4afd053680b993880",
+    "Tetraodon_nigroviridis.TETRAODON8.pep.all.fa": "1f6ebacc342da127e4ab9c1a9cf7b627e8169df3cbc0d971d57655d974c8d9b2"
+   },
+   "split": "splits/orthobench_split.json",
+   "split_sha256": "90920164d52aa18339c6bd466b5f1cc8562c6121179eede8ce6197eed019a4fb"
+  },
+  "families_tsv": "work/S0/2sA_dc30_cc_sh50/families.tsv",
+  "families_tsv_sha256": "582c43ff060f8b3b1ca363b21c22ff97728a6b3b35b66068a5663c5cf265df3f",
+  "command": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/conda_envs/orth/bin/python -m ancestra.families cluster --fasta /scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/S0/ob_all.fa --outdir /scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/S0/2sA_dc30_cc_sh50 --config /scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/S0/2sA_dc30_cc_sh50/config.json",
+  "started": "2026-10-26T15:50:32+01:00",
+  "host_threads": 48
+ }
+}

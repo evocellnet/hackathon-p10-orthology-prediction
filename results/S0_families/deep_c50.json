@@ -3,20 +3,20 @@
  "subset": "dev",
  "dev": {
   "aggregate": {
-   "n_refogs": 35,
-   "completeness": 0.37142857142857144,
-   "n_complete": 13,
-   "mean_n_fam": 2.9714285714285715,
-   "median_n_fam": 2,
+   "n_refogs": 34,
+   "completeness": 0.4117647058823529,
+   "n_complete": 14,
+   "mean_n_fam": 2.911764705882353,
+   "median_n_fam": 2.0,
    "max_n_fam": 16,
-   "mean_best_frac": 0.8617873039929497,
-   "median_size_ratio": 1.1,
-   "mean_size_ratio": 1.6308284264112398,
-   "max_size_ratio": 6.260869565217392,
-   "fusion_rate": 0.0,
-   "mean_foreign_refog_frac": 0.0,
-   "pair_recall": 0.6845106547234628,
-   "pair_precision": 0.3390813602219908
+   "mean_best_frac": 0.8499860201186159,
+   "median_size_ratio": 1.0,
+   "mean_size_ratio": 2.238665362803742,
+   "max_size_ratio": 17.923076923076923,
+   "fusion_rate": 0.11764705882352941,
+   "mean_foreign_refog_frac": 0.023619576585999204,
+   "pair_recall": 0.6835435998274624,
+   "pair_precision": 0.24127575452349406
   },
   "per_refog": {
    "RefOG002": {
@@ -26,6 +26,46 @@
     "best_frac": 0.3157894736842105,
     "best_fam_size": 6,
     "size_ratio": 0.3157894736842105,
+    "foreign_refog_frac": 0.0,
+    "n_refogs_in_best": 1
+   },
+   "RefOG004": {
+    "size": 12,
+    "complete": true,
+    "n_fam": 1,
+    "best_frac": 1.0,
+    "best_fam_size": 12,
+    "size_ratio": 1.0,
+    "foreign_refog_frac": 0.0,
+    "n_refogs_in_best": 1
+   },
+   "RefOG005": {
+    "size": 34,
+    "complete": false,
+    "n_fam": 2,
+    "best_frac": 0.9705882352941176,
+    "best_fam_size": 74,
+    "size_ratio": 2.176470588235294,
+    "foreign_refog_frac": 0.0,
+    "n_refogs_in_best": 1
+   },
+   "RefOG006": {
+    "size": 48,
+    "complete": false,
+    "n_fam": 2,
+    "best_frac": 0.9791666666666666,
+    "best_fam_size": 205,
+    "size_ratio": 4.270833333333333,
+    "foreign_refog_frac": 0.0,
+    "n_refogs_in_best": 1
+   },
+   "RefOG007": {
+    "size": 57,
+    "complete": true,
+    "n_fam": 1,
+    "best_frac": 1.0,
+    "best_fam_size": 61,
+    "size_ratio": 1.0701754385964912,
     "foreign_refog_frac": 0.0,
     "n_refogs_in_best": 1
    },
@@ -39,23 +79,23 @@
     "foreign_refog_frac": 0.0,
     "n_refogs_in_best": 1
    },
-   "RefOG009": {
-    "size": 23,
+   "RefOG010": {
+    "size": 3,
     "complete": true,
     "n_fam": 1,
     "best_frac": 1.0,
-    "best_fam_size": 144,
-    "size_ratio": 6.260869565217392,
+    "best_fam_size": 3,
+    "size_ratio": 1.0,
     "foreign_refog_frac": 0.0,
     "n_refogs_in_best": 1
    },
-   "RefOG014": {
-    "size": 24,
+   "RefOG013": {
+    "size": 27,
     "complete": false,
-    "n_fam": 4,
-    "best_frac": 0.875,
-    "best_fam_size": 22,
-    "size_ratio": 0.9166666666666666,
+    "n_fam": 15,
+    "best_frac": 0.18518518518518517,
+    "best_fam_size": 5,
+    "size_ratio": 0.18518518518518517,
     "foreign_refog_frac": 0.0,
     "n_refogs_in_best": 1
    },
@@ -66,36 +106,6 @@
     "best_frac": 1.0,
     "best_fam_size": 30,
     "size_ratio": 1.3043478260869565,
-    "foreign_refog_frac": 0.0,
-    "n_refogs_in_best": 1
-   },
-   "RefOG016": {
-    "size": 25,
-    "complete": true,
-    "n_fam": 1,
-    "best_frac": 1.0,
-    "best_fam_size": 29,
-    "size_ratio": 1.16,
-    "foreign_refog_frac": 0.0,
-    "n_refogs_in_best": 1
-   },
-   "RefOG017": {
-    "size": 29,
-    "complete": true,
-    "n_fam": 1,
-    "best_frac": 1.0,
-    "best_fam_size": 61,
-    "size_ratio": 2.103448275862069,
-    "foreign_refog_frac": 0.0,
-    "n_refogs_in_best": 1
-   },
-   "RefOG018": {
-    "size": 12,
-    "complete": false,
-    "n_fam": 3,
-    "best_frac": 0.8333333333333334,
-    "best_fam_size": 10,
-    "size_ratio": 0.8333333333333334,
     "foreign_refog_frac": 0.0,
     "n_refogs_in_best": 1
    },
@@ -119,16 +129,6 @@
     "foreign_refog_frac": 0.0,
     "n_refogs_in_best": 1
    },
-   "RefOG022": {
-    "size": 23,
-    "complete": false,
-    "n_fam": 2,
-    "best_frac": 0.9565217391304348,
-    "best_fam_size": 33,
-    "size_ratio": 1.434782608695652,
-    "foreign_refog_frac": 0.0,
-    "n_refogs_in_best": 1
-   },
    "RefOG023": {
     "size": 69,
     "complete": false,
@@ -139,13 +139,13 @@
     "foreign_refog_frac": 0.0,
     "n_refogs_in_best": 1
    },
-   "RefOG027": {
-    "size": 20,
+   "RefOG024": {
+    "size": 51,
     "complete": false,
-    "n_fam": 3,
-    "best_frac": 0.9,
-    "best_fam_size": 99,
-    "size_ratio": 4.95,
+    "n_fam": 2,
+    "best_frac": 0.9411764705882353,
+    "best_fam_size": 55,
+    "size_ratio": 1.0784313725490196,
     "foreign_refog_frac": 0.0,
     "n_refogs_in_best": 1
    },
@@ -169,26 +169,6 @@
     "foreign_refog_frac": 0.0,
     "n_refogs_in_best": 1
    },
-   "RefOG031": {
-    "size": 32,
-    "complete": false,
-    "n_fam": 2,
-    "best_frac": 0.96875,
-    "best_fam_size": 114,
-    "size_ratio": 3.5625,
-    "foreign_refog_frac": 0.0,
-    "n_refogs_in_best": 1
-   },
-   "RefOG032": {
-    "size": 14,
-    "complete": false,
-    "n_fam": 2,
-    "best_frac": 0.9285714285714286,
-    "best_fam_size": 33,
-    "size_ratio": 2.357142857142857,
-    "foreign_refog_frac": 0.0,
-    "n_refogs_in_best": 1
-   },
    "RefOG033": {
     "size": 30,
     "complete": true,
@@ -199,23 +179,23 @@
     "foreign_refog_frac": 0.0,
     "n_refogs_in_best": 1
    },
-   "RefOG036": {
-    "size": 46,
+   "RefOG034": {
+    "size": 21,
     "complete": true,
     "n_fam": 1,
     "best_frac": 1.0,
-    "best_fam_size": 54,
-    "size_ratio": 1.173913043478261,
-    "foreign_refog_frac": 0.0,
-    "n_refogs_in_best": 1
+    "best_fam_size": 233,
+    "size_ratio": 11.095238095238095,
+    "foreign_refog_frac": 0.055793991416309016,
+    "n_refogs_in_best": 2
    },
-   "RefOG037": {
-    "size": 34,
+   "RefOG035": {
+    "size": 32,
     "complete": false,
-    "n_fam": 4,
-    "best_frac": 0.9117647058823529,
-    "best_fam_size": 55,
-    "size_ratio": 1.6176470588235294,
+    "n_fam": 2,
+    "best_frac": 0.96875,
+    "best_fam_size": 136,
+    "size_ratio": 4.25,
     "foreign_refog_frac": 0.0,
     "n_refogs_in_best": 1
    },
@@ -226,8 +206,8 @@
     "best_frac": 0.8888888888888888,
     "best_fam_size": 35,
     "size_ratio": 3.888888888888889,
-    "foreign_refog_frac": 0.0,
-    "n_refogs_in_best": 1
+    "foreign_refog_frac": 0.42857142857142855,
+    "n_refogs_in_best": 2
    },
    "RefOG043": {
     "size": 17,
@@ -249,13 +229,23 @@
     "foreign_refog_frac": 0.0,
     "n_refogs_in_best": 1
    },
-   "RefOG047": {
-    "size": 36,
-    "complete": false,
-    "n_fam": 2,
-    "best_frac": 0.9722222222222222,
-    "best_fam_size": 35,
-    "size_ratio": 0.9722222222222222,
+   "RefOG045": {
+    "size": 13,
+    "complete": true,
+    "n_fam": 1,
+    "best_frac": 1.0,
+    "best_fam_size": 233,
+    "size_ratio": 17.923076923076923,
+    "foreign_refog_frac": 0.09012875536480687,
+    "n_refogs_in_best": 2
+   },
+   "RefOG046": {
+    "size": 32,
+    "complete": true,
+    "n_fam": 1,
+    "best_frac": 1.0,
+    "best_fam_size": 32,
+    "size_ratio": 1.0,
     "foreign_refog_frac": 0.0,
     "n_refogs_in_best": 1
    },
@@ -269,15 +259,15 @@
     "foreign_refog_frac": 0.0,
     "n_refogs_in_best": 1
    },
-   "RefOG049": {
-    "size": 10,
+   "RefOG052": {
+    "size": 15,
     "complete": true,
     "n_fam": 1,
     "best_frac": 1.0,
-    "best_fam_size": 16,
-    "size_ratio": 1.6,
-    "foreign_refog_frac": 0.0,
-    "n_refogs_in_best": 1
+    "best_fam_size": 35,
+    "size_ratio": 2.3333333333333335,
+    "foreign_refog_frac": 0.22857142857142856,
+    "n_refogs_in_best": 2
    },
    "RefOG054": {
     "size": 44,
@@ -296,16 +286,6 @@
     "best_frac": 0.9310344827586207,
     "best_fam_size": 27,
     "size_ratio": 0.9310344827586207,
-    "foreign_refog_frac": 0.0,
-    "n_refogs_in_best": 1
-   },
-   "RefOG056": {
-    "size": 7,
-    "complete": true,
-    "n_fam": 1,
-    "best_frac": 1.0,
-    "best_fam_size": 8,
-    "size_ratio": 1.1428571428571428,
     "foreign_refog_frac": 0.0,
     "n_refogs_in_best": 1
    },
@@ -329,13 +309,13 @@
     "foreign_refog_frac": 0.0,
     "n_refogs_in_best": 1
    },
-   "RefOG064": {
-    "size": 14,
+   "RefOG061": {
+    "size": 30,
     "complete": false,
-    "n_fam": 7,
-    "best_frac": 0.5714285714285714,
-    "best_fam_size": 8,
-    "size_ratio": 0.5714285714285714,
+    "n_fam": 5,
+    "best_frac": 0.3,
+    "best_fam_size": 30,
+    "size_ratio": 1.0,
     "foreign_refog_frac": 0.0,
     "n_refogs_in_best": 1
    },
@@ -349,6 +329,16 @@
     "foreign_refog_frac": 0.0,
     "n_refogs_in_best": 1
    },
+   "RefOG066": {
+    "size": 14,
+    "complete": false,
+    "n_fam": 2,
+    "best_frac": 0.9285714285714286,
+    "best_fam_size": 13,
+    "size_ratio": 0.9285714285714286,
+    "foreign_refog_frac": 0.0,
+    "n_refogs_in_best": 1
+   },
    "RefOG067": {
     "size": 13,
     "complete": true,
@@ -359,33 +349,33 @@
     "foreign_refog_frac": 0.0,
     "n_refogs_in_best": 1
    },
-   "RefOG069": {
-    "size": 31,
+   "RefOG068": {
+    "size": 27,
     "complete": false,
-    "n_fam": 9,
-    "best_frac": 0.3225806451612903,
-    "best_fam_size": 10,
-    "size_ratio": 0.3225806451612903,
+    "n_fam": 2,
+    "best_frac": 0.7037037037037037,
+    "best_fam_size": 19,
+    "size_ratio": 0.7037037037037037,
     "foreign_refog_frac": 0.0,
     "n_refogs_in_best": 1
    }
   }
  },
  "dev_keep_uncertain_aggregate": {
-  "n_refogs": 35,
-  "completeness": 0.3142857142857143,
-  "n_complete": 11,
-  "mean_n_fam": 3.1142857142857143,
-  "median_n_fam": 2,
+  "n_refogs": 34,
+  "completeness": 0.38235294117647056,
+  "n_complete": 13,
+  "mean_n_fam": 3.0,
+  "median_n_fam": 2.0,
   "max_n_fam": 16,
-  "mean_best_frac": 0.8448178310917999,
+  "mean_best_frac": 0.8457716954998795,
   "median_size_ratio": 1.0,
-  "mean_size_ratio": 1.587828327821079,
-  "max_size_ratio": 6.260869565217392,
-  "fusion_rate": 0.0,
-  "mean_foreign_refog_frac": 0.0,
-  "pair_recall": 0.6701977252904516,
-  "pair_precision": 0.3515694069743728
+  "mean_size_ratio": 2.2264800236922517,
+  "max_size_ratio": 17.923076923076923,
+  "fusion_rate": 0.11764705882352941,
+  "mean_foreign_refog_frac": 0.023619576585999204,
+  "pair_recall": 0.6794502973854503,
+  "pair_precision": 0.24370535716528074
  },
  "family_stats": {
   "n_genes": 251378,
@@ -482,12 +472,13 @@
     "Tetraodon_nigroviridis.TETRAODON8.pep.all.fa": "1f6ebacc342da127e4ab9c1a9cf7b627e8169df3cbc0d971d57655d974c8d9b2"
    },
    "split": "splits/orthobench_split.json",
-   "split_sha256": "10a260ae09123f2640a0705d6035a6369c7d73d2b5a3547dd4e9e67c64e9bd8a"
+   "split_sha256": "90920164d52aa18339c6bd466b5f1cc8562c6121179eede8ce6197eed019a4fb"
   },
   "families_tsv": "work/S0/deep_c50/families.tsv",
   "families_tsv_sha256": "5b79a23bad408e928793204749ce129601a310c10e87813474b925b05f4f13ba",
   "command": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/conda_envs/orth/bin/python -m ancestra.families cluster --fasta /scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/S0/ob_all.fa --outdir /scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/S0/deep_c50 --config /scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/S0/deep_c50/config.json",
   "started": "2026-10-26T15:28:35+01:00",
-  "host_threads": 48
+  "host_threads": 48,
+  "rescored": "2026-10-26T15:50:15+01:00"
  }
 }

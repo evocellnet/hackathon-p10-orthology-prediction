@@ -5,29 +5,27 @@ never searched again: the merge (S3) aggregates these leaf-pair scores.
 
 Backends (``ScoringConfig.backend``)
 -----------------------------------
-``mmseqs`` (default)
-    Exact targeted alignment: one ``mmseqs createdb`` of all proteins, a
-    *custom prefilter DB* (``tsv2db --output-dbtype 7``) that lists exactly the
-    unordered within-family pairs ``q <= t`` (self pairs included, they give the
-    self-score), then ``mmseqs align -a --alignment-mode 3`` (full SW with
-    backtrace -> bitscore, coverages, identity) and ``convertalis``. Work is
-    exactly sum_f g_f(g_f+1)/2 alignments and nothing else; no seeding, so no
-    sensitivity loss inside families.
-``diamond``
-    Families are packed (largest first) into batches of <= ``batch_genes``
-    proteins; per batch one ``diamond blastp`` batch-vs-batch with ``-k`` =
-    batch size, then hits between different families are discarded. Wasted
-    work = cross-family pairs inside a batch; DIAMOND's seeding makes this
-    cheap but also loses weak within-family pairs (sensitivity flag).
+``diamond`` (default; PI decision after r2_algorithms_compute)
+    Whole families are packed (largest first) into blocks of <= ``block_genes``
+    (100k) proteins; a family larger than a block is its own block. Per block
+    one ``diamond blastp`` block-vs-block with ``-k 0 --max-hsps 1 -b 4 -c 1
+    --sensitive``; hits between different families are discarded (their count
+    is reported: a free S0-fission signal). Cost ~ N*B, not sum g_f^2.
+``mmseqs`` (exhaustive reference)
+    One ``mmseqs createdb``, a *custom prefilter DB* (``tsv2db --output-dbtype
+    7``) listing exactly the unordered within-family pairs ``q <= t`` (self pairs
+    included -> self-scores), then ``mmseqs align -a --alignment-mode 3`` (full
+    SW) and ``convertalis``. Work = sum_f g_f(g_f+1)/2 alignments, no seeding
+    loss. Families > ``cap_all`` go through the DIAMOND block path.
 ``foldseek3di``
     Hook only (DESIGN.md S6): same interface, 3Di+AA scores. Not implemented.
 
-Large families (> ``cap`` members): all-pairs scoring would be quadratic, so
-each member is scored only against its ``knn`` nearest family members, found
-by a DIAMOND search restricted to that family (``-k knn``, sensitive). Those
-pairs then go through the same backend output format. The merge sees a
-sparser graph for such families (documented limitation; sub-clustering is the
-planned alternative).
+Large families (r2 M3): g <= ``cap_all`` (5k): all in-family hits kept.
+5k < g: per query keep the top ``top_per_species`` (2) hits per other species
+plus <= ``top_same`` (20) same-species hits (a pair survives if either direction
+keeps it); dropped edges are logged per family. g > ``g_max`` (20k) should have
+been split by S0; such families are counted (``n_families_over_gmax``) and get
+the same reduction.
 
 Output :class:`ScoreTable` (``scores.npz``): unordered pairs ``q < t`` with
 ``bits``, ``qcov`` (fraction of q covered), ``tcov``, ``pident``, ``evalue``;
@@ -52,12 +50,15 @@ __all__ = ["ScoringConfig", "ScoreTable", "score_families", "BACKENDS", "within_
 
 @dataclass
 class ScoringConfig:
-    backend: str = "mmseqs"         # mmseqs | diamond | foldseek3di (hook)
-    evalue: float = 1e-3
-    cap: int = 2000                 # families larger than this: kNN pairs only
-    knn: int = 200
-    batch_genes: int = 6000         # diamond backend: proteins per batch
+    backend: str = "diamond"        # diamond | mmseqs | foldseek3di (hook)
+    evalue: float = 10.0            # within-family: homology already established by S0
+    block_genes: int = 100_000      # diamond: proteins per block (whole families)
     diamond_sens: str = "--sensitive"
+    diamond_b: float = 4.0
+    cap_all: int = 5000             # families <= cap_all keep all in-family hits
+    g_max: int = 20_000             # families > g_max should be split by S0 (flagged here)
+    top_per_species: int = 2        # cap rule for families > cap_all
+    top_same: int = 20
     threads: int = 24
 
     def key(self) -> dict:
@@ -156,51 +157,114 @@ def _read_m8(path, ncol):
     return [a[:, i] for i in range(ncol)]
 
 
-def _knn_pairs(gt: GeneTable, members: np.ndarray, cfg: ScoringConfig, wd: str, log):
-    """Pairs (q<=t) of each member with its knn nearest family members (DIAMOND)."""
-    fa = os.path.join(wd, "big.fa")
-    write_fasta(gt, fa, members)
-    _run(["diamond", "makedb", "--in", fa, "-d", fa + ".dmnd", "--threads", cfg.threads, "--quiet"], log)
-    out = os.path.join(wd, "big.m8")
-    _run(["diamond", "blastp", "-q", fa, "-d", fa + ".dmnd", "-o", out, "-k", cfg.knn,
-          "-e", cfg.evalue, cfg.diamond_sens, "--threads", cfg.threads, "--quiet",
-          "--outfmt", "6", "qseqid", "sseqid"], log)
-    q, t = _read_m8(out, 2)
-    q, t = q.astype(np.int64), t.astype(np.int64)
-    lo, hi = np.minimum(q, t), np.maximum(q, t)
-    lo = np.concatenate([lo, members])        # self pairs
-    hi = np.concatenate([hi, members])
-    key = np.unique(lo * (gt.n + 1) + hi)
-    return key // (gt.n + 1), key % (gt.n + 1)
+# ----------------------------------------------------------------------------
+# large-family cap (r2_algorithms_compute M3)
+# ----------------------------------------------------------------------------
+
+def apply_cap(st: ScoreTable, fam: np.ndarray, species_of: np.ndarray, cfg: "ScoringConfig",
+              stats: dict) -> ScoreTable:
+    """For families with > ``cap_all`` members keep, per query, the top ``top_per_species``
+    hits per other species plus the top ``top_same`` same-species hits (a pair is kept if
+    either direction keeps it). Families <= cap_all keep all hits."""
+    sizes = np.bincount(fam)
+    big = sizes > cfg.cap_all
+    stats["n_families_over_cap"] = int(big.sum())
+    stats["n_families_over_gmax"] = int((sizes > cfg.g_max).sum())
+    sel = big[fam[st.q]]
+    if not sel.any():
+        stats["n_pairs_dropped_by_cap"] = 0
+        return st
+    idx = np.flatnonzero(sel)
+    q = np.concatenate([st.q[idx], st.t[idx]]).astype(np.int64)
+    t = np.concatenate([st.t[idx], st.q[idx]]).astype(np.int64)
+    b = np.concatenate([st.bits[idx], st.bits[idx]])
+    e = np.concatenate([idx, idx])
+    tsp = species_of[t].astype(np.int64)
+    samesp = tsp == species_of[q]
+    order = np.lexsort((-b, tsp, q))
+    q, tsp, samesp, e = q[order], tsp[order], samesp[order], e[order]
+    grp_start = np.r_[True, (q[1:] != q[:-1]) | (tsp[1:] != tsp[:-1])]
+    gid = np.cumsum(grp_start) - 1
+    first = np.flatnonzero(grp_start)
+    rank = np.arange(len(q)) - first[gid]
+    keep_dir = np.where(samesp, rank < cfg.top_same, rank < cfg.top_per_species)
+    keep_e = np.zeros(len(st.q), bool)
+    keep_e[~sel] = True
+    keep_e[e[keep_dir]] = True
+    per_fam = {}
+    dropped = np.flatnonzero(~keep_e)
+    if len(dropped):
+        f, c = np.unique(fam[st.q[dropped]], return_counts=True)
+        per_fam = {int(a): int(n) for a, n in zip(f, c)}
+    stats["n_pairs_dropped_by_cap"] = int(len(dropped))
+    stats["pairs_dropped_per_family"] = per_fam
+    return ScoreTable(*(getattr(st, k)[keep_e] for k in ("q", "t", "bits", "qcov", "tcov",
+                                                         "pident", "evalue")), st.self_bits)
 
 
 # ----------------------------------------------------------------------------
 # backends
 # ----------------------------------------------------------------------------
 
-def _pair_lists(gt, fam, cfg, wd, log, stats):
-    qs, ts = [], []
-    n_big = 0
-    for m in family_members(fam):
-        if len(m) > cfg.cap:
-            n_big += 1
-            q, t = _knn_pairs(gt, m, cfg, wd, log)
-        else:
-            q, t = within_family_pairs(m)
-        qs.append(q)
-        ts.append(t)
-    stats["n_big_families"] = n_big
-    q = np.concatenate(qs).astype(np.int64)
-    t = np.concatenate(ts).astype(np.int64)
-    return q, t
+def pack_blocks(fam: np.ndarray, block_genes: int, families=None) -> list[np.ndarray]:
+    """Pack whole families (largest first) into blocks of <= block_genes proteins;
+    a family larger than the block is its own block. Singleton families are skipped."""
+    mems = [m for m in family_members(fam) if len(m) > 1]
+    if families is not None:
+        mems = [m for m in mems if fam[m[0]] in families]
+    mems.sort(key=len, reverse=True)
+    blocks, cur, size = [], [], 0
+    for m in mems:
+        if size + len(m) > block_genes and cur:
+            blocks.append(np.concatenate(cur))
+            cur, size = [], 0
+        cur.append(m)
+        size += len(m)
+    if cur:
+        blocks.append(np.concatenate(cur))
+    return blocks
+
+
+def _diamond_blocks(gt, fam, blocks, cfg, wd, log, stats):
+    cols = []
+    t0 = time.time()
+    for bi, genes in enumerate(blocks):
+        fa = os.path.join(wd, f"b{bi}.fa")
+        write_fasta(gt, fa, genes)
+        _run(["diamond", "makedb", "--in", fa, "-d", fa + ".dmnd", "--threads", cfg.threads,
+              "--quiet"], log)
+        out = os.path.join(wd, f"b{bi}.m8")
+        cmd = ["diamond", "blastp", "-q", fa, "-d", fa + ".dmnd", "-o", out, "-k", "0",
+               "--max-hsps", "1", "-b", cfg.diamond_b, "-c", "1", "-e", cfg.evalue,
+               "--threads", cfg.threads, "--quiet",
+               "--outfmt", "6", "qseqid", "sseqid", "bitscore", "qcovhsp", "scovhsp", "pident",
+               "evalue"]
+        if cfg.diamond_sens:
+            cmd.append(cfg.diamond_sens)
+        _run(cmd, log)
+        c = _read_m8(out, 7)
+        q, t = c[0].astype(np.int64), c[1].astype(np.int64)
+        keep = fam[q] == fam[t]
+        stats["n_cross_family_hits"] = stats.get("n_cross_family_hits", 0) + int((~keep).sum())
+        cols.append([x[keep] for x in c])
+        for f in (fa, fa + ".dmnd", out):
+            os.remove(f)
+    stats["n_blocks"] = stats.get("n_blocks", 0) + len(blocks)
+    stats["diamond_s"] = round(stats.get("diamond_s", 0) + time.time() - t0, 2)
+    if not cols:
+        return [np.zeros(0)] * 7
+    c = [np.concatenate([x[i] for x in cols]) for i in range(7)]
+    c[3], c[4], c[5] = c[3] / 100.0, c[4] / 100.0, c[5] / 100.0
+    return c
 
 
 def _backend_mmseqs(gt: GeneTable, fam: np.ndarray, cfg: ScoringConfig, wd: str, log, stats):
+    """Exhaustive: mmseqs align on the explicit in-family pair list (families <= cap_all);
+    larger families go through the DIAMOND block path (then the cap rule)."""
     fa = os.path.join(wd, "genes.fa")
     write_fasta(gt, fa)
     db = os.path.join(wd, "db")
     _run(["mmseqs", "createdb", fa, db, "-v", "1"], log)
-    # db key -> gene id (keys are assigned in input order; verify through .lookup)
     key2gid = np.empty(gt.n, dtype=np.int64)
     with open(db + ".lookup") as fh:
         for line in fh:
@@ -209,14 +273,23 @@ def _backend_mmseqs(gt: GeneTable, fam: np.ndarray, cfg: ScoringConfig, wd: str,
     gid2key = np.empty(gt.n, dtype=np.int64)
     gid2key[key2gid] = np.arange(gt.n)
     t0 = time.time()
-    q, t = _pair_lists(gt, fam, cfg, wd, log, stats)
+    qs, ts, big = [], [], set()
+    for m in family_members(fam):
+        if len(m) > cfg.cap_all:
+            big.add(int(fam[m[0]]))
+            continue
+        q, t = within_family_pairs(m)
+        qs.append(q)
+        ts.append(t)
+    q = np.concatenate(qs).astype(np.int64)
+    t = np.concatenate(ts).astype(np.int64)
     qk, tk = gid2key[q], gid2key[t]
     order = np.lexsort((tk, qk))
     qk, tk = qk[order], tk[order]
     stats["n_pairs_aligned"] = int(len(qk))
     pref_tsv = os.path.join(wd, "pairs.tsv")
     with open(pref_tsv, "w") as fh:
-        # prefilter entry line: targetKey  prefScore  diagonal
+        # prefilter entry line: queryKey  targetKey  prefScore  diagonal
         blk = 2_000_000
         for s in range(0, len(qk), blk):
             fh.write("".join(f"{a}\t{b}\t0\t0\n" for a, b in zip(qk[s:s + blk].tolist(),
@@ -233,65 +306,19 @@ def _backend_mmseqs(gt: GeneTable, fam: np.ndarray, cfg: ScoringConfig, wd: str,
     out = os.path.join(wd, "aln.m8")
     _run(["mmseqs", "convertalis", db, db, aln, out, "--format-output",
           "query,target,bits,qcov,tcov,pident,evalue", "--threads", cfg.threads, "-v", "1"], log)
-    qq, tt, bits, qcov, tcov, pid, ev = _read_m8(out, 7)
-    return _reduce_records(qq.astype(np.int64), tt.astype(np.int64), bits, qcov, tcov,
-                           pid / 100.0, ev, gt.n)
+    c = _read_m8(out, 7)
+    c[5] = c[5] / 100.0
+    if big:
+        c2 = _diamond_blocks(gt, fam, pack_blocks(fam, cfg.block_genes, big), cfg, wd, log, stats)
+        c = [np.concatenate([a, b]) for a, b in zip(c, c2)]
+    return _reduce_records(c[0].astype(np.int64), c[1].astype(np.int64), *c[2:], gt.n)
 
 
 def _backend_diamond(gt: GeneTable, fam: np.ndarray, cfg: ScoringConfig, wd: str, log, stats):
-    mems = family_members(fam)
-    small = [m for m in mems if len(m) <= cfg.cap]
-    big = [m for m in mems if len(m) > cfg.cap]
-    small.sort(key=len, reverse=True)
-    batches, cur, size = [], [], 0
-    for m in small:
-        if len(m) == 1:
-            continue                        # singletons: self-score only (filled later)
-        if size + len(m) > cfg.batch_genes and cur:
-            batches.append(np.concatenate(cur))
-            cur, size = [], 0
-        cur.append(m)
-        size += len(m)
-    if cur:
-        batches.append(np.concatenate(cur))
-    cols = []
-    t0 = time.time()
-    for bi, genes in enumerate(batches):
-        fa = os.path.join(wd, f"b{bi}.fa")
-        write_fasta(gt, fa, genes)
-        _run(["diamond", "makedb", "--in", fa, "-d", fa + ".dmnd", "--threads", cfg.threads,
-              "--quiet"], log)
-        out = os.path.join(wd, f"b{bi}.m8")
-        _run(["diamond", "blastp", "-q", fa, "-d", fa + ".dmnd", "-o", out, "-k", len(genes),
-              "-e", cfg.evalue, cfg.diamond_sens, "--threads", cfg.threads, "--quiet",
-              "--outfmt", "6", "qseqid", "sseqid", "bitscore", "qcovhsp", "scovhsp", "pident",
-              "evalue"], log)
-        c = _read_m8(out, 7)
-        q, t = c[0].astype(np.int64), c[1].astype(np.int64)
-        keep = fam[q] == fam[t]
-        cols.append([x[keep] for x in c])
-        os.remove(fa)
-        os.remove(fa + ".dmnd")
-        os.remove(out)
-    stats["n_batches"] = len(batches)
-    stats["search_s"] = round(time.time() - t0, 2)
-    stats["n_big_families"] = len(big)
-    for m in big:  # kNN pairs found by DIAMOND directly carry the scores we need
-        fa = os.path.join(wd, "big.fa")
-        write_fasta(gt, fa, m)
-        _run(["diamond", "makedb", "--in", fa, "-d", fa + ".dmnd", "--threads", cfg.threads,
-              "--quiet"], log)
-        out = os.path.join(wd, "big.m8")
-        _run(["diamond", "blastp", "-q", fa, "-d", fa + ".dmnd", "-o", out, "-k", cfg.knn,
-              "-e", cfg.evalue, cfg.diamond_sens, "--threads", cfg.threads, "--quiet",
-              "--outfmt", "6", "qseqid", "sseqid", "bitscore", "qcovhsp", "scovhsp", "pident",
-              "evalue"], log)
-        cols.append(_read_m8(out, 7))
-    if not cols:
-        cols = [[np.zeros(0)] * 7]
-    c = [np.concatenate([x[i] for x in cols]) for i in range(7)]
-    return _reduce_records(c[0].astype(np.int64), c[1].astype(np.int64), c[2], c[3] / 100.0,
-                           c[4] / 100.0, c[5] / 100.0, c[6], gt.n)
+    """Whole families packed into blocks of <= block_genes; DIAMOND block-vs-block
+    (-k 0 --max-hsps 1 -b 4 -c 1 --sensitive), cross-family hits discarded."""
+    c = _diamond_blocks(gt, fam, pack_blocks(fam, cfg.block_genes), cfg, wd, log, stats)
+    return _reduce_records(c[0].astype(np.int64), c[1].astype(np.int64), *c[2:], gt.n)
 
 
 def _backend_foldseek3di(*a, **k):
@@ -314,6 +341,7 @@ def score_families(gt: GeneTable, fam: np.ndarray, cfg: ScoringConfig, workdir: 
     t0 = time.time()
     with open(os.path.join(workdir, "commands.log"), "a") as log:
         st = BACKENDS[cfg.backend](gt, fam, cfg, workdir, log, stats)
+    st = apply_cap(st, fam, gt.species_of, cfg, stats)
     stats["wall_s"] = round(time.time() - t0, 2)
     stats["n_scored_pairs"] = int(len(st))
     stats["n_self_scores"] = int(np.isfinite(st.self_bits).sum())

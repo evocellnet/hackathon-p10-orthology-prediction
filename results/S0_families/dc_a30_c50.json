@@ -3,20 +3,20 @@
  "subset": "dev",
  "dev": {
   "aggregate": {
-   "n_refogs": 35,
-   "completeness": 0.37142857142857144,
-   "n_complete": 13,
-   "mean_n_fam": 3.2285714285714286,
-   "median_n_fam": 2,
-   "max_n_fam": 20,
-   "mean_best_frac": 0.8426853495816842,
+   "n_refogs": 34,
+   "completeness": 0.4411764705882353,
+   "n_complete": 15,
+   "mean_n_fam": 3.6470588235294117,
+   "median_n_fam": 2.0,
+   "max_n_fam": 25,
+   "mean_best_frac": 0.8219845929518367,
    "median_size_ratio": 1.0,
-   "mean_size_ratio": 1.0395192907166666,
-   "max_size_ratio": 2.4782608695652173,
+   "mean_size_ratio": 1.0881806592377794,
+   "max_size_ratio": 4.520833333333333,
    "fusion_rate": 0.0,
    "mean_foreign_refog_frac": 0.0,
-   "pair_recall": 0.6542993243396349,
-   "pair_precision": 0.6065042426646295
+   "pair_recall": 0.6337017804604528,
+   "pair_precision": 0.4924016575008187
   },
   "per_refog": {
    "RefOG002": {
@@ -26,6 +26,46 @@
     "best_frac": 0.3684210526315789,
     "best_fam_size": 7,
     "size_ratio": 0.3684210526315789,
+    "foreign_refog_frac": 0.0,
+    "n_refogs_in_best": 1
+   },
+   "RefOG004": {
+    "size": 12,
+    "complete": true,
+    "n_fam": 1,
+    "best_frac": 1.0,
+    "best_fam_size": 12,
+    "size_ratio": 1.0,
+    "foreign_refog_frac": 0.0,
+    "n_refogs_in_best": 1
+   },
+   "RefOG005": {
+    "size": 34,
+    "complete": false,
+    "n_fam": 2,
+    "best_frac": 0.9705882352941176,
+    "best_fam_size": 47,
+    "size_ratio": 1.3823529411764706,
+    "foreign_refog_frac": 0.0,
+    "n_refogs_in_best": 1
+   },
+   "RefOG006": {
+    "size": 48,
+    "complete": true,
+    "n_fam": 1,
+    "best_frac": 1.0,
+    "best_fam_size": 217,
+    "size_ratio": 4.520833333333333,
+    "foreign_refog_frac": 0.0,
+    "n_refogs_in_best": 1
+   },
+   "RefOG007": {
+    "size": 57,
+    "complete": false,
+    "n_fam": 4,
+    "best_frac": 0.7719298245614035,
+    "best_fam_size": 46,
+    "size_ratio": 0.8070175438596491,
     "foreign_refog_frac": 0.0,
     "n_refogs_in_best": 1
    },
@@ -39,23 +79,23 @@
     "foreign_refog_frac": 0.0,
     "n_refogs_in_best": 1
    },
-   "RefOG009": {
-    "size": 23,
-    "complete": false,
-    "n_fam": 2,
-    "best_frac": 0.9565217391304348,
-    "best_fam_size": 57,
-    "size_ratio": 2.4782608695652173,
+   "RefOG010": {
+    "size": 3,
+    "complete": true,
+    "n_fam": 1,
+    "best_frac": 1.0,
+    "best_fam_size": 3,
+    "size_ratio": 1.0,
     "foreign_refog_frac": 0.0,
     "n_refogs_in_best": 1
    },
-   "RefOG014": {
-    "size": 24,
+   "RefOG013": {
+    "size": 27,
     "complete": false,
-    "n_fam": 5,
-    "best_frac": 0.7083333333333334,
-    "best_fam_size": 17,
-    "size_ratio": 0.7083333333333334,
+    "n_fam": 25,
+    "best_frac": 0.07407407407407407,
+    "best_fam_size": 2,
+    "size_ratio": 0.07407407407407407,
     "foreign_refog_frac": 0.0,
     "n_refogs_in_best": 1
    },
@@ -66,36 +106,6 @@
     "best_frac": 1.0,
     "best_fam_size": 24,
     "size_ratio": 1.0434782608695652,
-    "foreign_refog_frac": 0.0,
-    "n_refogs_in_best": 1
-   },
-   "RefOG016": {
-    "size": 25,
-    "complete": true,
-    "n_fam": 1,
-    "best_frac": 1.0,
-    "best_fam_size": 26,
-    "size_ratio": 1.04,
-    "foreign_refog_frac": 0.0,
-    "n_refogs_in_best": 1
-   },
-   "RefOG017": {
-    "size": 29,
-    "complete": false,
-    "n_fam": 2,
-    "best_frac": 0.5172413793103449,
-    "best_fam_size": 15,
-    "size_ratio": 0.5172413793103449,
-    "foreign_refog_frac": 0.0,
-    "n_refogs_in_best": 1
-   },
-   "RefOG018": {
-    "size": 12,
-    "complete": false,
-    "n_fam": 3,
-    "best_frac": 0.8333333333333334,
-    "best_fam_size": 10,
-    "size_ratio": 0.8333333333333334,
     "foreign_refog_frac": 0.0,
     "n_refogs_in_best": 1
    },
@@ -119,16 +129,6 @@
     "foreign_refog_frac": 0.0,
     "n_refogs_in_best": 1
    },
-   "RefOG022": {
-    "size": 23,
-    "complete": false,
-    "n_fam": 2,
-    "best_frac": 0.9565217391304348,
-    "best_fam_size": 33,
-    "size_ratio": 1.434782608695652,
-    "foreign_refog_frac": 0.0,
-    "n_refogs_in_best": 1
-   },
    "RefOG023": {
     "size": 69,
     "complete": false,
@@ -139,13 +139,13 @@
     "foreign_refog_frac": 0.0,
     "n_refogs_in_best": 1
    },
-   "RefOG027": {
-    "size": 20,
-    "complete": true,
-    "n_fam": 1,
-    "best_frac": 1.0,
-    "best_fam_size": 21,
-    "size_ratio": 1.05,
+   "RefOG024": {
+    "size": 51,
+    "complete": false,
+    "n_fam": 2,
+    "best_frac": 0.9411764705882353,
+    "best_fam_size": 55,
+    "size_ratio": 1.0784313725490196,
     "foreign_refog_frac": 0.0,
     "n_refogs_in_best": 1
    },
@@ -169,26 +169,6 @@
     "foreign_refog_frac": 0.0,
     "n_refogs_in_best": 1
    },
-   "RefOG031": {
-    "size": 32,
-    "complete": false,
-    "n_fam": 3,
-    "best_frac": 0.90625,
-    "best_fam_size": 56,
-    "size_ratio": 1.75,
-    "foreign_refog_frac": 0.0,
-    "n_refogs_in_best": 1
-   },
-   "RefOG032": {
-    "size": 14,
-    "complete": false,
-    "n_fam": 2,
-    "best_frac": 0.9285714285714286,
-    "best_fam_size": 13,
-    "size_ratio": 0.9285714285714286,
-    "foreign_refog_frac": 0.0,
-    "n_refogs_in_best": 1
-   },
    "RefOG033": {
     "size": 30,
     "complete": true,
@@ -199,23 +179,23 @@
     "foreign_refog_frac": 0.0,
     "n_refogs_in_best": 1
    },
-   "RefOG036": {
-    "size": 46,
+   "RefOG034": {
+    "size": 21,
     "complete": true,
     "n_fam": 1,
     "best_frac": 1.0,
-    "best_fam_size": 46,
+    "best_fam_size": 21,
     "size_ratio": 1.0,
     "foreign_refog_frac": 0.0,
     "n_refogs_in_best": 1
    },
-   "RefOG037": {
-    "size": 34,
+   "RefOG035": {
+    "size": 32,
     "complete": false,
     "n_fam": 4,
-    "best_frac": 0.9117647058823529,
+    "best_frac": 0.5625,
     "best_fam_size": 54,
-    "size_ratio": 1.588235294117647,
+    "size_ratio": 1.6875,
     "foreign_refog_frac": 0.0,
     "n_refogs_in_best": 1
    },
@@ -249,13 +229,23 @@
     "foreign_refog_frac": 0.0,
     "n_refogs_in_best": 1
    },
-   "RefOG047": {
-    "size": 36,
-    "complete": false,
-    "n_fam": 2,
-    "best_frac": 0.9722222222222222,
-    "best_fam_size": 35,
-    "size_ratio": 0.9722222222222222,
+   "RefOG045": {
+    "size": 13,
+    "complete": true,
+    "n_fam": 1,
+    "best_frac": 1.0,
+    "best_fam_size": 18,
+    "size_ratio": 1.3846153846153846,
+    "foreign_refog_frac": 0.0,
+    "n_refogs_in_best": 1
+   },
+   "RefOG046": {
+    "size": 32,
+    "complete": true,
+    "n_fam": 1,
+    "best_frac": 1.0,
+    "best_fam_size": 32,
+    "size_ratio": 1.0,
     "foreign_refog_frac": 0.0,
     "n_refogs_in_best": 1
    },
@@ -269,12 +259,12 @@
     "foreign_refog_frac": 0.0,
     "n_refogs_in_best": 1
    },
-   "RefOG049": {
-    "size": 10,
+   "RefOG052": {
+    "size": 15,
     "complete": true,
     "n_fam": 1,
     "best_frac": 1.0,
-    "best_fam_size": 10,
+    "best_fam_size": 15,
     "size_ratio": 1.0,
     "foreign_refog_frac": 0.0,
     "n_refogs_in_best": 1
@@ -299,16 +289,6 @@
     "foreign_refog_frac": 0.0,
     "n_refogs_in_best": 1
    },
-   "RefOG056": {
-    "size": 7,
-    "complete": true,
-    "n_fam": 1,
-    "best_frac": 1.0,
-    "best_fam_size": 8,
-    "size_ratio": 1.1428571428571428,
-    "foreign_refog_frac": 0.0,
-    "n_refogs_in_best": 1
-   },
    "RefOG057": {
     "size": 16,
     "complete": false,
@@ -329,13 +309,13 @@
     "foreign_refog_frac": 0.0,
     "n_refogs_in_best": 1
    },
-   "RefOG064": {
-    "size": 14,
+   "RefOG061": {
+    "size": 30,
     "complete": false,
     "n_fam": 7,
-    "best_frac": 0.5714285714285714,
-    "best_fam_size": 8,
-    "size_ratio": 0.5714285714285714,
+    "best_frac": 0.3,
+    "best_fam_size": 18,
+    "size_ratio": 0.6,
     "foreign_refog_frac": 0.0,
     "n_refogs_in_best": 1
    },
@@ -349,6 +329,16 @@
     "foreign_refog_frac": 0.0,
     "n_refogs_in_best": 1
    },
+   "RefOG066": {
+    "size": 14,
+    "complete": false,
+    "n_fam": 4,
+    "best_frac": 0.7142857142857143,
+    "best_fam_size": 10,
+    "size_ratio": 0.7142857142857143,
+    "foreign_refog_frac": 0.0,
+    "n_refogs_in_best": 1
+   },
    "RefOG067": {
     "size": 13,
     "complete": true,
@@ -359,33 +349,33 @@
     "foreign_refog_frac": 0.0,
     "n_refogs_in_best": 1
    },
-   "RefOG069": {
-    "size": 31,
+   "RefOG068": {
+    "size": 27,
     "complete": false,
-    "n_fam": 9,
-    "best_frac": 0.3225806451612903,
-    "best_fam_size": 10,
-    "size_ratio": 0.3225806451612903,
+    "n_fam": 2,
+    "best_frac": 0.7037037037037037,
+    "best_fam_size": 19,
+    "size_ratio": 0.7037037037037037,
     "foreign_refog_frac": 0.0,
     "n_refogs_in_best": 1
    }
   }
  },
  "dev_keep_uncertain_aggregate": {
-  "n_refogs": 35,
-  "completeness": 0.3142857142857143,
-  "n_complete": 11,
-  "mean_n_fam": 3.4,
-  "median_n_fam": 2,
-  "max_n_fam": 20,
-  "mean_best_frac": 0.8241141450788027,
-  "median_size_ratio": 0.9583333333333334,
-  "mean_size_ratio": 1.0035613528643188,
-  "max_size_ratio": 2.4782608695652173,
+  "n_refogs": 34,
+  "completeness": 0.4117647058823529,
+  "n_complete": 14,
+  "mean_n_fam": 3.764705882352941,
+  "median_n_fam": 2.0,
+  "max_n_fam": 25,
+  "mean_best_frac": 0.8118879153919238,
+  "median_size_ratio": 1.0,
+  "mean_size_ratio": 1.0777856014562126,
+  "max_size_ratio": 4.520833333333333,
   "fusion_rate": 0.0,
   "mean_foreign_refog_frac": 0.0,
-  "pair_recall": 0.634223174023392,
-  "pair_precision": 0.625216121631035
+  "pair_recall": 0.6203177076570802,
+  "pair_precision": 0.4908474103112992
  },
  "family_stats": {
   "n_genes": 251378,
@@ -482,12 +472,13 @@
     "Tetraodon_nigroviridis.TETRAODON8.pep.all.fa": "1f6ebacc342da127e4ab9c1a9cf7b627e8169df3cbc0d971d57655d974c8d9b2"
    },
    "split": "splits/orthobench_split.json",
-   "split_sha256": "10a260ae09123f2640a0705d6035a6369c7d73d2b5a3547dd4e9e67c64e9bd8a"
+   "split_sha256": "90920164d52aa18339c6bd466b5f1cc8562c6121179eede8ce6197eed019a4fb"
   },
   "families_tsv": "work/S0/dc_a30_c50/families.tsv",
   "families_tsv_sha256": "def5303925d27159841acb0613aa2b53fb56c81bfb1053c7fad1f74893844120",
   "command": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/conda_envs/orth/bin/python -m ancestra.families cluster --fasta /scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/S0/ob_all.fa --outdir /scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/S0/dc_a30_c50 --config /scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/S0/dc_a30_c50/config.json",
   "started": "2026-10-26T15:22:59+01:00",
-  "host_threads": 48
+  "host_threads": 48,
+  "rescored": "2026-10-26T15:50:15+01:00"
  }
 }
