@@ -1,0 +1,30 @@
+{
+ "label": "of_8",
+ "kind": "of",
+ "n_species": 8,
+ "n_proteins": 62309,
+ "threads": 8,
+ "cap_s": 21600,
+ "start": "2026-10-26T20:10:07.925369+01:00",
+ "end": "2026-10-26T20:21:18.082633+01:00",
+ "node_cores": 48,
+ "returncode": 0,
+ "censored": false,
+ "wall_s": 669.31,
+ "user_s": 4248.61,
+ "sys_s": 160.35,
+ "max_rss_gb": 2.3807296752929688,
+ "exit_status": 0,
+ "major_faults": 38,
+ "cpu_pct": "658%",
+ "cpu_s": 4408.96,
+ "cpu_h": 1.224711111111111,
+ "wall_h": 0.18591944444444444,
+ "node_load_1min": {
+  "n": 12,
+  "load1_mean": 39.86416666666667,
+  "load1_max": 49.13,
+  "load1_min": 31.49
+ },
+ "ok": true
+}

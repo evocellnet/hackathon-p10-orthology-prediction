@@ -1,0 +1,198 @@
+[
+ {
+  "started": "2026-10-26T20:05:48+0100",
+  "argv": [
+   "scripts/qfo_pipeline_driver.py",
+   "--proteomes",
+   "work/scaling/inputs/sub8",
+   "--tree",
+   "results/scaling/subsets/sub8.nwk",
+   "--out",
+   "work/scaling/runs/anc_8",
+   "--threads",
+   "8",
+   "--gene-order",
+   "none"
+  ],
+  "threads": 8,
+  "gene_order": null,
+  "stop_after": null,
+  "invalidated": [],
+  "adopted_unrecorded": [],
+  "code_keys": {
+   "input": "f88bcb3b394df2f2",
+   "families": "df43339fea1e7020",
+   "scores": "d702ca61d3c2a3c5",
+   "merge": "6d9c811b1c0e4f59",
+   "output": "e548cf56190d23be"
+  },
+  "stages": {
+   "input": {
+    "skipped": false,
+    "wall_s": 0.04,
+    "cpu_self_s": 0.0,
+    "cpu_children_s": 0.0,
+    "children_maxrss_mb_so_far": 79.8,
+    "load_start": [
+     23.9,
+     29.3,
+     40.1
+    ],
+    "load_end": [
+     23.9,
+     29.3,
+     40.1
+    ],
+    "cpu_total_s": 0.0,
+    "pipeline_wall_s": 0.038,
+    "peak_rss_mb": 79.8,
+    "stats": {
+     "n_genes": 62309,
+     "n_species": 8,
+     "n_internal_nodes": 4
+    }
+   },
+   "families": {
+    "skipped": false,
+    "wall_s": 154.4,
+    "cpu_self_s": 4.0,
+    "cpu_children_s": 985.3,
+    "children_maxrss_mb_so_far": 829.4,
+    "load_start": [
+     23.9,
+     29.3,
+     40.1
+    ],
+    "load_end": [
+     31.3,
+     30.2,
+     38.8
+    ],
+    "cpu_total_s": 989.3,
+    "pipeline_wall_s": 154.395,
+    "peak_rss_mb": 268.5,
+    "stats": {
+     "source": "ancestra.families",
+     "s0_timings": {
+      "stage1_s": 105.04397535324097,
+      "stage2_search_s": 45.44252276420593,
+      "stage2_s": 48.56868124008179,
+      "total_s": 154.20075941085815
+     },
+     "n_families": 22071,
+     "n_singletons": 16800,
+     "max_family": 6365,
+     "sum_g2": 53197641
+    }
+   },
+   "scores": {
+    "skipped": false,
+    "wall_s": 99.87,
+    "cpu_self_s": 6.9,
+    "cpu_children_s": 695.0,
+    "children_maxrss_mb_so_far": 829.4,
+    "load_start": [
+     31.3,
+     30.2,
+     38.8
+    ],
+    "load_end": [
+     33.5,
+     31.2,
+     38.3
+    ],
+    "cpu_total_s": 701.9,
+    "pipeline_wall_s": 99.87,
+    "peak_rss_mb": 629.4,
+    "stats": {
+     "backend": "hybrid",
+     "n_families": 22071,
+     "sum_g2": 53197641,
+     "max_family": 6365,
+     "n_cross_family_hits": 97425,
+     "n_raw_hits": 2067904,
+     "n_blocks": 1,
+     "diamond_s": 55.88,
+     "n_pairs_diamond": 1040026,
+     "n_pairs_rescue_candidates": 1617606,
+     "n_pairs_aligned_mmseqs": 1617606,
+     "pairs_write_s": 0.83,
+     "align_s": 13.67,
+     "n_families_over_cap": 1,
+     "n_families_over_gmax": 0,
+     "n_pairs_dropped_by_cap": 387519,
+     "pairs_dropped_per_family": {
+      "16": 387519
+     },
+     "wall_s": 72.95,
+     "n_scored_pairs": 678801,
+     "n_self_scores": 62309,
+     "rescue_joins": 61,
+     "rescue_rescored_genes": 15153,
+     "rescue_wall_s": 26.79,
+     "n_families_after_rescue": 22010,
+     "n_families_before_rescue": 22071
+    }
+   },
+   "merge": {
+    "skipped": false,
+    "wall_s": 3.01,
+    "cpu_self_s": 3.0,
+    "cpu_children_s": 0.0,
+    "children_maxrss_mb_so_far": 829.4,
+    "load_start": [
+     33.5,
+     31.2,
+     38.3
+    ],
+    "load_end": [
+     32.9,
+     31.2,
+     38.2
+    ],
+    "cpu_total_s": 3.0,
+    "pipeline_wall_s": 3.004,
+    "peak_rss_mb": 452.9,
+    "stats": {
+     "n_root_groups": 6098,
+     "n_root_anc_genes": 38880,
+     "merge_s_sum_nodes": 2.943,
+     "tree_clusters": 8495,
+     "tree_units": 35240,
+     "tree_s": 1.41
+    }
+   },
+   "output": {
+    "skipped": false,
+    "wall_s": 1.0,
+    "cpu_self_s": 1.0,
+    "cpu_children_s": 0.0,
+    "children_maxrss_mb_so_far": 829.4,
+    "load_start": [
+     32.9,
+     31.2,
+     38.2
+    ],
+    "load_end": [
+     32.9,
+     31.2,
+     38.2
+    ],
+    "cpu_total_s": 1.0,
+    "pipeline_wall_s": 1.0,
+    "peak_rss_mb": 419.9,
+    "stats": {
+     "xsd_valid": true,
+     "n_top_groups": 6098,
+     "n_pairs": 59287,
+     "n_ogs_multi": 6098
+    }
+   }
+  },
+  "total_wall_s": 258.643,
+  "finished": true,
+  "driver_wall_s": 258.7,
+  "cpu_self_s": 16.9,
+  "cpu_children_s": 1680.4
+ }
+]

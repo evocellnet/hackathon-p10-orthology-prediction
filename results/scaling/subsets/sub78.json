@@ -1,0 +1,324 @@
+{
+ "n_species": 78,
+ "domains": {
+  "Eukaryota": 48,
+  "Bacteria": 23,
+  "Archaea": 7
+ },
+ "n_proteins": 988778,
+ "seed": 11,
+ "species": {
+  "UP000000425_122586": {
+   "domain": "Bacteria",
+   "n_proteins": 2001
+  },
+  "UP000000429_85962": {
+   "domain": "Bacteria",
+   "n_proteins": 1554
+  },
+  "UP000000431_272561": {
+   "domain": "Bacteria",
+   "n_proteins": 895
+  },
+  "UP000000437_7955": {
+   "domain": "Eukaryota",
+   "n_proteins": 26355
+  },
+  "UP000000536_69014": {
+   "domain": "Archaea",
+   "n_proteins": 2301
+  },
+  "UP000000539_9031": {
+   "domain": "Eukaryota",
+   "n_proteins": 18112
+  },
+  "UP000000542_5664": {
+   "domain": "Eukaryota",
+   "n_proteins": 8038
+  },
+  "UP000000554_64091": {
+   "domain": "Archaea",
+   "n_proteins": 2423
+  },
+  "UP000000557_251221": {
+   "domain": "Bacteria",
+   "n_proteins": 4406
+  },
+  "UP000000559_237561": {
+   "domain": "Eukaryota",
+   "n_proteins": 6035
+  },
+  "UP000000561_237631": {
+   "domain": "Eukaryota",
+   "n_proteins": 6788
+  },
+  "UP000000577_243231": {
+   "domain": "Bacteria",
+   "n_proteins": 3402
+  },
+  "UP000000589_10090": {
+   "domain": "Eukaryota",
+   "n_proteins": 21984
+  },
+  "UP000000600_5888": {
+   "domain": "Eukaryota",
+   "n_proteins": 39461
+  },
+  "UP000000625_83333": {
+   "domain": "Bacteria",
+   "n_proteins": 4402
+  },
+  "UP000000718_289376": {
+   "domain": "Bacteria",
+   "n_proteins": 1982
+  },
+  "UP000000792_436308": {
+   "domain": "Archaea",
+   "n_proteins": 1795
+  },
+  "UP000000798_224324": {
+   "domain": "Bacteria",
+   "n_proteins": 1553
+  },
+  "UP000000803_7227": {
+   "domain": "Eukaryota",
+   "n_proteins": 13823
+  },
+  "UP000000805_243232": {
+   "domain": "Archaea",
+   "n_proteins": 1787
+  },
+  "UP000000807_243273": {
+   "domain": "Bacteria",
+   "n_proteins": 483
+  },
+  "UP000001025_243090": {
+   "domain": "Bacteria",
+   "n_proteins": 7271
+  },
+  "UP000001038_8090": {
+   "domain": "Eukaryota",
+   "n_proteins": 23617
+  },
+  "UP000001055_321614": {
+   "domain": "Eukaryota",
+   "n_proteins": 15998
+  },
+  "UP000001300_284591": {
+   "domain": "Eukaryota",
+   "n_proteins": 6449
+  },
+  "UP000001312_665079": {
+   "domain": "Eukaryota",
+   "n_proteins": 14445
+  },
+  "UP000001357_81824": {
+   "domain": "Eukaryota",
+   "n_proteins": 9188
+  },
+  "UP000001408_189518": {
+   "domain": "Bacteria",
+   "n_proteins": 3676
+  },
+  "UP000001414_226186": {
+   "domain": "Bacteria",
+   "n_proteins": 4782
+  },
+  "UP000001425_1111708": {
+   "domain": "Bacteria",
+   "n_proteins": 3507
+  },
+  "UP000001449_35128": {
+   "domain": "Eukaryota",
+   "n_proteins": 11717
+  },
+  "UP000001450_36329": {
+   "domain": "Eukaryota",
+   "n_proteins": 5374
+  },
+  "UP000001519_9595": {
+   "domain": "Eukaryota",
+   "n_proteins": 21789
+  },
+  "UP000001542_5722": {
+   "domain": "Eukaryota",
+   "n_proteins": 50190
+  },
+  "UP000001548_184922": {
+   "domain": "Eukaryota",
+   "n_proteins": 4900
+  },
+  "UP000001554_7739": {
+   "domain": "Eukaryota",
+   "n_proteins": 28542
+  },
+  "UP000001555_6945": {
+   "domain": "Eukaryota",
+   "n_proteins": 20484
+  },
+  "UP000001570_224308": {
+   "domain": "Bacteria",
+   "n_proteins": 4260
+  },
+  "UP000001584_83332": {
+   "domain": "Bacteria",
+   "n_proteins": 3995
+  },
+  "UP000001593_45351": {
+   "domain": "Eukaryota",
+   "n_proteins": 24428
+  },
+  "UP000001686_374847": {
+   "domain": "Archaea",
+   "n_proteins": 1602
+  },
+  "UP000001805_367110": {
+   "domain": "Eukaryota",
+   "n_proteins": 9759
+  },
+  "UP000001940_6239": {
+   "domain": "Eukaryota",
+   "n_proteins": 19825
+  },
+  "UP000001973_100226": {
+   "domain": "Bacteria",
+   "n_proteins": 8034
+  },
+  "UP000001974_273057": {
+   "domain": "Archaea",
+   "n_proteins": 2937
+  },
+  "UP000002008_324602": {
+   "domain": "Bacteria",
+   "n_proteins": 3850
+  },
+  "UP000002149_214684": {
+   "domain": "Eukaryota",
+   "n_proteins": 6604
+  },
+  "UP000002195_44689": {
+   "domain": "Eukaryota",
+   "n_proteins": 12727
+  },
+  "UP000002254_9615": {
+   "domain": "Eukaryota",
+   "n_proteins": 20990
+  },
+  "UP000002277_9598": {
+   "domain": "Eukaryota",
+   "n_proteins": 23053
+  },
+  "UP000002280_13616": {
+   "domain": "Eukaryota",
+   "n_proteins": 21225
+  },
+  "UP000002311_559292": {
+   "domain": "Eukaryota",
+   "n_proteins": 6059
+  },
+  "UP000002438_208964": {
+   "domain": "Bacteria",
+   "n_proteins": 5564
+  },
+  "UP000002485_284812": {
+   "domain": "Eukaryota",
+   "n_proteins": 5122
+  },
+  "UP000002487_188937": {
+   "domain": "Archaea",
+   "n_proteins": 4468
+  },
+  "UP000002494_10116": {
+   "domain": "Eukaryota",
+   "n_proteins": 22825
+  },
+  "UP000002521_190304": {
+   "domain": "Bacteria",
+   "n_proteins": 2046
+  },
+  "UP000002524_243230": {
+   "domain": "Bacteria",
+   "n_proteins": 3084
+  },
+  "UP000002526_224911": {
+   "domain": "Bacteria",
+   "n_proteins": 8253
+  },
+  "UP000002530_330879": {
+   "domain": "Eukaryota",
+   "n_proteins": 9647
+  },
+  "UP000005238_164328": {
+   "domain": "Eukaryota",
+   "n_proteins": 15349
+  },
+  "UP000005640_9606": {
+   "domain": "Eukaryota",
+   "n_proteins": 20598
+  },
+  "UP000006548_3702": {
+   "domain": "Eukaryota",
+   "n_proteins": 27474
+  },
+  "UP000006727_3218": {
+   "domain": "Eukaryota",
+   "n_proteins": 31358
+  },
+  "UP000006906_3055": {
+   "domain": "Eukaryota",
+   "n_proteins": 17614
+  },
+  "UP000007062_7165": {
+   "domain": "Eukaryota",
+   "n_proteins": 12909
+  },
+  "UP000007241_684364": {
+   "domain": "Eukaryota",
+   "n_proteins": 8610
+  },
+  "UP000007266_7070": {
+   "domain": "Eukaryota",
+   "n_proteins": 16568
+  },
+  "UP000007305_4577": {
+   "domain": "Eukaryota",
+   "n_proteins": 39207
+  },
+  "UP000007719_515635": {
+   "domain": "Bacteria",
+   "n_proteins": 1743
+  },
+  "UP000008143_8364": {
+   "domain": "Eukaryota",
+   "n_proteins": 22098
+  },
+  "UP000008144_7719": {
+   "domain": "Eukaryota",
+   "n_proteins": 16680
+  },
+  "UP000008183_243274": {
+   "domain": "Bacteria",
+   "n_proteins": 1852
+  },
+  "UP000008783_418459": {
+   "domain": "Eukaryota",
+   "n_proteins": 15688
+  },
+  "UP000009136_9913": {
+   "domain": "Eukaryota",
+   "n_proteins": 23842
+  },
+  "UP000015101_6412": {
+   "domain": "Eukaryota",
+   "n_proteins": 23328
+  },
+  "UP000018468_7918": {
+   "domain": "Eukaryota",
+   "n_proteins": 18321
+  },
+  "UP000059680_39947": {
+   "domain": "Eukaryota",
+   "n_proteins": 43673
+  }
+ }
+}

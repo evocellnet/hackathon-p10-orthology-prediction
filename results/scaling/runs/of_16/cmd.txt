@@ -1,0 +1,4 @@
+orthofinder -f work/scaling/inputs/sub16 -t 8 -a 8 -mog -o work/scaling/runs/of_16
+cap_s=21600
+start=2026-10-26T20:40:40.408886+01:00
+load_at_start=29.35 33.25 38.57 32/3125 1802491

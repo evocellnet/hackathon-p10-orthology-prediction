@@ -1,0 +1,40 @@
+Ortholog matrixes creation elapsed time (seconds):	0.433
+
+Merging inparalog matrixes...
+Inparalogs merging elapsed time (seconds):	1.280
+
+Creating input matrix for MCL...
+MCL graph creation elapsed time (seconds):	0.916
+
+Running MCL...
+MCL execution elapsed time (seconds):	10.998
+
+Generating final output files...
+Elapsed time for the creation of final output (seconds):	0.862
+Ortholog groups creation elapsed time (seconds):	14.545
+
+Ortholog groups:	4620
+Single-copy ortholog groups:	2585
+
+The ortholog groups and related statistics are stored in the directory:
+/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/scaling/runs/sp_8/runs/scal8/ortholog_groups
+
+Total elapsed time (seconds):	551.999
+
+CITATION INFO:
+Cosentino Salvatore, Sira Sriswasdi & Wataru Iwasaki. (2024),
+Genome Biology. volume 25, Article number: 195 (July 2024).
+DOI: https://doi.org/10.1186/s13059-024-03298-4
+
+Cosentino Salvatore & Wataru Iwasaki. (2019),
+Bioinformatics. Volume 35, Issue 1, 01 January 2019, Pages 149–151.
+DOI: https://doi.org/10.1093/bioinformatics/bty631
+
+
+INSTRUCTIONS:
+Find the user manual for SonicParanoid at
+https://gitlab.com/salvo981/sonicparanoid2/-/wikis/home
+
+
+CONTACT:
+Salvatore Cosentino:	salvo981@gmail.com  or  cosentino.salvatore.6j@kyoto-u.ac.jp
