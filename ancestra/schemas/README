@@ -1,0 +1,12 @@
+OrthoXML XML Schema Definitions (XSD), copied verbatim from the official repository.
+
+Source : https://github.com/qfo/orthoxml  (branch main, commit e7e5a0cc3d918e29dfc79429bae84f821bfeddbf, 2023-02-09)
+Fetched: 2026-10-26
+Licence: as distributed by the OrthoXML project (qfo/orthoxml)
+
+sha256
+  001cdddbe89f1aeaa3a1aea0ddfc200707cb2a3db0c5cd71a036808e73e8070f  orthoxml-0.3.xsd
+  2e36c9b3a529564df40b5e40f859265682722c101b157d1c0c989c16b9198c93  orthoxml-0.4.xsd
+  88974f027e944ef5608357947988865eb93f6ba80d1c836ea27964d0453378b1  orthoxml-0.5.xsd   (= orthoxml.xsd in the repo, version "0.5rc1")
+
+Used by ancestra.orthoxml.validate_xsd(), which picks the schema from the file's version attribute.
