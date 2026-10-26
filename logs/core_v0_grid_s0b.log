@@ -1,0 +1,12 @@
+[   21.3s] def8_s23 s0b: 4 records; best default F1=0.9623
+[   22.8s] def8_s11 s0b: 4 records; best default F1=0.9615
+[   45.0s] def8_s47 s0b: 4 records; best default F1=0.9672
+[   47.2s] hard8_s11 s0b: 4 records; best default F1=0.9351
+[   82.8s] hard8_s23 s0b: 4 records; best default F1=0.9574
+[   84.1s] hard8_s47 s0b: 4 records; best default F1=0.9337
+[  240.3s] def32_s47 s0b: 4 records; best default F1=0.9755
+[  251.1s] hard32_s47 s0b: 4 records; best default F1=0.9594
+[  252.1s] def32_s23 s0b: 4 records; best default F1=0.9757
+[  252.4s] def32_s11 s0b: 4 records; best default F1=0.9726
+[  270.0s] hard32_s11 s0b: 4 records; best default F1=0.9646
+[  272.7s] hard32_s23 s0b: 4 records; best default F1=0.9580

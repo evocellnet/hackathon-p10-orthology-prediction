@@ -48,10 +48,14 @@ from .scoring import ScoreTable, ScoringConfig, score_with_rescue
 __all__ = ["run_pipeline", "main", "DEFAULT_FAMILY_CONFIG"]
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-# S0 default for v0 (two-stage: DIAMOND cluster 30% id + reps all-vs-all, CC, min-cov 50%).
+# S0 default = `2sA_dc30_cc_sh30_RA` (docs/S0_families.md, selected on OrthoBench DEV RefOGs):
+# DIAMOND cluster 30% id / 50% member cover -> all genes vs reps (--sensitive, e<=1e-5),
+# edges with >=30% coverage of the shorter sequence, connected components, Leiden split of
+# components > 7500 genes, reassignment on.
 DEFAULT_FAMILY_CONFIG = {"backend": "diamond", "dmnd_cmd": "cluster", "approx_id": 30,
-                         "member_cover": 50, "stage2": "cc", "s2_sens": "--sensitive",
-                         "s2_evalue": 1e-5, "s2_cov": 0.5, "s2_cov_mode": "min"}
+                         "member_cover": 50, "stage2": "cc", "s2_query": "all",
+                         "s2_sens": "--sensitive", "s2_evalue": 1e-5, "s2_cov": 0.3,
+                         "s2_cov_mode": "shorter", "s2_gmax": 7500, "s2_reassign": True}
 
 
 # ----------------------------------------------------------------------------

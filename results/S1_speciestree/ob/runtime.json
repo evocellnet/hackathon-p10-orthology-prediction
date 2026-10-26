@@ -1,0 +1,8 @@
+{
+ "ncbi": {
+  "wall_s": 6.22,
+  "cpu_self_s": 6.22,
+  "cpu_children_s": 0.0,
+  "loadavg_start": 21.30224609375
+ }
+}

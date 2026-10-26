@@ -21,7 +21,7 @@ Decision note M0: benchmark lives in its own repo (bench_repo/) as the prompt re
 ## Tree
 - [~] 0. Infrastructure
   - [x] 0.1 Conda env (conda_envs/orth, all tools incl. orthofinder/fastoma/sonicparanoid) — diamond human-vs-human sensitive 12 s, mmseqs s7.5 88 s
-  - [~] 0.2 Benchmark data + local runners: OrthoBench, QfO (SwissTree, TreeFam-A, STD, GO/EC), competitor results (agent)
+  - [x] 0.2 Benchmark data + local runners (bench_repo/, DATA.md). [!] The QfO 2022 benchmark runs locally (Darwin binary, no docker). Re-scored OrthoFinder/FastOMA/OMA submissions match published numbers exactly on deterministic tests; STD within ~1.4 SE. OrthoBench controls: RefOGs F=100, random F=0. 21 competitor prediction sets downloaded. Ensembl 99 GFF (12 OrthoBench species), Bgee v15.2, QfO isoforms/CDS/gcoord (19 spp) available.
 - [x] 1. Literature review → LITERATURE.md (agent). [!] Open space: no method uses structure/synteny/expression inside inference; competitor QfO predictions downloadable (21 sets, table in LIT §7.4); predict on QfO 2022_02 (not 2026) proteomes.
 - [~] 2. Design → DESIGN.md v2 after 2 review rounds; round 3 at v0-results checkpoint.
   - [-] 2.0 v0 'pure progressive pan-proteome merging' — rejected: ~2.5x saving only vs all-vs-all (r1_algorithms_compute)

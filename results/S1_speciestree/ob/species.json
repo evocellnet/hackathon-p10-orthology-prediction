@@ -1,0 +1,30 @@
+{
+ "leaf_taxid": {
+  "Caenorhabditis_elegans.WBcel235.pep.all": 6239,
+  "Canis_familiaris.CanFam3.1.pep.all": 9615,
+  "Ciona_intestinalis.KH.pep.all": 7719,
+  "Danio_rerio.GRCz11.pep.all": 7955,
+  "Drosophila_melanogaster.BDGP6.28.pep.all": 7227,
+  "Gallus_gallus.GRCg6a.pep.all": 9031,
+  "Homo_sapiens.GRCh38.pep.all": 9606,
+  "Monodelphis_domestica.ASM229v1.pep.all": 13616,
+  "Mus_musculus.GRCm38.pep.all": 10090,
+  "Pan_troglodytes.Pan_tro_3.0.pep.all": 9598,
+  "Rattus_norvegicus.Rnor_6.0.pep.all": 10116,
+  "Tetraodon_nigroviridis.TETRAODON8.pep.all": 99883
+ },
+ "domain": {
+  "Caenorhabditis_elegans.WBcel235.pep.all": "Eukaryota",
+  "Canis_familiaris.CanFam3.1.pep.all": "Eukaryota",
+  "Ciona_intestinalis.KH.pep.all": "Eukaryota",
+  "Danio_rerio.GRCz11.pep.all": "Eukaryota",
+  "Drosophila_melanogaster.BDGP6.28.pep.all": "Eukaryota",
+  "Gallus_gallus.GRCg6a.pep.all": "Eukaryota",
+  "Homo_sapiens.GRCh38.pep.all": "Eukaryota",
+  "Monodelphis_domestica.ASM229v1.pep.all": "Eukaryota",
+  "Mus_musculus.GRCm38.pep.all": "Eukaryota",
+  "Pan_troglodytes.Pan_tro_3.0.pep.all": "Eukaryota",
+  "Rattus_norvegicus.Rnor_6.0.pep.all": "Eukaryota",
+  "Tetraodon_nigroviridis.TETRAODON8.pep.all": "Eukaryota"
+ }
+}
