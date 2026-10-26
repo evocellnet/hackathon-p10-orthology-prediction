@@ -55,7 +55,8 @@ def dev_raw(peek_dir: str, gene2fam: dict, fam2sub: dict) -> dict:
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("--run", required=True)
-    ap.add_argument("--peek", required=True)
+    ap.add_argument("--peek", help="official QfO run dir (raw labels); default: label dev pairs from "
+                    "RUN/pairs.tsv via scripts/qfo_treefam_subset.labels_from_pairs (no QfO run)")
     ap.add_argument("--comparator", action="append", default=[], help="NAME=peek_dir")
     ap.add_argument("--out", required=True)
     ap.add_argument("--examples", type=int, default=30)
@@ -66,7 +67,13 @@ def main(argv=None) -> int:
     sp = json.load(open(SPLIT))
     gene2fam = {g: f for f, d in sp["families"].items() for g in d["members"]}
     fam2sub = {f: d["subset"] for f, d in sp["families"].items()}
-    ours = dev_raw(a.peek, gene2fam, fam2sub)
+    if a.peek:
+        ours = dev_raw(a.peek, gene2fam, fam2sub)
+    else:
+        sys.path.insert(0, os.path.join(ROOT, "scripts"))
+        from qfo_treefam_subset import labels_from_pairs
+        ours = {(x, y) if x < y else (y, x): (lab, gene2fam[x])
+                for x, y, lab in labels_from_pairs(os.path.join(a.run, "pairs.tsv"), gene2fam, fam2sub, "dev")}
     comps = {n: dev_raw(p, gene2fam, fam2sub) for n, p in (c.split("=", 1) for c in a.comparator)}
     dev_genes = {g for p in ours for g in p}
 

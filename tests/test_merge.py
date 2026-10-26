@@ -402,3 +402,21 @@ def test_pipeline_presets_do_not_share_cache(sim_basic, tmp_path):
     assert m2["stages"]["merge"]["key"] != m1["stages"]["merge"]["key"]
     with pytest.raises(ValueError):
         run_pipeline(*args, preset="nonsense", **kw)
+
+
+def test_species_overlap_missed_speciation():
+    from ancestra.orthoxml import hogs_to_pairs
+    genes = {"A1": ["a1"], "A2": ["a2"], "B": ["b"]}
+    scores = {("a1", "b"): 700, ("a2", "b"): 650}          # a1-a2 unscored: fission at A
+    gt, st, tree = make_case(genes, scores, "((A1,A2)A,B)root;")
+    base = MergeConfig(tree_mode=False, repair=False)
+    ox0, _ = predicted(gt, st, tree, base)
+    assert ("a2", "b") not in hogs_to_pairs(ox0)              # a2 left alone without the fix
+    ox1, _ = predicted(gt, st, tree, MergeConfig(tree_mode=False, repair=False, so_absorb=True))
+    o1, p1 = hogs_to_pairs(ox1, with_paralogs=True)
+    assert ("a2", "b") in o1 and ("a1", "a2") in p1           # absorbed, but as paralogs
+    ox2, got = predicted(gt, st, tree, MergeConfig(tree_mode=False, repair=False, so_absorb=True,
+                                                   so_struct=True))
+    o2 = hogs_to_pairs(ox2)
+    assert {("a1", "a2"), ("a1", "b"), ("a2", "b")} <= o2     # species-disjoint -> speciation at A
+    assert got == {("ortholog", "root", frozenset({("ortholog", "A", frozenset({"a1", "a2"})), "b"}))}

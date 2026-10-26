@@ -112,6 +112,11 @@ class MergeConfig:
     locus_single_species: bool = True  # only units whose genes are all from one species
     locus_min_support: float = 1.0  # joins the group lacking child(u) with the highest context
                                  # support (>= locus_min_support) among in-family-scored partners
+    so_struct: bool = False      # species-overlap labelling of same-child units inside a group:
+                                 # species-disjoint units -> speciation (orthologGroup at their MRCA)
+                                 # instead of a paralogGroup (QfO recall, missed speciations)
+    so_absorb: bool = False      # a still-alone unit whose best partner's group holds only
+                                 # species-disjoint units of its own child joins it (missed speciation)
     orphan_min: float = 0.0      # R4: minimum (normalised, linked) score of an orphan-merge edge
     orphan_merge: str = "off"    # R4: off | root | all -- merge partner-less same-child units
                                  # (no cross-child homolog at the node) connected by same-child
@@ -120,7 +125,8 @@ class MergeConfig:
     def key(self) -> dict:
         d = asdict(self)
         # options added after the QfO freeze: omitted at their defaults (stable stage hashes)
-        for k, v in (("tree_method", "nj"), ("tree_ft_mode", "medoid")):
+        for k, v in (("tree_method", "nj"), ("tree_ft_mode", "medoid"), ("so_struct", False),
+                     ("so_absorb", False)):
             if d.get(k) == v:
                 d.pop(k)
         d.pop("tree_ft_workers", None)   # results do not depend on the pool size (tested)
@@ -576,6 +582,42 @@ def _orphan_merge(n, child, lu, lv, labels, stats, score=None, min_score=0.0):
     return new
 
 
+def _so_absorb(n, child, lu, lv, score, labels, masks, stats):
+    """Species-overlap absorption: a still-alone unit u joins the group of its best cross-child
+    partner if every member of that group from u's child has a species set disjoint from u's
+    (no duplication evidence -> missed speciation below X)."""
+    labels = labels.copy()
+    cross = child[lu] != child[lv]
+    a, b, s = lu[cross], lv[cross], np.asarray(score, dtype=np.float64)[cross]
+    gsize: dict = {}
+    for l in labels.tolist():
+        gsize[l] = gsize.get(l, 0) + 1
+    best = {}
+    for x, y, sc in zip(np.r_[a, b].tolist(), np.r_[b, a].tolist(), np.r_[s, s].tolist()):
+        if gsize[int(labels[x])] == 1 and sc > best.get(x, (None, -1.0))[1]:
+            best[x] = (y, sc)
+    gmem: dict = {}
+    for i, l in enumerate(labels.tolist()):
+        gmem.setdefault(l, []).append(i)
+    k = 0
+    for u, (v, sc) in sorted(best.items(), key=lambda kv: -kv[1][1]):
+        if gsize[int(labels[u])] != 1:
+            continue
+        g = int(labels[v])
+        same = [w for w in gmem[g] if child[w] == child[u]]
+        if not same or len({child[w] for w in gmem[g]}) < 2:
+            continue
+        if any(masks[w] & masks[u] for w in same):
+            continue
+        gsize[int(labels[u])] -= 1
+        labels[u] = g
+        gmem[g].append(u)
+        gsize[g] += 1
+        k += 1
+    stats["so_absorbed"] = k
+    return labels
+
+
 def _locus_repair(n, child, ca, cb, cs, sup, labels, min_sup, stats, eligible=None):
     """Locus-aware fission repair: a unit that is still alone joins the group (lacking its
     child) to which it has the highest context support >= min_sup (ties: higher score),
@@ -792,6 +834,14 @@ def run_merge(gt: GeneTable, tree: Node, st: ScoreTable, cfg: MergeConfig,
     q, t, s, plca = q[order], t[order], s[order], plca[order]
     bounds = np.searchsorted(plca, np.arange(len(nodes) + 1))
     struct: list = list(range(N))          # anc id -> structure
+    amask: list = [1 << int(x) for x in gt.species_of] if (cfg.so_struct or cfg.so_absorb) else None
+    if amask is not None:
+        from .newick import TreeIndex
+        _tix = TreeIndex(tree)
+        _spn = list(gt.species)
+
+        def mask_mrca(m: int) -> str:
+            return _tix.mrca(_spn[i] for i in range(len(_spn)) if (m >> i) & 1)
     size = np.zeros(cap, dtype=np.int64)
     size[:N] = 1
     next_id = N
@@ -882,6 +932,8 @@ def run_merge(gt: GeneTable, tree: Node, st: ScoreTable, cfg: MergeConfig,
                                        gt.seqs if ft else None, cfg.tree_ft_mode, 60,
                                        cfg.tree_ft_workers)
             stt["tree_s"] = round(time.time() - t_tree, 3)
+        if cfg.so_absorb:
+            labels = _so_absorb(n, child, lu, lv, score, labels, [amask[int(u)] for u in units], stt)
         if cfg.orphan_merge == "all" or (cfg.orphan_merge == "root" and nd.parent is None):
             labels = _orphan_merge(n, child, lu, lv, labels, stt, score, cfg.orphan_min)
         pos[units] = -1
@@ -904,6 +956,21 @@ def run_merge(gt: GeneTable, tree: Node, st: ScoreTable, cfg: MergeConfig,
                 us = by_child[ci]
                 if len(us) == 1:
                     parts_s.append(struct[us[0]])
+                elif cfg.so_struct:
+                    # species overlap: species-disjoint units are a missed speciation
+                    clus = []          # [mask, [units]]
+                    for x in sorted(us, key=lambda y: (-bin(amask[y]).count("1"), y)):
+                        for cl in clus:
+                            if not (cl[0] & amask[x]):
+                                cl[0] |= amask[x]
+                                cl[1].append(x)
+                                break
+                        else:
+                            clus.append([amask[x], [x]])
+                    sub = [struct[cl[1][0]] if len(cl[1]) == 1 else
+                           ("O", mask_mrca(cl[0]), [struct[x] for x in cl[1]]) for cl in clus]
+                    stt["so_struct_merged"] = stt.get("so_struct_merged", 0) + len(us) - len(clus)
+                    parts_s.append(sub[0] if len(sub) == 1 else ("P", kids[ci], sub))
                 else:
                     parts_s.append(("P", kids[ci], [struct[x] for x in us]))
             aid = next_id
@@ -913,6 +980,11 @@ def run_merge(gt: GeneTable, tree: Node, st: ScoreTable, cfg: MergeConfig,
             else:
                 struct.append(("O", nd.name, parts_s))
             size[aid] = size[units[grp]].sum()
+            if amask is not None:
+                mm = 0
+                for i in grp.tolist():
+                    mm |= amask[int(units[i])]
+                amask.append(mm)
             remap_units[grp] = aid
             n_new += 1
             for i in grp.tolist():   # free memory of merged children's structures

@@ -23,6 +23,7 @@ Thin wrapper (does not modify the pipeline). The pipeline's own stage cache
   block with the git commit and ``ancestra/`` dirty flag, per-file sha256, the stage
   code keys, the families config and its hash, and the gene-order directory.
 * ``--gene-order DIR`` (S5 tables; enables the synteny merge) or ``--gene-order none``.
+* ``--preset accurate|fast|custom`` passed to the pipeline (part of the merge code key).
 * ``--reuse-stages-from RUN``: hard-link (``cp -al``) the cached input/families/scores
   stages of another run dir that lack here, e.g. the same S0+S2 merged with and
   without gene order. Code keys are checked as usual.
@@ -99,7 +100,7 @@ def git_info() -> dict:
         return {"commit": None}
 
 
-def code_keys(family_cfg: dict, gene_order: str | None) -> tuple[dict, dict]:
+def code_keys(family_cfg: dict, gene_order: str | None, preset: str | None = None) -> tuple[dict, dict]:
     files = {f: sha256_file(os.path.join(ROOT, "ancestra", f))
              for fs in STAGE_CODE.values() for f in fs if os.path.exists(os.path.join(ROOT, "ancestra", f))}
     keys, up = {}, None
@@ -107,6 +108,8 @@ def code_keys(family_cfg: dict, gene_order: str | None) -> tuple[dict, dict]:
         extra = {"families_config": family_cfg} if st == "families" else {}
         if st == "merge":
             extra = {"gene_order": gene_order}
+            if preset is not None:
+                extra["preset"] = preset
         keys[st] = _h({"up": up, "files": {f: files.get(f) for f in STAGE_CODE[st]}, **extra})
         up = keys[st]
     return keys, files
@@ -179,6 +182,8 @@ def main(argv=None) -> int:
     ap.add_argument("--threads", type=int, default=12)
     ap.add_argument("--gene-order", default="none", help="S5 gene-order table dir, or 'none'")
     ap.add_argument("--reuse-stages-from")
+    ap.add_argument("--preset", default=None,
+                    help="ancestra.pipeline preset (accurate|fast|custom); default: the pipeline's default")
     ap.add_argument("--stop-after", choices=STAGES)
     ap.add_argument("--adopt-unrecorded", action="store_true",
                     help="accept cached stages that predate code keys (dry runs only; logged)")
@@ -222,7 +227,7 @@ def main(argv=None) -> int:
 def _run(a, sc, mc, go, log_print, FamilyConfig, DEFAULT_FAMILY_CONFIG, run_pipeline) -> int:
     fam_cfg = asdict(FamilyConfig(**DEFAULT_FAMILY_CONFIG))
     fam_cfg.pop("threads", None)
-    keys, files = code_keys(fam_cfg, go)
+    keys, files = code_keys(fam_cfg, go, a.preset)
 
     sdir = os.path.join(a.out, "stages")
     if os.path.isdir(sdir):    # stale temp dirs of killed runs (<stage>.tmp<pid>)
@@ -236,7 +241,7 @@ def _run(a, sc, mc, go, log_print, FamilyConfig, DEFAULT_FAMILY_CONFIG, run_pipe
     acc_path = os.path.join(a.out, "stage_accounting.json")
     runs = json.load(open(acc_path)) if os.path.exists(acc_path) else []
     run = {"started": time.strftime("%Y-%m-%dT%H:%M:%S%z"), "argv": sys.argv, "threads": a.threads,
-           "gene_order": go, "stop_after": a.stop_after, "invalidated": removed, "adopted_unrecorded": adopted,
+           "gene_order": go, "preset": a.preset, "stop_after": a.stop_after, "invalidated": removed, "adopted_unrecorded": adopted,
            "code_keys": keys, "stages": {}}
     runs.append(run)
     cur: dict = {}
@@ -280,15 +285,16 @@ def _run(a, sc, mc, go, log_print, FamilyConfig, DEFAULT_FAMILY_CONFIG, run_pipe
 
     t0 = time.time()
     try:
+        kw = {"preset": a.preset} if a.preset is not None else {}
         m = run_pipeline(a.proteomes, a.tree, a.out, threads=a.threads, scoring=sc, merge=mc, log=log,
-                         gene_order_dir=go)
+                         gene_order_dir=go, **kw)
         run["total_wall_s"] = m.get("total_wall_s")
         run["finished"] = True
         mp = os.path.join(a.out, "manifest.json")
         man = json.load(open(mp))
         man["driver"] = {"git": git_info(), "code_sha256": files, "stage_code_keys": keys,
                          "stage_code_files": STAGE_CODE, "families_config_effective": fam_cfg,
-                         "families_config_hash": _h(fam_cfg), "gene_order_dir": go,
+                         "families_config_hash": _h(fam_cfg), "gene_order_dir": go, "preset": a.preset,
                          "invalidated_this_run": removed, "adopted_unrecorded": adopted,
                          "threads": a.threads}
         with open(mp + ".tmp", "w") as fh:

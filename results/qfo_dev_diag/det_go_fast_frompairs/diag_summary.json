@@ -1,0 +1,148 @@
+{
+ "n_dev_families": 359,
+ "dev_labels_ours": {
+  "FN": 5984,
+  "TN": 10797,
+  "TP": 8009,
+  "FP": 623
+ },
+ "FN_total": 5984,
+ "FN_by_category": {
+  "iii_paralog_call": 2411,
+  "ii_diff_root_hog": 2239,
+  "i_diff_family": 1286,
+  "iv_singleton_in_output": 48
+ },
+ "FN_i_also_diff_in_raw_S0": 1286,
+ "FN_i_with_singleton_family": 168,
+ "FN_rescue_fixed_family_split": 0,
+ "FN_scored_by_category": {
+  "i_diff_family": 0,
+  "iii_paralog_call": 1822,
+  "ii_diff_root_hog": 1908,
+  "iv_singleton_in_output": 19
+ },
+ "FN_covok_by_category": {
+  "i_diff_family": 0,
+  "iii_paralog_call": 1565,
+  "ii_diff_root_hog": 1422,
+  "iv_singleton_in_output": 5
+ },
+ "FN_level_by_category": {
+  "i_diff_family": {
+   "Opisthokonta": 746,
+   "Eukaryota": 222,
+   "Ascomycota": 94,
+   "Bilateria": 84,
+   "Chordata": 58,
+   "Euteleostomi": 29,
+   "Euarchontoglires": 12,
+   "Amniota": 11,
+   "Ecdysozoa": 7,
+   "UP000006548_3702": 5,
+   "Tetrapoda": 4,
+   "UP000000589_10090": 3
+  },
+  "iii_paralog_call": {
+   "Bilateria": 772,
+   "Eukaryota": 447,
+   "Opisthokonta": 269,
+   "Chordata": 222,
+   "Euteleostomi": 197,
+   "Tetrapoda": 127,
+   "Amniota": 84,
+   "Ecdysozoa": 81,
+   "Euarchontoglires": 71,
+   "UP000000589_10090": 35,
+   "UP000005640_9606": 32,
+   "UP000000437_7955": 13
+  },
+  "ii_diff_root_hog": {
+   "Bilateria": 815,
+   "Eukaryota": 512,
+   "Opisthokonta": 320,
+   "Chordata": 120,
+   "Euteleostomi": 90,
+   "Amniota": 87,
+   "Euarchontoglires": 81,
+   "Ecdysozoa": 46,
+   "Tetrapoda": 46,
+   "UP000005640_9606": 43,
+   "UP000000589_10090": 39,
+   "UP000000803_7227": 12
+  },
+  "iv_singleton_in_output": {
+   "Bilateria": 18,
+   "Chordata": 17,
+   "UP000008144_7719": 7,
+   "Eukaryota": 5,
+   "Ecdysozoa": 1
+  }
+ },
+ "FN_iii_dup_level": {
+  "Eukaryota": 1086,
+  "Opisthokonta": 487,
+  "Eumetazoa": 322,
+  "Bilateria": 181,
+  "Euteleostomi": 144,
+  "Chordata": 82,
+  "Protostomia": 33,
+  "Tetrapoda": 27,
+  "Ecdysozoa": 11,
+  "Amniota": 9,
+  "Diptera": 4,
+  "Fungi": 4
+ },
+ "FN_families_top": {
+  "TFA:A1Z8S6": 828,
+  "TFA:F6QDM9": 404,
+  "TFA:A8WG58": 218,
+  "TFA:A0A7D9NLJ0": 204,
+  "TFA:A4IGN5": 184,
+  "TFA:B0LK22": 170,
+  "TFA:F1NV61": 127,
+  "TFA:A3KPF5": 122,
+  "TFA:A7MBL8": 109,
+  "TFA:D6RRB7": 102
+ },
+ "FP_total": 623,
+ "FP_by_level": {
+  "Bilateria": 220,
+  "Eukaryota": 205,
+  "Chordata": 74,
+  "Euteleostomi": 37,
+  "Tetrapoda": 25,
+  "Amniota": 22,
+  "Ecdysozoa": 20,
+  "Opisthokonta": 12,
+  "Euarchontoglires": 6,
+  "Ascomycota": 2
+ },
+ "FP_families_top": {
+  "TFA:A7MBL8": 113,
+  "TFA:F6QDM9": 60,
+  "TFA:A9QM74": 51,
+  "TFA:B0LK22": 47,
+  "TFA:F7AB53": 27,
+  "TFA:A1ZBX4": 21,
+  "TFA:A1Z8S6": 20,
+  "TFA:E1C4U5": 17,
+  "TFA:A8WG58": 16,
+  "TFA:A0A1W2WIY7": 14
+ },
+ "FN_OrthoFinder_TP_by_category": {
+  "i_diff_family": 50,
+  "iii_paralog_call": 1378,
+  "ii_diff_root_hog": 1085,
+  "iv_singleton_in_output": 3
+ },
+ "FN_OrthoFinder_TP_total": 2516,
+ "FP_OrthoFinder_also_FP": 295,
+ "OrthoFinder_FN_that_we_get_TP": 288,
+ "OrthoFinder_dev_labels": {
+  "TP": 10237,
+  "TN": 10531,
+  "FP": 889,
+  "FN": 3756
+ }
+}
