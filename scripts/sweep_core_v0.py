@@ -44,6 +44,22 @@ if GRID_NAME == "ob":   # toy check of OrthoBench-dev candidate configs
                    ("min_cov=0.3", dict(min_cov=0.3)),
                    ("rd_both min_cov=0.3", dict(rd_hidden=True, rd_inpar=True, min_cov=0.3))):
         GRID.append((nm, replace(D, **kw)))
+if GRID_NAME == "tree":
+    GRID = [("default", D), ("min_cov=0", replace(D, min_cov=0.0))]
+    for tau in (0.8, 0.9, 0.95):
+        GRID.append((f"tree tau={tau} min_cov=0", replace(D, min_cov=0.0, tree_mode=True, tree_tau=tau)))
+    GRID.append(("tree tau=0.9 min_cov=0 max_units=120",
+                 replace(D, min_cov=0.0, tree_mode=True, tree_max_units=120)))
+    GRID.append(("tree+rd tau=0.9 min_cov=0", replace(D, min_cov=0.0, tree_mode=True, rd_hidden=True,
+                                                      rd_inpar=True)))
+if GRID_NAME == "tree2":
+    GRID = [("min_cov=0", replace(D, min_cov=0.0))]
+    for t in (0.3, 0.5, 0.8):
+        GRID.append((f"tree req-og min_d={t}", replace(D, min_cov=0.0, tree_mode=True,
+                                                        tree_require_outgroup=True, tree_min_d=t)))
+        GRID.append((f"tree+rd req-og min_d={t}", replace(D, min_cov=0.0, tree_mode=True, rd_hidden=True,
+                                                           rd_inpar=True, tree_require_outgroup=True,
+                                                           tree_min_d=t)))
 if GRID_NAME == "rd":   # pre-stated rule as above (P >= default P - 0.003, max F1)
     GRID = [("default", D)]
     for z in (2.0, 3.0, 4.0, 6.0):

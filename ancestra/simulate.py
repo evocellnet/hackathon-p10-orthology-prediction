@@ -174,7 +174,8 @@ class SimParams:
     hgt_rate: float = 0.0
     dispersed_dup_frac: float = 0.2
     block_mean: float = 4.0            # mean rearranged block length (genes, geometric)
-    wgd_branch: str | None = None      # species-node name below the WGD branch, or "random"
+    wgd_branch: str | None = None      # species-node name below the WGD branch, or "random";
+                                       # a list "N3@0.3,N3@0.7" gives several WGDs (name@position)
     wgd_position: float = 0.5          # relative position of the WGD on that branch
     wgd_fractionation: float = 0.5     # P(one copy of a WGD pair is later lost)
     gamma_shape: float = 1.0           # among-site rate heterogeneity
@@ -184,6 +185,8 @@ class SimParams:
     indel_mean_len: float = 3.0
     indel_max_len: int = 20
     neo_factor: float = 1.0            # rate multiplier of a new duplicate copy (1 = off)
+    lineage_rates: str | None = None   # "sp9:3,N5:2": substitution-rate multiplier for every gene
+                                       # entering that branch (inherited by the whole lineage below)
     neo_duration: float = 0.05         # duration of the boost (branch-length units)
     len_min: int = 150
     len_max: int = 600
@@ -399,8 +402,21 @@ class _Simulator:
             self.wgd_branch = cands[int(rng.integers(len(cands)))]
         else:
             self.wgd_branch = p.wgd_branch
-        if self.wgd_branch is not None and self.wgd_branch not in self.nodes:
-            raise ValueError(f"wgd_branch {self.wgd_branch!r} not in species tree")
+        self.wgd_list = []          # [(branch, position)]
+        if self.wgd_branch is not None:
+            for item in str(self.wgd_branch).split(","):
+                nm, _, pos = item.partition("@")
+                self.wgd_list.append((nm, float(pos) if pos else p.wgd_position))
+        for nm, _ in self.wgd_list:
+            if nm not in self.nodes:
+                raise ValueError(f"wgd_branch {nm!r} not in species tree")
+        self.lineage_rates = {}
+        if p.lineage_rates:
+            for item in p.lineage_rates.split(","):
+                nm, _, f = item.partition(":")
+                if nm not in self.nodes:
+                    raise ValueError(f"lineage_rates node {nm!r} not in species tree")
+                self.lineage_rates[nm] = float(f)
         # root genome
         genes = []
         for f in range(p.n_genes):
@@ -466,8 +482,14 @@ class _Simulator:
             br.version = 0
             self.active[c.name] = br
             self.push(br.t_end, "end", c.name)
-            if self.wgd_branch == c.name:
-                self.push(t + self.p.wgd_position * (br.t_end - t), "wgd", c.name)
+            lr = self.lineage_rates.get(c.name)
+            if lr is not None:
+                for ch in br.chroms:
+                    for g in ch:
+                        g.rate *= lr
+            for nm, pos in self.wgd_list:
+                if nm == c.name:
+                    self.push(t + pos * (br.t_end - t), "wgd", c.name)
             self.schedule_next(br, t)
 
     def end_branch(self, br: _Branch, t: float) -> None:
@@ -894,6 +916,8 @@ def _parser() -> argparse.ArgumentParser:
         ap.add_argument("--" + name.replace("_", "-"), type=float, default=getattr(d, name))
     for name in ("gamma_categories", "indel_max_len", "len_min", "len_max", "min_protein_len"):
         ap.add_argument("--" + name.replace("_", "-"), type=int, default=getattr(d, name))
+    ap.add_argument("--lineage-rates", default=None,
+                    help="substitution-rate multipliers per lineage, e.g. 'sp9:3,N5:2'")
     ap.add_argument("--wgd-branch", default=None,
                     help="species-tree node below the branch carrying a WGD, or 'random'")
     return ap
@@ -906,7 +930,7 @@ def main(argv=None) -> int:
         with open(a.tree) as fh:
             newick = fh.read()
     p = SimParams(n_species=a.species, n_genes=a.genes, n_chromosomes=a.chromosomes, newick=newick,
-                  tree_height=a.tree_height, wgd_branch=a.wgd_branch,
+                  tree_height=a.tree_height, wgd_branch=a.wgd_branch, lineage_rates=a.lineage_rates,
                   **{k: getattr(a, k) for k in (
                       "dup_rate", "loss_rate", "inversion_rate", "translocation_rate", "hgt_rate",
                       "dispersed_dup_frac", "block_mean", "wgd_position", "wgd_fractionation",

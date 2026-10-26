@@ -1,0 +1,94 @@
+sim	param	P	R	F1
+def32_s11	default	0.99016	0.97434	0.98219
+def32_s11	min_cov=0	0.99022	0.97851	0.98433
+def32_s11	tree tau=0.8 min_cov=0	0.98929	0.97726	0.98324
+def32_s11	tree tau=0.9 min_cov=0	0.98942	0.97805	0.98371
+def32_s11	tree tau=0.95 min_cov=0	0.98885	0.97824	0.98351
+def32_s11	tree tau=0.9 min_cov=0 max_units=120	0.98942	0.97805	0.98371
+def32_s11	tree+rd tau=0.9 min_cov=0	0.98858	0.97951	0.98402
+def32_s23	default	0.99388	0.98323	0.98853
+def32_s23	min_cov=0	0.99389	0.98610	0.98998
+def32_s23	tree tau=0.8 min_cov=0	0.99127	0.98323	0.98724
+def32_s23	tree tau=0.9 min_cov=0	0.99146	0.98551	0.98847
+def32_s23	tree tau=0.95 min_cov=0	0.99134	0.98629	0.98881
+def32_s23	tree tau=0.9 min_cov=0 max_units=120	0.99146	0.98551	0.98847
+def32_s23	tree+rd tau=0.9 min_cov=0	0.99177	0.98646	0.98911
+def32_s47	default	0.99257	0.97561	0.98402
+def32_s47	min_cov=0	0.99259	0.97754	0.98501
+def32_s47	tree tau=0.8 min_cov=0	0.99325	0.98811	0.99067
+def32_s47	tree tau=0.9 min_cov=0	0.99322	0.98866	0.99094
+def32_s47	tree tau=0.95 min_cov=0	0.99320	0.98880	0.99100
+def32_s47	tree tau=0.9 min_cov=0 max_units=120	0.99322	0.98866	0.99094
+def32_s47	tree+rd tau=0.9 min_cov=0	0.99321	0.98912	0.99116
+def8_s11	default	0.99246	0.95901	0.97545
+def8_s11	min_cov=0	0.99260	0.97679	0.98463
+def8_s11	tree tau=0.8 min_cov=0	0.99140	0.98160	0.98648
+def8_s11	tree tau=0.9 min_cov=0	0.99140	0.98160	0.98648
+def8_s11	tree tau=0.95 min_cov=0	0.99115	0.98222	0.98667
+def8_s11	tree tau=0.9 min_cov=0 max_units=120	0.99140	0.98160	0.98648
+def8_s11	tree+rd tau=0.9 min_cov=0	0.99314	0.98284	0.98796
+def8_s23	default	0.99369	0.97558	0.98455
+def8_s23	min_cov=0	0.99374	0.98444	0.98907
+def8_s23	tree tau=0.8 min_cov=0	0.99249	0.98697	0.98972
+def8_s23	tree tau=0.9 min_cov=0	0.99247	0.98431	0.98838
+def8_s23	tree tau=0.95 min_cov=0	0.99159	0.98494	0.98826
+def8_s23	tree tau=0.9 min_cov=0 max_units=120	0.99247	0.98431	0.98838
+def8_s23	tree+rd tau=0.9 min_cov=0	0.99464	0.98532	0.98996
+def8_s47	default	0.99265	0.96899	0.98068
+def8_s47	min_cov=0	0.99269	0.97362	0.98306
+def8_s47	tree tau=0.8 min_cov=0	0.99406	0.98785	0.99095
+def8_s47	tree tau=0.9 min_cov=0	0.99407	0.98866	0.99136
+def8_s47	tree tau=0.95 min_cov=0	0.99407	0.98912	0.99159
+def8_s47	tree tau=0.9 min_cov=0 max_units=120	0.99407	0.98866	0.99136
+def8_s47	tree+rd tau=0.9 min_cov=0	0.99580	0.98878	0.99228
+hard32_s11	default	0.98532	0.95249	0.96862
+hard32_s11	min_cov=0	0.98567	0.95561	0.97041
+hard32_s11	tree tau=0.8 min_cov=0	0.96385	0.96400	0.96392
+hard32_s11	tree tau=0.9 min_cov=0	0.96331	0.96965	0.96647
+hard32_s11	tree tau=0.95 min_cov=0	0.96270	0.97079	0.96673
+hard32_s11	tree tau=0.9 min_cov=0 max_units=120	0.96331	0.96965	0.96647
+hard32_s11	tree+rd tau=0.9 min_cov=0	0.96248	0.97214	0.96729
+hard32_s23	default	0.98714	0.95484	0.97072
+hard32_s23	min_cov=0	0.98734	0.95975	0.97335
+hard32_s23	tree tau=0.8 min_cov=0	0.97916	0.96626	0.97267
+hard32_s23	tree tau=0.9 min_cov=0	0.97866	0.97012	0.97437
+hard32_s23	tree tau=0.95 min_cov=0	0.98003	0.97093	0.97546
+hard32_s23	tree tau=0.9 min_cov=0 max_units=120	0.97866	0.97012	0.97437
+hard32_s23	tree+rd tau=0.9 min_cov=0	0.97653	0.97255	0.97454
+hard32_s47	default	0.98616	0.95604	0.97086
+hard32_s47	min_cov=0	0.98642	0.96096	0.97352
+hard32_s47	tree tau=0.8 min_cov=0	0.98075	0.97570	0.97822
+hard32_s47	tree tau=0.9 min_cov=0	0.98113	0.97693	0.97902
+hard32_s47	tree tau=0.95 min_cov=0	0.98085	0.97746	0.97915
+hard32_s47	tree tau=0.9 min_cov=0 max_units=120	0.98113	0.97693	0.97902
+hard32_s47	tree+rd tau=0.9 min_cov=0	0.98104	0.97933	0.98018
+hard8_s11	default	0.98718	0.92581	0.95551
+hard8_s11	min_cov=0	0.98732	0.93640	0.96118
+hard8_s11	tree tau=0.8 min_cov=0	0.98812	0.97042	0.97919
+hard8_s11	tree tau=0.9 min_cov=0	0.98809	0.96790	0.97789
+hard8_s11	tree tau=0.95 min_cov=0	0.98755	0.96345	0.97535
+hard8_s11	tree tau=0.9 min_cov=0 max_units=120	0.98809	0.96790	0.97789
+hard8_s11	tree+rd tau=0.9 min_cov=0	0.98985	0.97319	0.98145
+hard8_s23	default	0.99071	0.96108	0.97567
+hard8_s23	min_cov=0	0.99075	0.96517	0.97779
+hard8_s23	tree tau=0.8 min_cov=0	0.99133	0.97669	0.98395
+hard8_s23	tree tau=0.9 min_cov=0	0.98995	0.97873	0.98431
+hard8_s23	tree tau=0.95 min_cov=0	0.98922	0.98050	0.98484
+hard8_s23	tree tau=0.9 min_cov=0 max_units=120	0.98995	0.97873	0.98431
+hard8_s23	tree+rd tau=0.9 min_cov=0	0.99042	0.97920	0.98477
+hard8_s47	default	0.98233	0.92743	0.95409
+hard8_s47	min_cov=0	0.98251	0.93715	0.95929
+hard8_s47	tree tau=0.8 min_cov=0	0.97705	0.96410	0.97053
+hard8_s47	tree tau=0.9 min_cov=0	0.97704	0.96355	0.97025
+hard8_s47	tree tau=0.95 min_cov=0	0.97729	0.96487	0.97104
+hard8_s47	tree tau=0.9 min_cov=0 max_units=120	0.97704	0.96355	0.97025
+hard8_s47	tree+rd tau=0.9 min_cov=0	0.97743	0.96642	0.97190
+
+#param	meanP	meanR	meanF1	(n sims)
+#default	0.98952	0.95954	0.97424	12
+#min_cov=0	0.98965	0.96600	0.97764	12
+#tree tau=0.8 min_cov=0	0.98600	0.97685	0.98140	12
+#tree tau=0.9 min_cov=0	0.98585	0.97781	0.98180	12
+#tree tau=0.95 min_cov=0	0.98565	0.97813	0.98187	12
+#tree tau=0.9 min_cov=0 max_units=120	0.98585	0.97781	0.98180	12
+#tree+rd tau=0.9 min_cov=0	0.98624	0.97957	0.98288	12

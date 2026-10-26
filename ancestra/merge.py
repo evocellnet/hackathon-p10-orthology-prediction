@@ -90,6 +90,14 @@ class MergeConfig:
     rd_inpar: bool = False       # R2: absorb u if r(u, w) <= rd_inpar_factor * median seed r
     rd_inpar_factor: float = 1.0
     engine: str = "numba"        # numba | python (reference implementation)
+    tree_mode: bool = False      # hybrid local-tree mode for ambiguous clusters (ancestra.localtree)
+    tree_tau: float = 0.9        # ambiguity edge: S(u,v) >= tau * min(best(u), best(v))
+    tree_max_units: int = 60     # larger clusters keep the rule result
+    tree_require_outgroup: bool = False  # only clusters rooted by an outgroup gene
+    tree_conservative: bool = False      # tree may absorb singletons / split, never fuse groups
+    tree_nodes: str = ""                 # comma-separated node names to restrict tree mode ("" = all)
+    tree_min_d: float = 0.0              # tree mode only at nodes whose median seed distance
+                                         # -ln S >= this (divergent nodes; rules suffice shallow)
     ctx_mode: str = "r1"         # context evidence used only for R1 partner choice | "all" (additive)
     ctx_window: float = 0.75     # R1-only: bonus only for candidates >= window x best raw score
     orphan_min: float = 0.0      # R4: minimum (normalised, linked) score of an orphan-merge edge
@@ -117,6 +125,8 @@ ARMS = {   # named arms of the S3/S4 benchmark (docs/core_v0.md)
     "rd_hidden": replace(_D, rd_hidden=True),
     "rd_inpar": replace(_D, rd_inpar=True),
     "rd_both": replace(_D, rd_hidden=True, rd_inpar=True),
+    "tree": replace(_D, tree_mode=True),
+    "tree+rd": replace(_D, tree_mode=True, rd_hidden=True, rd_inpar=True),
 }
 
 
@@ -282,6 +292,8 @@ def decide_node(n: int, child: np.ndarray, lu: np.ndarray, lv: np.ndarray, score
         cs_sel = cs
     mb = mutual_best(cs_sel, cfg.tol)
     stats["n_mb"] = int(mb.sum())
+    if mb.any():   # node divergence: median distance -ln S of the mutual-best seeds
+        stats["seed_median_d"] = float(np.median(-np.log(np.clip(cs[mb], 1e-6, 1.0))))
     if cfg.engine == "numba":
         return _decide_numba(n, k, child, ca, cb, cs, sa, sb, ss, mb, cfg, out_edges, stats,
                              resolver, node_name, lu, lv, score, cs_sel)
@@ -730,7 +742,8 @@ def run_merge(gt: GeneTable, tree: Node, st: ScoreTable, cfg: MergeConfig,
         assert (lu >= 0).all() and (lv >= 0).all()
         score = em if cfg.link == "max" else es / np.maximum(ec, 1)
         out_edges = None
-        if (cfg.inpar_rule == "quartet" or cfg.rd_hidden or cfg.rd_inpar) and nd.parent is not None:
+        if (cfg.inpar_rule == "quartet" or cfg.rd_hidden or cfg.rd_inpar or cfg.tree_mode) \
+                and nd.parent is not None:
             pi = nid[nd.parent.name]
             pq, pt, ps = q[bounds[pi]:bounds[pi + 1]], t[bounds[pi]:bounds[pi + 1]], s[bounds[pi]:bounds[pi + 1]]
             in_x = np.zeros(len(gt.species), bool)
@@ -763,6 +776,15 @@ def run_merge(gt: GeneTable, tree: Node, st: ScoreTable, cfg: MergeConfig,
                                                         unit_of_gene, gt.species_of, n)
         labels, stt = decide_node(n, child, lu, lv, score, cfg, context, resolver, nd.name,
                                   out_edges, node_info)
+        if cfg.tree_mode and (not cfg.tree_nodes or nd.name in cfg.tree_nodes.split(",")) \
+                and stt.get("seed_median_d", 0.0) >= cfg.tree_min_d \
+                and (not cfg.tree_require_outgroup or out_edges is not None):
+            from .localtree import resolve_ambiguous
+            t_tree = time.time()
+            labels = resolve_ambiguous(n, child, lu, lv, score, labels, out_edges, cfg.tree_tau,
+                                       cfg.tree_max_units, stt, cfg.tree_require_outgroup,
+                                       cfg.tree_conservative)
+            stt["tree_s"] = round(time.time() - t_tree, 3)
         if cfg.orphan_merge == "all" or (cfg.orphan_merge == "root" and nd.parent is None):
             labels = _orphan_merge(n, child, lu, lv, labels, stt, score, cfg.orphan_min)
         pos[units] = -1

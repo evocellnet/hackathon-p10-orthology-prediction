@@ -63,11 +63,11 @@ def gene_pair_scores(q, t, bits, prot_gene: dict, canonical: set, pairs) -> pd.D
     Missing hits score 0.
     """
     h = pd.DataFrame({"q": q, "t": t, "bits": np.asarray(bits, float)})
-    h["gq"] = h.q.map(prot_gene); h["gt"] = h.t.map(prot_gene)
-    h = h[h.gq.notna() & h.gt.notna() & (h.gq != h.gt)]
+    h["ga"] = h.q.map(prot_gene); h["gb"] = h.t.map(prot_gene)
+    h = h[h.ga.notna() & h.gb.notna() & (h.ga != h.gb)]
     # orient every hit as (lower gene, higher gene) so both directions pool
-    sw = h.gq > h.gt
-    h["g1"] = np.where(sw, h.gt, h.gq); h["g2"] = np.where(sw, h.gq, h.gt)
+    sw = h.ga > h.gb
+    h["g1"] = np.where(sw, h.gb, h.ga); h["g2"] = np.where(sw, h.ga, h.gb)
     h["p1"] = np.where(sw, h.t, h.q); h["p2"] = np.where(sw, h.q, h.t)
     h["canon"] = h.p1.isin(canonical) & h.p2.isin(canonical)
     best = h.sort_values("bits", ascending=False).drop_duplicates(["g1", "g2"])
