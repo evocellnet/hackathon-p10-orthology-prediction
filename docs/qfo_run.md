@@ -179,5 +179,45 @@ Dry-run content (old S0, for orientation only): 163,092 S0 families (132,825 sin
 7,029 / 6,528 genes from only 15 species at Bilateria. It fills most of a Leiden-capped S0 family, which is a precision
 risk to inspect.
 
-## 6. Deterministic run (`work/qfo2022_det`)
-(filled in when the run completes)
+## 6. Deterministic run (`work/qfo2022_det`): arms A (gene order) and B (no gene order)
+- **Code.** Commit 34909cd plus uncommitted edits in `ancestra/merge.py` and `ancestra/localtree.py`
+  (`ancestra_dirty=True`). The exact sha256 of every `ancestra/*.py` file is in `manifest.json → driver.code_sha256`.
+  - A and B ran identical code. S0 and S2 were computed once (in B) and hard-linked into A.
+  - The first merge pair (21:45 / 21:50) straddled a `merge.py` edit by the core agent. The driver had keyed the merge
+    stage on too few files (`localtree.py` was missing), so it did not catch that. The merge and output stages are now
+    keyed on all `ancestra/*.py` files, and both merges were rerun at 22:03–22:17 with identical code.
+- **Families config hash:** `dea7e48e5e4da45b`.
+- **Load and verification.** 12 threads; node load 22–45 on 24 CPUs. `verify_ids` PASS (including gene order).
+  `verify_orthoxml` PASS for both arms, on every check; pyham loads the full files.
+
+| stage | wall | CPU | peak RSS | load start→end |
+|---|---|---|---|---|
+| S0 families | 1,534 s | 10,786 s (3.0 CPU-h) | 6.4 GB (child 6.8) | 30.9→21.7 |
+| S2 scores | 3,886 s | 31,979 s (8.9 CPU-h) | 29.5 GB | 21.7→41.2 |
+| merge B (no gene order) | 144 s | 143 s | 8.4 GB | 37.6→40.8 |
+| merge A (gene order) | 389 s | 370 s | 9.4 GB | 23.3→39.6 |
+| output (A / B) | 36 s / 36 s | 34 s / 36 s | 5.6 / 5.5 GB | – |
+
+End to end, B takes 1.56 h wall and A adds 7 min.
+
+- **S0:** 163,187 families (30,300 multi-gene; 132,887 singletons = 13.4% of genes; largest 7,454; Σg²/N² = 0.0023).
+- **S2:** 9 DIAMOND blocks (2,570 s, 407M raw hits) and 74.2M scored pairs. The cross-family rescue made 358 joins,
+  re-scored 176k genes (938 s) and left 162,829 families.
+
+| | A (gene order) | B (no gene order) |
+|---|---|---|
+| ortholog pairs (QfO flattening) | 15,104,847 | 15,591,893 |
+| orthologGroups / paralogGroups | 379,792 / 114,791 | 377,609 / 115,639 |
+| root HOGs (≥2 genes) / genes in them | 36,628 / 740,445 (74.9%) | 36,399 / 740,516 |
+| root HOG size median / mean / p90 / p99 / max | 6 / 20.2 / 48 / 167 / 6,154 | 6 / 20.3 / 48 / 176 / 6,183 |
+| root HOGs of size 2–5 / 6–20 / 21–78 / 79–200 / 201–1000 / >1000 | 17,652 / 10,509 / 7,033 / 1,155 / 249 / 30 | 17,494 / 10,500 / 6,964 / 1,152 / 262 / 27 |
+
+**Arm A, top 20 root HOGs** (genes/species @ level): 6154/57 @cellular organisms, 6026/14 @Chordata, 4668/49,
+3824/52, 3148/35, 3138/51, 3043/51, 2863/28 (all @cellular organisms), 2759/33 @Eukaryota, 2361/49, 2296/29 (@cellular
+organisms), 2131/26 @Eukaryota, 1930/44 @Eukaryota, 1824/27 @Eukaryota, 1777/49, 1536/28 (@cellular organisms),
+1488/28 @Eukaryota, 1433/36 @cellular organisms, 1309/39 @cellular organisms, 1282/36 @Eukaryota.
+- 30 root HOGs exceed 1,000 genes. They come from Leiden-capped S0 families (about 7.5k genes).
+- The 6,026-gene / 14-species Chordata HOG (about 430 genes per species) is a likely over-merge, probably a
+  zinc-finger or olfactory-receptor-like superfamily, and a precision risk.
+
+HOGs per level: `results/qfo_run/det_{go,nogo}_summary.md`. Size distribution and top 20: `results/qfo_run/det_root_hog_size_distribution.json`.

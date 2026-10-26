@@ -1,0 +1,7 @@
+method	label	n_species	n_proteins	status	wall_h	cpu_h	user_h	sys_h	max_rss_gb	cap_h	load1_mean	load1_max	start	end	input_wall_s	input_cpu_s	input_rss_mb	families_wall_s	families_cpu_s	families_rss_mb	scores_wall_s	scores_cpu_s	scores_rss_mb	merge_wall_s	merge_cpu_s	merge_rss_mb	output_wall_s	output_cpu_s	output_rss_mb
+Ancestra (sequence-only)	anc_8	8	62309	ok	0.072	0.472	0.467	0.004	0.81	6	29.8	33.8	2026-10-26T20:05:47.881959+01:00	2026-10-26T20:10:07.919744+01:00	0.04	0.0	79.8	154.4	989.3	268.5	99.87	701.9	629.4	3.01	3.0	452.9	1.0	1.0	419.9
+Ancestra (sequence-only)	anc_16	16	144334	ok	0.168	0.985	0.979	0.007	2.06	6	36.8	48.2	2026-10-26T20:30:32.253699+01:00	2026-10-26T20:40:40.400568+01:00	0.09	0.1	128.8	312.67	1598.9	578.4	276.19	1931.1	2108.4	11.78	11.4	837.6	3.54	3.4	768.9
+OrthoFinder 3.2	of_8	8	62309	ok	0.186	1.225	1.180	0.045	2.38	6	39.9	49.1	2026-10-26T20:10:07.925369+01:00	2026-10-26T20:21:18.082633+01:00															
+OrthoFinder 3.2	of_16	16	144334	ok	0.571	3.543	3.449	0.094	2.87	6	34.3	48.1	2026-10-26T20:40:40.408886+01:00	2026-10-26T21:14:58.907723+01:00															
+SonicParanoid2 (default)	sp_8	8	62309	ok	0.154	0.774	0.742	0.032	8.05	6	46.8	48.9	2026-10-26T20:21:18.086876+01:00	2026-10-26T20:30:32.215024+01:00															
+SonicParanoid2 (default)	sp_16	16	144334	ok	0.381	2.336	2.272	0.064	8.06	6	44.3	54.2	2026-10-26T21:14:58.918729+01:00	2026-10-26T21:37:51.363659+01:00															

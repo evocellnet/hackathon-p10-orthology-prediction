@@ -484,6 +484,30 @@ The total is **28.5 min wall** with **14.2 GB max RSS** (`/usr/bin/time -v`), on
 - Runtime: 31.5 min wall, 14.7 GB max RSS (S0 462 s, scores 1,365 s, merge 54 s, output 9 s; 12 threads, shared node).
 
 
+### 7.9 Local-tree backend: NJ vs FAMSA + FastTree (S4 follow-up; deterministic partition, dev only)
+**Option.** `MergeConfig.tree_method="fasttree"`. NJ remains the default, and the checkpoint key is unchanged at default (`key()` omits the new fields when they are at their defaults).
+- Each ambiguous cluster becomes one FAMSA (`-t 1`) + `FastTree -lg -nosupport` job. All clusters of a node run as one batch in a pool of `tree_ft_workers` (12).
+- The Newick output is converted to an edge list and labelled exactly as the NJ tree is (outgroup rooting, species overlap).
+- **Leaves, `tree_ft_mode`:**
+  - `medoid`: one sequence per unit, the length-medoid member. This is a cheap, deterministic stand-in for a score medoid.
+  - `all`: every member gene when the cluster has ≤60 genes (otherwise medoid). Each unit then goes to the tree group holding most of its genes.
+- The outgroup gene's sequence is added as the rooting leaf.
+
+**Selection rule (PI, pre-fixed).** Adopt only if Δ OG-F ≥ +2 or Δ macro pair F1 ≥ +0.01, with no loss in the other metric.
+
+Arms (gene order on, i.e. constrained synteny + veto + R3; `run_det` scores; `results/core_v0_orthobench/runs.tsv`, label prefix `T[det]`):
+
+| tree backend | OG-F | OG-P | OG-R | exact | pair F1 micro | pair F1 macro | extra merge cost (two passes) |
+|---|---|---|---|---|---|---|---|
+| NJ (default) | 75.71 | 72.2 | 79.6 | 11 | 0.722 | 0.772 | 64 s wall, 61 CPU-s |
+| FastTree, medoid leaves | **80.36** | 76.2 | 85.0 | 11 | 0.804 | **0.799** | 1,039 s wall, 7,558 CPU-s (2.1 CPU-h) |
+| FastTree, all leaves (≤60 genes) | FTALL_ROW |
+
+- FastTree-medoid gives +4.65 OG-F and +0.027 macro pair F1, with OG precision and recall both up. That meets the rule.
+- Cost: 9,077 jobs per merge pass (Euteleostomi 5,088, Chordata 2,607, Ecdysozoa 1,382), 480 s wall with 12 workers.
+- The NJ rerun after the refactor reproduces 75.71 / 0.772 exactly.
+- At QfO scale, S4 estimates ~11.6 CPU-h for FastTree on all tree clusters (×2 with constrained synteny's two passes); one option is to keep the off-pass on NJ.
+
 ### 7.8 Next steps
 1. **Precision of tree mode and over-merges in large S0 families** (OG-P 63–75%):
    - check ambiguity clusters against FAMSA + FastTree trees on a sample;

@@ -98,6 +98,9 @@ class MergeConfig:
     tree_require_outgroup: bool = True   # only clusters rooted by an outgroup gene
     tree_conservative: bool = False      # tree may absorb singletons / split, never fuse groups
     tree_nodes: str = ""                 # comma-separated node names to restrict tree mode ("" = all)
+    tree_method: str = "nj"              # nj (default) | fasttree (FAMSA + FastTree -lg on sequences)
+    tree_ft_mode: str = "medoid"         # fasttree leaves: medoid (1 per unit) | all (genes, <=60)
+    tree_ft_workers: int = 12
     tree_min_d: float = 0.5              # tree mode only at nodes whose median seed distance
                                          # -ln S >= this (divergent nodes; rules suffice shallow)
     ctx_mode: str = "r1"         # context evidence used only for R1 partner choice | "all" (additive)
@@ -115,7 +118,12 @@ class MergeConfig:
                                  # edges into one paralogGroup (parsimony: 1 dup vs dup + losses)
 
     def key(self) -> dict:
-        return asdict(self)
+        d = asdict(self)
+        # options added after the QfO freeze: omitted at their defaults (stable stage hashes)
+        for k, v in (("tree_method", "nj"), ("tree_ft_mode", "medoid"), ("tree_ft_workers", 12)):
+            if d.get(k) == v:
+                d.pop(k)
+        return d
 
 
 # v0 (sequence-only rules, coverage guard 0.5) is the base of the S3 arms of the toy grid;
@@ -835,7 +843,7 @@ def run_merge(gt: GeneTable, tree: Node, st: ScoreTable, cfg: MergeConfig,
                 osc = omax if cfg.link == "max" else osum / np.maximum(ocnt, 1)
                 out_edges = (ou, oo - cap, osc)
         node_info = None
-        if context is not None:
+        if context is not None or (cfg.tree_mode and cfg.tree_method == "fasttree"):
             node_info = {"children": kids, "units": units.copy()}
             # members: local unit -> leaf genes (gene_anc is still at the children level)
             ga_local = pos[gene_anc[genes]]
@@ -863,9 +871,15 @@ def run_merge(gt: GeneTable, tree: Node, st: ScoreTable, cfg: MergeConfig,
                 and (not cfg.tree_require_outgroup or out_edges is not None):
             from .localtree import resolve_ambiguous
             t_tree = time.time()
+            ft = cfg.tree_method == "fasttree"
+            if ft and gt.seqs is None:
+                raise ValueError("tree_method='fasttree' needs sequences (GeneTable.seqs)")
             labels = resolve_ambiguous(n, child, lu, lv, score, labels, out_edges, cfg.tree_tau,
                                        cfg.tree_max_units, stt, cfg.tree_require_outgroup,
-                                       cfg.tree_conservative)
+                                       cfg.tree_conservative, cfg.tree_method,
+                                       node_info["members"] if ft else None,
+                                       gt.seqs if ft else None, cfg.tree_ft_mode, 60,
+                                       cfg.tree_ft_workers)
             stt["tree_s"] = round(time.time() - t_tree, 3)
         if cfg.orphan_merge == "all" or (cfg.orphan_merge == "root" and nd.parent is None):
             labels = _orphan_merge(n, child, lu, lv, labels, stt, score, cfg.orphan_min)

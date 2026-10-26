@@ -1,0 +1,278 @@
+{
+ "det_go": {
+  "n": 36628,
+  "median": 6.0,
+  "mean": 20.2,
+  "p90": 48.0,
+  "p99": 167.0,
+  "max": 6154,
+  "bins": {
+   "2-5": 17652,
+   "6-20": 10509,
+   "21-78": 7033,
+   "79-200": 1155,
+   "201-1000": 249,
+   "1001-1000000": 30
+  },
+  "top20": [
+   {
+    "genes": 6154,
+    "species": 57,
+    "level": "cellular organisms",
+    "kind": "ortholog"
+   },
+   {
+    "genes": 6026,
+    "species": 14,
+    "level": "Chordata",
+    "kind": "ortholog"
+   },
+   {
+    "genes": 4668,
+    "species": 49,
+    "level": "cellular organisms",
+    "kind": "ortholog"
+   },
+   {
+    "genes": 3824,
+    "species": 52,
+    "level": "cellular organisms",
+    "kind": "ortholog"
+   },
+   {
+    "genes": 3148,
+    "species": 35,
+    "level": "cellular organisms",
+    "kind": "ortholog"
+   },
+   {
+    "genes": 3138,
+    "species": 51,
+    "level": "cellular organisms",
+    "kind": "ortholog"
+   },
+   {
+    "genes": 3043,
+    "species": 51,
+    "level": "cellular organisms",
+    "kind": "ortholog"
+   },
+   {
+    "genes": 2863,
+    "species": 28,
+    "level": "cellular organisms",
+    "kind": "ortholog"
+   },
+   {
+    "genes": 2759,
+    "species": 33,
+    "level": "Eukaryota",
+    "kind": "ortholog"
+   },
+   {
+    "genes": 2361,
+    "species": 49,
+    "level": "cellular organisms",
+    "kind": "ortholog"
+   },
+   {
+    "genes": 2296,
+    "species": 29,
+    "level": "cellular organisms",
+    "kind": "ortholog"
+   },
+   {
+    "genes": 2131,
+    "species": 26,
+    "level": "Eukaryota",
+    "kind": "ortholog"
+   },
+   {
+    "genes": 1930,
+    "species": 44,
+    "level": "Eukaryota",
+    "kind": "ortholog"
+   },
+   {
+    "genes": 1824,
+    "species": 27,
+    "level": "Eukaryota",
+    "kind": "ortholog"
+   },
+   {
+    "genes": 1777,
+    "species": 49,
+    "level": "cellular organisms",
+    "kind": "ortholog"
+   },
+   {
+    "genes": 1536,
+    "species": 28,
+    "level": "cellular organisms",
+    "kind": "ortholog"
+   },
+   {
+    "genes": 1488,
+    "species": 28,
+    "level": "Eukaryota",
+    "kind": "ortholog"
+   },
+   {
+    "genes": 1433,
+    "species": 36,
+    "level": "cellular organisms",
+    "kind": "ortholog"
+   },
+   {
+    "genes": 1309,
+    "species": 39,
+    "level": "cellular organisms",
+    "kind": "ortholog"
+   },
+   {
+    "genes": 1282,
+    "species": 36,
+    "level": "Eukaryota",
+    "kind": "ortholog"
+   }
+  ]
+ },
+ "det_nogo": {
+  "n": 36399,
+  "median": 6.0,
+  "mean": 20.3,
+  "p90": 48.0,
+  "p99": 176.0,
+  "max": 6183,
+  "bins": {
+   "2-5": 17494,
+   "6-20": 10500,
+   "21-78": 6964,
+   "79-200": 1152,
+   "201-1000": 262,
+   "1001-1000000": 27
+  },
+  "top20": [
+   {
+    "genes": 6183,
+    "species": 57,
+    "level": "cellular organisms",
+    "kind": "ortholog"
+   },
+   {
+    "genes": 5889,
+    "species": 14,
+    "level": "Chordata",
+    "kind": "ortholog"
+   },
+   {
+    "genes": 4399,
+    "species": 49,
+    "level": "cellular organisms",
+    "kind": "ortholog"
+   },
+   {
+    "genes": 3832,
+    "species": 52,
+    "level": "cellular organisms",
+    "kind": "ortholog"
+   },
+   {
+    "genes": 3154,
+    "species": 35,
+    "level": "cellular organisms",
+    "kind": "ortholog"
+   },
+   {
+    "genes": 3082,
+    "species": 51,
+    "level": "cellular organisms",
+    "kind": "ortholog"
+   },
+   {
+    "genes": 2860,
+    "species": 28,
+    "level": "Eukaryota",
+    "kind": "ortholog"
+   },
+   {
+    "genes": 2817,
+    "species": 28,
+    "level": "cellular organisms",
+    "kind": "ortholog"
+   },
+   {
+    "genes": 2726,
+    "species": 33,
+    "level": "Eukaryota",
+    "kind": "ortholog"
+   },
+   {
+    "genes": 2355,
+    "species": 29,
+    "level": "cellular organisms",
+    "kind": "ortholog"
+   },
+   {
+    "genes": 2329,
+    "species": 43,
+    "level": "Eukaryota",
+    "kind": "ortholog"
+   },
+   {
+    "genes": 2315,
+    "species": 49,
+    "level": "cellular organisms",
+    "kind": "ortholog"
+   },
+   {
+    "genes": 2017,
+    "species": 37,
+    "level": "cellular organisms",
+    "kind": "ortholog"
+   },
+   {
+    "genes": 1869,
+    "species": 25,
+    "level": "Eukaryota",
+    "kind": "ortholog"
+   },
+   {
+    "genes": 1804,
+    "species": 49,
+    "level": "cellular organisms",
+    "kind": "ortholog"
+   },
+   {
+    "genes": 1759,
+    "species": 30,
+    "level": "cellular organisms",
+    "kind": "ortholog"
+   },
+   {
+    "genes": 1567,
+    "species": 31,
+    "level": "Eukaryota",
+    "kind": "ortholog"
+   },
+   {
+    "genes": 1432,
+    "species": 39,
+    "level": "cellular organisms",
+    "kind": "ortholog"
+   },
+   {
+    "genes": 1338,
+    "species": 36,
+    "level": "Eukaryota",
+    "kind": "ortholog"
+   },
+   {
+    "genes": 1323,
+    "species": 38,
+    "level": "cellular organisms",
+    "kind": "ortholog"
+   }
+  ]
+ }
+}

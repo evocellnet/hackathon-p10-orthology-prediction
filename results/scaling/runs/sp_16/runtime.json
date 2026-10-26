@@ -1,0 +1,30 @@
+{
+ "label": "sp_16",
+ "kind": "sp",
+ "n_species": 16,
+ "n_proteins": 144334,
+ "threads": 8,
+ "cap_s": 21600,
+ "start": "2026-10-26T21:14:58.918729+01:00",
+ "end": "2026-10-26T21:37:51.363659+01:00",
+ "node_cores": 48,
+ "returncode": 0,
+ "censored": false,
+ "wall_s": 1371.38,
+ "user_s": 8179.23,
+ "sys_s": 229.24,
+ "max_rss_gb": 8.06198501586914,
+ "exit_status": 0,
+ "major_faults": 5,
+ "cpu_pct": "613%",
+ "cpu_s": 8408.47,
+ "cpu_h": 2.335686111111111,
+ "wall_h": 0.38093888888888894,
+ "node_load_1min": {
+  "n": 23,
+  "load1_mean": 44.26434782608696,
+  "load1_max": 54.25,
+  "load1_min": 28.68
+ },
+ "ok": true
+}

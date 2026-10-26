@@ -116,6 +116,13 @@ def main():
     gt = read_gene_table(os.path.join(a.run, "stages/input/genes.tsv"))
     tree = load_guide_tree(os.path.join(a.run, "stages/input/guide_tree.nwk"), gt.species)
     st = ScoreTable.load(os.path.join(a.run, "stages/scores", a.scores))
+    if cfg.tree_method == "fasttree":       # sequences for FAMSA + FastTree
+        from ancestra.io import load_proteomes
+        man = json.load(open(os.path.join(a.run, "manifest.json")))
+        pdir = man.get("argv_proteomes") or os.path.join(ROOT, "data/orthobench/Open_Orthobench/BENCHMARKS/Input")
+        full = load_proteomes(pdir)
+        assert full.names == gt.names
+        gt.seqs = full.seqs
     context = None
     syn_kw = {}
     if a.synteny != "off":

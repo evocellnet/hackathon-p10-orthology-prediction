@@ -334,3 +334,27 @@ def test_localtree_labelling():
     # old duplication with both copies kept, no outgroup: ((a1,b1),(a2,b2))
     D = D_from({(0, 1): 3, (0, 2): 1, (0, 3): 3, (1, 2): 3, (1, 3): 1, (2, 3): 3}, 4)
     assert sorted(map(sorted, tree_groups(D, [0, 0, 1, 1], None))) == [[0, 2], [1, 3]]
+
+
+@pytest.mark.parametrize("mode", ["medoid", "all"])
+def test_localtree_fasttree_backend_runs(sim_complex, tmp_path, mode):
+    import shutil
+    from dataclasses import replace
+    if not (shutil.which("famsa") and shutil.which("FastTree")):
+        pytest.skip("famsa/FastTree not available")
+    from ancestra.scoring import ScoringConfig, score_families
+    _, simdir = sim_complex
+    gt = load_proteomes(os.path.join(simdir, "proteomes"))
+    tree = load_guide_tree(os.path.join(simdir, "species_tree.nwk"), gt.species)
+    fam = load_families(os.path.join(simdir, "truth", "gene_families.tsv"), gt, 0, 2)
+    st, _ = score_families(gt, fam, ScoringConfig(backend="mmseqs", threads=4), str(tmp_path))
+    cfg = replace(ARMS["default"], tree_require_outgroup=False, tree_min_d=0.0, tree_method="fasttree",
+                  tree_ft_mode=mode, tree_ft_workers=2)
+    res = run_merge(gt, tree, st, cfg)
+    assert sum(s.get("tree_fasttree_jobs", 0) for s in res.node_stats) > 0
+    ox = to_orthoxml(res, gt, tree)
+    p = str(tmp_path / "x.orthoxml")
+    write_orthoxml(ox, p)
+    assert validate_xsd(p)[0]
+    assert MergeConfig().key() == {k: v for k, v in MergeConfig().key().items()} and \
+        "tree_method" not in MergeConfig().key()          # default hash unchanged

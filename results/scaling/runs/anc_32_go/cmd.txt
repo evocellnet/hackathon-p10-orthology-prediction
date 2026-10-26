@@ -1,0 +1,4 @@
+python scripts/qfo_pipeline_driver.py --proteomes work/scaling/inputs/sub32 --tree results/scaling/subsets/sub32.nwk --out work/scaling/runs/anc_32_go --threads 8 --gene-order data/inputs/qfo2022/gene_order
+cap_s=21600
+start=2026-10-26T22:09:25.896723+01:00
+load_at_start=30.15 34.37 36.32 15/3108 1856431

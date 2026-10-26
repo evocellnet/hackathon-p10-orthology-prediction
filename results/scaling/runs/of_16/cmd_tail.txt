@@ -1,0 +1,40 @@
+Reconciling gene trees and species tree
+---------------------------------------
+Outgroup: UP000001686_374847, UP000008183_243274, UP000000798_224324, 
+UP000002524_243230
+[1;36;49m2026[0m[39;49m-[0m[1;36;49m10[0m[39;49m-[0m[1;36;49m26[0m[39;49m [0m[1;92;49m21:14:19[0m[39;49m : Starting reconciliation and orthologs[0m
+[1;36;49m2026[0m[39;49m-[0m[1;36;49m10[0m[39;49m-[0m[1;36;49m26[0m[39;49m [0m[1;92;49m21:14:19[0m[39;49m : Inferring orthologs from gene trees[0m
+Processing... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━   6620/6620 0:00:05
+[1;36;49m2026[0m[39;49m-[0m[1;36;49m10[0m[39;49m-[0m[1;36;49m26[0m[39;49m [0m[1;92;49m21:14:24[0m[39;49m : Done of orthologs[0m
+
+Writing results files
+=====================
+[1;36;49m2026[0m[39;49m-[0m[1;36;49m10[0m[39;49m-[0m[1;36;49m26[0m[39;49m [0m[1;92;49m21:14:24[0m[39;49m : Start writing hierarchical orthogroups files[0m
+[1;36;49m2026[0m[39;49m-[0m[1;36;49m10[0m[39;49m-[0m[1;36;49m26[0m[39;49m [0m[1;92;49m21:14:24[0m[39;49m : Converting MSA/Trees[0m
+[1;36;49m2026[0m[39;49m-[0m[1;36;49m10[0m[39;49m-[0m[1;36;49m26[0m[39;49m [0m[1;92;49m21:14:33[0m[39;49m : Updating MSA/Trees[0m
+[1;36;49m2026[0m[39;49m-[0m[1;36;49m10[0m[39;49m-[0m[1;36;49m26[0m[39;49m [0m[1;92;49m21:14:44[0m[39;49m : Done updating MSA/Trees[0m
+Processing... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━   7255/7255 0:00:05
+[1;36;49m2026[0m[39;49m-[0m[1;36;49m10[0m[39;49m-[0m[1;36;49m26[0m[39;49m [0m[1;92;49m21:14:53[0m[39;49m : Done writing files[0m
+
+Summary: 
+ OrthoFinder assigned 114998 genes (79.7% of total) to 13751 orthogroups.       
+ 50% of genes were in orthogroups with 10 or more genes (G50 was 10) and were   
+ contained in the largest 2735 orthogroups (O50 was 2735).                      
+ There were 47 orthogroups with all species present and 0 of these consisted    
+ entirely of single-copy genes.                                                 
+
+[1;39;49mResults directory:[0m
+[39;49m    [0m[38;5;36;49m/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/scalin[0m
+[38;5;36;49mg/runs/of_16/Results_Oct26/[0m
+
+[1;39;49mCITATION:[0m
+[39;49m When publishing work that uses [0m[38;5;136;49mOrthoFinder[0m[39;49m please cite:[0m
+[39;49m Emms D.M., Liu Y., Belcher L., Holmes J. & Kelly S. [0m[1;39;49m([0m[1;36;49m2026[0m[1;39;49m)[0m[39;49m, Nature Methods [0m
+[1;92;49m23:1327[0m[39;49m–[0m[1;36;49m1333[0m[39;49m, [0m]8;id=15707748;https://doi.org/10.1038/s41592-026-03126-6\[4;38;5;36;49mhttps://doi.org/10.1038/s41592-026-03126-6[0m]8;;\
+
+[39;49m If you use the species tree in your work then please also cite:[0m
+[39;49m Emms D.M. & Kelly S. [0m[1;39;49m([0m[1;36;49m2017[0m[1;39;49m)[0m[39;49m, MBE [0m[1;35;49m34[0m[1;39;49m([0m[1;36;49m12[0m[1;39;49m)[0m[39;49m: [0m[1;36;49m3267[0m[39;49m-[0m[1;36;49m3278[0m
+[39;49m Emms D.M. & Kelly S. [0m[1;39;49m([0m[1;36;49m2018[0m[1;39;49m)[0m[39;49m, bioRxiv [0m]8;id=15707752;https://doi.org/10.1101/267914\[4;38;5;36;49mhttps://doi.org/10.1101/267914[0m]8;;\
+
+[38;5;136;49mOrthoFinder[0m[39;49m finished in [0m[1;32;49m2055.[0m[32;49m477116[0m[39;49ms[0m
+

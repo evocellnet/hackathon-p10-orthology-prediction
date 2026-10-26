@@ -176,11 +176,16 @@ def _has_xdup_below(ch, sets, v):
 
 
 def tree_groups(D: np.ndarray, leaf_child: list, outgroup: int | None):
-    """Groups (lists of leaf indices, outgroup excluded) of a cluster's distance matrix."""
+    """Groups (lists of leaf indices, outgroup excluded) of a cluster's distance matrix (NJ)."""
     m = D.shape[0]
     edges, n_nodes = nj(D)
     if not edges:
         return [[0]]
+    return groups_from_edges(edges, n_nodes, m, leaf_child, outgroup)
+
+
+def groups_from_edges(edges, n_nodes, m, leaf_child, outgroup):
+    """Species-overlap labelling of an unrooted tree given as edges (leaves 0..m-1)."""
     adj = _adjacency(edges, n_nodes)
     lc = {i: leaf_child[i] for i in range(m)}
     interest = set(range(m)) - ({outgroup} if outgroup is not None else set())
@@ -200,9 +205,50 @@ def tree_groups(D: np.ndarray, leaf_child: list, outgroup: int | None):
     return _partition(ch, sets, -1, interest)
 
 
+def newick_to_edges(nwk: str, leaf_index: dict):
+    """FastTree Newick -> (edges, n_nodes) with leaves numbered by ``leaf_index[name]``."""
+    from .newick import parse_newick
+    root = parse_newick(nwk)
+    m = len(leaf_index)
+    ids = {}
+    nxt = m
+    for nd in root.preorder():
+        if nd.children:
+            ids[id(nd)] = nxt
+            nxt += 1
+        else:
+            ids[id(nd)] = leaf_index[nd.name]
+    edges = []
+    for nd in root.preorder():
+        for c in nd.children:
+            edges.append((ids[id(nd)], ids[id(c)], max(c.length or 0.0, 0.0)))
+    # a bifurcating root with a unary-like structure is fine for the unrooted labelling
+    return edges, nxt
+
+
+def _fasttree_job(job):
+    """job = (leaf names, sequences, workdir) -> Newick string (FAMSA + FastTree -lg)."""
+    import os
+    import subprocess
+    import tempfile
+    names, seqs, wd = job
+    with tempfile.TemporaryDirectory(dir=wd) as td:
+        fa, aln = os.path.join(td, "in.fa"), os.path.join(td, "aln.fa")
+        with open(fa, "w") as fh:
+            for nm, sq in zip(names, seqs):
+                fh.write(f">{nm}\n{sq}\n")
+        subprocess.run(["famsa", "-t", "1", fa, aln], check=True, stdout=subprocess.DEVNULL,
+                       stderr=subprocess.DEVNULL)
+        r = subprocess.run(["FastTree", "-lg", "-quiet", "-nosupport", aln], check=True,
+                           capture_output=True, text=True)
+        return r.stdout.strip()
+
+
 def resolve_ambiguous(n, child, lu, lv, score, labels, out_edges=None, tau: float = 0.9,
                       max_units: int = 60, stats=None, require_outgroup: bool = False,
-                      conservative: bool = False):
+                      conservative: bool = False, tree_method: str = "nj", members=None,
+                      seqs=None, ft_mode: str = "medoid", ft_max_genes: int = 60, workers: int = 12,
+                      workdir: str | None = None):
     """Re-decide ambiguous clusters with local trees; returns new labels (see module doc)."""
     stats = stats if stats is not None else {}
     labels = labels.copy()
@@ -243,7 +289,51 @@ def resolve_ambiguous(n, child, lu, lv, score, labels, out_edges=None, tau: floa
         out_adj = {}
         for u, o, sc in zip(out_edges[0].tolist(), out_edges[1].tolist(), out_edges[2].tolist()):
             out_adj.setdefault(u, {})[o] = sc
-    next_label = int(labels.max()) + 1
+    state = {"next": int(labels.max()) + 1}
+    ft_jobs = []
+
+    def apply_groups(units, groups):
+        """Relabel ``units`` by ``groups`` (lists of positions in ``units``) if the partition
+        changed (``conservative``: never fuse two multi-unit rule groups)."""
+        old = {u: labels[u] for u in units}
+        new = {}
+        for grp in groups:
+            lab = state["next"]
+            state["next"] += 1
+            for li in grp:
+                new[units[li]] = lab
+        if conservative:
+            sizes_old = {}
+            for u in units:
+                sizes_old[old[u]] = sizes_old.get(old[u], 0) + 1
+            fixed = {}
+            for grp in groups:
+                us = [units[li] for li in grp]
+                big = {old[u] for u in us if sizes_old[old[u]] > 1}
+                if len(big) <= 1:
+                    lab = state["next"]
+                    state["next"] += 1
+                    for u in us:
+                        fixed[u] = lab
+                else:
+                    for b in big:
+                        lab = state["next"]
+                        state["next"] += 1
+                        for u in us:
+                            if old[u] == b:
+                                fixed[u] = lab
+                    for u in us:
+                        if u not in fixed:
+                            fixed[u] = state["next"]
+                            state["next"] += 1
+            new = fixed
+        part_old = {frozenset(u for u in units if old[u] == l) for l in set(old.values())}
+        part_new = {frozenset(u for u in units if new[u] == l) for l in set(new.values())}
+        if part_old != part_new:
+            stats["tree_changed"] += 1
+            for u, lab in new.items():
+                labels[u] = lab
+
     for root, labs in clusters.items():
         if len(labs) < 2:
             continue
@@ -288,47 +378,62 @@ def resolve_ambiguous(n, child, lu, lv, score, labels, out_edges=None, tau: floa
             D[m, :m] = do
             D[:m, m] = do
             leaf_child.append(-1)
+        if tree_method == "fasttree" and members is not None and seqs is not None:
+            leaves, leaf_unit = [], []
+            mem = [np.asarray(members(u)) for u in units]
+            allg = sum(len(x) for x in mem)
+            use_all = ft_mode == "all" and allg <= ft_max_genes
+            for ui, ms in enumerate(mem):
+                if len(ms) == 0:
+                    continue
+                if use_all:
+                    for g in ms.tolist():
+                        leaves.append(int(g))
+                        leaf_unit.append(ui)
+                else:   # length-medoid member
+                    o = sorted(ms.tolist(), key=lambda g: (len(seqs[g]), g))
+                    leaves.append(int(o[len(o) // 2]))
+                    leaf_unit.append(ui)
+            if og is not None:
+                leaves.append(int(og))
+                leaf_unit.append(-1)
+            if len(leaves) >= 4:
+                ft_jobs.append((units, leaves, leaf_unit, og is not None, use_all))
+                continue
         groups = tree_groups(D, leaf_child, m if og is not None else None)
-        old = {u: labels[u] for u in units}
-        new = {}
-        for grp in groups:
-            lab = next_label
-            next_label += 1
-            for li in grp:
-                new[units[li]] = lab
-        if conservative:
-            # never fuse two multi-unit rule groups: a tree group may contain units of at
-            # most one multi-unit rule group (plus leftover singletons); otherwise it is
-            # split back along the rule groups
-            sizes_old = {}
-            for u in units:
-                sizes_old[old[u]] = sizes_old.get(old[u], 0) + 1
-            fixed = {}
-            for grp in groups:
-                us = [units[li] for li in grp]
-                big = {old[u] for u in us if sizes_old[old[u]] > 1}
-                if len(big) <= 1:
-                    lab = next_label
-                    next_label += 1
-                    for u in us:
-                        fixed[u] = lab
-                else:
-                    for b in big:
-                        lab = next_label
-                        next_label += 1
-                        for u in us:
-                            if old[u] == b:
-                                fixed[u] = lab
-                    for u in us:
-                        if u not in fixed:
-                            fixed[u] = next_label
-                            next_label += 1
-            new = fixed
-        # count partition changes
-        part_old = {frozenset(u for u in units if old[u] == l) for l in set(old.values())}
-        part_new = {frozenset(u for u in units if new[u] == l) for l in set(new.values())}
-        if part_old != part_new:
-            stats["tree_changed"] += 1
-            for u, lab in new.items():
-                labels[u] = lab
+        apply_groups(units, groups)
+    if ft_jobs:
+        import os
+        import time as _t
+        from concurrent.futures import ThreadPoolExecutor
+        wd = workdir or os.environ.get("TMPDIR", "/tmp")
+        t0 = _t.time()
+        payload = [([f"L{i}" for i in range(len(lv_))], [seqs[g] for g in lv_], wd)
+                   for (_, lv_, _, _, _) in ft_jobs]
+        with ThreadPoolExecutor(workers) as ex:
+            nwks = list(ex.map(_fasttree_job, payload))
+        stats["tree_fasttree_jobs"] = len(ft_jobs)
+        stats["tree_fasttree_s"] = round(_t.time() - t0, 2)
+        for (units, lv_, leaf_unit, has_og, use_all), nwk in zip(ft_jobs, nwks):
+            nl = len(lv_)
+            edges, n_nodes = newick_to_edges(nwk, {f"L{i}": i for i in range(nl)})
+            lc = [int(child[units[u]]) if u >= 0 else -1 for u in leaf_unit]
+            ogl = nl - 1 if has_og else None
+            lgroups = groups_from_edges(edges, n_nodes, nl, lc, ogl)
+            # collapse leaves -> units (majority group per unit)
+            votes: dict = {}
+            for gi, grp in enumerate(lgroups):
+                for li in grp:
+                    u = leaf_unit[li]
+                    if u >= 0:
+                        votes.setdefault(u, {}).setdefault(gi, 0)
+                        votes[u][gi] += 1
+            ug: dict = {}
+            for u, v in votes.items():
+                gi = max(sorted(v), key=lambda k: v[k])
+                ug.setdefault(gi, []).append(u)
+            for u in range(len(units)):
+                if u not in votes:
+                    ug.setdefault(("solo", u), []).append(u)
+            apply_groups(units, list(ug.values()))
     return labels

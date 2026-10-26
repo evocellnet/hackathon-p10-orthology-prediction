@@ -11,7 +11,8 @@ Thin wrapper (does not modify the pipeline). The pipeline's own stage cache
 * **Code-aware invalidation.** The pipeline's stage keys hash configs and inputs but
   not code, so a cached stage survives e.g. a fix in ``ancestra/families.py``. The
   driver therefore keeps ``OUT/stages/code_keys.json``: for each finished stage, a
-  sha256 over the source files that stage runs (STAGE_CODE), its *effective* config
+  sha256 over the source files that stage runs (STAGE_CODE; merge and output: all of
+  ancestra/*.py), its *effective* config
   (for families: ``asdict(FamilyConfig(**DEFAULT_FAMILY_CONFIG))`` without threads),
   and the upstream stage's code key. Before running, any cached stage whose recorded
   key is missing or differs is deleted together with every downstream stage, so the
@@ -54,12 +55,15 @@ sys.path.insert(0, ROOT)
 
 STAGES = ("input", "families", "scores", "merge", "output")
 # source files each stage executes (relative to ancestra/); upstream keys are chained
+# merge/output are cheap (minutes) and import many modules lazily (localtree, synteny, genome(s),
+# merge_numba, ...): they are keyed on *every* ancestra/*.py so that no dependency is missed.
+ALL_PY = sorted(f for f in os.listdir(os.path.join(ROOT, "ancestra")) if f.endswith(".py"))
 STAGE_CODE = {
     "input": ["io.py", "newick.py"],
     "families": ["families.py", "io.py"],
     "scores": ["scoring.py"],
-    "merge": ["merge.py", "merge_numba.py", "synteny.py", "genome.py"],
-    "output": ["orthoxml.py", "merge.py"],
+    "merge": ALL_PY,
+    "output": ALL_PY,
 }
 
 
