@@ -78,6 +78,7 @@ Decision note M0: benchmark lives in its own repo (bench_repo/) as the prompt re
   - [-] 7.1 S9 expression (Bgee v15.2), standalone on dev: AUC ortholog vs paralog 0.667 (shuffled ~0.5), but on hard cases the gain is −0.019 [−0.20, 0.15] (primary) and −0.116 [−0.18, −0.05] (28 vertebrate pairs). When expression decides it is right only 40–47%. KILLED per pre-registered criterion. Conservation report: 16% of ortholog pairs conserved vs 26% broken (paralogs 4.5% vs 47%); zebrafish has 29–45% breaks (docs/S9_expression.md).
   - [-] 7.2 S7 isoforms (Ensembl 99): best-isoform scoring AUC 0.760 vs 0.759 canonical; hard-case gain +0.013 [−0.018, 0.044]; costs 2–5× more search. KILLED. Finding: for 21% of ortholog pairs the best-matching isoform pair is not the canonical pair (orthologous-isoform evidence).
 - [~] 8. Full pipeline benchmark vs competitors (accuracy + runtime + scaling)
-  - [~] 8b. QfO run on deterministic S0, arms A (gene order) and B (none) → peek 1 on the fast tests (agent)
+  - [x] 8b. QfO run on deterministic S0 (docs/qfo_run.md): B (no gene order) 1.56 h wall at 12 threads, ≈12 CPU-h (S0 3.0, scoring 8.9 CPU-h; 29.5 GB peak); A adds 7 min. 163k families (13.4% singletons). A: 15.1M ortholog pairs, 36.6k root HOGs, 30 >1,000 genes (6,026-gene/14-species Chordata HOG = likely over-merged superfamily). Gene-order coverage 0.931 (Parastagonospora ~0, amphioxus 0.08). Both arms pass verify_ids + verify_orthoxml.
+  - [~] 8b2. QfO peek 1 (fast tests) on A and B (agent)
   - [~] 8c. Scaling: nested QfO subsets 8/16/32/64(/78), Ancestra vs OrthoFinder 3.2 vs SonicParanoid2, CPU-h primary, 6 h cap (agent)
 - [ ] 9. REPORT.md
