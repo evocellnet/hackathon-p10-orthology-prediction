@@ -19,6 +19,7 @@ from collections import Counter
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT)
 from ancestra import families as F  # noqa: E402
+from ancestra_eval import families_eval as FE  # noqa: E402
 
 
 def main():
@@ -56,7 +57,7 @@ def main():
                                 "--threads", str(a.threads), "--quiet", "--outfmt", "6", "qseqid", "sseqid", "-o", hits],
                                check=True)
                 g2f = F.label_families(F.partition_from_pairs(F.read_fasta_ids(fa), F.read_pairs_tsv(hits)))
-                ag = F.evaluate_refogs(g2f, truth)["aggregate"]
+                ag = FE.evaluate_refogs(g2f, truth)["aggregate"]
                 name = f"ceiling_allvsall_cc{sens}_e{ev}"
                 json.dump({"sim": sim, "config": name, "aggregate": ag, "family_stats": F.family_stats(g2f)},
                           open(os.path.join(outdir, f"{simname}__{name}.json"), "w"), indent=1)
@@ -69,7 +70,7 @@ def main():
             t0 = time.time()
             st = F.run_families(fa, wd, F.FamilyConfig(**cfg))
             g2f = F.read_families_tsv(os.path.join(wd, "families.tsv"))
-            ev = F.evaluate_refogs(g2f, truth)
+            ev = FE.evaluate_refogs(g2f, truth)
             gene2true = {g: f for f, gs in truth.items() for g in gs}
             fam_true = {}
             for g, f in g2f.items():

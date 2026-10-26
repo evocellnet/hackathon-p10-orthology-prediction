@@ -83,10 +83,10 @@ plus the maximum child RSS so far), and the node load at stage start and end. Th
   - a **runtime audit**: the pipeline runs with default S0 on a toy simulation under `sys.addaudithook`, and no opened
     path or subprocess command line may match the list.
 
-  **Current status: the static scan FAILS on `ancestra/families.py`**. Its RefOG evaluator (`read_refogs`,
-  `evaluate_refogs`, the `evaluate` sub-command, and the `_REFOGS` path `data/orthobench/Open_Orthobench/BENCHMARKS/RefOGs`)
-  sits inside the method package. The pipeline never calls it (the runtime audit passes). The fix belongs to the
-  core-engine owner: move the evaluator to `scripts/`. Repro: `pytest tests/test_no_leak.py::test_static_scan`.
+  **Current status: passes.** The RefOG evaluator (`read_refogs`, `evaluate_refogs`, the `evaluate` sub-command and the
+  RefOGs path) was moved out of `ancestra/families.py` into the separate evaluation package `ancestra_eval/`
+  (`ancestra_eval/families_eval.py`; CLI `python -m ancestra_eval.families_eval evaluate ...`). The static scan covers
+  `ancestra/` only. Repro: `pytest tests/test_no_leak.py::test_static_scan`.
 
 ## 4. Cost extrapolation (10-species subset, before the full run)
 Subset `sub10_s11` (seed 11, domain-stratified: 6 Eukaryota, 3 Bacteria, 1 Archaea; 129,119 proteins = 13.1% of N),

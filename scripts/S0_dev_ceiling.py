@@ -17,6 +17,7 @@ from collections import Counter, defaultdict
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT)
 from ancestra import families as F  # noqa: E402
+from ancestra_eval import families_eval as FE  # noqa: E402
 
 ap = argparse.ArgumentParser()
 ap.add_argument("--run", default=os.path.join(ROOT, "work/S0/2sA_dc30_cc_nocov"))
@@ -25,7 +26,7 @@ ap.add_argument("--threads", type=int, default=24)
 a = ap.parse_args()
 
 split = json.load(open(os.path.join(ROOT, "splits/orthobench_split.json")))
-R = F.read_refogs(os.path.join(ROOT, "data/orthobench/Open_Orthobench/BENCHMARKS/RefOGs"), split["dev"])
+R = FE.read_refogs(os.path.join(ROOT, "data/orthobench/Open_Orthobench/BENCHMARKS/RefOGs"), split["dev"])
 ids = F.read_fasta_ids(a.fasta)
 edges = F.read_pairs_tsv(os.path.join(a.run, "stage1_clusters.tsv"))
 for line in open(os.path.join(a.run, "reps_hits.tsv")):
@@ -33,7 +34,7 @@ for line in open(os.path.join(a.run, "reps_hits.tsv")):
     if float(t[2]) <= 1e-5:
         edges.append((t[0], t[1]))
 g2c = F.label_families(F.partition_from_pairs(ids, edges))
-ev = F.evaluate_refogs(g2c, R)
+ev = FE.evaluate_refogs(g2c, R)
 stats = F.family_stats(g2c)
 strays = {}
 for rid, genes in R.items():

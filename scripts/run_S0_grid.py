@@ -17,6 +17,7 @@ import argparse, datetime, hashlib, json, os, re, subprocess, sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT)
 from ancestra import families as F  # noqa: E402
+from ancestra_eval import families_eval as FE  # noqa: E402
 
 INPUT_DIR = os.path.join(ROOT, "data/orthobench/Open_Orthobench/BENCHMARKS/Input")
 WORK = os.path.join(ROOT, "work/S0")
@@ -101,8 +102,8 @@ def run_one(name, cfg, fasta, input_sums, force=False):
     g2f = F.read_families_tsv(os.path.join(outdir, "families.tsv"))
     split = json.load(open(os.path.join(ROOT, "splits/orthobench_split.json")))
     refdir = os.path.join(ROOT, "data/orthobench/Open_Orthobench/BENCHMARKS/RefOGs")
-    dev = F.evaluate_refogs(g2f, F.read_refogs(refdir, split["dev"], remove_uncertain=True))
-    dev_full = F.evaluate_refogs(g2f, F.read_refogs(refdir, split["dev"], remove_uncertain=False))
+    dev = FE.evaluate_refogs(g2f, FE.read_refogs(refdir, split["dev"], remove_uncertain=True))
+    dev_full = FE.evaluate_refogs(g2f, FE.read_refogs(refdir, split["dev"], remove_uncertain=False))
     out = {
         "name": name,
         "subset": "dev",
@@ -139,9 +140,9 @@ def rescore(name):
     split = json.load(open(os.path.join(ROOT, "splits/orthobench_split.json")))
     refdir = os.path.join(ROOT, "data/orthobench/Open_Orthobench/BENCHMARKS/RefOGs")
     g2f = F.read_families_tsv(fam)
-    res["dev"] = F.evaluate_refogs(g2f, F.read_refogs(refdir, split["dev"], remove_uncertain=True))
-    res["dev_keep_uncertain_aggregate"] = F.evaluate_refogs(
-        g2f, F.read_refogs(refdir, split["dev"], remove_uncertain=False))["aggregate"]
+    res["dev"] = FE.evaluate_refogs(g2f, FE.read_refogs(refdir, split["dev"], remove_uncertain=True))
+    res["dev_keep_uncertain_aggregate"] = FE.evaluate_refogs(
+        g2f, FE.read_refogs(refdir, split["dev"], remove_uncertain=False))["aggregate"]
     res["manifest"]["inputs"]["split_sha256"] = sha256(os.path.join(ROOT, "splits/orthobench_split.json"))
     res["manifest"]["rescored"] = datetime.datetime.now().astimezone().isoformat(timespec="seconds")
     json.dump(res, open(p, "w"), indent=1)
@@ -156,8 +157,8 @@ def final_test(name, reason):
     split = json.load(open(os.path.join(ROOT, "splits/orthobench_split.json")))
     refdir = os.path.join(ROOT, "data/orthobench/Open_Orthobench/BENCHMARKS/RefOGs")
     g2f = F.read_families_tsv(fam)
-    test = F.evaluate_refogs(g2f, F.read_refogs(refdir, split["test"], remove_uncertain=True))
-    test_full = F.evaluate_refogs(g2f, F.read_refogs(refdir, split["test"], remove_uncertain=False))
+    test = FE.evaluate_refogs(g2f, FE.read_refogs(refdir, split["test"], remove_uncertain=True))
+    test_full = FE.evaluate_refogs(g2f, FE.read_refogs(refdir, split["test"], remove_uncertain=False))
     out = {"name": name, "subset": "test", "test": test, "test_keep_uncertain_aggregate": test_full["aggregate"],
            "manifest": res["manifest"], "reason": reason,
            "scored_at": datetime.datetime.now().astimezone().isoformat(timespec="seconds")}
