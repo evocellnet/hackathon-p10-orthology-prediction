@@ -420,3 +420,14 @@ def test_species_overlap_missed_speciation():
     o2 = hogs_to_pairs(ox2)
     assert {("a1", "a2"), ("a1", "b"), ("a2", "b")} <= o2     # species-disjoint -> speciation at A
     assert got == {("ortholog", "root", frozenset({("ortholog", "A", frozenset({"a1", "a2"})), "b"}))}
+
+
+def test_deep_node_relaxed_tolerance():
+    # child0: a ; child1: b1, b2. Scores (normalised) a-b1 0.15, a-b2 0.13: divergent node (d~1.9)
+    child = np.array([0, 1, 1])
+    lu, lv, sc = np.array([0, 0]), np.array([1, 2]), np.array([0.15, 0.13])
+    _, st0 = decide_node(3, child, lu, lv, sc, MergeConfig(tree_mode=False, deep_min_d=2.5, deep_tol=0.8))
+    assert "deep" not in st0 and st0["n_mb"] == 1                 # threshold not reached
+    _, st1 = decide_node(3, child, lu, lv, sc, MergeConfig(tree_mode=False, deep_min_d=1.5, deep_tol=0.8))
+    assert st1["deep"] == 1 and st1["n_mb_deep"] == 2              # a-b2 becomes mutual-best at 0.8
+    assert "deep_min_d" not in MergeConfig().key()                 # default hash unchanged

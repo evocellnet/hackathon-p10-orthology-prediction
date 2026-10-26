@@ -117,6 +117,10 @@ class MergeConfig:
                                  # instead of a paralogGroup (QfO recall, missed speciations)
     so_absorb: bool = False      # a still-alone unit whose best partner's group holds only
                                  # species-disjoint units of its own child joins it (missed speciation)
+    deep_min_d: float = 0.0      # "deep" node = median mutual-best seed distance -ln S >= this
+                                 # (0 = off). QfO: Eukaryota 1.81, Opisthokonta 1.68 vs Bilateria 1.36
+    deep_tol: float = 0.0        # at deep nodes: mutual-best tolerance (0 = keep tol)
+    deep_so_absorb: bool = False # at deep nodes: species-overlap absorption (so_absorb)
     orphan_min: float = 0.0      # R4: minimum (normalised, linked) score of an orphan-merge edge
     orphan_merge: str = "off"    # R4: off | root | all -- merge partner-less same-child units
                                  # (no cross-child homolog at the node) connected by same-child
@@ -126,7 +130,8 @@ class MergeConfig:
         d = asdict(self)
         # options added after the QfO freeze: omitted at their defaults (stable stage hashes)
         for k, v in (("tree_method", "nj"), ("tree_ft_mode", "medoid"), ("so_struct", False),
-                     ("so_absorb", False)):
+                     ("so_absorb", False), ("deep_min_d", 0.0), ("deep_tol", 0.0),
+                     ("deep_so_absorb", False)):
             if d.get(k) == v:
                 d.pop(k)
         d.pop("tree_ft_workers", None)   # results do not depend on the pool size (tested)
@@ -334,6 +339,11 @@ def decide_node(n: int, child: np.ndarray, lu: np.ndarray, lv: np.ndarray, score
     stats["n_mb"] = int(mb.sum())
     if mb.any():   # node divergence: median distance -ln S of the mutual-best seeds
         stats["seed_median_d"] = float(np.median(-np.log(np.clip(cs[mb], 1e-6, 1.0))))
+        if cfg.deep_min_d > 0 and stats["seed_median_d"] >= cfg.deep_min_d:
+            stats["deep"] = 1
+            if cfg.deep_tol > 0:     # relaxed mutual best at deep nodes only
+                mb = mutual_best(cs_sel, cfg.deep_tol)
+                stats["n_mb_deep"] = int(mb.sum())
     if cfg.engine == "numba":
         return _decide_numba(n, k, child, ca, cb, cs, sa, sb, ss, mb, cfg, out_edges, stats,
                              resolver, node_name, lu, lv, score, cs_sel, cs_r3, ctx_support, locus_sup,
@@ -834,7 +844,8 @@ def run_merge(gt: GeneTable, tree: Node, st: ScoreTable, cfg: MergeConfig,
     q, t, s, plca = q[order], t[order], s[order], plca[order]
     bounds = np.searchsorted(plca, np.arange(len(nodes) + 1))
     struct: list = list(range(N))          # anc id -> structure
-    amask: list = [1 << int(x) for x in gt.species_of] if (cfg.so_struct or cfg.so_absorb) else None
+    amask: list = ([1 << int(x) for x in gt.species_of]
+                   if (cfg.so_struct or cfg.so_absorb or cfg.deep_so_absorb) else None)
     if amask is not None:
         from .newick import TreeIndex
         _tix = TreeIndex(tree)
@@ -932,7 +943,7 @@ def run_merge(gt: GeneTable, tree: Node, st: ScoreTable, cfg: MergeConfig,
                                        gt.seqs if ft else None, cfg.tree_ft_mode, 60,
                                        cfg.tree_ft_workers)
             stt["tree_s"] = round(time.time() - t_tree, 3)
-        if cfg.so_absorb:
+        if cfg.so_absorb or (cfg.deep_so_absorb and stt.get("deep")):
             labels = _so_absorb(n, child, lu, lv, score, labels, [amask[int(u)] for u in units], stt)
         if cfg.orphan_merge == "all" or (cfg.orphan_merge == "root" and nd.parent is None):
             labels = _orphan_merge(n, child, lu, lv, labels, stt, score, cfg.orphan_min)

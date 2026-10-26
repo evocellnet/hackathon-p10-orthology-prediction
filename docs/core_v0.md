@@ -557,11 +557,43 @@ The NJ off pass is within noise by the PI's rule (ΔOG-F −0.67 > −1, Δmacro
 **Merge cost on QfO** (`fast`): 6–7 min wall and ~0.1 CPU-h per arm, 9 GB.
 - `accurate` on QfO is estimated at ~12 CPU-h, about 1 h wall at 12 workers for the on-pass. The estimate scales from OrthoBench: 177.7k QfO tree clusters vs 15.5k → ~100k FastTree jobs.
 
-**Adopted by the rule:** A1 (`so_struct=True`). It is not yet switched on in the presets, pending the PI's go and coordination with the QfO A-accurate run.
+**Adopted by the rule:** A1 (`so_struct=True`). It is now in both presets (§7.12).
 
 **Observations.**
 - Looser mutual best (A4) recovers the most TreeFam recall but fuses OrthoBench OGs.
 - `so_absorb` and the relaxed repair cut the S8 fission candidates by 66–77% but cost PPV or OG-F.
+
+### 7.12 Deep-node rules (final small grid; base = A1)
+**Generic definition of "deep".** A node is deep if the median distance −ln S of its mutual-best seeds is ≥ `deep_min_d` = 1.5. No taxon names are used.
+- QfO values (det_go): cellular organisms 1.77, Eukaryota 1.81, Opisthokonta 1.68, Sar 1.82, Metamonada 1.68, Alveolata 1.61, Dikarya 1.59, Fungi 1.52 are deep.
+- Not deep: Ecdysozoa 1.46, Bilateria 1.36, and every metazoan level below.
+- On OrthoBench the maximum is 1.42 (Bilateria), so the rule is inactive there by construction. This was checked: no deep node, and OG-F is identical to A1.
+
+**Options** (`MergeConfig`, omitted from `key()` at their defaults):
+- `deep_tol`: the mutual-best tolerance at deep nodes.
+- `deep_so_absorb`: species-overlap absorption (§7.11) at deep nodes only.
+- Test: `test_deep_node_relaxed_tolerance`.
+
+**Results** (QfO `fast` + so_struct; OrthoBench `accurate` + so_struct; rule vs A1):
+
+| arm | TF-A dev TPR | TF-A dev PPV | OrthoBench OG-F | rule |
+|---|---|---|---|---|
+| A1 (base) | 0.6088 | 0.9229 | 79.69 | – |
+| A6 deep tol 0.8 | 0.6494 (+0.041) | 0.8895 (−0.033) | 79.69 | fail |
+| A7 deep tol 0.85 | 0.6347 (+0.026) | 0.8964 (−0.027) | 79.69 | fail |
+| **A8 deep so_absorb** | **0.6163** (+0.008) | **0.9198** (−0.003) | 79.69 | **pass → adopted** |
+
+**Adopted.** Both presets now set `so_struct=True`, `deep_min_d=1.5` and `deep_so_absorb=True`. A plain `--preset fast` QfO rerun reproduces A8 (`results/core_v0_qfo/runs.tsv`, label `A8check`).
+
+**Remaining FN, winner A8** (TreeFam-A DEV speciation pairs not predicted; `fn_breakdown_A8.json`; level = LCA of the pair):
+
+| class | total | Bilateria | Eukaryota | Opisthokonta | other levels |
+|---|---|---|---|---|---|
+| different root HOG | 2,306 | 841 | 512 | 278 | 675 (Chordata 137, Amniota 99, ...) |
+| paralog call in same root HOG | 1,776 | 572 | 285 | 169 | 750 |
+| S0 split (different family) | 1,286 | 84 | 222 | 746 | 234 |
+
+The largest remaining blocks are Bilateria-level misses (not deep under the rule) and Opisthokonta-level S0 splits.
 
 ### 7.8 Next steps
 1. **Precision of tree mode and over-merges in large S0 families** (OG-P 63–75%):

@@ -57,9 +57,13 @@ SYNTENY_DEFAULT = dict(mode="multiplicative", lam=0.3, anchor="core", w=10)
 #            length-medoid leaves; `off_tree_method` = tree method of the synteny-off pass of
 #            the constrained two-pass synteny merge.
 #   fast:    NJ on -ln S everywhere (v0.2 behaviour; used for scaling claims).
+#   Both: species-overlap structure (so_struct; QfO TreeFam-A dev TPR +0.037, docs §7.11) and
+#   species-overlap absorption at deep nodes only (median seed -ln S >= 1.5; +0.008, §7.12).
 PRESETS = {
-    "accurate": {"tree_method": "fasttree", "tree_ft_mode": "medoid", "off_tree_method": "nj"},
-    "fast": {"tree_method": "nj", "tree_ft_mode": "medoid", "off_tree_method": "nj"},
+    "accurate": {"tree_method": "fasttree", "tree_ft_mode": "medoid", "off_tree_method": "nj",
+                 "so_struct": True, "deep_min_d": 1.5, "deep_so_absorb": True},
+    "fast": {"tree_method": "nj", "tree_ft_mode": "medoid", "off_tree_method": "nj", "so_struct": True,
+             "deep_min_d": 1.5, "deep_so_absorb": True},
     "custom": None,   # leave the merge config as given (off pass uses its tree_method)
 }
 
@@ -69,7 +73,8 @@ def apply_preset(merge: MergeConfig, preset: str, threads: int = 12) -> MergeCon
     if p is None:
         return replace(merge, tree_ft_workers=threads)
     return replace(merge, tree_method=p["tree_method"], tree_ft_mode=p["tree_ft_mode"],
-                   tree_ft_workers=threads)
+                   so_struct=p["so_struct"], deep_min_d=p["deep_min_d"],
+                   deep_so_absorb=p["deep_so_absorb"], tree_ft_workers=threads)
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # S0 default = `2sA_dc30_cc_sh30_RA` (docs/S0_families.md, selected on OrthoBench DEV RefOGs):

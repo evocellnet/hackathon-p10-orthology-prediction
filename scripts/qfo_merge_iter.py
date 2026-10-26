@@ -30,6 +30,44 @@ GO = os.path.join(ROOT, "data/inputs/qfo2022/gene_order")
 PROT = os.path.join(ROOT, "data/inputs/qfo2022/proteomes")
 
 
+def fn_breakdown(ox, gt, fam, tree):
+    """Missed reference speciation pairs (TreeFam-A DEV) by category x LCA level."""
+    from collections import Counter
+    from ancestra.newick import TreeIndex
+    from ancestra.orthoxml import Group, hogs_to_pairs
+    from qfo_treefam_dev_fast import dev_refpairs
+    refs = dev_refpairs()
+    genes = {x for r in refs for x in r[:2]}
+    top = {}
+    keep = []
+    for k, g in enumerate(ox.groups):
+        if isinstance(g, Group):
+            gg = g.genes()
+            if genes & set(gg):
+                keep.append(g)
+                for x in gg:
+                    top[x] = k
+    from ancestra.orthoxml import OrthoXML
+    pred = hogs_to_pairs(OrthoXML(genes=ox.genes, groups=keep, species_tree=ox.species_tree))
+    idx = gt.index()
+    tix = TreeIndex(tree)
+    out = {}
+    for a, b, t, _ in refs:
+        if t != "S" or ((a, b) if a < b else (b, a)) in pred:
+            continue
+        if a not in idx or b not in idx:
+            cat = "missing_gene"
+        elif fam[idx[a]] != fam[idx[b]]:
+            cat = "i_diff_family"
+        elif top.get(a, -1) != top.get(b, -2) or a not in top:
+            cat = "ii_diff_root_hog"
+        else:
+            cat = "iii_paralog_call"
+        lvl = tix.mrca([ox.genes[a].species, ox.genes[b].species]) if a in ox.genes and b in ox.genes else "?"
+        out.setdefault(cat, Counter())[lvl] += 1
+    return {k: dict(v.most_common()) for k, v in out.items()}
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--run", default=os.path.join(ROOT, "work/qfo_recall/base"))
@@ -68,6 +106,9 @@ def main():
         from ancestra.orthoxml import write_orthoxml
         write_orthoxml(ox, a.save)
     tf = tf_score(ox)
+    fnb = fn_breakdown(ox, gt, fam, tree)
+    json.dump(fnb, open(os.path.join(ROOT, "results/core_v0_qfo", f"fn_breakdown_{a.label.split()[0]}.json"), "w"),
+              indent=1)
     stats = {k: int(sum(s.get(k, 0) for s in res.node_stats)) for k in
              ("so_absorbed", "so_struct_merged", "r3_repaired", "tree_clusters", "tree_fasttree_jobs")}
     row = dict(time=datetime.now().isoformat(timespec="seconds"), label=a.label, preset=a.preset,
