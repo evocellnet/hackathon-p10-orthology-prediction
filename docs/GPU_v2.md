@@ -17,7 +17,7 @@ Status: done for this time-box (2026-10-27, 11:11–15:45 CET, T+19h34 → T+25h
 | (b) **`--backend gpusw`** (default split: families ≤ 1000 genes exhaustive SW on GPU, larger ones DIAMOND concurrently) | S2 1.32× / e2e 1.18× (OrthoBench accurate, 16 thr); S2 1.21× / e2e 1.18× (QfO fast) | OrthoBench OG-F **80.2 vs 79.7** (Δ +0.5 [−3.5, +3.3]); macro pair F1 −0.003 [−0.018, +0.010]; QfO TreeFam-A dev TPR/PPV **0.614/0.929 vs 0.615/0.922** | **equivalent within noise, deterministic**; modest gain |
 | (b') `gpusw` all-GPU (`gpu_max_family=0`) | S2 2.97× / e2e 1.57× (OrthoBench accurate); QfO 16× fewer CPU-h | OrthoBench OG-F −5.3 [−12.0, −0.7]; QfO PPV −0.016 | **not equivalent**; opt-in for speed only |
 | (c) GPU instead of FAMSA+FastTree local trees | cost is per-process fixed time (0.18 s per call), which a GPU cannot remove (§8) | – | not pursued; CPU batching recommended |
-| (d) ProstT5 on GPU (foldseek `--gpu 1`) | 6,100–7,300 res/s vs 100–250 on CPU (40–60×); the OrthoBench 3Di gap takes 1.8 h, the QfO gap 3.6 h | 99.91 % residue agreement with CPU ProstT5; 0.672 identity to true 3Di; deterministic | **feasible**: complete 3Di coverage in hours (§4) |
+| (d) ProstT5 on GPU (foldseek `--gpu 1`) | 6,100–7,300 res/s vs 100–250 on CPU (40–60×); the OrthoBench 3Di gap was **done in 1 h 56 min** (100 % coverage); the QfO gap ≈ 3.6 h | 99.91 % residue agreement with CPU ProstT5; 0.672 identity to true 3Di; deterministic | **feasible**: complete 3Di coverage in hours (§4) |
 | (e) ESM-2 + FAISS-GPU kNN S0 candidates | 592 s embedding + 4 s kNN (OrthoBench) | DEV completeness upper bound 0.853 at k = 25 (sequence ceiling 0.82), but 42 % of neighbours are outside the own family | research lead; not integrated (§5) |
 
 **Main lesson.** S2 dominates the CPU wall time (60–75 %), and its GPU part is cheap: all families ≤ 1000 genes take
@@ -166,6 +166,15 @@ the same fp16 GGUF ProstT5 as the CPU runs in `docs/structure_feasibility.md`). 
 | QfO 2022 proteins without AFDB 3Di (6.4 % of the 988,778 run genes) | 63,237 | 79.7 M | **3.6 h** | 89–221 h |
 | all of OrthoBench (ProstT5 for every protein) | 251,378 | 127.8 M | 5.8 h | 142–355 h |
 | all of QfO | 988,778 | 445.3 M | 20 h | 495–1,237 h |
+
+**Done: the OrthoBench 3Di gap is filled.** All 48,903 OrthoBench proteins without an AFDB 3Di were predicted
+with foldseek `--gpu 1`.
+- 38.9 M residues in **1 h 56 min** wall (5,580 res/s). For ~25 min of that the GPU was shared with other GPU jobs.
+- All lengths match the input.
+- Output: `work/gpuv2/prostt5/orthobench_gap_prostt5_3di.fa` (md5 9205cad1…).
+- Together with `data/structure/orthobench_3di_best.fa` (AFDB, 80.5 %) this gives **100 % 3Di coverage of
+  OrthoBench**. The predicted part is ProstT5 3Di, about 67 % identical to structure-derived 3Di. It is not copied
+  into `data/`; that is for the PI to decide (DATA.md entry needed).
 
 **Batched alternative** (`scripts/gpu_prostt5_batched.py`): HF `Rostlab/ProstT5_fp16` encoder plus the authors'
 encoder-only CNN 3Di head (`cnn_chkpnt/model.pt` from github.com/mheinzinger/ProstT5). Both were downloaded on
