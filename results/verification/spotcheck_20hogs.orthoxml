@@ -1,0 +1,2157 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<orthoXML xmlns="http://orthoXML.org/2011/" origin="ancestra" originVersion="0.1" version="0.5">
+  <species name="Caenorhabditis_elegans.WBcel235.pep.all" taxonId="3">
+    <database name="ancestra" version="1">
+      <genes>
+        <gene id="134" protId="WBGene00000158.1" />
+        <gene id="238" protId="WBGene00000270.1" />
+        <gene id="1756" protId="WBGene00002196.1" />
+        <gene id="1980" protId="WBGene00003129.1" />
+        <gene id="2110" protId="WBGene00003423.1" />
+        <gene id="2149" protId="WBGene00003478.1" />
+        <gene id="4477" protId="WBGene00006567.1" />
+        <gene id="7530" protId="WBGene00010000.1" />
+        <gene id="10556" protId="WBGene00013416.1" />
+        <gene id="11425" protId="WBGene00015110.1" />
+        <gene id="11731" protId="WBGene00015462.1" />
+        <gene id="13747" protId="WBGene00017724.1" />
+        <gene id="14954" protId="WBGene00019102.1" />
+        <gene id="15358" protId="WBGene00019590.1" />
+        <gene id="18160" protId="WBGene00022870.1" />
+        </genes>
+    </database>
+  </species>
+  <species name="Drosophila_melanogaster.BDGP6.28.pep.all" taxonId="4">
+    <database name="ancestra" version="1">
+      <genes>
+        <gene id="20336" protId="FBpp0072258" />
+        <gene id="20830" protId="FBpp0085590" />
+        <gene id="21015" protId="FBpp0297875" />
+        <gene id="22315" protId="FBpp0289364" />
+        <gene id="23288" protId="FBpp0289372" />
+        <gene id="23802" protId="FBpp0289368" />
+        <gene id="23926" protId="FBpp0070606" />
+        <gene id="24191" protId="FBpp0289363" />
+        <gene id="24981" protId="FBpp0072717" />
+        <gene id="25801" protId="FBpp0291548" />
+        <gene id="25844" protId="FBpp0085236" />
+        <gene id="25886" protId="FBpp0289373" />
+        <gene id="25950" protId="FBpp0289366" />
+        <gene id="26049" protId="FBpp0076201" />
+        <gene id="26885" protId="FBpp0076686" />
+        <gene id="27797" protId="FBpp0289365" />
+        <gene id="27923" protId="FBpp0084120" />
+        <gene id="28230" protId="FBpp0071938" />
+        <gene id="28707" protId="FBpp0298298" />
+        <gene id="29040" protId="FBpp0289367" />
+        <gene id="29398" protId="FBpp0289370" />
+        <gene id="30236" protId="FBpp0289369" />
+        <gene id="30464" protId="FBpp0290439" />
+        <gene id="30482" protId="FBpp0289362" />
+        <gene id="30976" protId="FBpp0076518" />
+        <gene id="31244" protId="FBpp0071232" />
+        <gene id="31415" protId="FBpp0289382" />
+        <gene id="31446" protId="FBpp0289371" />
+        <gene id="33189" protId="FBpp0073508" />
+        </genes>
+    </database>
+  </species>
+  <species name="Canis_familiaris.CanFam3.1.pep.all" taxonId="10">
+    <database name="ancestra" version="1">
+      <genes>
+        <gene id="34396" protId="ENSCAFP00000015153" />
+        <gene id="34477" protId="ENSCAFP00000049958" />
+        <gene id="34816" protId="ENSCAFP00000046702" />
+        <gene id="35484" protId="ENSCAFP00000033220" />
+        <gene id="35653" protId="ENSCAFP00000008984" />
+        <gene id="35687" protId="ENSCAFP00000026476" />
+        <gene id="35874" protId="ENSCAFP00000033756" />
+        <gene id="37578" protId="ENSCAFP00000004599" />
+        <gene id="40203" protId="ENSCAFP00000053738" />
+        <gene id="41252" protId="ENSCAFP00000038930" />
+        <gene id="42099" protId="ENSCAFP00000015839" />
+        <gene id="42276" protId="ENSCAFP00000024702" />
+        <gene id="42728" protId="ENSCAFP00000026921" />
+        <gene id="42854" protId="ENSCAFP00000059831" />
+        <gene id="43119" protId="ENSCAFP00000017207" />
+        <gene id="43476" protId="ENSCAFP00000019685" />
+        <gene id="44578" protId="ENSCAFP00000040205" />
+        <gene id="44777" protId="ENSCAFP00000056636" />
+        <gene id="44849" protId="ENSCAFP00000032994" />
+        <gene id="45425" protId="ENSCAFP00000048081" />
+        <gene id="45529" protId="ENSCAFP00000036076" />
+        <gene id="45980" protId="ENSCAFP00000033726" />
+        <gene id="47754" protId="ENSCAFP00000007753" />
+        <gene id="48052" protId="ENSCAFP00000010284" />
+        <gene id="50188" protId="ENSCAFP00000031248" />
+        <gene id="51219" protId="ENSCAFP00000022393" />
+        <gene id="51257" protId="ENSCAFP00000042836" />
+        <gene id="51386" protId="ENSCAFP00000015506" />
+        <gene id="51600" protId="ENSCAFP00000028871" />
+        <gene id="52183" protId="ENSCAFP00000017382" />
+        <gene id="52676" protId="ENSCAFP00000010017" />
+        <gene id="53486" protId="ENSCAFP00000017366" />
+        <gene id="53542" protId="ENSCAFP00000049712" />
+        </genes>
+    </database>
+  </species>
+  <species name="Homo_sapiens.GRCh38.pep.all" taxonId="13">
+    <database name="ancestra" version="1">
+      <genes>
+        <gene id="55231" protId="ENSP00000377148" />
+        <gene id="56198" protId="ENSP00000491256" />
+        <gene id="56322" protId="ENSP00000390784" />
+        <gene id="57275" protId="ENSP00000466693" />
+        <gene id="57505" protId="ENSP00000361036" />
+        <gene id="57509" protId="ENSP00000429013" />
+        <gene id="57512" protId="ENSP00000400157" />
+        <gene id="57775" protId="ENSP00000363985" />
+        <gene id="58204" protId="ENSP00000414880" />
+        <gene id="58359" protId="ENSP00000372696" />
+        <gene id="61384" protId="ENSP00000393128" />
+        <gene id="61916" protId="ENSP00000372959" />
+        <gene id="62238" protId="ENSP00000386444" />
+        <gene id="62415" protId="ENSP00000376456" />
+        <gene id="62608" protId="ENSP00000360244" />
+        <gene id="63052" protId="ENSP00000319636" />
+        <gene id="63119" protId="ENSP00000424765" />
+        <gene id="63983" protId="ENSP00000420682" />
+        <gene id="64012" protId="ENSP00000311538" />
+        <gene id="64354" protId="ENSP00000296411" />
+        <gene id="64537" protId="ENSP00000496801" />
+        <gene id="64575" protId="ENSP00000296099" />
+        <gene id="64949" protId="ENSP00000321874" />
+        <gene id="65330" protId="ENSP00000403701" />
+        <gene id="66204" protId="ENSP00000287585" />
+        <gene id="66437" protId="ENSP00000387739" />
+        <gene id="66509" protId="ENSP00000371221" />
+        <gene id="66625" protId="ENSP00000409581" />
+        <gene id="66707" protId="ENSP00000312700" />
+        <gene id="66714" protId="ENSP00000312442" />
+        <gene id="66752" protId="ENSP00000233078" />
+        <gene id="66977" protId="ENSP00000484640" />
+        <gene id="67555" protId="ENSP00000498322" />
+        <gene id="67985" protId="ENSP00000492160" />
+        <gene id="68670" protId="ENSP00000398660" />
+        <gene id="68742" protId="ENSP00000180173" />
+        <gene id="69471" protId="ENSP00000394876" />
+        <gene id="73005" protId="ENSP00000420465" />
+        <gene id="73755" protId="ENSP00000287590" />
+        <gene id="74574" protId="ENSP00000381699" />
+        <gene id="74694" protId="ENSP00000356404" />
+        <gene id="74707" protId="ENSP00000406903" />
+        <gene id="75113" protId="ENSP00000305595" />
+        <gene id="75481" protId="ENSP00000376532" />
+        <gene id="75937" protId="ENSP00000261377" />
+        <gene id="76941" protId="ENSP00000316173" />
+        <gene id="77184" protId="ENSP00000486571" />
+        <gene id="77204" protId="ENSP00000486791" />
+        </genes>
+    </database>
+  </species>
+  <species name="Pan_troglodytes.Pan_tro_3.0.pep.all" taxonId="14">
+    <database name="ancestra" version="1">
+      <genes>
+        <gene id="78133" protId="ENSPTRP00000074757" />
+        <gene id="78342" protId="ENSPTRP00000067939" />
+        <gene id="78633" protId="ENSPTRP00000064479" />
+        <gene id="79179" protId="ENSPTRP00000084448" />
+        <gene id="79626" protId="ENSPTRP00000020205" />
+        <gene id="79651" protId="ENSPTRP00000018934" />
+        <gene id="79898" protId="ENSPTRP00000067495" />
+        <gene id="79900" protId="ENSPTRP00000021529" />
+        <gene id="80531" protId="ENSPTRP00000061455" />
+        <gene id="80617" protId="ENSPTRP00000066168" />
+        <gene id="80877" protId="ENSPTRP00000093841" />
+        <gene id="80931" protId="ENSPTRP00000057302" />
+        <gene id="81246" protId="ENSPTRP00000001374" />
+        <gene id="81768" protId="ENSPTRP00000081968" />
+        <gene id="81886" protId="ENSPTRP00000049501" />
+        <gene id="82422" protId="ENSPTRP00000026952" />
+        <gene id="83441" protId="ENSPTRP00000009464" />
+        <gene id="83805" protId="ENSPTRP00000089525" />
+        <gene id="84835" protId="ENSPTRP00000037747" />
+        <gene id="85110" protId="ENSPTRP00000049161" />
+        <gene id="85756" protId="ENSPTRP00000014687" />
+        <gene id="86180" protId="ENSPTRP00000038209" />
+        <gene id="88971" protId="ENSPTRP00000049779" />
+        <gene id="89282" protId="ENSPTRP00000027998" />
+        <gene id="90344" protId="ENSPTRP00000087062" />
+        <gene id="90412" protId="ENSPTRP00000081998" />
+        <gene id="90865" protId="ENSPTRP00000018232" />
+        <gene id="90945" protId="ENSPTRP00000091313" />
+        <gene id="91099" protId="ENSPTRP00000077736" />
+        <gene id="91252" protId="ENSPTRP00000066441" />
+        <gene id="92953" protId="ENSPTRP00000088453" />
+        <gene id="92994" protId="ENSPTRP00000009743" />
+        <gene id="93253" protId="ENSPTRP00000051151" />
+        <gene id="93268" protId="ENSPTRP00000038205" />
+        <gene id="94075" protId="ENSPTRP00000064523" />
+        <gene id="94740" protId="ENSPTRP00000067385" />
+        <gene id="95399" protId="ENSPTRP00000086700" />
+        <gene id="95884" protId="ENSPTRP00000033492" />
+        <gene id="95956" protId="ENSPTRP00000013399" />
+        <gene id="95957" protId="ENSPTRP00000009884" />
+        <gene id="96459" protId="ENSPTRP00000043134" />
+        <gene id="97077" protId="ENSPTRP00000007205" />
+        <gene id="97547" protId="ENSPTRP00000025146" />
+        <gene id="97606" protId="ENSPTRP00000071064" />
+        <gene id="97726" protId="ENSPTRP00000022322" />
+        <gene id="97795" protId="ENSPTRP00000068746" />
+        <gene id="99263" protId="ENSPTRP00000062149" />
+        <gene id="100366" protId="ENSPTRP00000044448" />
+        <gene id="100881" protId="ENSPTRP00000037796" />
+        </genes>
+    </database>
+  </species>
+  <species name="Mus_musculus.GRCm38.pep.all" taxonId="16">
+    <database name="ancestra" version="1">
+      <genes>
+        <gene id="102425" protId="ENSMUSP00000046118" />
+        <gene id="103852" protId="ENSMUSP00000158885" />
+        <gene id="104218" protId="ENSMUSP00000109431" />
+        <gene id="104233" protId="ENSMUSP00000076948" />
+        <gene id="104718" protId="ENSMUSP00000094893" />
+        <gene id="105675" protId="ENSMUSP00000108931" />
+        <gene id="105799" protId="ENSMUSP00000140270" />
+        <gene id="108834" protId="ENSMUSP00000056364" />
+        <gene id="108894" protId="ENSMUSP00000112624" />
+        <gene id="109275" protId="ENSMUSP00000130840" />
+        <gene id="109923" protId="ENSMUSP00000043996" />
+        <gene id="110193" protId="ENSMUSP00000153403" />
+        <gene id="110715" protId="ENSMUSP00000041343" />
+        <gene id="110852" protId="ENSMUSP00000104208" />
+        <gene id="110877" protId="ENSMUSP00000032321" />
+        <gene id="113644" protId="ENSMUSP00000145797" />
+        <gene id="114542" protId="ENSMUSP00000060247" />
+        <gene id="115130" protId="ENSMUSP00000031384" />
+        <gene id="115360" protId="ENSMUSP00000090844" />
+        <gene id="115498" protId="ENSMUSP00000102130" />
+        <gene id="116628" protId="ENSMUSP00000043851" />
+        <gene id="117040" protId="ENSMUSP00000084823" />
+        <gene id="117146" protId="ENSMUSP00000101000" />
+        <gene id="117286" protId="ENSMUSP00000035321" />
+        <gene id="117349" protId="ENSMUSP00000152834" />
+        <gene id="117417" protId="ENSMUSP00000149256" />
+        <gene id="118071" protId="ENSMUSP00000136963" />
+        <gene id="118122" protId="ENSMUSP00000143576" />
+        <gene id="119408" protId="ENSMUSP00000095879" />
+        <gene id="119465" protId="ENSMUSP00000083808" />
+        <gene id="119762" protId="ENSMUSP00000121113" />
+        <gene id="120174" protId="ENSMUSP00000029804" />
+        <gene id="120440" protId="ENSMUSP00000102686" />
+        <gene id="120483" protId="ENSMUSP00000034260" />
+        <gene id="120673" protId="ENSMUSP00000109398" />
+        <gene id="122505" protId="ENSMUSP00000156959" />
+        <gene id="122728" protId="ENSMUSP00000124470" />
+        <gene id="123362" protId="ENSMUSP00000058363" />
+        <gene id="123494" protId="ENSMUSP00000044054" />
+        <gene id="123561" protId="ENSMUSP00000108455" />
+        <gene id="123829" protId="ENSMUSP00000062005" />
+        </genes>
+    </database>
+  </species>
+  <species name="Rattus_norvegicus.Rnor_6.0.pep.all" taxonId="17">
+    <database name="ancestra" version="1">
+      <genes>
+        <gene id="124318" protId="ENSRNOP00000036180" />
+        <gene id="124571" protId="ENSRNOP00000070184" />
+        <gene id="125729" protId="ENSRNOP00000037132" />
+        <gene id="126162" protId="ENSRNOP00000025362" />
+        <gene id="126828" protId="ENSRNOP00000010018" />
+        <gene id="127881" protId="ENSRNOP00000027964" />
+        <gene id="128282" protId="ENSRNOP00000012286" />
+        <gene id="128406" protId="ENSRNOP00000073863" />
+        <gene id="129833" protId="ENSRNOP00000046032" />
+        <gene id="130733" protId="ENSRNOP00000057027" />
+        <gene id="131324" protId="ENSRNOP00000010347" />
+        <gene id="131393" protId="ENSRNOP00000057180" />
+        <gene id="131710" protId="ENSRNOP00000067153" />
+        <gene id="131913" protId="ENSRNOP00000071579" />
+        <gene id="132049" protId="ENSRNOP00000071937" />
+        <gene id="132214" protId="ENSRNOP00000071921" />
+        <gene id="132395" protId="ENSRNOP00000004342" />
+        <gene id="132399" protId="ENSRNOP00000054961" />
+        <gene id="132434" protId="ENSRNOP00000011286" />
+        <gene id="133511" protId="ENSRNOP00000046069" />
+        <gene id="134194" protId="ENSRNOP00000017579" />
+        <gene id="134607" protId="ENSRNOP00000008037" />
+        <gene id="134627" protId="ENSRNOP00000059708" />
+        <gene id="135524" protId="ENSRNOP00000025093" />
+        <gene id="135735" protId="ENSRNOP00000024578" />
+        <gene id="136361" protId="ENSRNOP00000045319" />
+        <gene id="136636" protId="ENSRNOP00000049562" />
+        <gene id="137323" protId="ENSRNOP00000058333" />
+        <gene id="137840" protId="ENSRNOP00000075653" />
+        <gene id="137923" protId="ENSRNOP00000019057" />
+        <gene id="138779" protId="ENSRNOP00000000550" />
+        <gene id="138924" protId="ENSRNOP00000075540" />
+        <gene id="140400" protId="ENSRNOP00000026207" />
+        <gene id="140639" protId="ENSRNOP00000024323" />
+        <gene id="140945" protId="ENSRNOP00000070397" />
+        <gene id="142435" protId="ENSRNOP00000072467" />
+        <gene id="143523" protId="ENSRNOP00000075893" />
+        <gene id="143942" protId="ENSRNOP00000068038" />
+        <gene id="144629" protId="ENSRNOP00000029468" />
+        <gene id="144711" protId="ENSRNOP00000043462" />
+        <gene id="145268" protId="ENSRNOP00000016012" />
+        <gene id="145743" protId="ENSRNOP00000030852" />
+        </genes>
+    </database>
+  </species>
+  <species name="Monodelphis_domestica.ASM229v1.pep.all" taxonId="18">
+    <database name="ancestra" version="1">
+      <genes>
+        <gene id="147518" protId="ENSMODP00000044008" />
+        <gene id="147792" protId="ENSMODP00000024490" />
+        <gene id="148036" protId="ENSMODP00000059350" />
+        <gene id="148618" protId="ENSMODP00000002934" />
+        <gene id="148690" protId="ENSMODP00000003025" />
+        <gene id="148727" protId="ENSMODP00000036086" />
+        <gene id="150206" protId="ENSMODP00000015322" />
+        <gene id="150274" protId="ENSMODP00000030937" />
+        <gene id="150289" protId="ENSMODP00000004686" />
+        <gene id="150464" protId="ENSMODP00000017180" />
+        <gene id="150811" protId="ENSMODP00000028484" />
+        <gene id="150921" protId="ENSMODP00000034924" />
+        <gene id="151218" protId="ENSMODP00000043596" />
+        <gene id="151401" protId="ENSMODP00000049372" />
+        <gene id="151506" protId="ENSMODP00000029739" />
+        <gene id="151541" protId="ENSMODP00000056651" />
+        <gene id="151567" protId="ENSMODP00000023079" />
+        <gene id="152189" protId="ENSMODP00000000209" />
+        <gene id="152879" protId="ENSMODP00000023785" />
+        <gene id="152903" protId="ENSMODP00000060325" />
+        <gene id="154160" protId="ENSMODP00000010654" />
+        <gene id="154191" protId="ENSMODP00000023908" />
+        <gene id="154701" protId="ENSMODP00000006345" />
+        <gene id="154844" protId="ENSMODP00000058930" />
+        <gene id="155374" protId="ENSMODP00000031471" />
+        <gene id="155517" protId="ENSMODP00000035310" />
+        <gene id="156093" protId="ENSMODP00000035692" />
+        <gene id="156426" protId="ENSMODP00000005079" />
+        <gene id="156849" protId="ENSMODP00000060390" />
+        <gene id="157751" protId="ENSMODP00000035549" />
+        <gene id="158176" protId="ENSMODP00000031190" />
+        <gene id="158473" protId="ENSMODP00000006275" />
+        <gene id="158497" protId="ENSMODP00000006288" />
+        <gene id="159372" protId="ENSMODP00000042900" />
+        <gene id="159796" protId="ENSMODP00000044460" />
+        <gene id="159857" protId="ENSMODP00000045953" />
+        <gene id="160508" protId="ENSMODP00000018392" />
+        <gene id="160821" protId="ENSMODP00000057267" />
+        <gene id="161260" protId="ENSMODP00000043162" />
+        <gene id="163555" protId="ENSMODP00000031308" />
+        <gene id="165621" protId="ENSMODP00000034947" />
+        <gene id="165983" protId="ENSMODP00000015258" />
+        <gene id="166156" protId="ENSMODP00000023989" />
+        <gene id="166601" protId="ENSMODP00000045593" />
+        <gene id="166947" protId="ENSMODP00000005897" />
+        <gene id="167123" protId="ENSMODP00000039732" />
+        <gene id="167142" protId="ENSMODP00000039434" />
+        <gene id="167167" protId="ENSMODP00000007325" />
+        <gene id="167671" protId="ENSMODP00000028973" />
+        </genes>
+    </database>
+  </species>
+  <species name="Gallus_gallus.GRCg6a.pep.all" taxonId="19">
+    <database name="ancestra" version="1">
+      <genes>
+        <gene id="169608" protId="ENSGALP00000064626" />
+        <gene id="169932" protId="ENSGALP00000055226" />
+        <gene id="170297" protId="ENSGALP00000071657" />
+        <gene id="171684" protId="ENSGALP00000040779" />
+        <gene id="171904" protId="ENSGALP00000033790" />
+        <gene id="171942" protId="ENSGALP00000027473" />
+        <gene id="172673" protId="ENSGALP00000073798" />
+        <gene id="172981" protId="ENSGALP00000020708" />
+        <gene id="173080" protId="ENSGALP00000038121" />
+        <gene id="174575" protId="ENSGALP00000065535" />
+        <gene id="175201" protId="ENSGALP00000017762" />
+        <gene id="175628" protId="ENSGALP00000025934" />
+        <gene id="175846" protId="ENSGALP00000068969" />
+        <gene id="176142" protId="ENSGALP00000051992" />
+        <gene id="176604" protId="ENSGALP00000073989" />
+        <gene id="177812" protId="ENSGALP00000051213" />
+        <gene id="178141" protId="ENSGALP00000054853" />
+        <gene id="178184" protId="ENSGALP00000012464" />
+        <gene id="178206" protId="ENSGALP00000066354" />
+        <gene id="179479" protId="ENSGALP00000024479" />
+        <gene id="179732" protId="ENSGALP00000006752" />
+        <gene id="179796" protId="ENSGALP00000019961" />
+        <gene id="181008" protId="ENSGALP00000001243" />
+        <gene id="181237" protId="ENSGALP00000053745" />
+        <gene id="181849" protId="ENSGALP00000045291" />
+        <gene id="182190" protId="ENSGALP00000014498" />
+        <gene id="182415" protId="ENSGALP00000046700" />
+        <gene id="182541" protId="ENSGALP00000070149" />
+        <gene id="183361" protId="ENSGALP00000003498" />
+        <gene id="183702" protId="ENSGALP00000012899" />
+        <gene id="183788" protId="ENSGALP00000066707" />
+        <gene id="183989" protId="ENSGALP00000048925" />
+        <gene id="184023" protId="ENSGALP00000072536" />
+        <gene id="184322" protId="ENSGALP00000012257" />
+        </genes>
+    </database>
+  </species>
+  <species name="Danio_rerio.GRCz11.pep.all" taxonId="21">
+    <database name="ancestra" version="1">
+      <genes>
+        <gene id="185071" protId="ENSDARP00000120172" />
+        <gene id="185255" protId="ENSDARP00000130727" />
+        <gene id="186024" protId="ENSDARP00000069611" />
+        <gene id="187023" protId="ENSDARP00000151171" />
+        <gene id="187163" protId="ENSDARP00000112159" />
+        <gene id="187377" protId="ENSDARP00000056168" />
+        <gene id="188112" protId="ENSDARP00000082202" />
+        <gene id="188471" protId="ENSDARP00000075319" />
+        <gene id="189704" protId="ENSDARP00000115481" />
+        <gene id="189721" protId="ENSDARP00000117456" />
+        <gene id="191127" protId="ENSDARP00000038316" />
+        <gene id="191648" protId="ENSDARP00000063833" />
+        <gene id="192125" protId="ENSDARP00000144541" />
+        <gene id="192236" protId="ENSDARP00000071033" />
+        <gene id="192401" protId="ENSDARP00000139089" />
+        <gene id="192442" protId="ENSDARP00000117098" />
+        <gene id="193512" protId="ENSDARP00000132244" />
+        <gene id="193621" protId="ENSDARP00000113598" />
+        <gene id="193903" protId="ENSDARP00000007263" />
+        <gene id="194689" protId="ENSDARP00000100697" />
+        <gene id="196278" protId="ENSDARP00000073453" />
+        <gene id="196561" protId="ENSDARP00000053924" />
+        <gene id="197610" protId="ENSDARP00000113818" />
+        <gene id="197715" protId="ENSDARP00000157237" />
+        <gene id="197893" protId="ENSDARP00000114222" />
+        <gene id="198561" protId="ENSDARP00000123385" />
+        <gene id="198637" protId="ENSDARP00000123907" />
+        <gene id="198922" protId="ENSDARP00000119009" />
+        <gene id="199120" protId="ENSDARP00000068710" />
+        <gene id="199123" protId="ENSDARP00000135786" />
+        <gene id="199820" protId="ENSDARP00000132311" />
+        <gene id="200492" protId="ENSDARP00000151100" />
+        <gene id="200810" protId="ENSDARP00000120940" />
+        <gene id="200848" protId="ENSDARP00000024694" />
+        <gene id="201423" protId="ENSDARP00000156956" />
+        <gene id="201606" protId="ENSDARP00000007599" />
+        <gene id="201760" protId="ENSDARP00000027394" />
+        <gene id="201945" protId="ENSDARP00000116649" />
+        <gene id="202214" protId="ENSDARP00000083347" />
+        <gene id="202349" protId="ENSDARP00000125804" />
+        <gene id="202982" protId="ENSDARP00000009093" />
+        <gene id="203836" protId="ENSDARP00000019621" />
+        <gene id="205547" protId="ENSDARP00000139166" />
+        <gene id="205727" protId="ENSDARP00000145226" />
+        <gene id="206066" protId="ENSDARP00000146314" />
+        <gene id="206086" protId="ENSDARP00000153489" />
+        <gene id="206206" protId="ENSDARP00000148038" />
+        <gene id="206593" protId="ENSDARP00000081081" />
+        <gene id="206851" protId="ENSDARP00000111760" />
+        <gene id="206881" protId="ENSDARP00000137701" />
+        <gene id="207280" protId="ENSDARP00000105997" />
+        <gene id="207294" protId="ENSDARP00000141477" />
+        <gene id="207362" protId="ENSDARP00000133748" />
+        <gene id="207433" protId="ENSDARP00000070975" />
+        <gene id="207879" protId="ENSDARP00000103185" />
+        <gene id="208121" protId="ENSDARP00000024424" />
+        <gene id="208779" protId="ENSDARP00000111458" />
+        <gene id="208864" protId="ENSDARP00000139530" />
+        <gene id="208968" protId="ENSDARP00000149282" />
+        <gene id="209161" protId="ENSDARP00000152542" />
+        <gene id="209590" protId="ENSDARP00000157425" />
+        <gene id="209908" protId="ENSDARP00000152510" />
+        <gene id="209947" protId="ENSDARP00000134266" />
+        <gene id="210350" protId="ENSDARP00000118215" />
+        <gene id="210878" protId="ENSDARP00000082057" />
+        <gene id="210997" protId="ENSDARP00000146513" />
+        <gene id="211069" protId="ENSDARP00000143563" />
+        <gene id="211212" protId="ENSDARP00000147577" />
+        <gene id="211533" protId="ENSDARP00000141819" />
+        <gene id="212022" protId="ENSDARP00000099625" />
+        <gene id="212917" protId="ENSDARP00000153985" />
+        <gene id="213158" protId="ENSDARP00000156096" />
+        <gene id="213460" protId="ENSDARP00000146290" />
+        <gene id="213615" protId="ENSDARP00000109059" />
+        <gene id="215036" protId="ENSDARP00000146898" />
+        </genes>
+    </database>
+  </species>
+  <species name="Tetraodon_nigroviridis.TETRAODON8.pep.all" taxonId="22">
+    <database name="ancestra" version="1">
+      <genes>
+        <gene id="215819" protId="ENSTNIP00000008455" />
+        <gene id="216106" protId="ENSTNIP00000005455" />
+        <gene id="216224" protId="ENSTNIP00000015700" />
+        <gene id="216732" protId="ENSTNIP00000005358" />
+        <gene id="216851" protId="ENSTNIP00000000865" />
+        <gene id="217693" protId="ENSTNIP00000008346" />
+        <gene id="217977" protId="ENSTNIP00000010767" />
+        <gene id="218117" protId="ENSTNIP00000019375" />
+        <gene id="218630" protId="ENSTNIP00000022225" />
+        <gene id="219955" protId="ENSTNIP00000010640" />
+        <gene id="220255" protId="ENSTNIP00000010624" />
+        <gene id="220776" protId="ENSTNIP00000018175" />
+        <gene id="221556" protId="ENSTNIP00000016256" />
+        <gene id="221603" protId="ENSTNIP00000001431" />
+        <gene id="223759" protId="ENSTNIP00000012732" />
+        <gene id="223806" protId="ENSTNIP00000018314" />
+        <gene id="224223" protId="ENSTNIP00000021079" />
+        <gene id="225051" protId="ENSTNIP00000019946" />
+        <gene id="225060" protId="ENSTNIP00000009083" />
+        <gene id="225282" protId="ENSTNIP00000010486" />
+        <gene id="225559" protId="ENSTNIP00000006840" />
+        <gene id="225685" protId="ENSTNIP00000003237" />
+        <gene id="225787" protId="ENSTNIP00000005485" />
+        <gene id="225788" protId="ENSTNIP00000001723" />
+        <gene id="226100" protId="ENSTNIP00000009582" />
+        <gene id="226831" protId="ENSTNIP00000005531" />
+        <gene id="228427" protId="ENSTNIP00000013851" />
+        <gene id="228434" protId="ENSTNIP00000021881" />
+        <gene id="228474" protId="ENSTNIP00000015149" />
+        <gene id="228543" protId="ENSTNIP00000012962" />
+        <gene id="228544" protId="ENSTNIP00000012961" />
+        <gene id="228545" protId="ENSTNIP00000012960" />
+        <gene id="228600" protId="ENSTNIP00000013100" />
+        <gene id="229101" protId="ENSTNIP00000015302" />
+        <gene id="230095" protId="ENSTNIP00000013511" />
+        <gene id="230166" protId="ENSTNIP00000002599" />
+        <gene id="232377" protId="ENSTNIP00000007153" />
+        <gene id="232485" protId="ENSTNIP00000007489" />
+        <gene id="232976" protId="ENSTNIP00000008756" />
+        <gene id="233386" protId="ENSTNIP00000014127" />
+        <gene id="233417" protId="ENSTNIP00000014157" />
+        <gene id="233462" protId="ENSTNIP00000014871" />
+        <gene id="233638" protId="ENSTNIP00000023091" />
+        <gene id="234268" protId="ENSTNIP00000011081" />
+        </genes>
+    </database>
+  </species>
+  <species name="Ciona_intestinalis.KH.pep.all" taxonId="23">
+    <database name="ancestra" version="1">
+      <genes>
+        <gene id="235090" protId="ENSCINP00000011827" />
+        <gene id="235929" protId="ENSCINP00000027562" />
+        <gene id="236165" protId="ENSCINP00000029821" />
+        <gene id="236547" protId="ENSCINP00000030314" />
+        <gene id="236707" protId="ENSCINP00000031780" />
+        <gene id="236949" protId="ENSCINP00000024371" />
+        <gene id="237037" protId="ENSCINP00000032528" />
+        <gene id="237699" protId="ENSCINP00000005339" />
+        <gene id="238152" protId="ENSCINP00000016410" />
+        <gene id="238397" protId="ENSCINP00000014950" />
+        <gene id="239282" protId="ENSCINP00000005021" />
+        <gene id="239328" protId="ENSCINP00000033020" />
+        <gene id="240498" protId="ENSCINP00000032341" />
+        <gene id="241318" protId="ENSCINP00000002067" />
+        <gene id="242228" protId="ENSCINP00000013403" />
+        <gene id="242913" protId="ENSCINP00000006896" />
+        <gene id="243090" protId="ENSCINP00000016565" />
+        <gene id="243204" protId="ENSCINP00000033613" />
+        <gene id="244725" protId="ENSCINP00000021820" />
+        <gene id="244735" protId="ENSCINP00000036182" />
+        <gene id="244751" protId="ENSCINP00000033124" />
+        <gene id="245713" protId="ENSCINP00000012522" />
+        <gene id="246494" protId="ENSCINP00000023790" />
+        <gene id="246884" protId="ENSCINP00000028514" />
+        <gene id="248062" protId="ENSCINP00000034055" />
+        <gene id="248136" protId="ENSCINP00000002693" />
+        <gene id="248166" protId="ENSCINP00000031042" />
+        <gene id="248502" protId="ENSCINP00000032361" />
+        <gene id="249293" protId="ENSCINP00000035166" />
+        <gene id="250007" protId="ENSCINP00000031917" />
+        <gene id="250194" protId="ENSCINP00000033612" />
+        <gene id="250195" protId="ENSCINP00000031883" />
+        <gene id="250199" protId="ENSCINP00000029120" />
+        <gene id="251011" protId="ENSCINP00000002184" />
+        </genes>
+    </database>
+  </species>
+  <taxonomy>
+    <taxon id="1" name="Bilateria">
+      <taxon id="2" name="Ecdysozoa">
+        <taxon id="3" name="Caenorhabditis_elegans.WBcel235.pep.all" />
+        <taxon id="4" name="Drosophila_melanogaster.BDGP6.28.pep.all" />
+      </taxon>
+      <taxon id="5" name="Chordata">
+        <taxon id="6" name="Euteleostomi">
+          <taxon id="7" name="Amniota">
+            <taxon id="8" name="Theria">
+              <taxon id="9" name="Boreoeutheria">
+                <taxon id="10" name="Canis_familiaris.CanFam3.1.pep.all" />
+                <taxon id="11" name="Euarchontoglires">
+                  <taxon id="12" name="Homininae">
+                    <taxon id="13" name="Homo_sapiens.GRCh38.pep.all" />
+                    <taxon id="14" name="Pan_troglodytes.Pan_tro_3.0.pep.all" />
+                  </taxon>
+                  <taxon id="15" name="Murinae">
+                    <taxon id="16" name="Mus_musculus.GRCm38.pep.all" />
+                    <taxon id="17" name="Rattus_norvegicus.Rnor_6.0.pep.all" />
+                  </taxon>
+                </taxon>
+              </taxon>
+              <taxon id="18" name="Monodelphis_domestica.ASM229v1.pep.all" />
+            </taxon>
+            <taxon id="19" name="Gallus_gallus.GRCg6a.pep.all" />
+          </taxon>
+          <taxon id="20" name="Clupeocephala">
+            <taxon id="21" name="Danio_rerio.GRCz11.pep.all" />
+            <taxon id="22" name="Tetraodon_nigroviridis.TETRAODON8.pep.all" />
+          </taxon>
+        </taxon>
+        <taxon id="23" name="Ciona_intestinalis.KH.pep.all" />
+      </taxon>
+    </taxon>
+  </taxonomy>
+  <groups>
+    <orthologGroup id="HOG0001543" taxonId="8">
+      <property name="TaxRange" value="Theria" />
+      <geneRef id="78133" />
+      <geneRef id="147518" />
+    </orthologGroup>
+    <orthologGroup id="HOG0002324" taxonId="7">
+      <property name="TaxRange" value="Amniota" />
+      <orthologGroup id="HOG0002324.1" taxonId="8">
+        <property name="TaxRange" value="Theria" />
+        <orthologGroup id="HOG0002324.2" taxonId="9">
+          <property name="TaxRange" value="Boreoeutheria" />
+          <geneRef id="35484" />
+          <orthologGroup id="HOG0002324.3" taxonId="11">
+            <property name="TaxRange" value="Euarchontoglires" />
+            <orthologGroup id="HOG0002324.4" taxonId="12">
+              <property name="TaxRange" value="Homininae" />
+              <geneRef id="61916" />
+              <geneRef id="81886" />
+            </orthologGroup>
+            <orthologGroup id="HOG0002324.5" taxonId="15">
+              <property name="TaxRange" value="Murinae" />
+              <geneRef id="104718" />
+              <geneRef id="136636" />
+            </orthologGroup>
+          </orthologGroup>
+        </orthologGroup>
+        <geneRef id="155517" />
+      </orthologGroup>
+      <geneRef id="177812" />
+    </orthologGroup>
+    <orthologGroup id="HOG0003026" taxonId="6">
+      <property name="TaxRange" value="Euteleostomi" />
+      <orthologGroup id="HOG0003026.1" taxonId="7">
+        <property name="TaxRange" value="Amniota" />
+        <orthologGroup id="HOG0003026.2" taxonId="9">
+          <property name="TaxRange" value="Boreoeutheria" />
+          <geneRef id="53542" />
+          <orthologGroup id="HOG0003026.3" taxonId="11">
+            <property name="TaxRange" value="Euarchontoglires" />
+            <orthologGroup id="HOG0003026.4" taxonId="12">
+              <property name="TaxRange" value="Homininae" />
+              <geneRef id="74707" />
+              <paralogGroup id="HOG0003026.5" taxonId="14">
+                <geneRef id="78342" />
+                <geneRef id="78633" />
+                <geneRef id="79179" />
+                <geneRef id="80877" />
+                <geneRef id="81768" />
+                <geneRef id="90344" />
+                <geneRef id="90412" />
+                <geneRef id="95399" />
+                <geneRef id="97606" />
+              </paralogGroup>
+            </orthologGroup>
+            <orthologGroup id="HOG0003026.6" taxonId="15">
+              <property name="TaxRange" value="Murinae" />
+              <geneRef id="105799" />
+              <paralogGroup id="HOG0003026.7" taxonId="17">
+                <geneRef id="130733" />
+                <geneRef id="131393" />
+                <geneRef id="132399" />
+                <geneRef id="134627" />
+                <geneRef id="135524" />
+              </paralogGroup>
+            </orthologGroup>
+          </orthologGroup>
+        </orthologGroup>
+        <geneRef id="178141" />
+      </orthologGroup>
+      <paralogGroup id="HOG0003026.8" taxonId="20">
+        <geneRef id="202982" />
+        <geneRef id="206881" />
+        <geneRef id="211212" />
+        <geneRef id="213460" />
+      </paralogGroup>
+    </orthologGroup>
+    <orthologGroup id="HOG0003051" taxonId="6">
+      <property name="TaxRange" value="Euteleostomi" />
+      <orthologGroup id="HOG0003051.1" taxonId="7">
+        <property name="TaxRange" value="Amniota" />
+        <orthologGroup id="HOG0003051.2" taxonId="8">
+          <property name="TaxRange" value="Theria" />
+          <orthologGroup id="HOG0003051.3" taxonId="9">
+            <property name="TaxRange" value="Boreoeutheria" />
+            <geneRef id="50188" />
+            <orthologGroup id="HOG0003051.4" taxonId="11">
+              <property name="TaxRange" value="Euarchontoglires" />
+              <orthologGroup id="HOG0003051.5" taxonId="12">
+                <property name="TaxRange" value="Homininae" />
+                <geneRef id="64575" />
+                <geneRef id="79626" />
+              </orthologGroup>
+              <orthologGroup id="HOG0003051.6" taxonId="15">
+                <property name="TaxRange" value="Murinae" />
+                <geneRef id="117286" />
+                <geneRef id="134607" />
+              </orthologGroup>
+            </orthologGroup>
+          </orthologGroup>
+          <geneRef id="167671" />
+        </orthologGroup>
+        <geneRef id="170297" />
+      </orthologGroup>
+      <geneRef id="203836" />
+    </orthologGroup>
+    <orthologGroup id="HOG0003112" taxonId="6">
+      <property name="TaxRange" value="Euteleostomi" />
+      <orthologGroup id="HOG0003112.1" taxonId="7">
+        <property name="TaxRange" value="Amniota" />
+        <orthologGroup id="HOG0003112.2" taxonId="9">
+          <property name="TaxRange" value="Boreoeutheria" />
+          <geneRef id="43476" />
+          <orthologGroup id="HOG0003112.3" taxonId="11">
+            <property name="TaxRange" value="Euarchontoglires" />
+            <orthologGroup id="HOG0003112.4" taxonId="12">
+              <property name="TaxRange" value="Homininae" />
+              <paralogGroup id="HOG0003112.5" taxonId="13">
+                <geneRef id="57275" />
+                <geneRef id="77204" />
+              </paralogGroup>
+              <geneRef id="99263" />
+            </orthologGroup>
+            <orthologGroup id="HOG0003112.6" taxonId="15">
+              <property name="TaxRange" value="Murinae" />
+              <geneRef id="110877" />
+              <geneRef id="144629" />
+            </orthologGroup>
+          </orthologGroup>
+        </orthologGroup>
+        <geneRef id="174575" />
+      </orthologGroup>
+      <geneRef id="206851" />
+    </orthologGroup>
+    <orthologGroup id="HOG0005204" taxonId="5">
+      <property name="TaxRange" value="Chordata" />
+      <orthologGroup id="HOG0005204.1" taxonId="8">
+        <property name="TaxRange" value="Theria" />
+        <orthologGroup id="HOG0005204.2" taxonId="9">
+          <property name="TaxRange" value="Boreoeutheria" />
+          <geneRef id="34816" />
+          <orthologGroup id="HOG0005204.3" taxonId="11">
+            <property name="TaxRange" value="Euarchontoglires" />
+            <orthologGroup id="HOG0005204.4" taxonId="12">
+              <property name="TaxRange" value="Homininae" />
+              <geneRef id="62608" />
+              <geneRef id="81246" />
+            </orthologGroup>
+            <orthologGroup id="HOG0005204.5" taxonId="15">
+              <property name="TaxRange" value="Murinae" />
+              <geneRef id="120440" />
+              <geneRef id="137840" />
+            </orthologGroup>
+          </orthologGroup>
+        </orthologGroup>
+        <geneRef id="148690" />
+      </orthologGroup>
+      <geneRef id="236949" />
+    </orthologGroup>
+    <orthologGroup id="HOG0008869" taxonId="2">
+      <property name="TaxRange" value="Ecdysozoa" />
+      <geneRef id="1756" />
+      <paralogGroup id="HOG0008869.1" taxonId="4">
+        <geneRef id="20336" />
+        <geneRef id="20830" />
+        <geneRef id="22315" />
+        <geneRef id="23288" />
+        <geneRef id="23802" />
+        <geneRef id="24191" />
+        <geneRef id="25801" />
+        <geneRef id="25886" />
+        <geneRef id="25950" />
+        <geneRef id="27797" />
+        <geneRef id="28707" />
+        <geneRef id="29040" />
+        <geneRef id="29398" />
+        <geneRef id="30236" />
+        <geneRef id="30482" />
+        <geneRef id="31415" />
+        <geneRef id="31446" />
+      </paralogGroup>
+    </orthologGroup>
+    <orthologGroup id="HOG0009028" taxonId="2">
+      <property name="TaxRange" value="Ecdysozoa" />
+      <geneRef id="10556" />
+      <paralogGroup id="HOG0009028.1" taxonId="4">
+        <geneRef id="30464" />
+        <geneRef id="30976" />
+      </paralogGroup>
+    </orthologGroup>
+    <orthologGroup id="HOG0009042" taxonId="2">
+      <property name="TaxRange" value="Ecdysozoa" />
+      <geneRef id="13747" />
+      <geneRef id="33189" />
+    </orthologGroup>
+    <orthologGroup id="HOG0009262" taxonId="1">
+      <property name="TaxRange" value="Bilateria" />
+      <paralogGroup id="HOG0009262.1" taxonId="2">
+        <geneRef id="7530" />
+        <geneRef id="11425" />
+        <geneRef id="15358" />
+        <geneRef id="18160" />
+      </paralogGroup>
+      <orthologGroup id="HOG0009262.2" taxonId="6">
+        <property name="TaxRange" value="Euteleostomi" />
+        <orthologGroup id="HOG0009262.3" taxonId="7">
+          <property name="TaxRange" value="Amniota" />
+          <orthologGroup id="HOG0009262.4" taxonId="8">
+            <property name="TaxRange" value="Theria" />
+            <orthologGroup id="HOG0009262.5" taxonId="11">
+              <property name="TaxRange" value="Euarchontoglires" />
+              <orthologGroup id="HOG0009262.6" taxonId="12">
+                <property name="TaxRange" value="Homininae" />
+                <geneRef id="73005" />
+                <geneRef id="79898" />
+              </orthologGroup>
+              <orthologGroup id="HOG0009262.7" taxonId="15">
+                <property name="TaxRange" value="Murinae" />
+                <geneRef id="123829" />
+                <geneRef id="140639" />
+              </orthologGroup>
+            </orthologGroup>
+            <geneRef id="150921" />
+          </orthologGroup>
+          <geneRef id="172981" />
+        </orthologGroup>
+        <orthologGroup id="HOG0009262.8" taxonId="20">
+          <property name="TaxRange" value="Clupeocephala" />
+          <geneRef id="206593" />
+          <geneRef id="216851" />
+        </orthologGroup>
+      </orthologGroup>
+    </orthologGroup>
+    <orthologGroup id="HOG0009427" taxonId="1">
+      <property name="TaxRange" value="Bilateria" />
+      <geneRef id="14954" />
+      <paralogGroup id="HOG0009427.1" taxonId="5">
+        <orthologGroup id="HOG0009427.2" taxonId="20">
+          <property name="TaxRange" value="Clupeocephala" />
+          <geneRef id="197893" />
+          <geneRef id="223806" />
+        </orthologGroup>
+        <orthologGroup id="HOG0009427.3" taxonId="6">
+          <property name="TaxRange" value="Euteleostomi" />
+          <orthologGroup id="HOG0009427.4" taxonId="7">
+            <property name="TaxRange" value="Amniota" />
+            <orthologGroup id="HOG0009427.5" taxonId="8">
+              <property name="TaxRange" value="Theria" />
+              <orthologGroup id="HOG0009427.6" taxonId="9">
+                <property name="TaxRange" value="Boreoeutheria" />
+                <geneRef id="52676" />
+                <orthologGroup id="HOG0009427.7" taxonId="11">
+                  <property name="TaxRange" value="Euarchontoglires" />
+                  <orthologGroup id="HOG0009427.8" taxonId="12">
+                    <property name="TaxRange" value="Homininae" />
+                    <geneRef id="63119" />
+                    <geneRef id="92953" />
+                  </orthologGroup>
+                  <orthologGroup id="HOG0009427.9" taxonId="15">
+                    <property name="TaxRange" value="Murinae" />
+                    <geneRef id="119762" />
+                    <geneRef id="138924" />
+                  </orthologGroup>
+                </orthologGroup>
+              </orthologGroup>
+              <geneRef id="151567" />
+            </orthologGroup>
+            <geneRef id="184023" />
+          </orthologGroup>
+          <geneRef id="202214" />
+        </orthologGroup>
+        <orthologGroup id="HOG0009427.10" taxonId="6">
+          <property name="TaxRange" value="Euteleostomi" />
+          <orthologGroup id="HOG0009427.11" taxonId="7">
+            <property name="TaxRange" value="Amniota" />
+            <orthologGroup id="HOG0009427.12" taxonId="8">
+              <property name="TaxRange" value="Theria" />
+              <orthologGroup id="HOG0009427.13" taxonId="9">
+                <property name="TaxRange" value="Boreoeutheria" />
+                <geneRef id="41252" />
+                <orthologGroup id="HOG0009427.14" taxonId="11">
+                  <property name="TaxRange" value="Euarchontoglires" />
+                  <orthologGroup id="HOG0009427.15" taxonId="12">
+                    <property name="TaxRange" value="Homininae" />
+                    <geneRef id="66437" />
+                    <geneRef id="97077" />
+                  </orthologGroup>
+                  <orthologGroup id="HOG0009427.16" taxonId="15">
+                    <property name="TaxRange" value="Murinae" />
+                    <geneRef id="117349" />
+                    <geneRef id="137323" />
+                  </orthologGroup>
+                </orthologGroup>
+              </orthologGroup>
+              <geneRef id="152189" />
+            </orthologGroup>
+            <geneRef id="182415" />
+          </orthologGroup>
+          <geneRef id="208121" />
+        </orthologGroup>
+        <orthologGroup id="HOG0009427.17" taxonId="6">
+          <property name="TaxRange" value="Euteleostomi" />
+          <orthologGroup id="HOG0009427.18" taxonId="7">
+            <property name="TaxRange" value="Amniota" />
+            <orthologGroup id="HOG0009427.19" taxonId="8">
+              <property name="TaxRange" value="Theria" />
+              <orthologGroup id="HOG0009427.20" taxonId="9">
+                <property name="TaxRange" value="Boreoeutheria" />
+                <geneRef id="42728" />
+                <orthologGroup id="HOG0009427.21" taxonId="11">
+                  <property name="TaxRange" value="Euarchontoglires" />
+                  <orthologGroup id="HOG0009427.22" taxonId="12">
+                    <property name="TaxRange" value="Homininae" />
+                    <geneRef id="57509" />
+                    <geneRef id="86180" />
+                  </orthologGroup>
+                  <orthologGroup id="HOG0009427.23" taxonId="15">
+                    <property name="TaxRange" value="Murinae" />
+                    <geneRef id="123561" />
+                    <geneRef id="124571" />
+                  </orthologGroup>
+                </orthologGroup>
+              </orthologGroup>
+              <geneRef id="158473" />
+            </orthologGroup>
+            <geneRef id="183702" />
+          </orthologGroup>
+          <geneRef id="210350" />
+        </orthologGroup>
+      </paralogGroup>
+    </orthologGroup>
+    <orthologGroup id="HOG0009953" taxonId="1">
+      <property name="TaxRange" value="Bilateria" />
+      <geneRef id="24981" />
+      <paralogGroup id="HOG0009953.1" taxonId="6">
+        <geneRef id="198637" />
+        <orthologGroup id="HOG0009953.2" taxonId="20">
+          <property name="TaxRange" value="Clupeocephala" />
+          <geneRef id="206086" />
+          <geneRef id="218630" />
+        </orthologGroup>
+        <orthologGroup id="HOG0009953.3" taxonId="8">
+          <property name="TaxRange" value="Theria" />
+          <orthologGroup id="HOG0009953.4" taxonId="9">
+            <property name="TaxRange" value="Boreoeutheria" />
+            <geneRef id="42854" />
+            <orthologGroup id="HOG0009953.5" taxonId="11">
+              <property name="TaxRange" value="Euarchontoglires" />
+              <orthologGroup id="HOG0009953.6" taxonId="12">
+                <property name="TaxRange" value="Homininae" />
+                <geneRef id="57505" />
+                <geneRef id="93268" />
+              </orthologGroup>
+              <orthologGroup id="HOG0009953.7" taxonId="15">
+                <property name="TaxRange" value="Murinae" />
+                <geneRef id="123494" />
+                <geneRef id="125729" />
+              </orthologGroup>
+            </orthologGroup>
+          </orthologGroup>
+          <geneRef id="158497" />
+        </orthologGroup>
+        <orthologGroup id="HOG0009953.8" taxonId="6">
+          <property name="TaxRange" value="Euteleostomi" />
+          <orthologGroup id="HOG0009953.9" taxonId="7">
+            <property name="TaxRange" value="Amniota" />
+            <orthologGroup id="HOG0009953.10" taxonId="8">
+              <property name="TaxRange" value="Theria" />
+              <orthologGroup id="HOG0009953.11" taxonId="9">
+                <property name="TaxRange" value="Boreoeutheria" />
+                <geneRef id="45980" />
+                <orthologGroup id="HOG0009953.12" taxonId="11">
+                  <property name="TaxRange" value="Euarchontoglires" />
+                  <orthologGroup id="HOG0009953.13" taxonId="12">
+                    <property name="TaxRange" value="Homininae" />
+                    <geneRef id="67985" />
+                    <geneRef id="88971" />
+                  </orthologGroup>
+                  <orthologGroup id="HOG0009953.14" taxonId="15">
+                    <property name="TaxRange" value="Murinae" />
+                    <geneRef id="119465" />
+                    <geneRef id="143523" />
+                  </orthologGroup>
+                </orthologGroup>
+              </orthologGroup>
+              <geneRef id="156426" />
+            </orthologGroup>
+            <geneRef id="183788" />
+          </orthologGroup>
+          <geneRef id="200492" />
+        </orthologGroup>
+        <orthologGroup id="HOG0009953.15" taxonId="6">
+          <property name="TaxRange" value="Euteleostomi" />
+          <orthologGroup id="HOG0009953.16" taxonId="7">
+            <property name="TaxRange" value="Amniota" />
+            <orthologGroup id="HOG0009953.17" taxonId="8">
+              <property name="TaxRange" value="Theria" />
+              <orthologGroup id="HOG0009953.18" taxonId="9">
+                <property name="TaxRange" value="Boreoeutheria" />
+                <geneRef id="35653" />
+                <orthologGroup id="HOG0009953.19" taxonId="11">
+                  <property name="TaxRange" value="Euarchontoglires" />
+                  <orthologGroup id="HOG0009953.20" taxonId="12">
+                    <property name="TaxRange" value="Homininae" />
+                    <geneRef id="64537" />
+                    <geneRef id="95957" />
+                  </orthologGroup>
+                  <orthologGroup id="HOG0009953.21" taxonId="15">
+                    <property name="TaxRange" value="Murinae" />
+                    <geneRef id="108834" />
+                    <geneRef id="137923" />
+                  </orthologGroup>
+                </orthologGroup>
+              </orthologGroup>
+              <geneRef id="154844" />
+            </orthologGroup>
+            <geneRef id="171942" />
+          </orthologGroup>
+          <geneRef id="201606" />
+        </orthologGroup>
+        <geneRef id="166601" />
+        <orthologGroup id="HOG0009953.22" taxonId="8">
+          <property name="TaxRange" value="Theria" />
+          <geneRef id="44578" />
+          <geneRef id="159857" />
+        </orthologGroup>
+        <orthologGroup id="HOG0009953.23" taxonId="6">
+          <property name="TaxRange" value="Euteleostomi" />
+          <paralogGroup id="HOG0009953.24" taxonId="7">
+            <geneRef id="182541" />
+            <orthologGroup id="HOG0009953.25" taxonId="9">
+              <property name="TaxRange" value="Boreoeutheria" />
+              <geneRef id="45529" />
+              <orthologGroup id="HOG0009953.26" taxonId="11">
+                <property name="TaxRange" value="Euarchontoglires" />
+                <orthologGroup id="HOG0009953.27" taxonId="12">
+                  <property name="TaxRange" value="Homininae" />
+                  <geneRef id="66204" />
+                  <geneRef id="97547" />
+                </orthologGroup>
+                <orthologGroup id="HOG0009953.28" taxonId="15">
+                  <property name="TaxRange" value="Murinae" />
+                  <geneRef id="122728" />
+                  <geneRef id="131324" />
+                </orthologGroup>
+              </orthologGroup>
+            </orthologGroup>
+          </paralogGroup>
+          <orthologGroup id="HOG0009953.29" taxonId="20">
+            <property name="TaxRange" value="Clupeocephala" />
+            <geneRef id="209908" />
+            <geneRef id="233462" />
+          </orthologGroup>
+        </orthologGroup>
+        <orthologGroup id="HOG0009953.30" taxonId="6">
+          <property name="TaxRange" value="Euteleostomi" />
+          <orthologGroup id="HOG0009953.31" taxonId="7">
+            <property name="TaxRange" value="Amniota" />
+            <orthologGroup id="HOG0009953.32" taxonId="8">
+              <property name="TaxRange" value="Theria" />
+              <orthologGroup id="HOG0009953.33" taxonId="9">
+                <property name="TaxRange" value="Boreoeutheria" />
+                <geneRef id="34477" />
+                <orthologGroup id="HOG0009953.34" taxonId="11">
+                  <property name="TaxRange" value="Euarchontoglires" />
+                  <orthologGroup id="HOG0009953.35" taxonId="12">
+                    <property name="TaxRange" value="Homininae" />
+                    <geneRef id="67555" />
+                    <geneRef id="91252" />
+                  </orthologGroup>
+                  <orthologGroup id="HOG0009953.36" taxonId="15">
+                    <property name="TaxRange" value="Murinae" />
+                    <geneRef id="122505" />
+                    <geneRef id="145743" />
+                  </orthologGroup>
+                </orthologGroup>
+              </orthologGroup>
+              <geneRef id="150464" />
+            </orthologGroup>
+            <geneRef id="181849" />
+          </orthologGroup>
+          <paralogGroup id="HOG0009953.37" taxonId="20">
+            <orthologGroup id="HOG0009953.38" taxonId="20">
+              <property name="TaxRange" value="Clupeocephala" />
+              <geneRef id="201423" />
+              <geneRef id="226100" />
+            </orthologGroup>
+            <orthologGroup id="HOG0009953.39" taxonId="20">
+              <property name="TaxRange" value="Clupeocephala" />
+              <paralogGroup id="HOG0009953.40" taxonId="21">
+                <geneRef id="201945" />
+                <geneRef id="208968" />
+              </paralogGroup>
+              <geneRef id="220776" />
+            </orthologGroup>
+          </paralogGroup>
+        </orthologGroup>
+        <orthologGroup id="HOG0009953.41" taxonId="6">
+          <property name="TaxRange" value="Euteleostomi" />
+          <orthologGroup id="HOG0009953.42" taxonId="7">
+            <property name="TaxRange" value="Amniota" />
+            <orthologGroup id="HOG0009953.43" taxonId="8">
+              <property name="TaxRange" value="Theria" />
+              <orthologGroup id="HOG0009953.44" taxonId="11">
+                <property name="TaxRange" value="Euarchontoglires" />
+                <orthologGroup id="HOG0009953.45" taxonId="12">
+                  <property name="TaxRange" value="Homininae" />
+                  <geneRef id="61384" />
+                  <geneRef id="95884" />
+                </orthologGroup>
+                <geneRef id="118122" />
+              </orthologGroup>
+              <geneRef id="159796" />
+            </orthologGroup>
+            <geneRef id="169932" />
+          </orthologGroup>
+          <paralogGroup id="HOG0009953.46" taxonId="20">
+            <geneRef id="225685" />
+            <orthologGroup id="HOG0009953.47" taxonId="20">
+              <property name="TaxRange" value="Clupeocephala" />
+              <geneRef id="191127" />
+              <geneRef id="216106" />
+            </orthologGroup>
+          </paralogGroup>
+        </orthologGroup>
+      </paralogGroup>
+    </orthologGroup>
+    <orthologGroup id="HOG0010020" taxonId="1">
+      <property name="TaxRange" value="Bilateria" />
+      <geneRef id="25844" />
+      <orthologGroup id="HOG0010020.1" taxonId="5">
+        <property name="TaxRange" value="Chordata" />
+        <paralogGroup id="HOG0010020.2" taxonId="6">
+          <orthologGroup id="HOG0010020.3" taxonId="8">
+            <property name="TaxRange" value="Theria" />
+            <orthologGroup id="HOG0010020.4" taxonId="9">
+              <property name="TaxRange" value="Boreoeutheria" />
+              <geneRef id="44777" />
+              <orthologGroup id="HOG0010020.5" taxonId="11">
+                <property name="TaxRange" value="Euarchontoglires" />
+                <orthologGroup id="HOG0010020.6" taxonId="12">
+                  <property name="TaxRange" value="Homininae" />
+                  <geneRef id="66625" />
+                  <geneRef id="96459" />
+                </orthologGroup>
+                <orthologGroup id="HOG0010020.7" taxonId="15">
+                  <property name="TaxRange" value="Murinae" />
+                  <geneRef id="118071" />
+                  <geneRef id="133511" />
+                </orthologGroup>
+              </orthologGroup>
+            </orthologGroup>
+            <geneRef id="161260" />
+          </orthologGroup>
+          <orthologGroup id="HOG0010020.8" taxonId="6">
+            <property name="TaxRange" value="Euteleostomi" />
+            <geneRef id="151541" />
+            <orthologGroup id="HOG0010020.9" taxonId="20">
+              <property name="TaxRange" value="Clupeocephala" />
+              <geneRef id="207280" />
+              <geneRef id="233417" />
+            </orthologGroup>
+          </orthologGroup>
+          <orthologGroup id="HOG0010020.10" taxonId="6">
+            <property name="TaxRange" value="Euteleostomi" />
+            <orthologGroup id="HOG0010020.11" taxonId="7">
+              <property name="TaxRange" value="Amniota" />
+              <orthologGroup id="HOG0010020.12" taxonId="8">
+                <property name="TaxRange" value="Theria" />
+                <orthologGroup id="HOG0010020.13" taxonId="9">
+                  <property name="TaxRange" value="Boreoeutheria" />
+                  <geneRef id="53486" />
+                  <orthologGroup id="HOG0010020.14" taxonId="11">
+                    <property name="TaxRange" value="Euarchontoglires" />
+                    <orthologGroup id="HOG0010020.15" taxonId="12">
+                      <property name="TaxRange" value="Homininae" />
+                      <paralogGroup id="HOG0010020.16" taxonId="13">
+                        <geneRef id="62238" />
+                        <geneRef id="77184" />
+                      </paralogGroup>
+                      <geneRef id="97726" />
+                    </orthologGroup>
+                    <orthologGroup id="HOG0010020.17" taxonId="15">
+                      <property name="TaxRange" value="Murinae" />
+                      <geneRef id="104233" />
+                      <geneRef id="131913" />
+                    </orthologGroup>
+                  </orthologGroup>
+                </orthologGroup>
+                <geneRef id="160508" />
+              </orthologGroup>
+              <geneRef id="175846" />
+            </orthologGroup>
+            <paralogGroup id="HOG0010020.18" taxonId="20">
+              <orthologGroup id="HOG0010020.19" taxonId="20">
+                <property name="TaxRange" value="Clupeocephala" />
+                <geneRef id="189721" />
+                <geneRef id="216732" />
+              </orthologGroup>
+              <orthologGroup id="HOG0010020.20" taxonId="20">
+                <property name="TaxRange" value="Clupeocephala" />
+                <geneRef id="205547" />
+                <geneRef id="233386" />
+              </orthologGroup>
+            </paralogGroup>
+          </orthologGroup>
+          <orthologGroup id="HOG0010020.21" taxonId="6">
+            <property name="TaxRange" value="Euteleostomi" />
+            <orthologGroup id="HOG0010020.22" taxonId="7">
+              <property name="TaxRange" value="Amniota" />
+              <orthologGroup id="HOG0010020.23" taxonId="8">
+                <property name="TaxRange" value="Theria" />
+                <orthologGroup id="HOG0010020.24" taxonId="9">
+                  <property name="TaxRange" value="Boreoeutheria" />
+                  <geneRef id="42276" />
+                  <orthologGroup id="HOG0010020.25" taxonId="11">
+                    <property name="TaxRange" value="Euarchontoglires" />
+                    <orthologGroup id="HOG0010020.26" taxonId="12">
+                      <property name="TaxRange" value="Homininae" />
+                      <geneRef id="64012" />
+                      <geneRef id="100881" />
+                    </orthologGroup>
+                    <orthologGroup id="HOG0010020.27" taxonId="15">
+                      <property name="TaxRange" value="Murinae" />
+                      <geneRef id="120673" />
+                      <geneRef id="143942" />
+                    </orthologGroup>
+                  </orthologGroup>
+                </orthologGroup>
+                <geneRef id="166947" />
+              </orthologGroup>
+              <geneRef id="179732" />
+            </orthologGroup>
+            <paralogGroup id="HOG0010020.28" taxonId="20">
+              <geneRef id="205727" />
+              <orthologGroup id="HOG0010020.29" taxonId="20">
+                <property name="TaxRange" value="Clupeocephala" />
+                <geneRef id="196278" />
+                <geneRef id="225060" />
+              </orthologGroup>
+              <orthologGroup id="HOG0010020.30" taxonId="20">
+                <property name="TaxRange" value="Clupeocephala" />
+                <geneRef id="199123" />
+                <geneRef id="225051" />
+              </orthologGroup>
+            </paralogGroup>
+          </orthologGroup>
+          <orthologGroup id="HOG0010020.31" taxonId="6">
+            <property name="TaxRange" value="Euteleostomi" />
+            <orthologGroup id="HOG0010020.32" taxonId="8">
+              <property name="TaxRange" value="Theria" />
+              <orthologGroup id="HOG0010020.33" taxonId="9">
+                <property name="TaxRange" value="Boreoeutheria" />
+                <geneRef id="40203" />
+                <orthologGroup id="HOG0010020.34" taxonId="11">
+                  <property name="TaxRange" value="Euarchontoglires" />
+                  <orthologGroup id="HOG0010020.35" taxonId="12">
+                    <property name="TaxRange" value="Homininae" />
+                    <geneRef id="65330" />
+                    <geneRef id="85756" />
+                  </orthologGroup>
+                  <orthologGroup id="HOG0010020.36" taxonId="15">
+                    <property name="TaxRange" value="Murinae" />
+                    <geneRef id="110852" />
+                    <geneRef id="140400" />
+                  </orthologGroup>
+                </orthologGroup>
+              </orthologGroup>
+              <paralogGroup id="HOG0010020.37" taxonId="18">
+                <geneRef id="150274" />
+                <geneRef id="151506" />
+              </paralogGroup>
+            </orthologGroup>
+            <geneRef id="230166" />
+          </orthologGroup>
+          <geneRef id="200848" />
+          <orthologGroup id="HOG0010020.38" taxonId="20">
+            <property name="TaxRange" value="Clupeocephala" />
+            <geneRef id="192125" />
+            <geneRef id="225282" />
+          </orthologGroup>
+        </paralogGroup>
+        <geneRef id="250199" />
+      </orthologGroup>
+    </orthologGroup>
+    <orthologGroup id="HOG0010804" taxonId="1">
+      <property name="TaxRange" value="Bilateria" />
+      <orthologGroup id="HOG0010804.1" taxonId="2">
+        <property name="TaxRange" value="Ecdysozoa" />
+        <geneRef id="2110" />
+        <geneRef id="21015" />
+      </orthologGroup>
+      <orthologGroup id="HOG0010804.2" taxonId="5">
+        <property name="TaxRange" value="Chordata" />
+        <orthologGroup id="HOG0010804.3" taxonId="6">
+          <property name="TaxRange" value="Euteleostomi" />
+          <orthologGroup id="HOG0010804.4" taxonId="7">
+            <property name="TaxRange" value="Amniota" />
+            <orthologGroup id="HOG0010804.5" taxonId="8">
+              <property name="TaxRange" value="Theria" />
+              <orthologGroup id="HOG0010804.6" taxonId="9">
+                <property name="TaxRange" value="Boreoeutheria" />
+                <geneRef id="51600" />
+                <orthologGroup id="HOG0010804.7" taxonId="11">
+                  <property name="TaxRange" value="Euarchontoglires" />
+                  <orthologGroup id="HOG0010804.8" taxonId="12">
+                    <property name="TaxRange" value="Homininae" />
+                    <geneRef id="66752" />
+                    <geneRef id="85110" />
+                  </orthologGroup>
+                  <orthologGroup id="HOG0010804.9" taxonId="15">
+                    <property name="TaxRange" value="Murinae" />
+                    <geneRef id="117146" />
+                    <geneRef id="129833" />
+                  </orthologGroup>
+                </orthologGroup>
+              </orthologGroup>
+              <geneRef id="154701" />
+            </orthologGroup>
+            <geneRef id="179479" />
+          </orthologGroup>
+          <orthologGroup id="HOG0010804.10" taxonId="20">
+            <property name="TaxRange" value="Clupeocephala" />
+            <paralogGroup id="HOG0010804.11" taxonId="21">
+              <geneRef id="185255" />
+              <geneRef id="206066" />
+            </paralogGroup>
+            <geneRef id="228600" />
+          </orthologGroup>
+        </orthologGroup>
+        <geneRef id="242913" />
+      </orthologGroup>
+    </orthologGroup>
+    <orthologGroup id="HOG0011256" taxonId="1">
+      <property name="TaxRange" value="Bilateria" />
+      <orthologGroup id="HOG0011256.1" taxonId="2">
+        <property name="TaxRange" value="Ecdysozoa" />
+        <geneRef id="1980" />
+        <geneRef id="27923" />
+      </orthologGroup>
+      <orthologGroup id="HOG0011256.2" taxonId="6">
+        <property name="TaxRange" value="Euteleostomi" />
+        <orthologGroup id="HOG0011256.3" taxonId="7">
+          <property name="TaxRange" value="Amniota" />
+          <orthologGroup id="HOG0011256.4" taxonId="8">
+            <property name="TaxRange" value="Theria" />
+            <orthologGroup id="HOG0011256.5" taxonId="9">
+              <property name="TaxRange" value="Boreoeutheria" />
+              <geneRef id="34396" />
+              <orthologGroup id="HOG0011256.6" taxonId="11">
+                <property name="TaxRange" value="Euarchontoglires" />
+                <orthologGroup id="HOG0011256.7" taxonId="12">
+                  <property name="TaxRange" value="Homininae" />
+                  <geneRef id="64354" />
+                  <geneRef id="89282" />
+                </orthologGroup>
+                <orthologGroup id="HOG0011256.8" taxonId="15">
+                  <property name="TaxRange" value="Murinae" />
+                  <geneRef id="120174" />
+                  <geneRef id="134194" />
+                </orthologGroup>
+              </orthologGroup>
+            </orthologGroup>
+            <geneRef id="160821" />
+          </orthologGroup>
+          <geneRef id="179796" />
+        </orthologGroup>
+        <orthologGroup id="HOG0011256.9" taxonId="20">
+          <property name="TaxRange" value="Clupeocephala" />
+          <paralogGroup id="HOG0011256.10" taxonId="21">
+            <geneRef id="197610" />
+            <geneRef id="207294" />
+          </paralogGroup>
+          <geneRef id="217693" />
+        </orthologGroup>
+      </orthologGroup>
+    </orthologGroup>
+    <orthologGroup id="HOG0011692" taxonId="1">
+      <property name="TaxRange" value="Bilateria" />
+      <orthologGroup id="HOG0011692.1" taxonId="2">
+        <property name="TaxRange" value="Ecdysozoa" />
+        <geneRef id="4477" />
+        <geneRef id="26049" />
+      </orthologGroup>
+      <orthologGroup id="HOG0011692.2" taxonId="5">
+        <property name="TaxRange" value="Chordata" />
+        <orthologGroup id="HOG0011692.3" taxonId="6">
+          <property name="TaxRange" value="Euteleostomi" />
+          <orthologGroup id="HOG0011692.4" taxonId="7">
+            <property name="TaxRange" value="Amniota" />
+            <orthologGroup id="HOG0011692.5" taxonId="8">
+              <property name="TaxRange" value="Theria" />
+              <orthologGroup id="HOG0011692.6" taxonId="9">
+                <property name="TaxRange" value="Boreoeutheria" />
+                <geneRef id="42099" />
+                <orthologGroup id="HOG0011692.7" taxonId="11">
+                  <property name="TaxRange" value="Euarchontoglires" />
+                  <orthologGroup id="HOG0011692.8" taxonId="12">
+                    <property name="TaxRange" value="Homininae" />
+                    <geneRef id="63983" />
+                    <geneRef id="93253" />
+                  </orthologGroup>
+                  <orthologGroup id="HOG0011692.9" taxonId="15">
+                    <property name="TaxRange" value="Murinae" />
+                    <geneRef id="103852" />
+                    <geneRef id="142435" />
+                  </orthologGroup>
+                </orthologGroup>
+              </orthologGroup>
+              <geneRef id="151401" />
+            </orthologGroup>
+            <geneRef id="183989" />
+          </orthologGroup>
+          <orthologGroup id="HOG0011692.10" taxonId="20">
+            <property name="TaxRange" value="Clupeocephala" />
+            <paralogGroup id="HOG0011692.11" taxonId="21">
+              <geneRef id="197715" />
+              <geneRef id="211069" />
+            </paralogGroup>
+            <geneRef id="216224" />
+          </orthologGroup>
+        </orthologGroup>
+        <geneRef id="236165" />
+      </orthologGroup>
+    </orthologGroup>
+    <orthologGroup id="HOG0011952" taxonId="1">
+      <property name="TaxRange" value="Bilateria" />
+      <orthologGroup id="HOG0011952.1" taxonId="2">
+        <property name="TaxRange" value="Ecdysozoa" />
+        <geneRef id="134" />
+        <geneRef id="31244" />
+      </orthologGroup>
+      <orthologGroup id="HOG0011952.2" taxonId="5">
+        <property name="TaxRange" value="Chordata" />
+        <paralogGroup id="HOG0011952.3" taxonId="6">
+          <orthologGroup id="HOG0011952.4" taxonId="6">
+            <property name="TaxRange" value="Euteleostomi" />
+            <orthologGroup id="HOG0011952.5" taxonId="8">
+              <property name="TaxRange" value="Theria" />
+              <orthologGroup id="HOG0011952.6" taxonId="11">
+                <property name="TaxRange" value="Euarchontoglires" />
+                <orthologGroup id="HOG0011952.7" taxonId="12">
+                  <property name="TaxRange" value="Homininae" />
+                  <geneRef id="66714" />
+                  <geneRef id="100366" />
+                </orthologGroup>
+                <orthologGroup id="HOG0011952.8" taxonId="15">
+                  <property name="TaxRange" value="Murinae" />
+                  <geneRef id="109923" />
+                  <geneRef id="124318" />
+                </orthologGroup>
+              </orthologGroup>
+              <geneRef id="150289" />
+            </orthologGroup>
+            <orthologGroup id="HOG0011952.9" taxonId="20">
+              <property name="TaxRange" value="Clupeocephala" />
+              <paralogGroup id="HOG0011952.10" taxonId="21">
+                <geneRef id="207433" />
+                <geneRef id="209947" />
+              </paralogGroup>
+              <geneRef id="217977" />
+            </orthologGroup>
+          </orthologGroup>
+          <orthologGroup id="HOG0011952.11" taxonId="6">
+            <property name="TaxRange" value="Euteleostomi" />
+            <orthologGroup id="HOG0011952.12" taxonId="7">
+              <property name="TaxRange" value="Amniota" />
+              <orthologGroup id="HOG0011952.13" taxonId="8">
+                <property name="TaxRange" value="Theria" />
+                <orthologGroup id="HOG0011952.14" taxonId="11">
+                  <property name="TaxRange" value="Euarchontoglires" />
+                  <orthologGroup id="HOG0011952.15" taxonId="12">
+                    <property name="TaxRange" value="Homininae" />
+                    <geneRef id="55231" />
+                    <geneRef id="90945" />
+                  </orthologGroup>
+                  <geneRef id="115360" />
+                </orthologGroup>
+                <geneRef id="148618" />
+              </orthologGroup>
+              <geneRef id="181008" />
+            </orthologGroup>
+            <orthologGroup id="HOG0011952.16" taxonId="20">
+              <property name="TaxRange" value="Clupeocephala" />
+              <geneRef id="208864" />
+              <geneRef id="221603" />
+            </orthologGroup>
+          </orthologGroup>
+        </paralogGroup>
+        <geneRef id="238152" />
+      </orthologGroup>
+    </orthologGroup>
+    <orthologGroup id="HOG0014432" taxonId="1">
+      <property name="TaxRange" value="Bilateria" />
+      <orthologGroup id="HOG0014432.1" taxonId="2">
+        <property name="TaxRange" value="Ecdysozoa" />
+        <geneRef id="238" />
+        <geneRef id="23926" />
+      </orthologGroup>
+      <paralogGroup id="HOG0014432.2" taxonId="5">
+        <orthologGroup id="HOG0014432.3" taxonId="5">
+          <property name="TaxRange" value="Chordata" />
+          <paralogGroup id="HOG0014432.4" taxonId="6">
+            <geneRef id="220255" />
+            <orthologGroup id="HOG0014432.5" taxonId="20">
+              <property name="TaxRange" value="Clupeocephala" />
+              <geneRef id="194689" />
+              <geneRef id="224223" />
+            </orthologGroup>
+            <orthologGroup id="HOG0014432.6" taxonId="8">
+              <property name="TaxRange" value="Theria" />
+              <orthologGroup id="HOG0014432.7" taxonId="11">
+                <property name="TaxRange" value="Euarchontoglires" />
+                <paralogGroup id="HOG0014432.8" taxonId="12">
+                  <geneRef id="56322" />
+                  <geneRef id="58204" />
+                  <geneRef id="58359" />
+                  <geneRef id="68670" />
+                  <geneRef id="69471" />
+                </paralogGroup>
+                <orthologGroup id="HOG0014432.9" taxonId="15">
+                  <property name="TaxRange" value="Murinae" />
+                  <geneRef id="117040" />
+                  <geneRef id="138779" />
+                </orthologGroup>
+              </orthologGroup>
+              <geneRef id="155374" />
+            </orthologGroup>
+            <orthologGroup id="HOG0014432.10" taxonId="7">
+              <property name="TaxRange" value="Amniota" />
+              <orthologGroup id="HOG0014432.11" taxonId="8">
+                <property name="TaxRange" value="Theria" />
+                <orthologGroup id="HOG0014432.12" taxonId="11">
+                  <property name="TaxRange" value="Euarchontoglires" />
+                  <geneRef id="75481" />
+                  <orthologGroup id="HOG0014432.13" taxonId="15">
+                    <property name="TaxRange" value="Murinae" />
+                    <geneRef id="123362" />
+                    <geneRef id="145268" />
+                  </orthologGroup>
+                </orthologGroup>
+                <geneRef id="165621" />
+              </orthologGroup>
+              <geneRef id="172673" />
+            </orthologGroup>
+            <orthologGroup id="HOG0014432.14" taxonId="6">
+              <property name="TaxRange" value="Euteleostomi" />
+              <orthologGroup id="HOG0014432.15" taxonId="7">
+                <property name="TaxRange" value="Amniota" />
+                <orthologGroup id="HOG0014432.16" taxonId="8">
+                  <property name="TaxRange" value="Theria" />
+                  <orthologGroup id="HOG0014432.17" taxonId="11">
+                    <property name="TaxRange" value="Euarchontoglires" />
+                    <orthologGroup id="HOG0014432.18" taxonId="12">
+                      <property name="TaxRange" value="Homininae" />
+                      <geneRef id="56198" />
+                      <geneRef id="94740" />
+                    </orthologGroup>
+                    <geneRef id="117417" />
+                  </orthologGroup>
+                  <geneRef id="147792" />
+                </orthologGroup>
+                <geneRef id="173080" />
+              </orthologGroup>
+              <geneRef id="189704" />
+            </orthologGroup>
+            <orthologGroup id="HOG0014432.19" taxonId="6">
+              <property name="TaxRange" value="Euteleostomi" />
+              <paralogGroup id="HOG0014432.20" taxonId="7">
+                <geneRef id="167123" />
+                <geneRef id="167142" />
+                <geneRef id="167167" />
+              </paralogGroup>
+              <orthologGroup id="HOG0014432.21" taxonId="20">
+                <property name="TaxRange" value="Clupeocephala" />
+                <geneRef id="193512" />
+                <geneRef id="230095" />
+              </orthologGroup>
+            </orthologGroup>
+            <orthologGroup id="HOG0014432.22" taxonId="20">
+              <property name="TaxRange" value="Clupeocephala" />
+              <paralogGroup id="HOG0014432.23" taxonId="21">
+                <geneRef id="188112" />
+                <geneRef id="210878" />
+                <geneRef id="213158" />
+                <geneRef id="215036" />
+              </paralogGroup>
+              <geneRef id="225787" />
+            </orthologGroup>
+            <orthologGroup id="HOG0014432.24" taxonId="20">
+              <property name="TaxRange" value="Clupeocephala" />
+              <paralogGroup id="HOG0014432.25" taxonId="21">
+                <geneRef id="207362" />
+                <geneRef id="208779" />
+                <geneRef id="209161" />
+                <geneRef id="212022" />
+                <geneRef id="213615" />
+              </paralogGroup>
+              <geneRef id="225788" />
+            </orthologGroup>
+            <orthologGroup id="HOG0014432.26" taxonId="20">
+              <property name="TaxRange" value="Clupeocephala" />
+              <geneRef id="207879" />
+              <geneRef id="226831" />
+            </orthologGroup>
+            <orthologGroup id="HOG0014432.27" taxonId="6">
+              <property name="TaxRange" value="Euteleostomi" />
+              <orthologGroup id="HOG0014432.28" taxonId="7">
+                <property name="TaxRange" value="Amniota" />
+                <orthologGroup id="HOG0014432.29" taxonId="8">
+                  <property name="TaxRange" value="Theria" />
+                  <orthologGroup id="HOG0014432.30" taxonId="9">
+                    <property name="TaxRange" value="Boreoeutheria" />
+                    <geneRef id="43119" />
+                    <orthologGroup id="HOG0014432.31" taxonId="11">
+                      <property name="TaxRange" value="Euarchontoglires" />
+                      <orthologGroup id="HOG0014432.32" taxonId="12">
+                        <property name="TaxRange" value="Homininae" />
+                        <geneRef id="62415" />
+                        <geneRef id="79900" />
+                      </orthologGroup>
+                      <orthologGroup id="HOG0014432.33" taxonId="15">
+                        <property name="TaxRange" value="Murinae" />
+                        <geneRef id="110715" />
+                        <geneRef id="126828" />
+                      </orthologGroup>
+                    </orthologGroup>
+                  </orthologGroup>
+                  <geneRef id="156093" />
+                </orthologGroup>
+                <geneRef id="175201" />
+              </orthologGroup>
+              <orthologGroup id="HOG0014432.34" taxonId="20">
+                <property name="TaxRange" value="Clupeocephala" />
+                <geneRef id="202349" />
+                <paralogGroup id="HOG0014432.35" taxonId="22">
+                  <geneRef id="221556" />
+                  <geneRef id="228434" />
+                </paralogGroup>
+              </orthologGroup>
+            </orthologGroup>
+            <orthologGroup id="HOG0014432.36" taxonId="6">
+              <property name="TaxRange" value="Euteleostomi" />
+              <orthologGroup id="HOG0014432.37" taxonId="7">
+                <property name="TaxRange" value="Amniota" />
+                <orthologGroup id="HOG0014432.38" taxonId="8">
+                  <property name="TaxRange" value="Theria" />
+                  <orthologGroup id="HOG0014432.39" taxonId="9">
+                    <property name="TaxRange" value="Boreoeutheria" />
+                    <geneRef id="51386" />
+                    <orthologGroup id="HOG0014432.40" taxonId="11">
+                      <property name="TaxRange" value="Euarchontoglires" />
+                      <orthologGroup id="HOG0014432.41" taxonId="12">
+                        <property name="TaxRange" value="Homininae" />
+                        <geneRef id="74694" />
+                        <geneRef id="94075" />
+                      </orthologGroup>
+                      <orthologGroup id="HOG0014432.42" taxonId="15">
+                        <property name="TaxRange" value="Murinae" />
+                        <geneRef id="102425" />
+                        <geneRef id="132395" />
+                      </orthologGroup>
+                    </orthologGroup>
+                  </orthologGroup>
+                  <geneRef id="148727" />
+                </orthologGroup>
+                <geneRef id="178206" />
+              </orthologGroup>
+              <orthologGroup id="HOG0014432.43" taxonId="20">
+                <property name="TaxRange" value="Clupeocephala" />
+                <paralogGroup id="HOG0014432.44" taxonId="21">
+                  <geneRef id="192401" />
+                  <geneRef id="212917" />
+                </paralogGroup>
+                <geneRef id="229101" />
+              </orthologGroup>
+            </orthologGroup>
+            <geneRef id="150206" />
+            <orthologGroup id="HOG0014432.45" taxonId="7">
+              <property name="TaxRange" value="Amniota" />
+              <orthologGroup id="HOG0014432.46" taxonId="8">
+                <property name="TaxRange" value="Theria" />
+                <orthologGroup id="HOG0014432.47" taxonId="9">
+                  <property name="TaxRange" value="Boreoeutheria" />
+                  <geneRef id="51257" />
+                  <orthologGroup id="HOG0014432.48" taxonId="11">
+                    <property name="TaxRange" value="Euarchontoglires" />
+                    <orthologGroup id="HOG0014432.49" taxonId="12">
+                      <property name="TaxRange" value="Homininae" />
+                      <geneRef id="74574" />
+                      <geneRef id="97795" />
+                    </orthologGroup>
+                    <orthologGroup id="HOG0014432.50" taxonId="15">
+                      <property name="TaxRange" value="Murinae" />
+                      <geneRef id="104218" />
+                      <geneRef id="136361" />
+                    </orthologGroup>
+                  </orthologGroup>
+                </orthologGroup>
+                <geneRef id="151218" />
+              </orthologGroup>
+              <geneRef id="175628" />
+            </orthologGroup>
+          </paralogGroup>
+          <paralogGroup id="HOG0014432.51" taxonId="23">
+            <geneRef id="235929" />
+            <geneRef id="236547" />
+            <geneRef id="236707" />
+            <geneRef id="237037" />
+            <geneRef id="237699" />
+            <geneRef id="239282" />
+            <geneRef id="239328" />
+            <geneRef id="240498" />
+            <geneRef id="241318" />
+            <geneRef id="243204" />
+            <geneRef id="244725" />
+            <geneRef id="244751" />
+            <geneRef id="245713" />
+            <geneRef id="246494" />
+            <geneRef id="246884" />
+            <geneRef id="248062" />
+            <geneRef id="248136" />
+            <geneRef id="248166" />
+            <geneRef id="248502" />
+            <geneRef id="249293" />
+            <geneRef id="250007" />
+            <geneRef id="250194" />
+            <geneRef id="250195" />
+            <geneRef id="251011" />
+          </paralogGroup>
+        </orthologGroup>
+        <orthologGroup id="HOG0014432.52" taxonId="5">
+          <property name="TaxRange" value="Chordata" />
+          <paralogGroup id="HOG0014432.53" taxonId="6">
+            <geneRef id="199120" />
+            <geneRef id="158176" />
+            <geneRef id="232377" />
+            <orthologGroup id="HOG0014432.54" taxonId="20">
+              <property name="TaxRange" value="Clupeocephala" />
+              <geneRef id="186024" />
+              <geneRef id="228427" />
+            </orthologGroup>
+            <orthologGroup id="HOG0014432.55" taxonId="9">
+              <property name="TaxRange" value="Boreoeutheria" />
+              <geneRef id="47754" />
+              <orthologGroup id="HOG0014432.56" taxonId="11">
+                <property name="TaxRange" value="Euarchontoglires" />
+                <orthologGroup id="HOG0014432.57" taxonId="12">
+                  <property name="TaxRange" value="Homininae" />
+                  <geneRef id="66977" />
+                  <geneRef id="80931" />
+                </orthologGroup>
+                <orthologGroup id="HOG0014432.58" taxonId="15">
+                  <property name="TaxRange" value="Murinae" />
+                  <geneRef id="119408" />
+                  <geneRef id="144711" />
+                </orthologGroup>
+              </orthologGroup>
+            </orthologGroup>
+            <orthologGroup id="HOG0014432.59" taxonId="7">
+              <property name="TaxRange" value="Amniota" />
+              <orthologGroup id="HOG0014432.60" taxonId="8">
+                <property name="TaxRange" value="Theria" />
+                <orthologGroup id="HOG0014432.61" taxonId="9">
+                  <property name="TaxRange" value="Boreoeutheria" />
+                  <geneRef id="35874" />
+                  <orthologGroup id="HOG0014432.62" taxonId="11">
+                    <property name="TaxRange" value="Euarchontoglires" />
+                    <orthologGroup id="HOG0014432.63" taxonId="12">
+                      <property name="TaxRange" value="Homininae" />
+                      <geneRef id="63052" />
+                      <geneRef id="83441" />
+                    </orthologGroup>
+                    <orthologGroup id="HOG0014432.64" taxonId="15">
+                      <property name="TaxRange" value="Murinae" />
+                      <geneRef id="115130" />
+                      <geneRef id="132434" />
+                    </orthologGroup>
+                  </orthologGroup>
+                </orthologGroup>
+                <geneRef id="165983" />
+              </orthologGroup>
+              <geneRef id="171684" />
+            </orthologGroup>
+            <orthologGroup id="HOG0014432.65" taxonId="6">
+              <property name="TaxRange" value="Euteleostomi" />
+              <orthologGroup id="HOG0014432.66" taxonId="8">
+                <property name="TaxRange" value="Theria" />
+                <orthologGroup id="HOG0014432.67" taxonId="11">
+                  <property name="TaxRange" value="Euarchontoglires" />
+                  <orthologGroup id="HOG0014432.68" taxonId="12">
+                    <property name="TaxRange" value="Homininae" />
+                    <geneRef id="66707" />
+                    <geneRef id="79651" />
+                  </orthologGroup>
+                  <orthologGroup id="HOG0014432.69" taxonId="15">
+                    <property name="TaxRange" value="Murinae" />
+                    <geneRef id="113644" />
+                    <geneRef id="127881" />
+                  </orthologGroup>
+                </orthologGroup>
+                <geneRef id="163555" />
+              </orthologGroup>
+              <orthologGroup id="HOG0014432.70" taxonId="20">
+                <property name="TaxRange" value="Clupeocephala" />
+                <geneRef id="198922" />
+                <geneRef id="218117" />
+              </orthologGroup>
+            </orthologGroup>
+            <orthologGroup id="HOG0014432.71" taxonId="6">
+              <property name="TaxRange" value="Euteleostomi" />
+              <orthologGroup id="HOG0014432.72" taxonId="7">
+                <property name="TaxRange" value="Amniota" />
+                <orthologGroup id="HOG0014432.73" taxonId="8">
+                  <property name="TaxRange" value="Theria" />
+                  <orthologGroup id="HOG0014432.74" taxonId="9">
+                    <property name="TaxRange" value="Boreoeutheria" />
+                    <geneRef id="37578" />
+                    <orthologGroup id="HOG0014432.75" taxonId="11">
+                      <property name="TaxRange" value="Euarchontoglires" />
+                      <orthologGroup id="HOG0014432.76" taxonId="12">
+                        <property name="TaxRange" value="Homininae" />
+                        <geneRef id="75113" />
+                        <geneRef id="80531" />
+                      </orthologGroup>
+                      <orthologGroup id="HOG0014432.77" taxonId="15">
+                        <property name="TaxRange" value="Murinae" />
+                        <geneRef id="114542" />
+                        <geneRef id="128282" />
+                      </orthologGroup>
+                    </orthologGroup>
+                  </orthologGroup>
+                  <geneRef id="150811" />
+                </orthologGroup>
+                <geneRef id="182190" />
+              </orthologGroup>
+              <orthologGroup id="HOG0014432.78" taxonId="20">
+                <property name="TaxRange" value="Clupeocephala" />
+                <geneRef id="187023" />
+                <geneRef id="223759" />
+              </orthologGroup>
+            </orthologGroup>
+            <geneRef id="187163" />
+            <geneRef id="206206" />
+            <orthologGroup id="HOG0014432.79" taxonId="20">
+              <property name="TaxRange" value="Clupeocephala" />
+              <geneRef id="200810" />
+              <geneRef id="232485" />
+            </orthologGroup>
+            <orthologGroup id="HOG0014432.80" taxonId="6">
+              <property name="TaxRange" value="Euteleostomi" />
+              <orthologGroup id="HOG0014432.81" taxonId="7">
+                <property name="TaxRange" value="Amniota" />
+                <orthologGroup id="HOG0014432.82" taxonId="8">
+                  <property name="TaxRange" value="Theria" />
+                  <orthologGroup id="HOG0014432.83" taxonId="9">
+                    <property name="TaxRange" value="Boreoeutheria" />
+                    <geneRef id="51219" />
+                    <orthologGroup id="HOG0014432.84" taxonId="11">
+                      <property name="TaxRange" value="Euarchontoglires" />
+                      <orthologGroup id="HOG0014432.85" taxonId="12">
+                        <property name="TaxRange" value="Homininae" />
+                        <geneRef id="64949" />
+                        <geneRef id="90865" />
+                      </orthologGroup>
+                      <orthologGroup id="HOG0014432.86" taxonId="15">
+                        <property name="TaxRange" value="Murinae" />
+                        <geneRef id="120483" />
+                        <geneRef id="126162" />
+                      </orthologGroup>
+                    </orthologGroup>
+                  </orthologGroup>
+                  <geneRef id="154191" />
+                </orthologGroup>
+                <geneRef id="176604" />
+              </orthologGroup>
+              <paralogGroup id="HOG0014432.87" taxonId="20">
+                <geneRef id="228543" />
+                <geneRef id="228544" />
+                <orthologGroup id="HOG0014432.88" taxonId="20">
+                  <property name="TaxRange" value="Clupeocephala" />
+                  <paralogGroup id="HOG0014432.89" taxonId="21">
+                    <geneRef id="185071" />
+                    <geneRef id="188471" />
+                    <geneRef id="191648" />
+                    <geneRef id="192236" />
+                  </paralogGroup>
+                  <geneRef id="228545" />
+                </orthologGroup>
+              </paralogGroup>
+            </orthologGroup>
+            <orthologGroup id="HOG0014432.90" taxonId="6">
+              <property name="TaxRange" value="Euteleostomi" />
+              <orthologGroup id="HOG0014432.91" taxonId="7">
+                <property name="TaxRange" value="Amniota" />
+                <orthologGroup id="HOG0014432.92" taxonId="8">
+                  <property name="TaxRange" value="Theria" />
+                  <orthologGroup id="HOG0014432.93" taxonId="11">
+                    <property name="TaxRange" value="Euarchontoglires" />
+                    <orthologGroup id="HOG0014432.94" taxonId="12">
+                      <property name="TaxRange" value="Homininae" />
+                      <geneRef id="73755" />
+                      <geneRef id="83805" />
+                    </orthologGroup>
+                    <orthologGroup id="HOG0014432.95" taxonId="15">
+                      <property name="TaxRange" value="Murinae" />
+                      <geneRef id="105675" />
+                      <geneRef id="135735" />
+                    </orthologGroup>
+                  </orthologGroup>
+                  <geneRef id="156849" />
+                </orthologGroup>
+                <geneRef id="178184" />
+              </orthologGroup>
+              <orthologGroup id="HOG0014432.96" taxonId="20">
+                <property name="TaxRange" value="Clupeocephala" />
+                <geneRef id="187377" />
+                <geneRef id="228474" />
+              </orthologGroup>
+            </orthologGroup>
+            <orthologGroup id="HOG0014432.97" taxonId="6">
+              <property name="TaxRange" value="Euteleostomi" />
+              <orthologGroup id="HOG0014432.98" taxonId="7">
+                <property name="TaxRange" value="Amniota" />
+                <orthologGroup id="HOG0014432.99" taxonId="8">
+                  <property name="TaxRange" value="Theria" />
+                  <orthologGroup id="HOG0014432.100" taxonId="9">
+                    <property name="TaxRange" value="Boreoeutheria" />
+                    <geneRef id="44849" />
+                    <orthologGroup id="HOG0014432.101" taxonId="11">
+                      <property name="TaxRange" value="Euarchontoglires" />
+                      <orthologGroup id="HOG0014432.102" taxonId="12">
+                        <property name="TaxRange" value="Homininae" />
+                        <geneRef id="57512" />
+                        <geneRef id="80617" />
+                      </orthologGroup>
+                      <orthologGroup id="HOG0014432.103" taxonId="15">
+                        <property name="TaxRange" value="Murinae" />
+                        <geneRef id="109275" />
+                        <geneRef id="132049" />
+                      </orthologGroup>
+                    </orthologGroup>
+                  </orthologGroup>
+                  <geneRef id="148036" />
+                </orthologGroup>
+                <geneRef id="171904" />
+              </orthologGroup>
+              <orthologGroup id="HOG0014432.104" taxonId="20">
+                <property name="TaxRange" value="Clupeocephala" />
+                <geneRef id="193621" />
+                <geneRef id="232976" />
+              </orthologGroup>
+            </orthologGroup>
+          </paralogGroup>
+          <paralogGroup id="HOG0014432.105" taxonId="23">
+            <geneRef id="235090" />
+            <geneRef id="242228" />
+          </paralogGroup>
+        </orthologGroup>
+        <orthologGroup id="HOG0014432.106" taxonId="5">
+          <property name="TaxRange" value="Chordata" />
+          <paralogGroup id="HOG0014432.107" taxonId="6">
+            <geneRef id="233638" />
+            <orthologGroup id="HOG0014432.108" taxonId="6">
+              <property name="TaxRange" value="Euteleostomi" />
+              <orthologGroup id="HOG0014432.109" taxonId="7">
+                <property name="TaxRange" value="Amniota" />
+                <orthologGroup id="HOG0014432.110" taxonId="8">
+                  <property name="TaxRange" value="Theria" />
+                  <orthologGroup id="HOG0014432.111" taxonId="9">
+                    <property name="TaxRange" value="Boreoeutheria" />
+                    <geneRef id="52183" />
+                    <orthologGroup id="HOG0014432.112" taxonId="11">
+                      <property name="TaxRange" value="Euarchontoglires" />
+                      <orthologGroup id="HOG0014432.113" taxonId="12">
+                        <property name="TaxRange" value="Homininae" />
+                        <geneRef id="76941" />
+                        <geneRef id="82422" />
+                      </orthologGroup>
+                      <orthologGroup id="HOG0014432.114" taxonId="15">
+                        <property name="TaxRange" value="Murinae" />
+                        <geneRef id="108894" />
+                        <geneRef id="131710" />
+                      </orthologGroup>
+                    </orthologGroup>
+                  </orthologGroup>
+                  <geneRef id="157751" />
+                </orthologGroup>
+                <geneRef id="176142" />
+              </orthologGroup>
+              <orthologGroup id="HOG0014432.115" taxonId="20">
+                <property name="TaxRange" value="Clupeocephala" />
+                <paralogGroup id="HOG0014432.116" taxonId="21">
+                  <geneRef id="192442" />
+                  <geneRef id="198561" />
+                </paralogGroup>
+                <geneRef id="219955" />
+              </orthologGroup>
+            </orthologGroup>
+          </paralogGroup>
+          <geneRef id="244735" />
+        </orthologGroup>
+      </paralogGroup>
+    </orthologGroup>
+    <orthologGroup id="HOG0014625" taxonId="1">
+      <property name="TaxRange" value="Bilateria" />
+      <orthologGroup id="HOG0014625.1" taxonId="2">
+        <property name="TaxRange" value="Ecdysozoa" />
+        <geneRef id="11731" />
+        <geneRef id="26885" />
+      </orthologGroup>
+      <orthologGroup id="HOG0014625.2" taxonId="5">
+        <property name="TaxRange" value="Chordata" />
+        <orthologGroup id="HOG0014625.3" taxonId="6">
+          <property name="TaxRange" value="Euteleostomi" />
+          <orthologGroup id="HOG0014625.4" taxonId="7">
+            <property name="TaxRange" value="Amniota" />
+            <orthologGroup id="HOG0014625.5" taxonId="8">
+              <property name="TaxRange" value="Theria" />
+              <orthologGroup id="HOG0014625.6" taxonId="9">
+                <property name="TaxRange" value="Boreoeutheria" />
+                <geneRef id="35687" />
+                <orthologGroup id="HOG0014625.7" taxonId="11">
+                  <property name="TaxRange" value="Euarchontoglires" />
+                  <orthologGroup id="HOG0014625.8" taxonId="12">
+                    <property name="TaxRange" value="Homininae" />
+                    <geneRef id="75937" />
+                    <geneRef id="95956" />
+                  </orthologGroup>
+                  <orthologGroup id="HOG0014625.9" taxonId="15">
+                    <property name="TaxRange" value="Murinae" />
+                    <geneRef id="115498" />
+                    <geneRef id="128406" />
+                  </orthologGroup>
+                </orthologGroup>
+              </orthologGroup>
+              <geneRef id="159372" />
+            </orthologGroup>
+            <geneRef id="183361" />
+          </orthologGroup>
+          <geneRef id="234268" />
+        </orthologGroup>
+        <geneRef id="243090" />
+      </orthologGroup>
+    </orthologGroup>
+    <orthologGroup id="HOG0014804" taxonId="1">
+      <property name="TaxRange" value="Bilateria" />
+      <orthologGroup id="HOG0014804.1" taxonId="2">
+        <property name="TaxRange" value="Ecdysozoa" />
+        <geneRef id="2149" />
+        <geneRef id="28230" />
+      </orthologGroup>
+      <orthologGroup id="HOG0014804.2" taxonId="5">
+        <property name="TaxRange" value="Chordata" />
+        <paralogGroup id="HOG0014804.3" taxonId="6">
+          <orthologGroup id="HOG0014804.4" taxonId="6">
+            <property name="TaxRange" value="Euteleostomi" />
+            <orthologGroup id="HOG0014804.5" taxonId="7">
+              <property name="TaxRange" value="Amniota" />
+              <orthologGroup id="HOG0014804.6" taxonId="8">
+                <property name="TaxRange" value="Theria" />
+                <orthologGroup id="HOG0014804.7" taxonId="12">
+                  <property name="TaxRange" value="Homininae" />
+                  <geneRef id="57775" />
+                  <geneRef id="84835" />
+                </orthologGroup>
+                <geneRef id="166156" />
+              </orthologGroup>
+              <geneRef id="184322" />
+            </orthologGroup>
+            <paralogGroup id="HOG0014804.8" taxonId="20">
+              <geneRef id="193903" />
+              <geneRef id="210997" />
+            </paralogGroup>
+          </orthologGroup>
+          <orthologGroup id="HOG0014804.9" taxonId="6">
+            <property name="TaxRange" value="Euteleostomi" />
+            <orthologGroup id="HOG0014804.10" taxonId="7">
+              <property name="TaxRange" value="Amniota" />
+              <orthologGroup id="HOG0014804.11" taxonId="8">
+                <property name="TaxRange" value="Theria" />
+                <orthologGroup id="HOG0014804.12" taxonId="9">
+                  <property name="TaxRange" value="Boreoeutheria" />
+                  <geneRef id="45425" />
+                  <orthologGroup id="HOG0014804.13" taxonId="11">
+                    <property name="TaxRange" value="Euarchontoglires" />
+                    <orthologGroup id="HOG0014804.14" taxonId="12">
+                      <property name="TaxRange" value="Homininae" />
+                      <geneRef id="66509" />
+                      <geneRef id="92994" />
+                    </orthologGroup>
+                    <orthologGroup id="HOG0014804.15" taxonId="15">
+                      <property name="TaxRange" value="Murinae" />
+                      <geneRef id="110193" />
+                      <geneRef id="140945" />
+                    </orthologGroup>
+                  </orthologGroup>
+                </orthologGroup>
+                <geneRef id="154160" />
+              </orthologGroup>
+              <geneRef id="169608" />
+            </orthologGroup>
+            <orthologGroup id="HOG0014804.16" taxonId="20">
+              <property name="TaxRange" value="Clupeocephala" />
+              <geneRef id="201760" />
+              <geneRef id="215819" />
+            </orthologGroup>
+          </orthologGroup>
+          <orthologGroup id="HOG0014804.17" taxonId="6">
+            <property name="TaxRange" value="Euteleostomi" />
+            <paralogGroup id="HOG0014804.18" taxonId="7">
+              <geneRef id="152879" />
+              <geneRef id="152903" />
+              <orthologGroup id="HOG0014804.19" taxonId="7">
+                <property name="TaxRange" value="Amniota" />
+                <orthologGroup id="HOG0014804.20" taxonId="9">
+                  <property name="TaxRange" value="Boreoeutheria" />
+                  <geneRef id="48052" />
+                  <orthologGroup id="HOG0014804.21" taxonId="11">
+                    <property name="TaxRange" value="Euarchontoglires" />
+                    <orthologGroup id="HOG0014804.22" taxonId="12">
+                      <property name="TaxRange" value="Homininae" />
+                      <geneRef id="68742" />
+                      <geneRef id="91099" />
+                    </orthologGroup>
+                    <orthologGroup id="HOG0014804.23" taxonId="15">
+                      <property name="TaxRange" value="Murinae" />
+                      <geneRef id="116628" />
+                      <geneRef id="132214" />
+                    </orthologGroup>
+                  </orthologGroup>
+                </orthologGroup>
+                <geneRef id="181237" />
+              </orthologGroup>
+            </paralogGroup>
+            <paralogGroup id="HOG0014804.24" taxonId="20">
+              <geneRef id="196561" />
+              <geneRef id="209590" />
+              <orthologGroup id="HOG0014804.25" taxonId="20">
+                <property name="TaxRange" value="Clupeocephala" />
+                <paralogGroup id="HOG0014804.26" taxonId="21">
+                  <geneRef id="199820" />
+                  <geneRef id="211533" />
+                </paralogGroup>
+                <geneRef id="225559" />
+              </orthologGroup>
+            </paralogGroup>
+          </orthologGroup>
+        </paralogGroup>
+        <geneRef id="238397" />
+      </orthologGroup>
+    </orthologGroup>
+    </groups>
+</orthoXML>

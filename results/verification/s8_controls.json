@@ -1,0 +1,33 @@
+{
+ "per_species": {
+  "Canis_familiaris": [
+   89,
+   100
+  ],
+  "Homo_sapiens": [
+   95,
+   100
+  ],
+  "Monodelphis_domestica": [
+   85,
+   100
+  ],
+  "Mus_musculus": [
+   98,
+   100
+  ],
+  "Pan_troglodytes": [
+   96,
+   100
+  ],
+  "Rattus_norvegicus": [
+   90,
+   100
+  ]
+ },
+ "recovered": 553,
+ "n": 600,
+ "rate": 0.9216666666666666,
+ "neg_n": 512,
+ "neg_intact": 0
+}

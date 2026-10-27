@@ -1,0 +1,59 @@
+{
+ "sim": "python -m ancestra.simulate --out sim --seed 23 --species 8 --genes 300 (2309 proteins, 294 families, 7904 true pairs)",
+ "runs": {
+  "run_accurate_1": "3b4523463927d1b581475e864f7a85943ff014625a51bb062afbd46cad141d49",
+  "run_accurate_2": "3b4523463927d1b581475e864f7a85943ff014625a51bb062afbd46cad141d49",
+  "run_fast_1": "bb2756a091cd567a5e90881cb607e0759bba8c2ffde04ca40a9c078ef7174923",
+  "run_fast_2": "bb2756a091cd567a5e90881cb607e0759bba8c2ffde04ca40a9c078ef7174923",
+  "rungo_accurate_1": "18b19ad7cead4aafe5f46d0019a363e77d0061cce97fa8d3ecc12090ca3810aa",
+  "rungo_accurate_2": "18b19ad7cead4aafe5f46d0019a363e77d0061cce97fa8d3ecc12090ca3810aa",
+  "rungo_accurate_t1": "18b19ad7cead4aafe5f46d0019a363e77d0061cce97fa8d3ecc12090ca3810aa",
+  "rungo_accurate_t6": "18b19ad7cead4aafe5f46d0019a363e77d0061cce97fa8d3ecc12090ca3810aa",
+  "rungo_fast_1": "6eaf8230341c3dff93feaac609b455a332e0f7367721ffe5830a3106cea6657d",
+  "rungo_fast_2": "6eaf8230341c3dff93feaac609b455a332e0f7367721ffe5830a3106cea6657d"
+ },
+ "eval_nogo_accurate": {
+  "tp": 7355,
+  "n_pred": 7409,
+  "n_true": 7904,
+  "precision": 0.9927115670130922,
+  "recall": 0.9305414979757085,
+  "f1": 0.9606216939855026,
+  "fp_true_paralogs": 54,
+  "fp_different_families": 0,
+  "fp_other": 0
+ },
+ "eval_go_accurate": {
+  "tp": 7356,
+  "n_pred": 7408,
+  "n_true": 7904,
+  "precision": 0.9929805615550756,
+  "recall": 0.930668016194332,
+  "f1": 0.9608150470219436,
+  "fp_true_paralogs": 52,
+  "fp_different_families": 0,
+  "fp_other": 0
+ },
+ "eval_nogo_fast": {
+  "tp": 7386,
+  "n_pred": 7437,
+  "n_true": 7904,
+  "precision": 0.9931423961274708,
+  "recall": 0.9344635627530364,
+  "f1": 0.9629098494231146,
+  "fp_true_paralogs": 51,
+  "fp_different_families": 0,
+  "fp_other": 0
+ },
+ "eval_go_fast": {
+  "tp": 7387,
+  "n_pred": 7436,
+  "n_true": 7904,
+  "precision": 0.993410435718128,
+  "recall": 0.93459008097166,
+  "f1": 0.9631029986962191,
+  "fp_true_paralogs": 49,
+  "fp_different_families": 0,
+  "fp_other": 0
+ }
+}

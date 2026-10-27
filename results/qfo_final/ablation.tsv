@@ -1,9 +1,9 @@
 arm	description	status	SwissTree TPR	ΔSwissTree TPR	SwissTree PPV	ΔSwissTree PPV	TreeFam-A TPR	ΔTreeFam-A TPR	TreeFam-A PPV	ΔTreeFam-A PPV	VGNC TPR	ΔVGNC TPR	VGNC PPV	ΔVGNC PPV	GO Schlicker	ΔGO	GO n	EC Schlicker	ΔEC	EC n
-cand2_fast	baseline: fast preset, gene order, NCBI tree	ok	0.731±0.037		0.923±0.032		0.608±0.006		0.916±0.004		0.981±0.002		0.982±0.002		nan		0	0.8961		196,729
-a_nogo	no gene order	not available																		
-b_rescue	+ family rescue (3Di+profile) + guard	not available																		
-c_astral	guide tree ASTRAL-Pro	not available																		
-d_fastme	guide tree FastME	not available																		
-e_nni5	NCBI + 5 random NNIs (seed 11)	not available																		
-f_random	random tree (negative control)	not available																		
+cand2_fast	baseline: fast preset, gene order, NCBI tree	ok	0.731±0.037		0.923±0.032		0.608±0.006		0.916±0.004		0.981±0.002		0.982±0.002		0.4705		181,857	0.8961		196,729
+a_nogo	no gene order	ok	0.735±0.037	+0.004	0.922±0.032	-0.001	0.596±0.006	-0.012	0.912±0.005	-0.004	0.978±0.002	-0.002	0.981±0.002	-0.001	0.4697	-0.0008	188,212	0.8972	+0.0011	197,896
+b_rescue	+ family rescue (3Di+profile) + guard	ok	0.733±0.037	+0.002	0.923±0.032	+0.000	0.604±0.006	-0.004	0.917±0.004	+0.000	0.981±0.002	-0.000	0.982±0.002	-0.000	0.4704	-0.0001	180,767	0.8949	-0.0011	195,828
+c_astral	guide tree ASTRAL-Pro	ok	0.782±0.036	+0.051	0.929±0.032	+0.006	0.636±0.006	+0.028	0.914±0.004	-0.003	0.984±0.002	+0.003	0.994±0.001	+0.012	0.4538	-0.0167	225,554	0.7713	-0.1248	266,827
+d_fastme	guide tree FastME	ok	0.777±0.035	+0.047	0.920±0.031	-0.003	0.630±0.006	+0.022	0.901±0.005	-0.016	0.983±0.002	+0.003	0.994±0.001	+0.012	0.4512	-0.0193	231,608	0.7618	-0.1343	266,513
+e_nni5	NCBI + 5 random NNIs (seed 11)	ok	0.747±0.037	+0.016	0.920±0.032	-0.003	0.611±0.006	+0.003	0.905±0.005	-0.012	0.981±0.002	-0.000	0.982±0.002	-0.000	0.4746	+0.0041	178,870	0.8993	+0.0032	180,569
+f_random	random tree (negative control)	ok	0.600±0.036	-0.130	0.562±0.041	-0.361	0.365±0.006	-0.243	0.683±0.008	-0.233	0.501±0.007	-0.480	0.248±0.004	-0.734	0.4471	-0.0234	253,088	0.8359	-0.0602	194,008
 g_accurate_nogo	accurate preset, no gene order	not available																		

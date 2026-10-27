@@ -1,0 +1,452 @@
+{
+ "root_groups_identical_to_ob_export": true,
+ "n_top": 13669,
+ "n_multi": 15301,
+ "largest": [
+  1910,
+  1193,
+  970,
+  670,
+  558,
+  539,
+  499,
+  459,
+  453,
+  445
+ ],
+ "sample": [
+  {
+   "id": "HOG0009042",
+   "taxonId": "2",
+   "size": 2,
+   "n_species": 2,
+   "max_copies": 1,
+   "species": {
+    "Caenorhabditis_elegans": 1,
+    "Drosophila_melanogaster": 1
+   },
+   "n_paralogGroups": 0,
+   "n_orthologGroups": 1,
+   "refogs": {}
+  },
+  {
+   "id": "HOG0010804",
+   "taxonId": "1",
+   "size": 13,
+   "n_species": 12,
+   "max_copies": 2,
+   "species": {
+    "Caenorhabditis_elegans": 1,
+    "Canis_familiaris": 1,
+    "Ciona_intestinalis": 1,
+    "Danio_rerio": 2,
+    "Drosophila_melanogaster": 1,
+    "Gallus_gallus": 1,
+    "Homo_sapiens": 1,
+    "Monodelphis_domestica": 1,
+    "Mus_musculus": 1,
+    "Pan_troglodytes": 1,
+    "Rattus_norvegicus": 1,
+    "Tetraodon_nigroviridis": 1
+   },
+   "n_paralogGroups": 1,
+   "n_orthologGroups": 11,
+   "refogs": {}
+  },
+  {
+   "id": "HOG0014432",
+   "taxonId": "1",
+   "size": 176,
+   "n_species": 12,
+   "max_copies": 31,
+   "species": {
+    "Caenorhabditis_elegans": 1,
+    "Canis_familiaris": 9,
+    "Ciona_intestinalis": 27,
+    "Danio_rerio": 31,
+    "Drosophila_melanogaster": 1,
+    "Gallus_gallus": 11,
+    "Homo_sapiens": 18,
+    "Monodelphis_domestica": 18,
+    "Mus_musculus": 14,
+    "Pan_troglodytes": 12,
+    "Rattus_norvegicus": 13,
+    "Tetraodon_nigroviridis": 21
+   },
+   "n_paralogGroups": 15,
+   "n_orthologGroups": 102,
+   "refogs": {}
+  },
+  {
+   "id": "HOG0009262",
+   "taxonId": "1",
+   "size": 12,
+   "n_species": 9,
+   "max_copies": 4,
+   "species": {
+    "Caenorhabditis_elegans": 4,
+    "Danio_rerio": 1,
+    "Gallus_gallus": 1,
+    "Homo_sapiens": 1,
+    "Monodelphis_domestica": 1,
+    "Mus_musculus": 1,
+    "Pan_troglodytes": 1,
+    "Rattus_norvegicus": 1,
+    "Tetraodon_nigroviridis": 1
+   },
+   "n_paralogGroups": 1,
+   "n_orthologGroups": 8,
+   "refogs": {}
+  },
+  {
+   "id": "HOG0009028",
+   "taxonId": "2",
+   "size": 3,
+   "n_species": 2,
+   "max_copies": 2,
+   "species": {
+    "Caenorhabditis_elegans": 1,
+    "Drosophila_melanogaster": 2
+   },
+   "n_paralogGroups": 1,
+   "n_orthologGroups": 1,
+   "refogs": {}
+  },
+  {
+   "id": "HOG0009953",
+   "taxonId": "1",
+   "size": 57,
+   "n_species": 10,
+   "max_copies": 9,
+   "species": {
+    "Canis_familiaris": 6,
+    "Danio_rerio": 9,
+    "Drosophila_melanogaster": 1,
+    "Gallus_gallus": 5,
+    "Homo_sapiens": 6,
+    "Monodelphis_domestica": 7,
+    "Mus_musculus": 6,
+    "Pan_troglodytes": 6,
+    "Rattus_norvegicus": 5,
+    "Tetraodon_nigroviridis": 6
+   },
+   "n_paralogGroups": 5,
+   "n_orthologGroups": 43,
+   "refogs": {}
+  },
+  {
+   "id": "HOG0011256",
+   "taxonId": "1",
+   "size": 12,
+   "n_species": 11,
+   "max_copies": 2,
+   "species": {
+    "Caenorhabditis_elegans": 1,
+    "Canis_familiaris": 1,
+    "Danio_rerio": 2,
+    "Drosophila_melanogaster": 1,
+    "Gallus_gallus": 1,
+    "Homo_sapiens": 1,
+    "Monodelphis_domestica": 1,
+    "Mus_musculus": 1,
+    "Pan_troglodytes": 1,
+    "Rattus_norvegicus": 1,
+    "Tetraodon_nigroviridis": 1
+   },
+   "n_paralogGroups": 1,
+   "n_orthologGroups": 10,
+   "refogs": {}
+  },
+  {
+   "id": "HOG0003112",
+   "taxonId": "6",
+   "size": 8,
+   "n_species": 7,
+   "max_copies": 2,
+   "species": {
+    "Canis_familiaris": 1,
+    "Danio_rerio": 1,
+    "Gallus_gallus": 1,
+    "Homo_sapiens": 2,
+    "Mus_musculus": 1,
+    "Pan_troglodytes": 1,
+    "Rattus_norvegicus": 1
+   },
+   "n_paralogGroups": 1,
+   "n_orthologGroups": 6,
+   "refogs": {}
+  },
+  {
+   "id": "HOG0003026",
+   "taxonId": "6",
+   "size": 22,
+   "n_species": 7,
+   "max_copies": 9,
+   "species": {
+    "Canis_familiaris": 1,
+    "Danio_rerio": 4,
+    "Gallus_gallus": 1,
+    "Homo_sapiens": 1,
+    "Mus_musculus": 1,
+    "Pan_troglodytes": 9,
+    "Rattus_norvegicus": 5
+   },
+   "n_paralogGroups": 3,
+   "n_orthologGroups": 6,
+   "refogs": {}
+  },
+  {
+   "id": "HOG0014804",
+   "taxonId": "1",
+   "size": 31,
+   "n_species": 12,
+   "max_copies": 7,
+   "species": {
+    "Caenorhabditis_elegans": 1,
+    "Canis_familiaris": 2,
+    "Ciona_intestinalis": 1,
+    "Danio_rerio": 7,
+    "Drosophila_melanogaster": 1,
+    "Gallus_gallus": 3,
+    "Homo_sapiens": 3,
+    "Monodelphis_domestica": 4,
+    "Mus_musculus": 2,
+    "Pan_troglodytes": 3,
+    "Rattus_norvegicus": 2,
+    "Tetraodon_nigroviridis": 2
+   },
+   "n_paralogGroups": 5,
+   "n_orthologGroups": 22,
+   "refogs": {}
+  },
+  {
+   "id": "HOG0010020",
+   "taxonId": "1",
+   "size": 46,
+   "n_species": 11,
+   "max_copies": 8,
+   "species": {
+    "Canis_familiaris": 4,
+    "Ciona_intestinalis": 1,
+    "Danio_rerio": 8,
+    "Drosophila_melanogaster": 1,
+    "Gallus_gallus": 2,
+    "Homo_sapiens": 5,
+    "Monodelphis_domestica": 6,
+    "Mus_musculus": 4,
+    "Pan_troglodytes": 4,
+    "Rattus_norvegicus": 4,
+    "Tetraodon_nigroviridis": 7
+   },
+   "n_paralogGroups": 5,
+   "n_orthologGroups": 34,
+   "refogs": {}
+  },
+  {
+   "id": "HOG0009427",
+   "taxonId": "1",
+   "size": 27,
+   "n_species": 10,
+   "max_copies": 4,
+   "species": {
+    "Caenorhabditis_elegans": 1,
+    "Canis_familiaris": 3,
+    "Danio_rerio": 4,
+    "Gallus_gallus": 3,
+    "Homo_sapiens": 3,
+    "Monodelphis_domestica": 3,
+    "Mus_musculus": 3,
+    "Pan_troglodytes": 3,
+    "Rattus_norvegicus": 3,
+    "Tetraodon_nigroviridis": 1
+   },
+   "n_paralogGroups": 1,
+   "n_orthologGroups": 23,
+   "refogs": {}
+  },
+  {
+   "id": "HOG0011952",
+   "taxonId": "1",
+   "size": 18,
+   "n_species": 11,
+   "max_copies": 3,
+   "species": {
+    "Caenorhabditis_elegans": 1,
+    "Ciona_intestinalis": 1,
+    "Danio_rerio": 3,
+    "Drosophila_melanogaster": 1,
+    "Gallus_gallus": 1,
+    "Homo_sapiens": 2,
+    "Monodelphis_domestica": 2,
+    "Mus_musculus": 2,
+    "Pan_troglodytes": 2,
+    "Rattus_norvegicus": 1,
+    "Tetraodon_nigroviridis": 2
+   },
+   "n_paralogGroups": 2,
+   "n_orthologGroups": 15,
+   "refogs": {}
+  },
+  {
+   "id": "HOG0011692",
+   "taxonId": "1",
+   "size": 13,
+   "n_species": 12,
+   "max_copies": 2,
+   "species": {
+    "Caenorhabditis_elegans": 1,
+    "Canis_familiaris": 1,
+    "Ciona_intestinalis": 1,
+    "Danio_rerio": 2,
+    "Drosophila_melanogaster": 1,
+    "Gallus_gallus": 1,
+    "Homo_sapiens": 1,
+    "Monodelphis_domestica": 1,
+    "Mus_musculus": 1,
+    "Pan_troglodytes": 1,
+    "Rattus_norvegicus": 1,
+    "Tetraodon_nigroviridis": 1
+   },
+   "n_paralogGroups": 1,
+   "n_orthologGroups": 11,
+   "refogs": {}
+  },
+  {
+   "id": "HOG0014625",
+   "taxonId": "1",
+   "size": 11,
+   "n_species": 11,
+   "max_copies": 1,
+   "species": {
+    "Caenorhabditis_elegans": 1,
+    "Canis_familiaris": 1,
+    "Ciona_intestinalis": 1,
+    "Drosophila_melanogaster": 1,
+    "Gallus_gallus": 1,
+    "Homo_sapiens": 1,
+    "Monodelphis_domestica": 1,
+    "Mus_musculus": 1,
+    "Pan_troglodytes": 1,
+    "Rattus_norvegicus": 1,
+    "Tetraodon_nigroviridis": 1
+   },
+   "n_paralogGroups": 0,
+   "n_orthologGroups": 10,
+   "refogs": {}
+  },
+  {
+   "id": "HOG0003051",
+   "taxonId": "6",
+   "size": 8,
+   "n_species": 8,
+   "max_copies": 1,
+   "species": {
+    "Canis_familiaris": 1,
+    "Danio_rerio": 1,
+    "Gallus_gallus": 1,
+    "Homo_sapiens": 1,
+    "Monodelphis_domestica": 1,
+    "Mus_musculus": 1,
+    "Pan_troglodytes": 1,
+    "Rattus_norvegicus": 1
+   },
+   "n_paralogGroups": 0,
+   "n_orthologGroups": 7,
+   "refogs": {
+    "RefOG069": 8
+   }
+  },
+  {
+   "id": "HOG0001543",
+   "taxonId": "8",
+   "size": 2,
+   "n_species": 2,
+   "max_copies": 1,
+   "species": {
+    "Monodelphis_domestica": 1,
+    "Pan_troglodytes": 1
+   },
+   "n_paralogGroups": 0,
+   "n_orthologGroups": 1,
+   "refogs": {}
+  },
+  {
+   "id": "HOG0008869",
+   "taxonId": "2",
+   "size": 18,
+   "n_species": 2,
+   "max_copies": 17,
+   "species": {
+    "Caenorhabditis_elegans": 1,
+    "Drosophila_melanogaster": 17
+   },
+   "n_paralogGroups": 1,
+   "n_orthologGroups": 1,
+   "refogs": {}
+  },
+  {
+   "id": "HOG0005204",
+   "taxonId": "5",
+   "size": 7,
+   "n_species": 7,
+   "max_copies": 1,
+   "species": {
+    "Canis_familiaris": 1,
+    "Ciona_intestinalis": 1,
+    "Homo_sapiens": 1,
+    "Monodelphis_domestica": 1,
+    "Mus_musculus": 1,
+    "Pan_troglodytes": 1,
+    "Rattus_norvegicus": 1
+   },
+   "n_paralogGroups": 0,
+   "n_orthologGroups": 6,
+   "refogs": {}
+  },
+  {
+   "id": "HOG0002324",
+   "taxonId": "7",
+   "size": 7,
+   "n_species": 7,
+   "max_copies": 1,
+   "species": {
+    "Canis_familiaris": 1,
+    "Gallus_gallus": 1,
+    "Homo_sapiens": 1,
+    "Monodelphis_domestica": 1,
+    "Mus_musculus": 1,
+    "Pan_troglodytes": 1,
+    "Rattus_norvegicus": 1
+   },
+   "n_paralogGroups": 0,
+   "n_orthologGroups": 6,
+   "refogs": {}
+  }
+ ],
+ "pyham": {
+  "n_top": 20,
+  "expected": 20,
+  "sizes": [
+   2,
+   2,
+   3,
+   7,
+   7,
+   8,
+   8,
+   11,
+   12,
+   12,
+   13,
+   13,
+   18,
+   18,
+   22,
+   27,
+   31,
+   46,
+   57,
+   176
+  ]
+ }
+}

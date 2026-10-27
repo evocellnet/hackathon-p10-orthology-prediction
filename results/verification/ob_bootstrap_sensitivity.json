@@ -1,0 +1,44 @@
+{
+ "acc_vs_of_seed23_B10000": [
+  -5.83,
+  18.65
+ ],
+ "acc_vs_of_seed47_B10000": [
+  -5.96,
+  18.56
+ ],
+ "acc_vs_of_seed1234_B10000": [
+  -5.91,
+  18.66
+ ],
+ "acc_vs_of_jackknife_range": [
+  3.24,
+  9.5
+ ],
+ "acc_vs_of_perRefOG_wins_ties_losses": [
+  15,
+  12,
+  9
+ ],
+ "acc_vs_sp_seed23_B10000": [
+  -3.85,
+  14.88
+ ],
+ "acc_vs_sp_seed47_B10000": [
+  -3.8,
+  15.05
+ ],
+ "acc_vs_sp_seed1234_B10000": [
+  -4.01,
+  14.76
+ ],
+ "acc_vs_sp_jackknife_range": [
+  2.51,
+  8.84
+ ],
+ "acc_vs_sp_perRefOG_wins_ties_losses": [
+  22,
+  5,
+  9
+ ]
+}

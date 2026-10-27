@@ -1,0 +1,33 @@
+[verify_orthoxml] PASS xsd (3.1s): {}
+[verify_orthoxml] PASS generef_integrity (3.1s): {"n_genes_declared": 251378, "n_generefs": 221443, "n_groups": 174261}
+[verify_orthoxml] PASS genes_once (3.1s): {"n_genes_in_groups": 221443, "n_singletons": 29935, "n_genes_referenced_more_than_once": 0, "gene_table": "work/ob_final/main_accurate_go/stages/input/genes.tsv", "n_input_genes": 251378, "n_missing": 0, "n_extra": 0, "n_wrong_species": 0}
+[verify_orthoxml] PASS taxrange_lca (2.1s): {"n_orthologGroups": 148539, "n_paralogGroups": 25722, "n_taxrange_ne_lca": 0, "n_taxonid_ne_taxrange": 0, "n_nesting_violations": 0, "n_paralog_level_violations": 0, "n_unknown_levels": 0}
+[verify_orthoxml] PASS pairs_count (1.6s): {"n_pairs_hogs": 1394142, "n_lines_pairs_tsv": 1394142}
+[verify_orthoxml] PASS flattening_vs_qfo (11.9s): {"mapping": "synthetic (protIds not in the QfO 2022 mapping)", "qfo_mapping_checks_ok": true, "n_toplevel_units": 15246, "n_sampled_units": 3005, "n_largest_included": 5, "largest_unit_genes": 1910, "n_sample_genes": 47591, "n_pairs_qfo": 308802, "n_pairs_ours": 308802, "n_pairs_tsv": 308802, "ours_minus_qfo": 0, "qfo_minus_ours": 0, "tsv_sym_diff_ours": 0, "n_toplevel_seen": 15246}
+[verify_orthoxml] PASS pyham (12.6s): {"n_top_level_hogs_pyham": 15246, "n_expected": 15246, "n_genes": 221443, "load_s": 8.1, "mode": "full"}
+[verify_orthoxml] PASS orthobench_export (1.3s): {"n_ogs_read": 15301, "n_col_skip": 1, "n_duplicate_genes": 0, "n_unknown_genes": 0, "n_multi_gene_toplevel_groups": 15301, "ogs_equal_toplevel_groups": true, "official_check_orthogroups": ["251378 genes found in predicted orthogroups, this is 100.0% of all genes"]}
+[verify_orthoxml] overall: PASS
+	Command being timed: "python scripts/verify_orthoxml.py work/ob_final/main_accurate_go --json results/verification/verify_orthoxml_accurate_go.json"
+	User time (seconds): 39.66
+	System time (seconds): 1.45
+	Percent of CPU this job got: 98%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:41.80
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 2157448
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 675728
+	Voluntary context switches: 114
+	Involuntary context switches: 415
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 86200
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+exit=0

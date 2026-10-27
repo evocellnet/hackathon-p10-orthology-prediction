@@ -1,0 +1,18 @@
+== data/orthobench/runs/orthofinder/out/Results_Oct26/Orthogroups/Orthogroups.tsv
+231785 genes found in predicted orthogroups, this is 92.2% of all genes
+70.1% F-score
+61.4% Precision
+81.7% Recall
+19 Orthogroups exactly correct
+== work/ob_final/main_accurate_go/orthobench_ogs.txt
+251378 genes found in predicted orthogroups, this is 100.0% of all genes
+77.9% F-score
+72.5% Precision
+84.1% Recall
+21 Orthogroups exactly correct
+== work/ob_final/fast_go/orthobench_ogs.txt
+251378 genes found in predicted orthogroups, this is 100.0% of all genes
+75.2% F-score
+70.4% Precision
+80.8% Recall
+20 Orthogroups exactly correct

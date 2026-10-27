@@ -1,0 +1,12 @@
+........................................................................ [ 46%]
+...
+[test_no_leak] 3 comment/docstring mentions (allowed):
+  ancestra/pipeline.py:61: #   Species-overlap structure (so_struct) only in `fast`: on the accurate base i
+  ancestra/pipeline.py:81: # S0 default = `2sA_dc30_cc_sh30_RA` (docs/S0_families.md, selected on OrthoBenc
+  ancestra/treebench.py:1: """Gene-tree utilities for the S4 tree-method benchmark (docs/S4_trees.md).
+
+Gen
+..................................................................... [ 92%]
+............                                                             [100%]
+156 passed, 1 deselected in 86.02s (0:01:26)
+exit=0

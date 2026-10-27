@@ -1,0 +1,56 @@
+{
+ "Danio_rerio__Tetraodon_nigroviridis": {
+  "n_orth": 113,
+  "n_par": 766,
+  "refogs_all_dev": true,
+  "seq": 0.7964,
+  "w20": 0.8173,
+  "w20_shuf11": 0.4986,
+  "w10": 0.7897
+ },
+ "Homo_sapiens__Danio_rerio": {
+  "n_orth": 114,
+  "n_par": 858,
+  "refogs_all_dev": true,
+  "seq": 0.8024,
+  "w20": 0.6964,
+  "w20_shuf11": 0.4962,
+  "w10": 0.6749
+ },
+ "Homo_sapiens__Drosophila_melanogaster": {
+  "n_orth": 36,
+  "n_par": 41,
+  "refogs_all_dev": true,
+  "seq": 0.727,
+  "w20": 0.4878,
+  "w20_shuf11": 0.4756,
+  "w10": 0.5
+ },
+ "Homo_sapiens__Gallus_gallus": {
+  "n_orth": 70,
+  "n_par": 438,
+  "refogs_all_dev": true,
+  "seq": 0.8264,
+  "w20": 0.9282,
+  "w20_shuf11": 0.5008,
+  "w10": 0.8982
+ },
+ "Homo_sapiens__Mus_musculus": {
+  "n_orth": 92,
+  "n_par": 551,
+  "refogs_all_dev": true,
+  "seq": 0.8463,
+  "w20": 0.9223,
+  "w20_shuf11": 0.5099,
+  "w10": 0.8993
+ },
+ "Homo_sapiens__Tetraodon_nigroviridis": {
+  "n_orth": 86,
+  "n_par": 502,
+  "refogs_all_dev": true,
+  "seq": 0.7334,
+  "w20": 0.7203,
+  "w20_shuf11": 0.4937,
+  "w10": 0.6959
+ }
+}
