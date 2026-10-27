@@ -431,3 +431,56 @@ def test_deep_node_relaxed_tolerance():
     _, st1 = decide_node(3, child, lu, lv, sc, MergeConfig(tree_mode=False, deep_min_d=1.5, deep_tol=0.8))
     assert st1["deep"] == 1 and st1["n_mb_deep"] == 2              # a-b2 becomes mutual-best at 0.8
     assert "deep_min_d" not in MergeConfig().key()                 # default hash unchanged
+
+
+def _nesting_violations(ox, tree):
+    """(same-level OG in OG, paralogGroup level not strictly below enclosing OG or not containing
+    members, OG TaxRange != LCA of its members)."""
+    from ancestra.newick import TreeIndex
+    tix = TreeIndex(tree)
+    sp = {k: v.species for k, v in ox.genes.items()}
+    bad = [0, 0, 0]
+    for top in ox.groups:
+        st = [(top, None)]
+        while st:
+            g, par = st.pop()
+            mem = [sp[x] for x in g.genes()]
+            if g.kind == "ortholog":
+                if tix.mrca(mem) != g.level:
+                    bad[2] += 1
+                if par is not None and par.kind == "ortholog" and not tix.is_strict_descendant(g.level, par.level):
+                    bad[0] += 1
+            else:
+                if not all(tix.is_ancestor(g.level, x) for x in mem) or \
+                        (par is not None and not tix.is_strict_descendant(g.level, par.level)):
+                    bad[1] += 1
+            st.extend((c, g) for c in g.children if isinstance(c, Group))
+    return bad
+
+
+def test_so_struct_nesting_regression():
+    # repro of results/qfo_run/repro_so_struct_nesting (Methanobacteriota polytomy with a
+    # Stenosarchaea subclade): two separate ancestral genes {3,4} and {1,2} at "Metha" become
+    # species-disjoint units at the root; the combined speciation must nest correctly.
+    genes = {"S536": ["g1"], "S554": ["g2"], "S487": ["g3"], "S805": ["g4"], "O": ["o"]}
+    scores = {("g1", "g2"): 600, ("g3", "g4"): 600, ("o", "g3"): 300, ("o", "g1"): 280}
+    gt, st, tree = make_case(genes, scores, "((S536,(S554,S487)Steno,S805)Metha,O)root;")
+    cfg = MergeConfig(tree_mode=False, so_struct=True, so_absorb=True)
+    ox, got = predicted(gt, st, tree, cfg)
+    assert got == {("ortholog", "root", frozenset({
+        ("ortholog", "Metha", frozenset({"g1", "g4", ("ortholog", "Steno", frozenset({"g2", "g3"}))})),
+        "o"}))}
+    assert _nesting_violations(ox, tree) == [0, 0, 0]
+
+
+def test_so_struct_rebucketed_paralog_level():
+    # a paralogGroup created high up (level B, members all of species B1) that so_combine
+    # re-buckets under a deeper orthologGroup must be relabelled strictly below it
+    genes = {"B1": ["b1", "b1p"], "B2": ["b2"], "C": ["c"], "O": ["o"]}
+    scores = {("b1", "b1p"): 900, ("b1", "c"): 500, ("b1p", "c"): 480, ("b2", "o"): 300,
+              ("c", "o"): 250, ("b1", "o"): 240}
+    gt, st, tree = make_case(genes, scores, "(((B1,B2)B,C)BC,O)root;")
+    for cfg in (MergeConfig(tree_mode=False, so_struct=True, so_absorb=True),
+                MergeConfig(tree_mode=False, so_struct=True)):
+        ox, _ = predicted(gt, st, tree, cfg)
+        assert _nesting_violations(ox, tree) == [0, 0, 0]

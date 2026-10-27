@@ -16,3 +16,4 @@
 13. Get comparator numbers on the dev set as soon as they exist; a gate without a comparator is no gate. Evidence: OrthoFinder finished 17:58 but its dev F was not recorded by T+5h.
 - Re-check adoption rules on the actual default preset, not only the cheap iteration preset. Evidence: so_struct passed on fast (PPV −0.008) but cost −0.027 PPV on accurate.
 - Keep the output-validity gate (verify_orthoxml) before every benchmark peek. Evidence: it caught malformed nesting that pair-level metrics would have hidden.
+- Usage limits can stop every agent at once; background shell jobs survive. Keep long runs as detached processes with logs, so a resumed agent picks them up. Evidence: the T+11h rate limit killed 4 agents, but SonicParanoid/FastTree runs kept going.

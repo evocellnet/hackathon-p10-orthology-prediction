@@ -76,6 +76,8 @@ def main():
     ap.add_argument("--label", required=True)
     ap.add_argument("--threads", type=int, default=12)
     ap.add_argument("--save", help="write hogs.orthoxml here")
+    ap.add_argument("--outdir", help="write a run-shaped dir (hogs.orthoxml, pairs.tsv, orthobench_ogs.txt, "
+                    "stages/input hard-linked) for scripts/verify_orthoxml.py")
     a = ap.parse_args()
     cfg = apply_preset(MergeConfig(), a.preset, a.threads)
     cfg = replace(cfg, **{k: json.loads(v) for k, v in (kv.split("=", 1) for kv in a.set)})
@@ -105,6 +107,17 @@ def main():
     if a.save:
         from ancestra.orthoxml import write_orthoxml
         write_orthoxml(ox, a.save)
+    if a.outdir:
+        import shutil
+        from ancestra.orthoxml import to_orthobench_ogs, write_orthoxml
+        from ancestra.pipeline import write_pairs_streaming
+        os.makedirs(os.path.join(a.outdir, "stages"), exist_ok=True)
+        dst = os.path.join(a.outdir, "stages", "input")
+        if not os.path.exists(dst):
+            shutil.copytree(os.path.join(a.run, "stages/input"), dst, copy_function=os.link)
+        write_orthoxml(ox, os.path.join(a.outdir, "hogs.orthoxml"))
+        write_pairs_streaming(ox, os.path.join(a.outdir, "pairs.tsv"))
+        to_orthobench_ogs(ox, None, os.path.join(a.outdir, "orthobench_ogs.txt"))
     tf = tf_score(ox)
     fnb = fn_breakdown(ox, gt, fam, tree)
     json.dump(fnb, open(os.path.join(ROOT, "results/core_v0_qfo", f"fn_breakdown_{a.label.split()[0]}.json"), "w"),

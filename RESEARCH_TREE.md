@@ -5,6 +5,8 @@ Clock: START.txt = 2026-10-26T14:40 CET; hard deadline 2026-10-28T14:40 CET (48 
 
 ## Status summary (latest first)
 
+### Note — 2026-10-27 02:31 (T+11h51): API session limit interrupted all 4 running agents (core nesting fix, S0 rescue, scaling, competitor summary); background compute survived; all agents resumed.
+
 ### M2 — 2026-10-26 19:51 (T+5h11) — core method works on OrthoBench dev; layers triaged
 The Ancestra core is built and tuned on OrthoBench **dev** only (34 RefOGs, split by homology component; test never scored): two-level S0 families (dev completeness 0.794) → hybrid DIAMOND/MMseqs2 in-family scoring → level-synchronous k-way merge along the NCBI taxdump guide tree, with local NJ trees for ambiguous clusters at divergent nodes → OrthoXML. With **constrained synteny** (gene order may only re-rank partners within the synteny-off root HOG, plus a veto), dev OG-F is **79.2** and pair F1 0.783, against 72.5 / 0.740 without gene order; shuffled gene order gives 72.5–73.3 / 0.740. One e2e OrthoBench run takes 28.5 min and 14 GB on a shared node. The layer triage, each with a shuffled control:
 - synteny: kept (pair-level gain with CI > 0, now OG-level too);

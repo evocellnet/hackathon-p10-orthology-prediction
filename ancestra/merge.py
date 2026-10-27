@@ -853,6 +853,73 @@ def run_merge(gt: GeneTable, tree: Node, st: ScoreTable, cfg: MergeConfig,
 
         def mask_mrca(m: int) -> str:
             return _tix.mrca(_spn[i] for i in range(len(_spn)) if (m >> i) & 1)
+
+        _sidx = {nm: i for i, nm in enumerate(_spn)}
+        _cmask: dict = {}                     # node -> species mask of its clade
+        for _nd in tree.postorder():
+            _cmask[_nd.name] = (1 << _sidx[_nd.name]) if not _nd.children else \
+                sum(_cmask[c.name] for c in _nd.children)
+        _kids_of = {nd_.name: [c.name for c in nd_.children] for nd_ in tree.preorder()}
+
+        def sp_mask(x) -> int:
+            m, stack = 0, [x]
+            while stack:
+                y = stack.pop()
+                if isinstance(y, (int, np.integer)):
+                    m |= 1 << int(gt.species_of[int(y)])
+                else:
+                    stack.extend(y[2])
+            return m
+
+        def so_combine(items):
+            """Species-disjoint structures -> one speciation structure, correctly nested:
+            orthologGroup at the MRCA L; same-level orthologGroups are flattened, the
+            pieces are bucketed by the child of L they lie in and combined recursively.
+            Returns None if an item cannot lie strictly below L (caller keeps paralogs)."""
+            ms = [sp_mask(x) for x in items]
+            tot = 0
+            for m_ in ms:
+                tot |= m_
+            L = mask_mrca(tot)
+            flat = []
+            for x, xm in zip(items, ms):
+                if not isinstance(x, (int, np.integer)) and x[1] == L:
+                    if x[0] == "O":
+                        flat.extend((c, sp_mask(c)) for c in x[2])
+                    else:              # paralogGroup at L: place at its members' MRCA if below L
+                        lvl = mask_mrca(xm)
+                        if lvl == L:
+                            return None
+                        flat.append((("P", lvl, x[2]), xm))
+                else:
+                    flat.append((x, xm))
+            buckets: dict = {}
+            for x, xm in flat:
+                c = next((c for c in _kids_of[L] if not (xm & ~_cmask[c])), None)
+                if c is None:
+                    return None
+                buckets.setdefault(c, []).append(x)
+            out = []
+            for c in _kids_of[L]:
+                xs = buckets.get(c)
+                if not xs:
+                    continue
+                if len(xs) == 1:
+                    out.append(xs[0])
+                else:
+                    r = so_combine(xs)
+                    if r is None:
+                        return None
+                    out.append(r)
+            if len(out) == 1:
+                return out[0]
+            fixed = []
+            for x in out:   # a paralogGroup re-bucketed below L must lie strictly below L:
+                if not isinstance(x, (int, np.integer)) and x[0] == "P" and \
+                        not _tix.is_strict_descendant(x[1], L):
+                    x = ("P", mask_mrca(sp_mask(x)), x[2])    # latest-possible placement
+                fixed.append(x)
+            return ("O", L, fixed)
     size = np.zeros(cap, dtype=np.int64)
     size[:N] = 1
     next_id = N
@@ -978,9 +1045,18 @@ def run_merge(gt: GeneTable, tree: Node, st: ScoreTable, cfg: MergeConfig,
                                 break
                         else:
                             clus.append([amask[x], [x]])
-                    sub = [struct[cl[1][0]] if len(cl[1]) == 1 else
-                           ("O", mask_mrca(cl[0]), [struct[x] for x in cl[1]]) for cl in clus]
-                    stt["so_struct_merged"] = stt.get("so_struct_merged", 0) + len(us) - len(clus)
+                    sub = []
+                    for cl in clus:
+                        if len(cl[1]) == 1:
+                            sub.append(struct[cl[1][0]])
+                            continue
+                        r = so_combine([struct[x] for x in cl[1]])
+                        if r is None:          # cannot nest correctly: keep them as paralogs
+                            sub.extend(struct[x] for x in cl[1])
+                            stt["so_struct_fallback"] = stt.get("so_struct_fallback", 0) + 1
+                        else:
+                            sub.append(r)
+                            stt["so_struct_merged"] = stt.get("so_struct_merged", 0) + len(cl[1]) - 1
                     parts_s.append(sub[0] if len(sub) == 1 else ("P", kids[ci], sub))
                 else:
                     parts_s.append(("P", kids[ci], [struct[x] for x in us]))
