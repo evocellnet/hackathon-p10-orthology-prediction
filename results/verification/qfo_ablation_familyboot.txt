@@ -1,0 +1,8 @@
+TreeFam-A all families a_nogo - cand2_fast TPR: -0.0124 [-0.0277, +0.0012] (n fam 1108)
+TreeFam-A all families a_nogo - cand2_fast PPV: -0.0044 [-0.0089, -0.0003] (n fam 1108)
+TreeFam-A all families c_astral - cand2_fast TPR: +0.0280 [-0.0090, +0.0774] (n fam 1108)
+TreeFam-A all families c_astral - cand2_fast PPV: -0.0027 [-0.0256, +0.0195] (n fam 1108)
+TreeFam-A all families d_fastme - cand2_fast TPR: +0.0221 [-0.0009, +0.0446] (n fam 1108)
+TreeFam-A all families d_fastme - cand2_fast PPV: -0.0160 [-0.0404, +0.0039] (n fam 1108)
+TreeFam-A all families e_nni5 - cand2_fast TPR: +0.0031 [-0.0200, +0.0264] (n fam 1108)
+TreeFam-A all families e_nni5 - cand2_fast PPV: -0.0117 [-0.0329, +0.0074] (n fam 1108)

@@ -1,0 +1,28 @@
+{
+ "n_compared": 638,
+ "mismatches": [],
+ "missing": [],
+ "tools_in_summary": [
+  "OrthoFinder",
+  "FastOMA_v0.1.4_nov",
+  "Hieranoid_2",
+  "InParanoid5",
+  "SonicParanoid2-sens-g",
+  "OMA_HOGs",
+  "OMA_Pairs",
+  "OMA_Groups",
+  "BBH_(SW_alignments)",
+  "Domainoid+",
+  "Ensembl_Compara",
+  "MetaPhOrs_v2.5",
+  "OrthoInspector_3.5",
+  "PANTHER_(v18)_LDO",
+  "PANTHER_(v18)_all",
+  "RSD_(SW-Alignments)",
+  "SonicParanoid2-sens",
+  "pbDOOD (eggnog v7)",
+  "pbDOOD (midpoint)",
+  "phylomedb_v5"
+ ],
+ "ref_tools_not_in_summary": []
+}

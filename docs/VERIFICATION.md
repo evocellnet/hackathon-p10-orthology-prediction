@@ -79,3 +79,66 @@ S8 genome searches, QfO final scores (not in this task).
 Suggested CLAIMS status: the rows above marked "yes" can move to `verified` (verifier, 2026-10-27). That covers
 C-S0-2, C-S0-4, C-S1-1, C-S5-2 (human/mouse and the other pairs listed), C-S8-2 (recovery and negatives),
 C-CORE-1 (toy range) and the OrthoBench final rows. The PI decides.
+
+---
+
+# Pass 2: final QfO results (results/qfo_final/, 2026-10-27 T+19h15 to T+19h22)
+
+Same independence rules as pass 1. Code and outputs: `results/verification/qfo_*`.
+
+## 4. Claim table (QfO)
+
+| claim | reported | recomputed | match? | how / notes |
+|---|---|---|---|---|
+| Provenance cand2_accurate / cand2_fast | freeze-v1 code | manifest `driver.code_sha256`: 24/24 == `freeze.json` for both; md5 of `hogs.orthoxml` == manifest outputs; the final QfO run read exactly these files (`work/qfo_final/<run>.log` input path) | yes | Manifest commits are d61da8b (accurate) and 7dec881 (fast). test_log says 394da46 / d61da8b. Same code, but the ids are inconsistent (see §5.5) |
+| SwissTree TPR/PPV accurate | .721/.926 | .7215/.9255 (±.037/.034) | yes | `qfo_refphylo.py`: own reimplementation of RefPhyloTest (truth parsed from `ReconciledTrees_*.drw`, own HOG flattening of `hogs.orthoxml`, protIds mapped with `mapping.json.gz`). Per-pair TP/FP/FN/TN counts are identical to the official raw file (3198/35/865/6318) |
+| SwissTree fast | .731/.923 | .7307/.9230 | yes | counts identical to the official raw file |
+| TreeFam-A accurate / fast | .583/.921, .608/.916 | .5831/.9213, .6080/.9165 | yes | counts identical (accurate 25,615 TP / 2,187 FP / 18,310 FN) |
+| GO / EC accurate | .4748 (n 171,884) / .8985 (n 180,745) | .47484 / .89846, same n | yes | mean over the official raw per-pair files. 300/300 randomly sampled scored pairs per test are orthologs in my flattening of `hogs.orthoxml` |
+| GO / EC fast | .4705 (181,857) / .8961 (196,729) | .47049 / .89606, same n | yes | 300/300 pair-provenance check |
+| Published competitor rows (20 tools incl. FastOMA, OMA HOGs / Pairs / Groups) | from OpenEBench | 638/638 values in `summary.tsv` == `openebench_QfO_2022.tsv` (all benchmarks incl. STD/G-STD2 and n); no tool missing | yes | `qfo_competitors.py`. OMA rows are present in the main, STD and ablation tables |
+| Ablations used freeze-v1 code | yes | 7/7 ablation manifests: 24/24 code hashes == freeze.json, git f7bcddc, not dirty; tree md5 in manifest == the arm's tree file; hogs md5 == manifest | yes | |
+| Cache reuse only tree-independent stages | S0 + S2 only | `genes.tsv`, `families.npy`, `scores.npz`, `families_final.npy` byte-identical (the same inode) in det_nogo, cand2_* and all 7 ablations. merge/output are per-run (nlink 1). Driver `transplant()` re-keys only families/scores, checks that the key formula reproduces the source keys, and aborts on a code-key mismatch. The gene table is tree-independent (`load_proteomes` sorts by file name), and scoring takes no tree | yes | |
+| Ablation c_astral SwissTree/TreeFam-A | .782/.929, .636/.914 | .7821/.9288, .6360/.9138; counts identical to the official raw file | yes | |
+| All QfO final evaluations logged before scoring | 24 logged | g_accurate_nogo logged 09:48:13, its assess files written 09:53–09:54; FAS rerun logged as a rerun | yes | |
+
+## 5. Discrepancies and concerns (QfO)
+
+1. **DISCLOSURES #1 is factually wrong.** It says test-only TreeFam-A families were "never scored separately before
+   the freeze". `results/qfo_peek2/treefamA_dev_test.json` (commit 6c593a8, 06:05) contains TreeFam-A **test**
+   subset values for both cand2 presets (accurate .580/.913, fast .605/.914). RESEARCH_TREE 8.0 quotes them. The freeze
+   followed one minute later. The impact is small: the presets were declared before peek 2, and peek 2's pooled
+   TreeFam-A already includes those families. The disclosure still needs correcting.
+2. **The pre-registered primary endpoints are not the ones 8.2 reports.** DESIGN §5 names TreeFam-A **test**, SwissTree,
+   **G-STD2-Eukaryota (RF with n)** and EC (with n). 8.2 reports pooled TreeFam-A (it includes the 30% dev families used
+   for tuning) and STD-Eukaryota. It does not report G-STD2-Eukaryota at all. On G-STD2-Eukaryota Ancestra is worst
+   among the main comparators: RF .257 (n 3,379) accurate and .266 (4,753) fast, against OrthoFinder .249 (6,629),
+   FastOMA .239 (3,092), OMA HOGs .237 (2,981) and Hieranoid .222 (3,643). On EC accurate .899 (n 181k) is below
+   OrthoFinder .931 (n 204k) on both axes.
+3. **Non-inferiority under the pre-registered rule** (my paired bootstrap from the official raw files, B=2000, seed 11;
+   over the 749 TreeFam-A test families, or over the 18 SwissTree cases; `qfo_primary_ni.json`). Accurate on
+   TreeFam-A test: TPR .580 vs OrthoFinder .739, Δ −0.160 [−0.210, −0.106], so **it fails**. Vs FastOMA +0.043
+   [−0.005, +0.093] (NI on TPR). Vs OMA HOGs +0.002 [−0.058, +0.067] (inconclusive). Vs OMA Pairs +0.018
+   [−0.028, +0.069] (NI). PPV is not shown NI vs any comparator except OMA HOGs and OMA Pairs. SwissTree TPR vs
+   OrthoFinder is −0.103 [−0.177, −0.029] (fails), and inconclusive vs the rest. 8.2 says "not on the Pareto front;
+   TreeFam-A ≈ FastOMA/OMA; behind OrthoFinder on recall", which is consistent. But the formal verdict (fails vs
+   OrthoFinder on both recall endpoints; NI vs FastOMA / OMA Pairs on TreeFam-A TPR only) should be stated.
+4. **The ablation CIs are too narrow.** The official ± (TreeFam-A ±0.006) is a pair-level binomial CI that ignores the
+   clustering of pairs within families. A paired bootstrap over the 1,108 families gives: ASTRAL-Pro tree +0.028
+   [−0.009, +0.077], FastME +0.022 [−0.001, +0.045], no gene order −0.012 [−0.028, +0.001], 5 NNIs +0.003
+   [−0.020, +0.026] (`qfo_ablation_familyboot.txt`). So RESEARCH_TREE 8.2's "gene order helps QfO recall a little" and
+   any reading of the ASTRAL/FastME recall gains as significant are **not supported**. The random-tree control
+   (−0.243) is far outside any CI.
+5. **Over-statements in 8.2.** "STD comparable" has no CI. Accurate STD-Eukaryota .113±.006 is close to OrthoFinder
+   (.118) but clearly worse than OMA HOGs .086, OMA Pairs .085, Hieranoid .074 and InParanoid .079. Under DESIGN §5 it
+   should read "inconclusive vs OrthoFinder, worse than OMA / Hieranoid / InParanoid". "VGNC precision weak (vertebrate
+   over-merging)": PPV .982 equals OMA Pairs (.980) and OMA HOGs (.979), and the over-merging cause is a hypothesis.
+   The explanation for the EC drop with ASTRAL/FastME trees ("Bacteria+Archaea merged") is not tested here.
+6. **Mislabelled error bars.** `results/qfo_final/summary.md` calls the GO/EC "±" values SEM. They are 1.96×SEM
+   (GO accurate: raw SEM 0.000567, reported 0.00111).
+7. **Commit ids** (as in §2.4). test_log peek-2 entries name 394da46 / d61da8b, but the manifests say d61da8b / 7dec881.
+   The ablation entry for g_accurate_nogo names git=b310546, but its manifest says f7bcddc. Code hashes match
+   freeze-v1 in every case, so this is a bookkeeping issue only.
+
+Not rerun: the official `run_qfo_local.sh` (not needed, because the per-pair counts reproduce the official raw output
+exactly), STD/G-STD2 and FAS (not recomputed; competitor values checked against OpenEBench only).
