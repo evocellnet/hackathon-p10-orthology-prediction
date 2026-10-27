@@ -1,0 +1,37 @@
+--- ../data/orthobench/runs/fastoma/src/FastOMA/_infer_subhog.py	2026-10-26 16:43:06.357869907 +0100
++++ ../data/orthobench/runs/fastoma_v2/patched_pkg/FastOMA/_infer_subhog.py	2026-10-27 08:30:55.315314000 +0100
+@@ -297,6 +297,14 @@
+     return hogs_children_level_list
+ 
+ 
++def _log_rescued(rhogid, level, hog):
++    fn = os.environ.get("FASTOMA_RESCUE_LOG")
++    if fn:
++        with open(fn, "a") as fh:
++            fh.write("\t".join([rhogid, level, hog.hogid, ",".join(sorted(hog.get_members()))]) + "\n")
++    logger.info("PATCH rescued subhog %s (%d genes) dropped by split_hog at %s", hog.hogid, len(hog), level)
++
++
+ RepLookup = collections.namedtuple("RepLookup", ["hog", "representative"])
+ class LevelHOGProcessor:
+     def __init__(self, node_species_tree:TreeNode, subhogs:List[HOG], rhogid:str, conf):
+@@ -629,8 +637,18 @@
+                     split_hogs = split_hog(self.subhogs[hogid], self.node_species_tree.name, *split_parts)
+                     if split_hogs and len(split_hogs) > 1:
+                         # we could split the current hog.
+-                        self.subhogs.pop(hogid)
++                        orig_hog = self.subhogs.pop(hogid)
+                         self.subhogs.update({h.hogid: h for h in split_hogs})
++                        # ANCESTRA-BENCH PATCH (gene-loss fix): split_hog() builds the new HOGs only from the
++                        # first-level subHOGs that contain a representative; all other subHOGs of the split HOG
++                        # were silently dropped (with all their genes). Keep them as frozen HOGs instead
++                        # (same semantics as subHOGs whose representatives were removed by MSA trimming).
++                        kept = set().union(*[h.get_members() for h in split_hogs])
++                        for sh in orig_hog._subhogs:
++                            if not (sh.get_members() & kept):
++                                sh.active = False
++                                self._frozen_hogs_before.add(sh)
++                                _log_rescued(self.rhogid, self.node_species_tree.name, sh)
+                     else:
+                         redo_reconcilation |= self._resolve_conflicts(reconciled_genetree, subtrees, split_parts)
+             self._rep_lookup = self._prepare_lookups()
