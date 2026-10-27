@@ -1,0 +1,7 @@
+{
+ "FN_receiving_family": 16,
+ "FP_receiving_family": 6,
+ "TN_receiving_family": 28,
+ "TP_attached": 10,
+ "TP_receiving_family": 33
+}

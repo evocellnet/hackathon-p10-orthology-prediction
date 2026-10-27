@@ -1,0 +1,122 @@
+{
+ "label": "R1",
+ "TPR": 0.6135,
+ "PPV": 0.9204,
+ "n_TP": 8585,
+ "n_FP": 741,
+ "n_FN": 5408,
+ "n_TN": 10679,
+ "fn_classes": {
+  "ii_diff_root_hog": 2028,
+  "iii_paralog_call": 2104,
+  "i_diff_family": 1276
+ },
+ "s0_fn_opisthokonta": 746,
+ "rescue_s": 938.0,
+ "merge_s": 447.888,
+ "rescue_attach": {
+  "n_links": 409776,
+  "n_attached": 25665,
+  "n_capped": 116,
+  "n_genes_attached": 43507,
+  "n_target_families": 3183,
+  "by_source": {
+   "3di": 25665
+  }
+ },
+ "rescue_rescore": {
+  "n_attached_genes": 43507,
+  "diamond_s": 338.6,
+  "n_diamond_new": 159880,
+  "n_pairs_aligned_mmseqs": 4640455,
+  "pairs_write_s": 4.19,
+  "align_s": 44.35,
+  "mmseqs_s": 55.7,
+  "n_new_pairs_dropped_by_cap": 38977,
+  "n_new_pairs": 329658,
+  "n_self_filled": 0,
+  "rescore_s": 397.5
+ },
+ "rescue_search_s": {
+  "search_3di_s": 532.7,
+  "search_profile_s": null
+ },
+ "guard": null,
+ "fn_breakdown": {
+  "ii_diff_root_hog": {
+   "Bilateria": 771,
+   "Eukaryota": 533,
+   "Opisthokonta": 247,
+   "Chordata": 85,
+   "Euteleostomi": 83,
+   "Amniota": 68,
+   "Euarchontoglires": 64,
+   "Ecdysozoa": 46,
+   "UP000005640_9606": 36,
+   "UP000000589_10090": 29,
+   "Tetrapoda": 22,
+   "UP000000803_7227": 12,
+   "UP000000539_9031": 10,
+   "UP000008144_7719": 7,
+   "UP000000437_7955": 6,
+   "UP000001940_6239": 4,
+   "Ascomycota": 2,
+   "UP000006548_3702": 1,
+   "UP000008143_8364": 1,
+   "UP000002311_559292": 1
+  },
+  "iii_paralog_call": {
+   "Bilateria": 669,
+   "Eukaryota": 361,
+   "Chordata": 213,
+   "Euteleostomi": 163,
+   "Opisthokonta": 153,
+   "Tetrapoda": 134,
+   "Amniota": 101,
+   "Euarchontoglires": 88,
+   "Ecdysozoa": 65,
+   "UP000000589_10090": 45,
+   "UP000005640_9606": 39,
+   "UP000000437_7955": 13,
+   "UP000008144_7719": 11,
+   "UP000000539_9031": 10,
+   "UP000006548_3702": 9,
+   "UP000008143_8364": 9,
+   "UP000000803_7227": 8,
+   "Ascomycota": 7,
+   "UP000001940_6239": 5,
+   "UP000002311_559292": 1
+  },
+  "i_diff_family": {
+   "Opisthokonta": 746,
+   "Eukaryota": 222,
+   "Ascomycota": 94,
+   "Bilateria": 75,
+   "Chordata": 58,
+   "Euteleostomi": 29,
+   "Euarchontoglires": 12,
+   "Amniota": 11,
+   "Ecdysozoa": 6,
+   "UP000006548_3702": 5,
+   "Tetrapoda": 4,
+   "UP000005640_9606": 3,
+   "UP000000589_10090": 3,
+   "UP000001940_6239": 2,
+   "UP000000539_9031": 2,
+   "UP000002485_284812": 1,
+   "UP000000803_7227": 1,
+   "UP000008144_7719": 1,
+   "UP000000437_7955": 1
+  }
+ },
+ "tf": {
+  "TPR": 0.6134886047010074,
+  "PPV": 0.9203644158628081,
+  "TPR_ci": 0.011408748049458989,
+  "PPV_ci": 0.007768975321572106,
+  "n_TP": 8585,
+  "n_FP": 741,
+  "n_FN": 5408,
+  "n_TN": 10679
+ }
+}

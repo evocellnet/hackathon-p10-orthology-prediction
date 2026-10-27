@@ -1,0 +1,345 @@
+[
+ {
+  "arm": "R0",
+  "TPR": 0.6151,
+  "PPV": 0.9224,
+  "qfo_rescue_s": "None",
+  "qfo_merge_s": "438.643",
+  "s0_fn": 1286,
+  "fn_classes": {
+   "ii_diff_root_hog": 2306,
+   "iii_paralog_call": 1794,
+   "i_diff_family": 1286
+  },
+  "qfo_attach": null,
+  "qfo_guard": null,
+  "OG_F": 79.69,
+  "OG_P": 75.74,
+  "OG_R": 84.07,
+  "pairF1_macro": 0.8064,
+  "pairF1": 0.8042,
+  "ob_rescue_s": "None",
+  "ob_merge_s": "1049.059",
+  "ob_attach": null,
+  "ob_guard": null,
+  "qfo_code": "current merge.py"
+ },
+ {
+  "arm": "R1",
+  "TPR": 0.6135,
+  "PPV": 0.9204,
+  "qfo_rescue_s": "938.0",
+  "qfo_merge_s": "447.888",
+  "s0_fn": 1276,
+  "fn_classes": {
+   "ii_diff_root_hog": 2028,
+   "iii_paralog_call": 2104,
+   "i_diff_family": 1276
+  },
+  "qfo_attach": {
+   "n_links": 409776,
+   "n_attached": 25665,
+   "n_capped": 116,
+   "n_genes_attached": 43507,
+   "n_target_families": 3183,
+   "by_source": {
+    "3di": 25665
+   }
+  },
+  "qfo_guard": null,
+  "OG_F": 68.66,
+  "OG_P": 62.75,
+  "OG_R": 75.8,
+  "pairF1_macro": 0.8099,
+  "pairF1": 0.8094,
+  "ob_rescue_s": "84.395",
+  "ob_merge_s": "1342.479",
+  "ob_attach": {
+   "n_links": 32483,
+   "n_attached": 2719,
+   "n_capped": 0,
+   "n_genes_attached": 6489,
+   "n_target_families": 937,
+   "by_source": {
+    "3di": 2719
+   }
+  },
+  "ob_guard": null,
+  "qfo_code": "old merge.py (pre 02:08)",
+  "dTPR": -0.0028,
+  "dPPV": 0.0006,
+  "dOG_F": -11.03,
+  "dmacro": 0.0035,
+  "passes": false
+ },
+ {
+  "arm": "R2",
+  "TPR": 0.62,
+  "PPV": 0.9165,
+  "qfo_rescue_s": "1415.785",
+  "qfo_merge_s": "463.756",
+  "s0_fn": 1283,
+  "fn_classes": {
+   "iii_paralog_call": 1790,
+   "ii_diff_root_hog": 2244,
+   "i_diff_family": 1283
+  },
+  "qfo_attach": {
+   "n_links": 26125,
+   "n_attached": 6553,
+   "n_capped": 0,
+   "n_genes_attached": 11258,
+   "n_target_families": 2272,
+   "by_source": {
+    "profile": 6553
+   }
+  },
+  "qfo_guard": null,
+  "OG_F": 79.79,
+  "OG_P": 75.68,
+  "OG_R": 84.36,
+  "pairF1_macro": 0.8063,
+  "pairF1": 0.8055,
+  "ob_rescue_s": "311.319",
+  "ob_merge_s": "1394.739",
+  "ob_attach": {
+   "n_links": 3709,
+   "n_attached": 1088,
+   "n_capped": 0,
+   "n_genes_attached": 2313,
+   "n_target_families": 517,
+   "by_source": {
+    "profile": 1088
+   }
+  },
+  "ob_guard": null,
+  "qfo_code": "old merge.py (pre 02:08)",
+  "dTPR": 0.0037,
+  "dPPV": -0.0033,
+  "dOG_F": 0.1,
+  "dmacro": -0.0001,
+  "passes": true
+ },
+ {
+  "arm": "R3",
+  "TPR": 0.6126,
+  "PPV": 0.9187,
+  "qfo_rescue_s": "443.237",
+  "qfo_merge_s": "396.9",
+  "s0_fn": 1276,
+  "fn_classes": {
+   "ii_diff_root_hog": 2011,
+   "iii_paralog_call": 2134,
+   "i_diff_family": 1276
+  },
+  "qfo_attach": {
+   "n_links": 435901,
+   "n_attached": 28148,
+   "n_capped": 124,
+   "n_genes_attached": 47544,
+   "n_target_families": 3664,
+   "by_source": {
+    "3di": 24206,
+    "profile": 3942
+   }
+  },
+  "qfo_guard": null,
+  "OG_F": 68.78,
+  "OG_P": 62.81,
+  "OG_R": 76.01,
+  "pairF1_macro": 0.8122,
+  "pairF1": 0.8111,
+  "ob_rescue_s": "77.787",
+  "ob_merge_s": "1238.313",
+  "ob_attach": {
+   "n_links": 36192,
+   "n_attached": 3192,
+   "n_capped": 0,
+   "n_genes_attached": 7529,
+   "n_target_families": 1114,
+   "by_source": {
+    "3di": 2429,
+    "profile": 763
+   }
+  },
+  "ob_guard": null,
+  "qfo_code": "old merge.py (pre 02:08)",
+  "dTPR": -0.0037,
+  "dPPV": -0.0011,
+  "dOG_F": -10.91,
+  "dmacro": 0.0058,
+  "passes": false
+ },
+ {
+  "arm": "R4",
+  "TPR": 0.6183,
+  "PPV": 0.9214,
+  "qfo_rescue_s": "396.901",
+  "qfo_merge_s": "1235.612",
+  "s0_fn": 1276,
+  "fn_classes": {
+   "ii_diff_root_hog": 2108,
+   "iii_paralog_call": 1957,
+   "i_diff_family": 1276
+  },
+  "qfo_attach": {
+   "n_links": 435901,
+   "n_attached": 28148,
+   "n_capped": 124,
+   "n_genes_attached": 47544,
+   "n_target_families": 3664,
+   "by_source": {
+    "3di": 24206,
+    "profile": 3942
+   }
+  },
+  "qfo_guard": {
+   "n_attached": 28148,
+   "n_confirmed": 6344,
+   "n_detached": 21804,
+   "n_candidate_pairs": 639318,
+   "n_genes_detached": 36732
+  },
+  "OG_F": 79.93,
+  "OG_P": 75.83,
+  "OG_R": 84.49,
+  "pairF1_macro": 0.8109,
+  "pairF1": 0.8078,
+  "ob_rescue_s": "44.847",
+  "ob_merge_s": "2783.451",
+  "ob_attach": {
+   "n_links": 36192,
+   "n_attached": 3192,
+   "n_capped": 0,
+   "n_genes_attached": 7529,
+   "n_target_families": 1114,
+   "by_source": {
+    "3di": 2429,
+    "profile": 763
+   }
+  },
+  "ob_guard": {
+   "n_attached": 3192,
+   "n_confirmed": 500,
+   "n_detached": 2692,
+   "n_candidate_pairs": 21345,
+   "n_genes_detached": 6772
+  },
+  "qfo_code": "old merge.py (pre 02:08)",
+  "dTPR": 0.002,
+  "dPPV": 0.0016,
+  "dOG_F": 0.24,
+  "dmacro": 0.0045,
+  "passes": true
+ },
+ {
+  "arm": "R2n",
+  "TPR": 0.6163,
+  "PPV": 0.923,
+  "qfo_rescue_s": "1415.785",
+  "qfo_merge_s": "396.571",
+  "s0_fn": 1283,
+  "fn_classes": {
+   "iii_paralog_call": 1842,
+   "ii_diff_root_hog": 2244,
+   "i_diff_family": 1283
+  },
+  "qfo_attach": {
+   "n_links": 26125,
+   "n_attached": 6553,
+   "n_capped": 0,
+   "n_genes_attached": 11258,
+   "n_target_families": 2272,
+   "by_source": {
+    "profile": 6553
+   }
+  },
+  "qfo_guard": null,
+  "OG_F": 79.79,
+  "OG_P": 75.68,
+  "OG_R": 84.36,
+  "pairF1_macro": 0.8063,
+  "pairF1": 0.8055,
+  "ob_rescue_s": "311.319",
+  "ob_merge_s": "1102.721",
+  "ob_attach": {
+   "n_links": 3709,
+   "n_attached": 1088,
+   "n_capped": 0,
+   "n_genes_attached": 2313,
+   "n_target_families": 517,
+   "by_source": {
+    "profile": 1088
+   }
+  },
+  "ob_guard": null,
+  "qfo_code": "current merge.py",
+  "dTPR": 0.0012,
+  "dPPV": 0.0006,
+  "dOG_F": 0.1,
+  "dmacro": -0.0001,
+  "passes": true
+ },
+ {
+  "arm": "R4n",
+  "TPR": 0.617,
+  "PPV": 0.9248,
+  "qfo_rescue_s": "396.901",
+  "qfo_merge_s": "833.202",
+  "s0_fn": 1276,
+  "fn_classes": {
+   "ii_diff_root_hog": 2108,
+   "iii_paralog_call": 1975,
+   "i_diff_family": 1276
+  },
+  "qfo_attach": {
+   "n_links": 435901,
+   "n_attached": 28148,
+   "n_capped": 124,
+   "n_genes_attached": 47544,
+   "n_target_families": 3664,
+   "by_source": {
+    "3di": 24206,
+    "profile": 3942
+   }
+  },
+  "qfo_guard": {
+   "n_attached": 28148,
+   "n_confirmed": 6338,
+   "n_detached": 21810,
+   "n_candidate_pairs": 635269,
+   "n_genes_detached": 36742
+  },
+  "OG_F": 79.93,
+  "OG_P": 75.83,
+  "OG_R": 84.49,
+  "pairF1_macro": 0.8109,
+  "pairF1": 0.8078,
+  "ob_rescue_s": "44.847",
+  "ob_merge_s": "2423.738",
+  "ob_attach": {
+   "n_links": 36192,
+   "n_attached": 3192,
+   "n_capped": 0,
+   "n_genes_attached": 7529,
+   "n_target_families": 1114,
+   "by_source": {
+    "3di": 2429,
+    "profile": 763
+   }
+  },
+  "ob_guard": {
+   "n_attached": 3192,
+   "n_confirmed": 500,
+   "n_detached": 2692,
+   "n_candidate_pairs": 21331,
+   "n_genes_detached": 6772
+  },
+  "qfo_code": "current merge.py",
+  "dTPR": 0.0019,
+  "dPPV": 0.0024,
+  "dOG_F": 0.24,
+  "dmacro": 0.0045,
+  "passes": true
+ }
+]

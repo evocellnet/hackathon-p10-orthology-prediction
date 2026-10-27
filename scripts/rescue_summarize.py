@@ -15,10 +15,19 @@ def last(path):
 
 
 ob, qf = last(os.path.join(RES, "ob_runs.tsv")), last(os.path.join(RES, "qfo_runs.tsv"))
-arms = ["R0", "R1", "R2", "R3", "R4"]
+arms = ["R0", "R1", "R2", "R3", "R4", "R2n", "R4n"]
 rows = []
-b_ob, b_qf = ob.get("R0"), qf.get("R0")
+# merge.py changed at 02:08 (another agent's nesting fix) while the grid ran: QfO R1-R4 ran on the old
+# merge.py and are compared with the old-code fast-preset baseline (results/core_v0_qfo/runs.tsv "B0 fast (bug
+# repro)" = A8check, same code), R0/R2n/R4n on the new merge.py. OrthoBench R0 is identical on both codes
+# (per-RefOG), and OB R*n reruns are reported too.
+OLD_QFO = None
+for r in csv.DictReader(open(os.path.join(ROOT, "results/core_v0_qfo/runs.tsv")), delimiter="\t"):
+    if r["label"].startswith("B0 fast"):
+        OLD_QFO = {"TPR": r["TF_dev_TPR"], "PPV": r["TF_dev_PPV"]}
+b_ob = ob.get("R0")
 for a in arms:
+    b_qf = OLD_QFO if a in ("R1", "R2", "R3", "R4") else qf.get("R0")
     o, q = ob.get(a), qf.get(a)
     r = dict(arm=a)
     if q:
@@ -31,6 +40,7 @@ for a in arms:
                  pairF1=float(o["pairF1"]), ob_rescue_s=o["rescue_s"], ob_merge_s=o["merge_s"],
                  ob_attach=json.loads(o["rescue_stats"]) if o["rescue_stats"] not in ("None", "") else None,
                  ob_guard=json.loads(o["guard"]) if o["guard"] not in ("None", "") else None)
+    r["qfo_code"] = "old merge.py (pre 02:08)" if a in ("R1", "R2", "R3", "R4") else "current merge.py"
     if a != "R0" and b_ob and b_qf and o and q:
         d = dict(dTPR=r["TPR"] - float(b_qf["TPR"]), dPPV=r["PPV"] - float(b_qf["PPV"]),
                  dOG_F=r["OG_F"] - float(b_ob["F"]), dmacro=r["pairF1_macro"] - float(b_ob["pairF1_macro"]))
@@ -38,11 +48,11 @@ for a in arms:
         r.update(d, passes=bool(d["dTPR"] > 0 and d["dPPV"] >= -0.01 and d["dOG_F"] >= -1 and d["dmacro"] >= -0.005))
     rows.append(r)
 json.dump(rows, open(os.path.join(RES, "summary.json"), "w"), indent=1)
-L = ["| arm | TF-A dev TPR | PPV | S0-split FN | OB OG-F (P/R) | OB macro pair F1 | ΔTPR | ΔPPV | ΔOG-F | Δmacro | rule |",
-     "|---|---|---|---|---|---|---|---|---|---|---|"]
+L = ["| arm | QfO code | TF-A dev TPR | PPV | S0-split FN | OB OG-F (P/R) | OB macro pair F1 | ΔTPR | ΔPPV | ΔOG-F | Δmacro | rule |",
+     "|---|---|---|---|---|---|---|---|---|---|---|---|"]
 for r in rows:
     f = lambda k, fmt="{:.4f}": (fmt.format(r[k]) if k in r and r[k] is not None else "–")
-    L.append(f"| {r['arm']} | {f('TPR')} | {f('PPV')} | {r.get('s0_fn', '–')} | {f('OG_F', '{:.2f}')} ({f('OG_P', '{:.1f}')}/{f('OG_R', '{:.1f}')}) | "
+    L.append(f"| {r['arm']} | {r['qfo_code']} | {f('TPR')} | {f('PPV')} | {r.get('s0_fn', '–')} | {f('OG_F', '{:.2f}')} ({f('OG_P', '{:.1f}')}/{f('OG_R', '{:.1f}')}) | "
              f"{f('pairF1_macro')} | {f('dTPR', '{:+.4f}')} | {f('dPPV', '{:+.4f}')} | {f('dOG_F', '{:+.2f}')} | {f('dmacro', '{:+.4f}')} | "
              f"{'pass' if r.get('passes') else ('–' if 'passes' not in r else 'fail')} |")
 open(os.path.join(RES, "summary.md"), "w").write("\n".join(L) + "\n")
