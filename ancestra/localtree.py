@@ -244,11 +244,77 @@ def _fasttree_job(job):
         return r.stdout.strip()
 
 
+def _famsa_text(names, seqs, td, inproc: bool) -> str:
+    """FAMSA alignment of one cluster as FASTA text (CLI ``famsa -t 1`` or in-process pyfamsa)."""
+    import os
+    import subprocess
+    if inproc:
+        import pyfamsa
+        msa = pyfamsa.Aligner(threads=1).align(
+            [pyfamsa.Sequence(nm.encode(), sq.encode()) for nm, sq in zip(names, seqs)])
+        return "".join(f">{x.id.decode()}\n{x.sequence.decode()}\n" for x in msa)
+    fa, aln = os.path.join(td, "in.fa"), os.path.join(td, "aln.fa")
+    with open(fa, "w") as fh:
+        for nm, sq in zip(names, seqs):
+            fh.write(f">{nm}\n{sq}\n")
+    subprocess.run(["famsa", "-t", "1", fa, aln], check=True, stdout=subprocess.DEVNULL,
+                   stderr=subprocess.DEVNULL)
+    return open(aln).read()
+
+
+def _fasta_to_phylip(txt: str) -> str:
+    names, seqs = [], []
+    for line in txt.splitlines():
+        if line.startswith(">"):
+            names.append(line[1:].split()[0])
+            seqs.append([])
+        elif line:
+            seqs[-1].append(line.strip())
+    seqs = ["".join(x) for x in seqs]
+    return f"{len(names)} {len(seqs[0])}\n" + "".join(f"{n} {s}\n" for n, s in zip(names, seqs))
+
+
+def _fasttree_batch(batch):
+    """L2 (docs/L2_gpu.md task 2): batch = (jobs, inproc); jobs = [(names, seqs, wd)] -> Newicks.
+    One FAMSA per cluster (CLI or in-process), then ONE ``FastTree -n len(jobs)`` call over all
+    alignments (sequential PHYLIP), instead of one FastTree process per cluster."""
+    import os
+    import subprocess
+    import tempfile
+    jobs, inproc = batch
+    wd = jobs[0][2]
+    with tempfile.TemporaryDirectory(dir=wd) as td:
+        path = os.path.join(td, "all.phy")
+        with open(path, "w") as fh:
+            for names, seqs, _ in jobs:
+                fh.write(_fasta_to_phylip(_famsa_text(names, seqs, td, inproc)))
+        r = subprocess.run(["FastTree", "-lg", "-quiet", "-nosupport", "-n", str(len(jobs)), path],
+                           check=True, capture_output=True, text=True)
+    out = [x.strip() for x in r.stdout.split(";") if x.strip()]
+    out = [x + ";" for x in out]
+    if len(out) != len(jobs):
+        raise RuntimeError(f"FastTree -n returned {len(out)} trees for {len(jobs)} alignments")
+    return out
+
+
+def run_fasttree_jobs(payload, workers: int, batch: int = 0, inproc: bool = False):
+    """All local-tree jobs, in order. ``batch`` = 0: one FAMSA + one FastTree process per job (frozen
+    behaviour); > 0: contiguous batches of <= ``batch`` jobs per FastTree process (task 2)."""
+    from concurrent.futures import ThreadPoolExecutor
+    with ThreadPoolExecutor(workers) as ex:
+        if batch <= 0:
+            return list(ex.map(_fasttree_job, payload))
+        # contiguous chunks, at least ~4 per worker for load balance
+        size = max(1, min(batch, -(-len(payload) // (4 * max(1, workers)))))
+        chunks = [(payload[i:i + size], inproc) for i in range(0, len(payload), size)]
+        return [nw for part in ex.map(_fasttree_batch, chunks) for nw in part]
+
+
 def resolve_ambiguous(n, child, lu, lv, score, labels, out_edges=None, tau: float = 0.9,
                       max_units: int = 60, stats=None, require_outgroup: bool = False,
                       conservative: bool = False, tree_method: str = "nj", members=None,
                       seqs=None, ft_mode: str = "medoid", ft_max_genes: int = 60, workers: int = 12,
-                      workdir: str | None = None):
+                      workdir: str | None = None, ft_batch: int = 0, ft_inproc: bool = False):
     """Re-decide ambiguous clusters with local trees; returns new labels (see module doc)."""
     stats = stats if stats is not None else {}
     labels = labels.copy()
@@ -405,13 +471,11 @@ def resolve_ambiguous(n, child, lu, lv, score, labels, out_edges=None, tau: floa
     if ft_jobs:
         import os
         import time as _t
-        from concurrent.futures import ThreadPoolExecutor
         wd = workdir or os.environ.get("TMPDIR", "/tmp")
         t0 = _t.time()
         payload = [([f"L{i}" for i in range(len(lv_))], [seqs[g] for g in lv_], wd)
                    for (_, lv_, _, _, _) in ft_jobs]
-        with ThreadPoolExecutor(workers) as ex:
-            nwks = list(ex.map(_fasttree_job, payload))
+        nwks = run_fasttree_jobs(payload, workers, ft_batch, ft_inproc)
         stats["tree_fasttree_jobs"] = len(ft_jobs)
         stats["tree_fasttree_s"] = round(_t.time() - t0, 2)
         for (units, lv_, leaf_unit, has_og, use_all), nwk in zip(ft_jobs, nwks):

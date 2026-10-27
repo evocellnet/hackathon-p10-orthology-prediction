@@ -95,17 +95,24 @@ class ScoringConfig:
     gpu_big_evalue: float = 0.0     # gpusw: e-value cut for non-self pairs in families > rescue_max_family
                                     # (0 = off; mimics the sparser DIAMOND-only graph there, docs/GPU_v2.md)
     gpu_device: int = 0             # gpusw: CUDA device (not part of the key)
+    gpu_sparsify: str = "none"      # gpusw (L2, docs/L2_gpu.md): sparsify the exhaustive graph in families
+                                    # > rescue_max_family: none | topk:K (top K per query and target species)
+                                    # | ratio:A (bits >= A * best per query and target species) | norm:X
+                                    # (norm_max >= X) | rand:F:SEED (random fraction F; control only)
 
     def key(self) -> dict:
         d = asdict(self)
         d.pop("threads")
         d.pop("gpu_device")
+        if d.get("gpu_sparsify") == "none":    # L2 option: absent at its default (stable stage keys)
+            d.pop("gpu_sparsify")
         if self.backend != "gpusw":          # keys of the CPU backends are unchanged (freeze-v1)
             d.pop("gpu_db_residues")
             d.pop("gpu_max_family")
             d.pop("gpu_mask")
             d.pop("gpu_comp_bias")
             d.pop("gpu_big_evalue")
+            d.pop("gpu_sparsify", None)
         return d
 
 
@@ -547,6 +554,58 @@ def _backend_gpusw(gt: GeneTable, fam: np.ndarray, cfg: ScoringConfig, wd: str, 
     return _reduce_records(c[0].astype(np.int64), c[1].astype(np.int64), *c[2:], gt.n)
 
 
+def sparsify_mask(q, t, bits, self_bits, species_of, spec: str):
+    """L2 (docs/L2_gpu.md): keep-mask over undirected non-self pairs (q, t) of one exhaustive graph.
+    A pair is kept if either direction keeps it. ``spec``:
+    ``topk:K``  rank < K among the query's hits to the partner's species (bits desc, ties by partner id);
+    ``ratio:A`` bits >= A * best bits of the query to the partner's species;
+    ``norm:X``  bits / max(self_q, self_t) >= X (self-normalised floor);
+    ``rand:F:SEED`` random fraction F (control)."""
+    kind, *par = spec.split(":")
+    m = len(q)
+    if kind == "norm":
+        return bits.astype(np.float64) / np.maximum(self_bits[q], self_bits[t]) >= float(par[0])
+    if kind == "rand":
+        rng = np.random.default_rng(int(par[1]))
+        return rng.random(m) < float(par[0])
+    if kind not in ("topk", "ratio"):
+        raise ValueError(f"unknown gpu_sparsify {spec!r}")
+    dq = np.concatenate([q, t]).astype(np.int64)
+    dt = np.concatenate([t, q]).astype(np.int64)
+    db = np.concatenate([bits, bits]).astype(np.float64)
+    tsp = species_of[dt].astype(np.int64)
+    order = np.lexsort((dt, -db, tsp, dq))
+    k1, k2 = dq[order], tsp[order]
+    start = np.r_[True, (k1[1:] != k1[:-1]) | (k2[1:] != k2[:-1])] if len(order) else np.zeros(0, bool)
+    gid = np.cumsum(start) - 1
+    first = np.flatnonzero(start)
+    keep_d = np.empty(2 * m, bool)
+    if kind == "topk":
+        keep_d[order] = (np.arange(len(order)) - first[gid]) < int(par[0])
+    else:
+        keep_d[order] = db[order] >= float(par[0]) * db[order][first][gid]
+    return keep_d[:m] | keep_d[m:]
+
+
+def sparsify_table(st: "ScoreTable", fam: np.ndarray, gt: GeneTable, cfg: "ScoringConfig",
+                   stats: dict) -> "ScoreTable":
+    """Apply ``cfg.gpu_sparsify`` (after the cap rule) to the non-self pairs of families with
+    > ``rescue_max_family`` genes; self-scores and smaller families are unchanged. Missing
+    self-scores are filled with 2.2 bits/residue for the ``norm`` rule."""
+    sizes = np.bincount(fam)
+    q, t = st.q.astype(np.int64), st.t.astype(np.int64)
+    idx = np.flatnonzero(sizes[fam[q]] > cfg.rescue_max_family)
+    selfb = st.self_bits.astype(np.float64).copy()
+    miss = ~np.isfinite(selfb)
+    selfb[miss] = 2.2 * gt.lengths[miss]
+    keep = np.ones(len(q), bool)
+    keep[idx] = sparsify_mask(q[idx], t[idx], st.bits[idx], selfb, gt.species_of, cfg.gpu_sparsify)
+    stats["gpu_sparsify_pairs_in"] = int(len(idx))
+    stats["gpu_sparsify_pairs_kept"] = int(keep[idx].sum())
+    return ScoreTable(*(getattr(st, k)[keep] for k in ("q", "t", "bits", "qcov", "tcov", "pident",
+                                                       "evalue")), st.self_bits)
+
+
 def _backend_foldseek3di(*a, **k):
     raise NotImplementedError("3Di backend is a DESIGN.md S6 hook; not part of core v0")
 
@@ -634,6 +693,8 @@ def score_families(gt: GeneTable, fam: np.ndarray, cfg: ScoringConfig, workdir: 
     with open(os.path.join(workdir, "commands.log"), "a") as log:
         st = BACKENDS[cfg.backend](gt, fam, cfg, workdir, log, stats)
     st = apply_cap(st, fam, gt.species_of, cfg, stats)
+    if cfg.backend == "gpusw" and cfg.gpu_sparsify != "none":
+        st = sparsify_table(st, fam, gt, cfg, stats)
     cr = stats.pop("_cross", [])
     if cr:
         c = [np.concatenate([x[i] for x in cr]) for i in range(7)]

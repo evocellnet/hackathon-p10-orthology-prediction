@@ -101,6 +101,8 @@ class MergeConfig:
     tree_method: str = "nj"              # nj (default) | fasttree (FAMSA + FastTree -lg on sequences)
     tree_ft_mode: str = "medoid"         # fasttree leaves: medoid (1 per unit) | all (genes, <=60)
     tree_ft_workers: int = 12
+    tree_ft_batch: int = 0               # L2 task 2: > 0 = FastTree -n over batches of clusters (speed)
+    tree_ft_inproc: bool = False         # L2 task 2: in-process FAMSA (pyfamsa) instead of a subprocess
     tree_min_d: float = 0.5              # tree mode only at nodes whose median seed distance
                                          # -ln S >= this (divergent nodes; rules suffice shallow)
     ctx_mode: str = "r1"         # context evidence used only for R1 partner choice | "all" (additive)
@@ -131,7 +133,7 @@ class MergeConfig:
         # options added after the QfO freeze: omitted at their defaults (stable stage hashes)
         for k, v in (("tree_method", "nj"), ("tree_ft_mode", "medoid"), ("so_struct", False),
                      ("so_absorb", False), ("deep_min_d", 0.0), ("deep_tol", 0.0),
-                     ("deep_so_absorb", False)):
+                     ("deep_so_absorb", False), ("tree_ft_batch", 0), ("tree_ft_inproc", False)):
             if d.get(k) == v:
                 d.pop(k)
         d.pop("tree_ft_workers", None)   # results do not depend on the pool size (tested)
@@ -1008,7 +1010,8 @@ def run_merge(gt: GeneTable, tree: Node, st: ScoreTable, cfg: MergeConfig,
                                        cfg.tree_conservative, cfg.tree_method,
                                        node_info["members"] if ft else None,
                                        gt.seqs if ft else None, cfg.tree_ft_mode, 60,
-                                       cfg.tree_ft_workers)
+                                       cfg.tree_ft_workers, ft_batch=cfg.tree_ft_batch,
+                                       ft_inproc=cfg.tree_ft_inproc)
             stt["tree_s"] = round(time.time() - t_tree, 3)
         if cfg.so_absorb or (cfg.deep_so_absorb and stt.get("deep")):
             labels = _so_absorb(n, child, lu, lv, score, labels, [amask[int(u)] for u in units], stt)
