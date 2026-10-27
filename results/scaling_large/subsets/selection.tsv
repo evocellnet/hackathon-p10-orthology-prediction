@@ -1,0 +1,1001 @@
+stem	proteome	taxid	domain	phylum	genus	n_canonical	rank_in_domain	species
+UP000011765_747365	UP000011765	747365	bacteria	Thermodesulfobiota	Thermodesulfobium	1797	0	Thermodesulfobium narugense DSM 14796
+UP000002522_272633	UP000002522	272633	bacteria	Mycoplasmatota	Malacoplasma	1028	1	Malacoplasma penetrans (strain HF-2) (Mycoplasma penetrans)
+UP000266113_2290913	UP000266113	2290913	bacteria	Candidatus Cryosericota	Candidatus Cryosericum	1974	2	Candidatus Cryosericum septentrionale
+UP001165306_2951981	UP001165306	2951981	bacteria	Thermomicrobiota	Thermalbibacter	3226	3	Thermalbibacter longus
+UP000680365_2789015	UP000680365	2789015	bacteria	Candidatus Absconditibacteriota	Vampirococcus	1138	4	Candidatus Vampirococcus lugosii
+UP001204798_1448929	UP001204798	1448929	bacteria	Candidatus Fervidibacterota	Fervidibacter	3719	5	Fervidibacter sacchari
+UP000271624_232991	UP000271624	232991	bacteria	Cyanobacteriota	Dulcicalothrix	9970	6	Dulcicalothrix desertica PCC 7102
+UP000186074_1850254	UP000186074	1850254	bacteria	Campylobacterota	Poseidonibacter	2691	7	Poseidonibacter parvus
+UP001194714_1651774	UP001194714	1651774	bacteria	Chlamydiota	Candidatus Neptunichlamydia	1764	8	Candidatus Neptunichlamydia vexilliferae
+UP000220102_1850348	UP000220102	1850348	bacteria	Rhodothermota	Longibacter	3409	9	Longibacter salinarum
+UP000287394_2219043	UP000287394	2219043	bacteria	Armatimonadota	Capsulimonas	6592	10	Capsulimonas corticalis
+UP000000532_300852	UP000000532	300852	bacteria	Deinococcota	Thermus	2227	11	Thermus thermophilus (strain ATCC 27634 / DSM 579 / HB8)
+UP000019151_861299	UP000019151	861299	bacteria	Gemmatimonadota	Gemmatirosa	6261	12	Gemmatirosa kalamazoonensis
+UP000253934_495820	UP000253934	495820	bacteria	Bdellovibrionota	Spirobacillus	2415	13	Spirobacillus cienkowskii
+UP001059824_2665156	UP001059824	2665156	bacteria	Candidatus Saccharimonadota	Candidatus Mycosynbacter	1120	14	Candidatus Mycosynbacter amalyticus
+UP000001732_309798	UP000001732	309798	bacteria	Coprothermobacterota	Coprothermobacter	1481	15	Coprothermobacter proteolyticus (strain ATCC 35245 / DSM 5265 / OCM 4 / BT)
+UP000223071_2761530	UP000223071	2761530	bacteria	Chloroflexota	Tepidiforma	2626	16	Tepidiforma thermophila
+UP000035337_1408281	UP000035337	1408281	bacteria	Elusimicrobiota	Endomicrobium	1336	17	Endomicrobium proavitum
+UP000464954_2697043	UP000464954	2697043	bacteria	Kiritimatiellota	Tichowtungia	3062	18	Tichowtungia aerotolerans
+UP001238163_760260	UP001238163	760260	bacteria	Lentisphaerota	Oligosphaera	3975	19	Oligosphaera ethanolica
+UP000249169_2211119	UP000249169	2211119	bacteria	Deltaproteobacteria	Lujinxingia	3776	20	Lujinxingia litoralis
+UP000001733_309799	UP000001733	309799	bacteria	Dictyoglomota	Dictyoglomus	1913	21	Dictyoglomus thermophilum (strain ATCC 35947 / DSM 3960 / H-6-12)
+UP000018296_1395513	UP000018296	1395513	bacteria	Bacillota	Sporolactobacillus	3497	22	Sporolactobacillus laevolacticus DSM 442
+UP000055590_1391653	UP000055590	1391653	bacteria	Myxococcota	Vulgatibacter	3704	23	Vulgatibacter incomptus
+UP001594351_2855610	UP001594351	2855610	bacteria	candidate division CSSED10-310	candidate	5660	24	candidate division CSSED10-310 bacterium
+UP000319976_2528027	UP000319976	2528027	bacteria	Planctomycetota	Calycomorphotria	4286	25	Calycomorphotria hydatis
+UP000473278_2709311	UP000473278	2709311	bacteria	Balneolota	Halalkalibaculum	3201	26	Halalkalibaculum roseum
+UP000002709_319225	UP000002709	319225	bacteria	Chlorobiota	Pelodictyon	2075	27	Chlorobium luteolum (strain DSM 273 / BCRC 81028 / 2530) (Pelodictyon luteolum)
+UP000756860_1114878	UP000756860	1114878	bacteria	Thermodesulfobacteriota	Geomobilimonas	3376	28	Geomobilimonas luticola
+UP000534783_2606439	UP000534783	2606439	bacteria	Nitrospirota	Candidatus Manganitrophus	4701	29	Candidatus Manganitrophus noduliformans
+UP000237684_1960156	UP000237684	1960156	bacteria	Abditibacteriota	Abditibacterium	3182	30	Abditibacterium utsteinense
+UP001593833_2212470	UP001593833	2212470	bacteria	Candidatus Eiseniibacteriota	Eiseniibacteriota	1582	31	Eiseniibacteriota bacterium
+UP000612893_3127016	UP000612893	3127016	bacteria	Candidatus Dormiibacterota	Candidatus Nephthysia	5114	32	Candidatus Nephthysia bennettiae
+UP000287502_139438	UP000287502	139438	bacteria	Deferribacterota	Geovibrio	2687	33	Geovibrio thiophilus
+UP000218627_35835	UP000218627	35835	bacteria	Aquificota	Hydrogenobacter	1693	34	Hydrogenobacter hydrogenophilus
+UP000019140_1429439	UP000019140	1429439	bacteria	Candidatus Tectimicrobiota	Candidatus Entotheonella	8989	35	Candidatus Entotheonella gemina
+UP000528322_682562	UP000528322	682562	bacteria	Chrysiogenota	Desulfurispira	2230	36	Desulfurispira natronophila
+UP000004671_880073	UP000004671	880073	bacteria	Calditrichota	Caldithrix	3674	37	Caldithrix abyssi (strain DSM 13497 / VKM B-2286 / LF13)
+UP001667246_3377529	UP001667246	3377529	bacteria	Fidelibacterota	Fidelibacter	2262	38	Fidelibacter multiformis
+UP001694467_3238481	UP001694467	3238481	bacteria	Minisyncoccota	Minisyncoccus	1278	39	Minisyncoccus archaeiphilus
+UP000002019_459349	UP000002019	459349	bacteria	Candidatus Cloacimonadota	Cloacimonas (SeqCode)	1813	40	Cloacimonas acidaminovorans (strain Evry)
+UP000017081_1319815	UP000017081	1319815	bacteria	Fusobacteriota	Cetobacterium	2974	41	Cetobacterium somerae ATCC BAA-474
+UP000460272_2480626	UP000460272	2480626	bacteria	Actinomycetota	Trebonia	8100	42	Trebonia kvetii
+UP000184275_28122	UP000184275	28122	bacteria	Fibrobacterota	Fibrobacter	2865	43	Fibrobacter intestinalis
+UP001317532_3016050	UP001317532	3016050	bacteria	Vulcanimicrobiota	Vulcanimicrobium	3495	44	Vulcanimicrobium alpinum
+UP000004793_511051	UP000004793	511051	bacteria	Caldisericota	Caldisericum	1566	45	Caldisericum exile (strain DSM 21853 / NBRC 104410 / AZM16c01)
+UP000094570_1008305	UP000094570	1008305	bacteria	Thermotogota	Fervidobacterium	1842	46	Fervidobacterium thailandense
+UP001348817_1182444	UP001348817	1182444	bacteria	Bacteroidota	Fulvitalea	5513	47	Fulvitalea axinellae
+UP000249818_2026885	UP000249818	2026885	bacteria	Candidatus Bipolaricaulota	Bipolaricaulis (SeqCode)	1319	48	Candidatus Bipolaricaulis anaerobius
+UP000009011_1191523	UP000009011	1191523	bacteria	Ignavibacteriota	Melioribacter	2833	49	Melioribacter roseus (strain DSM 23840 / JCM 17771 / VKM B-2668 / P3M-2)
+UP000334340_2211376	UP000334340	2211376	bacteria	Methylomirabilota (SeqCode)	Methylomirabilis (SeqCode)	3012	50	Candidatus Methylomirabilis lanthanidiphila
+UP000005096_584708	UP000005096	584708	bacteria	Synergistota	Aminomonas	2391	51	Aminomonas paucivorans DSM 12260
+UP000663929_2818388	UP000663929	2818388	bacteria	Acidobacteriota	Sulfidibacter	6898	52	Sulfidibacter corallicola
+UP000003688_320771	UP000003688	320771	bacteria	Verrucomicrobiota	Pedosphaera	6492	53	Pedosphaera parvula (strain Ellin514)
+UP000029640_1265313	UP000029640	1265313	bacteria	Pseudomonadota	Pseudohaliea	2860	54	Pseudohaliea rubra DSM 19751
+UP000199197_1633643	UP000199197	1633643	bacteria	Candidatus Kryptoniota	Candidatus Chryseopegocella	1930	55	Candidatus Chryseopegocella kryptomonas
+UP000011704_1266370	UP000011704	1266370	bacteria	Nitrospinota	Nitrospina	2962	56	Nitrospina gracilis (strain 3/211)
+UP000287243_1930593	UP000287243	1930593	bacteria	Candidatus Omnitrophota	Candidatus Velamenicoccus	1851	57	Velamenicoccus archaeovorus
+UP000254834_2066483	UP000254834	2066483	bacteria	Candidatus Babeliae	Candidatus Chromulinivorax	1075	58	Candidatus Chromulinivorax destructor
+UP000663454_58231	UP000663454	58231	bacteria	Spirochaetota	Treponema	2297	59	Treponema medium
+UP000030700_1499966	UP000030700	1499966	bacteria	Candidatus Moduliflexota	Candidatus Moduliflexus	5960	60	Candidatus Moduliflexus flocculans
+UP000063234_1298851	UP000063234	1298851	bacteria	Thermosulfidibacterota	Thermosulfidibacter	1756	61	Thermosulfidibacter takaii (strain DSM 17441 / JCM 13301 / NBRC 103674 / ABI70S6)
+UP000275925_2218525	UP000275925	2218525	bacteria	Candidatus Margulisiibacteriota	Candidatus Termititenax	1739	62	Candidatus Termititenax persephonae
+UP000324143_2703815	UP000324143	2703815	bacteria	Candidatus Macinerneyibacteriota	Candidatus Mcinerneyibacterium	2016	63	Candidatus Mcinerneyibacterium aminivorans
+UP001461341_3039681	UP001461341	3039681	bacteria	Atribacterota	Thermatribacter	2198	64	Thermatribacter velox
+UP000008637_941640	UP000008637	941640	bacteria	Mycoplasmatota	Mycoplasma	1545	65	Mycoplasma haemofelis (strain Langford 1) (Haemobartonella felis)
+UP000002027_479434	UP000002027	479434	bacteria	Thermomicrobiota	Sphaerobacter	3471	66	Sphaerobacter thermophilus (strain ATCC 49802 / DSM 20745 / KCCM 41009 / NCIMB 13125 / S 6022)
+UP000016960_582515	UP000016960	582515	bacteria	Cyanobacteriota	Rubidibacter	3455	67	Rubidibacter lacunae KORDI 51-2
+UP000000422_273121	UP000000422	273121	bacteria	Campylobacterota	Wolinella	2028	68	Wolinella succinogenes (strain ATCC 29543 / DSM 1740 / CCUG 13145 / JCM 31913 / LMG 7466 / NCTC 11488 / FDC 602W) (Vibrio succinogenes)
+UP000000496_331113	UP000000496	331113	bacteria	Chlamydiota	Simkania	2516	69	Simkania negevensis (strain ATCC VR-1471 / DSM 27360 / Z)
+UP000216339_1196024	UP000216339	1196024	bacteria	Rhodothermota	Rubrivirga	4165	70	Rubrivirga marina
+UP000014227_1303518	UP000014227	1303518	bacteria	Armatimonadota	Chthonomonas	2809	71	Chthonomonas calidirosea (strain DSM 23976 / ICMP 18418 / T49)
+UP000007030_869210	UP000007030	869210	bacteria	Deinococcota	Marinithermus	2194	72	Marinithermus hydrothermalis (strain DSM 14884 / JCM 11576 / T1)
+UP001484239_3119007	UP001484239	3119007	bacteria	Gemmatimonadota	Gaopeijia	3561	73	Gaopeijia maritima
+UP000192907_1513793	UP000192907	1513793	bacteria	Bdellovibrionota	Pseudobacteriovorax	6344	74	Pseudobacteriovorax antillogorgiicola
+UP000013893_1332188	UP000013893	1332188	bacteria	Candidatus Saccharimonadota	Saccharimonas (SeqCode)	1033	75	Candidatus Saccharimonas aalborgensis
+UP000000323_525904	UP000000323	525904	bacteria	Chloroflexota	Thermobaculum	2827	76	Thermobaculum terrenum (strain ATCC BAA-798 / CCMEE 7001 / YNP1)
+UP000001029_445932	UP000001029	445932	bacteria	Elusimicrobiota	Elusimicrobium	1528	77	Elusimicrobium minutum (strain Pei191)
+UP000035268_1307763	UP000035268	1307763	bacteria	Kiritimatiellota	Kiritimatiella	2373	78	Kiritimatiella glycovorans
+UP000245959_172901	UP000245959	172901	bacteria	Lentisphaerota	Victivallis	4059	79	Victivallis vadensis
+UP000249799_1548548	UP000249799	1548548	bacteria	Deltaproteobacteria	Bradymonas	3697	80	Bradymonas sediminis
+UP000004959_1045004	UP000004959	1045004	bacteria	Bacillota	Oenococcus	1818	81	Oenococcus kitaharae DSM 17330
+UP000034883_927083	UP000034883	927083	bacteria	Myxococcota	Sandaracinus	8941	82	Sandaracinus amylolyticus
+UP000324233_406548	UP000324233	406548	bacteria	Planctomycetota	Aquisphaera	7743	83	Aquisphaera giovannonii
+UP001597460_1834464	UP001597460	1834464	bacteria	Balneolota	Gracilimonas	2637	84	Gracilimonas halophila
+UP000004162_377431	UP000004162	377431	bacteria	Chlorobiota	Chlorobium	2158	85	Chlorobium ferrooxidans DSM 13031
+UP000091979_1560234	UP000091979	1560234	bacteria	Thermodesulfobacteriota	Halodesulfovibrio	2803	86	Halodesulfovibrio spirochaetisodalis
+UP000033423_29290	UP000033423	29290	bacteria	Nitrospirota	Magnetobacterium (SeqCode)	6447	87	Candidatus Magnetobacterium bavaricum
+UP000007039_768670	UP000007039	768670	bacteria	Deferribacterota	Calditerrivibrio	2089	88	Calditerrivibrio nitroreducens (strain DSM 19672 / NBRC 101217 / Yu37-1)
+UP000002043_638303	UP000002043	638303	bacteria	Aquificota	Thermocrinis	1592	89	Thermocrinis albus (strain DSM 14484 / JCM 11386 / HI 11/12)
+UP000002572_653733	UP000002572	653733	bacteria	Chrysiogenota	Desulfurispirillum	2551	90	Desulfurispirillum indicum (strain ATCC BAA-1389 / DSM 22839 / S5)
+UP000294588_2593015	UP000294588	2593015	bacteria	Candidatus Cloacimonadota	Candidatus Syntrophosphaera	1372	91	Candidatus Syntrophosphaera thermopropionivorans
+UP000006875_572544	UP000006875	572544	bacteria	Fusobacteriota	Ilyobacter	2859	92	Ilyobacter polytropus (strain ATCC 51220 / DSM 2926 / LMG 16218 / CuHBu1)
+UP000001549_2716812	UP000001549	2716812	bacteria	Actinomycetota	Protofrankia	4063	93	Candidatus Protofrankia datiscae
+UP000231134_1896222	UP000231134	1896222	bacteria	Fibrobacterota	Hallerella	2694	94	Hallerella succinigenes
+UP000032809_1006576	UP000032809	1006576	bacteria	Thermotogota	Defluviitoga	1811	95	Defluviitoga tunisiensis
+UP000745859_1487859	UP000745859	1487859	bacteria	Bacteroidota	Wenyingzhuangia	3093	96	Wenyingzhuangia heitensis
+UP001221302_3032292	UP001221302	3032292	bacteria	Ignavibacteriota	Stygiobacter	2813	97	Stygiobacter electus
+UP000008957_651822	UP000008957	651822	bacteria	Synergistota	Fretibacterium	1434	98	Fretibacterium fastidiosum
+UP001634747_940139	UP001634747	940139	bacteria	Acidobacteriota	Terriglobus	3495	99	Terriglobus aquaticus
+UP000078486_1184151	UP000078486	1184151	bacteria	Verrucomicrobiota	Termitidicoccus	4993	100	Termitidicoccus mucosus
+UP000076830_1300342	UP000076830	1300342	bacteria	Pseudomonadota	Dokdonella	3774	101	Dokdonella koreensis DS-123
+UP000182200_1633631	UP000182200	1633631	bacteria	Candidatus Kryptoniota	Candidatus Kryptonium	2162	102	Candidatus Kryptonium thompsonii
+UP000033428_1609969	UP000033428	1609969	bacteria	Candidatus Omnitrophota	Candidatus Omnitrophus	2573	103	Candidatus Omnitrophus magneticus
+UP000240042_34097	UP000240042	34097	bacteria	Spirochaetota	Brevinema	1441	104	Brevinema andersonii
+UP000030661_1499967	UP000030661	1499967	bacteria	Candidatus Moduliflexota	Candidatus Vecturithrix	7048	105	Vecturithrix granuli
+UP001675543_3064161	UP001675543	3064161	bacteria	Atribacterota	Atrimonas	2225	106	Atrimonas thermophila
+UP000005707_1033810	UP000005707	1033810	bacteria	Mycoplasmatota	Haloplasma	3019	107	Haloplasma contractile SSD-17B
+UP000000447_309801	UP000000447	309801	bacteria	Thermomicrobiota	Thermomicrobium	2858	108	Thermomicrobium roseum (strain ATCC 27502 / DSM 5159 / P-2)
+UP000660270_2692889	UP000660270	2692889	bacteria	Cyanobacteriota	Aphanizomenon	3772	109	Aphanizomenon flos-aquae FACHB-1249
+UP000008633_749222	UP000008633	749222	bacteria	Campylobacterota	Nitratifractor	2076	110	Nitratifractor salsuginis (strain DSM 16511 / JCM 12458 / E9I37-1)
+UP000031552_1437425	UP000031552	1437425	bacteria	Chlamydiota	Candidatus Criblamydia	2418	111	Candidatus Criblamydia sequanensis CRIB-18
+UP000002221_518766	UP000002221	518766	bacteria	Rhodothermota	Rhodothermus	2861	112	Rhodothermus marinus (strain ATCC 43812 / DSM 4252 / R-10) (Rhodothermus obamensis)
+UP000520814_685828	UP000520814	685828	bacteria	Armatimonadota	Armatimonas	5895	113	Armatimonas rosea
+UP000569951_521158	UP000569951	521158	bacteria	Deinococcota	Deinobacterium	3605	114	Deinobacterium chartae
+UP000500938_2732249	UP000500938	2732249	bacteria	Gemmatimonadota	Gemmatimonas	4350	115	Gemmatimonas groenlandica
+UP000184731_1915309	UP000184731	1915309	bacteria	Bdellovibrionota	Silvanigrella	2865	116	Silvanigrella aquatica
+UP000050514_360411	UP000050514	360411	bacteria	Chloroflexota	Bellilinea	2990	117	Bellilinea caldifistulae
+UP000095237_1408204	UP000095237	1408204	bacteria	Elusimicrobiota	Candidatus Endomicrobiellum	2732	118	Endomicrobium trichonymphae
+UP001290861_3038953	UP001290861	3038953	bacteria	Kiritimatiellota	Pontiella	3565	119	Pontiella agarivorans
+UP000004947_313628	UP000004947	313628	bacteria	Lentisphaerota	Lentisphaera	4982	120	Lentisphaera araneosa HTCC2155
+UP000321595_2600177	UP000321595	2600177	bacteria	Deltaproteobacteria	Allomicrovenator	4727	121	Allomicrovenator marinus
+UP000198577_937334	UP000198577	937334	bacteria	Bacillota	Caldicoprobacter	2413	122	Caldicoprobacter faecalis
+UP000603546_83451	UP000603546	83451	bacteria	Myxococcota	Archangium	10278	123	Archangium violaceum
+UP000253562_1031537	UP000253562	1031537	bacteria	Planctomycetota	Bremerella	5042	124	Bremerella cremea
+UP000254808_1457365	UP000254808	1457365	bacteria	Balneolota	Cyclonatronum	3251	125	Cyclonatronum proteinivorum
+UP000309544_1098	UP000309544	1098	bacteria	Chlorobiota	Prosthecochloris	2081	126	Prosthecochloris vibrioformis (Chlorobium vibrioforme)
+UP000317155_38815	UP000317155	38815	bacteria	Thermodesulfobacteriota	Trichloromonas	3347	127	Trichloromonas acetexigens
+UP000245125_2016548	UP000245125	2016548	bacteria	Nitrospirota	Candidatus Sulfobium	2739	128	Candidatus Sulfobium mesophilum
+UP000002012_522772	UP000002012	522772	bacteria	Deferribacterota	Denitrovibrio	2901	129	Denitrovibrio acetiphilus (strain DSM 12809 / NBRC 114555 / N2460)
+UP000198405_240169	UP000198405	240169	bacteria	Aquificota	Desulfurobacterium	1765	130	Desulfurobacterium atlanticum
+UP001667335_3239304	UP001667335	3239304	bacteria	Fusobacteriota	Leptotrichia	2261	131	Leptotrichia alba
+UP000008366_1184609	UP000008366	1184609	bacteria	Actinomycetota	Kineosphaera	4422	132	Kineosphaera limosa NBRC 100340
+UP000017148_1313304	UP000017148	1313304	bacteria	Fibrobacterota	Chitinivibrio	2304	133	Chitinivibrio alkaliphilus ACht1
+UP000077469_1123384	UP000077469	1123384	bacteria	Thermotogota	Pseudothermotoga	2094	134	Pseudothermotoga hypogea DSM 11164 = NBRC 106472
+UP000621516_2683592	UP000621516	2683592	bacteria	Bacteroidota	Aestuariibaculum	3205	135	Aestuariibaculum marinum
+UP000007394_945713	UP000007394	945713	bacteria	Ignavibacteriota	Ignavibacterium	3169	136	Ignavibacterium album (strain DSM 19864 / JCM 16511 / NBRC 101810 / Mat9-16)
+UP000003806_885272	UP000003806	885272	bacteria	Synergistota	Jonquetella	1508	137	Jonquetella anthropi DSM 22815
+UP000031518_454194	UP000031518	454194	bacteria	Acidobacteriota	Pyrinomonas	3179	138	Pyrinomonas methylaliphatogenes
+UP000076023_690879	UP000076023	690879	bacteria	Verrucomicrobiota	Terrimicrobium	4168	139	Terrimicrobium sacchariphilum
+UP000198893_569882	UP000198893	569882	bacteria	Pseudomonadota	Salinihabitans	3934	140	Salinihabitans flavidus
+UP000243065_1643429	UP000243065	1643429	bacteria	Candidatus Kryptoniota	Candidatus Kryptobacter	1795	141	Kryptobacter tengchongensis
+UP000018680_1307761	UP000018680	1307761	bacteria	Spirochaetota	Salinispira	3350	142	Salinispira pacifica
+UP000594463_2847778	UP000594463	2847778	bacteria	Atribacterota	Atribacter	2724	143	Atribacter laminatus
+UP000620133_2735436	UP000620133	2735436	bacteria	Mycoplasmatota	Mariniplasma	1771	144	Mariniplasma anaerobium
+UP000004221_1129897	UP000004221	1129897	bacteria	Thermomicrobiota	Nitrolancea	3969	145	Nitrolancea hollandica Lb
+UP001556606_3126709	UP001556606	3126709	bacteria	Cyanobacteriota	Sivoneniella	4741	146	Sivoneniella epilithica UHCC 1019
+UP000000775_382638	UP000000775	382638	bacteria	Campylobacterota	Helicobacter	1596	147	Helicobacter acinonychis (strain Sheeba)
+UP000220251_483423	UP000220251	483423	bacteria	Chlamydiota	Estrella	2216	148	Estrella lausannensis
+UP000008674_309807	UP000008674	309807	bacteria	Rhodothermota	Salinibacter	2812	149	Salinibacter ruber (strain DSM 13855 / M31)
+UP000027982_661478	UP000027982	661478	bacteria	Armatimonadota	Fimbriimonas	4817	150	Fimbriimonas ginsengisoli Gsoil 348
+UP001595748_1298767	UP001595748	1298767	bacteria	Deinococcota	Deinococcus	4079	151	Deinococcus antarcticus
+UP001229955_3062599	UP001229955	3062599	bacteria	Gemmatimonadota	Pseudogemmatithrix	2862	152	Pseudogemmatithrix spongiicola
+UP000235584_960	UP000235584	960	bacteria	Bdellovibrionota	Bacteriovorax	3721	153	Bacteriovorax stolpii (Bdellovibrio stolpii)
+UP000054010_765420	UP000054010	765420	bacteria	Chloroflexota	Oscillochloris	3230	154	Oscillochloris trichoides DG-6
+UP000196368_2562704	UP000196368	2562704	bacteria	Elusimicrobiota	Candidatus Avelusimicrobium	1395	155	Candidatus Avelusimicrobium gallicola
+UP000315995_2292766	UP000315995	2292766	bacteria	Deltaproteobacteria	Persicimonas	5752	156	Persicimonas caeni
+UP000661435_2763053	UP000661435	2763053	bacteria	Bacillota	Lawsonibacter	3274	157	Lawsonibacter hominis
+UP000002139_448385	UP000002139	448385	bacteria	Myxococcota	Sorangium	9320	158	Sorangium cellulosum (strain So ce56) (Polyangium cellulosum (strain So ce56))
+UP000188273_1940790	UP000188273	1940790	bacteria	Planctomycetota	Sedimentisphaera	2242	159	Sedimentisphaera cyanobacteriorum
+UP000673975_2812953	UP000673975	2812953	bacteria	Balneolota	Natronogracilivirga	3004	160	Natronogracilivirga saccharolytica
+UP000095185_274537	UP000095185	274537	bacteria	Chlorobiota	Chlorobaculum	2423	161	Chlorobaculum limnaeum
+UP000636888_2798584	UP000636888	2798584	bacteria	Thermodesulfobacteriota	Geomesophilobacter	4967	162	Geomesophilobacter sediminis
+UP000248168_1436998	UP000248168	1436998	bacteria	Nitrospirota	Nitrospira	3885	163	Nitrospira lenta
+UP000001520_639282	UP000001520	639282	bacteria	Deferribacterota	Deferribacter	2338	164	Deferribacter desulfuricans (strain DSM 14783 / JCM 11476 / NBRC 101012 / SSM1)
+UP001157947_407998	UP001157947	407998	bacteria	Aquificota	Venenivibrio	1660	165	Venenivibrio stagnispumantis
+UP001321582_2996794	UP001321582	2996794	bacteria	Fusobacteriota	Haliovirga	2278	166	Haliovirga abyssi
+UP001339911_1436122	UP001339911	1436122	bacteria	Actinomycetota	Plantactinospora	6577	167	Plantactinospora veratri
+UP000245921_515440	UP000245921	515440	bacteria	Thermotogota	Oceanotoga	2638	168	Oceanotoga teriensis
+UP000199421_407022	UP000199421	407022	bacteria	Bacteroidota	Olivibacter	5562	169	Olivibacter domesticus (Pseudosphingobacterium domesticum)
+UP000027665_2754	UP000027665	2754	bacteria	Synergistota	Synergistes	2481	170	Synergistes jonesii
+UP000595564_981385	UP000595564	981385	bacteria	Acidobacteriota	Thermotomaculum	2006	171	Thermotomaculum hydrothermale
+UP000217265_2576891	UP000217265	2576891	bacteria	Verrucomicrobiota	Nibricoccus	3760	172	Nibricoccus aquaticus
+UP000298049_2259620	UP000298049	2259620	bacteria	Pseudomonadota	Hydrocarboniclastica	3673	173	Hydrocarboniclastica marina
+UP000320623_1643428	UP000320623	1643428	bacteria	Candidatus Kryptoniota	Candidatus Thermokryptus	2268	174	Candidatus Thermokryptus mobilis
+UP001658494_310721	UP001658494	310721	bacteria	Spirochaetota	Brachyspira	3130	175	Brachyspira pulli
+UP000266506_2088	UP000266506	2088	bacteria	Mycoplasmatota	Anaeroplasma	1953	176	Anaeroplasma bactoclasticum
+UP001268256_2918990	UP001268256	2918990	bacteria	Cyanobacteriota	Pseudocalidococcus	3327	177	Pseudocalidococcus azoricus BACA0444
+UP000008721_709032	UP000008721	709032	bacteria	Campylobacterota	Sulfuricurvum	2794	178	Sulfuricurvum kujiense (strain ATCC BAA-921 / DSM 16994 / JCM 11577 / YK-1)
+UP000000495_765952	UP000000495	765952	bacteria	Chlamydiota	Parachlamydia	2784	179	Parachlamydia acanthamoebae (strain UV7)
+UP000216446_716817	UP000216446	716817	bacteria	Rhodothermota	Rubricoccus	3669	180	Rubricoccus marinus
+UP000000379_649638	UP000000379	649638	bacteria	Deinococcota	Truepera	2924	181	Truepera radiovictrix (strain DSM 17093 / CIP 108686 / LMG 22925 / RQ-24)
+UP000582837_1639882	UP000582837	1639882	bacteria	Gemmatimonadota	Longimicrobium	5723	182	Longimicrobium terrae
+UP001324634_28202	UP001324634	28202	bacteria	Bdellovibrionota	Peredibacter	4094	183	Peredibacter starrii
+UP000185934_1839801	UP000185934	1839801	bacteria	Chloroflexota	Dehalogenimonas	2117	184	Dehalogenimonas formicexedens
+UP000000719_373903	UP000000719	373903	bacteria	Bacillota	Halothermothrix	2324	185	Halothermothrix orenii (strain H 168 / OCM 544 / DSM 9562)
+UP000518300_394095	UP000518300	394095	bacteria	Myxococcota	Pyxidicoccus	10510	186	Pyxidicoccus fallax
+UP000319342_2528008	UP000319342	2528008	bacteria	Planctomycetota	Rohdeia	3741	187	Rohdeia mirabilis
+UP000245533_2079485	UP000245533	2079485	bacteria	Balneolota	Rhodohalobacter	3239	188	Rhodohalobacter mucosus
+UP000001208_517418	UP000001208	517418	bacteria	Chlorobiota	Chloroherpeton	2708	189	Chloroherpeton thalassium (strain ATCC 35110 / GB-78)
+UP000198870_419481	UP000198870	419481	bacteria	Thermodesulfobacteriota	Desulfoluna	5238	190	Desulfoluna spongiiphila
+UP001250932_3020898	UP001250932	3020898	bacteria	Nitrospirota	Candidatus Nitronereus	3593	191	Candidatus Nitronereus thalassa
+UP000017429_1379858	UP000017429	1379858	bacteria	Deferribacterota	Mucispirillum	2083	192	Mucispirillum schaedleri ASF457
+UP000001366_123214	UP000001366	123214	bacteria	Aquificota	Persephonella	2048	193	Persephonella marina (strain DSM 14350 / EX-H1)
+UP000263486_2293438	UP000263486	2293438	bacteria	Fusobacteriota	Psychrilyobacter	3023	194	Psychrilyobacter piezotolerans
+UP001431656_3041175	UP001431656	3041175	bacteria	Actinomycetota	Brooklawnia	2906	195	Brooklawnia propionicigenes
+UP000199322_28234	UP000199322	28234	bacteria	Thermotogota	Geotoga	2070	196	Geotoga petraea
+UP000428260_2681766	UP000428260	2681766	bacteria	Bacteroidota	Maribellus	6116	197	Maribellus comscasis
+UP000199266_1120987	UP000199266	1120987	bacteria	Synergistota	Acetomicrobium	1897	198	Acetomicrobium thermoterrenum DSM 13490
+UP000515312_2763107	UP000515312	2763107	bacteria	Acidobacteriota	Alloacidobacterium	5124	199	Alloacidobacterium dinghuense
+UP000825051_2862869	UP000825051	2862869	bacteria	Verrucomicrobiota	Horticoccus	3392	200	Horticoccus luteus
+UP000267187_569599	UP000267187	569599	bacteria	Pseudomonadota	Umboniibacter	2413	201	Umboniibacter marinipuniceus
+UP001056539_2828656	UP001056539	2828656	bacteria	Spirochaetota	Thermospira	2323	202	Thermospira aquatica
+UP000289841_29552	UP000289841	29552	bacteria	Mycoplasmatota	Haploplasma	1645	203	Haploplasma axanthum (Acholeplasma axanthum)
+UP001328733_1427578	UP001328733	1427578	bacteria	Cyanobacteriota	Pannus	4951	204	Pannus brasiliensis CCIBt3594
+UP000262582_913109	UP000262582	913109	bacteria	Campylobacterota	Arcobacter	2727	205	Arcobacter ellisii
+UP000826014_2720720	UP000826014	2720720	bacteria	Chlamydiota	Candidatus Rhabdochlamydia	1470	206	Candidatus Rhabdochlamydia oedothoracis
+UP000221024_1469170	UP000221024	1469170	bacteria	Rhodothermota	Longimonas	2920	207	Longimonas halophila
+UP000008722_670487	UP000008722	670487	bacteria	Deinococcota	Oceanithermus	2372	208	Oceanithermus profundus (strain DSM 14977 / NBRC 100410 / VKM B-2274 / 506)
+UP001161325_2014610	UP001161325	2014610	bacteria	Gemmatimonadota	Roseisolibacter	5102	209	Roseisolibacter agri
+UP000442694_2654512	UP000442694	2654512	bacteria	Bdellovibrionota	Fluviispira	2868	210	Fluviispira multicolorata
+UP000287352_2014871	UP000287352	2014871	bacteria	Chloroflexota	Tengunoibacter	5981	211	Tengunoibacter tsumagoiensis
+UP000004923_626939	UP000004923	626939	bacteria	Bacillota	Phascolarctobacterium	2148	212	Phascolarctobacterium succinatutens YIT 12067
+UP001370348_2741071	UP001370348	2741071	bacteria	Myxococcota	Pendulispora	9445	213	Pendulispora albinea
+UP000320421_2605989	UP000320421	2605989	bacteria	Planctomycetota	Gimesia	6461	214	Gimesia chilikensis
+UP000218831_2032627	UP000218831	2032627	bacteria	Balneolota	Fodinibius	3115	215	Fodinibius salipaludis
+UP000001052_485915	UP000001052	485915	bacteria	Thermodesulfobacteriota	Desulfohalobium	2500	216	Desulfohalobium retbaense (strain ATCC 49708 / DSM 5692 / JCM 16813 / HR100)
+UP000060487_1748249	UP000060487	1748249	bacteria	Nitrospirota	Candidatus Magnetominusculus	3334	217	Candidatus Magnetominusculus xianensis
+UP000294614_1078050	UP000294614	1078050	bacteria	Deferribacterota	Seleniivibrio	2684	218	Seleniivibrio woodruffii
+UP000000798_224324	UP000000798	224324	bacteria	Aquificota	Aquifex	1553	219	Aquifex aeolicus (strain VF5)
+UP000004226_596323	UP000004226	596323	bacteria	Fusobacteriota	Pseudoleptotrichia	2374	220	Pseudoleptotrichia goodfellowii F0264
+UP001589862_1572761	UP001589862	1572761	bacteria	Actinomycetota	Micrococcoides	2297	221	Micrococcoides hystricis
+UP000002382_521045	UP000002382	521045	bacteria	Thermotogota	Kosmotoga	2087	222	Kosmotoga olearia (strain ATCC BAA-1733 / DSM 21960 / TBF 19.5.1)
+UP000004690_926559	UP000004690	926559	bacteria	Bacteroidota	Galbibacter	3783	223	Galbibacter orientalis DSM 19592
+UP000002366_572547	UP000002366	572547	bacteria	Synergistota	Aminobacterium	1872	224	Aminobacterium colombiense (strain DSM 12261 / ALA-1)
+UP000076079_1855912	UP000076079	1855912	bacteria	Acidobacteriota	Luteitalea	6189	225	Luteitalea pratensis
+UP000306196_2576071	UP000306196	2576071	bacteria	Verrucomicrobiota	Phragmitibacter	4729	226	Phragmitibacter flavus
+UP000002964_631362	UP000002964	631362	bacteria	Pseudomonadota	Thiorhodovibrio	4691	227	Thiorhodovibrio frisius
+UP001228690_3034016	UP001228690	3034016	bacteria	Spirochaetota	Candidatus Haliotispira	2421	228	Candidatus Haliotispira prima
+UP001177160_591373	UP001177160	591373	bacteria	Mycoplasmatota	Paracholeplasma	1717	229	Paracholeplasma manati
+UP000632766_2794033	UP000632766	2794033	bacteria	Cyanobacteriota	Amazonocrinis	6582	230	Amazonocrinis nigriterrae CENA67
+UP000221222_870501	UP000221222	870501	bacteria	Campylobacterota	Malaciobacter	2733	231	Malaciobacter molluscorum LMG 25693
+UP000001505_716544	UP000001505	716544	bacteria	Chlamydiota	Waddlia	1919	232	Waddlia chondrophila (strain ATCC VR-1470 / WSU 86-1044)
+UP000001916_526227	UP000001916	526227	bacteria	Deinococcota	Allomeiothermus	3383	233	Allomeiothermus silvanus (strain ATCC 700542 / DSM 9946 / NBRC 106475 / NCIMB 13440 / VI-R2) (Thermus silvanus)
+UP000443582_2152716	UP000443582	2152716	bacteria	Bdellovibrionota	Halobacteriovorax	2954	234	Halobacteriovorax vibrionivorans
+UP000248806_644383	UP000248806	644383	bacteria	Chloroflexota	Thermosporothrix	6382	235	Thermosporothrix hazakensis
+UP000628736_2763048	UP000628736	2763048	bacteria	Bacillota	Flintibacter	2645	236	Flintibacter hominis
+UP000182229_83449	UP000182229	83449	bacteria	Myxococcota	Cystobacter	9570	237	Cystobacter ferrugineus
+UP000008631_575540	UP000008631	575540	bacteria	Planctomycetota	Isosphaera	3721	238	Isosphaera pallida (strain ATCC 43644 / DSM 9630 / IS1B)
+UP000192418_1121400	UP000192418	1121400	bacteria	Thermodesulfobacteriota	Desulfocicer	4083	239	Desulfocicer vacuolatum DSM 3385
+UP000054976_86166	UP000054976	86166	bacteria	Nitrospirota	Thermodesulfovibrio	1988	240	Thermodesulfovibrio aggregans
+UP000006621_717231	UP000006621	717231	bacteria	Deferribacterota	Flexistipes	2185	241	Flexistipes sinusarabici (strain ATCC 49648 / DSM 4947 / MAS 10)
+UP000006362_648996	UP000006362	648996	bacteria	Aquificota	Thermovibrio	1812	242	Thermovibrio ammonificans (strain DSM 15698 / JCM 12110 / HB-1)
+UP001732267_1720557	UP001732267	1720557	bacteria	Fusobacteriota	Streptobacillus	1304	243	Streptobacillus ratti
+UP000319213_103836	UP000319213	103836	bacteria	Actinomycetota	Thermopolyspora	4864	244	Thermopolyspora flexuosa
+UP000555828_90323	UP000555828	90323	bacteria	Thermotogota	Thermosipho	1895	245	Thermosipho japonicus
+UP000004478_1225176	UP000004478	1225176	bacteria	Bacteroidota	Cecembia	4213	246	Cecembia lonarensis (strain CCUG 58316 / KCTC 22772 / LW9)
+UP000671879_3029084	UP000671879	3029084	bacteria	Synergistota	Aminithiophilus	2651	247	Aminithiophilus ramosus
+UP000269669_570835	UP000269669	570835	bacteria	Acidobacteriota	Edaphobacter	4941	248	Edaphobacter aggregans
+UP001062263_2946555	UP001062263	2946555	bacteria	Verrucomicrobiota	Akkermansia	2543	249	Akkermansia biwaensis
+UP000521199_659595	UP000521199	659595	bacteria	Pseudomonadota	Chiayiivirga	3326	250	Chiayiivirga flava
+UP000323824_252967	UP000323824	252967	bacteria	Spirochaetota	Thiospirochaeta	3264	251	Thiospirochaeta perfilievii
+UP000032434_35623	UP000032434	35623	bacteria	Mycoplasmatota	Acholeplasma	1468	252	Acholeplasma oculi
+UP000218238_987040	UP000218238	987040	bacteria	Cyanobacteriota	Brunnivagina	5667	253	Brunnivagina elsteri CCALA 953
+UP001173801_2974576	UP001173801	2974576	bacteria	Campylobacterota	Campylobacter	2171	254	Campylobacter gastrosuis
+UP000016064_1046581	UP000016064	1046581	bacteria	Chlamydiota	Chlamydia	1016	255	Chlamydia ibidis 10-1398/6
+UP000265715_1408545	UP000265715	1408545	bacteria	Deinococcota	Calidithermus	4065	256	Calidithermus terrae
+UP000009286_856793	UP000009286	856793	bacteria	Bdellovibrionota	Micavibrio	2432	257	Micavibrio aeruginosavorus (strain ARL-13)
+UP000007880_926550	UP000007880	926550	bacteria	Chloroflexota	Caldilinea	4097	258	Caldilinea aerophila (strain DSM 14535 / JCM 11387 / NBRC 104270 / STL-6-O1)
+UP000180098_85682	UP000180098	85682	bacteria	Bacillota	Anaerobacillus	3587	259	Anaerobacillus arseniciselenatis
+UP000217289_1294270	UP000217289	1294270	bacteria	Myxococcota	Melittangium	7973	260	Melittangium boletus DSM 14713
+UP000245802_114	UP000245802	114	bacteria	Planctomycetota	Gemmata	6809	261	Gemmata obscuriglobus
+UP000006365_577650	UP000006365	577650	bacteria	Thermodesulfobacteriota	Desulfobulbus	3259	262	Desulfobulbus propionicus (strain ATCC 33891 / DSM 2032 / VKM B-1956 / 1pr3)
+UP000009374_412449	UP000009374	412449	bacteria	Nitrospirota	Leptospirillum	2653	263	Leptospirillum ferrodiazotrophum
+UP000317315_223788	UP000317315	223788	bacteria	Aquificota	Balnearium	1855	264	Balnearium lithotrophicum
+UP000000845_526218	UP000000845	526218	bacteria	Fusobacteriota	Sebaldella	4124	265	Sebaldella termitidis (strain ATCC 33386 / NCTC 11300)
+UP001387100_1926649	UP001387100	1926649	bacteria	Actinomycetota	Pseudokineococcus	3390	266	Pseudokineococcus basanitobsidens
+UP000002881_660470	UP000002881	660470	bacteria	Thermotogota	Mesotoga	2499	267	Mesotoga prima MesG1.Ag.4.2
+UP000559010_2729599	UP000559010	2729599	bacteria	Bacteroidota	Marinigracilibium	4165	268	Marinigracilibium pacificum
+UP001205919_508460	UP001205919	508460	bacteria	Synergistota	Cloacibacillus	3063	269	Cloacibacillus evryensis
+UP000593892_1473598	UP000593892	1473598	bacteria	Acidobacteriota	Paludibaculum	7446	270	Paludibaculum fermentans
+UP000244896_1796921	UP000244896	1796921	bacteria	Verrucomicrobiota	Ereboglobus	2881	271	Ereboglobus luteus
+UP000472676_1396819	UP000472676	1396819	bacteria	Pseudomonadota	Solimonas	3931	272	Solimonas terrae
+UP000012118_1088542	UP000012118	1088542	bacteria	Spirochaetota	Leptospira	4676	273	Leptospira weilii str. UI 13098
+UP000514720_2782163	UP000514720	2782163	bacteria	Mycoplasmatota	Candidatus Xianfuyuplasma	1861	274	Candidatus Xianfuyuplasma coldseepsis
+UP000003835_118168	UP000003835	118168	bacteria	Cyanobacteriota	Coleofasciculus	8193	275	Coleofasciculus chthonoplastes PCC 7420
+UP000192602_1069081	UP000192602	1069081	bacteria	Campylobacterota	Nitratiruptor	1934	276	Nitratiruptor tergarcus DSM 16512
+UP000069902_389348	UP000069902	389348	bacteria	Chlamydiota	Candidatus Protochlamydia	2571	277	Candidatus Protochlamydia naegleriophila
+UP000263013_1339250	UP000263013	1339250	bacteria	Deinococcota	Meiothermus	2901	278	Meiothermus taiwanensis WR-220
+UP000012040_1184267	UP000012040	1184267	bacteria	Bdellovibrionota	Pseudobdellovibrio	2618	279	Pseudobdellovibrio exovorus JSS
+UP001431572_3003348	UP001431572	3003348	bacteria	Chloroflexota	Candidatus Chlorohelix	4920	280	Candidatus Chlorohelix allophototropha
+UP000623269_1462919	UP000623269	1462919	bacteria	Bacillota	Mobilitalea	3331	281	Mobilitalea sibirica
+UP001217838_2995305	UP001217838	2995305	bacteria	Myxococcota	Nannocystis	9972	282	Nannocystis radixulma
+UP000315440_2527991	UP000315440	2527991	bacteria	Planctomycetota	Pseudobythopirellula	3893	283	Pseudobythopirellula maris
+UP000784128_44671	UP000784128	44671	bacteria	Thermodesulfobacteriota	Pelotalea	3488	284	Pelotalea chapellei
+UP000516360_2715679	UP000516360	2715679	bacteria	Nitrospirota	Dissulfurispira	2379	285	Dissulfurispira thermophila
+UP000001369_204536	UP000001369	204536	bacteria	Aquificota	Sulfurihydrogenibium	1708	286	Sulfurihydrogenibium azorense (strain DSM 15241 / OCM 825 / Az-Fu1)
+UP000294678_1627895	UP000294678	1627895	bacteria	Fusobacteriota	Hypnocyclicus	2014	287	Hypnocyclicus thermotrophus
+UP001500218_349316	UP001500218	349316	bacteria	Actinomycetota	Luedemannella	6312	288	Luedemannella flava
+UP000279669_156203	UP000279669	156203	bacteria	Thermotogota	Petrotoga	1848	289	Petrotoga olearia
+UP000019402_869213	UP000019402	869213	bacteria	Bacteroidota	Saccharicrinis	4663	290	Saccharicrinis fermentans DSM 9555 = JCM 21142
+UP000005868_580340	UP000005868	580340	bacteria	Synergistota	Thermovirga	1853	291	Thermovirga lienii (strain ATCC BAA-1197 / DSM 17291 / Cas60314)
+UP000236728_863522	UP000236728	863522	bacteria	Acidobacteriota	Bryocella	4503	292	Bryocella elongata
+UP000290218_2508720	UP000290218	2508720	bacteria	Verrucomicrobiota	Oleiharenicola	3818	293	Oleiharenicola lentus
+UP000030901_1267021	UP000030901	1267021	bacteria	Pseudomonadota	Frischella	2270	294	Frischella perrara
+UP000009222_545695	UP000009222	545695	bacteria	Spirochaetota	Leadbettera	3457	295	Leadbettera azotonutricia (strain ATCC BAA-888 / DSM 13862 / ZAS-9) (Treponema azotonutricium)
+UP000512167_2725268	UP000512167	2725268	bacteria	Mycoplasmatota	Hujiaoplasma	1680	296	Hujiaoplasma nucleasis
+UP000627638_1828880	UP000627638	1828880	bacteria	Cyanobacteriota	Vacuolonema	5544	297	Vacuolonema iberomarrocanum LEGE 07170
+UP000000448_598659	UP000000448	598659	bacteria	Campylobacterota	Nautilia	1730	298	Nautilia profundicola (strain ATCC BAA-1463 / DSM 18972 / AmH)
+UP000830116_2835041	UP000830116	2835041	bacteria	Bdellovibrionota	Bdellovibrio	3289	299	Bdellovibrio reynosensis
+UP000215027_1806508	UP000215027	1806508	bacteria	Chloroflexota	Promineifilum (SeqCode)	4566	300	Candidatus Promineifilum breve
+UP001597502_257446	UP001597502	257446	bacteria	Bacillota	Lentibacillus	3138	301	Lentibacillus juripiscarius
+UP001291309_3103134	UP001291309	3103134	bacteria	Myxococcota	Hyalangium	8615	302	Hyalangium rubrum
+UP000464378_692036	UP000464378	692036	bacteria	Planctomycetota	Tuwongella	5223	303	Tuwongella immobilis
+UP000292919_571438	UP000292919	571438	bacteria	Thermodesulfobacteriota	Desulfovibrio	2218	304	Desulfovibrio legallii
+UP000280842_133270	UP000280842	133270	bacteria	Aquificota	Hydrogenothermus	1621	305	Hydrogenothermus marinus
+UP000033103_187101	UP000033103	187101	bacteria	Fusobacteriota	Sneathia	1182	306	Sneathia vaginalis
+UP000619293_310353	UP000619293	310353	bacteria	Actinomycetota	Catellatospora	8350	307	Catellatospora chokoriensis
+UP000516361_2108365	UP000516361	2108365	bacteria	Thermotogota	Tepiditoga	2276	308	Tepiditoga spiralis
+UP000447545_2608631	UP000447545	2608631	bacteria	Bacteroidota	Winogradskyella	3225	309	Winogradskyella ouciana
+UP000682204_3415223	UP000682204	3415223	bacteria	Synergistota	Aminirod	2732	310	Aminirod propionatiphilus
+UP000290253_1560006	UP000290253	1560006	bacteria	Acidobacteriota	Silvibacterium	3909	311	Silvibacterium dinghuense
+UP000642829_424488	UP000642829	424488	bacteria	Verrucomicrobiota	Cerasicoccus	3446	312	Cerasicoccus arenae
+UP000494203_1389932	UP000494203	1389932	bacteria	Pseudomonadota	Achromobacter	5175	313	Achromobacter pulmonis
+UP000192343_1963862	UP000192343	1963862	bacteria	Spirochaetota	Marispirochaeta	3763	314	Marispirochaeta aestuarii
+UP001431532_3044389	UP001431532	3044389	bacteria	Mycoplasmatota	Peloplasma	1892	315	Peloplasma aerotolerans
+UP000318453_522448	UP000318453	522448	bacteria	Cyanobacteriota	Euhalothece	3203	316	Euhalothece natronophila Z-M001
+UP000199227_223786	UP000199227	223786	bacteria	Campylobacterota	Hydrogenimonas	2512	317	Hydrogenimonas thermophila
+UP000654345_2778365	UP000654345	2778365	bacteria	Chloroflexota	Ktedonobacter	9481	318	Ktedonobacter robiniae
+UP000216024_1478221	UP000216024	1478221	bacteria	Bacillota	Anaeromicrobium	4258	319	Anaeromicrobium sediminis
+UP000005801_391625	UP000005801	391625	bacteria	Myxococcota	Plesiocystis	8437	320	Plesiocystis pacifica SIR-1
+UP000317238_2527996	UP000317238	2527996	bacteria	Planctomycetota	Crateriforma	5367	321	Crateriforma conspicua
+UP000002710_207559	UP000002710	207559	bacteria	Thermodesulfobacteriota	Oleidesulfovibrio	3220	322	Oleidesulfovibrio alaskensis (strain ATCC BAA-1058 / DSM 17464 / G20) (Desulfovibrio alaskensis)
+UP000295777_936138	UP000295777	936138	bacteria	Aquificota	Phorcysia	1636	323	Phorcysia thermohydrogeniphila
+UP000228552_2663009	UP000228552	2663009	bacteria	Fusobacteriota	Fusobacterium	2503	324	Fusobacterium pseudoperiodonticum
+UP000318297_657409	UP000318297	657409	bacteria	Actinomycetota	Rudaeicoccus	3440	325	Rudaeicoccus suwonensis
+UP000000445_309803	UP000000445	309803	bacteria	Thermotogota	Thermotoga	1937	326	Thermotoga neapolitana (strain ATCC 49049 / DSM 4359 / NBRC 107923 / NS-E)
+UP000005938_946077	UP000005938	946077	bacteria	Bacteroidota	Imtechella	2694	327	Imtechella halotolerans K1
+UP000193355_561720	UP000193355	561720	bacteria	Synergistota	Dethiosulfovibrio	2559	328	Dethiosulfovibrio salsuginis
+UP000567293_2741543	UP000567293	2741543	bacteria	Acidobacteriota	Candidatus Acidiferrum	6020	329	Candidatus Acidiferrum panamense
+UP000334923_1041768	UP000334923	1041768	bacteria	Verrucomicrobiota	Methylacidimicrobium	2163	330	Methylacidimicrobium tartarophylax
+UP000028702_1333998	UP000028702	1333998	bacteria	Pseudomonadota	Tepidicaulis	3398	331	Tepidicaulis marinus
+UP000006048_869212	UP000006048	869212	bacteria	Spirochaetota	Turneriella	4092	332	Turneriella parva (strain ATCC BAA-1111 / DSM 21527 / NCTC 11395 / H) (Leptospira parva)
+UP000067476_216942	UP000067476	216942	bacteria	Mycoplasmatota	Spiroplasma	1061	333	Spiroplasma litorale
+UP001159387_617107	UP001159387	617107	bacteria	Cyanobacteriota	Chrysosporum	3357	334	Chrysosporum bergii ANA360D
+UP000306825_391592	UP000306825	391592	bacteria	Campylobacterota	Caminibacter	1727	335	Caminibacter mediatlanticus TB-2
+UP000597444_2778369	UP000597444	2778369	bacteria	Chloroflexota	Reticulibacter	11215	336	Reticulibacter mediterranei
+UP000286773_564710	UP000286773	564710	bacteria	Bacillota	Vagococcus	2675	337	Vagococcus acidifermentans
+UP000503640_2590199	UP000503640	2590199	bacteria	Myxococcota	Anaeromyxobacter	4301	338	Anaeromyxobacter diazotrophicus
+UP000316714_1938618	UP000316714	1938618	bacteria	Planctomycetota	Posidoniimonas	5247	339	Posidoniimonas corsicana
+UP000199409_37625	UP000199409	37625	bacteria	Thermodesulfobacteriota	Desulfuromusa	3339	340	Desulfuromusa kysingii
+UP000267841_246264	UP000267841	246264	bacteria	Aquificota	Hydrogenivirga	1885	341	Hydrogenivirga caldilitoris
+UP001144471_1123000	UP001144471	1123000	bacteria	Fusobacteriota	Propionigenium	3891	342	Propionigenium maris DSM 9537
+UP000323454_1892852	UP000323454	1892852	bacteria	Actinomycetota	Solihabitans	8101	343	Solihabitans fulvus
+UP000184334_1122195	UP000184334	1122195	bacteria	Thermotogota	Marinitoga	2212	344	Marinitoga hydrogenitolerans (strain DSM 16785 / JCM 12826 / AT1271)
+UP000321513_670293	UP000321513	670293	bacteria	Bacteroidota	Segetibacter	4800	345	Segetibacter aerophilus
+UP000295066_1005740	UP000295066	1005740	bacteria	Synergistota	Aminivibrio	2990	346	Aminivibrio pyruvatiphilus
+UP000664417_442870	UP000664417	442870	bacteria	Acidobacteriota	Acanthopleuribacter	6545	347	Acanthopleuribacter pedis
+UP000005824_497964	UP000005824	497964	bacteria	Verrucomicrobiota	Chthoniobacter	6705	348	Chthoniobacter flavus Ellin428
+UP000077063_1812935	UP000077063	1812935	bacteria	Pseudomonadota	Enterobacter	5047	349	Enterobacter roggenkampii
+UP000005737_929563	UP000005737	929563	bacteria	Spirochaetota	Leptonema	4129	350	Leptonema illini DSM 21528
+UP000257559_53558	UP000257559	53558	bacteria	Mycoplasmatota	Mycoplasmopsis	1362	351	Mycoplasmopsis edwardii
+UP000032452_1618023	UP000032452	1618023	bacteria	Cyanobacteriota	Aliterella	4366	352	Aliterella atlantica CENA595
+UP000593994_2740404	UP000593994	2740404	bacteria	Campylobacterota	Sulfurimonas	2614	353	Candidatus Sulfurimonas baltica
+UP000050277_70996	UP000050277	70996	bacteria	Chloroflexota	Herpetosiphon	4675	354	Herpetosiphon geysericola
+UP000224563_1712665	UP000224563	1712665	bacteria	Bacillota	Agathobacter	2568	355	Agathobacter ruminis
+UP000563426_2316736	UP000563426	2316736	bacteria	Myxococcota	Corallococcus	8295	356	Corallococcus exercitus
+UP000536179_980271	UP000536179	980271	bacteria	Planctomycetota	Aporhodopirellula	6525	357	Aporhodopirellula rubra
+UP000016587_1121448	UP000016587	1121448	bacteria	Thermodesulfobacteriota	Megalodesulfovibrio	3321	358	Megalodesulfovibrio gigas (strain ATCC 19364 / DSM 1382 / NCIMB 9332 / VKM B-1759) (Desulfovibrio gigas)
+UP000419017_1130046	UP000419017	1130046	bacteria	Fusobacteriota	Oceanivirga	1193	359	Oceanivirga miroungae
+UP000578449_1073253	UP000578449	1073253	bacteria	Actinomycetota	Thermocatellispora	10304	360	Thermocatellispora tengchongensis
+UP000244956_2162893	UP000244956	2162893	bacteria	Bacteroidota	Marinilabilia	4010	361	Marinilabilia rubra
+UP000473699_2605789	UP000473699	2605789	bacteria	Synergistota	Pyramidobacter	2206	362	Pyramidobacter porci
+UP000002207_240015	UP000002207	240015	bacteria	Acidobacteriota	Acidobacterium	3363	363	Acidobacterium capsulatum (strain ATCC 51196 / DSM 11244 / BCRC 80197 / JCM 7670 / NBRC 15755 / NCIMB 13165 / 161)
+UP000590740_48466	UP000590740	48466	bacteria	Verrucomicrobiota	Prosthecobacter	5318	364	Prosthecobacter vanneervenii
+UP001409585_1306992	UP001409585	1306992	bacteria	Pseudomonadota	Halioxenophilus	5000	365	Halioxenophilus aromaticivorans
+UP000752013_2719987	UP000752013	2719987	bacteria	Spirochaetota	Entomospira	1530	366	Entomospira nematocerorum
+UP000658720_1828736	UP000658720	1828736	bacteria	Cyanobacteriota	Synechocystis	3561	367	Synechocystis salina LEGE 00031
+UP000199411_79269	UP000199411	79269	bacteria	Campylobacterota	Desulfurella	1818	368	Desulfurella multipotens
+UP001193081_2528176	UP001193081	2528176	bacteria	Chloroflexota	Candidatus Chloroploca	4951	369	Candidatus Chloroploca mongolica
+UP001164718_2980026	UP001164718	2980026	bacteria	Bacillota	Fervidibacillus	2834	370	Fervidibacillus albus
+UP001221411_2995306	UP001221411	2995306	bacteria	Myxococcota	Polyangium	10327	371	Polyangium mundeleinium
+UP000320496_2528026	UP000320496	2528026	bacteria	Planctomycetota	Maioricimonas	5804	372	Maioricimonas rarisocia
+UP000006250_596151	UP000006250	596151	bacteria	Thermodesulfobacteriota	Solidesulfovibrio	4158	373	Solidesulfovibrio fructosivorans JJ]
+UP000006461_2732864	UP000006461	2732864	bacteria	Actinomycetota	Modestobacter	5435	374	Modestobacter italicus (strain DSM 44449 / CECT 9708 / BC 501)
+UP000284892_1230530	UP000284892	1230530	bacteria	Bacteroidota	Ichthyenterobacterium	2733	375	Ichthyenterobacterium magnum
+UP000005730_926567	UP000005730	926567	bacteria	Synergistota	Thermanaerovibrio	1737	376	Thermanaerovibrio velox DSM 12556
+UP001059380_1002689	UP001059380	1002689	bacteria	Acidobacteriota	Occallatibacter	5455	377	Occallatibacter riparius
+UP000315648_2597822	UP000315648	2597822	bacteria	Verrucomicrobiota	Rariglobus	3424	378	Rariglobus hedericola
+UP000682843_340268	UP000682843	340268	bacteria	Pseudomonadota	Tardiphaga	5186	379	Tardiphaga alba
+UP000264002_2293840	UP000264002	2293840	bacteria	Spirochaetota	Sphaerochaeta	2698	380	Sphaerochaeta halotolerans
+UP001159371_2740520	UP001159371	2740520	bacteria	Cyanobacteriota	Umezakia	3616	381	Umezakia ovalisporum FSS-43
+UP000008139_760142	UP000008139	760142	bacteria	Campylobacterota	Hippea	1653	382	Hippea maritima (strain ATCC 700847 / DSM 10411 / MH2)
+UP000256388_913107	UP000256388	913107	bacteria	Chloroflexota	Pelolinea	3066	383	Pelolinea submarina
+UP000520011_265948	UP000520011	265948	bacteria	Bacillota	Anoxybacteroides	3480	384	Anoxybacteroides tepidamans
+UP000185544_1882918	UP000185544	1882918	bacteria	Myxococcota	Pajaroellobacter	1745	385	Pajaroellobacter abortibovis
+UP000317429_2528009	UP000317429	2528009	bacteria	Planctomycetota	Pirellulimonas	5103	386	Pirellulimonas nuda
+UP000539642_1506996	UP000539642	1506996	bacteria	Thermodesulfobacteriota	Desulfoprunum	3486	387	Desulfoprunum benzoelyticum
+UP000216300_2016505	UP000216300	2016505	bacteria	Actinomycetota	Parenemella	2661	388	Parenemella sanctibonifatiensis
+UP000181790_1750698	UP000181790	1750698	bacteria	Bacteroidota	Arsenicibacter	5902	389	Arsenicibacter rosenii
+UP000027284_1312852	UP000027284	1312852	bacteria	Acidobacteriota	Thermoanaerobaculum	2252	390	Thermoanaerobaculum aquaticum
+UP000624703_454144	UP000624703	454144	bacteria	Verrucomicrobiota	Persicirhabdus	3319	391	Persicirhabdus sediminis
+UP000646365_1867774	UP000646365	1867774	bacteria	Pseudomonadota	Aliidongia	6784	392	Aliidongia dinghuensis
+UP000029692_1480694	UP000029692	1480694	bacteria	Spirochaetota	Spirochaeta	2285	393	Spirochaeta lutea
+UP000238634_1920490	UP000238634	1920490	bacteria	Cyanobacteriota	Phormidesmis	5141	394	Phormidesmis priestleyi ULC007
+UP000290657_2044504	UP000290657	2044504	bacteria	Campylobacterota	Candidatus Marinarcus	2486	395	Candidatus Marinarcus aquaticus
+UP000248706_1825093	UP000248706	1825093	bacteria	Chloroflexota	Thermogemmatispora	4652	396	Thermogemmatispora tikiterensis
+UP000215545_1017273	UP000215545	1017273	bacteria	Bacillota	Domibacillus	3691	397	Domibacillus enclensis
+UP000237968_215803	UP000237968	215803	bacteria	Myxococcota	Enhygromyxa	6943	398	Enhygromyxa salina
+UP000316921_2528011	UP000316921	2528011	bacteria	Planctomycetota	Engelhardtia	5200	399	Engelhardtia mirabilis
+UP001688590_2934181	UP001688590	2934181	bacteria	Thermodesulfobacteriota	Hydrosulfovibrio	2794	400	Hydrosulfovibrio ferrireducens
+UP001519363_130796	UP001519363	130796	bacteria	Actinomycetota	Crossiella	8553	401	Crossiella equi
+UP001325680_577386	UP001325680	577386	bacteria	Bacteroidota	Paraniabella	4504	402	Niabella yanshanensis
+UP001228113_2927980	UP001228113	2927980	bacteria	Acidobacteriota	Mesoterricola	3797	403	Mesoterricola sediminis
+UP000738431_2866162	UP000738431	2866162	bacteria	Verrucomicrobiota	Actomonas	4614	404	Actomonas aquatica
+UP001062901_1123227	UP001062901	1123227	bacteria	Pseudomonadota	Saccharibacter	2049	405	Saccharibacter floricola DSM 15669
+UP000595917_2798577	UP000595917	2798577	bacteria	Spirochaetota	Breznakiella	4092	406	Breznakiella homolactica
+UP001464891_2933944	UP001464891	2933944	bacteria	Cyanobacteriota	Trichocoleus	5705	407	Trichocoleus desertorum GB2-A4
+UP000289758_1462615	UP000289758	1462615	bacteria	Campylobacterota	Halarcobacter	3065	408	Halarcobacter ebronensis
+UP000220527_2024553	UP000220527	2024553	bacteria	Chloroflexota	Candidatus Viridilinea	4287	409	Candidatus Viridilinea mediisalina
+UP001673398_1441723	UP001673398	1441723	bacteria	Bacillota	Chryseomicrobium	2677	410	Chryseomicrobium aureum
+UP000001880_502025	UP000001880	502025	bacteria	Myxococcota	Haliangium	6684	411	Haliangium ochraceum (strain DSM 14365 / JCM 11303 / SMP-2)
+UP000319852_1930276	UP000319852	1930276	bacteria	Planctomycetota	Adhaeretor	4864	412	Adhaeretor mobilis
+UP000494245_2730080	UP000494245	2730080	bacteria	Thermodesulfobacteriota	Fundidesulfovibrio	3975	413	Fundidesulfovibrio magnetotacticus
+UP000316196_1753	UP000316196	1753	bacteria	Actinomycetota	Propioniferax	2528	414	Propioniferax innocua
+UP000007435_649349	UP000007435	649349	bacteria	Bacteroidota	Leadbetterella	3429	415	Leadbetterella byssophila (strain DSM 17132 / JCM 16389 / KACC 11308 / NBRC 106382 / 4M15)
+UP001596091_2218256	UP001596091	2218256	bacteria	Acidobacteriota	Acidicapsa	4952	416	Acidicapsa dinghuensis
+UP000176204_1679444	UP000176204	1679444	bacteria	Verrucomicrobiota	Neoakkermansia	2530	417	Akkermansia glycaniphila
+UP000236724_1899563	UP000236724	1899563	bacteria	Pseudomonadota	Candidatus Venteria	4918	418	Candidatus Venteria ishoeyi
+UP000007939_760011	UP000007939	760011	bacteria	Spirochaetota	Parasphaerochaeta	1819	419	Parasphaerochaeta coccoides (strain ATCC BAA-1237 / DSM 17374 / SPN1) (Sphaerochaeta coccoides)
+UP000641954_2949576	UP000641954	2949576	bacteria	Cyanobacteriota	Planktothricoides	5676	420	Planktothricoides raciborskii FACHB-1370
+UP000196005_1854492	UP000196005	1854492	bacteria	Campylobacterota	Sulfurospirillum	2943	421	Sulfurospirillum diekertiae
+UP000050509_186479	UP000050509	186479	bacteria	Chloroflexota	Kouleothrix	7836	422	Kouleothrix aurantiaca
+UP000243524_2018042	UP000243524	2018042	bacteria	Bacillota	Halalkalibacillus	2899	423	Halalkalibacillus sediminis
+UP000019678_1192034	UP000019678	1192034	bacteria	Myxococcota	Chondromyces	9037	424	Chondromyces apiculatus (strain DSM 436 / NBRC 100084 / Cm a2)
+UP001575105_3242702	UP001575105	3242702	bacteria	Planctomycetota	Natronomicrosphaera	3826	425	Natronomicrosphaera hydrolytica
+UP000095200_1592317	UP000095200	1592317	bacteria	Thermodesulfobacteriota	Desulfoplanes	2657	426	Desulfoplanes formicivorans
+UP000272560_1258888	UP000272560	1258888	bacteria	Actinomycetota	Arthrobacter	3591	427	Arthrobacter cheniae
+UP000283387_1261403	UP000283387	1261403	bacteria	Bacteroidota	Mangrovibacterium	4641	428	Mangrovibacterium diazotrophicum
+UP000295210_768535	UP000295210	768535	bacteria	Acidobacteriota	Acidipila	3487	429	Acidipila rosea
+UP000477311_1324935	UP000477311	1324935	bacteria	Verrucomicrobiota	Limisphaera	2810	430	Limisphaera ngatamarikiensis
+UP000199550_195913	UP000199550	195913	bacteria	Pseudomonadota	Loktanella	3957	431	Loktanella salsilacus
+UP001198163_156	UP001198163	156	bacteria	Spirochaetota	Teretinema	3043	432	Teretinema zuelzerae
+UP001056708_2940671	UP001056708	2940671	bacteria	Cyanobacteriota	Sodalinema	4024	433	Phormidium yuhuli AB48
+UP001169066_3019066	UP001169066	3019066	bacteria	Campylobacterota	Sulfurovum	2211	434	Sulfurovum xiamenensis
+UP000055060_360412	UP000055060	360412	bacteria	Chloroflexota	Longilinea	3871	435	Longilinea arvoryzae
+UP001524473_1776382	UP001524473	1776382	bacteria	Bacillota	Neglectibacter	3624	436	Neglectibacter timonensis
+UP000011131_1278073	UP000011131	1278073	bacteria	Myxococcota	Myxococcus	8043	437	Myxococcus stipitatus (strain DSM 14675 / JCM 12634 / Mx s8)
+UP000317835_2527974	UP000317835	2527974	bacteria	Planctomycetota	Tautonia	7326	438	Tautonia plasticadhaerens
+UP000469346_1765737	UP000469346	1765737	bacteria	Thermodesulfobacteriota	Dissulfurirhabdus	2522	439	Dissulfurirhabdus thermomarina
+UP000076794_1300344	UP000076794	1300344	bacteria	Actinomycetota	Isoptericola	3403	440	Isoptericola dokdonensis DS-3
+UP000011058_1166018	UP000011058	1166018	bacteria	Bacteroidota	Fibrella	5627	441	Fibrella aestuarina BUZ 2
+UP000589520_940613	UP000589520	940613	bacteria	Acidobacteriota	Granulicella	3681	442	Granulicella arctica
+UP000478417_2706888	UP000478417	2706888	bacteria	Verrucomicrobiota	Oceanipulchritudo	2818	443	Oceanipulchritudo coccoides
+UP001174932_1132659	UP001174932	1132659	bacteria	Pseudomonadota	Fluviirhizobium	4819	444	Fluviirhizobium alvei
+UP000006103_498743	UP000006103	498743	bacteria	Spirochaetota	Borreliella	1346	445	Borreliella garinii PBr
+UP000593846_2779889	UP000593846	2779889	bacteria	Cyanobacteriota	Anabaenopsis	3541	446	Anabaenopsis elenkinii CCIBt3563
+UP000217944_1936991	UP000217944	1936991	bacteria	Campylobacterota	Lebetimonas	1686	447	Lebetimonas natsushimae
+UP000290365_2509675	UP000290365	2509675	bacteria	Chloroflexota	Ktedonosporobacter	9315	448	Ktedonosporobacter rubrisoli
+UP001597231_633403	UP001597231	633403	bacteria	Bacillota	Sporosarcina	3677	449	Sporosarcina contaminans
+UP000009026_1297742	UP000009026	1297742	bacteria	Myxococcota	Pseudomyxococcus	7729	450	Pseudomyxococcus hansupus
+UP000225740_2014065	UP000225740	2014065	bacteria	Planctomycetota	Rhodopirellula	5979	451	Rhodopirellula bahusiensis
+UP000198744_43775	UP000198744	43775	bacteria	Thermodesulfobacteriota	Syntrophus	3382	452	Syntrophus gentianae
+UP000588083_2754717	UP000588083	2754717	bacteria	Actinomycetota	Candidatus Hakubella	2607	453	Candidatus Hakubella thermalkaliphila
+UP000326344_2607654	UP000326344	2607654	bacteria	Bacteroidota	Larkinella	6173	454	Larkinella humicola
+UP000002432_204669	UP000002432	204669	bacteria	Acidobacteriota	Candidatus Korobacter	4771	455	Koribacter versatilis (strain Ellin345)
+UP000557872_2748318	UP000557872	2748318	bacteria	Verrucomicrobiota	Oceaniferula	3854	456	Oceaniferula marina
+UP000609121_2771008	UP000609121	2771008	bacteria	Pseudomonadota	Mangrovicoccus	4135	457	Mangrovicoccus algicola
+UP000000503_744872	UP000000503	744872	bacteria	Spirochaetota	Gracilinema	2754	458	Gracilinema caldarium (strain ATCC 51460 / DSM 7334 / H1) (Treponema caldarium)
+UP000002384_65393	UP000002384	65393	bacteria	Cyanobacteriota	Gloeothece	5656	459	Gloeothece citriformis (strain PCC 7424) (Cyanothece sp. (strain PCC 7424))
+UP000289132_1032241	UP000289132	1032241	bacteria	Campylobacterota	Aliarcobacter	2059	460	Aliarcobacter trophiarum LMG 25534
+UP000000433_255470	UP000000433	255470	bacteria	Chloroflexota	Dehalococcoides	1454	461	Dehalococcoides mccartyi (strain CBDB1)
+UP000315636_910412	UP000315636	910412	bacteria	Bacillota	Melghirimyces	3293	462	Melghirimyces algeriensis
+UP001221838_2995309	UP001221838	2995309	bacteria	Myxococcota	Allostigmatella	8367	463	Stigmatella ashevillensis
+UP000315349_2528019	UP000315349	2528019	bacteria	Planctomycetota	Planctopirus	4033	464	Planctopirus ephydatiae
+UP000199602_206665	UP000199602	206665	bacteria	Thermodesulfobacteriota	Desulfonauticus	2044	465	Desulfonauticus submarinus
+UP000664382_1983706	UP000664382	1983706	bacteria	Actinomycetota	Leucobacter	2955	466	Leucobacter weissii
+UP001596161_529703	UP001596161	529703	bacteria	Bacteroidota	Adhaeribacter	3431	467	Adhaeribacter terreus
+UP000264702_2303751	UP000264702	2303751	bacteria	Acidobacteriota	Paracidobacterium	3991	468	Paracidobacterium acidisoli
+UP000253426_748857	UP000253426	748857	bacteria	Verrucomicrobiota	Roseimicrobium	6509	469	Roseimicrobium gellanilyticum
+UP000029577_642227	UP000029577	642227	bacteria	Pseudomonadota	Tatumella	3697	470	Tatumella morbirosei
+UP001466331_3141764	UP001466331	3141764	bacteria	Spirochaetota	Rarispira	2071	471	Rarispira pelagica
+UP000729733_2874699	UP000729733	2874699	bacteria	Cyanobacteriota	Waterburya	4585	472	Waterburya agarophytonicola KI4
+UP000037784_872965	UP000037784	872965	bacteria	Chloroflexota	Ardenticatena	3144	473	Ardenticatena maritima
+UP000463470_121734	UP000463470	121734	bacteria	Bacillota	Heliomicrobium	3391	474	Heliomicrobium undosum
+UP000064967_1391654	UP000064967	1391654	bacteria	Myxococcota	Labilithrix	11481	475	Labilithrix luteola
+UP000319908_2714739	UP000319908	2714739	bacteria	Planctomycetota	Allorhodopirellula	5692	476	Allorhodopirellula heiligendammensis
+UP000183994_1121393	UP000183994	1121393	bacteria	Thermodesulfobacteriota	Desulfatibacillum	5221	477	Desulfatibacillum alkenivorans DSM 16219
+UP000242637_1863	UP000242637	1863	bacteria	Actinomycetota	Dermatophilus	2311	478	Dermatophilus congolensis
+UP000464214_2698458	UP000464214	2698458	bacteria	Bacteroidota	Nibribacter	3593	479	Nibribacter ruber
+UP000253606_2211140	UP000253606	2211140	bacteria	Acidobacteriota	Acidisarcina	7005	480	Acidisarcina polymorpha
+UP000007013_452637	UP000007013	452637	bacteria	Verrucomicrobiota	Opitutus	4588	481	Opitutus terrae (strain DSM 11246 / JCM 15787 / PB90-1)
+UP000002716_300267	UP000002716	300267	bacteria	Pseudomonadota	Shigella	3897	482	Shigella dysenteriae serotype 1 (strain Sd197)
+UP000186400_159291	UP000186400	159291	bacteria	Spirochaetota	Alkalispirochaeta	2891	483	Alkalispirochaeta americana
+UP000010473_111780	UP000010473	111780	bacteria	Cyanobacteriota	Stanieria	4751	484	Stanieria cyanosphaera (strain ATCC 29371 / PCC 7437)
+UP000317371_1204385	UP000317371	1204385	bacteria	Chloroflexota	Litorilinea	4605	485	Litorilinea aerophila
+UP000195985_43064	UP000195985	43064	bacteria	Bacillota	Trichococcus	3003	486	Trichococcus pasteurii
+UP001431776_3044600	UP001431776	3044600	bacteria	Planctomycetota	Anaerobaca	4521	487	Anaerobaca lacustris
+UP000316238_2005002	UP000316238	2005002	bacteria	Thermodesulfobacteriota	Candidatus Electronema	2614	488	Candidatus Electronema aureum
+UP001442841_3138240	UP001442841	3138240	bacteria	Actinomycetota	Ammonicoccus	3721	489	Ammonicoccus fulvus
+UP001209317_1856322	UP001209317	1856322	bacteria	Bacteroidota	Haoranjiania	2714	490	Haoranjiania flava
+UP001165044_2927976	UP001165044	2927976	bacteria	Acidobacteriota	Geothrix	2830	491	Geothrix edaphica
+UP000663859_2744239	UP000663859	2744239	bacteria	Verrucomicrobiota	Candidatus Methylacidithermus	3072	492	Candidatus Methylacidithermus pantelleriae
+UP000242857_213588	UP000242857	213588	bacteria	Pseudomonadota	Thermomonas	2296	493	Thermomonas hydrothermalis
+UP000007254_869211	UP000007254	869211	bacteria	Spirochaetota	Winmispira	2249	494	Winmispira thermophila (strain ATCC 700085 / DSM 6578 / Z-1203) (Spirochaeta thermophila)
+UP001199525_2780399	UP001199525	2780399	bacteria	Cyanobacteriota	Nostoc	7545	495	Nostoc favosum CHAB5714
+UP000594468_2710758	UP000594468	2710758	bacteria	Chloroflexota	Phototrophicus	4799	496	Phototrophicus methaneseepsis
+UP000199668_266892	UP000199668	266892	bacteria	Bacillota	Salibacterium	3532	497	Salibacterium qingdaonense
+UP000320735_2527985	UP000320735	2527985	bacteria	Planctomycetota	Symmachiella	6081	498	Symmachiella macrocystis
+UP000501253_2047767	UP000501253	2047767	bacteria	Thermodesulfobacteriota	Thermosulfurimonas	1742	499	Thermosulfurimonas marina
+UP000277858_1749	UP000277858	1749	bacteria	Actinomycetota	Acidipropionibacterium	2761	500	Acidipropionibacterium jensenii
+UP001597387_2100740	UP001597387	2100740	bacteria	Bacteroidota	Paradesertivirga	3872	501	Paradesertivirga mongoliensis
+UP000006791_981222	UP000006791	981222	bacteria	Acidobacteriota	Chloracidobacterium	3053	502	Chloracidobacterium thermophilum (strain B)
+UP000071392_1548208	UP000071392	1548208	bacteria	Verrucomicrobiota	Cephaloticoccus	1549	503	Cephaloticoccus capnophilus
+UP000532440_1549638	UP000532440	1549638	bacteria	Pseudomonadota	Quisquiliibacterium	3944	504	Quisquiliibacterium transsilvanicum
+UP000002318_573413	UP000002318	573413	bacteria	Spirochaetota	Sediminispirochaeta	4211	505	Sediminispirochaeta smaragdinae (strain DSM 11293 / JCM 15392 / SEBR 4228) (Spirochaeta smaragdinae)
+UP000001511_551115	UP000001511	551115	bacteria	Cyanobacteriota	Trichormus	3646	506	Nostoc azollae (strain 0708) (Anabaena azollae (strain 0708))
+UP000008922_926569	UP000008922	926569	bacteria	Chloroflexota	Anaerolinea	3110	507	Anaerolinea thermophila (strain DSM 14523 / JCM 11388 / NBRC 100420 / UNI-1)
+UP000199337_1121424	UP000199337	1121424	bacteria	Bacillota	Desulfotruncus	5051	508	Desulfotruncus arcticus DSM 17038
+UP001416858_1536901	UP001416858	1536901	bacteria	Planctomycetota	Novipirellula	6733	509	Novipirellula caenicola
+UP000032233_1429043	UP000032233	1429043	bacteria	Thermodesulfobacteriota	Dethiosulfatarculus	5388	510	Dethiosulfatarculus sandiegensis
+UP000585905_355930	UP000585905	355930	bacteria	Actinomycetota	Microcella	2615	511	Microcella alkalica
+UP000184368_1302690	UP000184368	1302690	bacteria	Bacteroidota	Cnuella	4753	512	Cnuella takakiae
+UP000568106_3069691	UP000568106	3069691	bacteria	Acidobacteriota	Tunturiibacter	4180	513	Tunturiibacter empetritectus
+UP000475117_2707525	UP000475117	2707525	bacteria	Verrucomicrobiota	Sulfuriroseicoccus	2750	514	Sulfuriroseicoccus oceanibius
+UP000031631_1076588	UP000031631	1076588	bacteria	Pseudomonadota	Thiolapillus	2824	515	Thiolapillus brandeum
+UP000460549_2606638	UP000460549	2606638	bacteria	Spirochaetota	Bullifex	2214	516	Bullifex porci
+UP000664844_1759528	UP000664844	1759528	bacteria	Cyanobacteriota	Phormidium	4856	517	Phormidium pseudopriestleyi FRX01
+UP000053370_1678840	UP000053370	1678840	bacteria	Chloroflexota	Flexilinea	2774	518	Flexilinea flocculi
+UP000255326_493781	UP000255326	493781	bacteria	Bacillota	Falsibacillus	3956	519	Falsibacillus pallidus
+UP000010798_886293	UP000010798	886293	bacteria	Planctomycetota	Singulisphaera	7126	520	Singulisphaera acidiphila (strain ATCC BAA-1392 / DSM 18658 / VKM B-2454 / MOB10)
+UP000068196_1653476	UP000068196	1653476	bacteria	Thermodesulfobacteriota	Caldimicrobium	1771	521	Caldimicrobium thiodismutans
+UP000198546_675864	UP000198546	675864	bacteria	Actinomycetota	Auraticoccus	4049	522	Auraticoccus monumenti
+UP001321305_2962693	UP001321305	2962693	bacteria	Bacteroidota	Mycovorax	2839	523	Mycovorax composti
+UP001275932_2926320	UP001275932	2926320	bacteria	Verrucomicrobiota	Intestinicryptomonas	1661	524	Intestinicryptomonas porci
+UP001596473_590593	UP001596473	590593	bacteria	Pseudomonadota	Iodobacter	4042	525	Iodobacter arcticus
+UP000324209_2518645	UP000324209	2518645	bacteria	Spirochaetota	Oceanispirochaeta	3504	526	Oceanispirochaeta crateris
+UP000505210_2737172	UP000505210	2737172	bacteria	Cyanobacteriota	Thermoleptolyngbya	4271	527	Thermoleptolyngbya sichuanensis A183
+UP000000263_383372	UP000000263	383372	bacteria	Chloroflexota	Roseiflexus	4324	528	Roseiflexus castenholzii (strain DSM 13941 / HLO8)
+UP000003011_679200	UP000003011	679200	bacteria	Bacillota	Johnsonella	2284	529	Johnsonella ignava ATCC 51276
+UP000609651_2681879	UP000609651	2681879	bacteria	Planctomycetota	Alienimonas	4230	530	Alienimonas chondri
+UP000798046_2603857	UP000798046	2603857	bacteria	Thermodesulfobacteriota	Oryzomonas	3296	531	Oryzomonas sagensis
+UP000244978_2079791	UP000244978	2079791	bacteria	Actinomycetota	Homoserinimonas	2605	532	Homoserinimonas hongtaonis
+UP000760545_393006	UP000760545	393006	bacteria	Bacteroidota	Tamlana	3795	533	Tamlana crocina
+UP001476282_490096	UP001476282	490096	bacteria	Verrucomicrobiota	Haloferula	4079	534	Haloferula sargassicola
+UP000294829_1549640	UP000294829	1549640	bacteria	Pseudomonadota	Sapientia	3747	535	Sapientia aquatica
+UP000001205_314724	UP000001205	314724	bacteria	Spirochaetota	Borrelia	1024	536	Borrelia turicatae (strain 91E135)
+UP001223520_1539056	UP001223520	1539056	bacteria	Cyanobacteriota	Halotia	5966	537	Halotia branconii CENA392
+UP000195514_1986204	UP000195514	1986204	bacteria	Chloroflexota	Candidatus Brevifilum	2283	538	Candidatus Brevifilum fermentans
+UP000035704_84022	UP000035704	84022	bacteria	Bacillota	Andreesenella	3835	539	Andreesenella acetica
+UP000320386_2527982	UP000320386	2527982	bacteria	Planctomycetota	Mucisphaera	2855	540	Mucisphaera calidilacus
+UP000002534_338963	UP000002534	338963	bacteria	Thermodesulfobacteriota	Syntrophotalea	3292	541	Syntrophotalea carbinolica (strain DSM 2380 / NBRC 103641 / GraBd1) (Pelobacter carbinolicus)
+UP000317344_2597660	UP000317344	2597660	bacteria	Actinomycetota	Tomitella	3520	542	Tomitella fengzijianii
+UP001250656_3076079	UP001250656	3076079	bacteria	Bacteroidota	Pricia	3673	543	Pricia mediterranea
+UP000095228_1838286	UP000095228	1838286	bacteria	Verrucomicrobiota	Lacunisphaera	3510	544	Lacunisphaera limnophila
+UP000250079_1192854	UP000250079	1192854	bacteria	Pseudomonadota	Granulosicoccus	6680	545	Granulosicoccus antarcticus IMCC3135
+UP000629098_2748662	UP000629098	2748662	bacteria	Cyanobacteriota	Iningainema	8412	546	Iningainema tapete BLCC-T55
+UP000050417_1134406	UP000050417	1134406	bacteria	Chloroflexota	Ornatilinea	3344	547	Ornatilinea apprima
+UP000004097_706433	UP000004097	706433	bacteria	Bacillota	Solobacterium	2034	548	Solobacterium moorei F0204
+UP001158067_445327	UP001158067	445327	bacteria	Planctomycetota	Neorhodopirellula	5818	549	Neorhodopirellula lusitana
+UP000184076_1121391	UP000184076	1121391	bacteria	Thermodesulfobacteriota	Desulfacinum	3683	550	Desulfacinum infernum DSM 9756
+UP000291469_1670831	UP000291469	1670831	bacteria	Actinomycetota	Egibacter	4050	551	Egibacter rhizosphaerae
+UP001589797_654838	UP001589797	654838	bacteria	Bacteroidota	Fontibacter	3839	552	Fontibacter flavus
+UP000525652_388746	UP000525652	388746	bacteria	Verrucomicrobiota	Puniceicoccus	4123	553	Puniceicoccus vermicola
+UP000198552_1527607	UP000198552	1527607	bacteria	Pseudomonadota	Oryzisolibacter	3378	554	Oryzisolibacter propanilivorax
+UP000647273_2692894	UP000647273	2692894	bacteria	Cyanobacteriota	Calothrix	7060	555	Calothrix anomala FACHB-343
+UP001219901_3038979	UP001219901	3038979	bacteria	Chloroflexota	Candidatus Lucifugimonas	2769	556	Candidatus Lucifugimonas marina
+UP000315343_130788	UP000315343	130788	bacteria	Bacillota	Sedimentibacter	3564	557	Sedimentibacter saalensis
+UP000676194_1123043	UP000676194	1123043	bacteria	Planctomycetota	Telmatocola	5173	558	Telmatocola sphagniphila
+UP000288892_1859130	UP000288892	1859130	bacteria	Thermodesulfobacteriota	Candidatus Electrothrix	2161	559	Candidatus Electrothrix marina
+UP001501295_715785	UP001501295	715785	bacteria	Actinomycetota	Frondihabitans	3786	560	Frondihabitans cladoniiphilus
+UP000670776_362523	UP000670776	362523	bacteria	Bacteroidota	Mariniflexile	3683	561	Mariniflexile gromovii
+UP001161497_591154	UP001161497	591154	bacteria	Verrucomicrobiota	Methylacidiphilum (ex Ratnadevi et al. 2023)	2386	562	Candidatus Methylacidiphilum fumarolicum
+UP000000238_349521	UP000000238	349521	bacteria	Pseudomonadota	Hahella	6751	563	Hahella chejuensis (strain KCTC 2396)
+UP000010386_82654	UP000010386	82654	bacteria	Cyanobacteriota	Thalassoporum	3854	564	Thalassoporum mexicanum PCC 7367
+UP000050430_229920	UP000050430	229920	bacteria	Chloroflexota	Leptolinea	2936	565	Leptolinea tardivitalis
+UP001254848_3063788	UP001254848	3063788	bacteria	Bacillota	Anaeroselena	4449	566	Anaeroselena agilis
+UP000317421_2528001	UP000317421	2528001	bacteria	Planctomycetota	Botrimarina	4166	567	Botrimarina colliarenosi
+UP000001784_335543	UP000001784	335543	bacteria	Thermodesulfobacteriota	Syntrophobacter	4012	568	Syntrophobacter fumaroxidans (strain DSM 10017 / MPOB)
+UP000014417_883161	UP000014417	883161	bacteria	Actinomycetota	Propionimicrobium	2076	569	Propionimicrobium lymphophilum ACS-093-V-SCH5
+UP000315145_1608400	UP000315145	1608400	bacteria	Bacteroidota	Algibacter	3507	570	Algibacter amylolyticus
+UP000526501_415222	UP000526501	415222	bacteria	Verrucomicrobiota	Pelagicoccus	3824	571	Pelagicoccus albus
+UP000254889_331696	UP000254889	331696	bacteria	Pseudomonadota	Pseudolabrys	5199	572	Pseudolabrys taiwanensis
+UP001235849_3022440	UP001235849	3022440	bacteria	Cyanobacteriota	Roseofilum	4742	573	Roseofilum capinflatum BLCC-M114
+UP000326912_2607529	UP000326912	2607529	bacteria	Chloroflexota	Dictyobacter	6350	574	Dictyobacter vulcani
+UP000215459_1642702	UP000215459	1642702	bacteria	Bacillota	Paludifilum	3615	575	Paludifilum halophilum
+UP000214646_1908690	UP000214646	1908690	bacteria	Planctomycetota	Fimbriiglobus	10212	576	Fimbriiglobus ruber
+UP000469724_63561	UP000469724	63561	bacteria	Thermodesulfobacteriota	Desulfolutivibrio	3973	577	Desulfolutivibrio sulfodismutans
+UP001595823_1607685	UP001595823	1607685	bacteria	Actinomycetota	Salininema	4563	578	Salininema proteolyticum
+UP001236569_2984207	UP001236569	2984207	bacteria	Bacteroidota	Flectobacillus	4926	579	Flectobacillus longus
+UP001225316_3041265	UP001225316	3041265	bacteria	Verrucomicrobiota	Thalassobacterium	4022	580	Thalassobacterium maritimum
+UP000057213_1318743	UP000057213	1318743	bacteria	Pseudomonadota	Bartonella	1328	581	Bartonella ancashensis
+UP000236284_2014886	UP000236284	2014886	bacteria	Cyanobacteriota	Cylindrospermopsis	3520	582	Cylindrospermopsis raciborskii C07
+UP000078287_1707952	UP000078287	1707952	bacteria	Chloroflexota	Chloroflexus	3815	583	Chloroflexus islandicus
+UP001235343_3051431	UP001235343	3051431	bacteria	Bacillota	Aquibacillus	4373	584	Aquibacillus rhizosphaerae
+UP000593765_2807512	UP000593765	2807512	bacteria	Planctomycetota	Humisphaera	5254	585	Humisphaera borealis
+UP000515472_60035	UP000515472	60035	bacteria	Thermodesulfobacteriota	Citrifermentans	4450	586	Citrifermentans bremense
+UP000215005_1235441	UP000215005	1235441	bacteria	Actinomycetota	Nocardiopsis	5074	587	Nocardiopsis gilva YIM 90087
+UP000243197_242600	UP000243197	242600	bacteria	Bacteroidota	Ichthyobacterium	1467	588	Ichthyobacterium seriolicida
+UP000600139_1144680	UP000600139	1144680	bacteria	Verrucomicrobiota	Luteolibacter	4479	589	Luteolibacter yonseiensis
+UP000004188_314607	UP000004188	314607	bacteria	Pseudomonadota	beta	1317	590	beta proteobacterium KB13
+UP000095472_1781255	UP000095472	1781255	bacteria	Cyanobacteriota	Desertifilum	5099	591	Desertifilum tharense IPPAS B-1220
+UP000050544_869279	UP000050544	869279	bacteria	Chloroflexota	Thermanaerothrix	2394	592	Thermanaerothrix daxensis
+UP000588186_110845	UP000588186	110845	bacteria	Bacillota	Phocicoccus	1563	593	Phocicoccus pinnipedialis
+UP000315003_2528025	UP000315003	2528025	bacteria	Planctomycetota	Stieleria	5245	594	Stieleria bergensis
+UP000427769_947919	UP000427769	947919	bacteria	Thermodesulfobacteriota	Desulfosarcina	6679	595	Desulfosarcina widdelii
+UP001500957_171442	UP001500957	171442	bacteria	Actinomycetota	Sporichthya	4944	596	Sporichthya brevicatena
+UP000251889_2059302	UP000251889	2059302	bacteria	Bacteroidota	Pseudochryseolinea	5446	597	Pseudochryseolinea flava
+UP000501812_2728835	UP000501812	2728835	bacteria	Verrucomicrobiota	Neoluteolibacter	5175	598	Luteolibacter luteus
+UP000192761_1121001	UP000192761	1121001	bacteria	Pseudomonadota	Andreprevotia	4303	599	Andreprevotia lacus DSM 23236
+UP000636505_915328	UP000636505	915328	bacteria	Cyanobacteriota	Vasconcelosia	4842	600	Vasconcelosia minhoensis LEGE 07310
+UP000197025_877466	UP000197025	877466	bacteria	Chloroflexota	Thermoflexus	2944	601	Thermoflexus hugenholtzii JAD2
+UP000182624_43305	UP000182624	43305	bacteria	Bacillota	Butyrivibrio	3761	602	Butyrivibrio proteoclasticus
+UP000325286_980254	UP000325286	980254	bacteria	Planctomycetota	Roseimaritima	5779	603	Roseimaritima ulvae
+UP000093080_1156395	UP000093080	1156395	bacteria	Thermodesulfobacteriota	Dissulfuribacter	2462	604	Dissulfuribacter thermophilus
+UP000294257_1872711	UP000294257	1872711	bacteria	Actinomycetota	Herbihabitans	6595	605	Herbihabitans rhizosphaerae
+UP001528920_2912572	UP001528920	2912572	bacteria	Bacteroidota	Paralabilibaculum	4217	606	Paralabilibaculum antarcticum
+UP000546464_1804625	UP000546464	1804625	bacteria	Verrucomicrobiota	Ruficoccus	3722	607	Ruficoccus amylovorans
+UP000011021_887898	UP000011021	887898	bacteria	Pseudomonadota	Lautropia	2665	608	Lautropia mirabilis ATCC 51599
+UP000031549_1304833	UP000031549	1304833	bacteria	Cyanobacteriota	Hassallia	6508	609	Hassallia byssoidea VB512170
+UP000050501_229921	UP000050501	229921	bacteria	Chloroflexota	Levilinea	3080	610	Levilinea saccharolytica
+UP001156102_2961894	UP001156102	2961894	bacteria	Bacillota	Ectobacillus	4559	611	Ectobacillus ponti
+UP000317909_2528024	UP000317909	2528024	bacteria	Planctomycetota	Lacipirellula	5493	612	Lacipirellula limnantheis
+UP000070560_1621989	UP000070560	1621989	bacteria	Thermodesulfobacteriota	Candidatus Desulfofervidus	2473	613	Desulfofervidus auxilii
+UP000622552_619741	UP000622552	619741	bacteria	Actinomycetota	Longispora	8068	614	Longispora fulva
+UP000294930_571115	UP000294930	571115	bacteria	Bacteroidota	Meridianimaribacter	2850	615	Meridianimaribacter flavus
+UP000184510_1123071	UP000184510	1123071	bacteria	Verrucomicrobiota	Rubritalea	3805	616	Rubritalea squalenifaciens DSM 18772
+UP000282106_2689987	UP000282106	2689987	bacteria	Pseudomonadota	Stagnimonas	3293	617	Stagnimonas aquatica
+UP000239589_2052836	UP000239589	2052836	bacteria	Cyanobacteriota	Cuspidothrix	3876	618	Cuspidothrix issatschenkoi CHARLIE-1
+UP000612362_2778364	UP000612362	2778364	bacteria	Chloroflexota	Ktedonospora	9574	619	Ktedonospora formicarum
+UP000322917_1123003	UP000322917	1123003	bacteria	Bacillota	Propionispora	3882	620	Propionispora hippei DSM 15287
+UP000321083_1653850	UP000321083	1653850	bacteria	Planctomycetota	Planctomyces	3028	621	Planctomyces bekefii
+UP001366166_3058419	UP001366166	3058419	bacteria	Thermodesulfobacteriota	Desulfoferula	4106	622	Desulfoferula mesophila
+UP000656042_1751298	UP000656042	1751298	bacteria	Actinomycetota	Mangrovihabitans	6534	623	Mangrovihabitans endophyticus
+UP001597469_1770529	UP001597469	1770529	bacteria	Bacteroidota	Spirosoma	5702	624	Spirosoma soli
+UP001304300_3080537	UP001304300	3080537	bacteria	Verrucomicrobiota	Rubellicoccus	4351	625	Rubellicoccus peritrichatus
+UP000698242_1037889	UP000698242	1037889	bacteria	Pseudomonadota	Profundibacterium	3300	626	Profundibacterium mesophilum KAUST100406-0324
+UP000184550_671068	UP000184550	671068	bacteria	Cyanobacteriota	Planktothrix	5607	627	Planktothrix serta PCC 8927
+UP000190625_142842	UP000190625	142842	bacteria	Bacillota	Selenihalanaerobacter	2743	628	Selenihalanaerobacter shriftii
+UP000542342_2755323	UP000542342	2755323	bacteria	Planctomycetota	Thermogemmata	3449	629	Thermogemmata fonticola
+UP000007844_690850	UP000007844	690850	bacteria	Thermodesulfobacteriota	Desulfocurvibacter	3699	630	Desulfocurvibacter africanus subsp. africanus str. Walvis Bay
+UP000677913_977794	UP000677913	977794	bacteria	Actinomycetota	Actinocrinis	5805	631	Actinocrinis puniceicyclus
+UP000245535_379075	UP000245535	379075	bacteria	Bacteroidota	Sediminitomix	5031	632	Sediminitomix flava
+UP000247099_2174842	UP000247099	2174842	bacteria	Verrucomicrobiota	Coraliomargarita	2981	633	Coraliomargarita sinensis
+UP000626656_2360	UP000626656	2360	bacteria	Pseudomonadota	Bathymodiolus	2643	634	Bathymodiolus thermophilus thioautotrophic gill symbiont
+UP000654482_945747	UP000654482	945747	bacteria	Cyanobacteriota	Lusitaniella	4954	635	Lusitaniella coriacea LEGE 07157
+UP000276568_2486576	UP000276568	2486576	bacteria	Bacillota	Absicoccus	2184	636	Absicoccus porci
+UP000326354_2596890	UP000326354	2596890	bacteria	Planctomycetota	Candidatus Uabimicrobium	6642	637	Uabimicrobium amorphum
+UP000189733_1121442	UP000189733	1121442	bacteria	Thermodesulfobacteriota	Desulfobaculum	2903	638	Desulfobaculum bizertense DSM 18034
+UP000744769_1656884	UP000744769	1656884	bacteria	Actinomycetota	Metallococcus	3286	639	Metallococcus carri
+UP000707206_2696054	UP000707206	2696054	bacteria	Bacteroidota	Pelagihabitans	3934	640	Pelagihabitans pacificus
+UP000604083_454146	UP000604083	454146	bacteria	Verrucomicrobiota	Roseibacillus	3359	641	Roseibacillus ishigakijimensis
+UP001208935_1110392	UP001208935	1110392	bacteria	Pseudomonadota	Verminephrobacter	4101	642	Verminephrobacter aporrectodeae subsp. tuberculatae
+UP000481033_2292702	UP000481033	2292702	bacteria	Cyanobacteriota	Adonisia	7034	643	Adonisia turfae CCMR0081
+UP000197032_1246530	UP000197032	1246530	bacteria	Bacillota	Calderihabitans	3537	644	Calderihabitans maritimus
+UP000320390_2528018	UP000320390	2528018	bacteria	Planctomycetota	Saltatorellus	5628	645	Saltatorellus ferox
+UP000009047_644282	UP000009047	644282	bacteria	Thermodesulfobacteriota	Desulfarculus	3268	646	Desulfarculus baarsii (strain ATCC 33931 / DSM 2075 / LMG 7858 / VKM B-1802 / 2st14)
+UP000516117_1285901	UP000516117	1285901	bacteria	Actinomycetota	Tessaracoccus	3134	647	Tessaracoccus defluvii
+UP000766986_1841865	UP000766986	1841865	bacteria	Bacteroidota	Mediterranea	2876	648	Mediterranea massiliensis
+UP000575898_714531	UP000575898	714531	bacteria	Pseudomonadota	Chitinivorax	3955	649	Chitinivorax tropicus
+UP000830835_2813851	UP000830835	2813851	bacteria	Cyanobacteriota	Thermostichus	3360	650	Thermostichus vulcanus str. 'Rupite'
+UP000199315_1619234	UP000199315	1619234	bacteria	Bacillota	Anaerobium	4003	651	Anaerobium acetethylicum
+UP000503447_2774151	UP000503447	2774151	bacteria	Planctomycetota	Frigoriglobus	8599	652	Frigoriglobus tundricola
+UP000000442_177437	UP000000442	177437	bacteria	Thermodesulfobacteriota	Desulforapulum	4846	653	Desulforapulum autotrophicum (strain ATCC 43914 / DSM 3382 / VKM B-1955 / HRM2) (Desulfobacterium autotrophicum)
+UP000186132_1206085	UP000186132	1206085	bacteria	Actinomycetota	Jatrophihabitans	4181	654	Jatrophihabitans endophyticus
+UP000036958_1409788	UP000036958	1409788	bacteria	Bacteroidota	Sunxiuqinia	4693	655	Sunxiuqinia dokdonensis
+UP000291793_2529380	UP000291793	2529380	bacteria	Pseudomonadota	Kosakonia	4792	656	Kosakonia quasisacchari
+UP001576784_3153642	UP001576784	3153642	bacteria	Cyanobacteriota	Floridanema	7519	657	Floridaenema flaviceps BLCC-F50
+UP000242949_1612202	UP000242949	1612202	bacteria	Bacillota	Pelagirhabdus	2406	658	Pelagirhabdus alkalitolerans
+UP000034954_380242	UP000034954	380242	bacteria	Planctomycetota	Candidatus Brocadia	3391	659	Candidatus Brocadia fulgida
+UP000830055_2740163	UP000830055	2740163	bacteria	Thermodesulfobacteriota	Desulfofustis	3755	660	Desulfofustis limnaeus
+UP000306192_2056433	UP000306192	2056433	bacteria	Actinomycetota	Subtercola	3658	661	Subtercola vilae
+UP000286598_363265	UP000286598	363265	bacteria	Bacteroidota	Leyella	2345	662	Leyella stercorea
+UP001155500_256731	UP001155500	256731	bacteria	Pseudomonadota	Volucribacter	2334	663	Volucribacter amazonae
+UP000625316_2777977	UP000625316	2777977	bacteria	Cyanobacteriota	Romeriopsis	5398	664	Romeriopsis navalis LEGE 11480
+UP000245412_1337051	UP000245412	1337051	bacteria	Bacillota	Murimonas	4860	665	Murimonas intestini
+UP000322699_406547	UP000322699	406547	bacteria	Planctomycetota	Rubripirellula	5669	666	Rubripirellula obstinata
+UP001060414_2847045	UP001060414	2847045	bacteria	Thermodesulfobacteriota	Geoalkalibacter	3766	667	Geoalkalibacter halelectricus
+UP000278440_53356	UP000278440	53356	bacteria	Actinomycetota	Terracoccus	3555	668	Terracoccus luteus
+UP000484164_1577780	UP000484164	1577780	bacteria	Bacteroidota	Phaeocystidibacter	2884	669	Phaeocystidibacter marisrubri
+UP001595556_1793872	UP001595556	1793872	bacteria	Pseudomonadota	Piscinibacterium	3388	670	Piscinibacterium candidicorallinum
+UP000010384_251229	UP000010384	251229	bacteria	Cyanobacteriota	Chroococcidiopsis	5740	671	Chroococcidiopsis thermalis (strain PCC 7203)
+UP001302696_114090	UP001302696	114090	bacteria	Bacillota	Pediococcus	1996	672	Pediococcus inopinatus
+UP000002985_247490	UP000002985	247490	bacteria	Planctomycetota	Candidatus Jettenia	3545	673	Candidatus Jettenia caeni
+UP000014216_1286635	UP000014216	1286635	bacteria	Thermodesulfobacteriota	Desulfotignum	4515	674	Desulfotignum phosphitoxidans DSM 13687
+UP001501094_316335	UP001501094	316335	bacteria	Actinomycetota	Myceligenerans	4055	675	Myceligenerans crystallogenes
+UP000198846_283786	UP000198846	283786	bacteria	Bacteroidota	Bizionia	2859	676	Bizionia paragorgiae
+UP000007460_488538	UP000007460	488538	bacteria	Pseudomonadota	Puniceispirillum (SeqCode)	2545	677	Puniceispirillum marinum (strain IMCC1322)
+UP000008204_41431	UP000008204	41431	bacteria	Cyanobacteriota	Rippkaea	4335	678	Rippkaea orientalis (strain PCC 8801 / RF-1) (Cyanothece sp. (strain PCC 8801))
+UP000243605_930138	UP000243605	930138	bacteria	Bacillota	Aliicoccus	1983	679	Aliicoccus persicus
+UP000221734_174633	UP000221734	174633	bacteria	Planctomycetota	Candidatus Kuenenia	3801	680	Kuenenia stuttgartiensis
+UP000006034_563192	UP000006034	563192	bacteria	Thermodesulfobacteriota	Bilophila	3779	681	Bilophila wadsworthia (strain 3_1_6)
+UP000612899_1392758	UP000612899	1392758	bacteria	Actinomycetota	Rhizocola	9895	682	Rhizocola hellebori
+UP001597112_688913	UP001597112	688913	bacteria	Bacteroidota	Ohtaekwangia	6041	683	Ohtaekwangia kribbensis
+UP000748752_69359	UP000748752	69359	bacteria	Pseudomonadota	Thiohalocapsa	4968	684	Thiohalocapsa halophila
+UP000243002_2116684	UP000243002	2116684	bacteria	Cyanobacteriota	Cyanobium	2524	685	Cyanobium usitatum str. Tous
+UP000294902_682400	UP000294902	682400	bacteria	Bacillota	Natranaerovirga	2857	686	Natranaerovirga pectinivora
+UP000189674_1936003	UP000189674	1936003	bacteria	Planctomycetota	Anaerohalosphaera	3413	687	Anaerohalosphaera lusitana
+UP000502179_1936021	UP000502179	1936021	bacteria	Thermodesulfobacteriota	Thermosulfuriphilus	2168	688	Thermosulfuriphilus ammonigenes
+UP001597168_913853	UP001597168	913853	bacteria	Actinomycetota	Saccharothrix	7272	689	Saccharothrix hoggarensis
+UP000054223_1751427	UP000054223	1751427	bacteria	Bacteroidota	Solirubrum	4037	690	Solirubrum puertoriconensis
+UP000321337_171865	UP000321337	171865	bacteria	Pseudomonadota	Sulfuriferula	3370	691	Sulfuriferula plumbiphila
+UP001196661_2364775	UP001196661	2364775	bacteria	Cyanobacteriota	Leptothoe	3232	692	Leptothoe kymatousa TAU-MAC 1615
+UP000655830_2763666	UP000655830	2763666	bacteria	Bacillota	Zhenhengia	3902	693	Zhenhengia yiwuensis
+UP000319576_2528023	UP000319576	2528023	bacteria	Planctomycetota	Urbifossiella	6172	694	Urbifossiella limnaea
+UP000191931_1246637	UP000191931	1246637	bacteria	Thermodesulfobacteriota	Desulfamplus	5913	695	Desulfamplus magnetovallimortis
+UP001180845_1352928	UP001180845	1352928	bacteria	Actinomycetota	Haloactinomyces	4847	696	Haloactinomyces albus
+UP001647509_481183	UP001647509	481183	bacteria	Bacteroidota	Pseudotamlana	3087	697	Pseudotamlana agarivorans
+UP000032668_1120923	UP000032668	1120923	bacteria	Pseudomonadota	Acidocella	3751	698	Acidocella aminolytica 101 = DSM 11237
+UP000622533_1828758	UP000622533	1828758	bacteria	Cyanobacteriota	Desmonostoc	7230	699	Desmonostoc muscorum LEGE 12446
+UP000001572_293826	UP000001572	293826	bacteria	Bacillota	Alkaliphilus	4467	700	Alkaliphilus metalliredigens (strain QYMF)
+UP000317178_2528007	UP000317178	2528007	bacteria	Planctomycetota	Polystyrenella	4607	701	Polystyrenella longa
+UP000001508_589865	UP000001508	589865	bacteria	Thermodesulfobacteriota	Desulfurivibrio	2595	702	Desulfurivibrio alkaliphilus (strain DSM 19089 / UNIQEM U267 / AHT2)
+UP000609879_113561	UP000609879	113561	bacteria	Actinomycetota	Paractinoplanes	9715	703	Paractinoplanes deccanensis
+UP001497416_3137852	UP001497416	3137852	bacteria	Bacteroidota	Tenacibaculum	3613	704	Tenacibaculum platacis
+UP000433104_1463599	UP000433104	1463599	bacteria	Pseudomonadota	Parapontixanthobacter	2696	705	Parapontixanthobacter aurantiacus
+UP001483337_3133117	UP001483337	3133117	bacteria	Cyanobacteriota	Okeanomitos	4532	706	Okeanomitos corallinicola TIOX110
+UP000199662_84035	UP000199662	84035	bacteria	Bacillota	Propionispira	3963	707	Propionispira arboris
+UP000324479_2605748	UP000324479	2605748	bacteria	Planctomycetota	Roseiconus	5599	708	Roseiconus nitratireducens
+UP000005496_555779	UP000005496	555779	bacteria	Thermodesulfobacteriota	Desulfonatronospira	3577	709	Desulfonatronospira thiodismutans ASO3-1
+UP000236488_2070688	UP000236488	2070688	bacteria	Actinomycetota	Rubneribacter	2556	710	Rubneribacter badeniensis
+UP000236641_1445657	UP000236641	1445657	bacteria	Bacteroidota	Hanstruepera	2739	711	Hanstruepera neustonica
+UP000237351_1414854	UP000237351	1414854	bacteria	Pseudomonadota	Nucleicultrix (SeqCode)	1448	712	Candidatus Nucleicultrix amoebiphila FS5
+UP001526426_234711	UP001526426	234711	bacteria	Cyanobacteriota	Spirulina	4406	713	Spirulina subsalsa FACHB-351
+UP000236311_879566	UP000236311	879566	bacteria	Bacillota	Acetatifactor	5687	714	Acetatifactor muris
+UP000186309_1387353	UP000186309	1387353	bacteria	Planctomycetota	Paludisphaera	5693	715	Paludisphaera borealis
+UP000008561_96561	UP000008561	96561	bacteria	Thermodesulfobacteriota	Desulfosudis	3255	716	Desulfosudis oleivorans (strain DSM 6200 / JCM 39069 / Hxd3) (Desulfococcus oleovorans)
+UP000198589_1798228	UP000198589	1798228	bacteria	Actinomycetota	Blastococcus	4797	717	Blastococcus tunisiensis
+UP000753961_1227546	UP000753961	1227546	bacteria	Bacteroidota	Membranihabitans	3812	718	Membranihabitans marinus
+UP000237218_1510841	UP000237218	1510841	bacteria	Pseudomonadota	Parasaccharibacter	1725	719	Parasaccharibacter apium
+UP001301728_3110306	UP001301728	3110306	bacteria	Cyanobacteriota	Limnoraphis	6060	720	Limnoraphis robusta CCNP1315
+UP000093514_1413210	UP000093514	1413210	bacteria	Bacillota	Orenia	3070	721	Orenia metallireducens
+UP000315750_2527972	UP000315750	2527972	bacteria	Planctomycetota	Aeoliella	5127	722	Aeoliella mucimassa
+UP001154240_2984131	UP001154240	2984131	bacteria	Thermodesulfobacteriota	Thiovibrio	2575	723	Thiovibrio frasassiensis
+UP000001919_446465	UP000001919	446465	bacteria	Actinomycetota	Brachybacterium	3062	724	Brachybacterium faecium (strain ATCC 43885 / DSM 4810 / JCM 11609 / LMG 19847 / NBRC 14762 / NCIMB 9860 / 6-10)
+UP000293874_661488	UP000293874	661488	bacteria	Bacteroidota	Pseudobacter	6020	725	Pseudobacter ginsenosidimutans
+UP001205843_414046	UP001205843	414046	bacteria	Pseudomonadota	Natronocella	4391	726	Natronocella acetinitrilica
+UP001526143_2986073	UP001526143	2986073	bacteria	Cyanobacteriota	Plectonema	5673	727	Plectonema radiosum NIES-515
+UP000307841_2570228	UP000307841	2570228	bacteria	Bacillota	Brevibacillus	5491	728	Brevibacillus antibioticus
+UP000317093_2527975	UP000317093	2527975	bacteria	Planctomycetota	Kolteria	5710	729	Kolteria novifilia
+UP001209681_2823377	UP001209681	2823377	bacteria	Thermodesulfobacteriota	Desulfobotulus	3137	730	Desulfobotulus pelophilus
+UP000239352_33906	UP000239352	33906	bacteria	Actinomycetota	Actinopolyspora	3817	731	Actinopolyspora mortivallis
+UP001500936_1084524	UP001500936	1084524	bacteria	Bacteroidota	Nibrella	5777	732	Nibrella viscosa
+UP000059419_1619313	UP000059419	1619313	bacteria	Pseudomonadota	Duffyella	4160	733	Duffyella gerundensis
+UP000662314_1725256	UP000662314	1725256	bacteria	Cyanobacteriota	Dendronalium	7004	734	Dendronalium phyllosphericum CENA369
+UP000051378_1423744	UP000051378	1423744	bacteria	Bacillota	Holzapfeliella	1222	735	Holzapfeliella floricola DSM 23037 = JCM 16512
+UP000218542_1284222	UP000218542	1284222	bacteria	Planctomycetota	Candidatus Scalindua	3991	736	Candidatus Scalindua japonica
+UP000826725_2772557	UP000826725	2772557	bacteria	Thermodesulfobacteriota	Desulfomarina	3935	737	Desulfomarina profundi
+UP000662857_2811111	UP000662857	2811111	bacteria	Actinomycetota	Natronosporangium	5027	738	Natronosporangium hydrolyticum
+UP001185092_866807	UP001185092	866807	bacteria	Bacteroidota	Aureibacter	5087	739	Aureibacter tunicatorum
+UP000246744_451513	UP000246744	451513	bacteria	Pseudomonadota	Mangrovibacter	4914	740	Mangrovibacter plantisponsor
+UP000516013_2666332	UP000516013	2666332	bacteria	Cyanobacteriota	Raphidiopsis	3370	741	Cylindrospermopsis curvispora GIHE-G1
+UP000054526_1590652	UP000054526	1590652	bacteria	Bacillota	Cohnella	3360	742	Cohnella kolymensis
+UP000318437_2528003	UP000318437	2528003	bacteria	Planctomycetota	Bythopirellula	5040	743	Bythopirellula polymerisocia
+UP000298602_980445	UP000298602	980445	bacteria	Thermodesulfobacteriota	Desulfoglaeba	2850	744	Desulfoglaeba alkanexedens ALDC
+UP000318331_244735	UP000318331	244735	bacteria	Actinomycetota	Klugiella	2573	745	Klugiella xanthotipulae
+UP000271339_442714	UP000271339	442714	bacteria	Bacteroidota	Ulvibacter	3363	746	Ulvibacter antarcticus
+UP000818603_1566827	UP000818603	1566827	bacteria	Pseudomonadota	Aquisalinus	3416	747	Aquisalinus luteolus
+UP000192439_1903187	UP000192439	1903187	bacteria	Cyanobacteriota	Microcystis	5151	748	Microcystis aeruginosa PCC 7806SL
+UP001625374_191770	UP001625374	191770	bacteria	Bacillota	Marinilactibacillus	2474	749	Marinilactibacillus psychrotolerans
+UP000324974_2598579	UP000324974	2598579	bacteria	Planctomycetota	Limnoglobus	7819	750	Limnoglobus roseus
+UP000006732_338966	UP000006732	338966	bacteria	Thermodesulfobacteriota	Pelobacter	3694	751	Pelobacter propionicus (strain DSM 2379 / NBRC 103807 / OttBd1)
+UP001183817_43666	UP001183817	43666	bacteria	Actinomycetota	Paeniglutamicibacter	4093	752	Paeniglutamicibacter sulfureus
+UP000515514_2562285	UP000515514	2562285	bacteria	Bacteroidota	Constantimarinum	2653	753	Constantimarinum furrinae
+UP000077875_376489	UP000077875	376489	bacteria	Pseudomonadota	Halotalea	3715	754	Halotalea alkalilenta
+UP000621799_1828826	UP000621799	1828826	bacteria	Cyanobacteriota	Zarconia	3622	755	Zarconia navalis LEGE 11467
+UP001199424_2885357	UP001199424	2885357	bacteria	Bacillota	Hominenteromicrobium	2687	756	Hominenteromicrobium mulieris
+UP000317369_2528020	UP000317369	2528020	bacteria	Planctomycetota	Poriferisphaera	3659	757	Poriferisphaera corsica
+UP000198771_617002	UP000198771	617002	bacteria	Thermodesulfobacteriota	Desulfonatronum	3184	758	Desulfonatronum thiosulfatophilum
+UP000320216_2599293	UP000320216	2599293	bacteria	Actinomycetota	Humibacter	3604	759	Humibacter ginsenosidimutans
+UP000475249_2697053	UP000475249	2697053	bacteria	Bacteroidota	Poritiphilus	4113	760	Poritiphilus flavus
+UP000292307_321983	UP000292307	321983	bacteria	Pseudomonadota	Pseudoduganella	5987	761	Pseudoduganella albidiflava
+UP000191901_1641165	UP000191901	1641165	bacteria	Cyanobacteriota	Halomicronema	5211	762	Halomicronema hongdechloris C2206
+UP000184404_1123243	UP000184404	1123243	bacteria	Bacillota	Schwartzia	2426	763	Schwartzia succinivorans DSM 10502
+UP000001887_530564	UP000001887	530564	bacteria	Planctomycetota	Pirellula	4711	764	Pirellula staleyi (strain ATCC 27377 / DSM 6068 / ICPB 4128) (Pirella staleyi)
+UP000006793_667014	UP000006793	667014	bacteria	Thermodesulfobacteriota	Thermodesulfatator	2184	765	Thermodesulfatator indicus (strain DSM 15286 / JCM 11887 / CIR29812)
+UP001569904_454156	UP001569904	454156	bacteria	Actinomycetota	Actinomadura	7402	766	Actinomadura chokoriensis
+UP001065174_2979464	UP001065174	2979464	bacteria	Bacteroidota	Reichenbachiella	3646	767	Reichenbachiella agarivorans
+UP001156601_1431249	UP001156601	1431249	bacteria	Pseudomonadota	Agaribacter	4035	768	Agaribacter marinus
+UP001163152_2016057	UP001163152	2016057	bacteria	Cyanobacteriota	Thermocoleostomius	4880	769	Thermocoleostomius sinensis A174
+UP000199287_69895	UP000199287	69895	bacteria	Bacillota	Tindallia	2786	770	Tindallia magadiensis
+UP000007881_1142394	UP000007881	1142394	bacteria	Planctomycetota	Phycisphaera	3269	771	Phycisphaera mikurensis (strain DSM 103959 / KCTC 22515 / NBRC 102666 / FYK2301M01)
+UP001063350_2795293	UP001063350	2795293	bacteria	Thermodesulfobacteriota	Desulfolithobacter	3174	772	Desulfolithobacter dissulfuricans
+UP000016638_1125712	UP000016638	1125712	bacteria	Actinomycetota	Olsenella	2650	773	Olsenella profusa F0195
+UP001324270_1017	UP001324270	1017	bacteria	Bacteroidota	Capnocytophaga	2956	774	Capnocytophaga gingivalis
+UP000271650_1867749	UP000271650	1867749	bacteria	Pseudomonadota	Acidithiobacillus	2731	775	Acidithiobacillus sulfuriphilus
+UP001442494_2933946	UP001442494	2933946	bacteria	Cyanobacteriota	Funiculus	5274	776	Funiculus sociatus GB2-A5
+UP001596250_2086470	UP001596250	2086470	bacteria	Bacillota	Marinicrinis	4334	777	Marinicrinis lubricantis
+UP000318017_2527968	UP000318017	2527968	bacteria	Planctomycetota	Aureliella	6357	778	Aureliella helgolandensis
+UP000199073_91360	UP000199073	91360	bacteria	Thermodesulfobacteriota	Desulforhopalus	4348	779	Desulforhopalus singaporensis
+UP001501747_1142134	UP001501747	1142134	bacteria	Actinomycetota	Allokutzneria	7467	780	Allokutzneria multivorans
+UP000298616_2715131	UP000298616	2715131	bacteria	Bacteroidota	Mangrovivirga	3895	781	Mangrovivirga cuniculi
+UP000633219_2801340	UP000633219	2801340	bacteria	Pseudomonadota	Phytoamicus	5151	782	Phytoamicus setariae
+UP000017127_1348334	UP000017127	1348334	bacteria	Cyanobacteriota	Lyngbya	6344	783	Lyngbya aestuarii BL J
+UP000199427_571933	UP000199427	571933	bacteria	Bacillota	Piscibacillus	3140	784	Piscibacillus halophilus
+UP000006860_756272	UP000006860	756272	bacteria	Planctomycetota	Rubinisphaera	4710	785	Rubinisphaera brasiliensis (strain ATCC 49424 / DSM 5305 / JCM 21570 / IAM 15109 / NBRC 103401 / IFAM 1448) (Planctomyces brasiliensis)
+UP000000483_880072	UP000000483	880072	bacteria	Thermodesulfobacteriota	Desulfobacca	2859	786	Desulfobacca acetoxidans (strain ATCC 700848 / DSM 11109 / ASRB2)
+UP001431186_2894156	UP001431186	2894156	bacteria	Actinomycetota	Leptogranulimonas	1719	787	Leptogranulimonas caecicola
+UP000009309_1185876	UP000009309	1185876	bacteria	Bacteroidota	Fibrisoma	6341	788	Fibrisoma limi BUZ 3
+UP000184408_1123361	UP000184408	1123361	bacteria	Pseudomonadota	Thalassobacter	3602	789	Thalassobacter stenotrophicus DSM 16310
+UP001165986_2593771	UP001165986	2593771	bacteria	Cyanobacteriota	Komarekiella	7019	790	Komarekiella delphini-convector SJRDD-AB1
+UP000681526_76633	UP000681526	76633	bacteria	Bacillota	Thermobacillus	3927	791	Thermobacillus xylanilyticus
+UP000315700_2527983	UP000315700	2527983	bacteria	Planctomycetota	Caulifigura	5497	792	Caulifigura coniformis
+UP000010808_1121451	UP000010808	1121451	bacteria	Thermodesulfobacteriota	Maridesulfovibrio	3543	793	Maridesulfovibrio hydrothermalis AM13 = DSM 14728
+UP000239209_439699	UP000239209	439699	bacteria	Actinomycetota	Pseudosporangium	7729	794	Pseudosporangium ferrugineum
+UP001200642_2874477	UP001200642	2874477	bacteria	Bacteroidota	Cerina	3897	795	Cerina litoralis
+UP001198571_2755041	UP001198571	2755041	bacteria	Pseudomonadota	Pseudogemmobacter	4105	796	Pseudogemmobacter faecipullorum
+UP001525961_2953688	UP001525961	2953688	bacteria	Cyanobacteriota	Laspinema	5560	797	Laspinema olomoucense D3b
+UP000019474_1221538	UP000019474	1221538	bacteria	Bacillota	Fructilactobacillus	1228	798	Fructilactobacillus florum 8D
+UP000215086_1331910	UP000215086	1331910	bacteria	Planctomycetota	Thermogutta	4494	799	Thermogutta terrifontis
+UP000002457_521011	UP000002457	521011	archaea	Methanobacteriota	Methanosphaerula	2655	0	Methanosphaerula palustris (strain ATCC BAA-1556 / DSM 19958 / E1-9c)
+UP000604391_2756141	UP000604391	2756141	archaea	Candidatus Undinarchaeota	Candidatus Undinarchaeum	709	1	Candidatus Undinarchaeum marinum
+UP000001400_439481	UP000001400	439481	archaea	Thermoplasmatota	Candidatus Aciduliprofundum	1539	2	Aciduliprofundum boonei (strain DSM 19572 / T469)
+UP000186940_1838285	UP000186940	1838285	archaea	Halobacteriota	Candidatus Syntropharchaeum	1784	3	Candidatus Syntropharchaeum caldarium
+UP001218034_2978047	UP001218034	2978047	archaea	Candidatus Nanohalarchaeota	Candidatus Nanohalococcus	1046	4	Candidatus Nanohalococcus occultus
+UP000002593_415426	UP000002593	415426	archaea	Thermoproteota	Hyperthermus	1602	5	Hyperthermus butylicus (strain DSM 5456 / JCM 9403 / PLM1-5)
+UP001055553_2586965	UP001055553	2586965	archaea	Nanobdellota	Nanobdella	736	6	Nanobdella aerobiophila
+UP000321408_2594042	UP000321408	2594042	archaea	Promethearchaeota	Promethearchaeum	3856	7	Promethearchaeum syntrophicum
+UP000332487_425595	UP000332487	425595	archaea	Microcaldota	Candidatus Micrarchaeum	1025	8	Candidatus Micrarchaeum acidiphilum ARMAN-2
+UP000004440_1001994	UP000004440	1001994	archaea	Nitrososphaerota	Nitrosarchaeum	1945	9	Nitrosarchaeum koreense MY1
+UP000003706_647171	UP000003706	647171	archaea	Methanobacteriota	Methanotorris	2000	10	Methanotorris formicicus Mc-S-70
+UP000646946_2756139	UP000646946	2756139	archaea	Candidatus Undinarchaeota	Candidatus Naiadarchaeum	1101	11	Candidatus Naiadarchaeum limnaeum
+UP001451606_3073602	UP001451606	3073602	archaea	Thermoplasmatota	Oxyplasma	1649	12	Oxyplasma meridianum
+UP000377803_2565781	UP000377803	2565781	archaea	Candidatus Nanohalarchaeota	Candidatus Nanohalobium	1162	13	Candidatus Nanohalobium constans
+UP000000242_399549	UP000000242	399549	archaea	Thermoproteota	Metallosphaera	2256	14	Metallosphaera sedula (strain ATCC 51363 / DSM 5348 / JCM 9185 / NBRC 15509 / TH2)
+UP001208689_2951803	UP001208689	2951803	archaea	Promethearchaeota	Candidatus Lokiarchaeum	5112	15	Candidatus Lokiarchaeum ossiferum
+UP000197679_1920749	UP000197679	1920749	archaea	Microcaldota	Candidatus Mancarchaeum	944	16	Candidatus Mancarchaeum acidiphilum
+UP000058925_1353260	UP000058925	1353260	archaea	Nitrososphaerota	Candidatus Nitrosocosmicus	3684	17	Candidatus Nitrosocosmicus oleophilus
+UP000011602_1227499	UP000011602	1227499	archaea	Methanobacteriota	Natronolimnohabitans	4400	18	Natronolimnohabitans innermongolicus JCM 12255
+UP000192050_74969	UP000192050	74969	archaea	Thermoplasmatota	Ferroplasma	1749	19	Ferroplasma acidiphilum
+UP000001018_330779	UP000001018	330779	archaea	Thermoproteota	Sulfolobus	2223	20	Sulfolobus acidocaldarius (strain ATCC 33909 / DSM 639 / JCM 8929 / NBRC 15157 / NCIMB 11770)
+UP000509448_1874277	UP000509448	1874277	archaea	Nitrososphaerota	Conexivisphaera	1603	21	Conexivisphaera calida
+UP000008243_309800	UP000008243	309800	archaea	Methanobacteriota	Haloferax	3922	22	Haloferax volcanii (strain ATCC 29605 / DSM 3757 / JCM 8879 / NBRC 14742 / NCIMB 2012 / VKM B-1768 / DS2) (Halobacterium volcanii)
+UP000192315_1122961	UP000192315	1122961	archaea	Thermoplasmatota	Picrophilus	1527	23	Picrophilus torridus (strain ATCC 700027 / DSM 9790 / JCM 10055 / NBRC 100828 / KAW 2/3)
+UP000554766_121277	UP000554766	121277	archaea	Thermoproteota	Pyrobaculum	2265	24	Pyrobaculum arsenaticum
+UP000249949_1898749	UP000249949	1898749	archaea	Nitrososphaerota	Candidatus Nitrosomarinus	1677	25	Candidatus Nitrosomarinus catalinensis
+UP001597034_755306	UP001597034	755306	archaea	Methanobacteriota	Haloarchaeobius	4024	26	Haloarchaeobius litoreus
+UP000030787_1577791	UP000030787	1577791	archaea	Thermoplasmatota	Candidatus Methanoplasma	1393	27	Candidatus Methanoplasma termitum
+UP000060778_940295	UP000060778	940295	archaea	Thermoproteota	Ignicoccus	1510	28	Ignicoccus islandicus DSM 13165
+UP000000758_414004	UP000000758	414004	archaea	Nitrososphaerota	Candidatus Cenarchaeum	2022	29	Cenarchaeum symbiosum (strain A)
+UP000069906_1604004	UP000069906	1604004	archaea	Methanobacteriota	Halanaeroarchaeum	2225	30	Halanaeroarchaeum sulfurireducens
+UP000001024_273075	UP000001024	273075	archaea	Thermoplasmatota	Thermoplasma	1482	31	Thermoplasma acidophilum (strain ATCC 25905 / DSM 1728 / JCM 9062 / NBRC 15155 / AMRC-C165)
+UP000067434_1550241	UP000067434	1550241	archaea	Thermoproteota	Infirmifilum	1454	32	Infirmifilum uzonense
+UP000241022_1410606	UP000241022	1410606	archaea	Nitrososphaerota	Candidatus Nitrosopelagicus	1419	33	Candidatus Nitrosopelagicus brevis
+UP000017840_1324957	UP000017840	1324957	archaea	Methanobacteriota	Candidatus Halobonum	3445	34	Candidatus Halobonum tyrrellensis G22
+UP000012672_1236689	UP000012672	1236689	archaea	Thermoplasmatota	Methanomethylophilus	1643	35	Methanomethylophilus alvi (strain Mx1201)
+UP000277582_2478471	UP000277582	2478471	archaea	Thermoproteota	Candidatus Methanodesulfokora	3193	36	Candidatus Methanodesulfokora washburnensis
+UP000509441_1959104	UP000509441	1959104	archaea	Nitrososphaerota	Nitrosopumilus	1762	37	Nitrosopumilus oxyclinae
+UP001320159_2052831	UP001320159	2052831	archaea	Methanobacteriota	Methanooceanicella	3016	38	Methanooceanicella nereidis
+UP000187822_1673428	UP000187822	1673428	archaea	Thermoplasmatota	Cuniculiplasma	1812	39	Cuniculiplasma divulgatum
+UP000000346_666510	UP000000346	666510	archaea	Thermoproteota	Acidilobus	1499	40	Acidilobus saccharovorans (strain DSM 16705 / JCM 18335 / VKM B-2471 / 345-15)
+UP000029384_1502289	UP000029384	1502289	archaea	Nitrososphaerota	Marine	1339	41	Marine Group I thaumarchaeote SCGC AAA799-B03
+UP000015381_1033806	UP000015381	1033806	archaea	Methanobacteriota	Halorhabdus	2988	42	Halorhabdus tiamatea SARL4B
+UP000050301_312540	UP000050301	312540	archaea	Thermoplasmatota	Acidiplasma	1683	43	Acidiplasma cupricumulans
+UP001667326_2049879	UP001667326	2049879	archaea	Thermoproteota	Sulfurisphaera	2780	44	Sulfurisphaera javensis
+UP000232412_1499975	UP000232412	1499975	archaea	Nitrososphaerota	Nitrosotalea	1881	45	Nitrosotalea sinensis
+UP000252189_1126245	UP000252189	1126245	archaea	Methanobacteriota	Haloplanus	3354	46	Haloplanus salinus
+UP000014070_1295009	UP000014070	1295009	archaea	Thermoplasmatota	Methanomassiliicoccus	1826	47	Methanomassiliicoccus intestinalis (strain Issoire-Mx1)
+UP000001037_694429	UP000001037	694429	archaea	Thermoproteota	Pyrolobus	1967	48	Pyrolobus fumarii (strain DSM 11204 / 1A)
+UP000236248_2058097	UP000236248	2058097	archaea	Nitrososphaerota	Candidatus Nitrosocaldus	1766	49	Candidatus Nitrosocaldus cavascurensis
+UP001257060_2950536	UP001257060	2950536	archaea	Methanobacteriota	Halogeometricum	4365	50	Halogeometricum salsisoli
+UP000632195_399579	UP000632195	399579	archaea	Thermoplasmatota	Thermogymnomonas	1715	51	Thermogymnomonas acidicola
+UP000007391_1163730	UP000007391	1163730	archaea	Thermoproteota	Fervidicoccus	1384	52	Fervidicoccus fontis (strain DSM 19380 / JCM 18336 / VKM B-2539 / Kam940)
+UP000018159_1407055	UP000018159	1407055	archaea	Nitrososphaerota	Candidatus Nitrosotenuis	1944	53	Candidatus Nitrosotenuis uzonensis
+UP000027981_1343739	UP000027981	1343739	archaea	Methanobacteriota	Palaeococcus	1991	54	Palaeococcus pacificus DY20341
+UP000053352_2309	UP000053352	2309	archaea	Thermoproteota	Pyrodictium	1602	55	Pyrodictium occultum
+UP000028194_1459636	UP000028194	1459636	archaea	Nitrososphaerota	Nitrososphaera	3486	56	Candidatus Nitrososphaera evergladensis SR1
+UP000196084_253108	UP000196084	253108	archaea	Methanobacteriota	Natronolimnobius	3662	57	Natronolimnobius baerhuensis
+UP000001068_765177	UP000001068	765177	archaea	Thermoproteota	Desulfurococcus	1345	58	Desulfurococcus mucosus (strain ATCC 35584 / DSM 2162 / JCM 9187 / O7/1)
+UP000000590_267377	UP000000590	267377	archaea	Methanobacteriota	Methanococcus	1722	59	Methanococcus maripaludis (strain DSM 14266 / JCM 13030 / NBRC 101832 / S2 / LL)
+UP000001974_273057	UP000001974	273057	archaea	Thermoproteota	Saccharolobus	2938	60	Saccharolobus solfataricus (strain ATCC 35092 / DSM 1617 / JCM 11322 / P2) (Sulfolobus solfataricus)
+UP000186165_1873524	UP000186165	1873524	archaea	Methanobacteriota	Halodesulfurarchaeum	2099	61	Halodesulfurarchaeum formicicum
+UP000002518_272557	UP000002518	272557	archaea	Thermoproteota	Aeropyrum	1700	62	Aeropyrum pernix (strain ATCC 700893 / DSM 11879 / JCM 9820 / NBRC 100138 / K1)
+UP000002613_589924	UP000002613	589924	archaea	Methanobacteriota	Ferroglobus	2463	63	Ferroglobus placidus (strain DSM 10642 / AEDII12DO)
+UP000002654_768679	UP000002654	768679	archaea	Thermoproteota	Thermoproteus	2047	64	Thermoproteus tenax (strain ATCC 35583 / DSM 2078 / JCM 9277 / NBRC 100435 / Kra 1)
+UP000019024_797299	UP000019024	797299	archaea	Methanobacteriota	Halostagnicola	4086	65	Halostagnicola larsenii XH-48
+UP000322983_1294262	UP000322983	1294262	archaea	Thermoproteota	Sulfuracidifex	2770	66	Sulfuracidifex tepidarius
+UP000199112_640943	UP000199112	640943	archaea	Methanobacteriota	Natronorubrum	3617	67	Natronorubrum sediminis
+UP001060771_1293586	UP001060771	1293586	archaea	Thermoproteota	Vulcanisaeta	2661	68	Vulcanisaeta souniana JCM 11219
+UP001321047_2979988	UP001321047	2979988	archaea	Methanobacteriota	Natronosalvus	4160	69	Natronosalvus hydrolyticus
+UP000423396_41675	UP000423396	41675	archaea	Thermoproteota	Stygiolobus	2042	70	Stygiolobus azoricus
+UP000509626_2743089	UP000509626	2743089	archaea	Methanobacteriota	Halorarum	4124	71	Halorarum salinum
+UP000193404_282676	UP000193404	282676	archaea	Thermoproteota	Acidianus	2641	72	Acidianus manzaensis
+UP000245657_668570	UP000245657	668570	archaea	Methanobacteriota	Methanospirillum	3377	73	Methanospirillum lacunae
+UP000000641_368408	UP000000641	368408	archaea	Thermoproteota	Thermofilum	1876	74	Thermofilum pendens (strain DSM 2475 / Hrk 5)
+UP001215956_3033395	UP001215956	3033395	archaea	Methanobacteriota	Methanocrinis	2422	75	Candidatus Methanocrinis alkalitolerans
+UP000000254_399550	UP000000254	399550	archaea	Thermoproteota	Staphylothermus	1570	76	Staphylothermus marinus (strain ATCC 43588 / DSM 3639 / JCM 9404 / F1)
+UP000830729_2938695	UP000830729	2938695	archaea	Methanobacteriota	Halorussus	4521	77	Halorussus limi
+UP000001137_397948	UP000001137	397948	archaea	Thermoproteota	Caldivirga	1962	78	Caldivirga maquilingensis (strain ATCC 700844 / DSM 13496 / JCM 10307 / IC-167)
+UP000663586_2784880	UP000663586	2784880	archaea	Methanobacteriota	Natranaeroarchaeum	3117	79	Natranaeroarchaeum sulfidigenes
+UP000054284_1326980	UP000054284	1326980	archaea	Thermoproteota	Candidatus Aramenus	1975	80	Candidatus Aramenus sulfurataquae
+UP000614609_489911	UP000614609	489911	archaea	Methanobacteriota	Halarchaeum	2860	81	Halarchaeum rubridurum
+UP000010469_1056495	UP000010469	1056495	archaea	Thermoproteota	Caldisphaera	1477	82	Caldisphaera lagunensis (strain DSM 15908 / JCM 11604 / ANMR 0165 / IC-154)
+UP000193969_523843	UP000193969	523843	archaea	Methanobacteriota	Methanohalophilus	2075	83	Methanohalophilus portucalensis FDF-1
+UP000593766_3402707	UP000593766	3402707	archaea	Thermoproteota	Thermosphaera	1399	84	Thermosphaera chiliense
+UP000258613_2044521	UP000258613	2044521	archaea	Methanobacteriota	Natrarchaeobaculum	3734	85	Natrarchaeobaculum sulfurireducens
+UP000005270_1184251	UP000005270	1184251	archaea	Thermoproteota	Thermogladius	1414	86	Thermogladius calderae (strain DSM 22663 / VKM B-2946 / 1633)
+UP000308037_2217661	UP000308037	2217661	archaea	Methanobacteriota	Natronomonas	2818	87	Natronomonas salsuginis
+UP000276741_1670455	UP000276741	1670455	archaea	Thermoproteota	Sulfodiicoccus	2410	88	Sulfodiicoccus acidiphilus
+UP000663292_2841257	UP000663292	2841257	archaea	Methanobacteriota	Halapricum	2859	89	Halapricum desulfuricans
+UP000001304_583356	UP000001304	583356	archaea	Thermoproteota	Ignisphaera	1929	90	Ignisphaera aggregans (strain DSM 17230 / JCM 13409 / AQ1.S1)
+UP000273828_1679091	UP000273828	1679091	archaea	Methanobacteriota	Natrarchaeobius	3330	91	Natrarchaeobius halalkaliphilus
+UP000610960_62609	UP000610960	62609	archaea	Thermoproteota	Thermocladium	1937	92	Thermocladium modestius
+UP000271783_1122229	UP000271783	1122229	archaea	Methanobacteriota	Methanobrevibacter	1800	93	Methanobrevibacter gottschalkii DSM 11977
+UP000001686_374847	UP000001686	374847	archaea	Thermoproteota	Candidatus Korarchaeum	1602	94	Korarchaeum cryptofilum (strain OPF8)
+UP000070520_1698272	UP000070520	1698272	archaea	Methanobacteriota	candidate	703	95	candidate division MSBL1 archaeon SCGC-AAA261C02
+UP000244727_1679096	UP000244727	1679096	archaea	Methanobacteriota	Halococcoides	2532	96	Halococcoides cellulosivorans
+UP001149411_2487751	UP001149411	2487751	archaea	Methanobacteriota	Halorutilus	2290	97	Halorutilus salinus
+UP000001826_190192	UP000001826	190192	archaea	Methanobacteriota	Methanopyrus	1687	98	Methanopyrus kandleri (strain AV19 / DSM 6324 / JCM 9639 / NBRC 100938)
+UP000002061_573063	UP000002061	573063	archaea	Methanobacteriota	Methanocaldococcus	1439	99	Methanocaldococcus infernus (strain DSM 11812 / JCM 15783 / ME)
+UP000095192_88456	UP000095192	88456	eukaryota	Apicomplexa	Cyclospora	7151	0	Cyclospora cayetanensis
+UP000077051_747725	UP000077051	747725	eukaryota	Mucoromycota	Mucor	11584	1	Mucor lusitanicus CBS 277.49
+UP000240830_1246581	UP000240830	1246581	eukaryota	Rozellomycota	Paramicrosporidium	3754	2	Paramicrosporidium saccamoebae
+UP000009022_10228	UP000009022	10228	eukaryota	Placozoa	Trichoplax	11518	3	Trichoplax adhaerens (Trichoplax reptans)
+UP000565698_161742	UP000565698	161742	eukaryota	Chordata	Thinocorus	14037	4	Thinocorus orbignyianus
+UP000593567_10212	UP000593567	10212	eukaryota	Bryozoa	Bugula	25017	5	Bugula neritina (Brown bryozoan) (Sertularia neritina)
+UP000241890_2315210	UP000241890	2315210	eukaryota	Bigyra	Hondaea	11849	6	Hondaea fermentalgiana
+UP000695022_37621	UP000695022	37621	eukaryota	Priapulida	Priapulus	15089	7	Priapulus caudatus (Priapulid worm)
+UP000192578_2072580	UP000192578	2072580	eukaryota	Tardigrada	Hypsibius	19923	8	Hypsibius exemplaris (Freshwater tardigrade)
+UP000236333_47790	UP000236333	47790	eukaryota	Chlorophyta	Tetrabaena	14193	9	Tetrabaena socialis
+UP000007800_423536	UP000007800	423536	eukaryota	Perkinsozoa	Perkinsus	22958	10	Perkinsus marinus (strain ATCC 50983 / TXsc)
+UP000298138_341454	UP000298138	341454	eukaryota	Ascomycota	Ascodesmis	9617	11	Ascodesmis nigricans
+UP000664859_303371	UP000664859	303371	eukaryota	Xanthophyceae	Tribonema	18071	12	Tribonema minus
+UP000321570_6216	UP000321570	6216	eukaryota	Platyhelminthes	Hymenolepis	14609	13	Hymenolepis diminuta (Rat tapeworm)
+UP000193944_1754192	UP000193944	1754192	eukaryota	Neocallimastigomycota	Anaeromyces	12656	14	Anaeromyces robustus
+UP000266721_29158	UP000266721	29158	eukaryota	Mollusca	Mytilus	3147	15	Mytilus galloprovincialis (Mediterranean mussel)
+UP000002630_2880	UP000002630	2880	eukaryota	Phaeophyceae	Ectocarpus	16372	16	Ectocarpus siliculosus (Brown alga) (Conferva siliculosa)
+UP001165289_111878	UP001165289	111878	eukaryota	Porifera	Oopsacas	16108	17	Oopsacas minuta
+UP000007799_946362	UP000007799	946362	eukaryota	Choanoflagellata	Salpingoeca	11614	18	Salpingoeca rosetta (Choanoflagellate)
+UP000085678_7574	UP000085678	7574	eukaryota	Brachiopoda	Lingula	26663	19	Lingula anatina (Brachiopod) (Lingula unguis)
+UP000070544_1344416	UP000070544	1344416	eukaryota	Monoblepharomycota	Gonapodya	13797	20	Gonapodya prolifera (strain JEL478) (Monoblepharis prolifera)
+UP000015101_6412	UP000015101	6412	eukaryota	Annelida	Helobdella	23328	21	Helobdella robusta (Californian leech)
+UP000001593_45351	UP000001593	45351	eukaryota	Cnidaria	Nematostella	24428	22	Nematostella vectensis (Starlet sea anemone)
+UP000673691_278681	UP000673691	278681	eukaryota	Olpidiomycota	Olpidium	8458	23	Olpidium bornovanus
+UP000070444_796925	UP000070444	796925	eukaryota	Entomophthoromycota	Conidiobolus	10563	24	Conidiobolus coronatus (strain ATCC 28846 / CBS 209.66 / NRRL 28638) (Delacroixia coronata)
+UP000037460_1460289	UP000037460	1460289	eukaryota	Haptophyta	Chrysochromulina	16663	25	Chrysochromulina tobinii
+UP000193411_765915	UP000193411	765915	eukaryota	Blastocladiomycota	Catenaria	12590	26	Catenaria anguillulae PL171
+UP000271241_78915	UP000271241	78915	eukaryota	Zoopagomycota	Thamnocephalis	6769	27	Thamnocephalis sphaerospora
+UP001295684_5936	UP001295684	5936	eukaryota	Ciliophora	Moneuplotes	28993	28	Euplotes crassus
+UP000789595_35677	UP000789595	35677	eukaryota	Pelagophyceae	Pelagomonas	16441	29	Pelagomonas calceolata
+UP000440578_1232801	UP000440578	1232801	eukaryota	Arthropoda	Amphibalanus	24795	30	Amphibalanus amphitrite (Striped barnacle) (Balanus amphitrite)
+UP001149090_1746090	UP001149090	1746090	eukaryota	Metamonada	Anaeramoeba	14682	31	Anaeramoeba ignava (Anaerobic marine amoeba)
+UP001162029_86335	UP001162029	86335	eukaryota	Oomycota	Peronospora	12208	32	Peronospora destructor
+UP000054560_667725	UP000054560	667725	eukaryota	Ichthyosporea	Sphaeroforma	18207	33	Sphaeroforma arctica JP610
+UP000649617_2952	UP000649617	2952	eukaryota	Dinophyceae	Symbiodinium	23427	34	Symbiodinium pilosum (Dinoflagellate)
+UP000011087_905079	UP000011087	905079	eukaryota	Cryptophyceae	Guillardia	24715	35	Guillardia theta (strain CCMP2712) (Cryptophyte)
+UP000054408_461836	UP000054408	461836	eukaryota	Apusomonadida	Thecamonas	10533	36	Thecamonas trahens ATCC 50062
+UP000324585_35688	UP000324585	35688	eukaryota	Rhodophyta	Porphyridium	9673	37	Porphyridium purpureum (Red alga) (Porphyridium cruentum)
+UP001383192_297713	UP001383192	297713	eukaryota	Basidiomycota	Paramarasmius	18633	38	Paramarasmius palmivorus
+UP001431209_1008807	UP001431209	1008807	eukaryota	Heterolobosea	Acrasis	15388	39	Acrasis kona
+UP001194696_64522	UP001194696	64522	eukaryota	Mortierellomycota	Linnemannia	12690	40	Linnemannia gamsii
+UP000029725_1485682	UP000029725	1485682	eukaryota	Microsporidia	Mitosporidium	3256	41	Mitosporidium daphniae
+UP000193498_1314790	UP000193498	1314790	eukaryota	Basidiobolomycota	Basidiobolus	15513	42	Basidiobolus meristosporus CBS 931.73
+UP001530400_382360	UP001530400	382360	eukaryota	Bacillariophyta	Cyclotella	13984	43	Cyclotella atomus
+UP000001548_184922	UP000001548	184922	eukaryota	Fornicata	Giardia	4900	44	Giardia intestinalis (strain ATCC 50803 / WB clone C6) (Giardia lamblia)
+UP000694865_10224	UP000694865	10224	eukaryota	Hemichordata	Saccoglossus	22268	45	Saccoglossus kowalevskii (Acorn worm)
+UP001145114_68401	UP001145114	68401	eukaryota	Kickxellomycota	Spiromyces	8881	46	Spiromyces aspiralis
+UP000008743_595528	UP000008743	595528	eukaryota	Filasterea	Capsaspora	8738	47	Capsaspora owczarzaki (strain ATCC 30864)
+UP000030693_691883	UP000030693	691883	eukaryota	Rotosphaerida	Fonticula	5901	48	Fonticula alba (Slime mold)
+UP000195570_5694	UP000195570	5694	eukaryota	Euglenozoa	Trypanosoma	7660	49	Trypanosoma equiperdum
+UP000274922_1555241	UP000274922	1555241	eukaryota	Chytridiomycota	Caulochytrium	6161	50	Caulochytrium protostelioides
+UP000271162_27835	UP000271162	27835	eukaryota	Nematoda	Nippostrongylus	22636	51	Nippostrongylus brasiliensis (Rat hookworm)
+UP000789366_1433469	UP000789366	1433469	eukaryota	Glomeromycota	Cetraspora	18058	52	Cetraspora pellucida
+UP000087171_3827	UP000087171	3827	eukaryota	Streptophyta	Cicer	24608	53	Cicer arietinum (Chickpea) (Garbanzo)
+UP000694845_133434	UP000694845	133434	eukaryota	Echinodermata	Acanthaster	16476	54	Acanthaster planci (Crown-of-thorns starfish)
+UP000179807_1144522	UP000179807	1144522	eukaryota	Parabasalia	Tritrichomonas	24634	55	Tritrichomonas foetus
+UP001141327_342808	UP001141327	342808	eukaryota	Preaxostyla	Paratrimastix	10665	56	Paratrimastix pyriformis
+UP000041254_1169539	UP000041254	1169539	eukaryota	Colpodellida	Vitrella	23030	57	Vitrella brassicaformis
+UP001165085_1606541	UP001165085	1606541	eukaryota	Bolidophyceae	Triparma	14358	58	Triparma strigata
+UP001729289_27923	UP001729289	27923	eukaryota	Ctenophora	Mnemiopsis	19289	59	Mnemiopsis leidyi (Sea walnut) (Warty comb jellyfish)
+UP000663879_104777	UP000663879	104777	eukaryota	Rotifera	Brachionus	23528	60	Brachionus calyciflorus
+UP000011083_1257118	UP000011083	1257118	eukaryota	Discosea	Acanthamoeba	14938	61	Acanthamoeba castellanii (strain ATCC 30010 / Neff)
+UP000355283_1027361	UP000355283	1027361	eukaryota	Eustigmatophyceae	Microchloropsis	8809	62	Nannochloropsis salina CCMP1776
+UP001439008_126728	UP001439008	126728	eukaryota	Endomyxa	Bonamia	4935	63	Bonamia ostreae
+UP000078046_1819745	UP000078046	1819745	eukaryota	Orthonectida	Intoshia	8720	64	Intoshia linei
+UP000695562_133409	UP000695562	133409	eukaryota	Evosea	Polysphondylium	10561	65	Polysphondylium violaceum
+UP000831156_647221	UP000831156	647221	eukaryota	Apicomplexa	Plasmodium	5123	66	Plasmodium gaboni
+UP000274822_994334	UP000274822	994334	eukaryota	Mucoromycota	Jimgerdemannia	13318	67	Jimgerdemannia flammicorona
+UP000030755_988480	UP000030755	988480	eukaryota	Rozellomycota	Rozella	6337	68	Rozella allomycis (strain CSF55)
+UP000503349_215402	UP000503349	215402	eukaryota	Chordata	Channa	22264	69	Channa argus (Northern snakehead) (Ophicephalus argus)
+UP000078348_478820	UP000078348	478820	eukaryota	Bigyra	Blastocystis	6377	70	Blastocystis sp. subtype 1 (strain ATCC 50177 / NandII)
+UP000186922_947166	UP000186922	947166	eukaryota	Tardigrada	Ramazzottius	22940	71	Ramazzottius varieornatus (Water bear) (Tardigrade)
+UP000747399_51714	UP000747399	51714	eukaryota	Chlorophyta	Volvox	9959	72	Volvox africanus
+UP000094336_984486	UP000094336	984486	eukaryota	Ascomycota	Babjeviella	6393	73	Babjeviella inositovora NRRL Y-12698
+UP000267029_53468	UP000267029	53468	eukaryota	Platyhelminthes	Mesocestoides	10572	74	Mesocestoides corti (Flatworm)
+UP000193719_1754191	UP000193719	1754191	eukaryota	Neocallimastigomycota	Piromyces	10768	75	Piromyces finnis
+UP001724931_13268	UP001724931	13268	eukaryota	Mollusca	Solemya	18903	76	Solemya velum (Atlantic awningclam)
+UP000007879_400682	UP000007879	400682	eukaryota	Porifera	Amphimedon	20174	77	Amphimedon queenslandica (Sponge)
+UP000001357_81824	UP000001357	81824	eukaryota	Choanoflagellata	Monosiga	9156	78	Monosiga brevicollis (Choanoflagellate)
+UP001208570_53620	UP001208570	53620	eukaryota	Annelida	Paralvinella	24621	79	Paralvinella palmiformis
+UP001249851_6130	UP001249851	6130	eukaryota	Cnidaria	Acropora	27986	80	Acropora cervicornis (Staghorn coral)
+UP000751190_2081491	UP000751190	2081491	eukaryota	Haptophyta	Diacronema	14328	81	Diacronema lutheri (Unicellular marine alga) (Monochrysis lutheri)
+UP000054350_578462	UP000054350	578462	eukaryota	Blastocladiomycota	Allomyces	18611	82	Allomyces macrogynus (strain ATCC 38327) (Allomyces javanicus var. macrogynus)
+UP000267251_1907219	UP000267251	1907219	eukaryota	Zoopagomycota	Piptocephalis	4271	83	Piptocephalis cylindrospora
+UP000039865_5949	UP000039865	5949	eukaryota	Ciliophora	Stylonychia	20720	84	Stylonychia lemnae (Ciliate)
+UP001230188_2483200	UP001230188	2483200	eukaryota	Pelagophyceae	Chrysophaeum	10575	85	Chrysophaeum taylorii
+UP000655588_561572	UP000655588	561572	eukaryota	Arthropoda	Frieseomelitta	10354	86	Frieseomelitta varia
+UP000019132_431595	UP000019132	431595	eukaryota	Oomycota	Globisporangium	15121	87	Globisporangium ultimum (strain ATCC 200006 / CBS 805.95 / DAOM BR144) (Pythium ultimum)
+UP000030680_130081	UP000030680	130081	eukaryota	Rhodophyta	Galdieria	6602	88	Galdieria sulphuraria (Red alga)
+UP000054549_946122	UP000054549	946122	eukaryota	Basidiomycota	Amanita	17947	89	Amanita muscaria (strain Koide BX008)
+UP000006671_5762	UP000006671	5762	eukaryota	Heterolobosea	Naegleria	15634	90	Naegleria gruberi (Amoeba)
+UP000738325_979702	UP000738325	979702	eukaryota	Mortierellomycota	Dissophora	10385	91	Dissophora globulifera
+UP000011185_72359	UP000011185	72359	eukaryota	Microsporidia	Trachipleistophora	3212	92	Trachipleistophora hominis (Microsporidian parasite)
+UP001530293_259834	UP001530293	259834	eukaryota	Bacillariophyta	Discostella	10378	93	Discostella pseudostelligera
+UP001057375_2918883	UP001057375	2918883	eukaryota	Fornicata	Aduncisulcus	14470	94	Aduncisulcus paluster
+UP001140087_1286919	UP001140087	1286919	eukaryota	Kickxellomycota	Coemansia	7109	95	Coemansia helicoidea
+UP000015354_28005	UP000015354	28005	eukaryota	Euglenozoa	Strigomonas	9986	96	Strigomonas culicis
+UP001211907_109957	UP001211907	109957	eukaryota	Chytridiomycota	Physocladia	12780	97	Physocladia obscura
+UP000276991_6277	UP000276991	6277	eukaryota	Nematoda	Acanthocheilonema	10007	98	Acanthocheilonema viteae (Filarial nematode worm) (Dipetalonema viteae)
+UP000789405_1348616	UP000789405	1348616	eukaryota	Glomeromycota	Dentiscutata	28754	99	Dentiscutata erythropus

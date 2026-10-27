@@ -172,3 +172,21 @@ checksum manifests are kept next to the data (paths given); key checksums are li
 - **Leakage:** OMA (and thus every OMAmer DB and the OMA browser HOGs) contains all 12 OrthoBench species, and the HOGs were
   inferred from (newer versions of) these proteomes. Neither OMA comparator is independent of the benchmark input;
   OrthoBench RefOGs themselves are not derived from OMA.
+
+## 15. Scalability set (UniProt reference proteomes, release 2026_03)
+- **Purpose:** runtime/memory scaling only (no accuracy benchmark). 1,000 reference proteomes, nested subsets of 125/250/500/1000.
+- **Source:** https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/{Bacteria,Archaea,Eukaryota}/<UPID>/<UPID>_<taxid>.fasta.gz
+  (canonical, one protein per gene). **Release:** UniProt 2026_03 (README dated 2026-09-03; "Release 2026_03, 02-Sep-2026"). **Downloaded:** 2026-10-27 (`data/scale1000/download_date.txt`).
+  Proteome list/sizes from the same directory's `README` (saved as `data/scale1000/README_refprot`, md5 `e442d51330199a402ca7f646da913bf5`).
+  **Naming:** stem = `UPxxxxxxxxx_<taxid>` (as the QfO inputs); files kept gzipped as `*.fasta.gz` (the pipeline reads `.gz`, species = stem).
+- **License:** UniProt, CC BY 4.0.
+- **Selection rule** (`scripts/scale1000_select.py`, `random.Random(11)`): per domain, eligible = #canonical entries in [1000, 40000] (Bacteria), [700, 40000] (Archaea),
+  [3000, 30000] (Eukaryota). One proteome per genus (NCBI taxdump genus; seeded random pick among members); genera grouped by phylum (fallback class/kingdom/order); phyla visited
+  round-robin in seeded random order, one genus per phylum per cycle, until quota 800/100/100 is filled (bacteria: 65 phyla; archaea: 10; eukaryota: 66 groups).
+  `rank_in_domain` in `data/scale1000/selection.tsv` gives the order; subset n takes the first q of each domain, so subsets are nested and phylum-balanced:
+  125 = 100/12/13, 250 = 200/25/25, 500 = 400/50/50, 1000 = 800/100/100 (Bacteria/Archaea/Eukaryota).
+- **Files:** `data/scale1000/proteomes/` (1000 files, 742 MB gz, all `gzip -t` OK; no duplicate protein IDs across proteomes), `selection.tsv`, `subsets/n{125,250,500,1000}.txt`
+  (copied to `results/scaling_large/subsets/`), `trees/ncbi_n*.nwk` (NCBI-taxdump guide trees, `scripts/scale1000_trees.py`, copied to `results/scaling_large/trees/`),
+  `proteome_stats.tsv`, `subset_totals.tsv`. **md5 manifest:** `data/scale1000/md5sums.txt` (1000 gz files; copy in `results/scaling_large/subsets/`).
+- **Totals** (`scripts/scale1000_stats.py`): 125 -> 523,225 proteins / 190.95 M residues; 250 -> 1,082,777 / 395.71 M; 500 -> 2,257,658 / 831.24 M; 1000 -> 4,751,551 / 1,746.62 M (largest proteome 28,993 proteins).
+- **Check:** `ancestra.io.load_proteomes` on the directory (35 s, 2.6 GB RSS) and `load_guide_tree` on each tree accept the set (leaves = file stems; internal nodes clade-named; max 24 children).
