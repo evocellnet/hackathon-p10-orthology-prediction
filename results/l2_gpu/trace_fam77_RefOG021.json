@@ -1,0 +1,559 @@
+{
+ "family": 77,
+ "family_size": 4056,
+ "refog": "RefOG021",
+ "n_ref_in_family": 121,
+ "runs": {
+  "../gpuv2/diagA_cpu_norescue/stages/scores/scores.npz": {
+   "n_pairs": 452827,
+   "per_node": {
+    "Clupeocephala": {
+     "n_ref": 20,
+     "units_in": 20,
+     "units_out": 14
+    },
+    "Murinae": {
+     "n_ref": 32,
+     "units_in": 32,
+     "units_out": 19
+    },
+    "Homininae": {
+     "n_ref": 34,
+     "units_in": 34,
+     "units_out": 21
+    },
+    "Euarchontoglires": {
+     "n_ref": 66,
+     "units_in": 40,
+     "units_out": 22
+    },
+    "Boreoeutheria": {
+     "n_ref": 78,
+     "units_in": 34,
+     "units_out": 26
+    },
+    "Theria": {
+     "n_ref": 91,
+     "units_in": 39,
+     "units_out": 27
+    },
+    "Amniota": {
+     "n_ref": 101,
+     "units_in": 37,
+     "units_out": 25
+    },
+    "Euteleostomi": {
+     "n_ref": 121,
+     "units_in": 39,
+     "units_out": 20
+    },
+    "Chordata": {
+     "n_ref": 121,
+     "units_in": 20,
+     "units_out": 1
+    },
+    "Bilateria": {
+     "n_ref": 121,
+     "units_in": 1,
+     "units_out": 1
+    }
+   },
+   "root_parts": [
+    121
+   ],
+   "stats": {
+    "Clupeocephala": {
+     "n_units": 928,
+     "n_mb": 347,
+     "r1_unions": 314,
+     "r1_blocked": 22,
+     "r2_absorbed": 65,
+     "r3_repaired": 6,
+     "tree_clusters": null,
+     "tree_changed": null,
+     "tree_too_big": null
+    },
+    "Murinae": {
+     "n_units": 669,
+     "n_mb": 330,
+     "r1_unions": 325,
+     "r1_blocked": 2,
+     "r2_absorbed": 3,
+     "r3_repaired": 0,
+     "tree_clusters": null,
+     "tree_changed": null,
+     "tree_too_big": null
+    },
+    "Homininae": {
+     "n_units": 785,
+     "n_mb": 399,
+     "r1_unions": 374,
+     "r1_blocked": 24,
+     "r2_absorbed": 10,
+     "r3_repaired": 1,
+     "tree_clusters": null,
+     "tree_changed": null,
+     "tree_too_big": null
+    },
+    "Euarchontoglires": {
+     "n_units": 741,
+     "n_mb": 306,
+     "r1_unions": 303,
+     "r1_blocked": 3,
+     "r2_absorbed": 22,
+     "r3_repaired": 4,
+     "tree_clusters": null,
+     "tree_changed": null,
+     "tree_too_big": null
+    },
+    "Boreoeutheria": {
+     "n_units": 736,
+     "n_mb": 283,
+     "r1_unions": 282,
+     "r1_blocked": 1,
+     "r2_absorbed": 14,
+     "r3_repaired": 4,
+     "tree_clusters": null,
+     "tree_changed": null,
+     "tree_too_big": null
+    },
+    "Theria": {
+     "n_units": 768,
+     "n_mb": 274,
+     "r1_unions": 270,
+     "r1_blocked": 4,
+     "r2_absorbed": 18,
+     "r3_repaired": 4,
+     "tree_clusters": null,
+     "tree_changed": null,
+     "tree_too_big": null
+    },
+    "Amniota": {
+     "n_units": 758,
+     "n_mb": 237,
+     "r1_unions": 230,
+     "r1_blocked": 7,
+     "r2_absorbed": 10,
+     "r3_repaired": 1,
+     "tree_clusters": null,
+     "tree_changed": null,
+     "tree_too_big": null
+    },
+    "Euteleostomi": {
+     "n_units": 1060,
+     "n_mb": 307,
+     "r1_unions": 293,
+     "r1_blocked": 13,
+     "r2_absorbed": 96,
+     "r3_repaired": 6,
+     "tree_clusters": 123,
+     "tree_changed": 98,
+     "tree_too_big": 1
+    },
+    "Chordata": {
+     "n_units": 682,
+     "n_mb": 164,
+     "r1_unions": 156,
+     "r1_blocked": 6,
+     "r2_absorbed": 93,
+     "r3_repaired": 2,
+     "tree_clusters": 63,
+     "tree_changed": 49,
+     "tree_too_big": 1
+    },
+    "Ecdysozoa": {
+     "n_units": 541,
+     "n_mb": 88,
+     "r1_unions": 88,
+     "r1_blocked": 0,
+     "r2_absorbed": 24,
+     "r3_repaired": 2,
+     "tree_clusters": 87,
+     "tree_changed": 42,
+     "tree_too_big": 0
+    },
+    "Bilateria": {
+     "n_units": 659,
+     "n_mb": 113,
+     "r1_unions": 109,
+     "r1_blocked": 3,
+     "r2_absorbed": 16,
+     "r3_repaired": 2,
+     "tree_clusters": null,
+     "tree_changed": null,
+     "tree_too_big": null
+    }
+   }
+  },
+  "../gpuv2/ob_gpusw_acc/stages/scores/scores.npz": {
+   "n_pairs": 775506,
+   "per_node": {
+    "Clupeocephala": {
+     "n_ref": 20,
+     "units_in": 20,
+     "units_out": 15
+    },
+    "Murinae": {
+     "n_ref": 32,
+     "units_in": 32,
+     "units_out": 18
+    },
+    "Homininae": {
+     "n_ref": 34,
+     "units_in": 34,
+     "units_out": 21
+    },
+    "Euarchontoglires": {
+     "n_ref": 66,
+     "units_in": 39,
+     "units_out": 21
+    },
+    "Boreoeutheria": {
+     "n_ref": 78,
+     "units_in": 33,
+     "units_out": 25
+    },
+    "Theria": {
+     "n_ref": 91,
+     "units_in": 38,
+     "units_out": 24
+    },
+    "Amniota": {
+     "n_ref": 101,
+     "units_in": 34,
+     "units_out": 26
+    },
+    "Euteleostomi": {
+     "n_ref": 121,
+     "units_in": 41,
+     "units_out": 17
+    },
+    "Chordata": {
+     "n_ref": 121,
+     "units_in": 17,
+     "units_out": 3
+    },
+    "Bilateria": {
+     "n_ref": 121,
+     "units_in": 3,
+     "units_out": 3
+    }
+   },
+   "root_parts": [
+    91,
+    28,
+    2
+   ],
+   "stats": {
+    "Clupeocephala": {
+     "n_units": 928,
+     "n_mb": 342,
+     "r1_unions": 307,
+     "r1_blocked": 24,
+     "r2_absorbed": 72,
+     "r3_repaired": 6,
+     "tree_clusters": null,
+     "tree_changed": null,
+     "tree_too_big": null
+    },
+    "Murinae": {
+     "n_units": 669,
+     "n_mb": 333,
+     "r1_unions": 327,
+     "r1_blocked": 1,
+     "r2_absorbed": 4,
+     "r3_repaired": 3,
+     "tree_clusters": null,
+     "tree_changed": null,
+     "tree_too_big": null
+    },
+    "Homininae": {
+     "n_units": 785,
+     "n_mb": 398,
+     "r1_unions": 373,
+     "r1_blocked": 24,
+     "r2_absorbed": 11,
+     "r3_repaired": 1,
+     "tree_clusters": null,
+     "tree_changed": null,
+     "tree_too_big": null
+    },
+    "Euarchontoglires": {
+     "n_units": 735,
+     "n_mb": 306,
+     "r1_unions": 304,
+     "r1_blocked": 2,
+     "r2_absorbed": 22,
+     "r3_repaired": 3,
+     "tree_clusters": null,
+     "tree_changed": null,
+     "tree_too_big": null
+    },
+    "Boreoeutheria": {
+     "n_units": 730,
+     "n_mb": 286,
+     "r1_unions": 283,
+     "r1_blocked": 3,
+     "r2_absorbed": 14,
+     "r3_repaired": 4,
+     "tree_clusters": null,
+     "tree_changed": null,
+     "tree_too_big": null
+    },
+    "Theria": {
+     "n_units": 761,
+     "n_mb": 271,
+     "r1_unions": 267,
+     "r1_blocked": 4,
+     "r2_absorbed": 23,
+     "r3_repaired": 3,
+     "tree_clusters": null,
+     "tree_changed": null,
+     "tree_too_big": null
+    },
+    "Amniota": {
+     "n_units": 750,
+     "n_mb": 237,
+     "r1_unions": 226,
+     "r1_blocked": 10,
+     "r2_absorbed": 7,
+     "r3_repaired": 6,
+     "tree_clusters": null,
+     "tree_changed": null,
+     "tree_too_big": null
+    },
+    "Euteleostomi": {
+     "n_units": 1054,
+     "n_mb": 310,
+     "r1_unions": 300,
+     "r1_blocked": 10,
+     "r2_absorbed": 87,
+     "r3_repaired": 9,
+     "tree_clusters": 113,
+     "tree_changed": 100,
+     "tree_too_big": 1
+    },
+    "Chordata": {
+     "n_units": 669,
+     "n_mb": 163,
+     "r1_unions": 156,
+     "r1_blocked": 4,
+     "r2_absorbed": 85,
+     "r3_repaired": 2,
+     "tree_clusters": 64,
+     "tree_changed": 53,
+     "tree_too_big": 2
+    },
+    "Ecdysozoa": {
+     "n_units": 541,
+     "n_mb": 84,
+     "r1_unions": 84,
+     "r1_blocked": 0,
+     "r2_absorbed": 31,
+     "r3_repaired": 2,
+     "tree_clusters": 78,
+     "tree_changed": 65,
+     "tree_too_big": 1
+    },
+    "Bilateria": {
+     "n_units": 561,
+     "n_mb": 111,
+     "r1_unions": 107,
+     "r1_blocked": 4,
+     "r2_absorbed": 30,
+     "r3_repaired": 4,
+     "tree_clusters": null,
+     "tree_changed": null,
+     "tree_too_big": null
+    }
+   }
+  },
+  "../l2gpu/tables/ob_X2_gpu_cpuself.npz": {
+   "n_pairs": 775506,
+   "per_node": {
+    "Clupeocephala": {
+     "n_ref": 20,
+     "units_in": 20,
+     "units_out": 14
+    },
+    "Murinae": {
+     "n_ref": 32,
+     "units_in": 32,
+     "units_out": 19
+    },
+    "Homininae": {
+     "n_ref": 34,
+     "units_in": 34,
+     "units_out": 21
+    },
+    "Euarchontoglires": {
+     "n_ref": 66,
+     "units_in": 40,
+     "units_out": 22
+    },
+    "Boreoeutheria": {
+     "n_ref": 78,
+     "units_in": 34,
+     "units_out": 26
+    },
+    "Theria": {
+     "n_ref": 91,
+     "units_in": 39,
+     "units_out": 26
+    },
+    "Amniota": {
+     "n_ref": 101,
+     "units_in": 36,
+     "units_out": 27
+    },
+    "Euteleostomi": {
+     "n_ref": 121,
+     "units_in": 41,
+     "units_out": 29
+    },
+    "Chordata": {
+     "n_ref": 121,
+     "units_in": 29,
+     "units_out": 8
+    },
+    "Bilateria": {
+     "n_ref": 121,
+     "units_in": 8,
+     "units_out": 7
+    }
+   },
+   "root_parts": [
+    93,
+    10,
+    8,
+    6,
+    2,
+    1,
+    1
+   ],
+   "stats": {
+    "Clupeocephala": {
+     "n_units": 928,
+     "n_mb": 346,
+     "r1_unions": 312,
+     "r1_blocked": 23,
+     "r2_absorbed": 73,
+     "r3_repaired": 8,
+     "tree_clusters": null,
+     "tree_changed": null,
+     "tree_too_big": null
+    },
+    "Murinae": {
+     "n_units": 669,
+     "n_mb": 327,
+     "r1_unions": 324,
+     "r1_blocked": 1,
+     "r2_absorbed": 3,
+     "r3_repaired": 2,
+     "tree_clusters": null,
+     "tree_changed": null,
+     "tree_too_big": null
+    },
+    "Homininae": {
+     "n_units": 785,
+     "n_mb": 401,
+     "r1_unions": 376,
+     "r1_blocked": 24,
+     "r2_absorbed": 7,
+     "r3_repaired": 1,
+     "tree_clusters": null,
+     "tree_changed": null,
+     "tree_too_big": null
+    },
+    "Euarchontoglires": {
+     "n_units": 741,
+     "n_mb": 303,
+     "r1_unions": 300,
+     "r1_blocked": 3,
+     "r2_absorbed": 26,
+     "r3_repaired": 4,
+     "tree_clusters": null,
+     "tree_changed": null,
+     "tree_too_big": null
+    },
+    "Boreoeutheria": {
+     "n_units": 735,
+     "n_mb": 283,
+     "r1_unions": 280,
+     "r1_blocked": 3,
+     "r2_absorbed": 14,
+     "r3_repaired": 6,
+     "tree_clusters": null,
+     "tree_changed": null,
+     "tree_too_big": null
+    },
+    "Theria": {
+     "n_units": 767,
+     "n_mb": 268,
+     "r1_unions": 265,
+     "r1_blocked": 3,
+     "r2_absorbed": 17,
+     "r3_repaired": 2,
+     "tree_clusters": null,
+     "tree_changed": null,
+     "tree_too_big": null
+    },
+    "Amniota": {
+     "n_units": 765,
+     "n_mb": 238,
+     "r1_unions": 228,
+     "r1_blocked": 9,
+     "r2_absorbed": 8,
+     "r3_repaired": 4,
+     "tree_clusters": null,
+     "tree_changed": null,
+     "tree_too_big": null
+    },
+    "Euteleostomi": {
+     "n_units": 1060,
+     "n_mb": 313,
+     "r1_unions": 298,
+     "r1_blocked": 14,
+     "r2_absorbed": 89,
+     "r3_repaired": 6,
+     "tree_clusters": null,
+     "tree_changed": null,
+     "tree_too_big": null
+    },
+    "Chordata": {
+     "n_units": 862,
+     "n_mb": 175,
+     "r1_unions": 167,
+     "r1_blocked": 4,
+     "r2_absorbed": 120,
+     "r3_repaired": 3,
+     "tree_clusters": 85,
+     "tree_changed": 77,
+     "tree_too_big": 2
+    },
+    "Ecdysozoa": {
+     "n_units": 541,
+     "n_mb": 82,
+     "r1_unions": 82,
+     "r1_blocked": 0,
+     "r2_absorbed": 39,
+     "r3_repaired": 3,
+     "tree_clusters": 77,
+     "tree_changed": 63,
+     "tree_too_big": 1
+    },
+    "Bilateria": {
+     "n_units": 670,
+     "n_mb": 113,
+     "r1_unions": 112,
+     "r1_blocked": 1,
+     "r2_absorbed": 30,
+     "r3_repaired": 6,
+     "tree_clusters": null,
+     "tree_changed": null,
+     "tree_too_big": null
+    }
+   }
+  }
+ }
+}
