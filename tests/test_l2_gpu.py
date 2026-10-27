@@ -76,3 +76,12 @@ def test_fasttree_batch_equals_single(tmp_path):
     single = run_fasttree_jobs(jobs, 2, 0)
     batched = run_fasttree_jobs(jobs, 2, 4)
     assert single == batched
+
+
+def test_mutual_topk():
+    q, t, b, selfb, sp = _toy()
+    m = sparsify_mask(q, t, b, selfb, sp, "mtopk:1")
+    e = sparsify_mask(q, t, b, selfb, sp, "topk:1")
+    assert (m <= e).all()
+    got = {(int(a), int(c)) for a, c, k in zip(q, t, m) if k}
+    assert (0, 2) in got and (1, 3) in got and (0, 3) not in got

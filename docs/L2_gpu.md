@@ -86,3 +86,15 @@ AFDB 3Di (93.6 % coverage) and reported as such.
 
 **Order:** task 1 first (no GPU needed: post-hoc transforms of existing GPU tables), task 2 in parallel on CPU,
 task 3 after.
+
+### 0.4 Deviation log
+- **D1 (19:25 CET, after the first five OrthoBench task-1 arms and the RefOG021 trace were seen; logged before running
+  any of the arms below).** All five pre-registered OrthoBench arms fail E1 (§2). The trace (§2.2) shows the
+  loss is not "weak edges diluting strong decisions" in general (top-39 removes 10.2 M of 24.1 M big-family pairs and
+  changes nothing) but the uneven *presence* of pairs between multi-gene units. Round 2 adds, under the same
+  equivalence rule and selection rule as §0.1:
+  - **MK39**: mutual top-39 per (query, target species) (both directions must keep the pair);
+  - **Pareto splices SP3000 / SP5000**: GPU table for families ≤ T genes, DIAMOND (CPU pass-1) table for larger
+    families, no cross-family rescue (a conservative stand-in for `gpusw` with `gpu_max_family = T`; cost estimated
+    from measured DIAMOND block times, stated as an estimate).
+  QfO runs of the round-1 arms continue unchanged (they were queued before any result was seen).

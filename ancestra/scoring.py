@@ -557,6 +557,7 @@ def _backend_gpusw(gt: GeneTable, fam: np.ndarray, cfg: ScoringConfig, wd: str, 
 def sparsify_mask(q, t, bits, self_bits, species_of, spec: str):
     """L2 (docs/L2_gpu.md): keep-mask over undirected non-self pairs (q, t) of one exhaustive graph.
     A pair is kept if either direction keeps it. ``spec``:
+    ``mtopk:K`` as topk, but both directions must keep the pair (mutual);
     ``topk:K``  rank < K among the query's hits to the partner's species (bits desc, ties by partner id);
     ``ratio:A`` bits >= A * best bits of the query to the partner's species;
     ``norm:X``  bits / max(self_q, self_t) >= X (self-normalised floor);
@@ -568,7 +569,7 @@ def sparsify_mask(q, t, bits, self_bits, species_of, spec: str):
     if kind == "rand":
         rng = np.random.default_rng(int(par[1]))
         return rng.random(m) < float(par[0])
-    if kind not in ("topk", "ratio"):
+    if kind not in ("topk", "mtopk", "ratio"):
         raise ValueError(f"unknown gpu_sparsify {spec!r}")
     dq = np.concatenate([q, t]).astype(np.int64)
     dt = np.concatenate([t, q]).astype(np.int64)
@@ -580,8 +581,10 @@ def sparsify_mask(q, t, bits, self_bits, species_of, spec: str):
     gid = np.cumsum(start) - 1
     first = np.flatnonzero(start)
     keep_d = np.empty(2 * m, bool)
-    if kind == "topk":
+    if kind in ("topk", "mtopk"):
         keep_d[order] = (np.arange(len(order)) - first[gid]) < int(par[0])
+        if kind == "mtopk":                       # mutual: both directions must keep the pair
+            return keep_d[:m] & keep_d[m:]
     else:
         keep_d[order] = db[order] >= float(par[0]) * db[order][first][gid]
     return keep_d[:m] | keep_d[m:]
