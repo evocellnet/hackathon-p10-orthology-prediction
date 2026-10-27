@@ -10,7 +10,7 @@ The output is hierarchical orthologous groups (HOGs) in OrthoXML, plus pairs. Th
 ![method](figures/fig1_method.png)
 
 ## In a nutshell
-- **OrthoBench test** (36 held-out RefOGs, one-time evaluation): Ancestra `accurate` scores **F 76.2** against OrthoFinder 3.2 at 69.7 and SonicParanoid2 at 70.4, using **3.9 vs 8.2 CPU-h**. The pre-registered non-inferiority rule is **not met**: the 95% CI is too wide, Δ vs OrthoFinder +6.5 [−6.5, +18.1].
+- **OrthoBench test** (36 held-out RefOGs, one-time evaluation): Ancestra `accurate` scores **F 76.2** against OrthoFinder 3.2 at 69.7 and SonicParanoid2 at 70.4, using **3.9 vs 8.2 CPU-h**. The pre-registered non-inferiority rule is **not met** against OrthoFinder: the 95% CI is too wide, Δ +6.5 [−6.5, +18.1]. Against the **OMA browser HOGs** (All.May2026, precomputed; OMA contains all 12 species) Ancestra is **+15.7 [+1.8, +29.2]** F (OMA 60.4: P 88.9, R 45.8). FastOMA 0.5.1 on OrthoBench is invalidated by a gene-dropping bug in its group splitting (diagnosed; a patched re-run is pending).
 - **QfO 2022** (78 species, ~1M proteins; the full official suite run locally):
   - Ancestra is **non-inferior to FastOMA and OMA Pairs** on TreeFam-A test recall.
   - It is **clearly below OrthoFinder** on recall: TreeFam-A −0.16, SwissTree −0.10.
@@ -28,4 +28,4 @@ The output is hierarchical orthologous groups (HOGs) in OrthoXML, plus pairs. Th
 
 **Honesty notes.** 18 protocol deviations are listed in `docs/DISCLOSURES.md`. Among them, the TreeFam-A dev split was created after the first QfO peek, and OrthoBench dev was reused heavily, so dev numbers are optimistic. Every key number was recomputed by an independent agent (`docs/VERIFICATION.md`).
 
-**Not finished at pause:** the corrected FastOMA and OMA-browser OrthoBench comparators (requested by the user), FastOMA scaling runs, and the 125–1000-proteome scalability demo (data ready, runs not started). Next steps are in `RESUME.md`.
+**Not finished at pause:** the patched-FastOMA OrthoBench run (~90% done), FastOMA scaling runs, and the 125–1000-proteome scalability demo (data ready, runs not started). Next steps are in `RESUME.md`.

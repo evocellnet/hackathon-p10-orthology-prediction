@@ -68,6 +68,10 @@ def fig_bench():
         off = {"Ancestra accurate": (1.06, 3.0), "Ancestra fast": (0.62, -3.6), "SonicParanoid2": (1.06, -3.4)}
         mx, dy = off.get(name, (1.06, 1.8))
         ax.text(cpu * mx, f + dy, name, fontsize=8, color=INK, va="center")
+    # OMA browser HOGs (All.May2026; precomputed, no CPU cost to plot) as a reference line.
+    # Source: bench_repo/results/orthobench_competitors/oma_browser/score.json
+    ax.axhline(60.4, color=OMA, lw=1.5, ls="--", zorder=1)
+    ax.text(14.5, 61.6, "OMA browser HOGs\n(precomputed) 60.4", fontsize=7.5, color=INK)
     ax.set_xscale("log"); ax.set_xlim(1.2, 40); ax.set_ylim(25, 85)
     from matplotlib.ticker import FixedLocator, NullLocator, FixedFormatter
     ax.xaxis.set_major_locator(FixedLocator([2, 5, 10, 20])); ax.xaxis.set_major_formatter(FixedFormatter(["2", "5", "10", "20"]))
@@ -75,7 +79,7 @@ def fig_bench():
     ax.set_xlabel("CPU-hours (OrthoBench, 251k proteins)"); ax.set_ylabel("OrthoBench test F (36 RefOGs)")
     ax.set_title("a  OrthoBench test: accuracy vs cost", loc="left", fontsize=10, color=INK)
     ax.grid(color=GRID, lw=0.6); ax.set_axisbelow(True)
-    ax.text(1.25, 27, "Δ vs OrthoFinder +6.5 F [95% CI −6.5, +18.1]\n*FastOMA run flagged (export/DB issues; re-run pending)",
+    ax.text(1.25, 27, "Δ vs OrthoFinder +6.5 F [95% CI −6.5, +18.1]\n*FastOMA 0.5.1 drops 5.5k genes in group splitting (bug); patched re-run pending",
             fontsize=7.2, color=MUTED)
     # (b) QfO TreeFam-A Pareto. Source: results/qfo_final/pareto_data.tsv
     ax = axs[1]
