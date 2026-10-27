@@ -44,9 +44,13 @@ def parse_domtbl(path: str, clans: dict | None = None, max_overlap: float = 0.5,
             f = line.split()
             if len(f) < 22:
                 continue
-            prot, acc = f[0], f[4].split(".")[0]
-            ie = float(f[12])
-            s, e = int(f[19]), int(f[20])      # envelope coordinates
+            try:
+                prot, acc = f[0], f[4].split(".")[0]
+                ie = float(f[12])
+                s, e = int(f[19]), int(f[20])      # envelope coordinates
+            except ValueError:                     # truncated line (file still being written)
+                parse_domtbl.n_bad = getattr(parse_domtbl, "n_bad", 0) + 1
+                continue
             hits.setdefault(prot, []).append((ie, s, e, acc))
     out = {}
     for prot, hs in hits.items():

@@ -94,3 +94,65 @@ order (OG-F 79.69 / macro pair F1 0.8064 reference).
 Domain-level re-scoring of pairs on shared domains only (idea 4) and architecture-aware S0 splitting (idea 3, S0
 side) are not run in this round (cost; listed in §8). TED/CATH domains are not used (Pfam covers the needed
 proteins at lower cost; listed in §8).
+
+## 1. Data
+
+| source | URL | version | retrieved | licence | md5 |
+|---|---|---|---|---|---|
+| Pfam-A HMMs | https://ftp.ebi.ac.uk/pub/databases/Pfam/current_release/Pfam-A.hmm.gz | Pfam 38.2 (06/2026; 30,134 families; built on UniProtKB reference proteomes 2025_03) | 2026-10-27 | CC0 1.0 | 7ab3c4e215d0daaea3004e37c4e24f8a (gz; matches the release `md5_checksums`); uncompressed 589ccc8370eaf079022db0dbb25c8aa2 |
+| Pfam-A clans | .../current_release/Pfam-A.clans.tsv.gz | 38.2 | 2026-10-27 | CC0 1.0 | a70eeffcd8105ff094ea5834456d8bab |
+| Pfam-A.hmm.dat | .../current_release/Pfam-A.hmm.dat.gz | 38.2 | 2026-10-27 | CC0 1.0 | aab364689372b1846e8e880976e7f750 |
+
+Local copies in `data/extra/l2_domains/` (gitignored). Annotation: `scripts/L2d_hmmsearch.sh` (hmmsearch 3.4,
+`--cut_ga --noali --domtblout`, single-thread processes over sequence chunks).
+- Stage 1 (OrthoBench dev families 58,130 + TreeFam-A dev genes 3,581 = 61,711 proteins, 41 M residues): 30 min wall,
+  4.9 CPU-h (8 processes). 59,655 proteins (96.7%) have ≥ 1 GA hit; 56,108 of the 58,130 OrthoBench family
+  proteins (96.5%) and 3,547 of 3,581 TreeFam-A dev genes (99.1%) have an architecture after overlap resolution.
+- Stage 2 (QfO S0 families holding a TreeFam-A dev gene, 442,858 further proteins, 228 M residues): run after the
+  standalone gate passed (§2), 6 processes; cost in §6.
+- Not used: the SonicParanoid2-bundled MMseqs2 Pfam 35 profile DB (a 500-protein test gave implausible hit lists;
+  not debugged), the InterPro REST API (no per-proteome location download; QfO 2022 sequences may differ from current
+  UniProt), TED/CATH (not needed once Pfam covered > 96% of the proteins).
+
+## 2. Step (a): standalone signal (`results/l2_domains/standalone.json`, `scripts/L2d_standalone.py`)
+
+J = Jaccard of clan sets; ident = identical collapsed ordered architecture. AUC CI = bootstrap over RefOGs
+(OrthoBench) or TreeFam families (B=1000, seed 11). Shuffled = architectures permuted among annotated genes of the
+same species (seeds 11/23/47); "fam-shuffled" = within species × S0 family (a weak null: species × family groups
+with one annotated gene are not permuted, so part of the real signal survives it).
+
+| set | pairs (orth) | coverage | AUC J [95% CI] | AUC ident | shuffled J (11/23/47) | fam-shuffled J | AUC seq (same pairs) |
+|---|---|---|---|---|---|---|---|
+| OB dev, all labelled pairs (within-RefOG + deep paralogs) | 25,712 (4,393) | 0.981 | 0.688 [0.599, 0.814] | 0.638 | 0.497 / 0.496 / 0.498 | 0.614 / 0.626 / 0.626 | 0.844 |
+| OB dev, all, **hard** | 6,990 (917) | | **0.637 [0.547, 0.738]** | 0.592 | 0.501 / 0.496 / 0.490 | 0.556 / 0.572 / 0.581 | 0.743 |
+| OB dev, within-RefOG only | 18,807 (4,393) | 0.982 | 0.542 [0.465, 0.704] | 0.530 | 0.497 / 0.496 / 0.498 | 0.568 / 0.579 / 0.584 | 0.801 |
+| OB dev, within-RefOG only, hard | 5,175 (887) | | 0.488 [0.446, 0.582] | 0.490 | 0.500 / 0.496 / 0.488 | 0.499 / 0.514 / 0.528 | 0.681 |
+| TreeFam-A dev, all reference pairs | 25,023 (13,729) | 0.985 | 0.493 [0.447, 0.552] | 0.497 | 0.501 / 0.500 / 0.498 | 0.449 / 0.442 / 0.447 | 0.616 |
+| TreeFam-A dev, hard | 4,658 (1,455) | | 0.498 [0.434, 0.572] | 0.499 | 0.505 / 0.497 / 0.495 | 0.480 / 0.476 / 0.474 | 0.444 |
+
+Mean J, orthologs vs paralogs: OB within-RefOG 0.900 vs 0.846 (hard 0.854 vs 0.858); OB deep paralogs pull the
+"all" paralog mean down to 0.600. TreeFam-A dev 0.876 vs 0.904 (paralogs slightly *more* similar).
+
+**Hard-query partner choice** (sequence top-1 vs `score × (1 + 0.3·J)` within 0.75 × best; Δ with bootstrap CI):
+
+| set | hard queries | seq top-1 | real Δ [95% CI] | shuffled Δ (11/23/47) |
+|---|---|---|---|---|
+| OB dev, all | 1,012 | 0.415 | +0.001 [−0.008, +0.011] | −0.014 / −0.006 / −0.008 |
+| OB dev, within-RefOG | 971 | 0.390 | +0.001 [−0.009, +0.012] | −0.014 / −0.006 / −0.008 |
+| TreeFam-A dev | 1,141 | 0.202 | +0.004 [−0.003, +0.016] | +0.004 / −0.004 / +0.001 |
+
+**Family-level signal (idea 3).** Same RefOG vs different RefOG of one homology component (OB dev, all labelled pairs):
+AUC J **0.979 [0.839, 0.995]** vs sequence 0.708; shuffled 0.501 / 0.498 / 0.499.
+
+**Reading.**
+1. The pre-registered gate (§0.3) passes on OrthoBench dev hard pairs (CI lower bound 0.547 > max shuffled 0.501),
+   so step (b) was run as pre-registered.
+2. But the signal is almost entirely **between RefOGs**: architecture separates distant paralogs from different
+   orthogroups (AUC 0.98), not orthologs from paralogs *inside* an orthogroup (within-RefOG AUC 0.54, hard 0.49;
+   TreeFam-A dev 0.49). Inside an orthogroup, orthologs and in-paralogs share the same architecture ~70–85% of the
+   time. This agrees with Forslund et al. (2011): orthologs and their closest paralogs have very similar architectures.
+3. Architecture adds nothing to sequence for partner choice (Δ top-1 +0.001, CI includes 0). Shuffled architectures
+   hurt (−0.006 to −0.014), so the real layer is neutral rather than harmful.
+4. Expectation for step (b), stated before any merge arm was run: H3 (re-ranking) should be null; H2/H4 can only act
+   through deep/between-orthogroup decisions; the primary metric (TreeFam-A dev pairs, all *within* TreeFam families)
+   is mostly blind to between-family fusions, so a null primary result is the most likely outcome.
