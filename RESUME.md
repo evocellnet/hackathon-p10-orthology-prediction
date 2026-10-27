@@ -1,4 +1,4 @@
-# RESUME.md — how to pick up this project (paused 2026-10-27 ~10:20 CET, T+19h40 of the original 48 h budget)
+# RESUME.md — how to pick up this project (paused 2026-10-27 10:10 CET, T+19h30 of the original 48 h budget)
 
 The user paused the project to move it to a **GPU node** and explore GPU speed-ups of the method. Everything is committed in git (root repo; the benchmark code is in the separate repo `bench_repo/`). No processes were left running.
 
@@ -58,4 +58,4 @@ The user paused the project to move it to a **GPU node** and explore GPU speed-u
 5. Milestone hygiene: update the RESEARCH_TREE status summary, prune LESSONS, and get a fresh-agent retrospective at each milestone (see `PROMPT.md`).
 
 ## 6. Clock
-`START.txt` holds the original start. If the user grants a new budget, rewrite START.txt or add a line, and use `scripts/clock.sh`. The original 48 h budget had 28h35m left at pause.
+`START.txt` holds the original start. If the user grants a new budget, rewrite START.txt or add a line, and use `scripts/clock.sh`. The original 48 h budget had 28h30m left at pause.

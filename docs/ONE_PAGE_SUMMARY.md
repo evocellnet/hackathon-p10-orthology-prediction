@@ -1,4 +1,4 @@
-# Ancestra — one-page summary (paused at T+19h40, 2026-10-27 ~10:20 CET)
+# Ancestra — one-page summary (paused at T+19h30, 2026-10-27 10:10 CET)
 
 **Ancestra** treats orthology as *level-synchronous ancestral-genome reconstruction inside de novo protein families*. It runs in three stages:
 1. **S0** partitions all proteins into families in near-linear time (DIAMOND clustering, then all genes vs representatives). No reference orthology database is used and there is no all-vs-all search.

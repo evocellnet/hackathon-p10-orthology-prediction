@@ -5,7 +5,7 @@ Clock: START.txt = 2026-10-26T14:40 CET; hard deadline 2026-10-28T14:40 CET (48 
 
 ## Status summary (latest first)
 
-### M4 — PAUSE, 2026-10-27 ~10:20 (T+19h40) — user request: move to a GPU node
+### M4 — PAUSE, 2026-10-27 10:10 (T+19h30) — user request: move to a GPU node
 The user asked to pause all work safely and resume on a GPU node to explore GPU speed-ups. Frozen method `freeze-v1` (presets accurate/fast). Final evaluations are done and independently verified: OrthoBench test F 76.2 vs OrthoFinder 69.7, SonicParanoid2 70.4 (non-inferiority not shown, CI too wide; 3.9 vs 8.2 CPU-h). On QfO 2022 Ancestra is non-inferior to FastOMA and OMA Pairs on TreeFam-A test recall and below OrthoFinder on recall; G-STD2-Euk is the worst of the main comparators. CPU scaling is about proteins^1.1 vs ^1.4–1.5 for competitors. Synteny/3Di/expression/isoform/gene-loss layers are all evaluated (synteny: strong standalone, no test-measurable gain in the merge).
 
 Interrupted at pause (resume notes in place): T1 OMA comparators on OrthoBench (user requirement), T2 FastOMA scaling, T3 large-scale 125–1000-proteome demo (data ready). **Resume from RESUME.md**; one-page summary at docs/ONE_PAGE_SUMMARY.md with figures in docs/figures/. Decision M4: GPU work goes to post-freeze v2 (new tag), evaluated on dev/new data only.
