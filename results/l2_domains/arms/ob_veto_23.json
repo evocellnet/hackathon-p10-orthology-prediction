@@ -1,0 +1,299 @@
+{
+ "bench": "ob",
+ "arm": "veto",
+ "shuffle": "23",
+ "stats": {
+  "arch_bonus": 0,
+  "arch_gate_added": 0,
+  "arch_veto": 40351,
+  "n_mb": 170866,
+  "r3_repaired": 35690,
+  "so_absorbed": 0
+ },
+ "OG_F": 72.41562646389332,
+ "OG_P": 65.15637770939004,
+ "OG_R": 81.49523119911602,
+ "exact": 10,
+ "pairP": 0.7669,
+ "pairR": 0.666,
+ "pairF1": 0.7129,
+ "per_refog": {
+  "RefOG002": [
+   39,
+   59,
+   0,
+   63
+  ],
+  "RefOG004": [
+   64,
+   1,
+   0,
+   0
+  ],
+  "RefOG005": [
+   154,
+   46,
+   2,
+   315
+  ],
+  "RefOG006": [
+   358,
+   35,
+   1,
+   632
+  ],
+  "RefOG007": [
+   156,
+   54,
+   14,
+   1209
+  ],
+  "RefOG008": [
+   76,
+   12,
+   0,
+   1
+  ],
+  "RefOG010": [
+   0,
+   1,
+   1,
+   0
+  ],
+  "RefOG013": [
+   1,
+   4,
+   2,
+   65
+  ],
+  "RefOG015": [
+   37,
+   46,
+   144,
+   36
+  ],
+  "RefOG019": [
+   50,
+   15,
+   2,
+   9
+  ],
+  "RefOG021": [
+   190,
+   224,
+   79,
+   6412
+  ],
+  "RefOG023": [
+   206,
+   127,
+   73,
+   1687
+  ],
+  "RefOG024": [
+   150,
+   77,
+   227,
+   700
+  ],
+  "RefOG028": [
+   70,
+   48,
+   7,
+   132
+  ],
+  "RefOG030": [
+   66,
+   10,
+   0,
+   1
+  ],
+  "RefOG033": [
+   88,
+   13,
+   24,
+   260
+  ],
+  "RefOG034": [
+   65,
+   51,
+   18,
+   60
+  ],
+  "RefOG035": [
+   115,
+   16,
+   0,
+   316
+  ],
+  "RefOG038": [
+   36,
+   0,
+   0,
+   0
+  ],
+  "RefOG043": [
+   51,
+   14,
+   35,
+   28
+  ],
+  "RefOG044": [
+   60,
+   27,
+   0,
+   1
+  ],
+  "RefOG045": [
+   46,
+   10,
+   20,
+   1
+  ],
+  "RefOG046": [
+   43,
+   19,
+   122,
+   222
+  ],
+  "RefOG048": [
+   40,
+   70,
+   88,
+   485
+  ],
+  "RefOG052": [
+   59,
+   14,
+   1,
+   22
+  ],
+  "RefOG054": [
+   183,
+   250,
+   18,
+   414
+  ],
+  "RefOG055": [
+   54,
+   94,
+   1,
+   171
+  ],
+  "RefOG057": [
+   84,
+   28,
+   0,
+   3
+  ],
+  "RefOG059": [
+   45,
+   0,
+   0,
+   0
+  ],
+  "RefOG061": [
+   86,
+   45,
+   0,
+   266
+  ],
+  "RefOG065": [
+   36,
+   9,
+   0,
+   0
+  ],
+  "RefOG066": [
+   65,
+   24,
+   0,
+   0
+  ],
+  "RefOG067": [
+   53,
+   24,
+   0,
+   0
+  ],
+  "RefOG068": [
+   161,
+   31,
+   29,
+   242
+  ]
+ },
+ "manifest": {
+  "git_commit": "562662300278a7a583d1605effe599847578e9a0",
+  "ancestra_dirty": false,
+  "argv": [
+   "work/l2_domains_wt/scripts/L2d_merge_arm.py",
+   "--bench",
+   "ob",
+   "--arm",
+   "veto",
+   "--shuffle",
+   "23",
+   "--domtbl",
+   "work/l2_domains/pfam_stage1/pfam.domtbl",
+   "--out",
+   "results/l2_domains/arms/ob_veto_23.json",
+   "--threads",
+   "2"
+  ],
+  "run": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/core_v0_ob/run_det",
+  "preset": "accurate",
+  "config": {
+   "link": "avg",
+   "score": "norm_max",
+   "tol": 0.95,
+   "inparalogs": true,
+   "inpar_factor": 1.0,
+   "inpar_rule": "ortholog",
+   "repair": true,
+   "repair_ratio": 0.9,
+   "min_cov": 0.0,
+   "min_score": 0.0,
+   "rd_hidden": false,
+   "rd_z": 3.0,
+   "rd_inpar": false,
+   "rd_inpar_factor": 1.0,
+   "engine": "numba",
+   "tree_mode": true,
+   "tree_tau": 0.9,
+   "tree_max_units": 60,
+   "tree_require_outgroup": true,
+   "tree_conservative": false,
+   "tree_nodes": "",
+   "tree_method": "fasttree",
+   "tree_min_d": 0.5,
+   "ctx_mode": "r1",
+   "ctx_window": 0.75,
+   "ctx_r3": true,
+   "ctx_veto": true,
+   "ctx_veto_min": 2.0,
+   "locus_repair": false,
+   "locus_single_species": true,
+   "locus_min_support": 1.0,
+   "deep_min_d": 1.5,
+   "deep_so_absorb": true,
+   "orphan_min": 0.0,
+   "orphan_merge": "off",
+   "arch_mode": "veto"
+  },
+  "off_tree_method": "nj",
+  "synteny": {
+   "mode": "multiplicative",
+   "lam": 0.3,
+   "anchor": "core",
+   "w": 10
+  },
+  "domtbl": [
+   "work/l2_domains/pfam_stage1/pfam.domtbl"
+  ],
+  "n_annotated": 56108,
+  "merge_s": 2046.1,
+  "wall_s": 2056.6,
+  "cpu_s": 4027.5
+ }
+}
