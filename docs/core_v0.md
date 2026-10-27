@@ -583,7 +583,7 @@ The NJ off pass is within noise by the PI's rule (ΔOG-F −0.67 > −1, Δmacro
 | A7 deep tol 0.85 | 0.6347 (+0.026) | 0.8964 (−0.027) | 79.69 | fail |
 | **A8 deep so_absorb** | **0.6163** (+0.008) | **0.9198** (−0.003) | 79.69 | **pass → adopted** |
 
-**Adopted.** Both presets now set `so_struct=True`, `deep_min_d=1.5` and `deep_so_absorb=True`. A plain `--preset fast` QfO rerun reproduces A8 (`results/core_v0_qfo/runs.tsv`, label `A8check`).
+**Adopted (superseded for `accurate` in §7.14).** Both presets set `so_struct=True`, `deep_min_d=1.5` and `deep_so_absorb=True`; after the accurate re-check, `accurate` keeps only the deep absorption. A plain `--preset fast` QfO rerun reproduces A8 (`results/core_v0_qfo/runs.tsv`, label `A8check`).
 
 **Remaining FN, winner A8** (TreeFam-A DEV speciation pairs not predicted; `fn_breakdown_A8.json`; level = LCA of the pair):
 
@@ -616,6 +616,26 @@ The largest remaining blocks are Bilateria-level misses (not deep under the rule
 | QfO `fast` merge-only (`work/qfo_recall/fast_fix3`) | 0 | loads (32,708 HOGs) | pairs count, flattening vs QfO `map_relations` and the OrthoBench export all pass | TreeFam-A dev TPR 0.6151 / PPV 0.9224 |
 
 The QfO dev metric was 0.6163 / 0.9198 before the fix; the fallback to paralogs changes a few pairs.
+
+### 7.14 Adoption re-check on the `accurate` base (QfO merge-only, after the nesting fix)
+**Base.** `det_go_accurate`, i.e. `accurate` before the new options. Re-scored with `scripts/qfo_treefam_dev_fast.py`: TreeFam-A dev TPR 0.5854 / PPV 0.9413.
+- Rule: TPR up and PPV drop ≤ 0.01. Exception allowed only for PPV drop ≤ 0.015.
+- Arms: merge-only on the cached det_go stages, `accurate` (FastTree on-pass, NJ off-pass), gene order on. Each takes 47–58 min wall and ~7.0 CPU-h (61k FastTree jobs).
+
+| arm | TPR | PPV | ΔTPR | ΔPPV | rule |
+|---|---|---|---|---|---|
+| C1 accurate + so_struct | 0.6441 | 0.9158 | +0.059 | −0.025 | fail |
+| C2 accurate + so_struct + deep_so_absorb | 0.6548 | 0.9136 | +0.069 | −0.028 | fail (also outside the 0.015 exception) |
+| **C3 accurate + deep_so_absorb** | **0.5908** | **0.9397** | **+0.005** | **−0.002** | **pass** |
+
+**Decision (rule).**
+- **`accurate`:** deep-node species-overlap absorption only (`so_struct=False`, `deep_min_d=1.5`, `deep_so_absorb=True`).
+- **`fast`:** keeps `so_struct` + deep absorption, as adopted on the `fast` base (§7.11–7.12).
+- On OrthoBench both options are inactive or neutral for `accurate`: OG-F 79.69.
+
+**Why `so_struct` costs precision on the accurate base.** FastTree trees already resolve many in-paralog/ortholog decisions. Re-labelling species-disjoint paralog units as speciations then converts more true duplications (with differential loss) into ortholog pairs.
+
+**Verification of the C2 output** (both options, `accurate`): `verify_orthoxml` overall PASS, 0 violations, pyham full load (32,021 HOGs).
 
 ### 7.8 Next steps
 1. **Precision of tree mode and over-merges in large S0 families** (OG-P 63–75%):

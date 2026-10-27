@@ -57,11 +57,12 @@ SYNTENY_DEFAULT = dict(mode="multiplicative", lam=0.3, anchor="core", w=10)
 #            length-medoid leaves; `off_tree_method` = tree method of the synteny-off pass of
 #            the constrained two-pass synteny merge.
 #   fast:    NJ on -ln S everywhere (v0.2 behaviour; used for scaling claims).
-#   Both: species-overlap structure (so_struct; QfO TreeFam-A dev TPR +0.037, docs §7.11) and
-#   species-overlap absorption at deep nodes only (median seed -ln S >= 1.5; +0.008, §7.12).
+#   Species-overlap absorption at deep nodes only (median seed -ln S >= 1.5) in both presets.
+#   Species-overlap structure (so_struct) only in `fast`: on the accurate base it cost TreeFam-A
+#   dev PPV -0.025 (> the 0.01 rule; docs §7.14), on fast only -0.005 (§7.11).
 PRESETS = {
     "accurate": {"tree_method": "fasttree", "tree_ft_mode": "medoid", "off_tree_method": "nj",
-                 "so_struct": True, "deep_min_d": 1.5, "deep_so_absorb": True},
+                 "so_struct": False, "deep_min_d": 1.5, "deep_so_absorb": True},
     "fast": {"tree_method": "nj", "tree_ft_mode": "medoid", "off_tree_method": "nj", "so_struct": True,
              "deep_min_d": 1.5, "deep_so_absorb": True},
     "custom": None,   # leave the merge config as given (off pass uses its tree_method)
