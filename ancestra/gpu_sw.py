@@ -266,16 +266,17 @@ class GpuSW:
     (rows x columns > ``LONG_CELLS``): one warp per pair (``sww``), launched first on its own
     stream so that it overlaps the short-pair launches. Both kernels give identical results."""
 
-    def __init__(self, device: int = 0, w: int | None = None, ww: int | None = None):
+    def __init__(self, device: int = 0, w: int | None = None, ww: int | None = None,
+                 ungapped: bool = False):
+        """``ungapped=True``: prohibitive gap costs, i.e. the best ungapped local (diagonal) score."""
         import cupy as cp
         self.cp = cp
         cp.cuda.Device(device).use()
         self.w = w or W
         self.ww = ww or WW
-        self.kern = cp.RawKernel(_SRC % dict(W=self.w, GOE=GAP_OPEN + GAP_EXTEND, GE=GAP_EXTEND,
-                                             PAD=PAD), "sw")
-        self.kern_w = cp.RawKernel(_SRC_WARP % dict(WW=self.ww, GOE=GAP_OPEN + GAP_EXTEND,
-                                                    GE=GAP_EXTEND, PAD=PAD), "sww")
+        goe, ge = (100_000, 100_000) if ungapped else (GAP_OPEN + GAP_EXTEND, GAP_EXTEND)
+        self.kern = cp.RawKernel(_SRC % dict(W=self.w, GOE=goe, GE=ge, PAD=PAD), "sw")
+        self.kern_w = cp.RawKernel(_SRC_WARP % dict(WW=self.ww, GOE=goe, GE=ge, PAD=PAD), "sww")
         self.mat = cp.asarray(blosum62_32().ravel())
         self.main = cp.cuda.Stream(non_blocking=True)
         self.long_s = cp.cuda.Stream(non_blocking=True)

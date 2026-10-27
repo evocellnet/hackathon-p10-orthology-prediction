@@ -33,12 +33,25 @@ def main():
     ap.add_argument("--families-final")
     ap.add_argument("--backend", default="hybrid")
     ap.add_argument("--config")
+    ap.add_argument("--proteomes", help="recompute the input key as `ancestra run` does (when SRC was made "
+                                        "by another driver with different keys)")
+    ap.add_argument("--tree")
     a = ap.parse_args()
     sd = os.path.join(a.out, "stages")
     os.makedirs(sd, exist_ok=True)
     src_in = os.path.join(a.src, "stages", "input")
     shutil.copytree(src_in, os.path.join(sd, "input"), copy_function=os.link, dirs_exist_ok=True)
     k_in = open(os.path.join(src_in, "DONE")).read().strip()
+    if a.proteomes:
+        from ancestra.pipeline import md5_file
+        pf = sorted(os.listdir(a.proteomes))
+        inputs = {"proteomes": {f: md5_file(os.path.join(a.proteomes, f)) for f in pf if not f.startswith(".")},
+                  "tree": md5_file(a.tree), "families": None}
+        k_in = _hash({"inputs": inputs})
+        open(os.path.join(sd, "input", "DONE.tmp"), "w").write(k_in + "\n")
+        os.remove(os.path.join(sd, "input", "DONE"))          # hard link: replace, do not write through
+        os.replace(os.path.join(sd, "input", "DONE.tmp"), os.path.join(sd, "input", "DONE"))
+        print("input key", k_in)
     fam_key = _hash({"up": k_in, "file": None, "cols": [0, 1], "cfg": DEFAULT_FAMILY_CONFIG})
     fd = os.path.join(sd, "families")
     os.makedirs(fd, exist_ok=True)

@@ -133,6 +133,21 @@ the same fp16 GGUF ProstT5 as the CPU runs in `docs/structure_feasibility.md`). 
 | all of OrthoBench (ProstT5 for every protein) | 251,378 | 127.8 M | 5.8 h | 142–355 h |
 | all of QfO | 988,778 | 445.3 M | 20 h | 495–1,237 h |
 
+**Batched alternative** (`scripts/gpu_prostt5_batched.py`): HF `Rostlab/ProstT5_fp16` encoder plus the authors'
+encoder-only CNN 3Di head (`cnn_chkpnt/model.pt` from github.com/mheinzinger/ProstT5). Both were downloaded on
+2026-10-27 to `data/models/`. Batches are length-sorted, with ≤ 8,000 tokens per batch.
+- Speed: **11,900 res/s** on the 500-protein validation set, 1.7× foldseek's per-sequence GPU path. On the
+  ≤ 4,000-aa gap sample (2,911 proteins, 2.1 M residues) it reaches 7,900 res/s, 1.3×.
+- Its output agrees with foldseek-GPU on 99.64 % of residues, with the same accuracy against the true 3Di (0.671 vs
+  0.672).
+- Limitations:
+  - Proteins longer than about 4,000 aa run out of memory: full attention needs ~31 GB at the longest gap protein.
+    They are 46 of 2,957 proteins and 11 % of the residues of the gap sample, and must go through foldseek.
+  - fp16 outputs depend on batch composition: max-tokens 8,000 vs 16,000 differ at a few residues. A fixed batch
+    plan is reproducible; foldseek's per-sequence path is batch-free.
+- With foldseek for the long proteins, the OrthoBench gap would take ≈ 1.4 h instead of 1.8 h. The gain is real but
+  small; foldseek `--gpu 1` is the simpler tool.
+
 A single A100 thus fills the 3Di gaps of either benchmark in a few hours, where the CPU needed days. The
 structure layer itself (3Di family rescue) gave no merge gain and is off by default (ONE_PAGE_SUMMARY). So this
 widens what can be tested rather than speeding up the frozen method.
@@ -166,3 +181,112 @@ partition on the 34 DEV RefOGs. Output: `work/gpuv2/esm_knn/summary_esm2_t12_35M
   most of the gain. An embedding-similarity verification would need a shuffled control and a keep rule (LESSONS #9).
 - **Verdict:** feasible and cheap on the GPU (10 min + 5 s). The reachable completeness is the same as the 3Di
   layer's, which also gave no merge gain. Not integrated into the pipeline; it is a v2 research lead, not a speed-up.
+
+## 6. Accuracy of GPU scoring on OrthoBench DEV: an exhaustive score graph is *not* equivalent
+
+The DEV metrics come from `scripts/gpu_dev_eval.py`:
+- OG-F/P/R: official `benchmark.py` on the 34 DEV RefOGs.
+- Pair F1 micro and macro (mean over RefOGs) from `hogs.orthoxml`.
+- Paired bootstrap over RefOGs (B = 2000, seed 11) for ΔOG-F and Δmacro pair F1.
+
+All runs use the frozen S0 partition and the `accurate` preset with gene order. Outputs: `work/gpuv2/eval_*.json`.
+
+| run | S2 scoring | OG-F | OG-P | OG-R | pair F1 micro / macro | ΔOG-F [95 % CI] | Δmacro [95 % CI] |
+|---|---|---|---|---|---|---|---|
+| CPU frozen (`main_accurate_go`) | hybrid + cross-family rescue | **79.69** | 75.7 | 84.1 | 0.804 / 0.803 | ref | ref |
+| A: CPU, rescue off (pass-1 scores) | hybrid | 78.74 | 73.7 | 84.6 | 0.791 / 0.796 | −0.95 [−3.7, +0.6] | −0.007 [−0.022, +0.002] |
+| GPU all families, unmasked | exhaustive SW | 74.36 | 73.5 | 75.2 | 0.784 / 0.790 | −5.32 [−12.0, −0.7] | −0.013 [−0.033, +0.005] |
+| B: GPU all, on CPU-joined families | exhaustive SW | 73.93 | 68.4 | 80.4 | 0.782 / 0.786 | −5.76 [−11.1, −1.8] | −0.017 [−0.038, +0.003] |
+| C: GPU all, tantan-masked | exhaustive SW | 72.02 | 69.0 | 75.3 | 0.777 / 0.782 | −7.66 [−13.3, −1.8] | −0.021 [−0.040, −0.005] |
+| D: C + e ≤ 1e-3 in families > 1000 | exhaustive SW | 73.74 | 72.0 | 75.5 | 0.791 / 0.790 | −5.95 [−12.1, −1.2] | −0.012 [−0.031, +0.002] |
+| E: unmasked + e ≤ 1e-3 in families > 1000 | exhaustive SW | 73.92 | 69.5 | 78.9 | 0.784 / 0.792 | −5.77 [−11.8, −0.9] | −0.011 [−0.030, +0.006] |
+
+**Where the loss comes from.** Score tables were spliced by family size, with no rescue and the reference = A:
+
+| spliced table | OG-F | OG-R | ΔOG-F vs A [95 % CI] | Δmacro vs A [95 % CI] |
+|---|---|---|---|---|
+| F: GPU for families ≤ 1000, CPU (DIAMOND) for larger | 77.22 | 84.7 | −1.52 [−3.5, −0.2] | −0.004 [−0.019, +0.009] |
+| G: CPU for families ≤ 1000, GPU for larger | 75.71 | 75.1 | −3.03 [−9.4, +0.7] | −0.005 [−0.021, +0.011] |
+| GPU everywhere | 74.36 | 75.2 | −4.38 [−11.0, −0.2] | −0.006 [−0.027, +0.013] |
+
+**Interpretation.**
+1. **Small families (≤ 1000) look the same.** There the CPU `hybrid` is already exhaustive (DIAMOND hits plus
+   MMseqs2 SW of every missed pair). The GPU reproduces its pair set: 5.59 M of 5.62 M CPU pairs, plus 0.19 M weak
+   GPU-only pairs (median 34 bits).
+2. **Big families (> 1000) are where the GPU differs.** There the CPU graph is *DIAMOND-only*. Exhaustive SW adds
+   10.3 M pairs in families of 1,001–5,000 genes (+80 %). Bit thresholds cannot reproduce DIAMOND's seeding: the best
+   Jaccard is 0.675, at 45 bits. The extra edges cost recall (OG-R 84.6 → 75.1). Average linkage over *existing*
+   edges (merge.py, `es/ec`) is diluted by many weak paralog edges, so true orthologous units stop merging.
+3. **Masking does not help.** Neither tantan masking nor an e-value cut fixes it (C, D, E). The frozen merge was
+   tuned on DIAMOND-sampled graphs, and the big families are the repeat- and composition-rich ones (ZNF-like).
+   There DIAMOND's composition-based statistics also change the bit scores.
+4. **The cross-family rescue matters little:** −0.95 OG-F when it is off.
+
+**Design decision (made before any final-config result was seen).** `gpusw` reproduces `hybrid`'s semantics per
+family-size class:
+- families ≤ `gpu_max_family` = 1000 (= `rescue_max_family`) are exhaustive on the GPU;
+- larger families go through exactly the DIAMOND block path, on the CPU, concurrently with the GPU. DIAMOND
+  also supplies their cross-family hits, so the rescue is kept for them.
+- `gpu_max_family=0` gives the fully exhaustive GPU variant above (faster, not accuracy-equivalent).
+
+## 7. End-to-end on OrthoBench: speed and DEV accuracy of the final `gpusw` (split) backend
+
+The two runs below are fresh e2e runs on the same node, minutes apart: 16 threads, `--preset accurate`, gene order on,
+node load 20–30 from other agents.
+- CPU: `work/gpuv2/e2e_cpu_acc`.
+- GPU: `work/gpuv2/e2e_gpu_acc`, with `--backend gpusw` = families ≤ 1000 genes on the GPU, larger ones via DIAMOND
+  concurrently.
+
+The `fast` rows are merge-only reruns on the same S0/S2 stages. Their S0/S2 times are taken from the accurate runs.
+
+| stage | CPU (hybrid) | GPU (gpusw split) | speed-up | all-GPU (`gpu_max_family=0`)† |
+|---|---|---|---|---|
+| S0 families | 150 s | 143 s | (same code) | 143 s |
+| **S2 scores** | **721 s** (DIAMOND 3 blocks 492 s, MMseqs2 17 s, rescue 159 s / 101 joins) | **545 s** (GPU 12 s for 9.1 M pairs / 138k genes, *concurrently* DIAMOND on the 30 families > 1000 genes 382 s, rescue 115 s / 10 joins) | **1.32×** | 243 s (2.97×) |
+| merge `accurate` (FastTree trees 273–276 s) | 323 s | 327 s | – | 370 s |
+| merge `fast` | 56 s | 60 s | – | ~60 s |
+| output | 11 s | 11 s | – | 11 s |
+| **total `accurate`** | **1,207 s** (3.85 CPU-h) | **1,027 s** (3.19 CPU-h) | **1.18×** | ≈ 767 s (1.57×) |
+| **total `fast`** | ≈ 938 s | ≈ 761 s | **1.23×** | ≈ 458 s (2.05×) |
+
+† All-GPU timings come from `det_nomask_rep` and `ob_gpusw_acc`. That mode is **not** accuracy-equivalent (§6).
+
+**DEV accuracy vs the frozen CPU outputs** (`gpu_dev_eval.py`; frozen = `work/ob_final/{main_accurate_go,fast_go}`):
+
+| preset | CPU OG-F / macro pair F1 | GPU split OG-F / macro pair F1 | ΔOG-F [95 % CI] | Δmacro [95 % CI] |
+|---|---|---|---|---|
+| accurate | 79.69 / 0.803 | **80.19** / 0.800 | +0.51 [−3.5, +3.3] | −0.003 [−0.018, +0.010] |
+| fast | 75.71 / 0.773 | 73.95 / 0.797 | −1.76 [−4.4, +1.0] | +0.023 [+0.000, +0.056] |
+
+- Both are inside the project's noise band (±2–4 OG-F, LESSONS #10), and every OG-F CI contains 0. On `fast`,
+  macro pair F1 is better while OG-F is lower: a different trade-off, not a uniform shift.
+- **This is equivalence within noise, not identity.** The GPU path aligns small families with plain SW instead of
+  DIAMOND+MMseqs2 bit scores. It also gets only 10 cross-family rescue joins instead of 101, because only the
+  big-family DIAMOND block sees cross-family hits.
+
+**CPU path unchanged.** The v2-gpu branch's CPU e2e run reproduces the frozen run byte for byte:
+- `hogs.orthoxml` md5 cc261e73…;
+- `scores.npz` d37a0c13…;
+- S0 `families.npy` 407f2ec4… for both the CPU and GPU runs.
+
+**Determinism.**
+- Exhaustive GPU S2 (`gpu_max_family=0`) run twice with different kernel implementations (the first single-stream
+  thread kernel vs the final warp + 4-stream version) gives byte-identical `scores.npz` (md5 1f98bba7…).
+- The kernels use int32 only and have a fixed tie rule. Batch size, strip width, streams and the thread/warp kernel
+  choice do not change outputs (tests/test_gpu_sw.py).
+- The DIAMOND part is the CPU path's code with pinned `-b 4 -c 1`.
+
+**Why the speed-up is modest.** 78 % of the CPU path's DIAMOND time (382 of 492 s) is the block of the 30 families
+over 1,000 genes. Those families (97.5k genes, 3.6·10¹³ of the 7.5·10¹³ DP cells) are where exhaustive GPU scoring
+is not equivalent (§6), so they stay on DIAMOND. The GPU finishes its share (all families ≤ 1000) in 12 s, so the
+GPU is idle > 95 % of S2.
+
+**Can a GPU filter reproduce DIAMOND's sparser graph in big families?** No, at least not with score thresholds. On the
+93 M pairs of families with 1,001–5,000 genes (2 min on the GPU), we computed both the gapped and the ungapped
+(diagonal) SW score:
+- The best Jaccard similarity to DIAMOND's 12.8 M-pair set is 0.67, for an ungapped score ≥ 30–35 bits or a gapped
+  score ≥ 45 bits.
+- DIAMOND's selection comes from seeding in a reduced alphabet, plus masking and composition statistics; a score
+  cut-off does not reproduce it.
+- Equivalence in big families would need either DIAMOND itself, or a merge that is robust to the density of the
+  score graph. The latter is a method change, i.e. a v2 research question.
