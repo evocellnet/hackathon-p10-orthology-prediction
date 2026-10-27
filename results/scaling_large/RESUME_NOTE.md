@@ -1,0 +1,38 @@
+# Scaling-large: paused at 2026-10-27T10:06+01:00 (T+19h25m; 28h34m of the 48 h budget remained)
+
+## Finished
+Nothing. No scaling result exists yet; results/scaling_large/ holds only the pre-existing subsets/ and trees/.
+Prepared and kept: `scripts/scale_large_run.sh` (new; ancestra/ untouched, tag freeze-v1 intact).
+
+## Interrupted
+- Subset n=125 (523,225 proteins), `--preset fast`, 12 threads, work dir `work/scale_large/n125/`.
+- Started 10:04:40; killed (process group 241773) at ~10:05:55, about 70 s in. Stage `input` completed (0.3 s, 302 MB RSS).
+  Stage `families` (S0) was in its first DIAMOND cluster step and was lost; only the partial `out/stages/families.tmp247688/` remains.
+- No processes of mine remain (ps check for ancestra|diamond|mmseqs|FastTree|famsa|scale_large was empty).
+
+## What scripts/scale_large_run.sh does
+`scripts/scale_large_run.sh N [PRESET] [TAG]`: wipes and recreates `work/scale_large/<TAG>/` (default n<N>), builds `input/` of symlinks from
+`results/scaling_large/subsets/n<N>.txt` to `data/scale1000/proteomes/`, runs `python -m ancestra run --preset fast --threads 12`
+under `/usr/bin/time -v` (`logs/time_v.txt`, `logs/run.log`), logs `uptime` + `free -g` + my process-tree RSS every 60 s (`logs/monitor.log`),
+and kills the run if my tree exceeds 100 GB RSS (`LIMIT_GB`). Pipeline output goes to `work/scale_large/<TAG>/out/` (manifest.json there).
+
+## Resume (detached)
+```
+cd /scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction
+setsid nohup scripts/scale_large_run.sh 125 fast > /dev/null 2>&1 &     # then 250, 500, 1000 in order
+# optional last: setsid nohup scripts/scale_large_run.sh 250 accurate n250_accurate > /dev/null 2>&1 &
+```
+The wrapper deletes the work dir of the tag it starts, so n=125 simply restarts from S0 (only ~70 s lost).
+The time budget must be recomputed on resume (the 48 h clock in START.txt keeps running): the T+36h launch stop and T+40h finish are
+defined on that clock (`scripts/clock.sh`); if the pause ends later, say so in the report.
+
+## Remaining plan after each run
+`python scripts/verify_orthoxml.py work/scale_large/n<N>/out --json results/scaling_large/verify_n<N>.json` (structural subset if too slow),
+collect stage wall/CPU/RSS from `out/manifest.json` + `logs/time_v.txt`, families, root HOGs, HOGs per level.
+Then write scaling.tsv, summary.md, scaling_large.png (load the dataviz skill first).
+
+## Extrapolation so far (no scaling runs yet; from docs/qfo_run.md only, 988,778 proteins, 12 threads, loaded node)
+QfO: S0 1,534 s / 3.0 CPU-h / 6.4 GB; scores 3,886 s / 8.9 CPU-h / 29.5 GB; merge (fast) ~6 min / 9.5 GB; accurate merge 55 min / 7 CPU-h.
+Subset totals: 125 -> 0.53x QfO, 250 -> 1.10x, 500 -> 2.28x, 1000 -> 4.80x proteins (4.75 M).
+Linear scaling from QfO would give n=1000: S0 ~2 h, scores ~5.2 h wall, ~43 CPU-h, scores RSS ~142 GB (above the 100 GB cap),
+so the n=1000 memory projection must be re-checked from the n=125/250/500 fits before launching. Not a measurement.
