@@ -1157,7 +1157,49 @@ def _to_group(x, names):
                  [_to_group(c, names) for c in kids], level=level)
 
 
+def _fix_paralog_levels(g: Group, sp: dict, tix) -> int:
+    """Level consistency of paralogGroups (pairs unchanged): a paralogGroup directly inside a
+    paralogGroup is flattened into it; a paralogGroup whose level does not contain its members
+    or is not strictly below the enclosing orthologGroup gets its members' MRCA (latest-possible
+    placement). Returns the number of changes."""
+    n = 0
+    stack = [(g, None)]               # (group, level of the enclosing orthologGroup)
+    while stack:
+        x, enc = stack.pop()
+        if x.kind == "paralog":
+            # flatten nested paralogGroups (repeat until none left)
+            changed = True
+            while changed:
+                changed = False
+                kids = []
+                for c in x.children:
+                    if isinstance(c, Group) and c.kind == "paralog":
+                        kids.extend(c.children)
+                        changed = True
+                        n += 1
+                    else:
+                        kids.append(c)
+                x.children = kids
+            mem = {sp[y] for y in x.iter_genes()}
+            ok = x.level in tix and all(tix.is_ancestor(x.level, m) for m in mem) and \
+                (enc is None or tix.is_strict_descendant(x.level, enc))
+            if not ok:
+                x.level = tix.mrca(mem)
+                n += 1
+            sub_enc = enc
+        else:
+            sub_enc = x.level
+        stack.extend((c, sub_enc) for c in x.children if isinstance(c, Group))
+    return n
+
+
 def to_orthoxml(res: MergeResult, gt: GeneTable, tree: Node) -> OrthoXML:
+    from .newick import TreeIndex
     genes = {nm: GeneEntry(nm, gt.species[gt.species_of[g]]) for g, nm in enumerate(gt.names)}
     groups = [_to_group(x, gt.names) for x in res.roots if not isinstance(x, (int, np.integer))]
+    groups = normalize_groups(groups)
+    tix = TreeIndex(tree)
+    sp = {nm: e.species for nm, e in genes.items()}
+    for g in groups:
+        _fix_paralog_levels(g, sp, tix)
     return OrthoXML(genes=genes, groups=normalize_groups(groups), species_tree=tree)

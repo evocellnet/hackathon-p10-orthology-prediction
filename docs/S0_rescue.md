@@ -40,3 +40,26 @@ pairs (S2 final families), only 198 involve a singleton (168) or a ≤ 10-gene f
 e.g. 5,115 vs 6,554 genes). 1,148 genes are involved, almost all pairs are *S. pombe* (UP000002485) vs another
 eukaryote. So an attach rule for small families can reach at most ~200 FN records (≤ +0.014 TPR) on QfO; the Leiden
 cut is out of reach for every arm in this grid.
+
+## 1. Implementation (`ancestra/rescue.py`, pipeline option)
+- `stage1_rep_of` rebuilds S0's canonical order (length desc, sequence, id) to map `stage1_clusters.tsv`
+  (`c<rank>` ids) back to genes; `select_units` picks query and target units (§0). QfO: 172,165 query units
+  (167,021 with 3Di) vs 41,320 target units (37,787 with 3Di) in 5,259 target families; OrthoBench: 20,639 vs 12,264
+  (17,857 / 9,710 with 3Di).
+- `load_3di_any` accepts both header styles (OrthoBench `protein|uniprot`, QfO `proteome|protein`); 3Di search
+  reuses `structure.build_db/search`.
+- `search_profiles`: `mmseqs createdb --shuffle 0` → explicit centre→member prefilter (`tsv2db`) → `align -e 1e-3`
+  → `result2profile` → `search prof qdb -s 7.5 -e 1e-3`.
+- `attach_small` (rule §0), `rescore_new_pairs` (only new pairs; S2 hybrid logic), `run_rescue` (driver, optional
+  content-keyed search-hit cache in `<run>/stages/rescue_hits/`), `write_families` (updated `families.tsv`),
+  `guard_detach` + `revert_families` (R4).
+- `pipeline.py` (additive): with `--family-rescue ≠ none` a stage `rescue` runs after `scores`
+  (key = scores key + `RescueConfig.key()` + 3Di md5); it writes `scores.npz`, `families_final.npy`,
+  `families_before.npy`, `attach.npz`, `families.tsv`. The merge then reads these; with `--family-rescue-guard`
+  the merge stage runs merge → guard → merge. With the default `none` there is no new stage and every stage key is
+  unchanged (`test_pipeline_family_rescue_stage`).
+- Deterministic: no random step; DIAMOND `-b4 -c1`, MMseqs2/Foldseek ordered inputs, stable sorts.
+- Tests (`tests/test_rescue.py`, 9 tests): attach rules (best link, no target–target or small–small joins, coverage,
+  size cap, two-source union, determinism), unit selection, canonical stage-1 mapping, revert, guard on a hand-built
+  merge result, a toy end-to-end profile rescue (remote homolog attached, random singleton not; cache reuse), and the
+  pipeline stage/key behaviour. `tests/test_no_leak.py` still passes.

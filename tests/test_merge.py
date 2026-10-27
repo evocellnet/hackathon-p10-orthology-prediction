@@ -484,3 +484,22 @@ def test_so_struct_rebucketed_paralog_level():
                 MergeConfig(tree_mode=False, so_struct=True)):
         ox, _ = predicted(gt, st, tree, cfg)
         assert _nesting_violations(ox, tree) == [0, 0, 0]
+
+
+def test_fix_paralog_levels_flattens_and_relabels():
+    from ancestra.merge import _fix_paralog_levels
+    from ancestra.newick import TreeIndex, parse_newick
+    from ancestra.orthoxml import GeneEntry, OrthoXML, hogs_to_pairs
+    tree = parse_newick("((L,(A,B)Olf)Chordata,P)root;")
+    tix = TreeIndex(tree)
+    sp = {"l1": "L", "l2": "L", "l3": "L", "a": "A", "b": "B", "p": "P"}
+    bad = Group("ortholog", [Group("paralog", [Group("paralog", ["l1", "l2"], level="Chordata"), "l3"],
+                                   level="L"),
+                             Group("ortholog", ["a", "b"], level="Olf")], level="Chordata")
+    top = Group("ortholog", [bad, "p"], level="root")
+    ox = OrthoXML(genes={g: GeneEntry(g, s) for g, s in sp.items()}, groups=[top], species_tree=tree)
+    before = hogs_to_pairs(ox, with_paralogs=True)
+    assert _fix_paralog_levels(top, sp, tix) >= 1
+    par = top.children[0].children[0]
+    assert par.kind == "paralog" and par.level == "L" and set(par.children) == {"l1", "l2", "l3"}
+    assert hogs_to_pairs(ox, with_paralogs=True) == before          # pairs unchanged

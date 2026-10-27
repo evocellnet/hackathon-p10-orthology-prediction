@@ -595,6 +595,28 @@ The NJ off pass is within noise by the PI's rule (ΔOG-F −0.67 > −1, Δmacro
 
 The largest remaining blocks are Bilateria-level misses (not deep under the rule) and Opisthokonta-level S0 splits.
 
+### 7.13 Fix: OrthoXML nesting with so_struct / deep_so_absorb (docs/qfo_run.md §9)
+**Bug.** With `so_struct`, species-disjoint units of one child were wrapped in an orthologGroup at their species MRCA. When the units were themselves orthologGroups at that same node, this gave same-level nesting, as in the repro O@Methanobacteriota{O@Methanobacteriota, O@Methanobacteriota}: two separate ancestral genes of a node, disjoint only through losses.
+- In my QfO `fast` output: 8,907 same-level orthologGroup-in-orthologGroup cases and 261 paralogGroups at their enclosing orthologGroup's level. pyham crashed; pairs were unaffected.
+
+**Fix** (`ancestra/merge.py`).
+1. **`so_combine` (recursive).** Same-level orthologGroups are flattened into their children. The pieces are bucketed by the child of the MRCA they lie in, and each bucket is combined recursively at its own (lower) MRCA. A paralogGroup at the MRCA level is placed at its members' MRCA when that is lower, otherwise the units stay paralogs (fallback, counted as `so_struct_fallback`). A re-bucketed paralogGroup whose level is not strictly below its new orthologGroup is relabelled to its members' MRCA.
+2. **Normalisation in `to_orthoxml` (`_fix_paralog_levels`).** A paralogGroup directly inside a paralogGroup is flattened into it. A paralogGroup whose level does not contain its members, or is not strictly below the enclosing orthologGroup, gets its members' MRCA (latest-possible placement). Ortholog and paralog pairs are unchanged (tested). This caught the remaining 49 cases of P-inside-P with ancestral levels.
+
+**Tests.**
+- `test_so_struct_nesting_regression`: the repro topology; exact expected HOG with 0 violations.
+- `test_so_struct_rebucketed_paralog_level`.
+- `test_fix_paralog_levels_flattens_and_relabels`: pairs unchanged.
+
+**Verification** (`scripts/verify_orthoxml.py`, all checks):
+
+| output | violations | pyham | other checks | dev metric |
+|---|---|---|---|---|
+| OrthoBench `run_det`, `accurate` | 0 | loads (15,233 HOGs) | pass | OG-F 79.69 |
+| QfO `fast` merge-only (`work/qfo_recall/fast_fix3`) | 0 | loads (32,708 HOGs) | pairs count, flattening vs QfO `map_relations` and the OrthoBench export all pass | TreeFam-A dev TPR 0.6151 / PPV 0.9224 |
+
+The QfO dev metric was 0.6163 / 0.9198 before the fix; the fallback to paralogs changes a few pairs.
+
 ### 7.8 Next steps
 1. **Precision of tree mode and over-merges in large S0 families** (OG-P 63–75%):
    - check ambiguity clusters against FAMSA + FastTree trees on a sample;
