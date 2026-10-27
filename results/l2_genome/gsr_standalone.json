@@ -1,0 +1,110 @@
+{
+ "F_c": {
+  "n_decisions": 11508,
+  "n_labelled": 90,
+  "coverage": 0.0078,
+  "auc_s1": 0.726,
+  "auc_s1_ci": [
+   0.5492,
+   0.8403
+  ],
+  "auc_margin": 0.7236,
+  "executed_labelled": 2,
+  "executed_correct": 1,
+  "executed_precision": 0.5,
+  "executed_total": 886,
+  "gate_pass_labelled": 2,
+  "gate_pass_precision": 0.5,
+  "all_decisions_precision": 0.4889
+ },
+ "F_u": {
+  "n_decisions": 17847,
+  "n_labelled": 98,
+  "coverage": 0.0055,
+  "auc_s1": 0.7094,
+  "auc_s1_ci": [
+   0.5433,
+   0.8212
+  ],
+  "auc_margin": 0.7292,
+  "executed_labelled": 5,
+  "executed_correct": 4,
+  "executed_precision": 0.8,
+  "executed_total": 1300,
+  "gate_pass_labelled": 6,
+  "gate_pass_precision": 0.8333,
+  "all_decisions_precision": 0.5102
+ },
+ "F_c_s11": {
+  "n_decisions": 450,
+  "n_labelled": 3,
+  "coverage": 0.0067,
+  "executed_labelled": 1,
+  "executed_correct": 0,
+  "executed_precision": 0.0,
+  "executed_total": 3,
+  "gate_pass_labelled": 1,
+  "gate_pass_precision": 0.0,
+  "all_decisions_precision": 0.0
+ },
+ "F_u_s11": {
+  "n_decisions": 2486,
+  "n_labelled": 4,
+  "coverage": 0.0016,
+  "executed_labelled": 1,
+  "executed_correct": 0,
+  "executed_precision": 0.0,
+  "executed_total": 22,
+  "gate_pass_labelled": 1,
+  "gate_pass_precision": 0.0,
+  "all_decisions_precision": 0.0
+ },
+ "F_c_s23": {
+  "n_decisions": 466,
+  "n_labelled": 1,
+  "coverage": 0.0021,
+  "executed_labelled": 0,
+  "executed_correct": 0,
+  "executed_precision": null,
+  "executed_total": 1,
+  "gate_pass_labelled": 0,
+  "gate_pass_precision": null,
+  "all_decisions_precision": 0.0
+ },
+ "F_u_s23": {
+  "n_decisions": 2519,
+  "n_labelled": 1,
+  "coverage": 0.0004,
+  "executed_labelled": 0,
+  "executed_correct": 0,
+  "executed_precision": null,
+  "executed_total": 18,
+  "gate_pass_labelled": 0,
+  "gate_pass_precision": null,
+  "all_decisions_precision": 0.0
+ },
+ "F_c_s47": {
+  "n_decisions": 467,
+  "n_labelled": 2,
+  "coverage": 0.0043,
+  "executed_labelled": 0,
+  "executed_correct": 0,
+  "executed_precision": null,
+  "executed_total": 0,
+  "gate_pass_labelled": 0,
+  "gate_pass_precision": null,
+  "all_decisions_precision": 0.0
+ },
+ "F_u_s47": {
+  "n_decisions": 2566,
+  "n_labelled": 2,
+  "coverage": 0.0008,
+  "executed_labelled": 0,
+  "executed_correct": 0,
+  "executed_precision": null,
+  "executed_total": 21,
+  "gate_pass_labelled": 0,
+  "gate_pass_precision": null,
+  "all_decisions_precision": 0.0
+ }
+}

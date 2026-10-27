@@ -62,6 +62,8 @@ def main():
     ap.add_argument("--arms", nargs="+", required=True)
     ap.add_argument("--threads", type=int, default=8)
     ap.add_argument("--save", action="store_true")
+    ap.add_argument("--log", action="store_true", help="write GSR decisions touching TreeFam-A DEV genes")
+    ap.add_argument("--tag", default="")
     a = ap.parse_args()
     os.makedirs(OUTJ, exist_ok=True)
     cfg0 = apply_preset(MergeConfig(), a.preset, a.threads)
@@ -95,14 +97,26 @@ def main():
         if seed is not None:
             ctx = GSRShuffled(cons, SyntenyContext(cc, oo, family=fam, shuffle_seed=seed, **SYNTENY_DEFAULT),
                               root_lab)
-        M.GSR_LOG = None
+        M.GSR_LOG = [] if (a.log and cfg.gsr != "off") else None
         c0, t1 = os.times(), time.time()
         res = run_merge(gt, tree, st, cfg, context=ctx)
         c1 = os.times()
         ms = time.time() - t1
         cpu = sum(getattr(c1, k) - getattr(c0, k) for k in ("user", "system", "children_user", "children_system"))
         ox = to_orthoxml(res, gt, tree)
-        lbl = f"{a.preset}_{arm}"
+        lbl = f"{a.preset}_{arm}{a.tag}"
+        if M.GSR_LOG is not None:
+            refg = {x for r in refs for x in r[:2]}
+            nm = gt.names
+            keep = []
+            for r in M.GSR_LOG:
+                u = [nm[i] for i in r["u"]]
+                g = [nm[i] for i in r["g"]]
+                if refg.intersection(u) and refg.intersection(g):
+                    keep.append(dict(r, u=[x for x in u if x in refg], g=[x for x in g if x in refg]))
+            os.makedirs(os.path.join(OUTW, lbl), exist_ok=True)
+            json.dump(dict(n_decisions=len(M.GSR_LOG), rows=keep), open(os.path.join(OUTW, lbl, "gsr_log.json"), "w"))
+            M.GSR_LOG = None
         if a.save:
             from ancestra.orthoxml import write_orthoxml
             os.makedirs(os.path.join(OUTW, lbl), exist_ok=True)
