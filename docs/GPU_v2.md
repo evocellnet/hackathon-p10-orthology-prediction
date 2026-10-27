@@ -76,10 +76,22 @@ itself.
   the CPU backends; this was checked against `freeze-v1`, so existing caches stay valid.
 - `ancestra/pipeline.py`: the `--backend gpusw` choice. Default behaviour is unchanged.
 
-**Algorithm.**
+**Usage.** `python -m ancestra run ... --backend gpusw`. The options go in `--config '{"scoring": {...}}'`:
+
+| option | default | meaning |
+|---|---|---|
+| `gpu_max_family` | 1000 | families with ≤ this many genes are scored on the GPU; larger ones go through DIAMOND on the CPU, concurrently; 0 = all on the GPU |
+| `gpu_mask` | `none` | `tantan` soft-masks low-complexity regions to X |
+| `gpu_comp_bias` | false | Hauser-2016 composition-bias correction, both directions |
+| `gpu_db_residues` | 0 | e-value DB size; 0 = one DIAMOND block |
+| `gpu_device` | 0 | CUDA device |
+
+The defaults are the configuration that §6–7 found accuracy-equivalent on OrthoBench dev.
+
+**Algorithm (GPU part).**
 - Full Smith-Waterman/Gotoh with BLOSUM62 and gap 11/1 (DIAMOND's defaults), in int32.
-- Every unordered within-family pair is aligned, including self pairs, which give the self-scores. This is the
-  exhaustive reference that the `hybrid` backend approximates: "DIAMOND + re-align the pairs DIAMOND missed".
+- Every unordered pair within a GPU-scored family is aligned, including self pairs, which give the self-scores.
+  This is the exhaustive reference that `hybrid` approximates with "DIAMOND + re-align the pairs DIAMOND missed".
 - The forward pass gives the score and the end cell. The tie rule is (max score, then smallest row, then smallest
   column), so the result does not depend on scan order.
 - A reversed pass on the kept pairs gives the start cell, and from it the coverages. Bit score uses
@@ -281,6 +293,8 @@ The `fast` rows are merge-only reruns on the same S0/S2 stages. Their S0/S2 time
 - S0 `families.npy` 407f2ec4… for both the CPU and GPU runs.
 
 **Determinism.**
+- The final split config, re-run end-to-end from S0 (`e2e_gpu_acc_rep`, while another GPU job shared the device),
+  gives byte-identical `scores.npz` (cafa3114…), `hogs.orthoxml` (f96e1f0d…) and `pairs.tsv` (9caa604e…).
 - Exhaustive GPU S2 (`gpu_max_family=0`) run twice with different kernel implementations (the first single-stream
   thread kernel vs the final warp + 4-stream version) gives byte-identical `scores.npz` (md5 1f98bba7…).
 - The kernels use int32 only and have a fixed tie rule. Batch size, strip width, streams and the thread/warp kernel
@@ -327,3 +341,27 @@ for alignments of 5 sequences. This agrees with S4 (0.24 CPU-s at 5 units).
 - keep `-t 1` and the submission order.
 - Byte-identity with the current outputs would still have to be checked: FastTree's RNG state may carry over
   between the alignments of one `-n` run.
+
+## 9. QfO 2022: speed and TreeFam-A DEV equivalence
+
+Setup:
+- cached deterministic S0 of `work/qfo2022_det/det_nogo`;
+- `--preset fast`, gene order on (= the frozen `cand2_fast` configuration), 16 threads, same node, run back-to-back;
+- TreeFam-A DEV pairs scored with `scripts/qfo_treefam_dev_fast.py` (official formula, dev families only).
+
+| | CPU `hybrid` (`work/gpuv2/qfo_cpu_fast`) | GPU `gpusw` split (`work/gpuv2/qfo_gpusw_fast`) | speed-up |
+|---|---|---|---|
+| S2 scores | 2,790 s (DIAMOND 9 blocks 1,865 s, MMseqs2 77 s, rescue 611 s / 358 joins) | 2,303 s (GPU 32 s for 36.5 M pairs / 384k genes in parallel with DIAMOND 5 blocks of the 145 families > 1000 genes 1,579 s; rescue 520 s / 40 joins) | **1.21×** |
+| merge (fast) + output | 389 + 40 s | 385 + 41 s | – |
+| S2 + merge + output | 3,228 s, 9.05 CPU-h, 30 GB peak RSS | 2,737 s, 7.33 CPU-h, 42 GB peak RSS | **1.18×** wall, 0.81× CPU-h |
+| TreeFam-A DEV TPR / PPV | 0.615 / 0.922 (± 0.011 / 0.008) | **0.614 / 0.929** (± 0.011 / 0.007) | Δ −0.001 / +0.006 |
+
+- The branch's CPU run is byte-identical to the frozen `cand2_fast` (`hogs.orthoxml` e4f6d7ba…), and its
+  `scores.npz` is byte-identical to `det_nogo` (65ad834c…, computed at 12 threads). The default CPU path is
+  unchanged and thread-independent.
+- **TreeFam-A DEV:** the GPU split is equivalent. TPR is equal, and PPV is +0.006, inside the binomial CIs.
+- **Speed:** small, as on OrthoBench. 85 % of QfO's DIAMOND time (1,579 of 1,865 s) is the blocks of the 145
+  families over 1,000 genes; they hold 472k of 856k family genes and 3.0·10¹⁴ of the 3.1·10¹⁴ DP cells.
+- The GPU path peaks at 42 GB, against 30 GB on the CPU. The cause was float64 concatenation of the DIAMOND and GPU
+  records; it is fixed to float32 in commit "float32 merge of records" (output identical, verified by the OrthoBench
+  rerun above). The QfO run predates the fix.

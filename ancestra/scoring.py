@@ -539,9 +539,11 @@ def _backend_gpusw(gt: GeneTable, fam: np.ndarray, cfg: ScoringConfig, wd: str, 
         cols = [x[~drop] for x in cols]
     c = [q, t] + cols
     if c_cpu is not None:
-        c = [np.concatenate([a_.astype(np.float64) if i >= 2 else a_.astype(np.int64),
-                             b_.astype(np.float64) if i >= 2 else b_.astype(np.int64)])
+        # float32 like both sources (bits/coverages/e-values are float32 in DIAMOND and GPU outputs)
+        c = [np.concatenate([a_.astype(np.float32) if i >= 2 else a_.astype(np.int64),
+                             b_.astype(np.float32) if i >= 2 else b_.astype(np.int64)])
              for i, (a_, b_) in enumerate(zip(c, c_cpu))]
+        del c_cpu
     return _reduce_records(c[0].astype(np.int64), c[1].astype(np.int64), *c[2:], gt.n)
 
 
