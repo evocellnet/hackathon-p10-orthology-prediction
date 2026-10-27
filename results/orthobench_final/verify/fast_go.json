@@ -1,0 +1,117 @@
+{
+ "orthoxml": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/ob_final/fast_go/hogs.orthoxml",
+ "tree": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/ob_final/fast_go/stages/input/guide_tree.nwk",
+ "checks": {
+  "xsd": {
+   "ok": true,
+   "errors": []
+  },
+  "generef_integrity": {
+   "ok": true,
+   "n_genes_declared": 251378,
+   "n_generefs": 221416,
+   "n_groups": 178108,
+   "dup_gene_ids": [],
+   "dup_protids": [],
+   "dangling_generefs": [],
+   "dup_group_ids": []
+  },
+  "genes_once": {
+   "n_genes_in_groups": 221416,
+   "n_singletons": 29962,
+   "n_genes_referenced_more_than_once": 0,
+   "examples": [],
+   "gene_table": "work/ob_final/fast_go/stages/input/genes.tsv",
+   "n_input_genes": 251378,
+   "n_missing": 0,
+   "n_extra": 0,
+   "n_wrong_species": 0,
+   "examples_missing": [],
+   "examples_extra": [],
+   "examples_wrong_species": [],
+   "ok": true
+  },
+  "taxrange_lca": {
+   "ok": true,
+   "n_orthologGroups": 153201,
+   "n_paralogGroups": 24907,
+   "n_taxrange_ne_lca": 0,
+   "examples_taxrange_ne_lca": [],
+   "n_taxonid_ne_taxrange": 0,
+   "examples_taxonid": [],
+   "n_nesting_violations": 0,
+   "examples_nesting": [],
+   "n_paralog_level_violations": 0,
+   "examples_paralog": [],
+   "n_unknown_levels": 0,
+   "examples_unknown": [],
+   "orthologGroups_per_level": {
+    "Murinae": 18689,
+    "Homininae": 18504,
+    "Euarchontoglires": 18039,
+    "Boreoeutheria": 17608,
+    "Theria": 16725,
+    "Euteleostomi": 15721,
+    "Clupeocephala": 15602,
+    "Amniota": 14146,
+    "Chordata": 7388,
+    "Bilateria": 6210,
+    "Ecdysozoa": 4569
+   }
+  },
+  "pairs_count": {
+   "ok": true,
+   "n_pairs_hogs": 1389784,
+   "n_lines_pairs_tsv": 1389784
+  },
+  "flattening_vs_qfo": {
+   "ok": true,
+   "mapping": "synthetic (protIds not in the QfO 2022 mapping)",
+   "qfo_mapping_checks_ok": true,
+   "n_toplevel_units": 15798,
+   "n_sampled_units": 3005,
+   "n_largest_included": 5,
+   "largest_unit_genes": 1910,
+   "n_sample_genes": 45588,
+   "n_pairs_qfo": 296408,
+   "n_pairs_ours": 296408,
+   "n_pairs_tsv": 296408,
+   "ours_minus_qfo": 0,
+   "qfo_minus_ours": 0,
+   "tsv_sym_diff_ours": 0,
+   "n_toplevel_seen": 15798
+  },
+  "pyham": {
+   "ok": true,
+   "n_top_level_hogs_pyham": 15798,
+   "n_expected": 15798,
+   "n_genes": 221416,
+   "load_s": 7.7,
+   "mode": "full"
+  },
+  "orthobench_export": {
+   "n_ogs_read": 15766,
+   "n_col_skip": 1,
+   "n_duplicate_genes": 0,
+   "n_unknown_genes": 0,
+   "n_multi_gene_toplevel_groups": 15766,
+   "ogs_equal_toplevel_groups": true,
+   "official_check_orthogroups": [
+    "251378 genes found in predicted orthogroups, this is 100.0% of all genes"
+   ],
+   "ok": true
+  }
+ },
+ "timing_s": {
+  "xsd": 3.1,
+  "generef_integrity": 3.0,
+  "genes_once": 3.0,
+  "read_orthoxml": 4.8,
+  "taxrange_lca": 2.2,
+  "pairs_count": 1.6,
+  "flattening_vs_qfo": 12.1,
+  "pyham": 12.3,
+  "orthobench_export": 1.3
+ },
+ "ok": true
+}

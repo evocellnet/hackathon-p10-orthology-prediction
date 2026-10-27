@@ -1,0 +1,441 @@
+{
+ "accurate_go": {
+  "time": {
+   "wall_s": 1892.94,
+   "user_s": 13814.93,
+   "sys_s": 258.89,
+   "cpu_s": 14073.82,
+   "max_rss_gb": 14.006889343261719,
+   "exit": 0,
+   "cpu_pct": "743%"
+  },
+  "stages": {
+   "input": {
+    "wall_s": 0.2,
+    "cpu_s": 0.2,
+    "peak_rss_tree_gb": 0.53,
+    "peak_rss_own_gb": 0.2,
+    "load1_mean": 10.4
+   },
+   "families": {
+    "wall_s": 259.2,
+    "cpu_s": 1798.0,
+    "peak_rss_tree_gb": 2.1,
+    "peak_rss_own_gb": 0.97,
+    "load1_mean": 22.8
+   },
+   "scores": {
+    "wall_s": 1128.9,
+    "cpu_s": 8516.0,
+    "peak_rss_tree_gb": 14.28,
+    "peak_rss_own_gb": 12.81,
+    "load1_mean": 30.8
+   },
+   "merge": {
+    "wall_s": 490.8,
+    "cpu_s": 3744.7,
+    "peak_rss_tree_gb": 6.34,
+    "peak_rss_own_gb": 2.41,
+    "load1_mean": 26.4
+   },
+   "output": {
+    "wall_s": 10.9,
+    "cpu_s": 10.0,
+    "peak_rss_tree_gb": 2.03,
+    "peak_rss_own_gb": 1.63,
+    "load1_mean": 30.5
+   }
+  }
+ },
+ "fast_go": {
+  "time": {
+   "wall_s": 69.42,
+   "user_s": 66.19,
+   "sys_s": 3.63,
+   "cpu_s": 69.82,
+   "max_rss_gb": 2.239154815673828,
+   "exit": 0,
+   "cpu_pct": "100%"
+  },
+  "stages": {
+   "input": {
+    "skipped": true
+   },
+   "families": {
+    "skipped": true
+   },
+   "scores": {
+    "skipped": true
+   },
+   "merge": {
+    "wall_s": 55.8,
+    "cpu_s": 55.2,
+    "peak_rss_tree_gb": 2.33,
+    "peak_rss_own_gb": 2.41,
+    "load1_mean": 26.2
+   },
+   "output": {
+    "wall_s": 10.7,
+    "cpu_s": 10.6,
+    "peak_rss_tree_gb": 1.98,
+    "peak_rss_own_gb": 1.64,
+    "load1_mean": 25.2
+   }
+  }
+ },
+ "accurate_nogo": {
+  "time": {
+   "wall_s": 507.37,
+   "user_s": 3702.71,
+   "sys_s": 194.67,
+   "cpu_s": 3897.38,
+   "max_rss_gb": 3.222026824951172,
+   "exit": 0,
+   "cpu_pct": "768%"
+  },
+  "stages": {
+   "input": {
+    "skipped": true
+   },
+   "families": {
+    "skipped": true
+   },
+   "scores": {
+    "skipped": true
+   },
+   "merge": {
+    "wall_s": 493.5,
+    "cpu_s": 3882.3,
+    "peak_rss_tree_gb": 8.64,
+    "peak_rss_own_gb": 2.12,
+    "load1_mean": 29.9
+   },
+   "output": {
+    "wall_s": 11.1,
+    "cpu_s": 10.2,
+    "peak_rss_tree_gb": 1.82,
+    "peak_rss_own_gb": 1.51,
+    "load1_mean": 27.9
+   }
+  }
+ },
+ "fast_nogo": {
+  "time": {
+   "wall_s": 34.65,
+   "user_s": 33.32,
+   "sys_s": 2.06,
+   "cpu_s": 35.38,
+   "max_rss_gb": 2.051513671875,
+   "exit": 0,
+   "cpu_pct": "102%"
+  },
+  "stages": {
+   "input": {
+    "skipped": true
+   },
+   "families": {
+    "skipped": true
+   },
+   "scores": {
+    "skipped": true
+   },
+   "merge": {
+    "wall_s": 21.7,
+    "cpu_s": 21.4,
+    "peak_rss_tree_gb": 1.85,
+    "peak_rss_own_gb": 2.11,
+    "load1_mean": 25.7
+   },
+   "output": {
+    "wall_s": 10.3,
+    "cpu_s": 9.3,
+    "peak_rss_tree_gb": 1.66,
+    "peak_rss_own_gb": 1.52,
+    "load1_mean": 24.5
+   }
+  }
+ },
+ "accurate_go_rescue": {
+  "time": {
+   "wall_s": 1167.21,
+   "user_s": 8454.03,
+   "sys_s": 379.44,
+   "cpu_s": 8833.470000000001,
+   "max_rss_gb": 3.2217864990234375,
+   "exit": 0,
+   "cpu_pct": "756%"
+  },
+  "stages": {
+   "input": {
+    "skipped": true
+   },
+   "families": {
+    "skipped": true
+   },
+   "scores": {
+    "skipped": true
+   },
+   "rescue": {
+    "wall_s": 121.5,
+    "cpu_s": 1094.1,
+    "peak_rss_tree_gb": 1.89,
+    "peak_rss_own_gb": 1.05,
+    "load1_mean": 26.5
+   },
+   "merge": {
+    "wall_s": 1031.6,
+    "cpu_s": 7724.1,
+    "peak_rss_tree_gb": 7.14,
+    "peak_rss_own_gb": 2.81,
+    "load1_mean": 28.5
+   },
+   "output": {
+    "wall_s": 11.1,
+    "cpu_s": 11.0,
+    "peak_rss_tree_gb": 2.34,
+    "peak_rss_own_gb": 1.62,
+    "load1_mean": 30.1
+   }
+  }
+ },
+ "tree_astralpro": {
+  "time": {
+   "wall_s": 517.72,
+   "user_s": 3577.58,
+   "sys_s": 182.84,
+   "cpu_s": 3760.42,
+   "max_rss_gb": 3.2218246459960938,
+   "exit": 0,
+   "cpu_pct": "726%"
+  },
+  "stages": {
+   "input": {
+    "wall_s": 0.2,
+    "cpu_s": 0.2,
+    "peak_rss_tree_gb": 0.7,
+    "peak_rss_own_gb": 0.2,
+    "load1_mean": 29.6
+   },
+   "families": {
+    "skipped": true
+   },
+   "scores": {
+    "skipped": true
+   },
+   "merge": {
+    "wall_s": 504.3,
+    "cpu_s": 3746.0,
+    "peak_rss_tree_gb": 8.61,
+    "peak_rss_own_gb": 2.39,
+    "load1_mean": 29.7
+   },
+   "output": {
+    "wall_s": 10.4,
+    "cpu_s": 10.3,
+    "peak_rss_tree_gb": 1.96,
+    "peak_rss_own_gb": 1.61,
+    "load1_mean": 25.6
+   }
+  }
+ },
+ "tree_fastme": {
+  "time": {
+   "wall_s": 519.45,
+   "user_s": 3573.95,
+   "sys_s": 179.14,
+   "cpu_s": 3753.0899999999997,
+   "max_rss_gb": 3.237873077392578,
+   "exit": 0,
+   "cpu_pct": "722%"
+  },
+  "stages": {
+   "input": {
+    "wall_s": 0.2,
+    "cpu_s": 0.1,
+    "peak_rss_tree_gb": 0.71,
+    "peak_rss_own_gb": 0.2,
+    "load1_mean": 23.9
+   },
+   "families": {
+    "skipped": true
+   },
+   "scores": {
+    "skipped": true
+   },
+   "merge": {
+    "wall_s": 505.8,
+    "cpu_s": 3738.0,
+    "peak_rss_tree_gb": 5.97,
+    "peak_rss_own_gb": 2.49,
+    "load1_mean": 28.4
+   },
+   "output": {
+    "wall_s": 10.7,
+    "cpu_s": 9.6,
+    "peak_rss_tree_gb": 1.61,
+    "peak_rss_own_gb": 1.61,
+    "load1_mean": 29.0
+   }
+  }
+ },
+ "tree_nni1_s11": {
+  "time": {
+   "wall_s": 524.6,
+   "user_s": 3578.25,
+   "sys_s": 182.91,
+   "cpu_s": 3761.16,
+   "max_rss_gb": 3.235424041748047,
+   "exit": 0,
+   "cpu_pct": "716%"
+  },
+  "stages": {
+   "input": {
+    "wall_s": 0.2,
+    "cpu_s": 0.2,
+    "peak_rss_tree_gb": 0.71,
+    "peak_rss_own_gb": 0.2,
+    "load1_mean": 27.8
+   },
+   "families": {
+    "skipped": true
+   },
+   "scores": {
+    "skipped": true
+   },
+   "merge": {
+    "wall_s": 511.5,
+    "cpu_s": 3746.8,
+    "peak_rss_tree_gb": 8.49,
+    "peak_rss_own_gb": 2.4,
+    "load1_mean": 28.1
+   },
+   "output": {
+    "wall_s": 10.1,
+    "cpu_s": 9.8,
+    "peak_rss_tree_gb": 1.61,
+    "peak_rss_own_gb": 1.61,
+    "load1_mean": 28.4
+   }
+  }
+ },
+ "tree_nni1_s23": {
+  "time": {
+   "wall_s": 512.72,
+   "user_s": 3633.43,
+   "sys_s": 183.6,
+   "cpu_s": 3817.0299999999997,
+   "max_rss_gb": 3.2219810485839844,
+   "exit": 0,
+   "cpu_pct": "744%"
+  },
+  "stages": {
+   "input": {
+    "wall_s": 0.2,
+    "cpu_s": 0.1,
+    "peak_rss_tree_gb": 0.71,
+    "peak_rss_own_gb": 0.2,
+    "load1_mean": 27.3
+   },
+   "families": {
+    "skipped": true
+   },
+   "scores": {
+    "skipped": true
+   },
+   "merge": {
+    "wall_s": 498.7,
+    "cpu_s": 3803.1,
+    "peak_rss_tree_gb": 6.32,
+    "peak_rss_own_gb": 2.4,
+    "load1_mean": 25.1
+   },
+   "output": {
+    "wall_s": 11.2,
+    "cpu_s": 9.7,
+    "peak_rss_tree_gb": 2.08,
+    "peak_rss_own_gb": 1.62,
+    "load1_mean": 27.6
+   }
+  }
+ },
+ "tree_nni1_s47": {
+  "time": {
+   "wall_s": 513.16,
+   "user_s": 3578.35,
+   "sys_s": 176.16,
+   "cpu_s": 3754.5099999999998,
+   "max_rss_gb": 3.237762451171875,
+   "exit": 0,
+   "cpu_pct": "731%"
+  },
+  "stages": {
+   "input": {
+    "wall_s": 0.2,
+    "cpu_s": 0.1,
+    "peak_rss_tree_gb": 0.71,
+    "peak_rss_own_gb": 0.2,
+    "load1_mean": 26.1
+   },
+   "families": {
+    "skipped": true
+   },
+   "scores": {
+    "skipped": true
+   },
+   "merge": {
+    "wall_s": 500.2,
+    "cpu_s": 3740.2,
+    "peak_rss_tree_gb": 7.05,
+    "peak_rss_own_gb": 2.38,
+    "load1_mean": 25.4
+   },
+   "output": {
+    "wall_s": 10.2,
+    "cpu_s": 9.2,
+    "peak_rss_tree_gb": 1.98,
+    "peak_rss_own_gb": 1.61,
+    "load1_mean": 25.2
+   }
+  }
+ },
+ "tree_random_s11": {
+  "time": {
+   "wall_s": 696.25,
+   "user_s": 5238.53,
+   "sys_s": 239.28,
+   "cpu_s": 5477.8099999999995,
+   "max_rss_gb": 2.434337615966797,
+   "exit": 0,
+   "cpu_pct": "786%"
+  },
+  "stages": {
+   "input": {
+    "wall_s": 0.2,
+    "cpu_s": 0.2,
+    "peak_rss_tree_gb": 0.71,
+    "peak_rss_own_gb": 0.2,
+    "load1_mean": 24.2
+   },
+   "families": {
+    "skipped": true
+   },
+   "scores": {
+    "skipped": true
+   },
+   "merge": {
+    "wall_s": 682.3,
+    "cpu_s": 5463.6,
+    "peak_rss_tree_gb": 8.29,
+    "peak_rss_own_gb": 2.47,
+    "load1_mean": 25.5
+   },
+   "output": {
+    "wall_s": 11.1,
+    "cpu_s": 10.0,
+    "peak_rss_tree_gb": 2.21,
+    "peak_rss_own_gb": 1.58,
+    "load1_mean": 25.2
+   }
+  }
+ }
+}
