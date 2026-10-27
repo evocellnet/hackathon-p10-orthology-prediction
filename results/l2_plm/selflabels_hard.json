@@ -1,0 +1,26 @@
+{
+ "mode": "hard (deviation D2)",
+ "n_families_used": 1786,
+ "n_val_families": 178,
+ "n_queries": 28516,
+ "n_genes": 31231,
+ "n_triplets": 45815,
+ "n_val_triplets": 3112,
+ "manifest": {
+  "git_commit": "6fa0bb135f6127b3f7e4bac77884d48bfa188b9a",
+  "config": {
+   "w": 10,
+   "near_tie": 0.9,
+   "min_support_winner": 2,
+   "max_genes": 40000,
+   "seed": 11,
+   "max_family": 2000
+  },
+  "inputs": {
+   "scores": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/l2_plm_wt/work/core_v0_ob/run_v2/stages/scores/scores.npz"
+  },
+  "runtime_s": 480.5,
+  "finished": "2026-10-27T19:17:13+0100",
+  "host": "dnagpu004"
+ }
+}

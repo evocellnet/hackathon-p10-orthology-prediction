@@ -1,0 +1,32 @@
+{
+ "n_anchors_genome": 508666,
+ "n_excluded_families": 78,
+ "n_training_family_positives_candidates": 355575,
+ "n_families_used": 798,
+ "n_val_families": 79,
+ "n_queries": 88257,
+ "n_genes": 25011,
+ "n_triplets": 3941020,
+ "n_neg_i": 1956627,
+ "n_neg_ii": 1984393,
+ "n_val_triplets": 47358,
+ "overlap_with_refog_genes": 0,
+ "manifest": {
+  "git_commit": "954d85dedf7497d2ea9719f05afce8917314c477",
+  "config": {
+   "w": 10,
+   "amb": 0.9,
+   "max_genes": 25000,
+   "seed": 11,
+   "max_family": 2000
+  },
+  "inputs": {
+   "scores": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/l2_plm_wt/work/core_v0_ob/run_v2/stages/scores/scores.npz",
+   "families": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/l2_plm_wt/work/core_v0_ob/run_v2/stages/scores/families_final.npy",
+   "gene_order": "data/genomes/orthobench/*.parquet"
+  },
+  "runtime_s": 45.3,
+  "finished": "2026-10-27T18:19:58+0100",
+  "host": "dnagpu004"
+ }
+}
