@@ -1,0 +1,33 @@
+{
+ "label": "anc_32_acc",
+ "kind": "anc",
+ "n_species": 32,
+ "n_proteins": 354664,
+ "threads": 8,
+ "cap_s": 7200,
+ "start": "2026-10-27T05:38:51.392915+01:00",
+ "end": "2026-10-27T06:03:21.700936+01:00",
+ "node_cores": 48,
+ "returncode": 0,
+ "preset": "accurate",
+ "reuse_from": "anc_32",
+ "code": "snapshot",
+ "censored": false,
+ "wall_s": 1469.1,
+ "user_s": 9767.85,
+ "sys_s": 441.92,
+ "max_rss_gb": 3.54852294921875,
+ "exit_status": 0,
+ "major_faults": 47,
+ "cpu_pct": "694%",
+ "cpu_s": 10209.77,
+ "cpu_h": 2.836047222222222,
+ "wall_h": 0.4080833333333333,
+ "node_load_1min": {
+  "n": 25,
+  "load1_mean": 18.200400000000005,
+  "load1_max": 23.08,
+  "load1_min": 9.98
+ },
+ "ok": true
+}

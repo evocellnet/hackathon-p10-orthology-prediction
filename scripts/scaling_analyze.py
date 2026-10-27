@@ -70,6 +70,7 @@ def ols(x, y):
     if n >= 3:
         t = stats.t.ppf(0.975, n - 2)
         out["ols_lo"], out["ols_hi"] = res.slope - t * res.stderr, res.slope + t * res.stderr
+    if n >= 4:
         rng = random.Random(11)
         sl = []
         for _ in range(5000):
@@ -190,9 +191,20 @@ def main():
             if not f:
                 continue
             ci = f"[{f['ols_lo']:.2f}, {f['ols_hi']:.2f}]" if "ols_lo" in f else "n<3"
-            bi = f"[{f['boot_lo']:.2f}, {f['boot_hi']:.2f}]" if "boot_lo" in f else "n<3"
+            bi = f"[{f['boot_lo']:.2f}, {f['boot_hi']:.2f}]" if "boot_lo" in f else "n<4"
             L.append(f"| {LAB[m]} | {xn} | {f['n']} | {f['slope']:.2f} | {ci} | {bi} | {f['r2']:.3f} |")
-    L += ["", "Bootstrap: percentile, B=5000, seed 11, resampling the points (resamples with <3 distinct x skipped). With 3-5 points both intervals are rough.", ""]
+    L += ["", "OLS CI: t-interval, df = n-2 (primary; very wide for 3 points). Bootstrap: percentile, B=5000, seed 11, resampling the points, only for n>=4 (resamples with <3 distinct x skipped); with 4-5 points it is optimistic, read the OLS CI first. The CIs capture only fit scatter around a power law, not run-to-run or node-load variation (one run per point).", ""]
+    ex = []
+    for m in ("anc", "of", "sp"):
+        f = fits.get((m, "proteins"))
+        meas = {r["n_species"] for r in rows if r["kind"] == m}
+        if not f:
+            continue
+        for n in sizes:
+            if n not in meas or any(r["kind"] == m and r["n_species"] == n and r["censored"] for r in rows):
+                ex.append(f"| {LAB[m]} | {n} sp ({npro[n]/1000:.0f}k) | {10 ** (f['intercept'] + f['slope'] * np.log10(npro[n])):.0f} |")
+    if ex:
+        L += ["## Extrapolated CPU-h where no completed run exists (power-law point estimate, NOT a measurement)", "", "| method | size | predicted CPU-h |", "|---|---|---|"] + ex + [""]
     L += ["## Per-stage cost, Ancestra (CPU s / wall s / peak RSS MB)", "", "| run | " + " | ".join(stages) + " |", "|---|" + "---|" * len(stages)]
     for r in rows:
         if r["kind"] in ("anc", "anc_fast", "anc_go"):

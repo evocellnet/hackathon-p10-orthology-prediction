@@ -266,3 +266,15 @@ HOGs per level: `results/qfo_run/det_{go,nogo}_summary.md`. Size distribution an
     OG@Methanobacteriota{OG@Methanobacteriota, OG@Methanobacteriota}).
 - **Peek 2 not run** pending the PI's decision (verification gate, DESIGN §6). Dev-only TreeFam-A (not a peek):
   cand1_fast TPR 0.616 / PPV 0.920; cand1_accurate 0.657 / 0.914 (`results/qfo_dev_diag/treefamA_dev_scores_cand1.json`).
+
+## 10. Frozen candidate cand2 and QfO peek 2, 2026-10-27
+- **Reuse refused.** The core agent's `work/qfo_recall` merges have no manifest or code hashes, so they could not be
+  reused under the PI's rule. Both arms were rerun merge-only into `work/qfo2022_det/cand2_{accurate,fast}`.
+  - Their code sha256 equals HEAD = b504c94 for every `ancestra/*.py` file (`ancestra_dirty=False`).
+  - accurate: merge 3,003 s / 7.0 CPU-h / 9.6 GB, 61,216 FastTree jobs.
+  - fast: merge 375 s / 372 s CPU / 9.5 GB.
+- **Verification.** `verify_ids` PASS. `verify_orthoxml` PASS for both arms: 0 nesting and 0 paralog-level violations,
+  pyham loads.
+- **Peek 2.** `scripts/qfo_peek2.sh` gates on that verification and logs both arms in `results/test_log.tsv` before
+  any scoring. It then runs the fast tests and writes `results/qfo_peek2/summary.{tsv,md}` (with the peek-1 rows and
+  the published competitors) and `results/qfo_peek2/treefamA_dev_test.json`.
