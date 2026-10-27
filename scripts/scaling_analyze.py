@@ -211,6 +211,8 @@ def main():
         if r["kind"] in ("anc", "anc_fast", "anc_go"):
             L.append(f"| {r['label']} ({r['kind']}) | " + " | ".join(
                 f"{r['stages'][s].get('cpu_total_s',0):.0f} / {r['stages'][s].get('wall_s',0):.0f} / {r['stages'][s].get('peak_rss_mb',0):.0f}" if s in r["stages"] else "-" for s in stages) + " |")
+    if os.path.exists(f"{OUT}/status_note.md"):
+        L += ["", open(f"{OUT}/status_note.md").read().rstrip()]
     open(f"{OUT}/summary.md", "w").write("\n".join(L) + "\n")
     print("\n".join(L))
 

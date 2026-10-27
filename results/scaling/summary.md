@@ -10,10 +10,10 @@ Subsets: nested, domain-stratified (random.Random(11)), `subsets/sub{n}.{txt,nwk
 |---|---|---|---|---|---|
 | Ancestra default (accurate preset, seq-only) | 0.12 h / 0.78 CPU-h / 2.2 GB | 0.35 h / 2.16 CPU-h / 2.3 GB | 0.92 h / 6.02 CPU-h / 5.7 GB | 2.65 h / 16.30 CPU-h / 25.1 GB | 2.83 h / 18.54 CPU-h / 28.9 GB |
 | Ancestra fast preset (NJ merge, seq-only) | 0.07 h / 0.47 CPU-h / 0.8 GB | 0.17 h / 0.99 CPU-h / 2.1 GB | 0.53 h / 3.20 CPU-h / 5.7 GB | 1.75 h / 10.63 CPU-h / 25.1 GB | 1.88 h / 11.63 CPU-h / 28.9 GB |
-| Ancestra default + gene order | not run | not run | not run | not run | not run |
+| Ancestra default + gene order | not run | not run | 0.91 h / 6.14 CPU-h / 5.6 GB | not run | not run |
 | OrthoFinder 3.2 | 0.19 h / 1.22 CPU-h / 2.4 GB | 0.57 h / 3.54 CPU-h / 2.9 GB | 2.27 h / 14.43 CPU-h / 4.8 GB | not run | not run |
 | SonicParanoid2 (default) | 0.15 h / 0.77 CPU-h / 8.0 GB | 0.38 h / 2.34 CPU-h / 8.1 GB | 1.80 h / 11.11 CPU-h / 8.1 GB | not run | not run |
-| FastOMA 0.5.1 (OMAmer LUCA, DB build not counted) | not run | not run | not run | not run | not run |
+| FastOMA 0.5.1 (OMAmer LUCA, DB build not counted) | 0.37 h / 1.83 CPU-h / 13.6 GB | not run | not run | not run | not run |
 
 Cells: wall / CPU-h / peak RSS (max over processes as reported by `time -v`).
 
@@ -57,3 +57,13 @@ OLS CI: t-interval, df = n-2 (primary; very wide for 3 points). Bootstrap: perce
 | anc_32_fast (anc_fast) | 0 / 0 / 256 | 4126 / 738 / 1733 | 7345 / 1106 / 5807 | 33 / 33 / 1835 | 11 / 11 / 1748 |
 | anc_64_fast (anc_fast) | 0 / 1 / 522 | 8914 / 1533 / 5282 | 29198 / 4632 / 25676 | 103 / 104 / 6282 | 30 / 31 / 4564 |
 | anc_78_fast (anc_fast) | 1 / 1 / 608 | 10707 / 1807 / 6410 | 30928 / 4760 / 29635 | 150 / 151 / 8524 | 42 / 42 / 5687 |
+| anc_32_go_acc (anc_go) | 0 / 0 / 256 | 4210 / 658 / 1728 | 7384 / 1125 / 5778 | 10480 / 1482 / 2222 | 12 / 12 / 1858 |
+
+## Status and deviations (paused 2026-10-27 10:10 CET, T+19h30; resumable, see RESUME_NOTE.md)
+
+- **PAUSED, incomplete:** FastOMA 16/32/64, OrthoFinder 64 and SonicParanoid2 64 are NOT run (not censored runs: simply not run, budget/pause). FastOMA at 16 was interrupted after 20 min and must be rerun from scratch. OrthoFinder/SonicParanoid 64-species runs were dropped for budget (their extrapolated CPU-h, 38-45, correspond to > 6 h wall at ~6 effective cores); no "> 6 h" measurement exists.
+- **Fits with only 3 points** (OrthoFinder, SonicParanoid) have very wide OLS CIs; FastOMA has 1 point, no fit.
+- **Merge preset drift.** `ancestra/pipeline.py` and `merge.py` were edited during the benchmark (presets `accurate` = default, FastTree local trees; `fast` = NJ). anc_8/16/32 (and 32_go) ran first with the pre-preset NJ merge; anc_64 and anc_78 ran with `accurate`. For a consistent series, merge+output were re-measured with `--preset accurate|fast` on the cached S0+S2 of the fresh base run (hard links, `anc_*_acc`, `anc_*_fast`); an entry = base input/families/scores (fresh) + re-measured merge/output (`composite` column in scaling.tsv). anc_64/anc_78 base runs used the code of 02:45 (anc_64) / the frozen snapshot `work/scaling/code_snapshot` (anc_78 and all remerges); S0/S2 code was identical (same stage keys). Gene-order tables were prebuilt (build cost not counted).
+- **Accurate-preset merge is expensive:** merge = 1126 / 4220 / 10194 / 20539 / 25040 CPU-s at 8/16/32/64/78 species vs 3 / 11 / 33 / 103 / 150 CPU-s for the fast preset (see per-stage table). Gene order adds about 0.1 CPU-h at 32 species with the accurate preset (6.14 vs 6.02 CPU-h) and about 50 s of merge wall with the fast/NJ merge (86 vs 34 s).
+- **Shared node:** load average 25-70 on 24 cores (another agent's QfO pipeline + competitor runs); walls are upper bounds, CPU-h is the primary metric but is also inflated by contention (cache, hyperthreads). One run per point.
+- FastOMA: first launches (8/16/32) ended after check_input in seconds because `proteome/` was a symlinked directory (nextflow listFiles() sees nothing); fixed with a real directory of file symlinks. Those bogus results are in `work/scaling/failed_attempts/`. FastOMA species tree = pruned NCBI tree with spaces replaced by `_` (`subsets/sub{n}.fastoma.nwk`), polytomies kept.
