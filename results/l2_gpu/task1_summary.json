@@ -1,0 +1,986 @@
+{
+ "reference": {
+  "ob": {
+   "run": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/l2_gpu_wt/../ob_final/main_accurate_go",
+   "F": 79.69,
+   "P": 75.74,
+   "R": 84.07,
+   "exact": 11,
+   "pairF1_micro": 0.8035,
+   "pairF1_macro": 0.8026
+  },
+  "qfo": {
+   "run": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/l2_gpu_wt/../gpuv2/qfo_cpu_fast",
+   "TPR": 0.6151,
+   "PPV": 0.9224
+  }
+ },
+ "rows": [
+  {
+   "arm": "CPU no rescue (A)",
+   "kind": "reference",
+   "ob_run": "gpuv2/diagA_cpu_norescue",
+   "qfo_run": "l2gpu/qfo/A",
+   "ob": {
+    "run": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/l2_gpu_wt/../gpuv2/diagA_cpu_norescue",
+    "F": 78.74,
+    "P": 73.65,
+    "R": 84.58,
+    "exact": 11,
+    "pairF1_micro": 0.7913,
+    "pairF1_macro": 0.796,
+    "dOG_F": -0.95,
+    "dOG_F_ci": [
+     -3.71,
+     0.63
+    ],
+    "dmacro": -0.0066,
+    "dmacro_ci": [
+     -0.0219,
+     0.0019
+    ]
+   },
+   "ob_vs_cpuA": {
+    "dOG_F": 0.0,
+    "dOG_F_ci": [
+     0.0,
+     0.0
+    ],
+    "dmacro": 0.0,
+    "dmacro_ci": [
+     0.0,
+     0.0
+    ]
+   },
+   "qfo": {
+    "run": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/l2_gpu_wt/../l2gpu/qfo/A",
+    "TPR": 0.6158,
+    "PPV": 0.9216,
+    "dTPR": 0.0007,
+    "dTPR_ci": [
+     -0.0056,
+     0.0069
+    ],
+    "dPPV": -0.0008,
+    "dPPV_ci": [
+     -0.0028,
+     0.0006
+    ],
+    "n_families": 359
+   },
+   "E1": true,
+   "E2": false,
+   "E3": true
+  },
+  {
+   "arm": "GPU split (gpu_max_family 1000)",
+   "kind": "existing",
+   "ob_run": "gpuv2/e2e_gpu_acc",
+   "qfo_run": "gpuv2/qfo_gpusw_fast",
+   "ob": {
+    "run": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/l2_gpu_wt/../gpuv2/e2e_gpu_acc",
+    "F": 80.19,
+    "P": 81.05,
+    "R": 79.36,
+    "exact": 11,
+    "pairF1_micro": 0.8042,
+    "pairF1_macro": 0.7996,
+    "dOG_F": 0.51,
+    "dOG_F_ci": [
+     -3.5,
+     3.3
+    ],
+    "dmacro": -0.003,
+    "dmacro_ci": [
+     -0.018,
+     0.0098
+    ]
+   },
+   "ob_vs_cpuA": {
+    "dOG_F": 1.45,
+    "dOG_F_ci": [
+     -3.14,
+     4.51
+    ],
+    "dmacro": 0.0035,
+    "dmacro_ci": [
+     -0.0158,
+     0.026
+    ]
+   },
+   "qfo": {
+    "run": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/l2_gpu_wt/../gpuv2/qfo_gpusw_fast",
+    "TPR": 0.6138,
+    "PPV": 0.9287,
+    "dTPR": -0.0013,
+    "dTPR_ci": [
+     -0.0073,
+     0.0057
+    ],
+    "dPPV": 0.0062,
+    "dPPV_ci": [
+     -0.0033,
+     0.0244
+    ],
+    "n_families": 359
+   },
+   "E1": true,
+   "E2": true,
+   "E3": true
+  },
+  {
+   "arm": "all-GPU, unsparsified",
+   "kind": "existing",
+   "ob_run": "gpuv2/ob_gpusw_acc",
+   "qfo_run": "gpuv2/qfo_allgpu_fast",
+   "ob": {
+    "run": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/l2_gpu_wt/../gpuv2/ob_gpusw_acc",
+    "F": 74.36,
+    "P": 73.54,
+    "R": 75.2,
+    "exact": 10,
+    "pairF1_micro": 0.7844,
+    "pairF1_macro": 0.7896,
+    "dOG_F": -5.32,
+    "dOG_F_ci": [
+     -11.95,
+     -0.66
+    ],
+    "dmacro": -0.013,
+    "dmacro_ci": [
+     -0.0328,
+     0.0049
+    ]
+   },
+   "ob_vs_cpuA": {
+    "dOG_F": -4.38,
+    "dOG_F_ci": [
+     -10.99,
+     -0.23
+    ],
+    "dmacro": -0.0064,
+    "dmacro_ci": [
+     -0.0274,
+     0.0133
+    ]
+   },
+   "qfo": {
+    "run": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/l2_gpu_wt/../gpuv2/qfo_allgpu_fast",
+    "TPR": 0.6081,
+    "PPV": 0.9061,
+    "dTPR": -0.0069,
+    "dTPR_ci": [
+     -0.0252,
+     0.0139
+    ],
+    "dPPV": -0.0163,
+    "dPPV_ci": [
+     -0.0524,
+     0.0177
+    ],
+    "n_families": 359
+   },
+   "E1": false,
+   "E2": false,
+   "E3": false
+  },
+  {
+   "arm": "K39 top-39/species (either)",
+   "kind": "arm",
+   "ob_run": "l2gpu/ob/K39",
+   "qfo_run": "l2gpu/qfo/K39",
+   "ob": {
+    "run": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/l2_gpu_wt/../l2gpu/ob/K39",
+    "F": 74.38,
+    "P": 73.57,
+    "R": 75.2,
+    "exact": 10,
+    "pairF1_micro": 0.7844,
+    "pairF1_macro": 0.7896,
+    "dOG_F": -5.31,
+    "dOG_F_ci": [
+     -11.95,
+     -0.64
+    ],
+    "dmacro": -0.013,
+    "dmacro_ci": [
+     -0.0328,
+     0.0049
+    ]
+   },
+   "ob_vs_cpuA": {
+    "dOG_F": -4.36,
+    "dOG_F_ci": [
+     -10.98,
+     -0.22
+    ],
+    "dmacro": -0.0064,
+    "dmacro_ci": [
+     -0.0274,
+     0.0133
+    ]
+   },
+   "qfo": {
+    "run": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/l2_gpu_wt/../l2gpu/qfo/K39",
+    "TPR": 0.6061,
+    "PPV": 0.9178,
+    "dTPR": -0.009,
+    "dTPR_ci": [
+     -0.0275,
+     0.0124
+    ],
+    "dPPV": -0.0047,
+    "dPPV_ci": [
+     -0.0363,
+     0.0252
+    ],
+    "n_families": 359
+   },
+   "E1": false,
+   "E2": false,
+   "E3": false
+  },
+  {
+   "arm": "K10 top-10/species (either)",
+   "kind": "arm",
+   "ob_run": "l2gpu/ob/K10",
+   "qfo_run": "l2gpu/qfo/K10",
+   "ob": {
+    "run": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/l2_gpu_wt/../l2gpu/ob/K10",
+    "F": 66.03,
+    "P": 62.3,
+    "R": 70.25,
+    "exact": 10,
+    "pairF1_micro": 0.7863,
+    "pairF1_macro": 0.7913,
+    "dOG_F": -13.65,
+    "dOG_F_ci": [
+     -23.81,
+     -2.94
+    ],
+    "dmacro": -0.0113,
+    "dmacro_ci": [
+     -0.0304,
+     0.0061
+    ]
+   },
+   "ob_vs_cpuA": {
+    "dOG_F": -12.71,
+    "dOG_F_ci": [
+     -22.79,
+     -2.8
+    ],
+    "dmacro": -0.0047,
+    "dmacro_ci": [
+     -0.0248,
+     0.0146
+    ]
+   },
+   "qfo": {
+    "run": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/l2_gpu_wt/../l2gpu/qfo/K10",
+    "TPR": 0.6131,
+    "PPV": 0.9229,
+    "dTPR": -0.0019,
+    "dTPR_ci": [
+     -0.0326,
+     0.0358
+    ],
+    "dPPV": 0.0005,
+    "dPPV_ci": [
+     -0.0258,
+     0.0287
+    ],
+    "n_families": 359
+   },
+   "E1": false,
+   "E2": false,
+   "E3": false
+  },
+  {
+   "arm": "R207 bits >= 0.207 best/species",
+   "kind": "arm",
+   "ob_run": "l2gpu/ob/R207",
+   "qfo_run": "l2gpu/qfo/R207",
+   "ob": {
+    "run": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/l2_gpu_wt/../l2gpu/ob/R207",
+    "F": 71.29,
+    "P": 65.46,
+    "R": 78.25,
+    "exact": 10,
+    "pairF1_micro": 0.7816,
+    "pairF1_macro": 0.7879,
+    "dOG_F": -8.4,
+    "dOG_F_ci": [
+     -14.46,
+     -2.38
+    ],
+    "dmacro": -0.0146,
+    "dmacro_ci": [
+     -0.0355,
+     0.0044
+    ]
+   },
+   "ob_vs_cpuA": {
+    "dOG_F": -7.45,
+    "dOG_F_ci": [
+     -13.53,
+     -1.64
+    ],
+    "dmacro": -0.0081,
+    "dmacro_ci": [
+     -0.0302,
+     0.0129
+    ]
+   },
+   "qfo": {
+    "run": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/l2_gpu_wt/../l2gpu/qfo/R207",
+    "TPR": 0.6366,
+    "PPV": 0.93,
+    "dTPR": 0.0215,
+    "dTPR_ci": [
+     -0.0029,
+     0.0503
+    ],
+    "dPPV": 0.0075,
+    "dPPV_ci": [
+     -0.012,
+     0.0303
+    ],
+    "n_families": 359
+   },
+   "E1": false,
+   "E2": false,
+   "E3": true
+  },
+  {
+   "arm": "F0528 norm_max >= 0.0528",
+   "kind": "arm",
+   "ob_run": "l2gpu/ob/F0528",
+   "qfo_run": "l2gpu/qfo/F0528",
+   "ob": {
+    "run": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/l2_gpu_wt/../l2gpu/ob/F0528",
+    "F": 72.07,
+    "P": 67.94,
+    "R": 76.74,
+    "exact": 12,
+    "pairF1_micro": 0.7861,
+    "pairF1_macro": 0.7916,
+    "dOG_F": -7.61,
+    "dOG_F_ci": [
+     -13.78,
+     -2.29
+    ],
+    "dmacro": -0.0109,
+    "dmacro_ci": [
+     -0.0317,
+     0.0074
+    ]
+   },
+   "ob_vs_cpuA": {
+    "dOG_F": -6.67,
+    "dOG_F_ci": [
+     -11.8,
+     -2.21
+    ],
+    "dmacro": -0.0044,
+    "dmacro_ci": [
+     -0.0231,
+     0.0122
+    ]
+   },
+   "qfo": {
+    "run": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/l2_gpu_wt/../l2gpu/qfo/F0528",
+    "TPR": 0.6241,
+    "PPV": 0.9086,
+    "dTPR": 0.009,
+    "dTPR_ci": [
+     -0.0183,
+     0.0402
+    ],
+    "dPPV": -0.0139,
+    "dPPV_ci": [
+     -0.0398,
+     0.0123
+    ],
+    "n_families": 359
+   },
+   "E1": false,
+   "E2": false,
+   "E3": false
+  },
+  {
+   "arm": "Crand random 57.5% (control)",
+   "kind": "control",
+   "ob_run": "l2gpu/ob/Crand",
+   "qfo_run": "l2gpu/qfo/Crand",
+   "ob": {
+    "run": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/l2_gpu_wt/../l2gpu/ob/Crand",
+    "F": 70.97,
+    "P": 68.26,
+    "R": 73.91,
+    "exact": 9,
+    "pairF1_micro": 0.6991,
+    "pairF1_macro": 0.7283,
+    "dOG_F": -8.72,
+    "dOG_F_ci": [
+     -15.72,
+     -2.75
+    ],
+    "dmacro": -0.0743,
+    "dmacro_ci": [
+     -0.1131,
+     -0.0406
+    ]
+   },
+   "ob_vs_cpuA": {
+    "dOG_F": -7.77,
+    "dOG_F_ci": [
+     -15.78,
+     -0.74
+    ],
+    "dmacro": -0.0678,
+    "dmacro_ci": [
+     -0.103,
+     -0.0368
+    ]
+   },
+   "qfo": {
+    "run": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/l2_gpu_wt/../l2gpu/qfo/Crand",
+    "TPR": 0.5321,
+    "PPV": 0.8478,
+    "dTPR": -0.0829,
+    "dTPR_ci": [
+     -0.1074,
+     -0.0577
+    ],
+    "dPPV": -0.0746,
+    "dPPV_ci": [
+     -0.1891,
+     0.01
+    ],
+    "n_families": 359
+   },
+   "E1": false,
+   "E2": false,
+   "E3": false
+  },
+  {
+   "arm": "MK39 mutual top-39 (D1)",
+   "kind": "arm",
+   "ob_run": "l2gpu/ob/MK39",
+   "qfo_run": "l2gpu/qfo/MK39",
+   "ob": {
+    "run": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/l2_gpu_wt/../l2gpu/ob/MK39",
+    "F": 63.48,
+    "P": 61.01,
+    "R": 66.16,
+    "exact": 10,
+    "pairF1_micro": 0.7603,
+    "pairF1_macro": 0.7793,
+    "dOG_F": -16.2,
+    "dOG_F_ci": [
+     -26.39,
+     -4.44
+    ],
+    "dmacro": -0.0233,
+    "dmacro_ci": [
+     -0.0547,
+     0.0012
+    ]
+   },
+   "ob_vs_cpuA": {
+    "dOG_F": -15.26,
+    "dOG_F_ci": [
+     -25.53,
+     -4.06
+    ],
+    "dmacro": -0.0167,
+    "dmacro_ci": [
+     -0.0485,
+     0.0108
+    ]
+   },
+   "qfo": {
+    "run": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/l2_gpu_wt/../l2gpu/qfo/MK39",
+    "TPR": 0.6104,
+    "PPV": 0.9073,
+    "dTPR": -0.0046,
+    "dTPR_ci": [
+     -0.0212,
+     0.0147
+    ],
+    "dPPV": -0.0151,
+    "dPPV_ci": [
+     -0.0693,
+     0.0258
+    ],
+    "n_families": 359
+   },
+   "E1": false,
+   "E2": false,
+   "E3": false
+  },
+  {
+   "arm": "SP3000 splice (D1)",
+   "kind": "arm",
+   "ob_run": "l2gpu/ob/SP3000",
+   "qfo_run": "l2gpu/qfo/SP3000",
+   "ob": {
+    "run": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/l2_gpu_wt/../l2gpu/ob/SP3000",
+    "F": 76.91,
+    "P": 71.12,
+    "R": 83.72,
+    "exact": 10,
+    "pairF1_micro": 0.7778,
+    "pairF1_macro": 0.7876,
+    "dOG_F": -2.78,
+    "dOG_F_ci": [
+     -5.87,
+     -0.39
+    ],
+    "dmacro": -0.015,
+    "dmacro_ci": [
+     -0.0344,
+     0.0022
+    ]
+   },
+   "ob_vs_cpuA": {
+    "dOG_F": -1.83,
+    "dOG_F_ci": [
+     -4.29,
+     -0.19
+    ],
+    "dmacro": -0.0085,
+    "dmacro_ci": [
+     -0.0292,
+     0.0112
+    ]
+   },
+   "qfo": {
+    "run": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/l2_gpu_wt/../l2gpu/qfo/SP3000",
+    "TPR": 0.6162,
+    "PPV": 0.9213,
+    "dTPR": 0.0011,
+    "dTPR_ci": [
+     -0.0096,
+     0.0127
+    ],
+    "dPPV": -0.0011,
+    "dPPV_ci": [
+     -0.0267,
+     0.0235
+    ],
+    "n_families": 359
+   },
+   "E1": false,
+   "E2": false,
+   "E3": false
+  },
+  {
+   "arm": "SP5000 splice (D1)",
+   "kind": "arm",
+   "ob_run": "l2gpu/ob/SP5000",
+   "qfo_run": "l2gpu/qfo/SP5000",
+   "ob": {
+    "run": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/l2_gpu_wt/../l2gpu/ob/SP5000",
+    "F": 77.48,
+    "P": 79.46,
+    "R": 75.59,
+    "exact": 11,
+    "pairF1_micro": 0.7847,
+    "pairF1_macro": 0.7901,
+    "dOG_F": -2.21,
+    "dOG_F_ci": [
+     -5.71,
+     0.08
+    ],
+    "dmacro": -0.0125,
+    "dmacro_ci": [
+     -0.0324,
+     0.0052
+    ]
+   },
+   "ob_vs_cpuA": {
+    "dOG_F": -1.26,
+    "dOG_F_ci": [
+     -4.15,
+     0.47
+    ],
+    "dmacro": -0.006,
+    "dmacro_ci": [
+     -0.027,
+     0.0138
+    ]
+   },
+   "qfo": {
+    "run": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/l2_gpu_wt/../l2gpu/qfo/SP5000",
+    "TPR": 0.6224,
+    "PPV": 0.9216,
+    "dTPR": 0.0074,
+    "dTPR_ci": [
+     -0.0064,
+     0.0227
+    ],
+    "dPPV": -0.0008,
+    "dPPV_ci": [
+     -0.0258,
+     0.0238
+    ],
+    "n_families": 359
+   },
+   "E1": false,
+   "E2": false,
+   "E3": false
+  },
+  {
+   "arm": "J11 CPU A + 1% jitter (D2)",
+   "kind": "noise",
+   "ob_run": "l2gpu/ob/J11",
+   "qfo_run": "l2gpu/qfo/J11",
+   "ob": {
+    "run": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/l2_gpu_wt/../l2gpu/ob/J11",
+    "F": 75.52,
+    "P": 68.48,
+    "R": 84.17,
+    "exact": 11,
+    "pairF1_micro": 0.7781,
+    "pairF1_macro": 0.7854,
+    "dOG_F": -4.17,
+    "dOG_F_ci": [
+     -9.53,
+     -0.1
+    ],
+    "dmacro": -0.0172,
+    "dmacro_ci": [
+     -0.0354,
+     -0.0043
+    ]
+   },
+   "ob_vs_cpuA": {
+    "dOG_F": -3.22,
+    "dOG_F_ci": [
+     -8.37,
+     -0.04
+    ],
+    "dmacro": -0.0106,
+    "dmacro_ci": [
+     -0.0197,
+     -0.0032
+    ]
+   },
+   "qfo": {
+    "run": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/l2_gpu_wt/../l2gpu/qfo/J11",
+    "TPR": 0.607,
+    "PPV": 0.9226,
+    "dTPR": -0.0081,
+    "dTPR_ci": [
+     -0.0344,
+     0.0124
+    ],
+    "dPPV": 0.0001,
+    "dPPV_ci": [
+     -0.0099,
+     0.0094
+    ],
+    "n_families": 359
+   },
+   "E1": false,
+   "E2": false,
+   "E3": false
+  },
+  {
+   "arm": "J23 CPU A + 1% jitter (D2)",
+   "kind": "noise",
+   "ob_run": "l2gpu/ob/J23",
+   "qfo_run": null,
+   "ob": {
+    "run": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/l2_gpu_wt/../l2gpu/ob/J23",
+    "F": 71.44,
+    "P": 67.71,
+    "R": 75.61,
+    "exact": 12,
+    "pairF1_micro": 0.7797,
+    "pairF1_macro": 0.7825,
+    "dOG_F": -8.24,
+    "dOG_F_ci": [
+     -15.7,
+     -0.72
+    ],
+    "dmacro": -0.0201,
+    "dmacro_ci": [
+     -0.0397,
+     -0.0045
+    ]
+   },
+   "ob_vs_cpuA": {
+    "dOG_F": -7.3,
+    "dOG_F_ci": [
+     -15.42,
+     0.14
+    ],
+    "dmacro": -0.0136,
+    "dmacro_ci": [
+     -0.0264,
+     -0.0025
+    ]
+   },
+   "qfo": null,
+   "E1": false,
+   "E2": false,
+   "E3": null
+  },
+  {
+   "arm": "J47 CPU A + 1% jitter (D2)",
+   "kind": "noise",
+   "ob_run": "l2gpu/ob/J47",
+   "qfo_run": null,
+   "ob": {
+    "run": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/l2_gpu_wt/../l2gpu/ob/J47",
+    "F": 73.76,
+    "P": 64.41,
+    "R": 86.3,
+    "exact": 11,
+    "pairF1_micro": 0.7818,
+    "pairF1_macro": 0.7862,
+    "dOG_F": -5.92,
+    "dOG_F_ci": [
+     -12.68,
+     0.38
+    ],
+    "dmacro": -0.0164,
+    "dmacro_ci": [
+     -0.037,
+     -0.0011
+    ]
+   },
+   "ob_vs_cpuA": {
+    "dOG_F": -4.98,
+    "dOG_F_ci": [
+     -12.08,
+     0.85
+    ],
+    "dmacro": -0.0098,
+    "dmacro_ci": [
+     -0.022,
+     0.0001
+    ]
+   },
+   "qfo": null,
+   "E1": false,
+   "E2": false,
+   "E3": null
+  },
+  {
+   "arm": "X1 GPU scores on DIAMOND pair set",
+   "kind": "diagnostic",
+   "ob_run": "l2gpu/ob/X1",
+   "qfo_run": null,
+   "ob": {
+    "run": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/l2_gpu_wt/../l2gpu/ob/X1",
+    "F": 69.64,
+    "P": 62.01,
+    "R": 79.42,
+    "exact": 11,
+    "pairF1_micro": 0.7771,
+    "pairF1_macro": 0.7882,
+    "dOG_F": -10.04,
+    "dOG_F_ci": [
+     -17.3,
+     -3.9
+    ],
+    "dmacro": -0.0144,
+    "dmacro_ci": [
+     -0.0345,
+     0.0037
+    ]
+   },
+   "ob_vs_cpuA": {
+    "dOG_F": -9.1,
+    "dOG_F_ci": [
+     -14.32,
+     -4.04
+    ],
+    "dmacro": -0.0078,
+    "dmacro_ci": [
+     -0.0279,
+     0.0113
+    ]
+   },
+   "qfo": null,
+   "E1": false,
+   "E2": false,
+   "E3": null
+  },
+  {
+   "arm": "X2 GPU table + CPU self-scores",
+   "kind": "diagnostic",
+   "ob_run": "l2gpu/ob/X2",
+   "qfo_run": null,
+   "ob": {
+    "run": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/l2_gpu_wt/../l2gpu/ob/X2",
+    "F": 71.57,
+    "P": 67.09,
+    "R": 76.7,
+    "exact": 10,
+    "pairF1_micro": 0.7894,
+    "pairF1_macro": 0.793,
+    "dOG_F": -8.11,
+    "dOG_F_ci": [
+     -13.54,
+     -3.21
+    ],
+    "dmacro": -0.0096,
+    "dmacro_ci": [
+     -0.0241,
+     0.003
+    ]
+   },
+   "ob_vs_cpuA": {
+    "dOG_F": -7.17,
+    "dOG_F_ci": [
+     -12.86,
+     -1.71
+    ],
+    "dmacro": -0.003,
+    "dmacro_ci": [
+     -0.0181,
+     0.013
+    ]
+   },
+   "qfo": null,
+   "E1": false,
+   "E2": false,
+   "E3": null
+  },
+  {
+   "arm": "X3 CPU table + GPU self-scores",
+   "kind": "diagnostic",
+   "ob_run": "l2gpu/ob/X3",
+   "qfo_run": null,
+   "ob": {
+    "run": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/l2_gpu_wt/../l2gpu/ob/X3",
+    "F": 61.77,
+    "P": 50.71,
+    "R": 79.01,
+    "exact": 11,
+    "pairF1_micro": 0.761,
+    "pairF1_macro": 0.7838,
+    "dOG_F": -17.91,
+    "dOG_F_ci": [
+     -30.29,
+     -5.66
+    ],
+    "dmacro": -0.0187,
+    "dmacro_ci": [
+     -0.0369,
+     -0.0031
+    ]
+   },
+   "ob_vs_cpuA": {
+    "dOG_F": -16.97,
+    "dOG_F_ci": [
+     -30.06,
+     -4.61
+    ],
+    "dmacro": -0.0122,
+    "dmacro_ci": [
+     -0.0294,
+     0.0039
+    ]
+   },
+   "qfo": null,
+   "E1": false,
+   "E2": false,
+   "E3": null
+  },
+  {
+   "arm": "Dmax_cpuA max-link, CPU A",
+   "kind": "diagnostic",
+   "ob_run": "l2gpu/ob/Dmax_cpuA",
+   "qfo_run": null,
+   "ob": {
+    "run": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/l2_gpu_wt/../l2gpu/ob/Dmax_cpuA",
+    "F": 67.08,
+    "P": 54.42,
+    "R": 87.42,
+    "exact": 11,
+    "pairF1_micro": 0.8001,
+    "pairF1_macro": 0.803,
+    "dOG_F": -12.6,
+    "dOG_F_ci": [
+     -25.8,
+     -1.84
+    ],
+    "dmacro": 0.0004,
+    "dmacro_ci": [
+     -0.0149,
+     0.0135
+    ]
+   },
+   "ob_vs_cpuA": {
+    "dOG_F": -11.66,
+    "dOG_F_ci": [
+     -25.12,
+     -1.14
+    ],
+    "dmacro": 0.007,
+    "dmacro_ci": [
+     -0.0033,
+     0.0185
+    ]
+   },
+   "qfo": null,
+   "E1": false,
+   "E2": true,
+   "E3": null
+  },
+  {
+   "arm": "Dmax_gpu max-link, all-GPU",
+   "kind": "diagnostic",
+   "ob_run": "l2gpu/ob/Dmax_gpu",
+   "qfo_run": null,
+   "ob": {
+    "run": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/l2_gpu_wt/../l2gpu/ob/Dmax_gpu",
+    "F": 71.94,
+    "P": 64.96,
+    "R": 80.61,
+    "exact": 11,
+    "pairF1_micro": 0.786,
+    "pairF1_macro": 0.7978,
+    "dOG_F": -7.74,
+    "dOG_F_ci": [
+     -14.5,
+     -2.21
+    ],
+    "dmacro": -0.0048,
+    "dmacro_ci": [
+     -0.0277,
+     0.0145
+    ]
+   },
+   "ob_vs_cpuA": {
+    "dOG_F": -6.8,
+    "dOG_F_ci": [
+     -14.35,
+     -0.01
+    ],
+    "dmacro": 0.0018,
+    "dmacro_ci": [
+     -0.0144,
+     0.0166
+    ]
+   },
+   "qfo": null,
+   "E1": false,
+   "E2": false,
+   "E3": null
+  }
+ ],
+ "rule": "E1 dOG-F>=-1 & CI lo>=-4; E2 dmacro>=-0.005 & CI lo>=-0.02; E3 dTPR,dPPV>=-0.01 & CI lo>=-0.02",
+ "manifest": {
+  "git_commit": "4b3bdd19f8560b8674420eeaa09f49ea22326b52",
+  "ref_ob": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/l2_gpu_wt/../ob_final/main_accurate_go",
+  "ref_qfo": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/l2_gpu_wt/../gpuv2/qfo_cpu_fast",
+  "bootstrap": "paired, B=2000, seed 11 (OB over 34 dev RefOGs; TF-A over 359 dev families)"
+ }
+}

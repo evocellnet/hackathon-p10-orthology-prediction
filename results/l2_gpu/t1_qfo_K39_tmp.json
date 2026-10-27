@@ -1,0 +1,163 @@
+{
+ "results": [
+  {
+   "run": "../gpuv2/qfo_cpu_fast",
+   "TPR": 0.6151,
+   "PPV": 0.9224
+  },
+  {
+   "run": "../l2gpu/qfo/K39",
+   "TPR": 0.6061,
+   "PPV": 0.9178,
+   "dTPR": -0.009,
+   "dTPR_ci": [
+    -0.0275,
+    0.0124
+   ],
+   "dPPV": -0.0047,
+   "dPPV_ci": [
+    -0.0363,
+    0.0252
+   ],
+   "n_families": 359
+  }
+ ],
+ "manifest": {
+  "script": "scripts/l2gpu_eval.py",
+  "argv": [
+   "scripts/l2gpu_eval.py",
+   "qfo",
+   "t1_qfo_K39_tmp",
+   "../gpuv2/qfo_cpu_fast",
+   "../l2gpu/qfo/K39"
+  ],
+  "git_commit": "4b3bdd19f8560b8674420eeaa09f49ea22326b52",
+  "dataset": "qfo",
+  "split": "dev only (OrthoBench 34 dev RefOGs / TreeFam-A 359 dev families)",
+  "bootstrap": "paired, B=2000, seed 11",
+  "eval_runtime_s": 13.5,
+  "runs": [
+   {
+    "run": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/gpuv2/qfo_cpu_fast",
+    "config_scoring": {
+     "backend": "hybrid",
+     "evalue": 10.0,
+     "block_genes": 100000,
+     "diamond_sens": "--sensitive",
+     "diamond_b": 4.0,
+     "cap_all": 5000,
+     "g_max": 20000,
+     "top_per_species": 2,
+     "top_same": 20,
+     "family_rescue": true,
+     "rescue_cov": 0.5,
+     "rescue_max_join": 7500,
+     "rescue_max_family": 1000,
+     "rescue_evalue": 1e-05,
+     "threads": 16,
+     "gpu_db_residues": 0.0,
+     "gpu_max_family": 1000,
+     "gpu_mask": "none",
+     "gpu_comp_bias": false,
+     "gpu_big_evalue": 0.0,
+     "gpu_device": 0
+    },
+    "merge_cfg_nondefault": {
+     "link": "avg",
+     "tree_method": "nj"
+    },
+    "git": {
+     "commit": "d8a90d17ba76e6e1a16ba1bd17c7ef91f4eae3e2",
+     "ancestra_dirty": true
+    },
+    "stages": {
+     "scores": {
+      "wall_s": 2789.955,
+      "peak_rss_mb": 29455.7,
+      "skipped": false
+     },
+     "merge": {
+      "wall_s": 389.298,
+      "peak_rss_mb": 9746.1,
+      "skipped": false,
+      "tree_s": 45.84
+     },
+     "output": {
+      "wall_s": 40.356,
+      "peak_rss_mb": 5748.0,
+      "skipped": false
+     }
+    },
+    "time": {
+     "User time (seconds)": "32420.74",
+     "System time (seconds)": "150.00",
+     "Elapsed (wall clock) time": "53:50.27",
+     "Maximum resident set size": "30162684"
+    },
+    "hogs_md5": "e4f6d7ba93c2a9a25986074cb48831b0"
+   },
+   {
+    "run": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/l2gpu/qfo/K39",
+    "config_scoring": {
+     "backend": "gpusw",
+     "evalue": 10.0,
+     "block_genes": 100000,
+     "diamond_sens": "--sensitive",
+     "diamond_b": 4.0,
+     "cap_all": 5000,
+     "g_max": 20000,
+     "top_per_species": 2,
+     "top_same": 20,
+     "family_rescue": true,
+     "rescue_cov": 0.5,
+     "rescue_max_join": 7500,
+     "rescue_max_family": 1000,
+     "rescue_evalue": 1e-05,
+     "threads": 4,
+     "gpu_db_residues": 0.0,
+     "gpu_max_family": 0,
+     "gpu_mask": "none",
+     "gpu_comp_bias": false,
+     "gpu_big_evalue": 0.0,
+     "gpu_device": 0,
+     "gpu_sparsify": "topk:39"
+    },
+    "merge_cfg_nondefault": {
+     "link": "avg",
+     "tree_method": "nj",
+     "tree_ft_batch": 0,
+     "tree_ft_inproc": false
+    },
+    "git": {
+     "commit": "78480b8e5a0c1acd8726e53734cec5b3988725dc",
+     "ancestra_dirty": false
+    },
+    "stages": {
+     "scores": {
+      "wall_s": null,
+      "peak_rss_mb": null,
+      "skipped": false
+     },
+     "merge": {
+      "wall_s": 407.352,
+      "peak_rss_mb": 11277.5,
+      "skipped": false,
+      "tree_s": 49.16
+     },
+     "output": {
+      "wall_s": 40.659,
+      "peak_rss_mb": 6506.1,
+      "skipped": false
+     }
+    },
+    "time": {
+     "User time (seconds)": "431.75",
+     "System time (seconds)": "24.58",
+     "Elapsed (wall clock) time": "7:39.97",
+     "Maximum resident set size": "10425252"
+    },
+    "hogs_md5": "5511b0d2b9963c48f78f76e542d1064e"
+   }
+  ]
+ }
+}
