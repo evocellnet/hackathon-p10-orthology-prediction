@@ -244,7 +244,18 @@ On nested, domain-stratified QfO subsets (8 threads per run):
 - 156 unit and integration tests pass, including a leak test that keeps reference orthogroups out of `ancestra/`.
 
 ### 3.8 GPU acceleration (post-freeze, exploratory)
-*[Pending GPU v2 track on branch `v2-gpu`: MMseqs2-GPU, batched GPU alignment, GPU trees, ProstT5 3Di, ESM-2 + FAISS candidate generation; dev-only evaluation; `docs/GPU_v2.md`.]*
+This work was done after the freeze, on one A100 GPU. It lives as opt-in code on branch `v2-gpu`, and its accuracy was checked on dev data only. The CPU path on the branch reproduces the frozen outputs byte for byte. Full details are in `docs/GPU_v2.md` on that branch.
+
+| GPU option | Speed | Dev accuracy vs CPU | Verdict |
+|---|---|---|---|
+| MMseqs2-GPU for S0/S2 | ≈9 ms per query, so slower than DIAMOND for searches of many proteins against many | ~5% more sensitive | not useful at these sizes |
+| **`--backend gpusw`** (CUDA Smith–Waterman, 600–640 GCUPS; families ≤1000 genes on GPU, larger ones on DIAMOND at the same time) | S2 1.32×, end to end 1.18× (OrthoBench accurate, 1,027 vs 1,207 s); QfO fast 1.18× | OG-F 80.2 vs 79.7 (Δ +0.5 [−3.5, +3.3]); QfO TreeFam-A dev 0.614/0.929 vs 0.615/0.922 | equivalent within noise, deterministic; modest gain |
+| All families on the GPU | S2 2.97×, end to end 1.57×; QfO 16× fewer CPU-h | OG-F −5.3 [−12.0, −0.7]; QfO PPV −0.016 | not equivalent; opt-in for speed only |
+| GPU for the local trees | cost is ≈0.18 s of fixed start-up per FAMSA/FastTree call | – | not pursued |
+| ProstT5 3Di on GPU | 6,100–7,300 res/s (40–60× CPU); OrthoBench 3Di gap filled in 1 h 56 min | 99.9% agreement with CPU ProstT5 | feasible |
+| ESM-2 + FAISS kNN for family candidates | ≈10 min for OrthoBench | completeness bound 0.853 at k = 25, but 42% of neighbours fall outside the family | research lead |
+
+**Main lesson.** 78–85% of DIAMOND's time goes to a few families with more than 1,000 genes. Exhaustive GPU alignment of these families adds millions of weak paralog edges, and the frozen average-link merge is sensitive to them. A larger speed-up that keeps accuracy would therefore need a merge that is robust to how dense the score graph is.
 
 ---
 
