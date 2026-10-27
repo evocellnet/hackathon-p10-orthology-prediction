@@ -4,7 +4,7 @@
 set -u
 N=$1; PRESET=${2:-fast}; TAG=${3:-n$N}
 ROOT=/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction
-LIMIT_GB=${LIMIT_GB:-100}
+LIMIT_GB=${LIMIT_GB:-300}
 cd $ROOT
 source /opt/conda/etc/profile.d/conda.sh && conda activate $ROOT/conda_envs/orth
 W=$ROOT/work/scale_large/$TAG

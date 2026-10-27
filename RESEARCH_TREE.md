@@ -5,6 +5,9 @@ Clock: START.txt = 2026-10-26T14:40 CET; hard deadline 2026-10-28T14:40 CET (48 
 
 ## Status summary (latest first)
 
+### M5 — RESUMED on GPU node, 2026-10-27 11:06 (budget used 19h30, deadline 2026-10-28 15:36; pause excluded)
+New node: 48 CPUs, 500 GB, A100-40GB. GPU checks: torch 2.6+cu124 sees the A100 (16 TFLOPS FP32 matmul); MMseqs2 18 has --gpu. A first human-vs-human GPU search took 251 s wall vs 88 s for 24-thread CPU earlier — under diagnosis. Separate GPU env: conda_envs/gpu. Resumed: T1 (patched FastOMA on OrthoBench), T2+T3 (scaling incl. FastOMA + 125–1000-proteome demo), and the GPU v2 track on branch `v2-gpu` (opt-in GPU backends; freeze-v1 untouched; dev-only evaluation).
+
 ### M4 — PAUSE, 2026-10-27 10:10 (T+19h30) — user request: move to a GPU node
 The user asked to pause all work safely and resume on a GPU node to explore GPU speed-ups. Frozen method `freeze-v1` (presets accurate/fast). Final evaluations are done and independently verified: OrthoBench test F 76.2 vs OrthoFinder 69.7, SonicParanoid2 70.4 (non-inferiority not shown, CI too wide; 3.9 vs 8.2 CPU-h). On QfO 2022 Ancestra is non-inferior to FastOMA and OMA Pairs on TreeFam-A test recall and below OrthoFinder on recall; G-STD2-Euk is the worst of the main comparators. CPU scaling is about proteins^1.1 vs ^1.4–1.5 for competitors. Synteny/3Di/expression/isoform/gene-loss layers are all evaluated (synteny: strong standalone, no test-measurable gain in the merge).
 

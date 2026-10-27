@@ -1,0 +1,437 @@
+Fetch Shard Index for conda-forge/linux-64                                                      ⧖ Starting
+Fetch Shard Index for conda-forge/linux-64                                                ✔ Done (0.1 sec)
+Fetch Shard Index for conda-forge/noarch                                                        ⧖ Starting
+Fetch Shard Index for conda-forge/noarch                                                  ✔ Done (0.1 sec)
+Fetching and Parsing Packages' Shards                                                           ⧖ Starting
+Fetching and Parsing Packages' Shards                                                    ✔ Done (14.4 sec)
+
+Resolving Environment                                                                           ⧖ Starting
+Resolving Environment                                                                     ✔ Done (2.9 sec)
+
+Transaction
+
+  Prefix: /scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/conda_envs/gpu
+
+  Updating specs:
+
+   - python=3.11
+   - pip
+   - numpy
+   - pandas
+   - pyarrow
+
+
+  Package                                  Version  Build                 Channel          Size
+─────────────────────────────────────────────────────────────────────────────────────────────────
+  Install:
+─────────────────────────────────────────────────────────────────────────────────────────────────
+
+  + _openmp_mutex                              4.5  20_gnu                conda-forge      29kB
+  + aws-c-auth                              0.10.4  hb7a77c6_1            conda-forge     135kB
+  + aws-c-cal                               0.9.14  h2aa3ae6_4            conda-forge      57kB
+  + aws-c-common                            0.14.2  hb03c661_0            conda-forge     246kB
+  + aws-c-compression                        0.3.2  h720e601_4            conda-forge      22kB
+  + aws-c-event-stream                       0.7.1  h6ffeea8_4            conda-forge      60kB
+  + aws-c-http                              0.11.0  h38ae05a_4            conda-forge     231kB
+  + aws-c-io                                0.27.3  h6f4d18d_1            conda-forge     183kB
+  + aws-c-mqtt                              0.16.0  h21f4ec5_2            conda-forge     225kB
+  + aws-c-s3                                0.12.8  h46fcd08_1            conda-forge     156kB
+  + aws-c-sdkutils                           0.2.7  h720e601_2            conda-forge      69kB
+  + aws-checksums                           0.2.10  h720e601_4            conda-forge     102kB
+  + aws-crt-cpp                             0.40.1  h102d43b_3            conda-forge     416kB
+  + aws-sdk-cpp                           1.11.833  hc7390e0_9            conda-forge       3MB
+  + azure-core-cpp                          1.16.3  h206d751_0            conda-forge     349kB
+  + azure-identity-cpp                      1.13.3  h71f81a8_2            conda-forge     251kB
+  + azure-storage-blobs-cpp                12.18.0  h74b55db_1            conda-forge     590kB
+  + azure-storage-common-cpp               12.14.0  hf596fc9_1            conda-forge     159kB
+  + azure-storage-files-datalake-cpp       12.16.0  h1f05bef_1            conda-forge     309kB
+  + bzip2                                    1.0.8  hda65f42_10           conda-forge     258kB
+  + c-ares                                  1.34.9  hebe6cf0_0            conda-forge     234kB
+  + ca-certificates                     2026.10.23  hbd8a1cb_0            conda-forge     130kB
+  + gflags                                   2.3.1  h54a6638_0            conda-forge     131kB
+  + glog                                     0.7.1  hb7133d2_1            conda-forge     149kB
+  + keyutils                                 1.6.3  h7cc23a3_1            conda-forge     135kB
+  + krb5                                    1.22.2  hbc21106_2            conda-forge       1MB
+  + ld_impl_linux-64                        2.46.1  default_hbd61a6d_103  conda-forge     742kB
+  + libabseil                           20260526.0  cxx17_h0dc7533_3      conda-forge       1MB
+  + libarrow                                25.0.0  hcc2f0d9_4_cpu        conda-forge       7MB
+  + libarrow-acero                          25.0.0  h635bf11_4_cpu        conda-forge     591kB
+  + libarrow-compute                        25.0.0  h53684a4_4_cpu        conda-forge       3MB
+  + libarrow-dataset                        25.0.0  h635bf11_4_cpu        conda-forge     591kB
+  + libarrow-substrait                      25.0.0  h66fbfdd_4_cpu        conda-forge     500kB
+  + libblas                                 3.11.0  11_h4a7cf45_openblas  conda-forge      18kB
+  + libbrotlicommon                          1.2.1  h39a168f_0            conda-forge      80kB
+  + libbrotlidec                             1.2.1  ha411449_0            conda-forge      35kB
+  + libbrotlienc                             1.2.1  h018ffa1_0            conda-forge     298kB
+  + libcblas                                3.11.0  11_h0358290_openblas  conda-forge      18kB
+  + libcrc32c                                1.1.2  h9c3ff4c_0            conda-forge      20kB
+  + libcurl                                 8.21.0  hcf29cc6_1            conda-forge     479kB
+  + libedit                           3.1.20260512  pl5321h373387f_0      conda-forge     136kB
+  + libev                                     4.33  h280c20c_3            conda-forge      43kB
+  + libevent                                2.1.12  h5348a74_2            conda-forge     431kB
+  + libexpat                                 2.9.0  hd2095e1_0            conda-forge      79kB
+  + libffi                                   3.7.0  h81df57d_1            conda-forge      68kB
+  + libgcc                                  16.2.0  ha9f2e26_7            conda-forge       1MB
+  + libgcc-ng                               16.2.0  h69a702a_7            conda-forge      29kB
+  + libgfortran                             16.2.0  h69a702a_7            conda-forge      29kB
+  + libgfortran5                            16.2.0  h6b99dfc_7            conda-forge       3MB
+  + libgomp                                 16.2.0  he0feb66_7            conda-forge     641kB
+  + libgoogle-cloud                          3.8.0  hbc29df5_0            conda-forge       3MB
+  + libgoogle-cloud-storage                  3.8.0  hdbdcf42_0            conda-forge     811kB
+  + libgrpc                                 1.82.1  h284dbb2_1            conda-forge       7MB
+  + libiconv                                  1.18  h0cb94f2_3            conda-forge     789kB
+  + liblapack                               3.11.0  11_h47877c9_openblas  conda-forge      18kB
+  + liblzma                                  5.8.3  hb03c661_1            conda-forge     113kB
+  + libnghttp2                              1.68.1  h74cf4be_1            conda-forge     650kB
+  + libnsl                                   2.0.1  hb9d3cd8_1            conda-forge      34kB
+  + libopenblas                             0.3.34  pthreads_hf13c14d_2   conda-forge       7MB
+  + libopentelemetry-cpp                    1.27.0  h3133023_1            conda-forge     949kB
+  + libopentelemetry-cpp-headers            1.27.0  ha770c72_1            conda-forge     395kB
+  + libparquet                              25.0.0  h7376487_4_cpu        conda-forge       1MB
+  + libprotobuf                             7.35.1  h622638d_3            conda-forge       4MB
+  + libpython                              3.11.18  ha57cdbe_0_cpython    conda-forge       8MB
+  + libre2-11                           2025.11.05  hbb87c76_2            conda-forge     212kB
+  + libsqlite                               3.54.1  h0737f62_101          conda-forge     980kB
+  + libssh2                                 1.11.1  h6154650_1            conda-forge     306kB
+  + libstdcxx                               16.2.0  h934c35e_7            conda-forge       7MB
+  + libstdcxx-ng                            16.2.0  hdf11a46_7            conda-forge      29kB
+  + libthrift                               0.22.0  h7d032f7_2            conda-forge     424kB
+  + libutf8proc                             2.11.3  hfe17d71_0            conda-forge      86kB
+  + libuuid                                 2.42.4  hcfc3c73_0            conda-forge      34kB
+  + libxcrypt                               4.4.38  h280c20c_0            conda-forge     102kB
+  + libxml2                                 2.15.4  ha7a5771_1            conda-forge      47kB
+  + libxml2-16                              2.15.4  hbdfff7e_1            conda-forge     566kB
+  + libzlib                                  1.3.2  h25fd6f3_3            conda-forge      64kB
+  + lz4-c                                   1.10.0  hee9eb32_2            conda-forge     182kB
+  + ncurses                                    6.6  hdb14827_1            conda-forge     911kB
+  + nlohmann_json                           3.12.0  h54a6638_2            conda-forge     136kB
+  + numpy                                    2.4.6  py311h2e04523_0       conda-forge       9MB
+  + openssl                                  3.6.5  h781a0a9_0            conda-forge       3MB
+  + orc                                      2.3.1  h443056b_0            conda-forge       1MB
+  + packaging                                 26.3  pyhc364b38_0          conda-forge     116kB
+  + pandas                                   3.1.0  np2py311h1e9b377_0    conda-forge      17MB
+  + pip                                     26.2.2  pyh8b19718_0          conda-forge       1MB
+  + prometheus-cpp                           1.3.0  ha5d0236_0            conda-forge     200kB
+  + pyarrow                                 25.0.0  py311h38be061_1       conda-forge      26kB
+  + pyarrow-core                            25.0.0  py311h1358635_1_cpu   conda-forge       6MB
+  + python                                 3.11.18  h5f976f7_0_cpython    conda-forge      23MB
+  + python-dateutil                          3.0.0  pyh5ded981_0          conda-forge      90kB
+  + python-tzdata                           2026.5  pyh5ded981_0          conda-forge     141kB
+  + python_abi                                3.11  9_cp311               conda-forge       7kB
+  + re2                                 2025.11.05  hbf548d4_2            conda-forge      27kB
+  + readline                                   8.3  hd6e31c0_1            conda-forge     349kB
+  + s2n                                      1.7.5  h7e3ee7f_1            conda-forge     393kB
+  + setuptools                              84.2.1  pyhe730653_0          conda-forge     567kB
+  + six                                     1.17.0  pyhe01879c_1          conda-forge      18kB
+  + snappy                                   1.2.2  h34e00bb_2            conda-forge      46kB
+  + tk                                      8.6.13  noxft_h1df4ec4_4      conda-forge       4MB
+  + tzdata                                   2026e  h5d301ff_0            conda-forge     119kB
+  + wheel                                   0.48.0  pyhd8ed1ab_0          conda-forge      35kB
+  + zlib                                     1.3.2  h25fd6f3_3            conda-forge      96kB
+  + zstd                                     1.5.7  hb78ec9c_7            conda-forge     601kB
+
+  Summary:
+
+  Install: 103 packages
+
+  Total download: 141MB
+
+─────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+warning  libmamba Security Warning: This transaction includes executing package scripts (pre/post-link/unlink) if present. These scripts can contain arbitrary code. Please ensure you trust the package sources.
+
+Transaction starting
+Linking python_abi-3.11-9_cp311
+Linking tzdata-2026e-h5d301ff_0
+Linking ca-certificates-2026.10.23-hbd8a1cb_0
+Linking libzlib-1.3.2-h25fd6f3_3
+Linking libgomp-16.2.0-he0feb66_7
+Linking libopentelemetry-cpp-headers-1.27.0-ha770c72_1
+Linking nlohmann_json-3.12.0-h54a6638_2
+Linking zlib-1.3.2-h25fd6f3_3
+Linking zstd-1.5.7-hb78ec9c_7
+Linking _openmp_mutex-4.5-20_gnu
+Linking ld_impl_linux-64-2.46.1-default_hbd61a6d_103
+Linking libgcc-16.2.0-ha9f2e26_7
+Linking libiconv-1.18-h0cb94f2_3
+Linking libev-4.33-h280c20c_3
+Linking keyutils-1.6.3-h7cc23a3_1
+Linking c-ares-1.34.9-hebe6cf0_0
+Linking libbrotlicommon-1.2.1-h39a168f_0
+Linking aws-c-common-0.14.2-hb03c661_0
+Linking libgcc-ng-16.2.0-h69a702a_7
+Linking libutf8proc-2.11.3-hfe17d71_0
+Linking libgfortran5-16.2.0-h6b99dfc_7
+Linking bzip2-1.0.8-hda65f42_10
+Linking libnsl-2.0.1-hb9d3cd8_1
+Linking libexpat-2.9.0-hd2095e1_0
+Linking openssl-3.6.5-h781a0a9_0
+Linking libffi-3.7.0-h81df57d_1
+Linking libsqlite-3.54.1-h0737f62_101
+Linking liblzma-5.8.3-hb03c661_1
+Linking ncurses-6.6-hdb14827_1
+Linking tk-8.6.13-noxft_h1df4ec4_4
+Linking libstdcxx-16.2.0-h934c35e_7
+Linking libuuid-2.42.4-hcfc3c73_0
+Linking libpython-3.11.18-ha57cdbe_0_cpython
+Linking libxcrypt-4.4.38-h280c20c_0
+Linking libbrotlienc-1.2.1-h018ffa1_0
+Linking libbrotlidec-1.2.1-ha411449_0
+Linking aws-c-compression-0.3.2-h720e601_4
+Linking aws-checksums-0.2.10-h720e601_4
+Linking aws-c-sdkutils-0.2.7-h720e601_2
+Linking libgfortran-16.2.0-h69a702a_7
+Linking libssh2-1.11.1-h6154650_1
+Linking s2n-1.7.5-h7e3ee7f_1
+Linking libevent-2.1.12-h5348a74_2
+Linking aws-c-cal-0.9.14-h2aa3ae6_4
+Linking libxml2-16-2.15.4-hbdfff7e_1
+Linking libedit-3.1.20260512-pl5321h373387f_0
+Linking readline-8.3-hd6e31c0_1
+Linking libnghttp2-1.68.1-h74cf4be_1
+Linking gflags-2.3.1-h54a6638_0
+Linking snappy-1.2.2-h34e00bb_2
+Linking lz4-c-1.10.0-hee9eb32_2
+Linking libabseil-20260526.0-cxx17_h0dc7533_3
+Linking libstdcxx-ng-16.2.0-hdf11a46_7
+Linking libopenblas-0.3.34-pthreads_hf13c14d_2
+Linking libthrift-0.22.0-h7d032f7_2
+Linking aws-c-io-0.27.3-h6f4d18d_1
+Linking libxml2-2.15.4-ha7a5771_1
+Linking krb5-1.22.2-hbc21106_2
+Linking python-3.11.18-h5f976f7_0_cpython
+Linking glog-0.7.1-hb7133d2_1
+Linking libre2-11-2025.11.05-hbb87c76_2
+Linking libprotobuf-7.35.1-h622638d_3
+Linking libcrc32c-1.1.2-h9c3ff4c_0
+Linking libblas-3.11.0-11_h4a7cf45_openblas
+Linking aws-c-http-0.11.0-h38ae05a_4
+Linking aws-c-event-stream-0.7.1-h6ffeea8_4
+Linking libcurl-8.21.0-hcf29cc6_1
+Linking re2-2025.11.05-hbf548d4_2
+Linking orc-2.3.1-h443056b_0
+Linking libcblas-3.11.0-11_h0358290_openblas
+Linking liblapack-3.11.0-11_h47877c9_openblas
+Linking aws-c-auth-0.10.4-hb7a77c6_1
+Linking aws-c-mqtt-0.16.0-h21f4ec5_2
+Linking prometheus-cpp-1.3.0-ha5d0236_0
+Linking azure-core-cpp-1.16.3-h206d751_0
+Linking libgrpc-1.82.1-h284dbb2_1
+Linking numpy-2.4.6-py311h2e04523_0
+Linking aws-c-s3-0.12.8-h46fcd08_1
+Linking azure-storage-common-cpp-12.14.0-hf596fc9_1
+Linking azure-identity-cpp-1.13.3-h71f81a8_2
+Linking libopentelemetry-cpp-1.27.0-h3133023_1
+Linking aws-crt-cpp-0.40.1-h102d43b_3
+Linking azure-storage-blobs-cpp-12.18.0-h74b55db_1
+Linking libgoogle-cloud-3.8.0-hbc29df5_0
+Linking aws-sdk-cpp-1.11.833-hc7390e0_9
+Linking azure-storage-files-datalake-cpp-12.16.0-h1f05bef_1
+Linking libgoogle-cloud-storage-3.8.0-hdbdcf42_0
+Linking libarrow-25.0.0-hcc2f0d9_4_cpu
+Linking libparquet-25.0.0-h7376487_4_cpu
+Linking libarrow-compute-25.0.0-h53684a4_4_cpu
+Linking pyarrow-core-25.0.0-py311h1358635_1_cpu
+Linking libarrow-acero-25.0.0-h635bf11_4_cpu
+Linking libarrow-dataset-25.0.0-h635bf11_4_cpu
+Linking libarrow-substrait-25.0.0-h66fbfdd_4_cpu
+Linking pyarrow-25.0.0-py311h38be061_1
+Linking six-1.17.0-pyhe01879c_1
+Linking python-tzdata-2026.5-pyh5ded981_0
+Linking packaging-26.3-pyhc364b38_0
+Linking setuptools-84.2.1-pyhe730653_0
+Linking python-dateutil-3.0.0-pyh5ded981_0
+Linking wheel-0.48.0-pyhd8ed1ab_0
+Linking pip-26.2.2-pyh8b19718_0
+Linking pandas-3.1.0-np2py311h1e9b377_0
+
+Transaction finished
+
+
+To activate this environment, use:
+
+    mamba activate gpu
+
+Or to execute a single command in this environment, use:
+
+    mamba run -n gpu mycommand
+
+Looking in indexes: https://download.pytorch.org/whl/cu124
+Collecting torch
+  Downloading torch-2.6.0%2Bcu124-cp311-cp311-linux_x86_64.whl.metadata (28 kB)
+Collecting filelock (from torch)
+  Downloading filelock-3.32.3-py3-none-any.whl.metadata (2.0 kB)
+Collecting typing-extensions>=4.10.0 (from torch)
+  Using cached typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+Collecting networkx (from torch)
+  Downloading networkx-3.6.1-py3-none-any.whl.metadata (6.8 kB)
+Collecting jinja2 (from torch)
+  Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+Collecting fsspec (from torch)
+  Downloading fsspec-2026.7.0-py3-none-any.whl.metadata (10 kB)
+Collecting nvidia-cuda-nvrtc-cu12==12.4.127 (from torch)
+  Downloading nvidia_cuda_nvrtc_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl (24.6 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 24.6/24.6 MB 389.7 MB/s  0:00:00
+Collecting nvidia-cuda-runtime-cu12==12.4.127 (from torch)
+  Downloading nvidia_cuda_runtime_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl (883 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 883.7/883.7 kB 452.8 MB/s  0:00:00
+Collecting nvidia-cuda-cupti-cu12==12.4.127 (from torch)
+  Downloading nvidia_cuda_cupti_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl (13.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.8/13.8 MB 524.3 MB/s  0:00:00
+Collecting nvidia-cudnn-cu12==9.1.0.70 (from torch)
+  Downloading nvidia_cudnn_cu12-9.1.0.70-py3-none-manylinux2014_x86_64.whl (664.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 664.8/664.8 MB 207.4 MB/s  0:00:02
+Collecting nvidia-cublas-cu12==12.4.5.8 (from torch)
+  Downloading nvidia_cublas_cu12-12.4.5.8-py3-none-manylinux2014_x86_64.whl (363.4 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 363.4/363.4 MB 540.7 MB/s  0:00:00
+Collecting nvidia-cufft-cu12==11.2.1.3 (from torch)
+  Downloading nvidia_cufft_cu12-11.2.1.3-py3-none-manylinux2014_x86_64.whl (211.5 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 211.5/211.5 MB 530.1 MB/s  0:00:00
+Collecting nvidia-curand-cu12==10.3.5.147 (from torch)
+  Downloading nvidia_curand_cu12-10.3.5.147-py3-none-manylinux2014_x86_64.whl (56.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 56.3/56.3 MB 533.2 MB/s  0:00:00
+Collecting nvidia-cusolver-cu12==11.6.1.9 (from torch)
+  Downloading nvidia_cusolver_cu12-11.6.1.9-py3-none-manylinux2014_x86_64.whl (127.9 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 127.9/127.9 MB 549.1 MB/s  0:00:00
+Collecting nvidia-cusparse-cu12==12.3.1.170 (from torch)
+  Downloading nvidia_cusparse_cu12-12.3.1.170-py3-none-manylinux2014_x86_64.whl (207.5 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 207.5/207.5 MB 546.5 MB/s  0:00:00
+Collecting nvidia-cusparselt-cu12==0.6.2 (from torch)
+  Downloading nvidia_cusparselt_cu12-0.6.2-py3-none-manylinux2014_x86_64.whl (150.1 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 150.1/150.1 MB 494.4 MB/s  0:00:00
+Collecting nvidia-nccl-cu12==2.21.5 (from torch)
+  Downloading nvidia_nccl_cu12-2.21.5-py3-none-manylinux2014_x86_64.whl (188.7 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 188.7/188.7 MB 504.9 MB/s  0:00:00
+Collecting nvidia-nvtx-cu12==12.4.127 (from torch)
+  Downloading nvidia_nvtx_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl (99 kB)
+Collecting nvidia-nvjitlink-cu12==12.4.127 (from torch)
+  Downloading nvidia_nvjitlink_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl (21.1 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 21.1/21.1 MB 521.6 MB/s  0:00:00
+Collecting triton==3.2.0 (from torch)
+  Downloading triton-3.2.0-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (1.4 kB)
+Collecting sympy==1.13.1 (from torch)
+  Downloading sympy-1.13.1-py3-none-any.whl.metadata (12 kB)
+Collecting mpmath<1.4,>=1.1.0 (from sympy==1.13.1->torch)
+  Downloading mpmath-1.3.0-py3-none-any.whl.metadata (8.6 kB)
+Collecting MarkupSafe>=2.0 (from jinja2->torch)
+  Downloading markupsafe-3.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.7 kB)
+Downloading torch-2.6.0%2Bcu124-cp311-cp311-linux_x86_64.whl (768.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 768.5/768.5 MB 96.2 MB/s  0:00:07
+Downloading sympy-1.13.1-py3-none-any.whl (6.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.2/6.2 MB 66.3 MB/s  0:00:00
+Downloading triton-3.2.0-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (166.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 166.7/166.7 MB 139.0 MB/s  0:00:01
+Downloading mpmath-1.3.0-py3-none-any.whl (536 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 536.2/536.2 kB 9.7 MB/s  0:00:00
+Using cached typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+Downloading filelock-3.32.3-py3-none-any.whl (98 kB)
+Downloading fsspec-2026.7.0-py3-none-any.whl (206 kB)
+Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+Downloading markupsafe-3.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (22 kB)
+Downloading networkx-3.6.1-py3-none-any.whl (2.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 50.5 MB/s  0:00:00
+Installing collected packages: triton, nvidia-cusparselt-cu12, mpmath, typing-extensions, sympy, nvidia-nvtx-cu12, nvidia-nvjitlink-cu12, nvidia-nccl-cu12, nvidia-curand-cu12, nvidia-cufft-cu12, nvidia-cuda-runtime-cu12, nvidia-cuda-nvrtc-cu12, nvidia-cuda-cupti-cu12, nvidia-cublas-cu12, networkx, MarkupSafe, fsspec, filelock, nvidia-cusparse-cu12, nvidia-cudnn-cu12, jinja2, nvidia-cusolver-cu12, torch
+
+Successfully installed MarkupSafe-3.0.3 filelock-3.32.3 fsspec-2026.7.0 jinja2-3.1.6 mpmath-1.3.0 networkx-3.6.1 nvidia-cublas-cu12-12.4.5.8 nvidia-cuda-cupti-cu12-12.4.127 nvidia-cuda-nvrtc-cu12-12.4.127 nvidia-cuda-runtime-cu12-12.4.127 nvidia-cudnn-cu12-9.1.0.70 nvidia-cufft-cu12-11.2.1.3 nvidia-curand-cu12-10.3.5.147 nvidia-cusolver-cu12-11.6.1.9 nvidia-cusparse-cu12-12.3.1.170 nvidia-cusparselt-cu12-0.6.2 nvidia-nccl-cu12-2.21.5 nvidia-nvjitlink-cu12-12.4.127 nvidia-nvtx-cu12-12.4.127 sympy-1.13.1 torch-2.6.0+cu124 triton-3.2.0 typing-extensions-4.16.0
+Collecting transformers
+  Downloading transformers-5.21.0-py3-none-any.whl.metadata (31 kB)
+Collecting sentencepiece
+  Downloading sentencepiece-0.2.2-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (33 kB)
+Collecting faiss-gpu-cu12
+  Downloading faiss_gpu_cu12-1.14.1.post1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (13 kB)
+Collecting cupy-cuda12x
+  Downloading cupy_cuda12x-14.2.0-cp311-cp311-manylinux2014_x86_64.whl.metadata (2.8 kB)
+Collecting protobuf
+  Downloading protobuf-7.36.2-cp310-abi3-manylinux2014_x86_64.whl.metadata (595 bytes)
+Collecting huggingface-hub<3.0,>=1.31.0 (from transformers)
+  Downloading huggingface_hub-2.3.0-py3-none-any.whl.metadata (16 kB)
+Requirement already satisfied: numpy>=1.17 in ./conda_envs/gpu/lib/python3.11/site-packages (from transformers) (2.4.6)
+Requirement already satisfied: packaging>=20.0 in ./conda_envs/gpu/lib/python3.11/site-packages (from transformers) (26.3)
+Collecting pyyaml>=5.1 (from transformers)
+  Downloading pyyaml-6.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
+Collecting regex>=2025.10.22 (from transformers)
+  Downloading regex-2026.9.29-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (40 kB)
+Collecting tokenizers<0.24.0,>=0.23.1 (from transformers)
+  Downloading tokenizers-0.23.3-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (9.8 kB)
+Collecting typer (from transformers)
+  Downloading typer-0.27.3-py3-none-any.whl.metadata (16 kB)
+Collecting safetensors>=0.8.0 (from transformers)
+  Downloading safetensors-0.8.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.2 kB)
+Collecting tqdm>=4.60 (from transformers)
+  Using cached tqdm-4.70.1-py3-none-any.whl.metadata (57 kB)
+Collecting click<9.0.0,>=8.4.2 (from huggingface-hub<3.0,>=1.31.0->transformers)
+  Downloading click-8.5.0-py3-none-any.whl.metadata (2.6 kB)
+Requirement already satisfied: filelock>=3.10.0 in ./conda_envs/gpu/lib/python3.11/site-packages (from huggingface-hub<3.0,>=1.31.0->transformers) (3.32.3)
+Requirement already satisfied: fsspec>=2023.5.0 in ./conda_envs/gpu/lib/python3.11/site-packages (from huggingface-hub<3.0,>=1.31.0->transformers) (2026.7.0)
+Collecting hf-xet<2.0.0,>=1.6.0 (from huggingface-hub<3.0,>=1.31.0->transformers)
+  Downloading hf_xet-1.7.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (4.9 kB)
+Collecting httpx2<3,>=2.0.0 (from huggingface-hub<3.0,>=1.31.0->transformers)
+  Downloading httpx2-2.16.0-py3-none-any.whl.metadata (10 kB)
+Requirement already satisfied: typing-extensions>=4.1.0 in ./conda_envs/gpu/lib/python3.11/site-packages (from huggingface-hub<3.0,>=1.31.0->transformers) (4.16.0)
+Collecting anyio>=4.10 (from httpx2<3,>=2.0.0->huggingface-hub<3.0,>=1.31.0->transformers)
+  Using cached anyio-4.15.1-py3-none-any.whl.metadata (4.7 kB)
+Collecting httpcore2==2.16.0 (from httpx2<3,>=2.0.0->huggingface-hub<3.0,>=1.31.0->transformers)
+  Downloading httpcore2-2.16.0-py3-none-any.whl.metadata (27 kB)
+Collecting idna>=3.18 (from httpx2<3,>=2.0.0->huggingface-hub<3.0,>=1.31.0->transformers)
+  Using cached idna-3.20-py3-none-any.whl.metadata (7.2 kB)
+Collecting truststore>=0.10 (from httpx2<3,>=2.0.0->huggingface-hub<3.0,>=1.31.0->transformers)
+  Downloading truststore-0.10.5-py3-none-any.whl.metadata (4.5 kB)
+Collecting h11>=0.16 (from httpcore2==2.16.0->httpx2<3,>=2.0.0->huggingface-hub<3.0,>=1.31.0->transformers)
+  Using cached h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+Requirement already satisfied: nvidia-cuda-runtime-cu12>=12.1.105 in ./conda_envs/gpu/lib/python3.11/site-packages (from faiss-gpu-cu12) (12.4.127)
+Requirement already satisfied: nvidia-cublas-cu12>=12.1.3.1 in ./conda_envs/gpu/lib/python3.11/site-packages (from faiss-gpu-cu12) (12.4.5.8)
+Collecting cuda-pathfinder==1.*,>=1.3.4 (from cupy-cuda12x)
+  Downloading cuda_pathfinder-1.8.4-py3-none-any.whl.metadata (1.9 kB)
+Collecting shellingham>=1.3.0 (from typer->transformers)
+  Downloading shellingham-1.5.4-py2.py3-none-any.whl.metadata (3.5 kB)
+Collecting rich>=13.8.0 (from typer->transformers)
+  Downloading rich-15.0.0-py3-none-any.whl.metadata (18 kB)
+Collecting annotated-doc>=0.0.2 (from typer->transformers)
+  Downloading annotated_doc-0.0.5-py3-none-any.whl.metadata (6.5 kB)
+Collecting markdown-it-py>=2.2.0 (from rich>=13.8.0->typer->transformers)
+  Downloading markdown_it_py-4.2.0-py3-none-any.whl.metadata (7.4 kB)
+Collecting pygments<3.0.0,>=2.13.0 (from rich>=13.8.0->typer->transformers)
+  Downloading pygments-2.21.0-py3-none-any.whl.metadata (2.5 kB)
+Collecting mdurl~=0.1 (from markdown-it-py>=2.2.0->rich>=13.8.0->typer->transformers)
+  Downloading mdurl-0.1.2-py3-none-any.whl.metadata (1.6 kB)
+Downloading transformers-5.21.0-py3-none-any.whl (13.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.0/13.0 MB 113.8 MB/s  0:00:00
+Downloading huggingface_hub-2.3.0-py3-none-any.whl (855 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 855.2/855.2 kB 11.0 MB/s  0:00:00
+Downloading click-8.5.0-py3-none-any.whl (125 kB)
+Downloading hf_xet-1.7.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.2/4.2 MB 117.7 MB/s  0:00:00
+Downloading httpx2-2.16.0-py3-none-any.whl (97 kB)
+Downloading httpcore2-2.16.0-py3-none-any.whl (85 kB)
+Downloading tokenizers-0.23.3-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.4/3.4 MB 41.2 MB/s  0:00:00
+Downloading sentencepiece-0.2.2-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (1.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.4/1.4 MB 16.8 MB/s  0:00:00
+Downloading faiss_gpu_cu12-1.14.1.post1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (48.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 48.4/48.4 MB 9.6 MB/s  0:00:05
+Downloading cupy_cuda12x-14.2.0-cp311-cp311-manylinux2014_x86_64.whl (136.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 136.6/136.6 MB 183.3 MB/s  0:00:00
+Downloading cuda_pathfinder-1.8.4-py3-none-any.whl (62 kB)
+Downloading protobuf-7.36.2-cp310-abi3-manylinux2014_x86_64.whl (343 kB)
+Using cached anyio-4.15.1-py3-none-any.whl (132 kB)
+Using cached h11-0.16.0-py3-none-any.whl (37 kB)
+Using cached idna-3.20-py3-none-any.whl (69 kB)
+Downloading pyyaml-6.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (806 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 806.6/806.6 kB 19.3 MB/s  0:00:00
+Downloading regex-2026.9.29-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (804 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 805.0/805.0 kB 20.6 MB/s  0:00:00
+Downloading safetensors-0.8.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (516 kB)
+Using cached tqdm-4.70.1-py3-none-any.whl (80 kB)
+Downloading truststore-0.10.5-py3-none-any.whl (19 kB)
+Downloading typer-0.27.3-py3-none-any.whl (123 kB)
+Downloading annotated_doc-0.0.5-py3-none-any.whl (5.3 kB)
+Downloading rich-15.0.0-py3-none-any.whl (310 kB)
+Downloading pygments-2.21.0-py3-none-any.whl (1.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 17.5 MB/s  0:00:00
+Downloading markdown_it_py-4.2.0-py3-none-any.whl (91 kB)
+Downloading mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+Downloading shellingham-1.5.4-py2.py3-none-any.whl (9.8 kB)
+Installing collected packages: truststore, tqdm, shellingham, sentencepiece, safetensors, regex, pyyaml, pygments, protobuf, mdurl, idna, hf-xet, h11, faiss-gpu-cu12, cuda-pathfinder, click, annotated-doc, markdown-it-py, httpcore2, cupy-cuda12x, anyio, rich, httpx2, typer, huggingface-hub, tokenizers, transformers
+
+Successfully installed annotated-doc-0.0.5 anyio-4.15.1 click-8.5.0 cuda-pathfinder-1.8.4 cupy-cuda12x-14.2.0 faiss-gpu-cu12-1.14.1.post1 h11-0.16.0 hf-xet-1.7.0 httpcore2-2.16.0 httpx2-2.16.0 huggingface-hub-2.3.0 idna-3.20 markdown-it-py-4.2.0 mdurl-0.1.2 protobuf-7.36.2 pygments-2.21.0 pyyaml-6.0.3 regex-2026.9.29 rich-15.0.0 safetensors-0.8.0 sentencepiece-0.2.2 shellingham-1.5.4 tokenizers-0.23.3 tqdm-4.70.1 transformers-5.21.0 truststore-0.10.5 typer-0.27.3
