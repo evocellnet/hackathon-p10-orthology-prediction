@@ -4,6 +4,14 @@ Agent `gpu`, branch `l2-gpu` (from `v2-gpu` 1f9a343), worktree `work/l2_gpu_wt`,
 Started 2026-10-27 18:00 CET (`scripts/clock.sh`). Rules: docs/L2_protocol.md (dev only, pre-registration, ≤ 8 threads,
 `nice -n 5`, GPU ≤ 18 GB, shared with agent `plm`). The frozen presets are unchanged; every new behaviour is opt-in.
 
+## Summary (for the PI)
+
+| task | outcome | verdict |
+|---|---|---|
+| 1. all-GPU S2 made accuracy-equivalent by sparsifying the GPU graph | 8 sparsification / splice arms + controls on OrthoBench dev and TreeFam-A dev. **No arm passes the pre-registered equivalence rule** (E1/E2 on OrthoBench fail for all). But a **1 % score-jitter of the CPU table itself costs −3 to −7 OG-F and −0.010 to −0.014 macro pair F1** (3 seeds): the OrthoBench dev optimum of the frozen merge is a tuned point that any S2 perturbation leaves, so E1/E2 cannot separate "equivalent" from "different" here. On QfO, **R207** (keep a pair if bits ≥ 0.207 × the query's best hit in the partner's species) gives **TreeFam-A dev TPR 0.637 / PPV 0.930 vs CPU 0.615 / 0.922** (ΔTPR +0.021 [−0.003, +0.050]) at **0.59 CPU-h instead of 9.05** (15×). Mechanism traced (§2.2): avg-link over *present* pairs + uneven presence reshuffles the local-tree ambiguity clusters. | **not equivalent by the rule**; R207 is a documented opt-in speed mode (`scoring.gpu_sparsify = "ratio:0.207"`, `gpu_max_family = 0`), not a frozen candidate |
+| 2. batched FastTree / in-process FAMSA | `FastTree -n` gives byte-identical trees (1,000/1,000 real jobs; full-run check §3.1) but only −3 % tree time; pyfamsa is not faster and changes 8/998 alignments. The per-call cost is ML optimisation inside FastTree (93 %), not process start-up (GPU_v2 §8 corrected). | equivalence-preserving but **not worth it**; in-process FAMSA rejected |
+| 3. R4 structure rescue at full 3Di coverage | ProstT5-GPU fills the QfO gap (63k proteins) in 5 h on a shared A100. Full coverage = AFDB-only on every dev metric (OrthoBench: macro +0.0042 [−0.0005, +0.011] for both; QfO see §4.1). Foldseek GPU search is slower than CPU and finds different hits. | **fails the keep rule**; full coverage adds nothing measurable; GPU search not useful |
+
 ## 0. Pre-registration (written 18:10 CET, before any new arm was run)
 
 ### 0.0 Label-free diagnosis done before writing this section
@@ -264,7 +272,7 @@ QfO on the S0_rescue base (fast + gene order; R0 = `work/rescue/qfo/R0` = TPR 0.
 | R0 (frozen) | – | – | 79.69 | – | 0.8026 | – |
 | R4-afdb (80.5 % 3Di) | 32,932 | 3,192 / 491 | 79.93 | +0.24 [0.00, +0.65] | 0.8068 | +0.0042 [−0.0005, +0.011] |
 | **R4-full (100 % 3Di)** | 48,587 | 3,710 / 539 | 79.93 | +0.24 [0.00, +0.65] | 0.8068 | **+0.0042 [−0.0005, +0.011]** |
-| R4-shuf 11 / 23 / 47 | 30 / – / – | 1,102 / 299 | 79.81 (all three) | +0.12 [0.00, +0.44] | 0.8047 (all three) | +0.0021 [−0.0007, +0.007] |
+| R4-shuf 11 / 23 / 47 | 30 / 30 / 27 | 1,102 / 1,103 / 1,100 attached, 299 kept each | 79.81 (all three) | +0.12 [0.00, +0.44] | 0.8047 (all three) | +0.0021 [−0.0007, +0.007] |
 
 R4-full vs shuffled: Δmacro +0.0021 [0.000, +0.0064], shuffled seed spread 0. R4-full and R4-afdb give different
 files (md5 c5e07631 / a9aa824d) but identical dev metrics: the 48 % more 3Di hits and 16 % more attachments that full
@@ -287,3 +295,51 @@ The positive part of R4 on OrthoBench comes from the *profile* search (the shuff
   GPU (`makepaddedseqdb` + `--gpu 1`) 47.6 s, i.e. slower, and it returns a different, smaller hit set (4,743 vs 8,602
   hits at e ≤ 1e-3, Jaccard 0.36). As for MMseqs2-GPU (GPU_v2 §1), the GPU prefilter has a per-query fixed cost and
   an ungapped prefilter, which suits few queries against huge databases, not 172k × 41k all-vs-all.
+
+## 5. Verdict, frozen configs, cost
+- **No arm passes its pre-registered rule, so there is no frozen config for a test agent.** The GPU *split* backend
+  of GPU_v2 (`gpu_max_family` 1000) remains the only accuracy-equivalent GPU mode (passes E1–E3 here too).
+- Opt-in options added on `l2-gpu` (all default off, stage keys unchanged at the defaults, `pytest -q` passes):
+  `scoring.gpu_sparsify` ∈ {`topk:K`, `mtopk:K`, `ratio:A`, `norm:X`, `rand:F:SEED`} (applied after the cap rule, to
+  non-self pairs of families > `rescue_max_family`); `merge.tree_ft_batch`, `merge.tree_ft_inproc`.
+- If the PI wants a *speed mode* for very large inputs (where CPU-h dominate), the best measured trade-off is
+  `--backend gpusw --config '{"scoring": {"gpu_max_family": 0, "gpu_sparsify": "ratio:0.207"}}'`: QfO TreeFam-A dev
+  at least as good as the CPU path (+0.021 TPR / +0.008 PPV, CIs include 0) at 15× fewer CPU-h; OrthoBench dev OG-F
+  −8.4 / macro −0.015 vs frozen, which is at the edge of what a 1 % jitter of the CPU scores does (−3 to −8 / −0.017 to
+  −0.020 vs frozen). It would need its own test-set decision.
+- **Methodological finding for all L2 layers:** on OrthoBench dev the frozen merge sits on a sharp optimum of the
+  exact DIAMOND score table. A 1 % log-normal jitter of the bit scores (seeds 11/23/47) costs −3.2 / −7.3 / −5.0 OG-F
+  and −0.011 / −0.014 / −0.010 macro pair F1 relative to the unjittered table; swapping only the GPU self-scores costs
+  −17 OG-F. Any layer that changes S2 scores (or their normalisation) should be compared against such a jitter floor,
+  not against ±2–4 OG-F partition noise. QfO TreeFam-A dev is much less sensitive (jitter: ΔTPR −0.009, ΔPPV +0.001).
+
+**Compute used by this agent** (shared node, ≤ 8 threads, `nice -n 5`): ≈ 40 merge-only runs (OrthoBench accurate
+13–33 min each at 2–4 threads; QfO fast 8 min at 4 threads), 5 OrthoBench + 3 QfO R4 runs (≈ 35–40 min each),
+micro-benchmarks; total ≈ 45 CPU-h. GPU: ProstT5 QfO gap 5.0 h (shared), Foldseek GPU benchmark < 1 min; no new
+GPU S2 run was needed (all task-1 arms transform the GPU_v2 all-GPU tables). Peak GPU memory 5.1 GB.
+
+## 6. Literature credit (PubMed-checked)
+- Smith & Waterman 1981, J Mol Biol 147:195 (PMID 7265238) — local alignment computed exhaustively on the GPU.
+- Buchfink, Reuter & Drost 2021, Nat Methods 18:366 (PMID 33828273) — DIAMOND, whose seeded, composition-adjusted
+  hit graph the frozen merge was tuned on.
+- Hauser, Steinegger & Söding 2016, Bioinformatics 32:1323 (PMID 26743509) — MMseqs; local composition-bias correction
+  (GPU_v2 I1).
+- Remm, Storm & Sonnhammer 2001, J Mol Biol 314:1041 (PMID 11743721) — InParanoid in-paralog rule used by R2.
+- Emms & Kellis 2019, Genome Biol 20:238 (PMID 31727128) — OrthoFinder; length/rank normalisation of all-vs-all
+  scores per species pair, the closest precedent for per-species relative rules (R207, top-k).
+- Price, Dehal & Arkin 2010, PLoS One 5:e9490 (PMID 20224823) — FastTree 2 (`-n` multiple alignments, ML cost).
+- Deorowicz, Debudaj-Grabysz & Gudyś 2016, Sci Rep 6:33964 (PMID 27670777) — FAMSA (pyfamsa wraps it).
+- van Kempen et al. 2024, Nat Biotechnol 42:243 (PMID 37156916) — Foldseek / 3Di.
+- Heinzinger et al. 2024, NAR Genom Bioinform 6:lqae150 (PMID 39633723) — ProstT5 sequence→3Di.
+
+## 7. Failed or not pursued (for S1 Text)
+- Sparsifying the exhaustive GPU score graph (per-species top-k, mutual top-k, ratio-to-best, self-normalised floor,
+  random) did not make all-GPU S2 equivalent to DIAMOND on OrthoBench dev; the frozen merge depends on DIAMOND's joint
+  pattern of pair presence and score scale, and even a 1 % score jitter moves OrthoBench dev OG-F by −3 to −7.
+- Splicing DIAMOND back in only for families > 3,000 or > 5,000 genes was not equivalent either (OG-F −2.8 / −2.2,
+  macro −0.015 / −0.013) and saves at most ~40 % of DIAMOND CPU time.
+- Batched FastTree (`-n`) is byte-identical but only 3 % faster; in-process FAMSA (pyfamsa) is not faster and not
+  identical. The local-tree cost is ML optimisation per alignment, not process overhead.
+- Completing 3Di coverage with ProstT5 on the GPU (OrthoBench 80.5 → 100 %, QfO 93.6 → 100 %) did not change any dev
+  metric of the guarded structure rescue (R4); Foldseek's GPU search was slower than its CPU search for this
+  all-vs-all workload.
