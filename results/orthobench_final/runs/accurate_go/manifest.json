@@ -1,0 +1,378 @@
+{
+ "stages": {
+  "input": {
+   "key": "1416935cc49d9923",
+   "wall_s": 0.166,
+   "peak_rss_mb": 201.9,
+   "children_max_rss_mb": 204.5,
+   "stats": {
+    "n_genes": 251378,
+    "n_species": 12,
+    "n_internal_nodes": 11
+   },
+   "skipped": false
+  },
+  "families": {
+   "key": "f25cb3b92ba47254",
+   "wall_s": 259.226,
+   "peak_rss_mb": 989.2,
+   "children_max_rss_mb": 2475.0,
+   "stats": {
+    "source": "ancestra.families",
+    "s0_timings": {
+     "stage1_s": 135.61671614646912,
+     "stage2_search_s": 102.12744641304016,
+     "stage2_s": 119.77028942108154,
+     "total_s": 258.4843006134033
+    },
+    "n_families": 22643,
+    "n_singletons": 15343,
+    "max_family": 7269,
+    "sum_g2": 413925616
+   },
+   "skipped": false
+  },
+  "scores": {
+   "key": "4551106cb0ac4b4a",
+   "wall_s": 1128.94,
+   "peak_rss_mb": 13122.5,
+   "children_max_rss_mb": 14343.1,
+   "stats": {
+    "backend": "hybrid",
+    "n_families": 22643,
+    "sum_g2": 413925616,
+    "max_family": 7269,
+    "n_cross_family_hits": 9616516,
+    "n_raw_hits": 100239200,
+    "n_blocks": 3,
+    "diamond_s": 797.13,
+    "n_pairs_diamond": 46198301,
+    "n_pairs_rescue_candidates": 4397499,
+    "n_pairs_aligned_mmseqs": 4397499,
+    "pairs_write_s": 2.45,
+    "align_s": 28.92,
+    "n_families_over_cap": 6,
+    "n_families_over_gmax": 0,
+    "n_pairs_dropped_by_cap": 27644076,
+    "pairs_dropped_per_family": {
+     "5": 7769477,
+     "23": 1254256,
+     "41": 789572,
+     "47": 358506,
+     "132": 2689153,
+     "7832": 14783112
+    },
+    "wall_s": 879.27,
+    "n_scored_pairs": 13565389,
+    "n_self_scores": 251377,
+    "rescue_joins": 101,
+    "rescue_rescored_genes": 63904,
+    "rescue_wall_s": 248.16,
+    "n_families_after_rescue": 22542,
+    "n_families_before_rescue": 22643
+   },
+   "skipped": false
+  },
+  "merge": {
+   "key": "e879497e9362162f",
+   "wall_s": 490.758,
+   "peak_rss_mb": 2472.1,
+   "children_max_rss_mb": 14343.1,
+   "stats": {
+    "synteny_coverage": {
+     "Caenorhabditis_elegans": 1.0,
+     "Canis_familiaris": 1.0,
+     "Ciona_intestinalis": 1.0,
+     "Danio_rerio": 1.0,
+     "Drosophila_melanogaster": 1.0,
+     "Gallus_gallus": 1.0,
+     "Homo_sapiens": 0.999872,
+     "Monodelphis_domestica": 1.0,
+     "Mus_musculus": 0.999956,
+     "Pan_troglodytes": 1.0,
+     "Rattus_norvegicus": 1.0,
+     "Tetraodon_nigroviridis": 1.0
+    },
+    "n_root_groups": 15301,
+    "n_root_anc_genes": 45236,
+    "merge_s_sum_nodes": 462.507,
+    "tree_clusters": 15240,
+    "tree_units": 77751,
+    "tree_s": 441.06
+   },
+   "skipped": false
+  },
+  "output": {
+   "key": "e1dbdc58d7826986",
+   "wall_s": 10.93,
+   "peak_rss_mb": 1669.2,
+   "children_max_rss_mb": 14343.1,
+   "stats": {
+    "xsd_valid": true,
+    "n_top_groups": 15301,
+    "n_pairs": 1394142,
+    "n_ogs_multi": 15301
+   },
+   "skipped": false
+  }
+ },
+ "tool": "ancestra core v0",
+ "argv": [
+  "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/ancestra/__main__.py",
+  "run",
+  "--proteomes",
+  "data/orthobench/Open_Orthobench/BENCHMARKS/Input",
+  "--tree",
+  "results/S1_speciestree/ob/ncbi.nwk",
+  "--gene-order",
+  "data/genomes/orthobench",
+  "--out",
+  "work/ob_final/main_accurate_go",
+  "--threads",
+  "10",
+  "--preset",
+  "accurate"
+ ],
+ "git": {
+  "commit": "f7bcddcc4063c9e0297ec75916ba7f1c3bda0e5d",
+  "ancestra_dirty": false
+ },
+ "versions": {
+  "python": "3.11.18",
+  "numpy": "1.26.4",
+  "mmseqs": "18.8cc5c",
+  "diamond": "diamond version 2.2.8"
+ },
+ "inputs": {
+  "proteomes": {
+   "Caenorhabditis_elegans.WBcel235.pep.all.fa": "f91688d5fb34a1dec3d08ff10a3bd278",
+   "Canis_familiaris.CanFam3.1.pep.all.fa": "686469364d7fc1641e5d854585700080",
+   "Ciona_intestinalis.KH.pep.all.fa": "32ef93a5c9ff0c1117a54b7d5d8f49d9",
+   "Danio_rerio.GRCz11.pep.all.fa": "86e7818dc3a221300b2c1a1813b950a2",
+   "Drosophila_melanogaster.BDGP6.28.pep.all.fa": "c31fbf6de355bd21c5dcade6b249d6a5",
+   "Gallus_gallus.GRCg6a.pep.all.fa": "a4aa602960b1139601089a4794f1b2ee",
+   "Homo_sapiens.GRCh38.pep.all.fa": "3ee3d372689d71e0bc4da6c5335da1fd",
+   "Monodelphis_domestica.ASM229v1.pep.all.fa": "b6319e5e46ccd22dd9cba38123fb1db9",
+   "Mus_musculus.GRCm38.pep.all.fa": "c7300c6a6cfd774ca56ade51913e0c0e",
+   "Pan_troglodytes.Pan_tro_3.0.pep.all.fa": "831e923cc233f9d2d029f71c980134d2",
+   "Rattus_norvegicus.Rnor_6.0.pep.all.fa": "3d2f28c081a9ee6c9cf80e4ba3ae3569",
+   "Tetraodon_nigroviridis.TETRAODON8.pep.all.fa": "79396144d6e525ec80de6fcba5629c69"
+  },
+  "tree": "5396f5893379e5dfdbeb0e42eda2b802",
+  "families": null
+ },
+ "config": {
+  "threads": 10,
+  "preset": "accurate",
+  "off_tree_method": "nj",
+  "scoring": {
+   "backend": "hybrid",
+   "evalue": 10.0,
+   "block_genes": 100000,
+   "diamond_sens": "--sensitive",
+   "diamond_b": 4.0,
+   "cap_all": 5000,
+   "g_max": 20000,
+   "top_per_species": 2,
+   "top_same": 20,
+   "family_rescue": true,
+   "rescue_cov": 0.5,
+   "rescue_max_join": 7500,
+   "rescue_max_family": 1000,
+   "rescue_evalue": 1e-05,
+   "threads": 10
+  },
+  "merge": {
+   "link": "avg",
+   "score": "norm_max",
+   "tol": 0.95,
+   "inparalogs": true,
+   "inpar_factor": 1.0,
+   "inpar_rule": "ortholog",
+   "repair": true,
+   "repair_ratio": 0.9,
+   "min_cov": 0.0,
+   "min_score": 0.0,
+   "rd_hidden": false,
+   "rd_z": 3.0,
+   "rd_inpar": false,
+   "rd_inpar_factor": 1.0,
+   "engine": "numba",
+   "tree_mode": true,
+   "tree_tau": 0.9,
+   "tree_max_units": 60,
+   "tree_require_outgroup": true,
+   "tree_conservative": false,
+   "tree_nodes": "",
+   "tree_method": "fasttree",
+   "tree_ft_mode": "medoid",
+   "tree_ft_workers": 10,
+   "tree_min_d": 0.5,
+   "ctx_mode": "r1",
+   "ctx_window": 0.75,
+   "ctx_r3": false,
+   "ctx_veto": false,
+   "ctx_veto_min": 2.0,
+   "locus_repair": false,
+   "locus_single_species": true,
+   "locus_min_support": 1.0,
+   "so_struct": false,
+   "so_absorb": false,
+   "deep_min_d": 1.5,
+   "deep_tol": 0.0,
+   "deep_so_absorb": true,
+   "orphan_min": 0.0,
+   "orphan_merge": "off"
+  },
+  "families": {
+   "default_clustering": {
+    "backend": "diamond",
+    "dmnd_cmd": "cluster",
+    "approx_id": 30,
+    "member_cover": 50,
+    "stage2": "cc",
+    "s2_query": "all",
+    "s2_sens": "--sensitive",
+    "s2_evalue": 1e-05,
+    "s2_cov": 0.3,
+    "s2_cov_mode": "shorter",
+    "s2_gmax": 7500,
+    "s2_reassign": true
+   }
+  },
+  "synteny": {
+   "dir": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/data/genomes/orthobench",
+   "files": {
+    "Caenorhabditis_elegans.parquet": 638842,
+    "Canis_familiaris.parquet": 649330,
+    "Ciona_intestinalis.parquet": 525388,
+    "Danio_rerio.parquet": 998778,
+    "Drosophila_melanogaster.parquet": 416938,
+    "Gallus_gallus.parquet": 538529,
+    "Homo_sapiens.parquet": 758525,
+    "Monodelphis_domestica.parquet": 724126,
+    "Mus_musculus.parquet": 746339,
+    "Pan_troglodytes.parquet": 743858,
+    "Rattus_norvegicus.parquet": 725907,
+    "Tetraodon_nigroviridis.parquet": 606765,
+    "coverage.json": 4830,
+    "coverage.tsv": 1305
+   },
+   "kw": {
+    "mode": "multiplicative",
+    "lam": 0.3,
+    "anchor": "core",
+    "w": 10
+   }
+  }
+ },
+ "n_genes": 251378,
+ "n_species": 12,
+ "nodes": [
+  {
+   "node": "Clupeocephala",
+   "n_children": 2,
+   "n_units": 49915,
+   "n_anc_out": 28910,
+   "n_merged_groups": 14706,
+   "n_edges": 928320,
+   "wall_s": 2.2292
+  },
+  {
+   "node": "Murinae",
+   "n_children": 2,
+   "n_units": 45116,
+   "n_anc_out": 23091,
+   "n_merged_groups": 18465,
+   "n_edges": 687592,
+   "wall_s": 1.6035
+  },
+  {
+   "node": "Homininae",
+   "n_children": 2,
+   "n_units": 47019,
+   "n_anc_out": 25036,
+   "n_merged_groups": 18331,
+   "n_edges": 738934,
+   "wall_s": 1.6861
+  },
+  {
+   "node": "Euarchontoglires",
+   "n_children": 2,
+   "n_units": 48127,
+   "n_anc_out": 27692,
+   "n_merged_groups": 17683,
+   "n_edges": 634297,
+   "wall_s": 1.7445
+  },
+  {
+   "node": "Boreoeutheria",
+   "n_children": 2,
+   "n_units": 47949,
+   "n_anc_out": 28774,
+   "n_merged_groups": 17092,
+   "n_edges": 652296,
+   "wall_s": 1.5309
+  },
+  {
+   "node": "Theria",
+   "n_children": 2,
+   "n_units": 50158,
+   "n_anc_out": 30635,
+   "n_merged_groups": 15997,
+   "n_edges": 875334,
+   "wall_s": 2.0565
+  },
+  {
+   "node": "Amniota",
+   "n_children": 2,
+   "n_units": 47513,
+   "n_anc_out": 31319,
+   "n_merged_groups": 13749,
+   "n_edges": 694087,
+   "wall_s": 2.4224
+  },
+  {
+   "node": "Euteleostomi",
+   "n_children": 2,
+   "n_units": 60229,
+   "n_anc_out": 31809,
+   "n_merged_groups": 16355,
+   "n_edges": 1065138,
+   "wall_s": 213.3691
+  },
+  {
+   "node": "Chordata",
+   "n_children": 2,
+   "n_units": 48480,
+   "n_anc_out": 30464,
+   "n_merged_groups": 8829,
+   "n_edges": 531868,
+   "wall_s": 146.1151
+  },
+  {
+   "node": "Ecdysozoa",
+   "n_children": 2,
+   "n_units": 34138,
+   "n_anc_out": 23073,
+   "n_merged_groups": 5691,
+   "n_edges": 362949,
+   "wall_s": 87.2837
+  },
+  {
+   "node": "Bilateria",
+   "n_children": 2,
+   "n_units": 53537,
+   "n_anc_out": 45236,
+   "n_merged_groups": 6227,
+   "n_edges": 516865,
+   "wall_s": 2.4662
+  }
+ ],
+ "total_wall_s": 1892.14,
+ "outputs": {
+  "hogs.orthoxml": "cc261e73b521f7eaa263dd4534c86ac2",
+  "pairs.tsv": "cc26e400f9ab2cf3dcbb3f2a22db978e",
+  "orthobench_ogs.txt": "60c094f54d4d6b0ebb1130b198deaafb"
+ }
+}

@@ -1,0 +1,20 @@
+[06:40:29] fast_go start: python -u -m ancestra run --proteomes data/orthobench/Open_Orthobench/BENCHMARKS/Input --tree results/S1_speciestree/ob/ncbi.nwk --gene-order data/genomes/orthobench --out work/ob_final/fast_go --threads 10 --preset fast 
+[06:41:40] fast_go done (1:09.42)
+[06:41:40] accurate_nogo start: python -u -m ancestra run --proteomes data/orthobench/Open_Orthobench/BENCHMARKS/Input --tree results/S1_speciestree/ob/ncbi.nwk  --out work/ob_final/accurate_nogo --threads 10 --preset accurate 
+[06:50:08] accurate_nogo done (8:27.37)
+[06:50:08] fast_nogo start: python -u -m ancestra run --proteomes data/orthobench/Open_Orthobench/BENCHMARKS/Input --tree results/S1_speciestree/ob/ncbi.nwk  --out work/ob_final/fast_nogo --threads 10 --preset fast 
+[06:50:43] fast_nogo done (0:34.65)
+[06:50:43] accurate_go_rescue start: python -u -m ancestra run --proteomes data/orthobench/Open_Orthobench/BENCHMARKS/Input --tree results/S1_speciestree/ob/ncbi.nwk --gene-order data/genomes/orthobench --out work/ob_final/accurate_go_rescue --threads 10 --preset accurate --family-rescue both --structure-3di data/structure/orthobench_3di_best.fa --family-rescue-guard
+[07:10:11] accurate_go_rescue done (19:27.21)
+[07:10:11] tree_astralpro start: python -u results/orthobench_final/scripts/run_cached.py work/ob_final/main_accurate_go -- --proteomes data/orthobench/Open_Orthobench/BENCHMARKS/Input --tree results/S1_speciestree/ob/armB_astralpro_ncbiroot.nwk --gene-order data/genomes/orthobench --out work/ob_final/tree_astralpro --threads 10 --preset accurate 
+[07:18:51] tree_astralpro done (8:37.72)
+[07:18:51] tree_fastme start: python -u results/orthobench_final/scripts/run_cached.py work/ob_final/main_accurate_go -- --proteomes data/orthobench/Open_Orthobench/BENCHMARKS/Input --tree results/S1_speciestree/ob/armA_fastme_ncbiroot.nwk --gene-order data/genomes/orthobench --out work/ob_final/tree_fastme --threads 10 --preset accurate 
+[07:27:31] tree_fastme done (8:39.45)
+[07:27:31] tree_nni1_s11 start: python -u results/orthobench_final/scripts/run_cached.py work/ob_final/main_accurate_go -- --proteomes data/orthobench/Open_Orthobench/BENCHMARKS/Input --tree results/S1_speciestree/ob/perturbed_ncbi_nni1_s11.nwk --gene-order data/genomes/orthobench --out work/ob_final/tree_nni1_s11 --threads 10 --preset accurate 
+[07:36:17] tree_nni1_s11 done (8:44.60)
+[07:36:17] tree_nni1_s23 start: python -u results/orthobench_final/scripts/run_cached.py work/ob_final/main_accurate_go -- --proteomes data/orthobench/Open_Orthobench/BENCHMARKS/Input --tree results/S1_speciestree/ob/perturbed_ncbi_nni1_s23.nwk --gene-order data/genomes/orthobench --out work/ob_final/tree_nni1_s23 --threads 10 --preset accurate 
+[07:44:50] tree_nni1_s23 done (8:32.72)
+[07:44:50] tree_nni1_s47 start: python -u results/orthobench_final/scripts/run_cached.py work/ob_final/main_accurate_go -- --proteomes data/orthobench/Open_Orthobench/BENCHMARKS/Input --tree results/S1_speciestree/ob/perturbed_ncbi_nni1_s47.nwk --gene-order data/genomes/orthobench --out work/ob_final/tree_nni1_s47 --threads 10 --preset accurate 
+[07:53:24] tree_nni1_s47 done (8:33.16)
+[07:53:24] tree_random_s11 start: python -u results/orthobench_final/scripts/run_cached.py work/ob_final/main_accurate_go -- --proteomes data/orthobench/Open_Orthobench/BENCHMARKS/Input --tree results/S1_speciestree/ob/random_s11.nwk --gene-order data/genomes/orthobench --out work/ob_final/tree_random_s11 --threads 10 --preset accurate 
+[08:05:02] tree_random_s11 done (11:36.25)

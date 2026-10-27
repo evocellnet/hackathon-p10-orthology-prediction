@@ -1,0 +1,1 @@
+python -u -m ancestra run --proteomes data/orthobench/Open_Orthobench/BENCHMARKS/Input --tree results/S1_speciestree/ob/ncbi.nwk  --out work/ob_final/accurate_nogo --threads 10 --preset accurate 

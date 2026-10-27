@@ -1,0 +1,23 @@
+	Command being timed: "python -u -m ancestra run --proteomes data/orthobench/Open_Orthobench/BENCHMARKS/Input --tree results/S1_speciestree/ob/ncbi.nwk --gene-order data/genomes/orthobench --out work/ob_final/accurate_go_rescue --threads 10 --preset accurate --family-rescue both --structure-3di data/structure/orthobench_3di_best.fa --family-rescue-guard"
+	User time (seconds): 8454.03
+	System time (seconds): 379.44
+	Percent of CPU this job got: 756%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 19:27.21
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 3378288
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 79
+	Minor (reclaiming a frame) page faults: 181714645
+	Voluntary context switches: 347846
+	Involuntary context switches: 2951258
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 576016
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

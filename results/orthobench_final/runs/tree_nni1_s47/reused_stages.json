@@ -1,0 +1,31 @@
+{
+ "base": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/ob_final/main_accurate_go",
+ "argv": [
+  "--proteomes",
+  "data/orthobench/Open_Orthobench/BENCHMARKS/Input",
+  "--tree",
+  "results/S1_speciestree/ob/perturbed_ncbi_nni1_s47.nwk",
+  "--gene-order",
+  "data/genomes/orthobench",
+  "--out",
+  "work/ob_final/tree_nni1_s47",
+  "--threads",
+  "10",
+  "--preset",
+  "accurate"
+ ],
+ "adopted": [
+  {
+   "stage": "families",
+   "base_key": "f25cb3b92ba47254",
+   "new_key": "3d3709c41fbd075d",
+   "base": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/ob_final/main_accurate_go"
+  },
+  {
+   "stage": "scores",
+   "base_key": "4551106cb0ac4b4a",
+   "new_key": "f85a59f78966b7ec",
+   "base": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/ob_final/main_accurate_go"
+  }
+ ]
+}

@@ -1,0 +1,1 @@
+python -u -m ancestra run --proteomes data/orthobench/Open_Orthobench/BENCHMARKS/Input --tree results/S1_speciestree/ob/ncbi.nwk --gene-order data/genomes/orthobench --out work/ob_final/accurate_go_rescue --threads 10 --preset accurate --family-rescue both --structure-3di data/structure/orthobench_3di_best.fa --family-rescue-guard

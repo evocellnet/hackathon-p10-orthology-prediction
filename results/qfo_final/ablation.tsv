@@ -1,0 +1,9 @@
+arm	description	status	SwissTree TPR	ΔSwissTree TPR	SwissTree PPV	ΔSwissTree PPV	TreeFam-A TPR	ΔTreeFam-A TPR	TreeFam-A PPV	ΔTreeFam-A PPV	VGNC TPR	ΔVGNC TPR	VGNC PPV	ΔVGNC PPV	GO Schlicker	ΔGO	GO n	EC Schlicker	ΔEC	EC n
+cand2_fast	baseline: fast preset, gene order, NCBI tree	ok	0.731±0.037		0.923±0.032		0.608±0.006		0.916±0.004		0.981±0.002		0.982±0.002		nan		0	0.8961		196,729
+a_nogo	no gene order	not available																		
+b_rescue	+ family rescue (3Di+profile) + guard	not available																		
+c_astral	guide tree ASTRAL-Pro	not available																		
+d_fastme	guide tree FastME	not available																		
+e_nni5	NCBI + 5 random NNIs (seed 11)	not available																		
+f_random	random tree (negative control)	not available																		
+g_accurate_nogo	accurate preset, no gene order	not available																		

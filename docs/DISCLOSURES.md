@@ -11,3 +11,5 @@ Collected at M3 (T+14h15) by an independent retrospective agent; maintained by t
 8. **Post-hoc redesigns.** Constrained synteny replaced the additive bonus after it failed. The micro → macro pair-F1 switch was made on dev. Shuffled-control spans are ±1–3 OG-F, so OG-level synteny gains of +4–7 are moderate evidence. VGNC PPV .982 suggests vertebrate over-merging.
 9. **No claim was independently verified before M3.** Independent verification of CLAIMS.md is scheduled after the freeze. G-STD2/STD tests are run once, on the frozen config.
 10. **Adoption rules were first checked only on the fast preset.** so_struct passed on fast and failed on accurate; the presets now differ in options (each adopted on its own base).
+11. **The merge output depends slightly on Newick child order** (same topology, different child order → 18 OrthoBench OGs differ). Determinism holds for a fixed input file. Found in the final evaluation, after the freeze; not fixed.
+12. **The synteny OG-level gain on OrthoBench dev (+4.4 OG-F) did not replicate on OrthoBench test** (−0.1 when removed). Report the synteny effect as dev-only at OG level; pair-level and QfO effects separately.

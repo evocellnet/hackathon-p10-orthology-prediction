@@ -30,6 +30,9 @@ Thin wrapper (does not modify the pipeline). The pipeline's own stage cache
 * ``--adopt-unrecorded``: accept cached stages that have no recorded code key (runs made
   before this driver existed) instead of recomputing them. For timing dry runs only; it is
   logged in stage_accounting.json and the manifest.
+* ``--family-rescue MODE [--family-rescue-guard] [--structure-3di F]``: pipeline S0 rescue stage
+  (code-keyed as stage ``rescue``: rescue.py + scoring.py + the rescue options).
+* ``--transplant-from RUN``: guide-tree ablations without recomputing S0/S2 (see ``transplant``).
 * ``--stop-after STAGE``: stop cleanly after STAGE has finished or was up to date.
 * A lock file (``OUT/.driver.lock``) prevents two drivers on one run dir.
 
@@ -68,6 +71,13 @@ STAGE_CODE = {
 }
 
 
+RESCUE_CODE = ["rescue.py", "scoring.py"]
+
+
+def stages_for(rescue: dict | None) -> tuple:
+    return STAGES if not rescue else ("input", "families", "scores", "rescue", "merge", "output")
+
+
 class StopAfter(Exception):
     pass
 
@@ -100,11 +110,17 @@ def git_info() -> dict:
         return {"commit": None}
 
 
-def code_keys(family_cfg: dict, gene_order: str | None, preset: str | None = None) -> tuple[dict, dict]:
+def code_keys(family_cfg: dict, gene_order: str | None, preset: str | None = None,
+              rescue: dict | None = None) -> tuple[dict, dict]:
     files = {f: sha256_file(os.path.join(ROOT, "ancestra", f))
-             for fs in STAGE_CODE.values() for f in fs if os.path.exists(os.path.join(ROOT, "ancestra", f))}
+             for fs in list(STAGE_CODE.values()) + [RESCUE_CODE] for f in fs
+             if os.path.exists(os.path.join(ROOT, "ancestra", f))}
     keys, up = {}, None
-    for st in STAGES:
+    for st in stages_for(rescue):
+        if st == "rescue":
+            keys[st] = _h({"up": up, "files": {f: files.get(f) for f in RESCUE_CODE}, "rescue": rescue})
+            up = keys[st]
+            continue
         extra = {"families_config": family_cfg} if st == "families" else {}
         if st == "merge":
             extra = {"gene_order": gene_order}
@@ -121,7 +137,7 @@ def invalidate(out: str, keys: dict, log, adopt: bool = False) -> tuple[list, li
     rec = json.load(open(kp)) if os.path.exists(kp) else {}
     removed, adopted = [], []
     stale = False
-    for st in STAGES:
+    for st in keys:
         d = os.path.join(sdir, st)
         if adopt and not stale and st not in rec and os.path.exists(os.path.join(d, "DONE")):
             rec[st] = keys[st]      # explicit dry-run override: accept a pre-driver cached stage
@@ -174,6 +190,65 @@ def reuse_stages(src: str, out: str, log) -> list:
     return done
 
 
+def transplant(src: str, out: str, proteomes: str, tree: str, keys: dict, log) -> list:
+    """Hard-link the tree-independent ``families`` and ``scores`` stages of ``src`` into ``out`` and rewrite
+    their DONE keys to the keys ``ancestra.pipeline.run_pipeline`` computes for (proteomes, tree).
+
+    The pipeline keys its input stage on the guide-tree md5 and chains every later key to it, so a new guide
+    tree would recompute S0 and S2 (~1.6 h on QfO) although neither reads the tree (``s_fam`` uses the gene
+    table, ``s_scores`` the gene table + families). The keys are recomputed with the pipeline's own ``_hash``
+    and ``md5_file``; the formula is first checked to reproduce ``src``'s own DONE keys exactly (else abort).
+    The input stage itself is recomputed by the pipeline (it writes the pruned tree). DONE/stage.json are
+    replaced (unlink + write), never modified through the hard link, so ``src`` is untouched.
+    """
+    from ancestra.pipeline import DEFAULT_FAMILY_CONFIG, _hash, md5_file
+    from ancestra.scoring import ScoringConfig
+
+    def pipeline_keys(prot, tr):
+        inputs = {"proteomes": {f: md5_file(os.path.join(prot, f)) for f in sorted(os.listdir(prot))
+                                if not f.startswith(".")}, "tree": md5_file(tr), "families": None}
+        k_in = _hash({"inputs": inputs})
+        k_fam = _hash({"up": k_in, "file": None, "cols": [0, 1], "cfg": DEFAULT_FAMILY_CONFIG})
+        return {"input": k_in, "families": k_fam, "scores": _hash({"up": k_fam, "cfg": ScoringConfig().key()})}
+    sm = json.load(open(os.path.join(src, "manifest.json")))
+    src_tree = os.path.join(src, "stages", "input", "guide_tree.nwk")
+    # src was run on the same proteome dir; its tree file path is in argv
+    argv = sm.get("argv", [])
+    src_tree_arg = argv[argv.index("--tree") + 1] if "--tree" in argv else None
+    chk = pipeline_keys(proteomes, src_tree_arg or src_tree)
+    for st in ("families", "scores"):
+        have = open(os.path.join(src, "stages", st, "DONE")).read().strip()
+        if have != chk[st]:
+            raise SystemExit(f"transplant: key formula does not reproduce {src} {st} ({chk[st]} != {have})")
+    new = pipeline_keys(proteomes, tree)
+    skp = os.path.join(src, "stages", "code_keys.json")
+    srec = json.load(open(skp)) if os.path.exists(skp) else {}
+    o_sd = os.path.join(out, "stages")
+    os.makedirs(o_sd, exist_ok=True)
+    done = []
+    for st in ("families", "scores"):
+        if srec.get(st) != keys[st]:
+            raise SystemExit(f"transplant: {src} stage {st} was built by different code (code key mismatch)")
+        od = os.path.join(o_sd, st)
+        if os.path.exists(os.path.join(od, "DONE")) and open(os.path.join(od, "DONE")).read().strip() == new[st]:
+            continue
+        shutil.rmtree(od, ignore_errors=True)
+        subprocess.run(["cp", "-al", os.path.join(src, "stages", st), od], check=True)
+        for fn, content in (("DONE", new[st] + "\n"),):
+            os.remove(os.path.join(od, fn))
+            open(os.path.join(od, fn), "w").write(content)
+        sj = os.path.join(od, "stage.json")
+        info = json.load(open(sj))
+        info["key"] = new[st]
+        info["transplanted_from"] = {"run": src, "key": chk[st]}
+        os.remove(sj)
+        json.dump(info, open(sj, "w"), indent=1, default=str)
+        record_key(out, st, keys[st])
+        done.append(st)
+    log(f"[driver] transplanted tree-independent stages {done} from {src} (re-keyed for the new tree)")
+    return done
+
+
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("--proteomes", required=True)
@@ -184,7 +259,13 @@ def main(argv=None) -> int:
     ap.add_argument("--reuse-stages-from")
     ap.add_argument("--preset", default=None,
                     help="ancestra.pipeline preset (accurate|fast|custom); default: the pipeline's default")
-    ap.add_argument("--stop-after", choices=STAGES)
+    ap.add_argument("--stop-after", choices=STAGES + ("rescue",))
+    ap.add_argument("--family-rescue", default="none", choices=["none", "3di", "profile", "both"],
+                    help="ancestra.pipeline S0 family rescue on cached scores (docs/S0_rescue.md)")
+    ap.add_argument("--family-rescue-guard", action="store_true")
+    ap.add_argument("--structure-3di", help="3Di FASTA for --family-rescue 3di|both")
+    ap.add_argument("--transplant-from", help="run dir whose tree-independent families+scores stages are "
+                    "hard-linked and re-keyed for this run's inputs (guide-tree ablations; see docstring)")
     ap.add_argument("--adopt-unrecorded", action="store_true",
                     help="accept cached stages that predate code keys (dry runs only; logged)")
     ap.add_argument("--config", help="JSON {'scoring': {...}, 'merge': {...}} (default: pipeline defaults)")
@@ -227,7 +308,11 @@ def main(argv=None) -> int:
 def _run(a, sc, mc, go, log_print, FamilyConfig, DEFAULT_FAMILY_CONFIG, run_pipeline) -> int:
     fam_cfg = asdict(FamilyConfig(**DEFAULT_FAMILY_CONFIG))
     fam_cfg.pop("threads", None)
-    keys, files = code_keys(fam_cfg, go, a.preset)
+    rescue = None
+    if a.family_rescue != "none" or a.family_rescue_guard:
+        rescue = {"mode": a.family_rescue, "guard": a.family_rescue_guard,
+                  "3di_sha256": sha256_file(a.structure_3di) if a.structure_3di else None}
+    keys, files = code_keys(fam_cfg, go, a.preset, rescue)
 
     sdir = os.path.join(a.out, "stages")
     if os.path.isdir(sdir):    # stale temp dirs of killed runs (<stage>.tmp<pid>)
@@ -236,12 +321,15 @@ def _run(a, sc, mc, go, log_print, FamilyConfig, DEFAULT_FAMILY_CONFIG, run_pipe
                 shutil.rmtree(os.path.join(sdir, f), ignore_errors=True)
     if a.reuse_stages_from:
         reuse_stages(a.reuse_stages_from, a.out, log_print)
+    transplanted = []
+    if a.transplant_from:
+        transplanted = transplant(a.transplant_from, a.out, a.proteomes, a.tree, keys, log_print)
     removed, adopted = invalidate(a.out, keys, log_print, adopt=a.adopt_unrecorded)
 
     acc_path = os.path.join(a.out, "stage_accounting.json")
     runs = json.load(open(acc_path)) if os.path.exists(acc_path) else []
     run = {"started": time.strftime("%Y-%m-%dT%H:%M:%S%z"), "argv": sys.argv, "threads": a.threads,
-           "gene_order": go, "preset": a.preset, "stop_after": a.stop_after, "invalidated": removed, "adopted_unrecorded": adopted,
+           "gene_order": go, "preset": a.preset, "stop_after": a.stop_after, "invalidated": removed, "adopted_unrecorded": adopted, "rescue": rescue,
            "code_keys": keys, "stages": {}}
     runs.append(run)
     cur: dict = {}
@@ -286,6 +374,9 @@ def _run(a, sc, mc, go, log_print, FamilyConfig, DEFAULT_FAMILY_CONFIG, run_pipe
     t0 = time.time()
     try:
         kw = {"preset": a.preset} if a.preset is not None else {}
+        if rescue:
+            kw.update(family_rescue=a.family_rescue, rescue_guard=a.family_rescue_guard,
+                      structure_3di=a.structure_3di)
         m = run_pipeline(a.proteomes, a.tree, a.out, threads=a.threads, scoring=sc, merge=mc, log=log,
                          gene_order_dir=go, **kw)
         run["total_wall_s"] = m.get("total_wall_s")
@@ -296,6 +387,8 @@ def _run(a, sc, mc, go, log_print, FamilyConfig, DEFAULT_FAMILY_CONFIG, run_pipe
                          "stage_code_files": STAGE_CODE, "families_config_effective": fam_cfg,
                          "families_config_hash": _h(fam_cfg), "gene_order_dir": go, "preset": a.preset,
                          "invalidated_this_run": removed, "adopted_unrecorded": adopted,
+                         "transplanted_from": a.transplant_from, "transplanted_stages": transplanted,
+                         "rescue": rescue,
                          "threads": a.threads}
         with open(mp + ".tmp", "w") as fh:
             json.dump(man, fh, indent=1, default=str)

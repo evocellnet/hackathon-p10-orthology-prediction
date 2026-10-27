@@ -1,0 +1,1 @@
+python -u results/orthobench_final/scripts/run_cached.py work/ob_final/main_accurate_go -- --proteomes data/orthobench/Open_Orthobench/BENCHMARKS/Input --tree results/S1_speciestree/ob/armA_fastme_ncbiroot.nwk --gene-order data/genomes/orthobench --out work/ob_final/tree_fastme --threads 10 --preset accurate 
