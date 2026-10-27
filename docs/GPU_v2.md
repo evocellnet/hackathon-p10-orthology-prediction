@@ -1,12 +1,34 @@
 # GPU speed-ups for Ancestra (post-freeze v2 work, branch `v2-gpu`)
 
-Status: in progress (interim notes; started 2026-10-27 11:11 CET, T+19h34 by `scripts/clock.sh`).
-Node: 48 CPUs, 500 GB, 1× A100-PCIE-40GB (driver 580, CUDA 13.0). This work used the GPU plus ≤16 CPU threads;
-other agents ran on the rest of the node (load 25–45), so CPU wall times are upper bounds.
+Status: done for this time-box (2026-10-27, 11:11–15:45 CET, T+19h34 → T+25h05 by `scripts/clock.sh`).
+- Node: 48 CPUs, 500 GB, 1× A100-PCIE-40GB (driver 580, CUDA 13.0). This work used the GPU plus ≤ 16 CPU threads.
+  Other agents ran on the rest of the node (load 20–30), so all wall times are from a shared node.
+- Rules followed: `ancestra/` at tag `freeze-v1` is unchanged in behaviour. All GPU code is opt-in and lives on
+  branch `v2-gpu` (git worktree `work/v2gpu_wt`).
+- Accuracy is checked only on OrthoBench DEV RefOGs (`splits/orthobench_split.json`) and TreeFam-A dev, plus
+  byte-equivalence of the CPU path.
+- Run directories: `work/gpuv2/` (gitignored).
 
-Rules followed: `ancestra/` at tag `freeze-v1` is not changed in behaviour. All GPU code is opt-in and lives on branch
-`v2-gpu` (git worktree `work/v2gpu_wt`). Accuracy is checked only on OrthoBench DEV RefOGs
-(`splits/orthobench_split.json`) and TreeFam-A dev, or by equivalence to the CPU path.
+## Summary
+
+| GPU option | speed effect | accuracy vs CPU path (DEV) | verdict |
+|---|---|---|---|
+| (a) MMseqs2-GPU (`--gpu 1`) for S0/S2 | ≈ 9 ms fixed GPU time per query, so slower than DIAMOND for many-vs-many searches (§1) | ~5 % more sensitive than CPU `-s 7.5` | **not useful** at these sizes |
+| (b) **`--backend gpusw`** (default split: families ≤ 1000 genes exhaustive SW on GPU, larger ones DIAMOND concurrently) | S2 1.32× / e2e 1.18× (OrthoBench accurate, 16 thr); S2 1.21× / e2e 1.18× (QfO fast) | OrthoBench OG-F **80.2 vs 79.7** (Δ +0.5 [−3.5, +3.3]); macro pair F1 −0.003 [−0.018, +0.010]; QfO TreeFam-A dev TPR/PPV **0.614/0.929 vs 0.615/0.922** | **equivalent within noise, deterministic**; modest gain |
+| (b') `gpusw` all-GPU (`gpu_max_family=0`) | S2 2.97× / e2e 1.57× (OrthoBench accurate); QfO 16× fewer CPU-h | OrthoBench OG-F −5.3 [−12.0, −0.7]; QfO PPV −0.016 | **not equivalent**; opt-in for speed only |
+| (c) GPU instead of FAMSA+FastTree local trees | cost is per-process fixed time (0.18 s per call), which a GPU cannot remove (§8) | – | not pursued; CPU batching recommended |
+| (d) ProstT5 on GPU (foldseek `--gpu 1`) | 6,100–7,300 res/s vs 100–250 on CPU (40–60×); the OrthoBench 3Di gap takes 1.8 h, the QfO gap 3.6 h | 99.91 % residue agreement with CPU ProstT5; 0.672 identity to true 3Di; deterministic | **feasible**: complete 3Di coverage in hours (§4) |
+| (e) ESM-2 + FAISS-GPU kNN S0 candidates | 592 s embedding + 4 s kNN (OrthoBench) | DEV completeness upper bound 0.853 at k = 25 (sequence ceiling 0.82), but 42 % of neighbours are outside the own family | research lead; not integrated (§5) |
+
+**Main lesson.** S2 dominates the CPU wall time (60–75 %), and its GPU part is cheap: all families ≤ 1000 genes take
+12 s on OrthoBench and 32 s on QfO. But **78–85 % of DIAMOND's time is the few families with more than 1,000 genes**
+(30 on OrthoBench, 145 on QfO). There the frozen merge depends on DIAMOND's *sparse* hit graph.
+- Exhaustive GPU scoring of those families adds ~10 M weak paralog edges. These dilute average linkage and cost
+  4–8 OG-F (recall).
+- No score threshold, masking, cap rule or composition correction reproduces DIAMOND's seed-based sparsity
+  (§6, §7). The best pair-set Jaccard is 0.67.
+- A large *equivalent* GPU speed-up therefore needs either a merge that is robust to graph density (a v2 method
+  change, to be developed on dev) or a GPU seed-and-extend search that matches DIAMOND. Neither fits a 12-h box.
 
 ## 1. MMseqs2-GPU and DIAMOND sanity check (task 1)
 
@@ -365,3 +387,14 @@ Setup:
 - The GPU path peaks at 42 GB, against 30 GB on the CPU. The cause was float64 concatenation of the DIAMOND and GPU
   records; it is fixed to float32 in commit "float32 merge of records" (output identical, verified by the OrthoBench
   rerun above). The QfO run predates the fix.
+
+**All-GPU on QfO** (`gpu_max_family=0`, `work/gpuv2/qfo_allgpu_fast`):
+- **Workload:** 1.12·10⁹ within-family pairs and 3.1·10¹⁴ DP cells.
+- **GPU time:** 1,202 s (forward 942 s, reverse 187 s). The rate was only 328 GCUPS because a foldseek ProstT5 job
+  shared the GPU, so this wall time is an upper bound; at the uncontended 600 GCUPS it would be ≈ 650 s.
+- **Totals:** S2 took 1,541 s. S2 + merge + output took 2,083 s wall and **0.55 CPU-h** (user 1,993 s), against
+  3,228 s and 9.05 CPU-h on the CPU path: 16× fewer CPU-hours.
+- **TreeFam-A DEV:** TPR 0.608 / PPV **0.906**. Against the CPU path that is −0.007 TPR and **−0.016 PPV**, outside
+  the CIs.
+- **Verdict:** as on OrthoBench, the fully exhaustive score graph is *not* accuracy-equivalent; here it costs
+  precision. It remains an opt-in mode for very large inputs, where CPU-hours dominate.
