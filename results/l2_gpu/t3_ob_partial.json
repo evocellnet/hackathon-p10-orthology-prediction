@@ -1,0 +1,504 @@
+{
+ "results": [
+  {
+   "run": "../ob_final/main_accurate_go",
+   "F": 79.69,
+   "P": 75.74,
+   "R": 84.07,
+   "exact": 11,
+   "pairF1_micro": 0.8035,
+   "pairF1_macro": 0.8026
+  },
+  {
+   "run": "../l2gpu/t3/ob/R4afdb",
+   "F": 79.93,
+   "P": 75.83,
+   "R": 84.49,
+   "exact": 13,
+   "pairF1_micro": 0.8067,
+   "pairF1_macro": 0.8068,
+   "dOG_F": 0.24,
+   "dOG_F_ci": [
+    0.0,
+    0.65
+   ],
+   "dmacro": 0.0042,
+   "dmacro_ci": [
+    -0.0005,
+    0.011
+   ]
+  },
+  {
+   "run": "../l2gpu/t3/ob/R4full",
+   "F": 79.93,
+   "P": 75.83,
+   "R": 84.49,
+   "exact": 13,
+   "pairF1_micro": 0.8067,
+   "pairF1_macro": 0.8068,
+   "dOG_F": 0.24,
+   "dOG_F_ci": [
+    0.0,
+    0.65
+   ],
+   "dmacro": 0.0042,
+   "dmacro_ci": [
+    -0.0005,
+    0.011
+   ]
+  },
+  {
+   "run": "../l2gpu/t3/ob/R4shuf11",
+   "F": 79.81,
+   "P": 75.78,
+   "R": 84.28,
+   "exact": 12,
+   "pairF1_micro": 0.8046,
+   "pairF1_macro": 0.8047,
+   "dOG_F": 0.12,
+   "dOG_F_ci": [
+    0.0,
+    0.44
+   ],
+   "dmacro": 0.0021,
+   "dmacro_ci": [
+    -0.0007,
+    0.007
+   ]
+  },
+  {
+   "run": "../l2gpu/t3/ob/R4shuf23",
+   "F": 79.81,
+   "P": 75.78,
+   "R": 84.28,
+   "exact": 12,
+   "pairF1_micro": 0.8046,
+   "pairF1_macro": 0.8047,
+   "dOG_F": 0.12,
+   "dOG_F_ci": [
+    0.0,
+    0.44
+   ],
+   "dmacro": 0.0021,
+   "dmacro_ci": [
+    -0.0007,
+    0.007
+   ]
+  }
+ ],
+ "manifest": {
+  "script": "scripts/l2gpu_eval.py",
+  "argv": [
+   "scripts/l2gpu_eval.py",
+   "ob",
+   "t3_ob_partial",
+   "../ob_final/main_accurate_go",
+   "../l2gpu/t3/ob/R4afdb",
+   "../l2gpu/t3/ob/R4full",
+   "../l2gpu/t3/ob/R4shuf11",
+   "../l2gpu/t3/ob/R4shuf23"
+  ],
+  "git_commit": "eab3fe77c2cec707f7e9dbb0ec3c420d2f56704b",
+  "dataset": "ob",
+  "split": "dev only (OrthoBench 34 dev RefOGs / TreeFam-A 359 dev families)",
+  "bootstrap": "paired, B=2000, seed 11",
+  "eval_runtime_s": 29.5,
+  "runs": [
+   {
+    "run": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/ob_final/main_accurate_go",
+    "config_scoring": {
+     "backend": "hybrid",
+     "evalue": 10.0,
+     "block_genes": 100000,
+     "diamond_sens": "--sensitive",
+     "diamond_b": 4.0,
+     "cap_all": 5000,
+     "g_max": 20000,
+     "top_per_species": 2,
+     "top_same": 20,
+     "family_rescue": true,
+     "rescue_cov": 0.5,
+     "rescue_max_join": 7500,
+     "rescue_max_family": 1000,
+     "rescue_evalue": 1e-05,
+     "threads": 10
+    },
+    "merge_cfg_nondefault": {
+     "link": "avg",
+     "tree_method": "fasttree"
+    },
+    "git": {
+     "commit": "f7bcddcc4063c9e0297ec75916ba7f1c3bda0e5d",
+     "ancestra_dirty": false
+    },
+    "stages": {
+     "scores": {
+      "wall_s": 1128.94,
+      "peak_rss_mb": 13122.5,
+      "skipped": false
+     },
+     "merge": {
+      "wall_s": 490.758,
+      "peak_rss_mb": 2472.1,
+      "skipped": false,
+      "tree_s": 441.06
+     },
+     "output": {
+      "wall_s": 10.93,
+      "peak_rss_mb": 1669.2,
+      "skipped": false
+     }
+    },
+    "time": {
+     "User time (seconds)": "13814.93",
+     "System time (seconds)": "258.89",
+     "Elapsed (wall clock) time": "31:32.94",
+     "Maximum resident set size": "14687288"
+    },
+    "hogs_md5": "cc261e73b521f7eaa263dd4534c86ac2"
+   },
+   {
+    "run": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/l2gpu/t3/ob/R4afdb",
+    "config_scoring": {
+     "backend": "hybrid",
+     "evalue": 10.0,
+     "block_genes": 100000,
+     "diamond_sens": "--sensitive",
+     "diamond_b": 4.0,
+     "cap_all": 5000,
+     "g_max": 20000,
+     "top_per_species": 2,
+     "top_same": 20,
+     "family_rescue": true,
+     "rescue_cov": 0.5,
+     "rescue_max_join": 7500,
+     "rescue_max_family": 1000,
+     "rescue_evalue": 1e-05,
+     "threads": 4,
+     "gpu_db_residues": 0.0,
+     "gpu_max_family": 1000,
+     "gpu_mask": "none",
+     "gpu_comp_bias": false,
+     "gpu_big_evalue": 0.0,
+     "gpu_device": 0,
+     "gpu_sparsify": "none"
+    },
+    "merge_cfg_nondefault": {
+     "link": "avg",
+     "tree_method": "fasttree",
+     "tree_ft_batch": 0,
+     "tree_ft_inproc": false
+    },
+    "git": {
+     "commit": "4b3bdd19f8560b8674420eeaa09f49ea22326b52",
+     "ancestra_dirty": true
+    },
+    "stages": {
+     "scores": {
+      "wall_s": 1128.94,
+      "peak_rss_mb": 13122.5,
+      "skipped": false
+     },
+     "rescue": {
+      "wall_s": 280.215,
+      "peak_rss_mb": 1081.1,
+      "skipped": false,
+      "stats": {
+       "mode": "both",
+       "n_queries": 20639,
+       "n_targets": 12264,
+       "n_small_families": 18949,
+       "n_target_families": 3593,
+       "units_s": 0.9,
+       "n_3di_genes": 202475,
+       "n_queries_3di": 17857,
+       "n_targets_3di": 9710,
+       "n_3di_hits": 32932,
+       "search_3di_s": 34.5,
+       "n_profiles": 12264,
+       "n_profile_pairs": 219830,
+       "n_profile_hits": 7367,
+       "search_profile_s": 202.1,
+       "wall_s": 279.8
+      }
+     },
+     "merge": {
+      "wall_s": 2036.329,
+      "peak_rss_mb": 2875.3,
+      "skipped": false,
+      "tree_s": 950.15
+     },
+     "output": {
+      "wall_s": 10.776,
+      "peak_rss_mb": 1736.8,
+      "skipped": false
+     }
+    },
+    "time": {
+     "User time (seconds)": "8442.83",
+     "System time (seconds)": "381.32",
+     "Elapsed (wall clock) time": "38:50.88",
+     "Maximum resident set size": "3394764"
+    },
+    "hogs_md5": "a9aa824d01d007a99a9612b1fbc92e0d"
+   },
+   {
+    "run": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/l2gpu/t3/ob/R4full",
+    "config_scoring": {
+     "backend": "hybrid",
+     "evalue": 10.0,
+     "block_genes": 100000,
+     "diamond_sens": "--sensitive",
+     "diamond_b": 4.0,
+     "cap_all": 5000,
+     "g_max": 20000,
+     "top_per_species": 2,
+     "top_same": 20,
+     "family_rescue": true,
+     "rescue_cov": 0.5,
+     "rescue_max_join": 7500,
+     "rescue_max_family": 1000,
+     "rescue_evalue": 1e-05,
+     "threads": 4,
+     "gpu_db_residues": 0.0,
+     "gpu_max_family": 1000,
+     "gpu_mask": "none",
+     "gpu_comp_bias": false,
+     "gpu_big_evalue": 0.0,
+     "gpu_device": 0,
+     "gpu_sparsify": "none"
+    },
+    "merge_cfg_nondefault": {
+     "link": "avg",
+     "tree_method": "fasttree",
+     "tree_ft_batch": 0,
+     "tree_ft_inproc": false
+    },
+    "git": {
+     "commit": "4b3bdd19f8560b8674420eeaa09f49ea22326b52",
+     "ancestra_dirty": true
+    },
+    "stages": {
+     "scores": {
+      "wall_s": 1128.94,
+      "peak_rss_mb": 13122.5,
+      "skipped": false
+     },
+     "rescue": {
+      "wall_s": 305.515,
+      "peak_rss_mb": 1097.9,
+      "skipped": false,
+      "stats": {
+       "mode": "both",
+       "n_queries": 20639,
+       "n_targets": 12264,
+       "n_small_families": 18949,
+       "n_target_families": 3593,
+       "units_s": 0.9,
+       "n_3di_genes": 251377,
+       "n_queries_3di": 20639,
+       "n_targets_3di": 12264,
+       "n_3di_hits": 48587,
+       "search_3di_s": 50.0,
+       "n_profiles": 12264,
+       "n_profile_pairs": 219830,
+       "n_profile_hits": 7367,
+       "search_profile_s": 203.5,
+       "wall_s": 305.1
+      }
+     },
+     "merge": {
+      "wall_s": 2053.487,
+      "peak_rss_mb": 2845.0,
+      "skipped": false,
+      "tree_s": 953.68
+     },
+     "output": {
+      "wall_s": 11.315,
+      "peak_rss_mb": 1651.7,
+      "skipped": false
+     }
+    },
+    "time": {
+     "User time (seconds)": "8597.29",
+     "System time (seconds)": "385.12",
+     "Elapsed (wall clock) time": "39:33.77",
+     "Maximum resident set size": "3381064"
+    },
+    "hogs_md5": "c5e076310063b5d930afbe792a605abe"
+   },
+   {
+    "run": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/l2gpu/t3/ob/R4shuf11",
+    "config_scoring": {
+     "backend": "hybrid",
+     "evalue": 10.0,
+     "block_genes": 100000,
+     "diamond_sens": "--sensitive",
+     "diamond_b": 4.0,
+     "cap_all": 5000,
+     "g_max": 20000,
+     "top_per_species": 2,
+     "top_same": 20,
+     "family_rescue": true,
+     "rescue_cov": 0.5,
+     "rescue_max_join": 7500,
+     "rescue_max_family": 1000,
+     "rescue_evalue": 1e-05,
+     "threads": 4,
+     "gpu_db_residues": 0.0,
+     "gpu_max_family": 1000,
+     "gpu_mask": "none",
+     "gpu_comp_bias": false,
+     "gpu_big_evalue": 0.0,
+     "gpu_device": 0,
+     "gpu_sparsify": "none"
+    },
+    "merge_cfg_nondefault": {
+     "link": "avg",
+     "tree_method": "fasttree",
+     "tree_ft_batch": 0,
+     "tree_ft_inproc": false
+    },
+    "git": {
+     "commit": "8504e32bcb976119ad184b463ddadf445225a99e",
+     "ancestra_dirty": true
+    },
+    "stages": {
+     "scores": {
+      "wall_s": 1128.94,
+      "peak_rss_mb": 13122.5,
+      "skipped": false
+     },
+     "rescue": {
+      "wall_s": 54.881,
+      "peak_rss_mb": 1067.8,
+      "skipped": false,
+      "stats": {
+       "mode": "both",
+       "n_queries": 20639,
+       "n_targets": 12264,
+       "n_small_families": 18949,
+       "n_target_families": 3593,
+       "units_s": 0.8,
+       "n_3di_genes": 251377,
+       "n_queries_3di": 20639,
+       "n_targets_3di": 12264,
+       "n_3di_hits": 30,
+       "search_3di_s": 29.2,
+       "profile_from_cache": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/l2gpu/t3/ob/R4shuf11/stages/rescue_hits/profile_743e6b3b8dbd657a.npz",
+       "n_profiles": 12264,
+       "n_profile_pairs": 219830,
+       "n_profile_hits": 7367,
+       "search_profile_s": 203.5,
+       "wall_s": 54.5
+      }
+     },
+     "merge": {
+      "wall_s": 2016.938,
+      "peak_rss_mb": 2868.4,
+      "skipped": false,
+      "tree_s": 949.8
+     },
+     "output": {
+      "wall_s": 10.458,
+      "peak_rss_mb": 1656.7,
+      "skipped": false
+     }
+    },
+    "time": {
+     "User time (seconds)": "7466.56",
+     "System time (seconds)": "374.92",
+     "Elapsed (wall clock) time": "34:45.67",
+     "Maximum resident set size": "3394472"
+    },
+    "hogs_md5": "d4992d9a93c8759a84c036524d719507"
+   },
+   {
+    "run": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/l2gpu/t3/ob/R4shuf23",
+    "config_scoring": {
+     "backend": "hybrid",
+     "evalue": 10.0,
+     "block_genes": 100000,
+     "diamond_sens": "--sensitive",
+     "diamond_b": 4.0,
+     "cap_all": 5000,
+     "g_max": 20000,
+     "top_per_species": 2,
+     "top_same": 20,
+     "family_rescue": true,
+     "rescue_cov": 0.5,
+     "rescue_max_join": 7500,
+     "rescue_max_family": 1000,
+     "rescue_evalue": 1e-05,
+     "threads": 4,
+     "gpu_db_residues": 0.0,
+     "gpu_max_family": 1000,
+     "gpu_mask": "none",
+     "gpu_comp_bias": false,
+     "gpu_big_evalue": 0.0,
+     "gpu_device": 0,
+     "gpu_sparsify": "none"
+    },
+    "merge_cfg_nondefault": {
+     "link": "avg",
+     "tree_method": "fasttree",
+     "tree_ft_batch": 0,
+     "tree_ft_inproc": false
+    },
+    "git": {
+     "commit": "8504e32bcb976119ad184b463ddadf445225a99e",
+     "ancestra_dirty": true
+    },
+    "stages": {
+     "scores": {
+      "wall_s": 1128.94,
+      "peak_rss_mb": 13122.5,
+      "skipped": false
+     },
+     "rescue": {
+      "wall_s": 57.489,
+      "peak_rss_mb": 1068.4,
+      "skipped": false,
+      "stats": {
+       "mode": "both",
+       "n_queries": 20639,
+       "n_targets": 12264,
+       "n_small_families": 18949,
+       "n_target_families": 3593,
+       "units_s": 0.8,
+       "n_3di_genes": 251377,
+       "n_queries_3di": 20639,
+       "n_targets_3di": 12264,
+       "n_3di_hits": 30,
+       "search_3di_s": 31.9,
+       "profile_from_cache": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/l2gpu/t3/ob/R4shuf23/stages/rescue_hits/profile_743e6b3b8dbd657a.npz",
+       "n_profiles": 12264,
+       "n_profile_pairs": 219830,
+       "n_profile_hits": 7367,
+       "search_profile_s": 203.5,
+       "wall_s": 57.1
+      }
+     },
+     "merge": {
+      "wall_s": 2016.21,
+      "peak_rss_mb": 2844.6,
+      "skipped": false,
+      "tree_s": 950.38
+     },
+     "output": {
+      "wall_s": 10.411,
+      "peak_rss_mb": 1655.8,
+      "skipped": false
+     }
+    },
+    "time": {
+     "User time (seconds)": "7476.56",
+     "System time (seconds)": "374.44",
+     "Elapsed (wall clock) time": "34:47.48",
+     "Maximum resident set size": "3394556"
+    },
+    "hogs_md5": "0381c453822d2e6140c958fb5e55e937"
+   }
+  ]
+ }
+}

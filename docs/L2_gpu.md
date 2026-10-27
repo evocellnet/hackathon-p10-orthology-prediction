@@ -217,3 +217,73 @@ in the post-hoc script (`tables/*.npz.json`). GPU-h: 1,202 s on a shared A100 (�
 accuracy from post-hoc splices without cross-family rescue; their cost is an estimate: all-GPU + the DIAMOND share of
 the families above T, bounded by their share of DIAMOND rows (0.61 / 0.16) and of Σg² (0.88 / 0.68) of the 6.8
 DIAMOND CPU-h of the split run.
+
+## 3. Task 2 — batched FastTree / in-process FAMSA (CPU, equivalence)
+Code: `MergeConfig.tree_ft_batch` (> 0: contiguous batches of ≤ N clusters per `FastTree -n N` process; alignments
+written as interleaved PHYLIP with continuation lines indented, because FastTree's PHYLIP reader rejects long lines)
+and `MergeConfig.tree_ft_inproc` (pyfamsa 0.7.0 in-process; clusters with letters pyfamsa rejects, e.g. U, fall back
+to the CLI). Both default off; stage keys unchanged at the defaults; `tests/test_l2_gpu.py`.
+
+**Reference rerun.** The branch's default path on the frozen OrthoBench S0/S2 stages (`work/l2gpu/t2/ob/ref`, 2 threads)
+reproduces the frozen `hogs.orthoxml` byte for byte (md5 cc261e73…); merge 1,898 s wall, of which FAMSA + FastTree
+1,846 s (97 %) on this loaded node.
+
+**Micro-benchmark on 1,000 real local-tree jobs** (the first two FastTree calls of the frozen OrthoBench accurate merge,
+dumped by `work/l2gpu/dump_ft.py`; single thread, sequential; `results/l2_gpu/t2_bench_ob1000.json`):
+
+| step | per-call path | batched / in-process | identity |
+|---|---|---|---|
+| FAMSA | CLI 171.6 s | pyfamsa 174.4 s (no gain) | 990 / 998 alignments identical; 2 clusters rejected (U) |
+| FastTree -lg | one process per job 359.7 s | `-n 50` 349.7 s, `-n 200` 349.0 s (−3 %) | **1,000 / 1,000 Newick strings byte-identical** |
+
+**Why batching does not help:** the per-call cost is not process start-up. On 20 five-sequence jobs (median 450 aa)
+FastTree takes 0.058 s with ML, 0.004 s with `-noml` and 0.002 s with `-nome -noml`: ~93 % of each call is the ML
+NNI / branch-length / CAT-rate optimisation itself, which batching cannot remove. FAMSA takes 0.02–0.10 s per cluster,
+scaling with sequence length, in- or out-of-process. GPU_v2 §8 attributed the 0.18 s per cluster to "fixed per-process
+cost"; that diagnosis is corrected here — it is fixed per-*alignment* compute.
+
+**Verdict:** `tree_ft_batch` is equivalence-preserving (byte-identical trees on 1,000/1,000 real jobs; full-run
+check in §3.1) but saves only ~3 % of tree time (≈ 2.7 % of the accurate merge) — not worth enabling.
+`tree_ft_inproc` is neither faster nor identical (8 of 998 alignments differ, U unsupported) — rejected. A real speed-up
+of the accurate merge needs fewer or cheaper ML trees (e.g. `-noml` trees, a different tree method or fewer ambiguous
+clusters), each of which changes the output and would need the dev cycle of S4.
+
+## 4. Task 3 — structure rescue (R4) at full 3Di coverage with GPU ProstT5
+**Inputs.** OrthoBench: AFDB 3Di for 202,475 proteins (80.5 %) + ProstT5-GPU 3Di for the other 48,903 (GPU_v2) =
+100 % (`work/l2gpu/t3/ob_3di_full.fa`). QfO: AFDB for 925,541 run proteins (93.6 %) + **ProstT5-GPU for the other
+63,237 (79.7 M residues) predicted here: 5 h 01 min wall on the A100 shared with agent `plm` (≈ 4,400 res/s; one CPU
+core; 3.0 GB RSS; GPU memory 5.1 GB)**, md5 764665b6… → `work/l2gpu/t3/qfo_3di_full.fa` (100 %). Shuffled controls:
+each protein's 3Di string permuted (seeds 11/23/47; QfO 11). R4 = `--family-rescue both --family-rescue-guard`
+(docs/S0_rescue.md, code unchanged). OrthoBench on the frozen `main_accurate_go` stages (accurate + gene order),
+QfO on the S0_rescue base (fast + gene order; R0 = `work/rescue/qfo/R0` = TPR 0.6151 / PPV 0.9224).
+
+**OrthoBench dev** (`results/l2_gpu/t3_ob_R4.json`; Δ vs frozen R0, paired bootstrap over 34 RefOGs):
+
+| arm | 3Di hits | attached / kept by guard | OG-F | ΔOG-F [CI] | macro pair F1 | Δmacro [CI] |
+|---|---|---|---|---|---|---|
+| R0 (frozen) | – | – | 79.69 | – | 0.8026 | – |
+| R4-afdb (80.5 % 3Di) | 32,932 | 3,192 / 491 | 79.93 | +0.24 [0.00, +0.65] | 0.8068 | +0.0042 [−0.0005, +0.011] |
+| **R4-full (100 % 3Di)** | 48,587 | 3,710 / 539 | 79.93 | +0.24 [0.00, +0.65] | 0.8068 | **+0.0042 [−0.0005, +0.011]** |
+| R4-shuf 11 / 23 / 47 | 30 / – / – | 1,102 / 299 | 79.81 (all three) | +0.12 [0.00, +0.44] | 0.8047 (all three) | +0.0021 [−0.0007, +0.007] |
+
+R4-full vs shuffled: Δmacro +0.0021 [0.000, +0.0064], shuffled seed spread 0. R4-full and R4-afdb give different
+files (md5 c5e07631 / a9aa824d) but identical dev metrics: the 48 % more 3Di hits and 16 % more attachments that full
+coverage brings are almost all undone by the RBH guard (539 vs 491 kept) and touch no dev RefOG.
+**Keep rule: fails** (primary Δmacro CI lower bound −0.0005 ≤ 0); guards are fine (OG-F +0.24, valid OrthoXML).
+The positive part of R4 on OrthoBench comes from the *profile* search (the shuffled-3Di arms keep +0.0021 of the
++0.0042) and from AFDB 3Di; ProstT5-filled coverage adds nothing measurable on dev.
+
+**QfO TreeFam-A dev** (Δ vs R0, paired bootstrap over 359 families): see §4.1 (filled when the QfO runs finish).
+
+**Cost.**
+- ProstT5 on GPU: OrthoBench gap 1 h 56 min (GPU_v2), QfO gap 5 h 01 min, both on a shared A100 (≈ 2 and 5 GPU-h);
+  the CPU estimate for the QfO gap is 89–221 h (GPU_v2 §4). This is a one-off per proteome set.
+- Rescue stage, OrthoBench (4 threads, loaded node): 3Di search 34.5 s (AFDB) → 50.0 s (full); profile search 202 s;
+  whole R4 run 39 min wall / 2.4 CPU-h, dominated by the two accurate merges of the guard.
+- Rescue stage, QfO R4-full (4 threads): 3Di search 736 s (0.82 CPU-h); profiles 1,233 s at 5 threads in S0_rescue
+  (reused from cache here); rescue stage 1,110 s; two fast merges 792 s; whole run 32.6 min wall, 1.38 CPU-h.
+- **Foldseek GPU search does not help** (`results/l2_gpu/t3_foldseek_gpu_bench_qfo.json`; 3,000 random QfO query units
+  vs all 41,320 target units, `-s 7.5 --max-seqs 100 -e 1e-3 --alignment-type 2`, 2 CPU threads): CPU 29.0 s,
+  GPU (`makepaddedseqdb` + `--gpu 1`) 47.6 s, i.e. slower, and it returns a different, smaller hit set (4,743 vs 8,602
+  hits at e ≤ 1e-3, Jaccard 0.36). As for MMseqs2-GPU (GPU_v2 §1), the GPU prefilter has a per-query fixed cost and
+  an ungapped prefilter, which suits few queries against huge databases, not 172k × 41k all-vs-all.
