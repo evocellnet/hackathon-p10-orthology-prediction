@@ -1,0 +1,4 @@
+python work/scaling/code_snapshot/scripts/qfo_pipeline_driver.py --proteomes work/scaling/inputs/sub78 --tree results/scaling/subsets/sub78.nwk --out work/scaling/runs/anc_78_fast --threads 8 --gene-order none --preset fast --reuse-stages-from work/scaling/runs/anc_78
+cap_s=7200
+start=2026-10-27T08:56:14.072231+01:00
+load_at_start=26.24 28.27 25.27 25/3244 309060

@@ -1,0 +1,10 @@
+06:06:41 [ancestra] stage input: running
+06:06:41 [ancestra] stage input: done in 0.6s, peak RSS 608 MB
+06:06:41 [ancestra] stage families: running
+06:36:48 [ancestra] stage families: done in 1806.5s, peak RSS 6410 MB
+06:36:48 [ancestra] stage scores: running
+07:56:07 [ancestra] stage scores: done in 4759.9s, peak RSS 29635 MB
+07:56:09 [ancestra] stage merge: running
+08:55:27 [ancestra] stage merge: done in 3557.6s, peak RSS 9093 MB
+08:55:28 [ancestra] stage output: running
+08:56:10 [ancestra] stage output: done in 41.8s, peak RSS 5753 MB

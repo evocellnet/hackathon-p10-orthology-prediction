@@ -1,0 +1,23 @@
+	Command being timed: "timeout -s TERM -k 120 21600 python work/scaling/code_snapshot/scripts/qfo_pipeline_driver.py --proteomes work/scaling/inputs/sub78 --tree results/scaling/subsets/sub78.nwk --out work/scaling/runs/anc_78 --threads 8 --gene-order none"
+	User time (seconds): 65520.76
+	System time (seconds): 1209.23
+	Percent of CPU this job got: 655%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 2:49:38
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 30346164
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 196
+	Minor (reclaiming a frame) page faults: 620825141
+	Voluntary context switches: 4592701
+	Involuntary context switches: 17485490
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 1867368
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

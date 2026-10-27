@@ -9,10 +9,10 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 os.chdir(ROOT)
 OUT = "results/scaling"
 LAB = {"anc": "Ancestra default (accurate preset, seq-only)", "anc_fast": "Ancestra fast preset (NJ merge, seq-only)",
-       "anc_go": "Ancestra default + gene order", "of": "OrthoFinder 3.2", "sp": "SonicParanoid2 (default)",
+       "anc_go": "Ancestra default + gene order", "of": "OrthoFinder 3.2", "sp": "SonicParanoid2 (default)", "fo": "FastOMA 0.5.1 (OMAmer LUCA, DB build not counted)",
        "anc_s0s2": "Ancestra S0+S2 only (families+scoring)"}
-FITM = ["anc", "anc_fast", "anc_s0s2", "of", "sp"]
-PLOT = ["anc", "anc_fast", "anc_go", "of", "sp"]
+FITM = ["anc", "anc_fast", "anc_s0s2", "of", "sp", "fo"]
+PLOT = ["anc", "anc_fast", "anc_go", "of", "sp", "fo"]
 
 
 def load():
@@ -41,7 +41,7 @@ def compose(rows):
     def stg(r, names, k):
         return sum(r["stages"].get(s, {}).get(k, 0) or 0 for s in names)
     for r in rows:
-        if r["kind"] in ("of", "sp"):
+        if r["kind"] in ("of", "sp", "fo"):
             out.append(r); continue
         if r.get("reuse_from"):
             b = by.get(r["reuse_from"])
@@ -136,8 +136,8 @@ def main():
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
-    col = {"anc": "#2a78d6", "anc_fast": "#4a3aa7", "anc_go": "#2a78d6", "of": "#eb6834", "sp": "#1baf7a"}
-    mk = {"anc": "o", "anc_fast": "o", "anc_go": "D", "of": "s", "sp": "^"}
+    col = {"anc": "#2a78d6", "anc_fast": "#4a3aa7", "anc_go": "#2a78d6", "of": "#eb6834", "sp": "#1baf7a", "fo": "#d55181"}
+    mk = {"anc": "o", "anc_fast": "o", "anc_go": "D", "of": "s", "sp": "^", "fo": "v"}
     fig, axs = plt.subplots(1, 2, figsize=(11, 4.6), constrained_layout=True)
     for ax, (xn, xk, xl) in zip(axs, (("proteins", "n_proteins", "total proteins"), ("species", "n_species", "species"))):
         for k in PLOT:
@@ -167,6 +167,7 @@ def main():
     npro = {r["n_species"]: r["n_proteins"] for r in rows}
     L = ["# Runtime scaling (DESIGN §5)", "",
          "8 threads per run, one run at a time, shared 24-core node (load logged per run in `runs/*/load.log`; wall times from a busy node are upper bounds, CPU-h = user+sys from `/usr/bin/time -v` is the primary metric). Fresh work dir per run. Censored runs: `> cap`.", "",
+         "**FastOMA** relies on a precomputed OMA-derived OMAmer database (LUCA.h5, 9.9 GB); its build cost is not counted (download excluded); the timed workflow is the full nextflow pipeline incl. OMAmer placement, roothog inference, HOG inference and the report notebook. OMA contains these species (leakage flag for accuracy, irrelevant for timing). FastOMA places only the proteins OMAmer can assign.", "",
          "Subsets: nested, domain-stratified (random.Random(11)), `subsets/sub{n}.{txt,nwk,json}`; guide tree = NCBI tree pruned to the subset.", "",
          "| method | " + " | ".join(f"{n} sp ({npro[n]/1000:.0f}k)" for n in sizes) + " |", "|---|" + "---|" * len(sizes)]
     for k in PLOT:
@@ -195,7 +196,7 @@ def main():
             L.append(f"| {LAB[m]} | {xn} | {f['n']} | {f['slope']:.2f} | {ci} | {bi} | {f['r2']:.3f} |")
     L += ["", "OLS CI: t-interval, df = n-2 (primary; very wide for 3 points). Bootstrap: percentile, B=5000, seed 11, resampling the points, only for n>=4 (resamples with <3 distinct x skipped); with 4-5 points it is optimistic, read the OLS CI first. The CIs capture only fit scatter around a power law, not run-to-run or node-load variation (one run per point).", ""]
     ex = []
-    for m in ("anc", "of", "sp"):
+    for m in ("anc", "of", "sp", "fo"):
         f = fits.get((m, "proteins"))
         meas = {r["n_species"] for r in rows if r["kind"] == m}
         if not f:

@@ -1,0 +1,40 @@
+[WORKDIR] /scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/scaling/runs/fo_8/work
+[PROCESS 6b/a8978d] check_input (1)
+[PROCESS 08/dd2393] omamer_run (UP000002195_44689.fasta)
+[PROCESS 76/67ffd2] omamer_run (UP000000625_83333.fasta)
+[PROCESS 59/d79346] omamer_run (UP000008183_243274.fasta)
+[PROCESS f2/fdafaf] omamer_run (UP000001686_374847.fasta)
+[PROCESS 35/6fc476] omamer_run (UP000000561_237631.fasta)
+[PROCESS 5e/1d761d] omamer_run (UP000001449_35128.fasta)
+[PROCESS 1c/8cff09] omamer_run (UP000001548_184922.fasta)
+[PROCESS 97/e86099] omamer_run (UP000018468_7918.fasta)
+[PROCESS f2/f8ec78] infer_roothogs (1)
+[PROCESS 1a/092fd6] batch_roothogs (1)
+[PROCESS 3e/1ab756] hog_rest (7)
+[PROCESS dc/cfdcfe] hog_rest (6)
+[PROCESS 9e/785789] hog_rest (1)
+[PROCESS 25/5479d8] hog_rest (10)
+[PROCESS c2/7ba7dd] hog_rest (2)
+[PROCESS a5/62c4b7] hog_rest (9)
+[PROCESS 32/351ac1] hog_rest (14)
+[PROCESS 29/c51377] hog_rest (5)
+[PROCESS d1/720ad0] hog_rest (4)
+[PROCESS 47/4cb259] hog_rest (12)
+[PROCESS 37/ebb296] hog_rest (11)
+[PROCESS 32/9814fc] hog_rest (3)
+[PROCESS bd/f418fa] hog_rest (13)
+[PROCESS 5c/6655c4] hog_rest (8)
+[PROCESS eb/c6bf7e] hog_big (2)
+[PROCESS c5/3529f2] hog_big (1)
+[PROCESS b8/fd50da] hog_big (3)
+[PROCESS 49/164260] collect_subhogs (1)
+[PROCESS 4e/948c9a] extract_pairwise_ortholog_relations (1)
+[PROCESS 5d/ec6838] fastoma_report (1)
+
+Completed at    : 2026-10-27T08:47:58.742051878Z
+Duration        : 22m 25s
+Processes       : 31 (success), 0 (failed)
+Output in       : /scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/scaling/runs/fo_8/Output
+Done!
+
+[SUCCESS] completed=31 failed=0 cached=0

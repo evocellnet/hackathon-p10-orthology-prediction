@@ -1,0 +1,190 @@
+[
+ {
+  "started": "2026-10-27T08:56:14+0100",
+  "argv": [
+   "work/scaling/code_snapshot/scripts/qfo_pipeline_driver.py",
+   "--proteomes",
+   "work/scaling/inputs/sub78",
+   "--tree",
+   "results/scaling/subsets/sub78.nwk",
+   "--out",
+   "work/scaling/runs/anc_78_fast",
+   "--threads",
+   "8",
+   "--gene-order",
+   "none",
+   "--preset",
+   "fast",
+   "--reuse-stages-from",
+   "work/scaling/runs/anc_78"
+  ],
+  "threads": 8,
+  "gene_order": null,
+  "preset": "fast",
+  "stop_after": null,
+  "invalidated": [],
+  "adopted_unrecorded": [],
+  "code_keys": {
+   "input": "f88bcb3b394df2f2",
+   "families": "df43339fea1e7020",
+   "scores": "d702ca61d3c2a3c5",
+   "merge": "1586ac85522d8be7",
+   "output": "2f14310e1c956f53"
+  },
+  "stages": {
+   "input": {
+    "skipped": true,
+    "pipeline_wall_s": 0.589,
+    "peak_rss_mb": 608.2,
+    "stats": {
+     "n_genes": 988778,
+     "n_species": 78,
+     "n_internal_nodes": 52
+    }
+   },
+   "families": {
+    "skipped": true,
+    "pipeline_wall_s": 1806.503,
+    "peak_rss_mb": 6410.2,
+    "stats": {
+     "source": "ancestra.families",
+     "s0_timings": {
+      "stage1_s": 750.8321416378021,
+      "stage2_search_s": 694.1315615177155,
+      "stage2_s": 1035.946668624878,
+      "total_s": 1801.8656866550446
+     },
+     "n_families": 163212,
+     "n_singletons": 132887,
+     "max_family": 7391,
+     "sum_g2": 2251108490
+    }
+   },
+   "scores": {
+    "skipped": true,
+    "pipeline_wall_s": 4759.851,
+    "peak_rss_mb": 29634.9,
+    "stats": {
+     "backend": "hybrid",
+     "n_families": 163212,
+     "sum_g2": 2251108490,
+     "max_family": 7391,
+     "n_cross_family_hits": 63199552,
+     "n_raw_hits": 401100005,
+     "n_blocks": 9,
+     "diamond_s": 3446.84,
+     "n_pairs_diamond": 172683599,
+     "n_pairs_rescue_candidates": 23947116,
+     "n_pairs_aligned_mmseqs": 23947116,
+     "pairs_write_s": 14.9,
+     "align_s": 150.7,
+     "n_families_over_cap": 33,
+     "n_families_over_gmax": 0,
+     "n_pairs_dropped_by_cap": 79392497,
+     "pairs_dropped_per_family": {
+      "16": 5361676,
+      "18": 1031565,
+      "35": 741390,
+      "43": 1577619,
+      "54": 206834,
+      "57": 203401,
+      "60": 133276,
+      "61": 1218280,
+      "86": 3652376,
+      "94": 492818,
+      "115": 920329,
+      "122": 124548,
+      "135": 1242548,
+      "207": 1506335,
+      "217": 227821,
+      "242": 1489042,
+      "247": 817881,
+      "264": 900501,
+      "293": 2299722,
+      "321": 1971456,
+      "324": 732905,
+      "433": 3659943,
+      "444": 6433322,
+      "598": 640470,
+      "710": 1958089,
+      "786": 543413,
+      "819": 1511952,
+      "1030": 1745283,
+      "1791": 1323978,
+      "2061": 1130894,
+      "2072": 3750500,
+      "2110": 25627347,
+      "60838": 4214983
+     },
+     "wall_s": 3823.12,
+     "n_scored_pairs": 76672393,
+     "n_self_scores": 988550,
+     "rescue_joins": 372,
+     "rescue_rescored_genes": 181525,
+     "rescue_wall_s": 923.98,
+     "n_families_after_rescue": 162840,
+     "n_families_before_rescue": 163212
+    }
+   },
+   "merge": {
+    "skipped": false,
+    "wall_s": 151.38,
+    "cpu_self_s": 150.2,
+    "cpu_children_s": 0.0,
+    "children_maxrss_mb_so_far": 7439.5,
+    "load_start": [
+     26.0,
+     28.2,
+     25.3
+    ],
+    "load_end": [
+     21.8,
+     25.7,
+     24.8
+    ],
+    "cpu_total_s": 150.2,
+    "pipeline_wall_s": 151.382,
+    "peak_rss_mb": 8523.8,
+    "stats": {
+     "n_root_groups": 33808,
+     "n_root_anc_genes": 280147,
+     "merge_s_sum_nodes": 129.786,
+     "tree_clusters": 177861,
+     "tree_units": 773008,
+     "tree_s": 46.06
+    }
+   },
+   "output": {
+    "skipped": false,
+    "wall_s": 42.14,
+    "cpu_self_s": 41.7,
+    "cpu_children_s": 0.0,
+    "children_maxrss_mb_so_far": 7439.5,
+    "load_start": [
+     21.8,
+     25.7,
+     24.8
+    ],
+    "load_end": [
+     22.5,
+     25.3,
+     24.7
+    ],
+    "cpu_total_s": 41.7,
+    "pipeline_wall_s": 42.142,
+    "peak_rss_mb": 5686.8,
+    "stats": {
+     "xsd_valid": true,
+     "n_top_groups": 33808,
+     "n_pairs": 18719588,
+     "n_ogs_multi": 33808
+    }
+   }
+  },
+  "total_wall_s": 203.12,
+  "finished": true,
+  "driver_wall_s": 204.4,
+  "cpu_self_s": 202.8,
+  "cpu_children_s": 0.0
+ }
+]

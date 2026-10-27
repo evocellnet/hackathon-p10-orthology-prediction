@@ -1,0 +1,33 @@
+{
+ "label": "anc_78",
+ "kind": "anc",
+ "n_species": 78,
+ "n_proteins": 988778,
+ "threads": 8,
+ "cap_s": 21600,
+ "start": "2026-10-27T06:06:35.739560+01:00",
+ "end": "2026-10-27T08:56:14.063796+01:00",
+ "node_cores": 48,
+ "returncode": 0,
+ "preset": "accurate(default)",
+ "reuse_from": null,
+ "code": "snapshot",
+ "censored": false,
+ "wall_s": 10178.0,
+ "user_s": 65520.76,
+ "sys_s": 1209.23,
+ "max_rss_gb": 28.940357208251953,
+ "exit_status": 0,
+ "major_faults": 196,
+ "cpu_pct": "655%",
+ "cpu_s": 66729.99,
+ "cpu_h": 18.536108333333335,
+ "wall_h": 2.8272222222222223,
+ "node_load_1min": {
+  "n": 170,
+  "load1_mean": 25.40576470588235,
+  "load1_max": 33.93,
+  "load1_min": 1.52
+ },
+ "ok": true
+}

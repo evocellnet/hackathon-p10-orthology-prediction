@@ -278,3 +278,43 @@ HOGs per level: `results/qfo_run/det_{go,nogo}_summary.md`. Size distribution an
 - **Peek 2.** `scripts/qfo_peek2.sh` gates on that verification and logs both arms in `results/test_log.tsv` before
   any scoring. It then runs the fast tests and writes `results/qfo_peek2/summary.{tsv,md}` (with the peek-1 rows and
   the published competitors) and `results/qfo_peek2/treefamA_dev_test.json`.
+
+## 11. Final QfO evaluation (freeze-v1), 2026-10-27
+**Code.** The working-tree sha256 of all 24 files in `results/freeze.json` equals both cand2 manifests. No `ancestra/`
+file was changed during the evaluation. Every evaluation is logged in `results/test_log.tsv` with peek=final.
+
+**Full suite** (`work/qfo_final/cand2_{accurate,fast}`; `bench_repo/scripts/run_qfo_local.sh`, 13 tests, `-j 4` per arm):
+- GO, EC, VGNC, SP, SwissTrees and TreeFam-A.
+- STD_{Eukaryota,Fungi,Bacteria} and G_STD2_{Luca,Eukaryota,Fungi,Vertebrata}. These took about 2.2 h per arm;
+  STD_Eukaryota and STD_Fungi took 2.0–2.3 h each.
+
+**FAS** (`scripts/qfo_final_fas.sh`). The local runner does not wire FAS, so this runs the main.nf
+`fas_benchmark` step: upstream `fas_benchmark.py`, unmodified.
+- Setup:
+  - greedyFAS 1.18.14 (pip wheel) in a separate venv, `conda_envs/fas_venv`, layered on `conda_envs/data`.
+  - `fas.setup -t conda_envs/fas_tools --noAnno` writes `pathconfig.txt` without annotation tools; the precomputed
+    annotations in the reference data are used.
+  - `TMPDIR`/`SQLITE_TMPDIR` point to the run dir, because the sqlite sort overflows the 64 MB overlay root.
+- Runs:
+  - The first attempt hit "disk full" (the overlay).
+  - The second computed 0 of the missing pairs (no `pathconfig.txt`). It is kept as
+    `assess_FAS_firstrun_precomputed_only.json` and not reported.
+  - The third run is the official procedure: precomputed sample plus 9,000 computed missing pairs. It took 42 min at
+    `--cpus 2`.
+- FAS is stochastic: upstream uses an unseeded shuffle.
+
+**Ablations** (`scripts/qfo_final_ablations.sh`; fast preset; merge-only on the cached det S0/S2; each arm passes
+verify_orthoxml before scoring).
+- **Guide-tree arms (c–f)** use the driver's `--transplant-from`. The pipeline keys its input stage on the tree md5
+  and chains every later key to it. S0/S2 do not read the tree, so their stages are hard-linked and re-keyed. The key
+  formula is first checked to reproduce the source run's DONE keys exactly.
+- **Arm (b)** uses `--family-rescue both --family-rescue-guard --structure-3di data/structure/qfo_3di_best.fa`:
+  rescue stage 39 min and merge 13.5 min at 3 threads.
+- **Arm (g)** is the accurate preset without gene order (FastTree, 3 workers).
+
+**Summary** (`scripts/make_qfo_final_summary.py` → `results/qfo_final/summary.{tsv,md}`, `ablation.tsv`,
+`pareto.png` + `pareto_data.tsv`).
+- It covers all 20 published 2022 participants. The OMA resources (FastOMA, OMA HOGs, OMA Pairs, OMA Groups) are
+  always shown, including in the ablation context and the plot (user request).
+- Pareto colours are the validated dataviz palette (blue / orange / aqua, all-pairs check). Aqua is below 3:1 on the
+  surface, so it gets direct callout labels, a square marker and the table (relief rule).

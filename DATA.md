@@ -149,3 +149,26 @@ checksum manifests are kept next to the data (paths given); key checksums are li
 - Gene-level features of all biotypes (incl. GENCODE/Ensembl pseudogenes) and CDS segments of the input proteins were parsed
   from the section-2 GFF3 files into `work/S8/gff_genes_<sp>.parquet` and `work/S8/cds_<sp>.parquet`
   (`scripts/S8_parse_gff_genes.py`, `scripts/S8_parse_gff_cds.py`).
+
+## 14. OMA resources (OMA comparators on OrthoBench; added at user request, post-freeze, 2026-10-27)
+- **OMA browser flat files, release All.May2026** (HOGs "infered May 2025"): Zenodo record
+  https://zenodo.org/records/22869443 (doi:10.5281/zenodo.22869443, "OMA Browser Datasets", published 2026-10-21), reached via
+  https://omabrowser.org/All/<file> (302 redirect to Zenodo). **License: CC BY 4.0.** Retrieved 2026-10-27.
+  Local path `data/oma_browser/All.May2026/` (md5sums.txt there; all md5 identical to the Zenodo record):
+  `cf41ae36b554f6a60270297f6ab95d66 oma-hogs.orthoXML.gz` (379 MB), `86a09a2490262ecdcc18ef6f319bce7e oma-ensembl.txt.gz`,
+  `417fa34d692b947b98bc624a3e1e3412 oma-seqs.fa.gz` (5.75 GB), `1b3c10b6b007f8a2a02a0c04ddfcff91 oma-uniprot.txt.gz`,
+  `9ba959acbece7547b59eb8e6bc1b7947 oma-groups.txt.gz`, `0be0e147d873e195c8d84d3a7d485638 oma-species.txt`,
+  `17bb8ed0b5e3fae4826e3f3413aacdb6 speciestree.nwk`. `ens12.tsv` = oma-ensembl rows of the 12 OrthoBench species (derived).
+  Not downloaded: oma-pairs.txt.gz (41.7 GB), oma-cds.fa.gz, OMA-foldseek, RDF.
+  OMA sources of the 12 species differ from Ensembl 99 (oma-species.txt): chicken RefSeq GRCg7b, rat Ens106 mRatBN7.2,
+  human Ens102, mouse Ens104 GRCm39, dog/Ciona/Tetraodon Ens70, C. elegans Ens86, zebrafish/fly/opossum Ens106, chimp Ens91.
+  Mapping OrthoBench -> OMA (`bench_repo/scripts/oma_browser_map_orthobench.py` + `oma_browser_map_nearident.py`): 95.1% of
+  proteins mapped, 89.2% to an entry that is in a HOG (RefOG genes 93.2%; chicken 60%); details
+  `bench_repo/results/orthobench_competitors/oma_browser/mapping_stats.txt`. Derived files in `work/oma_browser/`.
+- **OMAmer databases** (FastOMA input): "Precomputed Databases for OMAmer", Zenodo record 20814376 (2026-06-23, version May2026,
+  CC BY 4.0), via https://omabrowser.org/All/<db>.h5. `LUCA.h5` (9.9 GB, md5 87a322a0a6381a8de0b539d62e277054,
+  `data/orthobench/runs/fastoma/db/`, downloaded 2026-10-26 for the first FastOMA run) and `Metazoa.h5` (3.4 GB,
+  md5 066e492d8083bb197cdbc3994f7b59ed, verified, `data/orthobench/runs/fastoma_v2/db/`). Both are built from OMA.
+- **Leakage:** OMA (and thus every OMAmer DB and the OMA browser HOGs) contains all 12 OrthoBench species, and the HOGs were
+  inferred from (newer versions of) these proteomes. Neither OMA comparator is independent of the benchmark input;
+  OrthoBench RefOGs themselves are not derived from OMA.
