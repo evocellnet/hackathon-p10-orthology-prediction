@@ -1,19 +1,17 @@
 # LESSONS — process rules for running this project efficiently
-(one line per rule, with evidence; pruned at M2 by a fresh-agent retrospective)
+(one line per rule, with evidence; pruned at M3 by a fresh-agent retrospective)
 
-1. Launch independent setup work (literature, env, data) as parallel agents at T0. Evidence: M0, three streams started within 5 min.
-2. Have a compute reviewer cost a design with real proxies before building. Evidence: r1 rejected v0 progressive merging at ~2.5× saving.
+1. Launch independent setup streams (literature, env, data) as parallel agents at T0. Evidence: M0, three streams within 5 min.
+2. Cost the design with real proxies before building it. Evidence: r1 rejected v0 progressive merging at ~2.5× saving.
 3. Split benchmarks by homology component, never at random. Evidence: r2 found 5 leaked paralogous RefOG groups.
-4. Read time only from scripts/clock.sh. Evidence: DESIGN v0 stamped T+1h15 when it was T+0h26.
-5. The node is shared (load 40–90). Log CPU time and load beside wall time; walls from busy periods are upper bounds; rerun the final runtime table in a quiet window. Evidence: ProstT5 identical wall at 12 and 24 threads.
-6. Never edit a running script; copy it to a new version. Evidence: 2 QfO runs lost.
-7. Iterate only on the fast QfO tests (~5 min); STD tests take 15 min–1.5 h each. Evidence: data-agent timings.
-8. Re-check toy-tuned defaults on real dev data. Evidence: coverage guard 0.5 best on toy, −9 F on OrthoBench dev.
-9. Pick a metric sensitive to the decision under test. Evidence: synteny null at OG level, +0.03–0.05 at pair level.
-10. Check a stage is deterministic before tuning downstream on its cached output. Evidence: S0 thread-dependence moved pair F1 0.78→0.64.
-11. Every layer needs a shuffled or negative control and a pre-registered keep rule. Evidence: expression and isoforms killed; 3Di merge gains within seed spread.
-12. With <50 dev items, fix the config grid in advance and report CIs and macro metrics. Evidence: shuffled seeds span 66.9–69.8 OG-F on 34 RefOGs; RefOG021 dominates micro pair F1.
-13. Get comparator numbers on the dev set as soon as they exist; a gate without a comparator is no gate. Evidence: OrthoFinder finished 17:58 but its dev F was not recorded by T+5h.
-- Re-check adoption rules on the actual default preset, not only the cheap iteration preset. Evidence: so_struct passed on fast (PPV −0.008) but cost −0.027 PPV on accurate.
-- Keep the output-validity gate (verify_orthoxml) before every benchmark peek. Evidence: it caught malformed nesting that pair-level metrics would have hidden.
-- Usage limits can stop every agent at once; background shell jobs survive. Keep long runs as detached processes with logs, so a resumed agent picks them up. Evidence: the T+11h rate limit killed 4 agents, but SonicParanoid/FastTree runs kept going.
+4. Read time only from scripts/clock.sh; the node is shared, so log CPU time and load and rerun the final runtime table in a quiet window. Evidence: v0 mis-stamped T+1h15 when it was T+0h26; ProstT5 identical wall at 12/24 threads.
+5. Iterate on the fast QfO tests only; run STD tests once at the end. Evidence: STD 15 min–1.5 h each.
+6. Re-check toy-tuned defaults on real dev data. Evidence: coverage guard 0.5 best on toy, −9 F on OrthoBench dev.
+7. Use a metric sensitive to the decision; prefer macro/pair-level metrics when n < 50. Evidence: synteny null at OG level, +0.03–0.05 pair F1; RefOG021 dominated micro F1.
+8. Check a stage is deterministic before tuning on its cached output. Evidence: S0 thread-dependence moved pair F1 0.78→0.64.
+9. Give every layer a shuffled control and a pre-registered keep rule. Evidence: expression, isoforms and 3Di-in-merge were killed cleanly.
+10. Fix grids in advance with CIs; treat differences inside partition noise (±2–4 OG-F) as null. Evidence: 243 OrthoBench dev runs.
+11. Have comparator numbers on dev before any gate. Evidence: OrthoFinder finished 17:58 but was unrecorded until T+5h.
+12. Re-check adoption on every preset, and run verify_orthoxml before every peek. Evidence: so_struct passed on fast, failed on accurate; the gate caught malformed nesting.
+13. Create the dev split before the first look at a test benchmark. Evidence: the TreeFam-A dev split came after peek 1 (disclosure #1).
+14. Keep long runs as detached, logged jobs, and never edit a running script. Evidence: the API limit at T+11h40 killed 4 agents but not their jobs; 2 QfO runs were lost to script edits.
