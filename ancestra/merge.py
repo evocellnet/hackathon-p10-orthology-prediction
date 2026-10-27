@@ -125,13 +125,20 @@ class MergeConfig:
     orphan_merge: str = "off"    # R4: off | root | all -- merge partner-less same-child units
                                  # (no cross-child homolog at the node) connected by same-child
                                  # edges into one paralogGroup (parsimony: 1 dup vs dup + losses)
+    # L2-domains (docs/L2_domains.md; needs run_merge(arch=ancestra.domains.DomainArch)); off by default
+    arch_mode: str = "off"       # off | bonus (R1 partner choice on score*(1+arch_lam*J), ctx_window) |
+                                 # gate / gate_deep (extra R1 seeds: mutual best at arch_tol with identical
+                                 # unit architecture; gate_deep: deep nodes only) | veto (drop R1 seeds, J=0)
+    arch_lam: float = 0.3
+    arch_tol: float = 0.8
 
     def key(self) -> dict:
         d = asdict(self)
         # options added after the QfO freeze: omitted at their defaults (stable stage hashes)
         for k, v in (("tree_method", "nj"), ("tree_ft_mode", "medoid"), ("so_struct", False),
                      ("so_absorb", False), ("deep_min_d", 0.0), ("deep_tol", 0.0),
-                     ("deep_so_absorb", False)):
+                     ("deep_so_absorb", False), ("arch_mode", "off"), ("arch_lam", 0.3),
+                     ("arch_tol", 0.8)):
             if d.get(k) == v:
                 d.pop(k)
         d.pop("tree_ft_workers", None)   # results do not depend on the pool size (tested)
@@ -253,7 +260,7 @@ class _UF:
 
 def decide_node(n: int, child: np.ndarray, lu: np.ndarray, lv: np.ndarray, score: np.ndarray,
                 cfg: MergeConfig, context=None, resolver=None, node_name=None, out_edges=None,
-                node_info=None):
+                node_info=None, arch=None):
     """Partition ``n`` local units into ancestral genes of the node.
 
     ``child[i]``: child index of unit i; edges ``(lu, lv, score)`` undirected,
@@ -335,6 +342,19 @@ def decide_node(n: int, child: np.ndarray, lu: np.ndarray, lv: np.ndarray, score
     else:
         cs_sel = cs
         cs_r3 = cs
+    arch_on = arch is not None and cfg.arch_mode != "off"
+    if arch_on:
+        actx = NodeContext(node=node_name, children=None, units=None, child=child, cand_a=ca, cand_b=cb,
+                           cand_score=cs, anchors=None, adjacency=None,
+                           members=(node_info or {}).get("members"))
+        if cfg.arch_mode == "bonus":
+            ba_, bb_ = best_ab(cs)
+            sel = np.flatnonzero((cs >= cfg.ctx_window * ba_) & (cs >= cfg.ctx_window * bb_))
+            jj, _ = arch.edge_sim(actx, sel)
+            add = np.zeros(E)
+            add[sel] = np.nan_to_num(cfg.arch_lam * cs[sel] * jj)
+            cs_sel = cs_sel + add
+            stats["arch_bonus"] = int((add > 0).sum())
     mb = mutual_best(cs_sel, cfg.tol)
     stats["n_mb"] = int(mb.sum())
     if mb.any():   # node divergence: median distance -ln S of the mutual-best seeds
@@ -344,6 +364,19 @@ def decide_node(n: int, child: np.ndarray, lu: np.ndarray, lv: np.ndarray, score
             if cfg.deep_tol > 0:     # relaxed mutual best at deep nodes only
                 mb = mutual_best(cs_sel, cfg.deep_tol)
                 stats["n_mb_deep"] = int(mb.sum())
+    if arch_on and (cfg.arch_mode == "gate" or (cfg.arch_mode == "gate_deep" and stats.get("deep"))):
+        sel = np.flatnonzero(mutual_best(cs_sel, cfg.arch_tol) & ~mb)
+        if len(sel):
+            _, same_arch = arch.edge_sim(actx, sel)
+            mb[sel[same_arch]] = True
+            stats["arch_gate_added"] = int(same_arch.sum())
+    elif arch_on and cfg.arch_mode == "veto":
+        sel = np.flatnonzero(mb)
+        if len(sel):
+            jj, _ = arch.edge_sim(actx, sel)
+            bad = sel[jj == 0]
+            mb[bad] = False
+            stats["arch_veto"] = int(len(bad))
     if cfg.engine == "numba":
         return _decide_numba(n, k, child, ca, cb, cs, sa, sb, ss, mb, cfg, out_edges, stats,
                              resolver, node_name, lu, lv, score, cs_sel, cs_r3, ctx_support, locus_sup,
@@ -813,14 +846,15 @@ def _lca_matrix(tree: Node, species: list[str]):
 
 def run_merge(gt: GeneTable, tree: Node, st: ScoreTable, cfg: MergeConfig,
               context=None, resolver=None, log=None, trace: dict | None = None,
-              gene_order=None, adjacency_w: int = 5) -> MergeResult:
+              gene_order=None, adjacency_w: int = 5, arch=None) -> MergeResult:
     """Run the bottom-up merge over all families at once.
 
     Hooks: ``context(ctx: NodeContext) -> bonus array`` (added to the cross-child
     candidate scores, three-pass: anchors -> context -> rules; see NodeContext);
     ``resolver(node, child, lu, lv, score, labels) -> labels``. ``gene_order``
     (:class:`ancestra.genome.GeneOrder`) enables ``NodeContext.adjacency`` (window
-    ``adjacency_w``).
+    ``adjacency_w``). ``arch`` (:class:`ancestra.domains.DomainArch`): domain architectures for
+    ``cfg.arch_mode`` != "off" (L2-domains).
     ``trace`` (dict, diagnostics): filled with node -> (clade genes, their ancestral
     gene ID at the children, at the node).
     """
@@ -972,7 +1006,8 @@ def run_merge(gt: GeneTable, tree: Node, st: ScoreTable, cfg: MergeConfig,
                 osc = omax if cfg.link == "max" else osum / np.maximum(ocnt, 1)
                 out_edges = (ou, oo - cap, osc)
         node_info = None
-        if context is not None or (cfg.tree_mode and cfg.tree_method == "fasttree"):
+        if context is not None or (arch is not None and cfg.arch_mode != "off") \
+                or (cfg.tree_mode and cfg.tree_method == "fasttree"):
             node_info = {"children": kids, "units": units.copy()}
             # members: local unit -> leaf genes (gene_anc is still at the children level)
             ga_local = pos[gene_anc[genes]]
@@ -994,7 +1029,7 @@ def run_merge(gt: GeneTable, tree: Node, st: ScoreTable, cfg: MergeConfig,
                 node_info["adjacency"] = unit_adjacency(npairs[0], npairs[1], npairs[2],
                                                         unit_of_gene, gt.species_of, n)
         labels, stt = decide_node(n, child, lu, lv, score, cfg, context, resolver, nd.name,
-                                  out_edges, node_info)
+                                  out_edges, node_info, arch=arch if cfg.arch_mode != "off" else None)
         if cfg.tree_mode and (not cfg.tree_nodes or nd.name in cfg.tree_nodes.split(",")) \
                 and stt.get("seed_median_d", 0.0) >= cfg.tree_min_d \
                 and (not cfg.tree_require_outgroup or out_edges is not None):
