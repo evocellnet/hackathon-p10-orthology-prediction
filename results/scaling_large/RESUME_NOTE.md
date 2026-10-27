@@ -36,3 +36,6 @@ QfO: S0 1,534 s / 3.0 CPU-h / 6.4 GB; scores 3,886 s / 8.9 CPU-h / 29.5 GB; merg
 Subset totals: 125 -> 0.53x QfO, 250 -> 1.10x, 500 -> 2.28x, 1000 -> 4.80x proteins (4.75 M).
 Linear scaling from QfO would give n=1000: S0 ~2 h, scores ~5.2 h wall, ~43 CPU-h, scores RSS ~142 GB (above the 100 GB cap),
 so the n=1000 memory projection must be re-checked from the n=125/250/500 fits before launching. Not a measurement.
+
+## RESUME 2026-10-27 11:10: lane B running (LIMIT_GB raised to 300 in scale_large_run.sh)
+Chain `work/scale_large_chain.sh` runs n=125,250,500 (fast, 12 threads). n=125 done 11:11-11:35: 23.9 min wall, 3.26 CPU-h, 7.9 GB RSS. n=1000 launched manually only after RSS/time projection check. Collector: scripts/scaling_large_collect.py (to write).

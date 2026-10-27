@@ -1,3 +1,3 @@
 2026-10-26T14:40:23+01:00
 deadline: 2026-10-28T14:40:23+01:00
-resume: 2026-10-27T11:06:17+01:00 budget_remaining=28h30m (pause time not counted; new deadline 2026-10-28T15:36:17+01:00)
+resume: 2026-10-27T11:06:17+01:00 (user: keep the original 48 h budget as a SOFT deadline; new node may allow overshoot) new deadline 2026-10-28T14:40:23+01:00

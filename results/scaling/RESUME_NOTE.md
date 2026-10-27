@@ -28,3 +28,6 @@ All from `/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction`, env
    OrthoFinder: `orthofinder -f work/scaling/inputs/sub64 -t 8 -a 8 -mog -o work/scaling/runs/of_64` (kind `of`); SonicParanoid: `sonicparanoid -i work/scaling/inputs/sub64 -o work/scaling/runs/sp_64 -p scal64 -t 8 -m default` (kind `sp`). Both only read their queue lines `of_64|of|64|<cap_h>` / `sp_64|sp|64|<cap_h>`; the runner writes `runtime.json` with `censored: true` on timeout.
 3. After every batch: `python scripts/scaling_analyze.py` regenerates `scaling.tsv`, `summary.md` (+ `status_note.md`, edit it), `scaling.png`, `fits.json`.
 Notes: node loads differ (new node: wall-time not comparable with the shared-node runs; rerun at least one anchor, e.g. of_8/anc_8, there if timing across nodes is to be mixed). Code for Ancestra runs is frozen in `work/scaling/code_snapshot` (taken 2026-10-27 05:00).
+
+## RESUME 2026-10-27 11:10 (48 CPU node): lane A running
+Queue `scripts/scaling_queue3.py` (started 11:10 with conda env active; first attempt without env gave rc=127, cleaned) runs fo_16, fo_32, fo_64, of_64, sp_64 sequentially, 8 threads, 6 h cap. Node shared (load 25-45 from other agents). Then `python scripts/scaling_analyze.py`.
