@@ -104,3 +104,14 @@ Delta(real - off) paired-bootstrap 95% CI lower bound > 0 (B=2000, seed 11); rea
 by more than the shuffled seed spread (max - min); no guard worse than its limit. With two masked/unmasked arms
 per idea, an arm is kept only if it passes alone; if both pass, the masked arm (fewer fusions) is the frozen
 candidate. Every arm run is reported.
+
+### 1.7 Addendum (committed ~19:20 CET, before running idea 4; ideas 1-3 results were known, idea 4 had not been run)
+Idea 4 details fixed now: tau (Yanai et al. 2005 tissue-specificity index) per gene from the Bgee v15.2
+`expr_simple` gold/silver calls of its own species (expression score of every called entity; >= 5 entities),
+so no shared-entity requirement. Candidates: all labelled DEV pairs between the 10 Bgee species of OrthoBench
+(work/S5/refog_pair_labels.parquet; sequence = S7 canonical DIAMOND bits, as S9's extended set). Hard query:
+best paralog seq >= 0.9 x best ortholog seq. Rule: among candidates with seq >= 0.9 x best, pick the smallest
+|tau_q - tau_c|; decide only if the runner-up's |delta tau| exceeds it by >= 0.05, else abstain. Shuffled: tau
+permuted among genes within species (seeds 11/23/47). Stop unless the precision when deciding has a 95% CI
+(bootstrap over RefOGs, B=1000, seed 11) whose lower bound is above 0.47 (S9's best) and above every shuffled
+seed's precision; report the re-rank gain over sequence on hard queries as well.
