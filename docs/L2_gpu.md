@@ -104,6 +104,11 @@ task 3 after.
   added: the CPU pass-1 table (A) with every non-self bit score multiplied by exp(0.01·N(0,1)) (1 % noise, far below
   the GPU/DIAMOND score differences), seeds 11/23/47 on OrthoBench (accurate) and seed 11 on QfO (fast, CPU
   pass-1 table). Reported as a control next to every arm; the pre-registered rule E1–E5 is not changed.
+- **D3 (23:00 CET, after the OrthoBench R4-full / R4-afdb results were seen, before any QfO task-3 run).** The QfO
+  ProstT5 gap finished early (the GPU was free), so the QfO arm of task 3 runs as pre-registered: R4-full and a
+  same-code R4-afdb on the S0_rescue QfO base (`work/rescue/qfo/base`, fast + gene order, R0 = `work/rescue/qfo/R0`),
+  plus one shuffled control (seed 11; seeds 23/47 only if R4-full passes on QfO). Foldseek GPU search (`--gpu 1`,
+  padded target DB) is benchmarked on a sample of the QfO 3Di query units against the CPU search.
 
 ## 1. Data
 No new external data. Used: the GPU_v2 score tables (`work/gpuv2/ob_gpusw_acc`, `work/gpuv2/qfo_allgpu_fast`,

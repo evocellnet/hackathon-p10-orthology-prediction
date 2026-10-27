@@ -46,12 +46,12 @@ def topo(nwk):
     idx = {l: i for i, l in enumerate(sorted(set(leaves), key=lambda s: int(s[1:])))}
     edges, n_nodes = newick_to_edges(nwk, idx)
     adj = {}
-    for a, b in edges:
+    for a, b, *_ in edges:
         adj.setdefault(a, []).append(b)
         adj.setdefault(b, []).append(a)
     m = len(idx)
     splits = set()
-    for a, b in edges:
+    for a, b, *_ in edges:
         seen, st, side = {a}, [b], set()
         seen.add(b)
         while st:
@@ -100,6 +100,7 @@ def main():
                 batched += ft_batch(cli[i:i + bs], td)
             res[f"fasttree_batch{bs}_s"] = round(time.time() - t0, 2)
             res[f"batch{bs}_identical_newick"] = sum(a == b for a, b in zip(single, batched))
+            json.dump(res, open(out, "w"), indent=1)
             res[f"batch{bs}_identical_topology"] = sum(topo(a) == topo(b) for a, b in zip(single, batched))
     json.dump(res, open(out, "w"), indent=1)
     print(json.dumps(res, indent=1))
