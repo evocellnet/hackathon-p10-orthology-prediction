@@ -14,3 +14,5 @@
 11. Every layer needs a shuffled or negative control and a pre-registered keep rule. Evidence: expression and isoforms killed; 3Di merge gains within seed spread.
 12. With <50 dev items, fix the config grid in advance and report CIs and macro metrics. Evidence: shuffled seeds span 66.9–69.8 OG-F on 34 RefOGs; RefOG021 dominates micro pair F1.
 13. Get comparator numbers on the dev set as soon as they exist; a gate without a comparator is no gate. Evidence: OrthoFinder finished 17:58 but its dev F was not recorded by T+5h.
+- Re-check adoption rules on the actual default preset, not only the cheap iteration preset. Evidence: so_struct passed on fast (PPV −0.008) but cost −0.027 PPV on accurate.
+- Keep the output-validity gate (verify_orthoxml) before every benchmark peek. Evidence: it caught malformed nesting that pair-level metrics would have hidden.
