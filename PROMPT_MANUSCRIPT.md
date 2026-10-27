@@ -1,0 +1,7 @@
+# Manuscript brief (user, verbatim, received 2026-10-27 ~12:50 CET)
+
+To be executed at the end of this part, when everything is completed.
+
+> You remain the PI of this computational  project. Now your goal is to write the results of the project into a manuscript that explains the winning method and presents your benchmarking of it, formatted for the journal PLOS Computational Biology. This should be accompanied by an mvp github repository that will include the predictions and will allow readers to implement the method themselves (set up the repo and allow me to publish it myself). In both the paper and the repo, you should explicitly flag at the beginning that this predictive task was an activity in testing the ability of agents to run bioinformatics projects; the repo should include the original prompt, and the methods section should explain the agent and sub-agent setup. For the final method that worked, you should give credit to the ideas that you extracted from the literature. Write a supplementary file detailing the major methods you tried that did not work. In the paper, explain the method both conceptually and technically. Use this skill for writing https://github.com/jurgjn/euler-vibe/blob/main/home/euler-claude/.claude/skills/edit-for-clarity/SKILL.md. Mention and explain all important decisions you took and clearly explain your approach. Be critical and do not overstate. Stay precise, keep it short and to the point when possible.
+
+Skill copy: `docs/skills/edit-for-clarity_SKILL.md` (fetched 2026-10-27).
