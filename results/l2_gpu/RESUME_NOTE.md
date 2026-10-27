@@ -12,3 +12,11 @@
   DIAMOND pair set) also −9 OG-F: OG-F is hypersensitive to any score perturbation -> D2 jitter noise floor queued.
   Queue: batch_qfo1 (QfO round 1) -> batch_t23 (R2 arms MK39/SP3000/SP5000, jitter J11/23/47 + QfO A/J11, T2, T3).
   ProstT5 QfO gap: ~14% after 85 min (GPU shared) -> ETA ~04:00; decide at 01:00 whether to use it.
+- 23:30 Task 1 DONE (doc §2; results/l2_gpu/task1_summary.{json,md}): no arm passes E1-E3; 1% jitter of the CPU table
+  costs -3..-7 OG-F / -0.01 macro (OB dev at a tuned optimum); QfO R207 best (TPR +0.021 / PPV +0.008 at 0.59 CPU-h).
+  Task 2: micro-bench (results/l2_gpu/t2_bench_ob1000.json): FastTree -n byte-identical on 1000/1000 jobs but only
+  ~3% faster; pyfamsa no faster, 990/998 identical alignments. Full OB merge with tree_ft_batch=200 queued
+  (batch_late.sh) to confirm hogs byte identity (ref rerun = frozen cc261e73 byte-identical).
+  Task 3 OB: R4full = R4afdb on dev (OG-F 79.93, macro +0.0042 [-0.0005, +0.011] vs frozen -> fails keep rule);
+  shuffled 3Di +0.0021. QfO R4full / R4afdb / R4shuf11 running (batch_late.sh); foldseek GPU bench running
+  (work/l2gpu/t3/fsbench). QfO ProstT5 gap done: 63,237 proteins, 5h01 shared GPU, md5 764665b6.
