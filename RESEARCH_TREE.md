@@ -5,6 +5,16 @@ Clock: START.txt = 2026-10-26T14:40 CET; hard deadline 2026-10-28T14:40 CET (48 
 
 ## Status summary (latest first)
 
+### M6 — Layers round 2 (L2), 2026-10-27 18:00 (budget used 27h20)
+The user asked for more extra-data work while the scaling runs (n1000; FastOMA, OrthoFinder and SonicParanoid2 at 64 species) finish. This is post-freeze and dev-only, under the shared protocol docs/L2_protocol.md (pre-registration, shuffled controls, the same keep rule; test runs only through a separate agent). Five agents run in parallel:
+- **domains:** Pfam/InterPro/TED domain architecture;
+- **network:** STRING with the organism's own channels only, CF-MS, PaxDb;
+- **plm:** pLM embeddings and a contrastive head trained on self-derived synteny anchors;
+- **gpu:** density-robust all-GPU S2, batched FastTree, GPU structure rescue;
+- **genome:** synteny fission repair and recall anchors, intron positions, expression rethink.
+
+Results are due 2026-10-28 08:30. The frozen numbers are unaffected.
+
 ### M5 — RESUMED on GPU node, 2026-10-27 11:06 (budget used 20h26; soft deadline 2026-10-28 14:40 = original 48 h)
 New node: 48 CPUs, 500 GB, A100-40GB. GPU checks: torch 2.6+cu124 sees the A100 (16 TFLOPS FP32 matmul); MMseqs2 18 has --gpu. A first human-vs-human GPU search took 251 s wall vs 88 s for 24-thread CPU earlier — under diagnosis. Separate GPU env: conda_envs/gpu. Resumed: T1 (patched FastOMA on OrthoBench), T2+T3 (scaling incl. FastOMA + 125–1000-proteome demo), and the GPU v2 track on branch `v2-gpu` (opt-in GPU backends; freeze-v1 untouched; dev-only evaluation).
 
