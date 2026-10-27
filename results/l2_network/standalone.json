@@ -1,0 +1,4985 @@
+{
+ "benchmark": "orthobench_dev (34 RefOGs)",
+ "seeds": [
+  11,
+  23,
+  47
+ ],
+ "hard_ratio": 0.9,
+ "min_nodes": 100,
+ "primary_channel": "own",
+ "per_pair": {
+  "Caenorhabditis_elegans:Canis_familiaris": {
+   "n": 140,
+   "n_orth": 40,
+   "n_anchors": 2192,
+   "exp150": {
+    "both_nodes": 0.0071,
+    "evaluable": 0.0071,
+    "count_gt0": 0.0071,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.01
+   },
+   "exp400": {
+    "both_nodes": 0.0071,
+    "evaluable": 0.0071,
+    "count_gt0": 0.0071,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.01
+   },
+   "coexp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own": {
+    "both_nodes": 0.0071,
+    "evaluable": 0.0071,
+    "count_gt0": 0.0071,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.01
+   },
+   "db400_CIRCULAR": {
+    "both_nodes": 0.1714,
+    "evaluable": 0.0857,
+    "count_gt0": 0.0714,
+    "orth_count_gt0": 0.175,
+    "par_count_gt0": 0.03
+   },
+   "abund_evaluable": 0.2571
+  },
+  "Caenorhabditis_elegans:Ciona_intestinalis": {
+   "n": 80,
+   "n_orth": 69,
+   "n_anchors": 2968,
+   "exp150": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "exp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "coexp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "db400_CIRCULAR": {
+    "both_nodes": 0.125,
+    "evaluable": 0.0625,
+    "count_gt0": 0.0625,
+    "orth_count_gt0": 0.0725,
+    "par_count_gt0": 0.0
+   },
+   "abund_evaluable": 0.0
+  },
+  "Caenorhabditis_elegans:Danio_rerio": {
+   "n": 278,
+   "n_orth": 76,
+   "n_anchors": 1742,
+   "exp150": {
+    "both_nodes": 0.0288,
+    "evaluable": 0.0072,
+    "count_gt0": 0.0072,
+    "orth_count_gt0": 0.0263,
+    "par_count_gt0": 0.0
+   },
+   "exp400": {
+    "both_nodes": 0.0036,
+    "evaluable": 0.0036,
+    "count_gt0": 0.0036,
+    "orth_count_gt0": 0.0132,
+    "par_count_gt0": 0.0
+   },
+   "coexp400": {
+    "both_nodes": 0.0144,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own": {
+    "both_nodes": 0.0504,
+    "evaluable": 0.0072,
+    "count_gt0": 0.0072,
+    "orth_count_gt0": 0.0263,
+    "par_count_gt0": 0.0
+   },
+   "db400_CIRCULAR": {
+    "both_nodes": 0.1331,
+    "evaluable": 0.0396,
+    "count_gt0": 0.0396,
+    "orth_count_gt0": 0.1184,
+    "par_count_gt0": 0.0099
+   },
+   "abund_evaluable": 0.5252
+  },
+  "Caenorhabditis_elegans:Drosophila_melanogaster": {
+   "n": 112,
+   "n_orth": 41,
+   "n_anchors": 3457,
+   "exp150": {
+    "both_nodes": 0.2589,
+    "evaluable": 0.0982,
+    "count_gt0": 0.0179,
+    "orth_count_gt0": 0.0488,
+    "par_count_gt0": 0.0
+   },
+   "exp400": {
+    "both_nodes": 0.0357,
+    "evaluable": 0.0089,
+    "count_gt0": 0.0089,
+    "orth_count_gt0": 0.0244,
+    "par_count_gt0": 0.0
+   },
+   "coexp400": {
+    "both_nodes": 0.1607,
+    "evaluable": 0.0625,
+    "count_gt0": 0.0268,
+    "orth_count_gt0": 0.0732,
+    "par_count_gt0": 0.0
+   },
+   "own": {
+    "both_nodes": 0.3839,
+    "evaluable": 0.1875,
+    "count_gt0": 0.0268,
+    "orth_count_gt0": 0.0732,
+    "par_count_gt0": 0.0
+   },
+   "db400_CIRCULAR": {
+    "both_nodes": 0.1696,
+    "evaluable": 0.0982,
+    "count_gt0": 0.0804,
+    "orth_count_gt0": 0.2195,
+    "par_count_gt0": 0.0
+   },
+   "abund_evaluable": 0.6607
+  },
+  "Caenorhabditis_elegans:Gallus_gallus": {
+   "n": 121,
+   "n_orth": 47,
+   "n_anchors": 2392,
+   "exp150": {
+    "both_nodes": 0.0496,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "exp400": {
+    "both_nodes": 0.0165,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "coexp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own": {
+    "both_nodes": 0.0496,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "db400_CIRCULAR": {
+    "both_nodes": 0.1901,
+    "evaluable": 0.1405,
+    "count_gt0": 0.124,
+    "orth_count_gt0": 0.2553,
+    "par_count_gt0": 0.0405
+   },
+   "abund_evaluable": 0.562
+  },
+  "Caenorhabditis_elegans:Homo_sapiens": {
+   "n": 157,
+   "n_orth": 53,
+   "n_anchors": 2223,
+   "exp150": {
+    "both_nodes": 0.4331,
+    "evaluable": 0.2229,
+    "count_gt0": 0.0318,
+    "orth_count_gt0": 0.0377,
+    "par_count_gt0": 0.0288
+   },
+   "exp400": {
+    "both_nodes": 0.1146,
+    "evaluable": 0.0191,
+    "count_gt0": 0.0064,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0096
+   },
+   "coexp400": {
+    "both_nodes": 0.1592,
+    "evaluable": 0.0255,
+    "count_gt0": 0.0127,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0192
+   },
+   "own": {
+    "both_nodes": 0.4841,
+    "evaluable": 0.2994,
+    "count_gt0": 0.0382,
+    "orth_count_gt0": 0.0566,
+    "par_count_gt0": 0.0288
+   },
+   "db400_CIRCULAR": {
+    "both_nodes": 0.1783,
+    "evaluable": 0.1338,
+    "count_gt0": 0.1146,
+    "orth_count_gt0": 0.283,
+    "par_count_gt0": 0.0288
+   },
+   "abund_evaluable": 0.7261
+  },
+  "Caenorhabditis_elegans:Monodelphis_domestica": {
+   "n": 102,
+   "n_orth": 48,
+   "n_anchors": 2198,
+   "exp150": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "exp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "coexp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "db400_CIRCULAR": {
+    "both_nodes": 0.1863,
+    "evaluable": 0.0588,
+    "count_gt0": 0.0588,
+    "orth_count_gt0": 0.1042,
+    "par_count_gt0": 0.0185
+   },
+   "abund_evaluable": 0.0
+  },
+  "Caenorhabditis_elegans:Mus_musculus": {
+   "n": 130,
+   "n_orth": 50,
+   "n_anchors": 2377,
+   "exp150": {
+    "both_nodes": 0.4615,
+    "evaluable": 0.1923,
+    "count_gt0": 0.0385,
+    "orth_count_gt0": 0.02,
+    "par_count_gt0": 0.05
+   },
+   "exp400": {
+    "both_nodes": 0.0615,
+    "evaluable": 0.0077,
+    "count_gt0": 0.0077,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0125
+   },
+   "coexp400": {
+    "both_nodes": 0.1615,
+    "evaluable": 0.0385,
+    "count_gt0": 0.0231,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0375
+   },
+   "own": {
+    "both_nodes": 0.5692,
+    "evaluable": 0.2538,
+    "count_gt0": 0.0538,
+    "orth_count_gt0": 0.04,
+    "par_count_gt0": 0.0625
+   },
+   "db400_CIRCULAR": {
+    "both_nodes": 0.2231,
+    "evaluable": 0.1615,
+    "count_gt0": 0.1385,
+    "orth_count_gt0": 0.28,
+    "par_count_gt0": 0.05
+   },
+   "abund_evaluable": 0.9385
+  },
+  "Caenorhabditis_elegans:Pan_troglodytes": {
+   "n": 135,
+   "n_orth": 53,
+   "n_anchors": 1995,
+   "exp150": {
+    "both_nodes": 0.037,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "exp400": {
+    "both_nodes": 0.0296,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "coexp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own": {
+    "both_nodes": 0.0444,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "db400_CIRCULAR": {
+    "both_nodes": 0.2148,
+    "evaluable": 0.1185,
+    "count_gt0": 0.1185,
+    "orth_count_gt0": 0.1509,
+    "par_count_gt0": 0.0976
+   },
+   "abund_evaluable": 0.0963
+  },
+  "Caenorhabditis_elegans:Rattus_norvegicus": {
+   "n": 135,
+   "n_orth": 45,
+   "n_anchors": 2269,
+   "exp150": {
+    "both_nodes": 0.1333,
+    "evaluable": 0.0222,
+    "count_gt0": 0.0148,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0222
+   },
+   "exp400": {
+    "both_nodes": 0.0074,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "coexp400": {
+    "both_nodes": 0.0519,
+    "evaluable": 0.0074,
+    "count_gt0": 0.0074,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0111
+   },
+   "own": {
+    "both_nodes": 0.1778,
+    "evaluable": 0.0296,
+    "count_gt0": 0.0148,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0222
+   },
+   "db400_CIRCULAR": {
+    "both_nodes": 0.2,
+    "evaluable": 0.1481,
+    "count_gt0": 0.1333,
+    "orth_count_gt0": 0.2889,
+    "par_count_gt0": 0.0556
+   },
+   "abund_evaluable": 0.6815
+  },
+  "Caenorhabditis_elegans:Tetraodon_nigroviridis": {
+   "n": 148,
+   "n_orth": 73,
+   "n_anchors": 2104,
+   "exp150": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "exp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "coexp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "db400_CIRCULAR": {
+    "both_nodes": 0.0811,
+    "evaluable": 0.0405,
+    "count_gt0": 0.0405,
+    "orth_count_gt0": 0.0411,
+    "par_count_gt0": 0.04
+   },
+   "abund_evaluable": 0.0
+  },
+  "Canis_familiaris:Ciona_intestinalis": {
+   "n": 106,
+   "n_orth": 40,
+   "n_anchors": 3817,
+   "exp150": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "exp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "coexp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "db400_CIRCULAR": {
+    "both_nodes": 0.1604,
+    "evaluable": 0.0566,
+    "count_gt0": 0.0566,
+    "orth_count_gt0": 0.075,
+    "par_count_gt0": 0.0455
+   },
+   "abund_evaluable": 0.0
+  },
+  "Canis_familiaris:Danio_rerio": {
+   "n": 831,
+   "n_orth": 101,
+   "n_anchors": 7593,
+   "exp150": {
+    "both_nodes": 0.0012,
+    "evaluable": 0.0012,
+    "count_gt0": 0.0012,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0014
+   },
+   "exp400": {
+    "both_nodes": 0.0012,
+    "evaluable": 0.0012,
+    "count_gt0": 0.0012,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0014
+   },
+   "coexp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own": {
+    "both_nodes": 0.0012,
+    "evaluable": 0.0012,
+    "count_gt0": 0.0012,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0014
+   },
+   "db400_CIRCULAR": {
+    "both_nodes": 0.2238,
+    "evaluable": 0.1829,
+    "count_gt0": 0.0915,
+    "orth_count_gt0": 0.3168,
+    "par_count_gt0": 0.0603
+   },
+   "abund_evaluable": 0.1384
+  },
+  "Canis_familiaris:Drosophila_melanogaster": {
+   "n": 76,
+   "n_orth": 28,
+   "n_anchors": 2699,
+   "exp150": {
+    "both_nodes": 0.0132,
+    "evaluable": 0.0132,
+    "count_gt0": 0.0132,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0208
+   },
+   "exp400": {
+    "both_nodes": 0.0132,
+    "evaluable": 0.0132,
+    "count_gt0": 0.0132,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0208
+   },
+   "coexp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own": {
+    "both_nodes": 0.0132,
+    "evaluable": 0.0132,
+    "count_gt0": 0.0132,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0208
+   },
+   "db400_CIRCULAR": {
+    "both_nodes": 0.3421,
+    "evaluable": 0.1447,
+    "count_gt0": 0.1316,
+    "orth_count_gt0": 0.2857,
+    "par_count_gt0": 0.0417
+   },
+   "abund_evaluable": 0.2763
+  },
+  "Canis_familiaris:Gallus_gallus": {
+   "n": 430,
+   "n_orth": 59,
+   "n_anchors": 12079,
+   "exp150": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "exp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "coexp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "db400_CIRCULAR": {
+    "both_nodes": 0.3093,
+    "evaluable": 0.2977,
+    "count_gt0": 0.1372,
+    "orth_count_gt0": 0.4237,
+    "par_count_gt0": 0.0916
+   },
+   "abund_evaluable": 0.1326
+  },
+  "Canis_familiaris:Homo_sapiens": {
+   "n": 585,
+   "n_orth": 88,
+   "n_anchors": 14747,
+   "exp150": {
+    "both_nodes": 0.0017,
+    "evaluable": 0.0017,
+    "count_gt0": 0.0017,
+    "orth_count_gt0": 0.0114,
+    "par_count_gt0": 0.0
+   },
+   "exp400": {
+    "both_nodes": 0.0017,
+    "evaluable": 0.0017,
+    "count_gt0": 0.0017,
+    "orth_count_gt0": 0.0114,
+    "par_count_gt0": 0.0
+   },
+   "coexp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own": {
+    "both_nodes": 0.0017,
+    "evaluable": 0.0017,
+    "count_gt0": 0.0017,
+    "orth_count_gt0": 0.0114,
+    "par_count_gt0": 0.0
+   },
+   "db400_CIRCULAR": {
+    "both_nodes": 0.2752,
+    "evaluable": 0.2632,
+    "count_gt0": 0.1282,
+    "orth_count_gt0": 0.3409,
+    "par_count_gt0": 0.0905
+   },
+   "abund_evaluable": 0.2427
+  },
+  "Canis_familiaris:Monodelphis_domestica": {
+   "n": 513,
+   "n_orth": 77,
+   "n_anchors": 13751,
+   "exp150": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "exp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "coexp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "db400_CIRCULAR": {
+    "both_nodes": 0.1384,
+    "evaluable": 0.0897,
+    "count_gt0": 0.0585,
+    "orth_count_gt0": 0.1688,
+    "par_count_gt0": 0.039
+   },
+   "abund_evaluable": 0.0
+  },
+  "Canis_familiaris:Mus_musculus": {
+   "n": 555,
+   "n_orth": 76,
+   "n_anchors": 15226,
+   "exp150": {
+    "both_nodes": 0.0018,
+    "evaluable": 0.0018,
+    "count_gt0": 0.0018,
+    "orth_count_gt0": 0.0132,
+    "par_count_gt0": 0.0
+   },
+   "exp400": {
+    "both_nodes": 0.0018,
+    "evaluable": 0.0018,
+    "count_gt0": 0.0018,
+    "orth_count_gt0": 0.0132,
+    "par_count_gt0": 0.0
+   },
+   "coexp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own": {
+    "both_nodes": 0.0018,
+    "evaluable": 0.0018,
+    "count_gt0": 0.0018,
+    "orth_count_gt0": 0.0132,
+    "par_count_gt0": 0.0
+   },
+   "db400_CIRCULAR": {
+    "both_nodes": 0.2973,
+    "evaluable": 0.2811,
+    "count_gt0": 0.1405,
+    "orth_count_gt0": 0.3947,
+    "par_count_gt0": 0.1002
+   },
+   "abund_evaluable": 0.2685
+  },
+  "Canis_familiaris:Pan_troglodytes": {
+   "n": 691,
+   "n_orth": 84,
+   "n_anchors": 14845,
+   "exp150": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "exp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "coexp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "db400_CIRCULAR": {
+    "both_nodes": 0.1216,
+    "evaluable": 0.0984,
+    "count_gt0": 0.0738,
+    "orth_count_gt0": 0.1905,
+    "par_count_gt0": 0.0577
+   },
+   "abund_evaluable": 0.0333
+  },
+  "Canis_familiaris:Rattus_norvegicus": {
+   "n": 620,
+   "n_orth": 82,
+   "n_anchors": 14802,
+   "exp150": {
+    "both_nodes": 0.0016,
+    "evaluable": 0.0016,
+    "count_gt0": 0.0016,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0019
+   },
+   "exp400": {
+    "both_nodes": 0.0016,
+    "evaluable": 0.0016,
+    "count_gt0": 0.0016,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0019
+   },
+   "coexp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own": {
+    "both_nodes": 0.0016,
+    "evaluable": 0.0016,
+    "count_gt0": 0.0016,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0019
+   },
+   "db400_CIRCULAR": {
+    "both_nodes": 0.2161,
+    "evaluable": 0.2016,
+    "count_gt0": 0.1355,
+    "orth_count_gt0": 0.3659,
+    "par_count_gt0": 0.1004
+   },
+   "abund_evaluable": 0.2194
+  },
+  "Canis_familiaris:Tetraodon_nigroviridis": {
+   "n": 509,
+   "n_orth": 77,
+   "n_anchors": 8411,
+   "exp150": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "exp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "coexp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "db400_CIRCULAR": {
+    "both_nodes": 0.0668,
+    "evaluable": 0.0177,
+    "count_gt0": 0.0138,
+    "orth_count_gt0": 0.0519,
+    "par_count_gt0": 0.0069
+   },
+   "abund_evaluable": 0.0
+  },
+  "Ciona_intestinalis:Danio_rerio": {
+   "n": 170,
+   "n_orth": 67,
+   "n_anchors": 2995,
+   "exp150": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "exp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "coexp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "db400_CIRCULAR": {
+    "both_nodes": 0.2059,
+    "evaluable": 0.0529,
+    "count_gt0": 0.0529,
+    "orth_count_gt0": 0.0299,
+    "par_count_gt0": 0.068
+   },
+   "abund_evaluable": 0.0
+  },
+  "Ciona_intestinalis:Drosophila_melanogaster": {
+   "n": 35,
+   "n_orth": 30,
+   "n_anchors": 3521,
+   "exp150": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "exp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "coexp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "db400_CIRCULAR": {
+    "both_nodes": 0.3714,
+    "evaluable": 0.2286,
+    "count_gt0": 0.2286,
+    "orth_count_gt0": 0.2333,
+    "par_count_gt0": 0.2
+   },
+   "abund_evaluable": 0.0
+  },
+  "Ciona_intestinalis:Gallus_gallus": {
+   "n": 99,
+   "n_orth": 36,
+   "n_anchors": 3979,
+   "exp150": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "exp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "coexp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "db400_CIRCULAR": {
+    "both_nodes": 0.2222,
+    "evaluable": 0.0505,
+    "count_gt0": 0.0505,
+    "orth_count_gt0": 0.0833,
+    "par_count_gt0": 0.0317
+   },
+   "abund_evaluable": 0.0
+  },
+  "Ciona_intestinalis:Homo_sapiens": {
+   "n": 124,
+   "n_orth": 52,
+   "n_anchors": 3779,
+   "exp150": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "exp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "coexp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "db400_CIRCULAR": {
+    "both_nodes": 0.1452,
+    "evaluable": 0.0726,
+    "count_gt0": 0.0645,
+    "orth_count_gt0": 0.0769,
+    "par_count_gt0": 0.0556
+   },
+   "abund_evaluable": 0.0
+  },
+  "Ciona_intestinalis:Monodelphis_domestica": {
+   "n": 113,
+   "n_orth": 40,
+   "n_anchors": 3789,
+   "exp150": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "exp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "coexp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "db400_CIRCULAR": {
+    "both_nodes": 0.2035,
+    "evaluable": 0.0885,
+    "count_gt0": 0.0885,
+    "orth_count_gt0": 0.125,
+    "par_count_gt0": 0.0685
+   },
+   "abund_evaluable": 0.0
+  },
+  "Ciona_intestinalis:Mus_musculus": {
+   "n": 119,
+   "n_orth": 41,
+   "n_anchors": 4006,
+   "exp150": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "exp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "coexp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "db400_CIRCULAR": {
+    "both_nodes": 0.2185,
+    "evaluable": 0.084,
+    "count_gt0": 0.0756,
+    "orth_count_gt0": 0.0976,
+    "par_count_gt0": 0.0641
+   },
+   "abund_evaluable": 0.0
+  },
+  "Ciona_intestinalis:Pan_troglodytes": {
+   "n": 127,
+   "n_orth": 41,
+   "n_anchors": 3516,
+   "exp150": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "exp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "coexp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "db400_CIRCULAR": {
+    "both_nodes": 0.1102,
+    "evaluable": 0.0551,
+    "count_gt0": 0.0551,
+    "orth_count_gt0": 0.122,
+    "par_count_gt0": 0.0233
+   },
+   "abund_evaluable": 0.0
+  },
+  "Ciona_intestinalis:Rattus_norvegicus": {
+   "n": 112,
+   "n_orth": 43,
+   "n_anchors": 3872,
+   "exp150": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "exp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "coexp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "db400_CIRCULAR": {
+    "both_nodes": 0.1607,
+    "evaluable": 0.0893,
+    "count_gt0": 0.0893,
+    "orth_count_gt0": 0.1163,
+    "par_count_gt0": 0.0725
+   },
+   "abund_evaluable": 0.0
+  },
+  "Ciona_intestinalis:Tetraodon_nigroviridis": {
+   "n": 127,
+   "n_orth": 49,
+   "n_anchors": 3356,
+   "exp150": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "exp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "coexp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "db400_CIRCULAR": {
+    "both_nodes": 0.1102,
+    "evaluable": 0.0315,
+    "count_gt0": 0.0315,
+    "orth_count_gt0": 0.0204,
+    "par_count_gt0": 0.0385
+   },
+   "abund_evaluable": 0.0
+  },
+  "Danio_rerio:Drosophila_melanogaster": {
+   "n": 110,
+   "n_orth": 49,
+   "n_anchors": 2141,
+   "exp150": {
+    "both_nodes": 0.0545,
+    "evaluable": 0.0182,
+    "count_gt0": 0.0182,
+    "orth_count_gt0": 0.0408,
+    "par_count_gt0": 0.0
+   },
+   "exp400": {
+    "both_nodes": 0.0182,
+    "evaluable": 0.0182,
+    "count_gt0": 0.0182,
+    "orth_count_gt0": 0.0408,
+    "par_count_gt0": 0.0
+   },
+   "coexp400": {
+    "both_nodes": 0.0273,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own": {
+    "both_nodes": 0.0909,
+    "evaluable": 0.0182,
+    "count_gt0": 0.0182,
+    "orth_count_gt0": 0.0408,
+    "par_count_gt0": 0.0
+   },
+   "db400_CIRCULAR": {
+    "both_nodes": 0.3818,
+    "evaluable": 0.1636,
+    "count_gt0": 0.1636,
+    "orth_count_gt0": 0.1837,
+    "par_count_gt0": 0.1475
+   },
+   "abund_evaluable": 0.5091
+  },
+  "Danio_rerio:Gallus_gallus": {
+   "n": 726,
+   "n_orth": 118,
+   "n_anchors": 7548,
+   "exp150": {
+    "both_nodes": 0.0055,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "exp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "coexp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own": {
+    "both_nodes": 0.0055,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "db400_CIRCULAR": {
+    "both_nodes": 0.2218,
+    "evaluable": 0.1791,
+    "count_gt0": 0.1102,
+    "orth_count_gt0": 0.2373,
+    "par_count_gt0": 0.0855
+   },
+   "abund_evaluable": 0.2631
+  },
+  "Danio_rerio:Homo_sapiens": {
+   "n": 972,
+   "n_orth": 114,
+   "n_anchors": 7610,
+   "exp150": {
+    "both_nodes": 0.0175,
+    "evaluable": 0.0031,
+    "count_gt0": 0.0031,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0035
+   },
+   "exp400": {
+    "both_nodes": 0.0031,
+    "evaluable": 0.0031,
+    "count_gt0": 0.0031,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0035
+   },
+   "coexp400": {
+    "both_nodes": 0.0031,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own": {
+    "both_nodes": 0.0309,
+    "evaluable": 0.0031,
+    "count_gt0": 0.0031,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0035
+   },
+   "db400_CIRCULAR": {
+    "both_nodes": 0.2109,
+    "evaluable": 0.1759,
+    "count_gt0": 0.1019,
+    "orth_count_gt0": 0.3333,
+    "par_count_gt0": 0.0711
+   },
+   "abund_evaluable": 0.4033
+  },
+  "Danio_rerio:Monodelphis_domestica": {
+   "n": 663,
+   "n_orth": 110,
+   "n_anchors": 7551,
+   "exp150": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "exp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "coexp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "db400_CIRCULAR": {
+    "both_nodes": 0.19,
+    "evaluable": 0.1101,
+    "count_gt0": 0.1041,
+    "orth_count_gt0": 0.2182,
+    "par_count_gt0": 0.0814
+   },
+   "abund_evaluable": 0.0
+  },
+  "Danio_rerio:Mus_musculus": {
+   "n": 843,
+   "n_orth": 109,
+   "n_anchors": 7942,
+   "exp150": {
+    "both_nodes": 0.0214,
+    "evaluable": 0.0047,
+    "count_gt0": 0.0036,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0041
+   },
+   "exp400": {
+    "both_nodes": 0.0047,
+    "evaluable": 0.0047,
+    "count_gt0": 0.0036,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0041
+   },
+   "coexp400": {
+    "both_nodes": 0.0071,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own": {
+    "both_nodes": 0.0332,
+    "evaluable": 0.0047,
+    "count_gt0": 0.0036,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0041
+   },
+   "db400_CIRCULAR": {
+    "both_nodes": 0.2467,
+    "evaluable": 0.2005,
+    "count_gt0": 0.1305,
+    "orth_count_gt0": 0.3303,
+    "par_count_gt0": 0.1008
+   },
+   "abund_evaluable": 0.4698
+  },
+  "Danio_rerio:Pan_troglodytes": {
+   "n": 913,
+   "n_orth": 114,
+   "n_anchors": 7337,
+   "exp150": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "exp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "coexp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "db400_CIRCULAR": {
+    "both_nodes": 0.1402,
+    "evaluable": 0.1161,
+    "count_gt0": 0.0997,
+    "orth_count_gt0": 0.2368,
+    "par_count_gt0": 0.0801
+   },
+   "abund_evaluable": 0.0307
+  },
+  "Danio_rerio:Rattus_norvegicus": {
+   "n": 865,
+   "n_orth": 106,
+   "n_anchors": 7708,
+   "exp150": {
+    "both_nodes": 0.015,
+    "evaluable": 0.0023,
+    "count_gt0": 0.0023,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0026
+   },
+   "exp400": {
+    "both_nodes": 0.0023,
+    "evaluable": 0.0023,
+    "count_gt0": 0.0023,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0026
+   },
+   "coexp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own": {
+    "both_nodes": 0.015,
+    "evaluable": 0.0023,
+    "count_gt0": 0.0023,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0026
+   },
+   "db400_CIRCULAR": {
+    "both_nodes": 0.2,
+    "evaluable": 0.1769,
+    "count_gt0": 0.1295,
+    "orth_count_gt0": 0.3396,
+    "par_count_gt0": 0.1001
+   },
+   "abund_evaluable": 0.3561
+  },
+  "Danio_rerio:Tetraodon_nigroviridis": {
+   "n": 879,
+   "n_orth": 113,
+   "n_anchors": 11065,
+   "exp150": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "exp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "coexp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "db400_CIRCULAR": {
+    "both_nodes": 0.0592,
+    "evaluable": 0.0364,
+    "count_gt0": 0.0319,
+    "orth_count_gt0": 0.0619,
+    "par_count_gt0": 0.0274
+   },
+   "abund_evaluable": 0.0
+  },
+  "Drosophila_melanogaster:Gallus_gallus": {
+   "n": 58,
+   "n_orth": 28,
+   "n_anchors": 2937,
+   "exp150": {
+    "both_nodes": 0.0862,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "exp400": {
+    "both_nodes": 0.069,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "coexp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own": {
+    "both_nodes": 0.1034,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "db400_CIRCULAR": {
+    "both_nodes": 0.4655,
+    "evaluable": 0.2586,
+    "count_gt0": 0.2414,
+    "orth_count_gt0": 0.3929,
+    "par_count_gt0": 0.1
+   },
+   "abund_evaluable": 0.4483
+  },
+  "Drosophila_melanogaster:Homo_sapiens": {
+   "n": 77,
+   "n_orth": 36,
+   "n_anchors": 2729,
+   "exp150": {
+    "both_nodes": 0.7792,
+    "evaluable": 0.6104,
+    "count_gt0": 0.2727,
+    "orth_count_gt0": 0.3333,
+    "par_count_gt0": 0.2195
+   },
+   "exp400": {
+    "both_nodes": 0.3247,
+    "evaluable": 0.1688,
+    "count_gt0": 0.1039,
+    "orth_count_gt0": 0.1389,
+    "par_count_gt0": 0.0732
+   },
+   "coexp400": {
+    "both_nodes": 0.1299,
+    "evaluable": 0.0649,
+    "count_gt0": 0.039,
+    "orth_count_gt0": 0.0278,
+    "par_count_gt0": 0.0488
+   },
+   "own": {
+    "both_nodes": 0.7792,
+    "evaluable": 0.6234,
+    "count_gt0": 0.2727,
+    "orth_count_gt0": 0.3333,
+    "par_count_gt0": 0.2195
+   },
+   "db400_CIRCULAR": {
+    "both_nodes": 0.3766,
+    "evaluable": 0.2208,
+    "count_gt0": 0.2078,
+    "orth_count_gt0": 0.3333,
+    "par_count_gt0": 0.0976
+   },
+   "abund_evaluable": 0.6364
+  },
+  "Drosophila_melanogaster:Monodelphis_domestica": {
+   "n": 69,
+   "n_orth": 33,
+   "n_anchors": 2701,
+   "exp150": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "exp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "coexp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "db400_CIRCULAR": {
+    "both_nodes": 0.3043,
+    "evaluable": 0.1304,
+    "count_gt0": 0.1304,
+    "orth_count_gt0": 0.1818,
+    "par_count_gt0": 0.0833
+   },
+   "abund_evaluable": 0.0
+  },
+  "Drosophila_melanogaster:Mus_musculus": {
+   "n": 75,
+   "n_orth": 33,
+   "n_anchors": 2909,
+   "exp150": {
+    "both_nodes": 0.5867,
+    "evaluable": 0.3467,
+    "count_gt0": 0.0933,
+    "orth_count_gt0": 0.1212,
+    "par_count_gt0": 0.0714
+   },
+   "exp400": {
+    "both_nodes": 0.2533,
+    "evaluable": 0.0667,
+    "count_gt0": 0.0533,
+    "orth_count_gt0": 0.0303,
+    "par_count_gt0": 0.0714
+   },
+   "coexp400": {
+    "both_nodes": 0.16,
+    "evaluable": 0.0667,
+    "count_gt0": 0.0667,
+    "orth_count_gt0": 0.0606,
+    "par_count_gt0": 0.0714
+   },
+   "own": {
+    "both_nodes": 0.6933,
+    "evaluable": 0.36,
+    "count_gt0": 0.12,
+    "orth_count_gt0": 0.1515,
+    "par_count_gt0": 0.0952
+   },
+   "db400_CIRCULAR": {
+    "both_nodes": 0.4267,
+    "evaluable": 0.2667,
+    "count_gt0": 0.2533,
+    "orth_count_gt0": 0.3939,
+    "par_count_gt0": 0.1429
+   },
+   "abund_evaluable": 0.7067
+  },
+  "Drosophila_melanogaster:Pan_troglodytes": {
+   "n": 86,
+   "n_orth": 37,
+   "n_anchors": 2495,
+   "exp150": {
+    "both_nodes": 0.0116,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "exp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "coexp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own": {
+    "both_nodes": 0.0116,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "db400_CIRCULAR": {
+    "both_nodes": 0.314,
+    "evaluable": 0.2093,
+    "count_gt0": 0.2093,
+    "orth_count_gt0": 0.2703,
+    "par_count_gt0": 0.1633
+   },
+   "abund_evaluable": 0.1047
+  },
+  "Drosophila_melanogaster:Rattus_norvegicus": {
+   "n": 79,
+   "n_orth": 32,
+   "n_anchors": 2785,
+   "exp150": {
+    "both_nodes": 0.2152,
+    "evaluable": 0.0506,
+    "count_gt0": 0.0253,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0426
+   },
+   "exp400": {
+    "both_nodes": 0.0253,
+    "evaluable": 0.0253,
+    "count_gt0": 0.0253,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0426
+   },
+   "coexp400": {
+    "both_nodes": 0.0127,
+    "evaluable": 0.0127,
+    "count_gt0": 0.0127,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0213
+   },
+   "own": {
+    "both_nodes": 0.2658,
+    "evaluable": 0.0506,
+    "count_gt0": 0.0253,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0426
+   },
+   "db400_CIRCULAR": {
+    "both_nodes": 0.3671,
+    "evaluable": 0.2658,
+    "count_gt0": 0.2532,
+    "orth_count_gt0": 0.4062,
+    "par_count_gt0": 0.1489
+   },
+   "abund_evaluable": 0.519
+  },
+  "Drosophila_melanogaster:Tetraodon_nigroviridis": {
+   "n": 80,
+   "n_orth": 45,
+   "n_anchors": 2502,
+   "exp150": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "exp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "coexp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "db400_CIRCULAR": {
+    "both_nodes": 0.1625,
+    "evaluable": 0.025,
+    "count_gt0": 0.025,
+    "orth_count_gt0": 0.0444,
+    "par_count_gt0": 0.0
+   },
+   "abund_evaluable": 0.0
+  },
+  "Gallus_gallus:Homo_sapiens": {
+   "n": 508,
+   "n_orth": 70,
+   "n_anchors": 12082,
+   "exp150": {
+    "both_nodes": 0.0315,
+    "evaluable": 0.0177,
+    "count_gt0": 0.0118,
+    "orth_count_gt0": 0.0286,
+    "par_count_gt0": 0.0091
+   },
+   "exp400": {
+    "both_nodes": 0.0276,
+    "evaluable": 0.0138,
+    "count_gt0": 0.0059,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0068
+   },
+   "coexp400": {
+    "both_nodes": 0.0197,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own": {
+    "both_nodes": 0.0669,
+    "evaluable": 0.0177,
+    "count_gt0": 0.0118,
+    "orth_count_gt0": 0.0286,
+    "par_count_gt0": 0.0091
+   },
+   "db400_CIRCULAR": {
+    "both_nodes": 0.2815,
+    "evaluable": 0.2598,
+    "count_gt0": 0.1476,
+    "orth_count_gt0": 0.4286,
+    "par_count_gt0": 0.1027
+   },
+   "abund_evaluable": 0.4705
+  },
+  "Gallus_gallus:Monodelphis_domestica": {
+   "n": 387,
+   "n_orth": 59,
+   "n_anchors": 12063,
+   "exp150": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "exp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "coexp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "db400_CIRCULAR": {
+    "both_nodes": 0.186,
+    "evaluable": 0.1214,
+    "count_gt0": 0.1008,
+    "orth_count_gt0": 0.3051,
+    "par_count_gt0": 0.064
+   },
+   "abund_evaluable": 0.0
+  },
+  "Gallus_gallus:Mus_musculus": {
+   "n": 475,
+   "n_orth": 75,
+   "n_anchors": 12436,
+   "exp150": {
+    "both_nodes": 0.0337,
+    "evaluable": 0.0189,
+    "count_gt0": 0.0042,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.005
+   },
+   "exp400": {
+    "both_nodes": 0.0211,
+    "evaluable": 0.0063,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "coexp400": {
+    "both_nodes": 0.0232,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own": {
+    "both_nodes": 0.0632,
+    "evaluable": 0.0189,
+    "count_gt0": 0.0063,
+    "orth_count_gt0": 0.0133,
+    "par_count_gt0": 0.005
+   },
+   "db400_CIRCULAR": {
+    "both_nodes": 0.3137,
+    "evaluable": 0.2611,
+    "count_gt0": 0.1558,
+    "orth_count_gt0": 0.4133,
+    "par_count_gt0": 0.1075
+   },
+   "abund_evaluable": 0.5011
+  },
+  "Gallus_gallus:Pan_troglodytes": {
+   "n": 542,
+   "n_orth": 72,
+   "n_anchors": 11856,
+   "exp150": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "exp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "coexp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "db400_CIRCULAR": {
+    "both_nodes": 0.1365,
+    "evaluable": 0.1292,
+    "count_gt0": 0.1052,
+    "orth_count_gt0": 0.25,
+    "par_count_gt0": 0.083
+   },
+   "abund_evaluable": 0.0295
+  },
+  "Gallus_gallus:Rattus_norvegicus": {
+   "n": 480,
+   "n_orth": 68,
+   "n_anchors": 12086,
+   "exp150": {
+    "both_nodes": 0.025,
+    "evaluable": 0.0146,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "exp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "coexp400": {
+    "both_nodes": 0.0063,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own": {
+    "both_nodes": 0.0354,
+    "evaluable": 0.0146,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "db400_CIRCULAR": {
+    "both_nodes": 0.2292,
+    "evaluable": 0.2229,
+    "count_gt0": 0.1562,
+    "orth_count_gt0": 0.4412,
+    "par_count_gt0": 0.1092
+   },
+   "abund_evaluable": 0.375
+  },
+  "Gallus_gallus:Tetraodon_nigroviridis": {
+   "n": 444,
+   "n_orth": 68,
+   "n_anchors": 8424,
+   "exp150": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "exp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "coexp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "db400_CIRCULAR": {
+    "both_nodes": 0.0721,
+    "evaluable": 0.018,
+    "count_gt0": 0.018,
+    "orth_count_gt0": 0.0588,
+    "par_count_gt0": 0.0106
+   },
+   "abund_evaluable": 0.0
+  },
+  "Homo_sapiens:Monodelphis_domestica": {
+   "n": 530,
+   "n_orth": 78,
+   "n_anchors": 13521,
+   "exp150": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "exp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "coexp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "db400_CIRCULAR": {
+    "both_nodes": 0.1585,
+    "evaluable": 0.1189,
+    "count_gt0": 0.1057,
+    "orth_count_gt0": 0.2436,
+    "par_count_gt0": 0.0819
+   },
+   "abund_evaluable": 0.0
+  },
+  "Homo_sapiens:Mus_musculus": {
+   "n": 643,
+   "n_orth": 92,
+   "n_anchors": 15439,
+   "exp150": {
+    "both_nodes": 0.4572,
+    "evaluable": 0.423,
+    "count_gt0": 0.1166,
+    "orth_count_gt0": 0.2717,
+    "par_count_gt0": 0.0907
+   },
+   "exp400": {
+    "both_nodes": 0.1415,
+    "evaluable": 0.1026,
+    "count_gt0": 0.0311,
+    "orth_count_gt0": 0.0978,
+    "par_count_gt0": 0.02
+   },
+   "coexp400": {
+    "both_nodes": 0.2084,
+    "evaluable": 0.1384,
+    "count_gt0": 0.0249,
+    "orth_count_gt0": 0.0543,
+    "par_count_gt0": 0.02
+   },
+   "own": {
+    "both_nodes": 0.6392,
+    "evaluable": 0.6221,
+    "count_gt0": 0.1446,
+    "orth_count_gt0": 0.3152,
+    "par_count_gt0": 0.1162
+   },
+   "db400_CIRCULAR": {
+    "both_nodes": 0.2753,
+    "evaluable": 0.2659,
+    "count_gt0": 0.1695,
+    "orth_count_gt0": 0.4348,
+    "par_count_gt0": 0.1252
+   },
+   "abund_evaluable": 0.8398
+  },
+  "Homo_sapiens:Pan_troglodytes": {
+   "n": 730,
+   "n_orth": 88,
+   "n_anchors": 16544,
+   "exp150": {
+    "both_nodes": 0.0055,
+    "evaluable": 0.0055,
+    "count_gt0": 0.0014,
+    "orth_count_gt0": 0.0114,
+    "par_count_gt0": 0.0
+   },
+   "exp400": {
+    "both_nodes": 0.0027,
+    "evaluable": 0.0027,
+    "count_gt0": 0.0014,
+    "orth_count_gt0": 0.0114,
+    "par_count_gt0": 0.0
+   },
+   "coexp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own": {
+    "both_nodes": 0.0055,
+    "evaluable": 0.0055,
+    "count_gt0": 0.0014,
+    "orth_count_gt0": 0.0114,
+    "par_count_gt0": 0.0
+   },
+   "db400_CIRCULAR": {
+    "both_nodes": 0.1315,
+    "evaluable": 0.1192,
+    "count_gt0": 0.1068,
+    "orth_count_gt0": 0.2727,
+    "par_count_gt0": 0.0841
+   },
+   "abund_evaluable": 0.0397
+  },
+  "Homo_sapiens:Rattus_norvegicus": {
+   "n": 652,
+   "n_orth": 89,
+   "n_anchors": 14878,
+   "exp150": {
+    "both_nodes": 0.1426,
+    "evaluable": 0.1396,
+    "count_gt0": 0.0337,
+    "orth_count_gt0": 0.1011,
+    "par_count_gt0": 0.0231
+   },
+   "exp400": {
+    "both_nodes": 0.0445,
+    "evaluable": 0.0383,
+    "count_gt0": 0.0046,
+    "orth_count_gt0": 0.0112,
+    "par_count_gt0": 0.0036
+   },
+   "coexp400": {
+    "both_nodes": 0.0506,
+    "evaluable": 0.023,
+    "count_gt0": 0.0015,
+    "orth_count_gt0": 0.0112,
+    "par_count_gt0": 0.0
+   },
+   "own": {
+    "both_nodes": 0.2316,
+    "evaluable": 0.204,
+    "count_gt0": 0.0491,
+    "orth_count_gt0": 0.1124,
+    "par_count_gt0": 0.0391
+   },
+   "db400_CIRCULAR": {
+    "both_nodes": 0.2209,
+    "evaluable": 0.2147,
+    "count_gt0": 0.1503,
+    "orth_count_gt0": 0.382,
+    "par_count_gt0": 0.1137
+   },
+   "abund_evaluable": 0.6518
+  },
+  "Homo_sapiens:Tetraodon_nigroviridis": {
+   "n": 588,
+   "n_orth": 86,
+   "n_anchors": 8424,
+   "exp150": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "exp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "coexp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "db400_CIRCULAR": {
+    "both_nodes": 0.0578,
+    "evaluable": 0.0272,
+    "count_gt0": 0.0221,
+    "orth_count_gt0": 0.0581,
+    "par_count_gt0": 0.0159
+   },
+   "abund_evaluable": 0.0
+  },
+  "Monodelphis_domestica:Mus_musculus": {
+   "n": 547,
+   "n_orth": 75,
+   "n_anchors": 14077,
+   "exp150": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "exp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "coexp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "db400_CIRCULAR": {
+    "both_nodes": 0.1627,
+    "evaluable": 0.1133,
+    "count_gt0": 0.0932,
+    "orth_count_gt0": 0.2533,
+    "par_count_gt0": 0.0678
+   },
+   "abund_evaluable": 0.0
+  },
+  "Monodelphis_domestica:Pan_troglodytes": {
+   "n": 641,
+   "n_orth": 91,
+   "n_anchors": 13507,
+   "exp150": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "exp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "coexp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "db400_CIRCULAR": {
+    "both_nodes": 0.117,
+    "evaluable": 0.0889,
+    "count_gt0": 0.0858,
+    "orth_count_gt0": 0.2967,
+    "par_count_gt0": 0.0509
+   },
+   "abund_evaluable": 0.0
+  },
+  "Monodelphis_domestica:Rattus_norvegicus": {
+   "n": 556,
+   "n_orth": 85,
+   "n_anchors": 13711,
+   "exp150": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "exp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "coexp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "db400_CIRCULAR": {
+    "both_nodes": 0.1313,
+    "evaluable": 0.1043,
+    "count_gt0": 0.0917,
+    "orth_count_gt0": 0.2471,
+    "par_count_gt0": 0.0637
+   },
+   "abund_evaluable": 0.0
+  },
+  "Monodelphis_domestica:Tetraodon_nigroviridis": {
+   "n": 460,
+   "n_orth": 81,
+   "n_anchors": 8319,
+   "exp150": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "exp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "coexp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "db400_CIRCULAR": {
+    "both_nodes": 0.0652,
+    "evaluable": 0.0283,
+    "count_gt0": 0.0283,
+    "orth_count_gt0": 0.0864,
+    "par_count_gt0": 0.0158
+   },
+   "abund_evaluable": 0.0
+  },
+  "Mus_musculus:Pan_troglodytes": {
+   "n": 740,
+   "n_orth": 90,
+   "n_anchors": 15293,
+   "exp150": {
+    "both_nodes": 0.0054,
+    "evaluable": 0.0054,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "exp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "coexp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own": {
+    "both_nodes": 0.0068,
+    "evaluable": 0.0068,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "db400_CIRCULAR": {
+    "both_nodes": 0.1365,
+    "evaluable": 0.1203,
+    "count_gt0": 0.1068,
+    "orth_count_gt0": 0.2444,
+    "par_count_gt0": 0.0877
+   },
+   "abund_evaluable": 0.0405
+  },
+  "Mus_musculus:Rattus_norvegicus": {
+   "n": 643,
+   "n_orth": 86,
+   "n_anchors": 16965,
+   "exp150": {
+    "both_nodes": 0.1135,
+    "evaluable": 0.1042,
+    "count_gt0": 0.0327,
+    "orth_count_gt0": 0.0814,
+    "par_count_gt0": 0.0251
+   },
+   "exp400": {
+    "both_nodes": 0.0124,
+    "evaluable": 0.0124,
+    "count_gt0": 0.0047,
+    "orth_count_gt0": 0.0116,
+    "par_count_gt0": 0.0036
+   },
+   "coexp400": {
+    "both_nodes": 0.056,
+    "evaluable": 0.0389,
+    "count_gt0": 0.0078,
+    "orth_count_gt0": 0.0116,
+    "par_count_gt0": 0.0072
+   },
+   "own": {
+    "both_nodes": 0.2053,
+    "evaluable": 0.1742,
+    "count_gt0": 0.0404,
+    "orth_count_gt0": 0.093,
+    "par_count_gt0": 0.0323
+   },
+   "db400_CIRCULAR": {
+    "both_nodes": 0.2333,
+    "evaluable": 0.2255,
+    "count_gt0": 0.1571,
+    "orth_count_gt0": 0.407,
+    "par_count_gt0": 0.1185
+   },
+   "abund_evaluable": 0.6625
+  },
+  "Mus_musculus:Tetraodon_nigroviridis": {
+   "n": 551,
+   "n_orth": 85,
+   "n_anchors": 8751,
+   "exp150": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "exp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "coexp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "db400_CIRCULAR": {
+    "both_nodes": 0.0708,
+    "evaluable": 0.0309,
+    "count_gt0": 0.0272,
+    "orth_count_gt0": 0.0588,
+    "par_count_gt0": 0.0215
+   },
+   "abund_evaluable": 0.0
+  },
+  "Pan_troglodytes:Rattus_norvegicus": {
+   "n": 778,
+   "n_orth": 105,
+   "n_anchors": 14918,
+   "exp150": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "exp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "coexp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own": {
+    "both_nodes": 0.0013,
+    "evaluable": 0.0013,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "db400_CIRCULAR": {
+    "both_nodes": 0.1452,
+    "evaluable": 0.1375,
+    "count_gt0": 0.1247,
+    "orth_count_gt0": 0.219,
+    "par_count_gt0": 0.11
+   },
+   "abund_evaluable": 0.0398
+  },
+  "Pan_troglodytes:Tetraodon_nigroviridis": {
+   "n": 617,
+   "n_orth": 81,
+   "n_anchors": 8062,
+   "exp150": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "exp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "coexp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "db400_CIRCULAR": {
+    "both_nodes": 0.06,
+    "evaluable": 0.0146,
+    "count_gt0": 0.013,
+    "orth_count_gt0": 0.0494,
+    "par_count_gt0": 0.0075
+   },
+   "abund_evaluable": 0.0
+  },
+  "Rattus_norvegicus:Tetraodon_nigroviridis": {
+   "n": 562,
+   "n_orth": 78,
+   "n_anchors": 8522,
+   "exp150": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "exp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "coexp400": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "db400_CIRCULAR": {
+    "both_nodes": 0.0605,
+    "evaluable": 0.032,
+    "count_gt0": 0.0285,
+    "orth_count_gt0": 0.0769,
+    "par_count_gt0": 0.0207
+   },
+   "abund_evaluable": 0.0
+  }
+ },
+ "coverage": {
+  "exp150": {
+   "frac_candidates_evaluable": 0.0243,
+   "frac_orth_pairs_evaluable": 0.0326,
+   "frac_hard_pairs_evaluable": 0.0077,
+   "n_evaluable": 633,
+   "frac_candidates_count_gt0": 0.0073
+  },
+  "exp400": {
+   "frac_candidates_evaluable": 0.0059,
+   "frac_orth_pairs_evaluable": 0.0076,
+   "frac_hard_pairs_evaluable": 0.0036,
+   "n_evaluable": 154,
+   "frac_candidates_count_gt0": 0.0025
+  },
+  "coexp400": {
+   "frac_candidates_evaluable": 0.006,
+   "frac_orth_pairs_evaluable": 0.0065,
+   "frac_hard_pairs_evaluable": 0.0019,
+   "n_evaluable": 157,
+   "frac_candidates_count_gt0": 0.0015
+  },
+  "own": {
+   "frac_candidates_evaluable": 0.0339,
+   "frac_orth_pairs_evaluable": 0.0401,
+   "frac_hard_pairs_evaluable": 0.01,
+   "n_evaluable": 883,
+   "frac_candidates_count_gt0": 0.0088
+  },
+  "db400_CIRCULAR": {
+   "frac_candidates_evaluable": 0.1369,
+   "frac_orth_pairs_evaluable": 0.2317,
+   "frac_hard_pairs_evaluable": 0.1454,
+   "n_evaluable": 3567,
+   "frac_candidates_count_gt0": 0.0979
+  },
+  "abund": {
+   "frac_candidates_evaluable": 0.1924,
+   "frac_orth_pairs_evaluable": 0.2283,
+   "frac_hard_pairs_evaluable": 0.1451,
+   "n_evaluable": 5011
+  }
+ },
+ "n_candidates": 26049,
+ "n_hard_pairs_global": 6921,
+ "evaluation": {
+  "exp150": {
+   "set": "exp150",
+   "n_candidates": 26049,
+   "n_covered": 633,
+   "frac_covered": 0.0243,
+   "n_orth_covered": 146,
+   "n_orth_total": 4485,
+   "n_par_covered": 487,
+   "n_hard_pairs_covered": 79,
+   "auc": {
+    "seq": {
+     "all": 0.7402,
+     "all_ci95": [
+      0.5752,
+      0.8769
+     ],
+     "hard": 0.6086,
+     "hard_ci95": [
+      0.2735,
+      0.6784
+     ]
+    },
+    "exp150_count": {
+     "all": 0.6259,
+     "all_ci95": [
+      0.547,
+      0.6885
+     ],
+     "hard": 0.49,
+     "hard_ci95": [
+      0.3552,
+      0.6482
+     ],
+     "shuf_all": [
+      0.4942,
+      0.5024,
+      0.488
+     ],
+     "shuf_hard": [
+      0.4712,
+      0.5,
+      0.5
+     ]
+    },
+    "exp150_cos": {
+     "all": 0.6327,
+     "all_ci95": [
+      0.55,
+      0.6954
+     ],
+     "hard": 0.4526,
+     "hard_ci95": [
+      0.315,
+      0.605
+     ],
+     "shuf_all": [
+      0.4942,
+      0.5024,
+      0.4879
+     ],
+     "shuf_hard": [
+      0.4712,
+      0.5,
+      0.5
+     ]
+    }
+   },
+   "queries": {
+    "hard": {
+     "exp150_count": {
+      "n": 14,
+      "seq_acc": 0.8571,
+      "syn_correct": 6,
+      "syn_wrong": 2,
+      "syn_abstain": 6,
+      "syn_precision_when_decides": 0.75,
+      "seq_acc_when_syn_decides": 0.875,
+      "comb0.9_acc": 0.7857,
+      "comb0.9_minus_seq": -0.0714,
+      "comb0.9_minus_seq_ci95": [
+       -0.0833,
+       0.0
+      ],
+      "comb0.75_acc": 0.7857,
+      "comb0.75_minus_seq": -0.0714,
+      "comb0.75_minus_seq_ci95": [
+       -0.0833,
+       0.0
+      ],
+      "shuf_precision_when_decides": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "shuf_decides": [
+       0,
+       0,
+       0
+      ],
+      "shuf_comb0.9_minus_seq": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "comb0.9_real_minus_shuf": [
+       [
+        -0.0714,
+        [
+         -0.0833,
+         0.0
+        ]
+       ],
+       [
+        -0.0714,
+        [
+         -0.0833,
+         0.0
+        ]
+       ],
+       [
+        -0.0714,
+        [
+         -0.0833,
+         0.0
+        ]
+       ]
+      ],
+      "shuf_comb0.75_minus_seq": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "comb0.75_real_minus_shuf": [
+       [
+        -0.0714,
+        [
+         -0.0833,
+         0.0
+        ]
+       ],
+       [
+        -0.0714,
+        [
+         -0.0833,
+         0.0
+        ]
+       ],
+       [
+        -0.0714,
+        [
+         -0.0833,
+         0.0
+        ]
+       ]
+      ]
+     },
+     "exp150_cos": {
+      "n": 14,
+      "seq_acc": 0.8571,
+      "syn_correct": 5,
+      "syn_wrong": 4,
+      "syn_abstain": 5,
+      "syn_precision_when_decides": 0.5556,
+      "seq_acc_when_syn_decides": 0.8889,
+      "comb0.9_acc": 0.6429,
+      "comb0.9_minus_seq": -0.2143,
+      "comb0.9_minus_seq_ci95": [
+       -0.25,
+       0.0
+      ],
+      "comb0.75_acc": 0.6429,
+      "comb0.75_minus_seq": -0.2143,
+      "comb0.75_minus_seq_ci95": [
+       -0.25,
+       0.0
+      ],
+      "shuf_precision_when_decides": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "shuf_decides": [
+       0,
+       0,
+       0
+      ],
+      "shuf_comb0.9_minus_seq": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "comb0.9_real_minus_shuf": [
+       [
+        -0.2143,
+        [
+         -0.25,
+         0.0
+        ]
+       ],
+       [
+        -0.2143,
+        [
+         -0.25,
+         0.0
+        ]
+       ],
+       [
+        -0.2143,
+        [
+         -0.25,
+         0.0
+        ]
+       ]
+      ],
+      "shuf_comb0.75_minus_seq": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "comb0.75_real_minus_shuf": [
+       [
+        -0.2143,
+        [
+         -0.25,
+         0.0
+        ]
+       ],
+       [
+        -0.2143,
+        [
+         -0.25,
+         0.0
+        ]
+       ],
+       [
+        -0.2143,
+        [
+         -0.25,
+         0.0
+        ]
+       ]
+      ]
+     }
+    },
+    "all": {
+     "exp150_count": {
+      "n": 167,
+      "seq_acc": 0.988,
+      "syn_correct": 53,
+      "syn_wrong": 33,
+      "syn_abstain": 81,
+      "syn_precision_when_decides": 0.6163,
+      "seq_acc_when_syn_decides": 0.9884,
+      "comb0.9_acc": 0.982,
+      "comb0.9_minus_seq": -0.006,
+      "comb0.9_minus_seq_ci95": [
+       -0.0208,
+       0.0
+      ],
+      "comb0.75_acc": 0.9461,
+      "comb0.75_minus_seq": -0.0419,
+      "comb0.75_minus_seq_ci95": [
+       -0.0854,
+       0.0
+      ],
+      "shuf_precision_when_decides": [
+       0.0909,
+       0.6667,
+       0.0833
+      ],
+      "shuf_decides": [
+       11,
+       3,
+       12
+      ],
+      "shuf_comb0.9_minus_seq": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "comb0.9_real_minus_shuf": [
+       [
+        -0.006,
+        [
+         -0.0229,
+         0.0
+        ]
+       ],
+       [
+        -0.006,
+        [
+         -0.0229,
+         0.0
+        ]
+       ],
+       [
+        -0.006,
+        [
+         -0.0229,
+         0.0
+        ]
+       ]
+      ],
+      "shuf_comb0.75_minus_seq": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "comb0.75_real_minus_shuf": [
+       [
+        -0.0419,
+        [
+         -0.0864,
+         0.0
+        ]
+       ],
+       [
+        -0.0419,
+        [
+         -0.0864,
+         0.0
+        ]
+       ],
+       [
+        -0.0419,
+        [
+         -0.0864,
+         0.0
+        ]
+       ]
+      ]
+     },
+     "exp150_cos": {
+      "n": 167,
+      "seq_acc": 0.988,
+      "syn_correct": 59,
+      "syn_wrong": 38,
+      "syn_abstain": 70,
+      "syn_precision_when_decides": 0.6082,
+      "seq_acc_when_syn_decides": 0.9897,
+      "comb0.9_acc": 0.9701,
+      "comb0.9_minus_seq": -0.018,
+      "comb0.9_minus_seq_ci95": [
+       -0.0687,
+       0.0
+      ],
+      "comb0.75_acc": 0.9281,
+      "comb0.75_minus_seq": -0.0599,
+      "comb0.75_minus_seq_ci95": [
+       -0.1182,
+       0.0
+      ],
+      "shuf_precision_when_decides": [
+       0.1818,
+       0.6667,
+       0.0769
+      ],
+      "shuf_decides": [
+       11,
+       3,
+       13
+      ],
+      "shuf_comb0.9_minus_seq": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "comb0.9_real_minus_shuf": [
+       [
+        -0.018,
+        [
+         -0.0687,
+         0.0
+        ]
+       ],
+       [
+        -0.018,
+        [
+         -0.0687,
+         0.0
+        ]
+       ],
+       [
+        -0.018,
+        [
+         -0.0687,
+         0.0
+        ]
+       ]
+      ],
+      "shuf_comb0.75_minus_seq": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "comb0.75_real_minus_shuf": [
+       [
+        -0.0599,
+        [
+         -0.1129,
+         0.0
+        ]
+       ],
+       [
+        -0.0599,
+        [
+         -0.1129,
+         0.0
+        ]
+       ],
+       [
+        -0.0599,
+        [
+         -0.1129,
+         0.0
+        ]
+       ]
+      ]
+     }
+    }
+   }
+  },
+  "exp400": {
+   "set": "exp400",
+   "n_candidates": 26049,
+   "n_covered": 154,
+   "frac_covered": 0.0059,
+   "n_orth_covered": 34,
+   "n_orth_total": 4485,
+   "n_par_covered": 120,
+   "n_hard_pairs_covered": 42,
+   "auc": {
+    "seq": {
+     "all": 0.7196,
+     "all_ci95": [
+      0.5403,
+      0.8927
+     ],
+     "hard": 0.5694,
+     "hard_ci95": [
+      0.0,
+      0.6765
+     ]
+    },
+    "exp400_count": {
+     "all": 0.6646,
+     "all_ci95": [
+      0.5259,
+      0.804
+     ],
+     "hard": 0.6139,
+     "hard_ci95": [
+      0.0,
+      0.7235
+     ],
+     "shuf_all": [
+      0.5,
+      0.5022,
+      0.4875
+     ],
+     "shuf_hard": [
+      0.5,
+      0.4833,
+      0.45
+     ]
+    },
+    "exp400_cos": {
+     "all": 0.6637,
+     "all_ci95": [
+      0.5203,
+      0.7875
+     ],
+     "hard": 0.525,
+     "hard_ci95": [
+      0.0,
+      0.6294
+     ],
+     "shuf_all": [
+      0.5,
+      0.5026,
+      0.4875
+     ],
+     "shuf_hard": [
+      0.5,
+      0.4833,
+      0.45
+     ]
+    }
+   },
+   "queries": {
+    "hard": {
+     "exp400_count": {
+      "n": 6,
+      "seq_acc": 0.8333,
+      "syn_correct": 2,
+      "syn_wrong": 1,
+      "syn_abstain": 3,
+      "syn_precision_when_decides": 0.6667,
+      "seq_acc_when_syn_decides": 0.6667,
+      "comb0.9_acc": 0.8333,
+      "comb0.9_minus_seq": 0.0,
+      "comb0.9_minus_seq_ci95": [
+       0.0,
+       0.0
+      ],
+      "comb0.75_acc": 0.8333,
+      "comb0.75_minus_seq": 0.0,
+      "comb0.75_minus_seq_ci95": [
+       0.0,
+       0.0
+      ],
+      "shuf_precision_when_decides": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "shuf_decides": [
+       0,
+       0,
+       0
+      ],
+      "shuf_comb0.9_minus_seq": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "comb0.9_real_minus_shuf": [
+       [
+        0.0,
+        [
+         0.0,
+         0.0
+        ]
+       ],
+       [
+        0.0,
+        [
+         0.0,
+         0.0
+        ]
+       ],
+       [
+        0.0,
+        [
+         0.0,
+         0.0
+        ]
+       ]
+      ],
+      "shuf_comb0.75_minus_seq": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "comb0.75_real_minus_shuf": [
+       [
+        0.0,
+        [
+         0.0,
+         0.0
+        ]
+       ],
+       [
+        0.0,
+        [
+         0.0,
+         0.0
+        ]
+       ],
+       [
+        0.0,
+        [
+         0.0,
+         0.0
+        ]
+       ]
+      ]
+     },
+     "exp400_cos": {
+      "n": 6,
+      "seq_acc": 0.8333,
+      "syn_correct": 2,
+      "syn_wrong": 1,
+      "syn_abstain": 3,
+      "syn_precision_when_decides": 0.6667,
+      "seq_acc_when_syn_decides": 0.6667,
+      "comb0.9_acc": 0.8333,
+      "comb0.9_minus_seq": 0.0,
+      "comb0.9_minus_seq_ci95": [
+       0.0,
+       0.0
+      ],
+      "comb0.75_acc": 0.8333,
+      "comb0.75_minus_seq": 0.0,
+      "comb0.75_minus_seq_ci95": [
+       0.0,
+       0.0
+      ],
+      "shuf_precision_when_decides": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "shuf_decides": [
+       0,
+       0,
+       0
+      ],
+      "shuf_comb0.9_minus_seq": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "comb0.9_real_minus_shuf": [
+       [
+        0.0,
+        [
+         0.0,
+         0.0
+        ]
+       ],
+       [
+        0.0,
+        [
+         0.0,
+         0.0
+        ]
+       ],
+       [
+        0.0,
+        [
+         0.0,
+         0.0
+        ]
+       ]
+      ],
+      "shuf_comb0.75_minus_seq": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "comb0.75_real_minus_shuf": [
+       [
+        0.0,
+        [
+         0.0,
+         0.0
+        ]
+       ],
+       [
+        0.0,
+        [
+         0.0,
+         0.0
+        ]
+       ],
+       [
+        0.0,
+        [
+         0.0,
+         0.0
+        ]
+       ]
+      ]
+     }
+    },
+    "all": {
+     "exp400_count": {
+      "n": 34,
+      "seq_acc": 0.9706,
+      "syn_correct": 12,
+      "syn_wrong": 2,
+      "syn_abstain": 20,
+      "syn_precision_when_decides": 0.8571,
+      "seq_acc_when_syn_decides": 0.9286,
+      "comb0.9_acc": 0.9706,
+      "comb0.9_minus_seq": 0.0,
+      "comb0.9_minus_seq_ci95": [
+       0.0,
+       0.0
+      ],
+      "comb0.75_acc": 0.9412,
+      "comb0.75_minus_seq": -0.0294,
+      "comb0.75_minus_seq_ci95": [
+       -0.075,
+       0.0
+      ],
+      "shuf_precision_when_decides": [
+       0.0,
+       0.6667,
+       0.0
+      ],
+      "shuf_decides": [
+       0,
+       3,
+       0
+      ],
+      "shuf_comb0.9_minus_seq": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "comb0.9_real_minus_shuf": [
+       [
+        0.0,
+        [
+         0.0,
+         0.0
+        ]
+       ],
+       [
+        0.0,
+        [
+         0.0,
+         0.0
+        ]
+       ],
+       [
+        0.0,
+        [
+         0.0,
+         0.0
+        ]
+       ]
+      ],
+      "shuf_comb0.75_minus_seq": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "comb0.75_real_minus_shuf": [
+       [
+        -0.0294,
+        [
+         -0.0714,
+         0.0
+        ]
+       ],
+       [
+        -0.0294,
+        [
+         -0.0714,
+         0.0
+        ]
+       ],
+       [
+        -0.0294,
+        [
+         -0.0714,
+         0.0
+        ]
+       ]
+      ]
+     },
+     "exp400_cos": {
+      "n": 34,
+      "seq_acc": 0.9706,
+      "syn_correct": 12,
+      "syn_wrong": 4,
+      "syn_abstain": 18,
+      "syn_precision_when_decides": 0.75,
+      "seq_acc_when_syn_decides": 0.9375,
+      "comb0.9_acc": 0.9706,
+      "comb0.9_minus_seq": 0.0,
+      "comb0.9_minus_seq_ci95": [
+       0.0,
+       0.0
+      ],
+      "comb0.75_acc": 0.9412,
+      "comb0.75_minus_seq": -0.0294,
+      "comb0.75_minus_seq_ci95": [
+       -0.0741,
+       0.0
+      ],
+      "shuf_precision_when_decides": [
+       0.0,
+       0.6667,
+       0.0
+      ],
+      "shuf_decides": [
+       0,
+       3,
+       0
+      ],
+      "shuf_comb0.9_minus_seq": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "comb0.9_real_minus_shuf": [
+       [
+        0.0,
+        [
+         0.0,
+         0.0
+        ]
+       ],
+       [
+        0.0,
+        [
+         0.0,
+         0.0
+        ]
+       ],
+       [
+        0.0,
+        [
+         0.0,
+         0.0
+        ]
+       ]
+      ],
+      "shuf_comb0.75_minus_seq": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "comb0.75_real_minus_shuf": [
+       [
+        -0.0294,
+        [
+         -0.0714,
+         0.0
+        ]
+       ],
+       [
+        -0.0294,
+        [
+         -0.0714,
+         0.0
+        ]
+       ],
+       [
+        -0.0294,
+        [
+         -0.0714,
+         0.0
+        ]
+       ]
+      ]
+     }
+    }
+   }
+  },
+  "coexp400": {
+   "set": "coexp400",
+   "n_candidates": 26049,
+   "n_covered": 157,
+   "frac_covered": 0.006,
+   "n_orth_covered": 29,
+   "n_orth_total": 4485,
+   "n_par_covered": 128,
+   "n_hard_pairs_covered": 14,
+   "auc": {
+    "seq": {
+     "all": 0.8751,
+     "all_ci95": [
+      0.484,
+      0.9569
+     ],
+     "hard": 0.5152,
+     "hard_ci95": [
+      0.4975,
+      1.0
+     ]
+    },
+    "coexp400_count": {
+     "all": 0.6238,
+     "all_ci95": [
+      0.3365,
+      0.7319
+     ],
+     "hard": 0.6667,
+     "hard_ci95": [
+      0.0,
+      0.7778
+     ],
+     "shuf_all": [
+      0.5,
+      0.4961,
+      0.5345
+     ],
+     "shuf_hard": [
+      0.5,
+      0.5,
+      0.5
+     ]
+    },
+    "coexp400_cos": {
+     "all": 0.6106,
+     "all_ci95": [
+      0.2848,
+      0.719
+     ],
+     "hard": 0.4848,
+     "hard_ci95": [
+      0.0,
+      0.5556
+     ],
+     "shuf_all": [
+      0.5,
+      0.4961,
+      0.5345
+     ],
+     "shuf_hard": [
+      0.5,
+      0.5,
+      0.5
+     ]
+    }
+   },
+   "queries": {
+    "hard": {},
+    "all": {
+     "coexp400_count": {
+      "n": 18,
+      "seq_acc": 1.0,
+      "syn_correct": 7,
+      "syn_wrong": 4,
+      "syn_abstain": 7,
+      "syn_precision_when_decides": 0.6364,
+      "seq_acc_when_syn_decides": 1.0,
+      "comb0.9_acc": 1.0,
+      "comb0.9_minus_seq": 0.0,
+      "comb0.9_minus_seq_ci95": [
+       0.0,
+       0.0
+      ],
+      "comb0.75_acc": 1.0,
+      "comb0.75_minus_seq": 0.0,
+      "comb0.75_minus_seq_ci95": [
+       0.0,
+       0.0
+      ],
+      "shuf_precision_when_decides": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "shuf_decides": [
+       0,
+       0,
+       0
+      ],
+      "shuf_comb0.9_minus_seq": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "comb0.9_real_minus_shuf": [
+       [
+        0.0,
+        [
+         0.0,
+         0.0
+        ]
+       ],
+       [
+        0.0,
+        [
+         0.0,
+         0.0
+        ]
+       ],
+       [
+        0.0,
+        [
+         0.0,
+         0.0
+        ]
+       ]
+      ],
+      "shuf_comb0.75_minus_seq": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "comb0.75_real_minus_shuf": [
+       [
+        0.0,
+        [
+         0.0,
+         0.0
+        ]
+       ],
+       [
+        0.0,
+        [
+         0.0,
+         0.0
+        ]
+       ],
+       [
+        0.0,
+        [
+         0.0,
+         0.0
+        ]
+       ]
+      ]
+     },
+     "coexp400_cos": {
+      "n": 18,
+      "seq_acc": 1.0,
+      "syn_correct": 6,
+      "syn_wrong": 5,
+      "syn_abstain": 7,
+      "syn_precision_when_decides": 0.5455,
+      "seq_acc_when_syn_decides": 1.0,
+      "comb0.9_acc": 1.0,
+      "comb0.9_minus_seq": 0.0,
+      "comb0.9_minus_seq_ci95": [
+       0.0,
+       0.0
+      ],
+      "comb0.75_acc": 1.0,
+      "comb0.75_minus_seq": 0.0,
+      "comb0.75_minus_seq_ci95": [
+       0.0,
+       0.0
+      ],
+      "shuf_precision_when_decides": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "shuf_decides": [
+       0,
+       0,
+       0
+      ],
+      "shuf_comb0.9_minus_seq": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "comb0.9_real_minus_shuf": [
+       [
+        0.0,
+        [
+         0.0,
+         0.0
+        ]
+       ],
+       [
+        0.0,
+        [
+         0.0,
+         0.0
+        ]
+       ],
+       [
+        0.0,
+        [
+         0.0,
+         0.0
+        ]
+       ]
+      ],
+      "shuf_comb0.75_minus_seq": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "comb0.75_real_minus_shuf": [
+       [
+        0.0,
+        [
+         0.0,
+         0.0
+        ]
+       ],
+       [
+        0.0,
+        [
+         0.0,
+         0.0
+        ]
+       ],
+       [
+        0.0,
+        [
+         0.0,
+         0.0
+        ]
+       ]
+      ]
+     }
+    }
+   }
+  },
+  "own": {
+   "set": "own",
+   "n_candidates": 26049,
+   "n_covered": 883,
+   "frac_covered": 0.0339,
+   "n_orth_covered": 180,
+   "n_orth_total": 4485,
+   "n_par_covered": 703,
+   "n_hard_pairs_covered": 103,
+   "auc": {
+    "seq": {
+     "all": 0.7864,
+     "all_ci95": [
+      0.5564,
+      0.8961
+     ],
+     "hard": 0.7084,
+     "hard_ci95": [
+      0.4072,
+      0.8369
+     ]
+    },
+    "own_count": {
+     "all": 0.6303,
+     "all_ci95": [
+      0.532,
+      0.6987
+     ],
+     "hard": 0.5013,
+     "hard_ci95": [
+      0.344,
+      0.6869
+     ],
+     "shuf_all": [
+      0.5026,
+      0.4935,
+      0.4999
+     ],
+     "shuf_hard": [
+      0.5,
+      0.4875,
+      0.5
+     ]
+    },
+    "own_cos": {
+     "all": 0.635,
+     "all_ci95": [
+      0.5374,
+      0.7015
+     ],
+     "hard": 0.4806,
+     "hard_ci95": [
+      0.3118,
+      0.6525
+     ],
+     "shuf_all": [
+      0.5027,
+      0.4936,
+      0.4999
+     ],
+     "shuf_hard": [
+      0.5,
+      0.4883,
+      0.5
+     ]
+    }
+   },
+   "queries": {
+    "hard": {
+     "own_count": {
+      "n": 17,
+      "seq_acc": 0.7059,
+      "syn_correct": 4,
+      "syn_wrong": 5,
+      "syn_abstain": 8,
+      "syn_precision_when_decides": 0.4444,
+      "seq_acc_when_syn_decides": 0.7778,
+      "comb0.9_acc": 0.5294,
+      "comb0.9_minus_seq": -0.1765,
+      "comb0.9_minus_seq_ci95": [
+       -0.237,
+       0.0
+      ],
+      "comb0.75_acc": 0.5294,
+      "comb0.75_minus_seq": -0.1765,
+      "comb0.75_minus_seq_ci95": [
+       -0.2368,
+       0.0
+      ],
+      "shuf_precision_when_decides": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "shuf_decides": [
+       0,
+       1,
+       0
+      ],
+      "shuf_comb0.9_minus_seq": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "comb0.9_real_minus_shuf": [
+       [
+        -0.1765,
+        [
+         -0.2368,
+         0.0
+        ]
+       ],
+       [
+        -0.1765,
+        [
+         -0.2368,
+         0.0
+        ]
+       ],
+       [
+        -0.1765,
+        [
+         -0.2368,
+         0.0
+        ]
+       ]
+      ],
+      "shuf_comb0.75_minus_seq": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "comb0.75_real_minus_shuf": [
+       [
+        -0.1765,
+        [
+         -0.2368,
+         0.0
+        ]
+       ],
+       [
+        -0.1765,
+        [
+         -0.2368,
+         0.0
+        ]
+       ],
+       [
+        -0.1765,
+        [
+         -0.2368,
+         0.0
+        ]
+       ]
+      ]
+     },
+     "own_cos": {
+      "n": 17,
+      "seq_acc": 0.7059,
+      "syn_correct": 4,
+      "syn_wrong": 7,
+      "syn_abstain": 6,
+      "syn_precision_when_decides": 0.3636,
+      "seq_acc_when_syn_decides": 0.8182,
+      "comb0.9_acc": 0.4118,
+      "comb0.9_minus_seq": -0.2941,
+      "comb0.9_minus_seq_ci95": [
+       -0.3947,
+       0.0
+      ],
+      "comb0.75_acc": 0.4118,
+      "comb0.75_minus_seq": -0.2941,
+      "comb0.75_minus_seq_ci95": [
+       -0.3947,
+       0.0
+      ],
+      "shuf_precision_when_decides": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "shuf_decides": [
+       0,
+       1,
+       0
+      ],
+      "shuf_comb0.9_minus_seq": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "comb0.9_real_minus_shuf": [
+       [
+        -0.2941,
+        [
+         -0.3947,
+         0.0
+        ]
+       ],
+       [
+        -0.2941,
+        [
+         -0.3947,
+         0.0
+        ]
+       ],
+       [
+        -0.2941,
+        [
+         -0.3947,
+         0.0
+        ]
+       ]
+      ],
+      "shuf_comb0.75_minus_seq": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "comb0.75_real_minus_shuf": [
+       [
+        -0.2941,
+        [
+         -0.3947,
+         0.0
+        ]
+       ],
+       [
+        -0.2941,
+        [
+         -0.3947,
+         0.0
+        ]
+       ],
+       [
+        -0.2941,
+        [
+         -0.3947,
+         0.0
+        ]
+       ]
+      ]
+     }
+    },
+    "all": {
+     "own_count": {
+      "n": 197,
+      "seq_acc": 0.9746,
+      "syn_correct": 57,
+      "syn_wrong": 42,
+      "syn_abstain": 98,
+      "syn_precision_when_decides": 0.5758,
+      "seq_acc_when_syn_decides": 0.9798,
+      "comb0.9_acc": 0.9594,
+      "comb0.9_minus_seq": -0.0152,
+      "comb0.9_minus_seq_ci95": [
+       -0.0542,
+       0.0
+      ],
+      "comb0.75_acc": 0.9289,
+      "comb0.75_minus_seq": -0.0457,
+      "comb0.75_minus_seq_ci95": [
+       -0.0829,
+       -0.0118
+      ],
+      "shuf_precision_when_decides": [
+       0.4167,
+       0.0,
+       0.25
+      ],
+      "shuf_decides": [
+       12,
+       10,
+       8
+      ],
+      "shuf_comb0.9_minus_seq": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "comb0.9_real_minus_shuf": [
+       [
+        -0.0152,
+        [
+         -0.0597,
+         0.0
+        ]
+       ],
+       [
+        -0.0152,
+        [
+         -0.0597,
+         0.0
+        ]
+       ],
+       [
+        -0.0152,
+        [
+         -0.0597,
+         0.0
+        ]
+       ]
+      ],
+      "shuf_comb0.75_minus_seq": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "comb0.75_real_minus_shuf": [
+       [
+        -0.0457,
+        [
+         -0.0816,
+         -0.0083
+        ]
+       ],
+       [
+        -0.0457,
+        [
+         -0.0816,
+         -0.0083
+        ]
+       ],
+       [
+        -0.0457,
+        [
+         -0.0816,
+         -0.0083
+        ]
+       ]
+      ]
+     },
+     "own_cos": {
+      "n": 197,
+      "seq_acc": 0.9746,
+      "syn_correct": 66,
+      "syn_wrong": 50,
+      "syn_abstain": 81,
+      "syn_precision_when_decides": 0.569,
+      "seq_acc_when_syn_decides": 0.9828,
+      "comb0.9_acc": 0.9492,
+      "comb0.9_minus_seq": -0.0254,
+      "comb0.9_minus_seq_ci95": [
+       -0.0995,
+       0.0
+      ],
+      "comb0.75_acc": 0.9137,
+      "comb0.75_minus_seq": -0.0609,
+      "comb0.75_minus_seq_ci95": [
+       -0.123,
+       -0.0147
+      ],
+      "shuf_precision_when_decides": [
+       0.4167,
+       0.0,
+       0.25
+      ],
+      "shuf_decides": [
+       12,
+       10,
+       8
+      ],
+      "shuf_comb0.9_minus_seq": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "comb0.9_real_minus_shuf": [
+       [
+        -0.0254,
+        [
+         -0.0995,
+         0.0
+        ]
+       ],
+       [
+        -0.0254,
+        [
+         -0.0995,
+         0.0
+        ]
+       ],
+       [
+        -0.0254,
+        [
+         -0.0995,
+         0.0
+        ]
+       ]
+      ],
+      "shuf_comb0.75_minus_seq": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "comb0.75_real_minus_shuf": [
+       [
+        -0.0609,
+        [
+         -0.1197,
+         -0.0083
+        ]
+       ],
+       [
+        -0.0609,
+        [
+         -0.1197,
+         -0.0083
+        ]
+       ],
+       [
+        -0.0609,
+        [
+         -0.1197,
+         -0.0083
+        ]
+       ]
+      ]
+     }
+    }
+   }
+  },
+  "db400_CIRCULAR": {
+   "set": "db400_CIRCULAR",
+   "n_candidates": 26049,
+   "n_covered": 3567,
+   "frac_covered": 0.1369,
+   "n_orth_covered": 1039,
+   "n_orth_total": 4485,
+   "n_par_covered": 2528,
+   "n_hard_pairs_covered": 1039,
+   "auc": {
+    "seq": {
+     "all": 0.612,
+     "all_ci95": [
+      0.4934,
+      0.7572
+     ],
+     "hard": 0.5247,
+     "hard_ci95": [
+      0.4395,
+      0.629
+     ]
+    },
+    "db400_CIRCULAR_count": {
+     "all": 0.673,
+     "all_ci95": [
+      0.5191,
+      0.8145
+     ],
+     "hard": 0.5232,
+     "hard_ci95": [
+      0.4439,
+      0.6997
+     ],
+     "shuf_all": [
+      0.4978,
+      0.4946,
+      0.4993
+     ],
+     "shuf_hard": [
+      0.5079,
+      0.502,
+      0.5033
+     ]
+    },
+    "db400_CIRCULAR_cos": {
+     "all": 0.74,
+     "all_ci95": [
+      0.6354,
+      0.8367
+     ],
+     "hard": 0.5926,
+     "hard_ci95": [
+      0.5382,
+      0.7235
+     ],
+     "shuf_all": [
+      0.4978,
+      0.4946,
+      0.4993
+     ],
+     "shuf_hard": [
+      0.5078,
+      0.5016,
+      0.5032
+     ]
+    }
+   },
+   "queries": {
+    "hard": {
+     "db400_CIRCULAR_count": {
+      "n": 237,
+      "seq_acc": 0.6203,
+      "syn_correct": 47,
+      "syn_wrong": 26,
+      "syn_abstain": 164,
+      "syn_precision_when_decides": 0.6438,
+      "seq_acc_when_syn_decides": 0.5753,
+      "comb0.9_acc": 0.6245,
+      "comb0.9_minus_seq": 0.0042,
+      "comb0.9_minus_seq_ci95": [
+       -0.0252,
+       0.071
+      ],
+      "comb0.75_acc": 0.6245,
+      "comb0.75_minus_seq": 0.0042,
+      "comb0.75_minus_seq_ci95": [
+       -0.0266,
+       0.0726
+      ],
+      "shuf_precision_when_decides": [
+       0.5385,
+       0.1786,
+       0.2381
+      ],
+      "shuf_decides": [
+       26,
+       28,
+       21
+      ],
+      "shuf_comb0.9_minus_seq": [
+       0.0127,
+       -0.0211,
+       -0.0127
+      ],
+      "comb0.9_real_minus_shuf": [
+       [
+        -0.0084,
+        [
+         -0.0294,
+         0.0282
+        ]
+       ],
+       [
+        0.0253,
+        [
+         -0.0094,
+         0.0883
+        ]
+       ],
+       [
+        0.0169,
+        [
+         -0.0139,
+         0.0688
+        ]
+       ]
+      ],
+      "shuf_comb0.75_minus_seq": [
+       0.0084,
+       -0.0211,
+       -0.0169
+      ],
+      "comb0.75_real_minus_shuf": [
+       [
+        -0.0042,
+        [
+         -0.0355,
+         0.0355
+        ]
+       ],
+       [
+        0.0253,
+        [
+         -0.005,
+         0.0883
+        ]
+       ],
+       [
+        0.0211,
+        [
+         -0.0047,
+         0.0693
+        ]
+       ]
+      ]
+     },
+     "db400_CIRCULAR_cos": {
+      "n": 237,
+      "seq_acc": 0.6203,
+      "syn_correct": 80,
+      "syn_wrong": 65,
+      "syn_abstain": 92,
+      "syn_precision_when_decides": 0.5517,
+      "seq_acc_when_syn_decides": 0.6414,
+      "comb0.9_acc": 0.557,
+      "comb0.9_minus_seq": -0.0633,
+      "comb0.9_minus_seq_ci95": [
+       -0.2135,
+       0.0612
+      ],
+      "comb0.75_acc": 0.5485,
+      "comb0.75_minus_seq": -0.0717,
+      "comb0.75_minus_seq_ci95": [
+       -0.2449,
+       0.0676
+      ],
+      "shuf_precision_when_decides": [
+       0.4643,
+       0.1786,
+       0.3043
+      ],
+      "shuf_decides": [
+       28,
+       28,
+       23
+      ],
+      "shuf_comb0.9_minus_seq": [
+       0.0042,
+       -0.0211,
+       -0.0127
+      ],
+      "comb0.9_real_minus_shuf": [
+       [
+        -0.0675,
+        [
+         -0.2177,
+         0.0481
+        ]
+       ],
+       [
+        -0.0422,
+        [
+         -0.194,
+         0.084
+        ]
+       ],
+       [
+        -0.0506,
+        [
+         -0.2031,
+         0.0742
+        ]
+       ]
+      ],
+      "shuf_comb0.75_minus_seq": [
+       0.0,
+       -0.0211,
+       -0.0169
+      ],
+      "comb0.75_real_minus_shuf": [
+       [
+        -0.0717,
+        [
+         -0.2383,
+         0.0614
+        ]
+       ],
+       [
+        -0.0506,
+        [
+         -0.2066,
+         0.0839
+        ]
+       ],
+       [
+        -0.0549,
+        [
+         -0.2161,
+         0.0809
+        ]
+       ]
+      ]
+     }
+    },
+    "all": {
+     "db400_CIRCULAR_count": {
+      "n": 983,
+      "seq_acc": 0.9084,
+      "syn_correct": 343,
+      "syn_wrong": 60,
+      "syn_abstain": 580,
+      "syn_precision_when_decides": 0.8511,
+      "seq_acc_when_syn_decides": 0.9231,
+      "comb0.9_acc": 0.9095,
+      "comb0.9_minus_seq": 0.001,
+      "comb0.9_minus_seq_ci95": [
+       -0.0059,
+       0.013
+      ],
+      "comb0.75_acc": 0.8922,
+      "comb0.75_minus_seq": -0.0163,
+      "comb0.75_minus_seq_ci95": [
+       -0.0461,
+       0.0123
+      ],
+      "shuf_precision_when_decides": [
+       0.2979,
+       0.2099,
+       0.2308
+      ],
+      "shuf_decides": [
+       141,
+       162,
+       117
+      ],
+      "shuf_comb0.9_minus_seq": [
+       0.0031,
+       -0.0051,
+       -0.0031
+      ],
+      "comb0.9_real_minus_shuf": [
+       [
+        -0.002,
+        [
+         -0.0072,
+         0.0044
+        ]
+       ],
+       [
+        0.0061,
+        [
+         -0.0026,
+         0.017
+        ]
+       ],
+       [
+        0.0041,
+        [
+         -0.0032,
+         0.0158
+        ]
+       ]
+      ],
+      "shuf_comb0.75_minus_seq": [
+       -0.0142,
+       -0.0142,
+       -0.0122
+      ],
+      "comb0.75_real_minus_shuf": [
+       [
+        -0.002,
+        [
+         -0.0258,
+         0.0275
+        ]
+       ],
+       [
+        -0.002,
+        [
+         -0.0252,
+         0.0244
+        ]
+       ],
+       [
+        -0.0041,
+        [
+         -0.0258,
+         0.0198
+        ]
+       ]
+      ]
+     },
+     "db400_CIRCULAR_cos": {
+      "n": 983,
+      "seq_acc": 0.9084,
+      "syn_correct": 445,
+      "syn_wrong": 155,
+      "syn_abstain": 383,
+      "syn_precision_when_decides": 0.7417,
+      "seq_acc_when_syn_decides": 0.9133,
+      "comb0.9_acc": 0.8932,
+      "comb0.9_minus_seq": -0.0153,
+      "comb0.9_minus_seq_ci95": [
+       -0.0448,
+       0.0163
+      ],
+      "comb0.75_acc": 0.8444,
+      "comb0.75_minus_seq": -0.0641,
+      "comb0.75_minus_seq_ci95": [
+       -0.152,
+       0.0152
+      ],
+      "shuf_precision_when_decides": [
+       0.298,
+       0.2235,
+       0.2683
+      ],
+      "shuf_decides": [
+       151,
+       170,
+       123
+      ],
+      "shuf_comb0.9_minus_seq": [
+       0.001,
+       -0.0051,
+       -0.0031
+      ],
+      "comb0.9_real_minus_shuf": [
+       [
+        -0.0163,
+        [
+         -0.045,
+         0.0139
+        ]
+       ],
+       [
+        -0.0102,
+        [
+         -0.0408,
+         0.0207
+        ]
+       ],
+       [
+        -0.0122,
+        [
+         -0.0421,
+         0.0214
+        ]
+       ]
+      ],
+      "shuf_comb0.75_minus_seq": [
+       -0.0193,
+       -0.0142,
+       -0.0122
+      ],
+      "comb0.75_real_minus_shuf": [
+       [
+        -0.0448,
+        [
+         -0.1212,
+         0.0251
+        ]
+       ],
+       [
+        -0.0498,
+        [
+         -0.1292,
+         0.0201
+        ]
+       ],
+       [
+        -0.0519,
+        [
+         -0.1307,
+         0.0221
+        ]
+       ]
+      ]
+     }
+    }
+   }
+  },
+  "abund": {
+   "set": "abund",
+   "n_candidates": 26049,
+   "n_covered": 5011,
+   "frac_covered": 0.1924,
+   "n_orth_covered": 1024,
+   "n_orth_total": 4485,
+   "n_par_covered": 3987,
+   "n_hard_pairs_covered": 1073,
+   "auc": {
+    "seq": {
+     "all": 0.7356,
+     "all_ci95": [
+      0.5212,
+      0.8559
+     ],
+     "hard": 0.679,
+     "hard_ci95": [
+      0.515,
+      0.783
+     ]
+    },
+    "abund": {
+     "all": 0.6763,
+     "all_ci95": [
+      0.6039,
+      0.7319
+     ],
+     "hard": 0.6887,
+     "hard_ci95": [
+      0.591,
+      0.7529
+     ],
+     "shuf_all": [
+      0.5024,
+      0.496,
+      0.506
+     ],
+     "shuf_hard": [
+      0.4768,
+      0.5341,
+      0.5291
+     ]
+    }
+   },
+   "queries": {
+    "hard": {
+     "abund": {
+      "n": 122,
+      "seq_acc": 0.5574,
+      "syn_correct": 39,
+      "syn_wrong": 77,
+      "syn_abstain": 6,
+      "syn_precision_when_decides": 0.3362,
+      "seq_acc_when_syn_decides": 0.5345,
+      "comb0.9_acc": 0.4262,
+      "comb0.9_minus_seq": -0.1311,
+      "comb0.9_minus_seq_ci95": [
+       -0.2462,
+       -0.0463
+      ],
+      "comb0.75_acc": 0.3852,
+      "comb0.75_minus_seq": -0.1721,
+      "comb0.75_minus_seq_ci95": [
+       -0.3106,
+       0.0385
+      ],
+      "shuf_precision_when_decides": [
+       0.281,
+       0.2295,
+       0.2869
+      ],
+      "shuf_decides": [
+       121,
+       122,
+       122
+      ],
+      "shuf_comb0.9_minus_seq": [
+       -0.2131,
+       -0.2459,
+       -0.2541
+      ],
+      "comb0.9_real_minus_shuf": [
+       [
+        0.082,
+        [
+         -0.0299,
+         0.1942
+        ]
+       ],
+       [
+        0.1148,
+        [
+         -0.0121,
+         0.2043
+        ]
+       ],
+       [
+        0.123,
+        [
+         -0.0148,
+         0.2246
+        ]
+       ]
+      ],
+      "shuf_comb0.75_minus_seq": [
+       -0.2377,
+       -0.2623,
+       -0.2213
+      ],
+      "comb0.75_real_minus_shuf": [
+       [
+        0.0656,
+        [
+         -0.1333,
+         0.2254
+        ]
+       ],
+       [
+        0.0902,
+        [
+         -0.0189,
+         0.179
+        ]
+       ],
+       [
+        0.0492,
+        [
+         -0.129,
+         0.1841
+        ]
+       ]
+      ]
+     }
+    },
+    "all": {
+     "abund": {
+      "n": 931,
+      "seq_acc": 0.942,
+      "syn_correct": 377,
+      "syn_wrong": 548,
+      "syn_abstain": 6,
+      "syn_precision_when_decides": 0.4076,
+      "seq_acc_when_syn_decides": 0.9416,
+      "comb0.9_acc": 0.9248,
+      "comb0.9_minus_seq": -0.0172,
+      "comb0.9_minus_seq_ci95": [
+       -0.0367,
+       -0.0032
+      ],
+      "comb0.75_acc": 0.8518,
+      "comb0.75_minus_seq": -0.0902,
+      "comb0.75_minus_seq_ci95": [
+       -0.134,
+       -0.0387
+      ],
+      "shuf_precision_when_decides": [
+       0.3065,
+       0.276,
+       0.3115
+      ],
+      "shuf_decides": [
+       930,
+       931,
+       931
+      ],
+      "shuf_comb0.9_minus_seq": [
+       -0.0279,
+       -0.0322,
+       -0.0333
+      ],
+      "comb0.9_real_minus_shuf": [
+       [
+        0.0107,
+        [
+         -0.004,
+         0.0237
+        ]
+       ],
+       [
+        0.015,
+        [
+         -0.0012,
+         0.0276
+        ]
+       ],
+       [
+        0.0161,
+        [
+         -0.0019,
+         0.0333
+        ]
+       ]
+      ],
+      "shuf_comb0.75_minus_seq": [
+       -0.1063,
+       -0.1106,
+       -0.1085
+      ],
+      "comb0.75_real_minus_shuf": [
+       [
+        0.0161,
+        [
+         -0.0199,
+         0.0553
+        ]
+       ],
+       [
+        0.0204,
+        [
+         -0.0016,
+         0.0365
+        ]
+       ],
+       [
+        0.0183,
+        [
+         -0.0104,
+         0.045
+        ]
+       ]
+      ]
+     }
+    }
+   }
+  }
+ },
+ "wall_s": 194.7,
+ "manifest": {
+  "git_commit": "ef72d92a5612528faa6a4b1233e17f46c99f1d7e",
+  "scripts_dirty": true,
+  "script": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/l2_network_wt/scripts/L2_network_standalone.py",
+  "script_md5": "3ab324147cdc1d1294699df8375de2c9",
+  "config": {
+   "channels": {
+    "exp150": "exp150",
+    "exp400": "exp400",
+    "coexp400": "coexp400",
+    "own": "own",
+    "db400_CIRCULAR": "db400_CIRCULAR"
+   },
+   "primary": "own",
+   "seeds": [
+    11,
+    23,
+    47
+   ],
+   "hard": 0.9,
+   "min_nodes": 100
+  },
+  "inputs": {
+   "labels": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/S5/refog_pair_labels.parquet",
+   "seq": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/S7/hits.tsv",
+   "anchors": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/ob_final/main_accurate_go/pairs.tsv",
+   "anchors_md5": "cc26e400f9ab2cf3dcbb3f2a22db978e",
+   "families": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/ob_final/main_accurate_go/stages/scores/families_final.npy",
+   "edges": {
+    "abund_Caenorhabditis_elegans.parquet": "183d1366bdca14c6317d613368ca2b08",
+    "abund_Canis_familiaris.parquet": "32e8ab914bf7283d81cda8a53fb6096e",
+    "abund_Danio_rerio.parquet": "3ff64cfb38c263155d291b9ce5757a76",
+    "abund_Drosophila_melanogaster.parquet": "15e1d7d4997e5ffd07cecdd8f9ccd376",
+    "abund_Gallus_gallus.parquet": "d1fb41f1080f27dcfa0d69bfd65e5574",
+    "abund_Homo_sapiens.parquet": "df3c16fe4975c41d0f27a60cbc8a324f",
+    "abund_Mus_musculus.parquet": "27af029e8d8551ff03f5321e8c5d1019",
+    "abund_Pan_troglodytes.parquet": "4c4fefd06d959bb052311a64624ef1b7",
+    "abund_Rattus_norvegicus.parquet": "580896735265955a0bb5ff89cc601bdf",
+    "edges_Caenorhabditis_elegans.parquet": "2abf9d6853862dfa1eafa4148010b3f2",
+    "edges_Canis_familiaris.parquet": "7316cdd433e14b169efba4afa7b7e21e",
+    "edges_Ciona_intestinalis.parquet": "50db73f447a73d0c01d9f4083da518a5",
+    "edges_Danio_rerio.parquet": "519f4c8fd2802bc4212b64aa872c294b",
+    "edges_Drosophila_melanogaster.parquet": "4deee83252e481c2a75c7be71162596d",
+    "edges_Gallus_gallus.parquet": "c5c9d52c6ec579fdd2a74d1bb8e758d2",
+    "edges_Homo_sapiens.parquet": "3c1dec2eb40d736bf4dddaa9413882cf",
+    "edges_Monodelphis_domestica.parquet": "98bcdb692082e6bcbc8083a22fd55aac",
+    "edges_Mus_musculus.parquet": "ec581af26515c09bc399f8911ee006db",
+    "edges_Pan_troglodytes.parquet": "7cb4188dde1e16d5c02b938fa45e7b3f",
+    "edges_Rattus_norvegicus.parquet": "87d6417b46b52bebb95f507919304bd1",
+    "edges_Tetraodon_nigroviridis.parquet": "e202e3fbe48238db319fb34fe9f58d08"
+   },
+   "string_md5s": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/data/extra/l2_network/string/md5sums.txt",
+   "paxdb_md5s": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/data/extra/l2_network/paxdb/md5sums.txt"
+  },
+  "runtime_s": 195.0,
+  "host": "dnagpu004"
+ }
+}

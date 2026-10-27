@@ -1,0 +1,2484 @@
+{
+ "benchmark": "orthobench_dev (34 RefOGs)",
+ "seeds": [
+  11,
+  23,
+  47
+ ],
+ "hard_ratio": 0.9,
+ "min_nodes": 100,
+ "primary_channel": "own_humap",
+ "per_pair": {
+  "Caenorhabditis_elegans:Canis_familiaris": {
+   "n": 140,
+   "n_orth": 40,
+   "n_anchors": 2192,
+   "humap_only": {
+    "both_nodes": 0.0071,
+    "evaluable": 0.0071,
+    "count_gt0": 0.0071,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.01
+   },
+   "own_humap": {
+    "both_nodes": 0.0071,
+    "evaluable": 0.0071,
+    "count_gt0": 0.0071,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.01
+   },
+   "abund_evaluable": 0.2571
+  },
+  "Caenorhabditis_elegans:Ciona_intestinalis": {
+   "n": 80,
+   "n_orth": 69,
+   "n_anchors": 2968,
+   "humap_only": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own_humap": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "abund_evaluable": 0.0
+  },
+  "Caenorhabditis_elegans:Danio_rerio": {
+   "n": 278,
+   "n_orth": 76,
+   "n_anchors": 1742,
+   "humap_only": {
+    "both_nodes": 0.0504,
+    "evaluable": 0.0072,
+    "count_gt0": 0.0072,
+    "orth_count_gt0": 0.0263,
+    "par_count_gt0": 0.0
+   },
+   "own_humap": {
+    "both_nodes": 0.0504,
+    "evaluable": 0.0072,
+    "count_gt0": 0.0072,
+    "orth_count_gt0": 0.0263,
+    "par_count_gt0": 0.0
+   },
+   "abund_evaluable": 0.5252
+  },
+  "Caenorhabditis_elegans:Drosophila_melanogaster": {
+   "n": 112,
+   "n_orth": 41,
+   "n_anchors": 3457,
+   "humap_only": {
+    "both_nodes": 0.3839,
+    "evaluable": 0.1875,
+    "count_gt0": 0.0268,
+    "orth_count_gt0": 0.0732,
+    "par_count_gt0": 0.0
+   },
+   "own_humap": {
+    "both_nodes": 0.3839,
+    "evaluable": 0.1875,
+    "count_gt0": 0.0268,
+    "orth_count_gt0": 0.0732,
+    "par_count_gt0": 0.0
+   },
+   "abund_evaluable": 0.6607
+  },
+  "Caenorhabditis_elegans:Gallus_gallus": {
+   "n": 121,
+   "n_orth": 47,
+   "n_anchors": 2392,
+   "humap_only": {
+    "both_nodes": 0.0496,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own_humap": {
+    "both_nodes": 0.0496,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "abund_evaluable": 0.562
+  },
+  "Caenorhabditis_elegans:Homo_sapiens": {
+   "n": 157,
+   "n_orth": 53,
+   "n_anchors": 2223,
+   "humap_only": {
+    "both_nodes": 0.4013,
+    "evaluable": 0.1401,
+    "count_gt0": 0.0318,
+    "orth_count_gt0": 0.0566,
+    "par_count_gt0": 0.0192
+   },
+   "own_humap": {
+    "both_nodes": 0.4904,
+    "evaluable": 0.3312,
+    "count_gt0": 0.0382,
+    "orth_count_gt0": 0.0566,
+    "par_count_gt0": 0.0288
+   },
+   "abund_evaluable": 0.7261
+  },
+  "Caenorhabditis_elegans:Monodelphis_domestica": {
+   "n": 102,
+   "n_orth": 48,
+   "n_anchors": 2198,
+   "humap_only": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own_humap": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "abund_evaluable": 0.0
+  },
+  "Caenorhabditis_elegans:Mus_musculus": {
+   "n": 130,
+   "n_orth": 50,
+   "n_anchors": 2377,
+   "humap_only": {
+    "both_nodes": 0.5692,
+    "evaluable": 0.2538,
+    "count_gt0": 0.0538,
+    "orth_count_gt0": 0.04,
+    "par_count_gt0": 0.0625
+   },
+   "own_humap": {
+    "both_nodes": 0.5692,
+    "evaluable": 0.2538,
+    "count_gt0": 0.0538,
+    "orth_count_gt0": 0.04,
+    "par_count_gt0": 0.0625
+   },
+   "abund_evaluable": 0.9385
+  },
+  "Caenorhabditis_elegans:Pan_troglodytes": {
+   "n": 135,
+   "n_orth": 53,
+   "n_anchors": 1995,
+   "humap_only": {
+    "both_nodes": 0.0444,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own_humap": {
+    "both_nodes": 0.0444,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "abund_evaluable": 0.0963
+  },
+  "Caenorhabditis_elegans:Rattus_norvegicus": {
+   "n": 135,
+   "n_orth": 45,
+   "n_anchors": 2269,
+   "humap_only": {
+    "both_nodes": 0.1778,
+    "evaluable": 0.0296,
+    "count_gt0": 0.0148,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0222
+   },
+   "own_humap": {
+    "both_nodes": 0.1778,
+    "evaluable": 0.0296,
+    "count_gt0": 0.0148,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0222
+   },
+   "abund_evaluable": 0.6815
+  },
+  "Caenorhabditis_elegans:Tetraodon_nigroviridis": {
+   "n": 148,
+   "n_orth": 73,
+   "n_anchors": 2104,
+   "humap_only": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own_humap": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "abund_evaluable": 0.0
+  },
+  "Canis_familiaris:Ciona_intestinalis": {
+   "n": 106,
+   "n_orth": 40,
+   "n_anchors": 3817,
+   "humap_only": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own_humap": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "abund_evaluable": 0.0
+  },
+  "Canis_familiaris:Danio_rerio": {
+   "n": 831,
+   "n_orth": 101,
+   "n_anchors": 7593,
+   "humap_only": {
+    "both_nodes": 0.0012,
+    "evaluable": 0.0012,
+    "count_gt0": 0.0012,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0014
+   },
+   "own_humap": {
+    "both_nodes": 0.0012,
+    "evaluable": 0.0012,
+    "count_gt0": 0.0012,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0014
+   },
+   "abund_evaluable": 0.1384
+  },
+  "Canis_familiaris:Drosophila_melanogaster": {
+   "n": 76,
+   "n_orth": 28,
+   "n_anchors": 2699,
+   "humap_only": {
+    "both_nodes": 0.0132,
+    "evaluable": 0.0132,
+    "count_gt0": 0.0132,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0208
+   },
+   "own_humap": {
+    "both_nodes": 0.0132,
+    "evaluable": 0.0132,
+    "count_gt0": 0.0132,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0208
+   },
+   "abund_evaluable": 0.2763
+  },
+  "Canis_familiaris:Gallus_gallus": {
+   "n": 430,
+   "n_orth": 59,
+   "n_anchors": 12079,
+   "humap_only": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own_humap": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "abund_evaluable": 0.1326
+  },
+  "Canis_familiaris:Homo_sapiens": {
+   "n": 585,
+   "n_orth": 88,
+   "n_anchors": 14747,
+   "humap_only": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own_humap": {
+    "both_nodes": 0.0017,
+    "evaluable": 0.0017,
+    "count_gt0": 0.0017,
+    "orth_count_gt0": 0.0114,
+    "par_count_gt0": 0.0
+   },
+   "abund_evaluable": 0.2427
+  },
+  "Canis_familiaris:Monodelphis_domestica": {
+   "n": 513,
+   "n_orth": 77,
+   "n_anchors": 13751,
+   "humap_only": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own_humap": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "abund_evaluable": 0.0
+  },
+  "Canis_familiaris:Mus_musculus": {
+   "n": 555,
+   "n_orth": 76,
+   "n_anchors": 15226,
+   "humap_only": {
+    "both_nodes": 0.0018,
+    "evaluable": 0.0018,
+    "count_gt0": 0.0018,
+    "orth_count_gt0": 0.0132,
+    "par_count_gt0": 0.0
+   },
+   "own_humap": {
+    "both_nodes": 0.0018,
+    "evaluable": 0.0018,
+    "count_gt0": 0.0018,
+    "orth_count_gt0": 0.0132,
+    "par_count_gt0": 0.0
+   },
+   "abund_evaluable": 0.2685
+  },
+  "Canis_familiaris:Pan_troglodytes": {
+   "n": 691,
+   "n_orth": 84,
+   "n_anchors": 14845,
+   "humap_only": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own_humap": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "abund_evaluable": 0.0333
+  },
+  "Canis_familiaris:Rattus_norvegicus": {
+   "n": 620,
+   "n_orth": 82,
+   "n_anchors": 14802,
+   "humap_only": {
+    "both_nodes": 0.0016,
+    "evaluable": 0.0016,
+    "count_gt0": 0.0016,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0019
+   },
+   "own_humap": {
+    "both_nodes": 0.0016,
+    "evaluable": 0.0016,
+    "count_gt0": 0.0016,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0019
+   },
+   "abund_evaluable": 0.2194
+  },
+  "Canis_familiaris:Tetraodon_nigroviridis": {
+   "n": 509,
+   "n_orth": 77,
+   "n_anchors": 8411,
+   "humap_only": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own_humap": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "abund_evaluable": 0.0
+  },
+  "Ciona_intestinalis:Danio_rerio": {
+   "n": 170,
+   "n_orth": 67,
+   "n_anchors": 2995,
+   "humap_only": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own_humap": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "abund_evaluable": 0.0
+  },
+  "Ciona_intestinalis:Drosophila_melanogaster": {
+   "n": 35,
+   "n_orth": 30,
+   "n_anchors": 3521,
+   "humap_only": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own_humap": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "abund_evaluable": 0.0
+  },
+  "Ciona_intestinalis:Gallus_gallus": {
+   "n": 99,
+   "n_orth": 36,
+   "n_anchors": 3979,
+   "humap_only": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own_humap": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "abund_evaluable": 0.0
+  },
+  "Ciona_intestinalis:Homo_sapiens": {
+   "n": 124,
+   "n_orth": 52,
+   "n_anchors": 3779,
+   "humap_only": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own_humap": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "abund_evaluable": 0.0
+  },
+  "Ciona_intestinalis:Monodelphis_domestica": {
+   "n": 113,
+   "n_orth": 40,
+   "n_anchors": 3789,
+   "humap_only": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own_humap": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "abund_evaluable": 0.0
+  },
+  "Ciona_intestinalis:Mus_musculus": {
+   "n": 119,
+   "n_orth": 41,
+   "n_anchors": 4006,
+   "humap_only": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own_humap": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "abund_evaluable": 0.0
+  },
+  "Ciona_intestinalis:Pan_troglodytes": {
+   "n": 127,
+   "n_orth": 41,
+   "n_anchors": 3516,
+   "humap_only": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own_humap": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "abund_evaluable": 0.0
+  },
+  "Ciona_intestinalis:Rattus_norvegicus": {
+   "n": 112,
+   "n_orth": 43,
+   "n_anchors": 3872,
+   "humap_only": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own_humap": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "abund_evaluable": 0.0
+  },
+  "Ciona_intestinalis:Tetraodon_nigroviridis": {
+   "n": 127,
+   "n_orth": 49,
+   "n_anchors": 3356,
+   "humap_only": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own_humap": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "abund_evaluable": 0.0
+  },
+  "Danio_rerio:Drosophila_melanogaster": {
+   "n": 110,
+   "n_orth": 49,
+   "n_anchors": 2141,
+   "humap_only": {
+    "both_nodes": 0.0909,
+    "evaluable": 0.0182,
+    "count_gt0": 0.0182,
+    "orth_count_gt0": 0.0408,
+    "par_count_gt0": 0.0
+   },
+   "own_humap": {
+    "both_nodes": 0.0909,
+    "evaluable": 0.0182,
+    "count_gt0": 0.0182,
+    "orth_count_gt0": 0.0408,
+    "par_count_gt0": 0.0
+   },
+   "abund_evaluable": 0.5091
+  },
+  "Danio_rerio:Gallus_gallus": {
+   "n": 726,
+   "n_orth": 118,
+   "n_anchors": 7548,
+   "humap_only": {
+    "both_nodes": 0.0055,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own_humap": {
+    "both_nodes": 0.0055,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "abund_evaluable": 0.2631
+  },
+  "Danio_rerio:Homo_sapiens": {
+   "n": 972,
+   "n_orth": 114,
+   "n_anchors": 7610,
+   "humap_only": {
+    "both_nodes": 0.0288,
+    "evaluable": 0.0021,
+    "count_gt0": 0.0021,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0023
+   },
+   "own_humap": {
+    "both_nodes": 0.0309,
+    "evaluable": 0.0031,
+    "count_gt0": 0.0031,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0035
+   },
+   "abund_evaluable": 0.4033
+  },
+  "Danio_rerio:Monodelphis_domestica": {
+   "n": 663,
+   "n_orth": 110,
+   "n_anchors": 7551,
+   "humap_only": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own_humap": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "abund_evaluable": 0.0
+  },
+  "Danio_rerio:Mus_musculus": {
+   "n": 843,
+   "n_orth": 109,
+   "n_anchors": 7942,
+   "humap_only": {
+    "both_nodes": 0.0332,
+    "evaluable": 0.0047,
+    "count_gt0": 0.0036,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0041
+   },
+   "own_humap": {
+    "both_nodes": 0.0332,
+    "evaluable": 0.0047,
+    "count_gt0": 0.0036,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0041
+   },
+   "abund_evaluable": 0.4698
+  },
+  "Danio_rerio:Pan_troglodytes": {
+   "n": 913,
+   "n_orth": 114,
+   "n_anchors": 7337,
+   "humap_only": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own_humap": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "abund_evaluable": 0.0307
+  },
+  "Danio_rerio:Rattus_norvegicus": {
+   "n": 865,
+   "n_orth": 106,
+   "n_anchors": 7708,
+   "humap_only": {
+    "both_nodes": 0.015,
+    "evaluable": 0.0023,
+    "count_gt0": 0.0023,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0026
+   },
+   "own_humap": {
+    "both_nodes": 0.015,
+    "evaluable": 0.0023,
+    "count_gt0": 0.0023,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0026
+   },
+   "abund_evaluable": 0.3561
+  },
+  "Danio_rerio:Tetraodon_nigroviridis": {
+   "n": 879,
+   "n_orth": 113,
+   "n_anchors": 11065,
+   "humap_only": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own_humap": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "abund_evaluable": 0.0
+  },
+  "Drosophila_melanogaster:Gallus_gallus": {
+   "n": 58,
+   "n_orth": 28,
+   "n_anchors": 2937,
+   "humap_only": {
+    "both_nodes": 0.1034,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own_humap": {
+    "both_nodes": 0.1034,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "abund_evaluable": 0.4483
+  },
+  "Drosophila_melanogaster:Homo_sapiens": {
+   "n": 77,
+   "n_orth": 36,
+   "n_anchors": 2729,
+   "humap_only": {
+    "both_nodes": 0.6753,
+    "evaluable": 0.2857,
+    "count_gt0": 0.0909,
+    "orth_count_gt0": 0.1389,
+    "par_count_gt0": 0.0488
+   },
+   "own_humap": {
+    "both_nodes": 0.7922,
+    "evaluable": 0.6494,
+    "count_gt0": 0.2727,
+    "orth_count_gt0": 0.3333,
+    "par_count_gt0": 0.2195
+   },
+   "abund_evaluable": 0.6364
+  },
+  "Drosophila_melanogaster:Monodelphis_domestica": {
+   "n": 69,
+   "n_orth": 33,
+   "n_anchors": 2701,
+   "humap_only": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own_humap": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "abund_evaluable": 0.0
+  },
+  "Drosophila_melanogaster:Mus_musculus": {
+   "n": 75,
+   "n_orth": 33,
+   "n_anchors": 2909,
+   "humap_only": {
+    "both_nodes": 0.6933,
+    "evaluable": 0.36,
+    "count_gt0": 0.12,
+    "orth_count_gt0": 0.1515,
+    "par_count_gt0": 0.0952
+   },
+   "own_humap": {
+    "both_nodes": 0.6933,
+    "evaluable": 0.36,
+    "count_gt0": 0.12,
+    "orth_count_gt0": 0.1515,
+    "par_count_gt0": 0.0952
+   },
+   "abund_evaluable": 0.7067
+  },
+  "Drosophila_melanogaster:Pan_troglodytes": {
+   "n": 86,
+   "n_orth": 37,
+   "n_anchors": 2495,
+   "humap_only": {
+    "both_nodes": 0.0116,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own_humap": {
+    "both_nodes": 0.0116,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "abund_evaluable": 0.1047
+  },
+  "Drosophila_melanogaster:Rattus_norvegicus": {
+   "n": 79,
+   "n_orth": 32,
+   "n_anchors": 2785,
+   "humap_only": {
+    "both_nodes": 0.2658,
+    "evaluable": 0.0506,
+    "count_gt0": 0.0253,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0426
+   },
+   "own_humap": {
+    "both_nodes": 0.2658,
+    "evaluable": 0.0506,
+    "count_gt0": 0.0253,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0426
+   },
+   "abund_evaluable": 0.519
+  },
+  "Drosophila_melanogaster:Tetraodon_nigroviridis": {
+   "n": 80,
+   "n_orth": 45,
+   "n_anchors": 2502,
+   "humap_only": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own_humap": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "abund_evaluable": 0.0
+  },
+  "Gallus_gallus:Homo_sapiens": {
+   "n": 508,
+   "n_orth": 70,
+   "n_anchors": 12082,
+   "humap_only": {
+    "both_nodes": 0.0591,
+    "evaluable": 0.0177,
+    "count_gt0": 0.0098,
+    "orth_count_gt0": 0.0143,
+    "par_count_gt0": 0.0091
+   },
+   "own_humap": {
+    "both_nodes": 0.0669,
+    "evaluable": 0.0177,
+    "count_gt0": 0.0118,
+    "orth_count_gt0": 0.0286,
+    "par_count_gt0": 0.0091
+   },
+   "abund_evaluable": 0.4705
+  },
+  "Gallus_gallus:Monodelphis_domestica": {
+   "n": 387,
+   "n_orth": 59,
+   "n_anchors": 12063,
+   "humap_only": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own_humap": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "abund_evaluable": 0.0
+  },
+  "Gallus_gallus:Mus_musculus": {
+   "n": 475,
+   "n_orth": 75,
+   "n_anchors": 12436,
+   "humap_only": {
+    "both_nodes": 0.0632,
+    "evaluable": 0.0189,
+    "count_gt0": 0.0063,
+    "orth_count_gt0": 0.0133,
+    "par_count_gt0": 0.005
+   },
+   "own_humap": {
+    "both_nodes": 0.0632,
+    "evaluable": 0.0189,
+    "count_gt0": 0.0063,
+    "orth_count_gt0": 0.0133,
+    "par_count_gt0": 0.005
+   },
+   "abund_evaluable": 0.5011
+  },
+  "Gallus_gallus:Pan_troglodytes": {
+   "n": 542,
+   "n_orth": 72,
+   "n_anchors": 11856,
+   "humap_only": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own_humap": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "abund_evaluable": 0.0295
+  },
+  "Gallus_gallus:Rattus_norvegicus": {
+   "n": 480,
+   "n_orth": 68,
+   "n_anchors": 12086,
+   "humap_only": {
+    "both_nodes": 0.0354,
+    "evaluable": 0.0146,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own_humap": {
+    "both_nodes": 0.0354,
+    "evaluable": 0.0146,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "abund_evaluable": 0.375
+  },
+  "Gallus_gallus:Tetraodon_nigroviridis": {
+   "n": 444,
+   "n_orth": 68,
+   "n_anchors": 8424,
+   "humap_only": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own_humap": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "abund_evaluable": 0.0
+  },
+  "Homo_sapiens:Monodelphis_domestica": {
+   "n": 530,
+   "n_orth": 78,
+   "n_anchors": 13521,
+   "humap_only": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own_humap": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "abund_evaluable": 0.0
+  },
+  "Homo_sapiens:Mus_musculus": {
+   "n": 643,
+   "n_orth": 92,
+   "n_anchors": 15439,
+   "humap_only": {
+    "both_nodes": 0.5101,
+    "evaluable": 0.4837,
+    "count_gt0": 0.0669,
+    "orth_count_gt0": 0.1413,
+    "par_count_gt0": 0.0544
+   },
+   "own_humap": {
+    "both_nodes": 0.6392,
+    "evaluable": 0.6252,
+    "count_gt0": 0.168,
+    "orth_count_gt0": 0.3478,
+    "par_count_gt0": 0.1379
+   },
+   "abund_evaluable": 0.8398
+  },
+  "Homo_sapiens:Pan_troglodytes": {
+   "n": 730,
+   "n_orth": 88,
+   "n_anchors": 16544,
+   "humap_only": {
+    "both_nodes": 0.0041,
+    "evaluable": 0.0041,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own_humap": {
+    "both_nodes": 0.0055,
+    "evaluable": 0.0055,
+    "count_gt0": 0.0014,
+    "orth_count_gt0": 0.0114,
+    "par_count_gt0": 0.0
+   },
+   "abund_evaluable": 0.0397
+  },
+  "Homo_sapiens:Rattus_norvegicus": {
+   "n": 652,
+   "n_orth": 89,
+   "n_anchors": 14878,
+   "humap_only": {
+    "both_nodes": 0.1887,
+    "evaluable": 0.161,
+    "count_gt0": 0.0031,
+    "orth_count_gt0": 0.0112,
+    "par_count_gt0": 0.0018
+   },
+   "own_humap": {
+    "both_nodes": 0.2316,
+    "evaluable": 0.204,
+    "count_gt0": 0.0491,
+    "orth_count_gt0": 0.1124,
+    "par_count_gt0": 0.0391
+   },
+   "abund_evaluable": 0.6518
+  },
+  "Homo_sapiens:Tetraodon_nigroviridis": {
+   "n": 588,
+   "n_orth": 86,
+   "n_anchors": 8424,
+   "humap_only": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own_humap": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "abund_evaluable": 0.0
+  },
+  "Monodelphis_domestica:Mus_musculus": {
+   "n": 547,
+   "n_orth": 75,
+   "n_anchors": 14077,
+   "humap_only": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own_humap": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "abund_evaluable": 0.0
+  },
+  "Monodelphis_domestica:Pan_troglodytes": {
+   "n": 641,
+   "n_orth": 91,
+   "n_anchors": 13507,
+   "humap_only": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own_humap": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "abund_evaluable": 0.0
+  },
+  "Monodelphis_domestica:Rattus_norvegicus": {
+   "n": 556,
+   "n_orth": 85,
+   "n_anchors": 13711,
+   "humap_only": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own_humap": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "abund_evaluable": 0.0
+  },
+  "Monodelphis_domestica:Tetraodon_nigroviridis": {
+   "n": 460,
+   "n_orth": 81,
+   "n_anchors": 8319,
+   "humap_only": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own_humap": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "abund_evaluable": 0.0
+  },
+  "Mus_musculus:Pan_troglodytes": {
+   "n": 740,
+   "n_orth": 90,
+   "n_anchors": 15293,
+   "humap_only": {
+    "both_nodes": 0.0068,
+    "evaluable": 0.0068,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own_humap": {
+    "both_nodes": 0.0068,
+    "evaluable": 0.0068,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "abund_evaluable": 0.0405
+  },
+  "Mus_musculus:Rattus_norvegicus": {
+   "n": 643,
+   "n_orth": 86,
+   "n_anchors": 16965,
+   "humap_only": {
+    "both_nodes": 0.2053,
+    "evaluable": 0.1742,
+    "count_gt0": 0.0404,
+    "orth_count_gt0": 0.093,
+    "par_count_gt0": 0.0323
+   },
+   "own_humap": {
+    "both_nodes": 0.2053,
+    "evaluable": 0.1742,
+    "count_gt0": 0.0404,
+    "orth_count_gt0": 0.093,
+    "par_count_gt0": 0.0323
+   },
+   "abund_evaluable": 0.6625
+  },
+  "Mus_musculus:Tetraodon_nigroviridis": {
+   "n": 551,
+   "n_orth": 85,
+   "n_anchors": 8751,
+   "humap_only": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own_humap": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "abund_evaluable": 0.0
+  },
+  "Pan_troglodytes:Rattus_norvegicus": {
+   "n": 778,
+   "n_orth": 105,
+   "n_anchors": 14918,
+   "humap_only": {
+    "both_nodes": 0.0013,
+    "evaluable": 0.0013,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own_humap": {
+    "both_nodes": 0.0013,
+    "evaluable": 0.0013,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "abund_evaluable": 0.0398
+  },
+  "Pan_troglodytes:Tetraodon_nigroviridis": {
+   "n": 617,
+   "n_orth": 81,
+   "n_anchors": 8062,
+   "humap_only": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own_humap": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "abund_evaluable": 0.0
+  },
+  "Rattus_norvegicus:Tetraodon_nigroviridis": {
+   "n": 562,
+   "n_orth": 78,
+   "n_anchors": 8522,
+   "humap_only": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "own_humap": {
+    "both_nodes": 0.0,
+    "evaluable": 0.0,
+    "count_gt0": 0.0,
+    "orth_count_gt0": 0.0,
+    "par_count_gt0": 0.0
+   },
+   "abund_evaluable": 0.0
+  }
+ },
+ "coverage": {
+  "humap_only": {
+   "frac_candidates_evaluable": 0.0273,
+   "frac_orth_pairs_evaluable": 0.0328,
+   "frac_hard_pairs_evaluable": 0.009,
+   "n_evaluable": 712,
+   "frac_candidates_count_gt0": 0.005
+  },
+  "own_humap": {
+   "frac_candidates_evaluable": 0.0342,
+   "frac_orth_pairs_evaluable": 0.0408,
+   "frac_hard_pairs_evaluable": 0.01,
+   "n_evaluable": 892,
+   "frac_candidates_count_gt0": 0.0094
+  },
+  "abund": {
+   "frac_candidates_evaluable": 0.1924,
+   "frac_orth_pairs_evaluable": 0.2283,
+   "frac_hard_pairs_evaluable": 0.1451,
+   "n_evaluable": 5011
+  }
+ },
+ "n_candidates": 26049,
+ "n_hard_pairs_global": 6921,
+ "evaluation": {
+  "humap_only": {
+   "set": "humap_only",
+   "n_candidates": 26049,
+   "n_covered": 712,
+   "frac_covered": 0.0273,
+   "n_orth_covered": 147,
+   "n_orth_total": 4485,
+   "n_par_covered": 565,
+   "n_hard_pairs_covered": 77,
+   "auc": {
+    "seq": {
+     "all": 0.7645,
+     "all_ci95": [
+      0.5445,
+      0.8962
+     ],
+     "hard": 0.689,
+     "hard_ci95": [
+      0.3903,
+      0.882
+     ]
+    },
+    "humap_only_count": {
+     "all": 0.5856,
+     "all_ci95": [
+      0.5094,
+      0.6558
+     ],
+     "hard": 0.5645,
+     "hard_ci95": [
+      0.3456,
+      0.7898
+     ],
+     "shuf_all": [
+      0.4999,
+      0.5007,
+      0.5016
+     ],
+     "shuf_hard": [
+      0.5,
+      0.5162,
+      0.5
+     ]
+    },
+    "humap_only_cos": {
+     "all": 0.5897,
+     "all_ci95": [
+      0.5132,
+      0.6555
+     ],
+     "hard": 0.5706,
+     "hard_ci95": [
+      0.3359,
+      0.8056
+     ],
+     "shuf_all": [
+      0.4999,
+      0.5008,
+      0.5016
+     ],
+     "shuf_hard": [
+      0.5,
+      0.5167,
+      0.5
+     ]
+    }
+   },
+   "queries": {
+    "hard": {
+     "humap_only_count": {
+      "n": 15,
+      "seq_acc": 0.7333,
+      "syn_correct": 2,
+      "syn_wrong": 4,
+      "syn_abstain": 9,
+      "syn_precision_when_decides": 0.3333,
+      "seq_acc_when_syn_decides": 0.6667,
+      "comb0.9_acc": 0.6,
+      "comb0.9_minus_seq": -0.1333,
+      "comb0.9_minus_seq_ci95": [
+       -0.1622,
+       0.0
+      ],
+      "comb0.75_acc": 0.6,
+      "comb0.75_minus_seq": -0.1333,
+      "comb0.75_minus_seq_ci95": [
+       -0.1622,
+       0.0
+      ],
+      "shuf_precision_when_decides": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "shuf_decides": [
+       0,
+       0,
+       0
+      ],
+      "shuf_comb0.9_minus_seq": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "comb0.9_real_minus_shuf": [
+       [
+        -0.1333,
+        [
+         -0.1622,
+         0.0
+        ]
+       ],
+       [
+        -0.1333,
+        [
+         -0.1622,
+         0.0
+        ]
+       ],
+       [
+        -0.1333,
+        [
+         -0.1622,
+         0.0
+        ]
+       ]
+      ],
+      "shuf_comb0.75_minus_seq": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "comb0.75_real_minus_shuf": [
+       [
+        -0.1333,
+        [
+         -0.1622,
+         0.0
+        ]
+       ],
+       [
+        -0.1333,
+        [
+         -0.1622,
+         0.0
+        ]
+       ],
+       [
+        -0.1333,
+        [
+         -0.1622,
+         0.0
+        ]
+       ]
+      ]
+     },
+     "humap_only_cos": {
+      "n": 15,
+      "seq_acc": 0.7333,
+      "syn_correct": 4,
+      "syn_wrong": 6,
+      "syn_abstain": 5,
+      "syn_precision_when_decides": 0.4,
+      "seq_acc_when_syn_decides": 0.8,
+      "comb0.9_acc": 0.4667,
+      "comb0.9_minus_seq": -0.2667,
+      "comb0.9_minus_seq_ci95": [
+       -0.4054,
+       0.75
+      ],
+      "comb0.75_acc": 0.4667,
+      "comb0.75_minus_seq": -0.2667,
+      "comb0.75_minus_seq_ci95": [
+       -0.4054,
+       0.75
+      ],
+      "shuf_precision_when_decides": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "shuf_decides": [
+       0,
+       0,
+       0
+      ],
+      "shuf_comb0.9_minus_seq": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "comb0.9_real_minus_shuf": [
+       [
+        -0.2667,
+        [
+         -0.4054,
+         0.75
+        ]
+       ],
+       [
+        -0.2667,
+        [
+         -0.4054,
+         0.75
+        ]
+       ],
+       [
+        -0.2667,
+        [
+         -0.4054,
+         0.75
+        ]
+       ]
+      ],
+      "shuf_comb0.75_minus_seq": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "comb0.75_real_minus_shuf": [
+       [
+        -0.2667,
+        [
+         -0.4054,
+         0.75
+        ]
+       ],
+       [
+        -0.2667,
+        [
+         -0.4054,
+         0.75
+        ]
+       ],
+       [
+        -0.2667,
+        [
+         -0.4054,
+         0.75
+        ]
+       ]
+      ]
+     }
+    },
+    "all": {
+     "humap_only_count": {
+      "n": 158,
+      "seq_acc": 0.9747,
+      "syn_correct": 12,
+      "syn_wrong": 23,
+      "syn_abstain": 123,
+      "syn_precision_when_decides": 0.3429,
+      "seq_acc_when_syn_decides": 0.9429,
+      "comb0.9_acc": 0.962,
+      "comb0.9_minus_seq": -0.0127,
+      "comb0.9_minus_seq_ci95": [
+       -0.0473,
+       0.0
+      ],
+      "comb0.75_acc": 0.9367,
+      "comb0.75_minus_seq": -0.038,
+      "comb0.75_minus_seq_ci95": [
+       -0.075,
+       0.0
+      ],
+      "shuf_precision_when_decides": [
+       0.5,
+       0.0,
+       0.4
+      ],
+      "shuf_decides": [
+       4,
+       2,
+       5
+      ],
+      "shuf_comb0.9_minus_seq": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "comb0.9_real_minus_shuf": [
+       [
+        -0.0127,
+        [
+         -0.0473,
+         0.0
+        ]
+       ],
+       [
+        -0.0127,
+        [
+         -0.0473,
+         0.0
+        ]
+       ],
+       [
+        -0.0127,
+        [
+         -0.0473,
+         0.0
+        ]
+       ]
+      ],
+      "shuf_comb0.75_minus_seq": [
+       -0.0063,
+       0.0,
+       0.0
+      ],
+      "comb0.75_real_minus_shuf": [
+       [
+        -0.0316,
+        [
+         -0.07,
+         0.0118
+        ]
+       ],
+       [
+        -0.038,
+        [
+         -0.0763,
+         0.0
+        ]
+       ],
+       [
+        -0.038,
+        [
+         -0.0763,
+         0.0
+        ]
+       ]
+      ]
+     },
+     "humap_only_cos": {
+      "n": 158,
+      "seq_acc": 0.9747,
+      "syn_correct": 17,
+      "syn_wrong": 35,
+      "syn_abstain": 106,
+      "syn_precision_when_decides": 0.3269,
+      "seq_acc_when_syn_decides": 0.9615,
+      "comb0.9_acc": 0.9494,
+      "comb0.9_minus_seq": -0.0253,
+      "comb0.9_minus_seq_ci95": [
+       -0.1154,
+       0.0171
+      ],
+      "comb0.75_acc": 0.9114,
+      "comb0.75_minus_seq": -0.0633,
+      "comb0.75_minus_seq_ci95": [
+       -0.145,
+       0.0
+      ],
+      "shuf_precision_when_decides": [
+       0.5,
+       0.0,
+       0.4
+      ],
+      "shuf_decides": [
+       4,
+       2,
+       5
+      ],
+      "shuf_comb0.9_minus_seq": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "comb0.9_real_minus_shuf": [
+       [
+        -0.0253,
+        [
+         -0.1154,
+         0.0171
+        ]
+       ],
+       [
+        -0.0253,
+        [
+         -0.1154,
+         0.0171
+        ]
+       ],
+       [
+        -0.0253,
+        [
+         -0.1154,
+         0.0171
+        ]
+       ]
+      ],
+      "shuf_comb0.75_minus_seq": [
+       -0.0063,
+       0.0,
+       0.0
+      ],
+      "comb0.75_real_minus_shuf": [
+       [
+        -0.057,
+        [
+         -0.1325,
+         0.0095
+        ]
+       ],
+       [
+        -0.0633,
+        [
+         -0.138,
+         0.0
+        ]
+       ],
+       [
+        -0.0633,
+        [
+         -0.138,
+         0.0
+        ]
+       ]
+      ]
+     }
+    }
+   }
+  },
+  "own_humap": {
+   "set": "own_humap",
+   "n_candidates": 26049,
+   "n_covered": 892,
+   "frac_covered": 0.0342,
+   "n_orth_covered": 183,
+   "n_orth_total": 4485,
+   "n_par_covered": 709,
+   "n_hard_pairs_covered": 103,
+   "auc": {
+    "seq": {
+     "all": 0.7842,
+     "all_ci95": [
+      0.5596,
+      0.896
+     ],
+     "hard": 0.7084,
+     "hard_ci95": [
+      0.4072,
+      0.8369
+     ]
+    },
+    "own_humap_count": {
+     "all": 0.6257,
+     "all_ci95": [
+      0.5302,
+      0.6964
+     ],
+     "hard": 0.4996,
+     "hard_ci95": [
+      0.344,
+      0.715
+     ],
+     "shuf_all": [
+      0.4935,
+      0.5019,
+      0.4977
+     ],
+     "shuf_hard": [
+      0.493,
+      0.5242,
+      0.493
+     ]
+    },
+    "own_humap_cos": {
+     "all": 0.6338,
+     "all_ci95": [
+      0.5358,
+      0.7042
+     ],
+     "hard": 0.4861,
+     "hard_ci95": [
+      0.31,
+      0.6887
+     ],
+     "shuf_all": [
+      0.4936,
+      0.5018,
+      0.4977
+     ],
+     "shuf_hard": [
+      0.493,
+      0.5242,
+      0.493
+     ]
+    }
+   },
+   "queries": {
+    "hard": {
+     "own_humap_count": {
+      "n": 17,
+      "seq_acc": 0.7059,
+      "syn_correct": 4,
+      "syn_wrong": 5,
+      "syn_abstain": 8,
+      "syn_precision_when_decides": 0.4444,
+      "seq_acc_when_syn_decides": 0.7778,
+      "comb0.9_acc": 0.5294,
+      "comb0.9_minus_seq": -0.1765,
+      "comb0.9_minus_seq_ci95": [
+       -0.237,
+       0.0
+      ],
+      "comb0.75_acc": 0.5294,
+      "comb0.75_minus_seq": -0.1765,
+      "comb0.75_minus_seq_ci95": [
+       -0.2368,
+       0.0
+      ],
+      "shuf_precision_when_decides": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "shuf_decides": [
+       0,
+       0,
+       1
+      ],
+      "shuf_comb0.9_minus_seq": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "comb0.9_real_minus_shuf": [
+       [
+        -0.1765,
+        [
+         -0.2368,
+         0.0
+        ]
+       ],
+       [
+        -0.1765,
+        [
+         -0.2368,
+         0.0
+        ]
+       ],
+       [
+        -0.1765,
+        [
+         -0.2368,
+         0.0
+        ]
+       ]
+      ],
+      "shuf_comb0.75_minus_seq": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "comb0.75_real_minus_shuf": [
+       [
+        -0.1765,
+        [
+         -0.2368,
+         0.0
+        ]
+       ],
+       [
+        -0.1765,
+        [
+         -0.2368,
+         0.0
+        ]
+       ],
+       [
+        -0.1765,
+        [
+         -0.2368,
+         0.0
+        ]
+       ]
+      ]
+     },
+     "own_humap_cos": {
+      "n": 17,
+      "seq_acc": 0.7059,
+      "syn_correct": 5,
+      "syn_wrong": 6,
+      "syn_abstain": 6,
+      "syn_precision_when_decides": 0.4545,
+      "seq_acc_when_syn_decides": 0.8182,
+      "comb0.9_acc": 0.4706,
+      "comb0.9_minus_seq": -0.2353,
+      "comb0.9_minus_seq_ci95": [
+       -0.3947,
+       0.6
+      ],
+      "comb0.75_acc": 0.4706,
+      "comb0.75_minus_seq": -0.2353,
+      "comb0.75_minus_seq_ci95": [
+       -0.3947,
+       0.6
+      ],
+      "shuf_precision_when_decides": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "shuf_decides": [
+       0,
+       0,
+       1
+      ],
+      "shuf_comb0.9_minus_seq": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "comb0.9_real_minus_shuf": [
+       [
+        -0.2353,
+        [
+         -0.3947,
+         0.6
+        ]
+       ],
+       [
+        -0.2353,
+        [
+         -0.3947,
+         0.6
+        ]
+       ],
+       [
+        -0.2353,
+        [
+         -0.3947,
+         0.6
+        ]
+       ]
+      ],
+      "shuf_comb0.75_minus_seq": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "comb0.75_real_minus_shuf": [
+       [
+        -0.2353,
+        [
+         -0.3947,
+         0.6
+        ]
+       ],
+       [
+        -0.2353,
+        [
+         -0.3947,
+         0.6
+        ]
+       ],
+       [
+        -0.2353,
+        [
+         -0.3947,
+         0.6
+        ]
+       ]
+      ]
+     }
+    },
+    "all": {
+     "own_humap_count": {
+      "n": 197,
+      "seq_acc": 0.9746,
+      "syn_correct": 55,
+      "syn_wrong": 46,
+      "syn_abstain": 96,
+      "syn_precision_when_decides": 0.5446,
+      "seq_acc_when_syn_decides": 0.9802,
+      "comb0.9_acc": 0.9594,
+      "comb0.9_minus_seq": -0.0152,
+      "comb0.9_minus_seq_ci95": [
+       -0.0542,
+       0.0
+      ],
+      "comb0.75_acc": 0.9289,
+      "comb0.75_minus_seq": -0.0457,
+      "comb0.75_minus_seq_ci95": [
+       -0.0829,
+       -0.0118
+      ],
+      "shuf_precision_when_decides": [
+       0.2857,
+       0.2727,
+       0.0667
+      ],
+      "shuf_decides": [
+       14,
+       11,
+       15
+      ],
+      "shuf_comb0.9_minus_seq": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "comb0.9_real_minus_shuf": [
+       [
+        -0.0152,
+        [
+         -0.0597,
+         0.0
+        ]
+       ],
+       [
+        -0.0152,
+        [
+         -0.0597,
+         0.0
+        ]
+       ],
+       [
+        -0.0152,
+        [
+         -0.0597,
+         0.0
+        ]
+       ]
+      ],
+      "shuf_comb0.75_minus_seq": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "comb0.75_real_minus_shuf": [
+       [
+        -0.0457,
+        [
+         -0.0816,
+         -0.0083
+        ]
+       ],
+       [
+        -0.0457,
+        [
+         -0.0816,
+         -0.0083
+        ]
+       ],
+       [
+        -0.0457,
+        [
+         -0.0816,
+         -0.0083
+        ]
+       ]
+      ]
+     },
+     "own_humap_cos": {
+      "n": 197,
+      "seq_acc": 0.9746,
+      "syn_correct": 65,
+      "syn_wrong": 53,
+      "syn_abstain": 79,
+      "syn_precision_when_decides": 0.5508,
+      "seq_acc_when_syn_decides": 0.9831,
+      "comb0.9_acc": 0.9543,
+      "comb0.9_minus_seq": -0.0203,
+      "comb0.9_minus_seq_ci95": [
+       -0.0945,
+       0.0123
+      ],
+      "comb0.75_acc": 0.9188,
+      "comb0.75_minus_seq": -0.0558,
+      "comb0.75_minus_seq_ci95": [
+       -0.1217,
+       -0.01
+      ],
+      "shuf_precision_when_decides": [
+       0.2857,
+       0.2727,
+       0.0625
+      ],
+      "shuf_decides": [
+       14,
+       11,
+       16
+      ],
+      "shuf_comb0.9_minus_seq": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "comb0.9_real_minus_shuf": [
+       [
+        -0.0203,
+        [
+         -0.0945,
+         0.0123
+        ]
+       ],
+       [
+        -0.0203,
+        [
+         -0.0945,
+         0.0123
+        ]
+       ],
+       [
+        -0.0203,
+        [
+         -0.0945,
+         0.0123
+        ]
+       ]
+      ],
+      "shuf_comb0.75_minus_seq": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "comb0.75_real_minus_shuf": [
+       [
+        -0.0558,
+        [
+         -0.1177,
+         -0.0065
+        ]
+       ],
+       [
+        -0.0558,
+        [
+         -0.1177,
+         -0.0065
+        ]
+       ],
+       [
+        -0.0558,
+        [
+         -0.1177,
+         -0.0065
+        ]
+       ]
+      ]
+     }
+    }
+   }
+  },
+  "abund": {
+   "set": "abund",
+   "n_candidates": 26049,
+   "n_covered": 5011,
+   "frac_covered": 0.1924,
+   "n_orth_covered": 1024,
+   "n_orth_total": 4485,
+   "n_par_covered": 3987,
+   "n_hard_pairs_covered": 1073,
+   "auc": {
+    "seq": {
+     "all": 0.7356,
+     "all_ci95": [
+      0.5212,
+      0.8559
+     ],
+     "hard": 0.679,
+     "hard_ci95": [
+      0.515,
+      0.783
+     ]
+    },
+    "abund": {
+     "all": 0.6763,
+     "all_ci95": [
+      0.6039,
+      0.7319
+     ],
+     "hard": 0.6887,
+     "hard_ci95": [
+      0.591,
+      0.7529
+     ],
+     "shuf_all": [
+      0.5024,
+      0.496,
+      0.506
+     ],
+     "shuf_hard": [
+      0.4768,
+      0.5341,
+      0.5291
+     ]
+    }
+   },
+   "queries": {
+    "hard": {
+     "abund": {
+      "n": 122,
+      "seq_acc": 0.5574,
+      "syn_correct": 39,
+      "syn_wrong": 77,
+      "syn_abstain": 6,
+      "syn_precision_when_decides": 0.3362,
+      "seq_acc_when_syn_decides": 0.5345,
+      "comb0.9_acc": 0.4262,
+      "comb0.9_minus_seq": -0.1311,
+      "comb0.9_minus_seq_ci95": [
+       -0.2462,
+       -0.0463
+      ],
+      "comb0.75_acc": 0.3852,
+      "comb0.75_minus_seq": -0.1721,
+      "comb0.75_minus_seq_ci95": [
+       -0.3106,
+       0.0385
+      ],
+      "shuf_precision_when_decides": [
+       0.281,
+       0.2295,
+       0.2869
+      ],
+      "shuf_decides": [
+       121,
+       122,
+       122
+      ],
+      "shuf_comb0.9_minus_seq": [
+       -0.2131,
+       -0.2459,
+       -0.2541
+      ],
+      "comb0.9_real_minus_shuf": [
+       [
+        0.082,
+        [
+         -0.0299,
+         0.1942
+        ]
+       ],
+       [
+        0.1148,
+        [
+         -0.0121,
+         0.2043
+        ]
+       ],
+       [
+        0.123,
+        [
+         -0.0148,
+         0.2246
+        ]
+       ]
+      ],
+      "shuf_comb0.75_minus_seq": [
+       -0.2377,
+       -0.2623,
+       -0.2213
+      ],
+      "comb0.75_real_minus_shuf": [
+       [
+        0.0656,
+        [
+         -0.1333,
+         0.2254
+        ]
+       ],
+       [
+        0.0902,
+        [
+         -0.0189,
+         0.179
+        ]
+       ],
+       [
+        0.0492,
+        [
+         -0.129,
+         0.1841
+        ]
+       ]
+      ]
+     }
+    },
+    "all": {
+     "abund": {
+      "n": 931,
+      "seq_acc": 0.942,
+      "syn_correct": 377,
+      "syn_wrong": 548,
+      "syn_abstain": 6,
+      "syn_precision_when_decides": 0.4076,
+      "seq_acc_when_syn_decides": 0.9416,
+      "comb0.9_acc": 0.9248,
+      "comb0.9_minus_seq": -0.0172,
+      "comb0.9_minus_seq_ci95": [
+       -0.0367,
+       -0.0032
+      ],
+      "comb0.75_acc": 0.8518,
+      "comb0.75_minus_seq": -0.0902,
+      "comb0.75_minus_seq_ci95": [
+       -0.134,
+       -0.0387
+      ],
+      "shuf_precision_when_decides": [
+       0.3065,
+       0.276,
+       0.3115
+      ],
+      "shuf_decides": [
+       930,
+       931,
+       931
+      ],
+      "shuf_comb0.9_minus_seq": [
+       -0.0279,
+       -0.0322,
+       -0.0333
+      ],
+      "comb0.9_real_minus_shuf": [
+       [
+        0.0107,
+        [
+         -0.004,
+         0.0237
+        ]
+       ],
+       [
+        0.015,
+        [
+         -0.0012,
+         0.0276
+        ]
+       ],
+       [
+        0.0161,
+        [
+         -0.0019,
+         0.0333
+        ]
+       ]
+      ],
+      "shuf_comb0.75_minus_seq": [
+       -0.1063,
+       -0.1106,
+       -0.1085
+      ],
+      "comb0.75_real_minus_shuf": [
+       [
+        0.0161,
+        [
+         -0.0199,
+         0.0553
+        ]
+       ],
+       [
+        0.0204,
+        [
+         -0.0016,
+         0.0365
+        ]
+       ],
+       [
+        0.0183,
+        [
+         -0.0104,
+         0.045
+        ]
+       ]
+      ]
+     }
+    }
+   }
+  }
+ },
+ "wall_s": 100.3,
+ "manifest": {
+  "git_commit": "ef72d92a5612528faa6a4b1233e17f46c99f1d7e",
+  "scripts_dirty": true,
+  "script": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/l2_network_wt/scripts/L2_network_standalone.py",
+  "script_md5": "74eda843546e83b6308d4e2bfea667bd",
+  "config": {
+   "channels": {
+    "humap_only": "humap_only",
+    "own_humap": "own_humap"
+   },
+   "primary": "own_humap",
+   "seeds": [
+    11,
+    23,
+    47
+   ],
+   "hard": 0.9,
+   "min_nodes": 100
+  },
+  "inputs": {
+   "labels": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/S5/refog_pair_labels.parquet",
+   "seq": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/S7/hits.tsv",
+   "anchors": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/ob_final/main_accurate_go/pairs.tsv",
+   "anchors_md5": "cc26e400f9ab2cf3dcbb3f2a22db978e",
+   "families": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/ob_final/main_accurate_go/stages/scores/families_final.npy",
+   "edges": {
+    "abund_Caenorhabditis_elegans.parquet": "183d1366bdca14c6317d613368ca2b08",
+    "abund_Canis_familiaris.parquet": "32e8ab914bf7283d81cda8a53fb6096e",
+    "abund_Danio_rerio.parquet": "3ff64cfb38c263155d291b9ce5757a76",
+    "abund_Drosophila_melanogaster.parquet": "15e1d7d4997e5ffd07cecdd8f9ccd376",
+    "abund_Gallus_gallus.parquet": "d1fb41f1080f27dcfa0d69bfd65e5574",
+    "abund_Homo_sapiens.parquet": "df3c16fe4975c41d0f27a60cbc8a324f",
+    "abund_Mus_musculus.parquet": "27af029e8d8551ff03f5321e8c5d1019",
+    "abund_Pan_troglodytes.parquet": "4c4fefd06d959bb052311a64624ef1b7",
+    "abund_Rattus_norvegicus.parquet": "580896735265955a0bb5ff89cc601bdf",
+    "edges_Caenorhabditis_elegans.parquet": "2abf9d6853862dfa1eafa4148010b3f2",
+    "edges_Canis_familiaris.parquet": "7316cdd433e14b169efba4afa7b7e21e",
+    "edges_Ciona_intestinalis.parquet": "50db73f447a73d0c01d9f4083da518a5",
+    "edges_Danio_rerio.parquet": "519f4c8fd2802bc4212b64aa872c294b",
+    "edges_Drosophila_melanogaster.parquet": "4deee83252e481c2a75c7be71162596d",
+    "edges_Gallus_gallus.parquet": "c5c9d52c6ec579fdd2a74d1bb8e758d2",
+    "edges_Homo_sapiens.parquet": "3c1dec2eb40d736bf4dddaa9413882cf",
+    "edges_Monodelphis_domestica.parquet": "98bcdb692082e6bcbc8083a22fd55aac",
+    "edges_Mus_musculus.parquet": "ec581af26515c09bc399f8911ee006db",
+    "edges_Pan_troglodytes.parquet": "7cb4188dde1e16d5c02b938fa45e7b3f",
+    "edges_Rattus_norvegicus.parquet": "87d6417b46b52bebb95f507919304bd1",
+    "edges_Tetraodon_nigroviridis.parquet": "e202e3fbe48238db319fb34fe9f58d08"
+   },
+   "string_md5s": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/data/extra/l2_network/string/md5sums.txt",
+   "paxdb_md5s": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/data/extra/l2_network/paxdb/md5sums.txt"
+  },
+  "runtime_s": 100.7,
+  "host": "dnagpu004"
+ }
+}

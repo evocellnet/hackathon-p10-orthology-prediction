@@ -1,0 +1,57 @@
+{
+ "git_commit_results_produced_from": {
+  "standalone.json": "ef72d92 (clean)",
+  "standalone_humap.json": "ef72d92 + L2_RUN=humap edit (committed in cf33fb3)",
+  "standalone_treefam_dev.json": "cf33fb3 script as committed",
+  "error_coverage.json": "cf33fb3",
+  "treefam_bound.json": "cf33fb3",
+  "treefam_rescue_precision.json": "this commit"
+ },
+ "scripts": {
+  "L2_network_error_coverage.py": "872ef7c1b1d9ca4b4b8d2b75b4f0896b",
+  "L2_network_prep.py": "87915f2718bb0ca47182069171367dca",
+  "L2_network_rescue_precision.py": "adaa1ebc62cc237fa49d5721648d4930",
+  "L2_network_standalone.py": "74eda843546e83b6308d4e2bfea667bd",
+  "L2_network_treefam.py": "d6e29f52bd3e07ca8126f0a133135e41",
+  "L2_network_treefam_bound.py": "ceaf7236225521b043c76c9a3ef2ffa6"
+ },
+ "results": {
+  "error_coverage.json": "5a7dfa76681b800d006c4dd618898621",
+  "mapping_coverage.json": "ea9aefcf5636ddede95fb0a0a01429a0",
+  "standalone.json": "f0d5e71f4a2f7365306151c15c9a252a",
+  "standalone_humap.json": "f3cf5d430489c6e6f3f7ad6e4e8aa857",
+  "standalone_treefam_dev.json": "79200a24680469a7219ac81035356366",
+  "treefam_bound.json": "c6fb714fab29fb7ef4ec485663c0b6ec",
+  "treefam_rescue_precision.json": "3043f69c8a33565ba73f7f6084318321"
+ },
+ "inputs": {
+  "orthobench_labels": "work/S5/refog_pair_labels.parquet",
+  "orthobench_seq": "work/S7/hits.tsv",
+  "orthobench_frozen_run": "work/ob_final/main_accurate_go (freeze-v1 accurate + gene order)",
+  "qfo_frozen_run": "work/qfo2022_det/cand2_accurate",
+  "treefam_split": "splits/treefamA_split.json",
+  "data_md5s": "results/l2_network/data_md5/"
+ },
+ "config": {
+  "primary_channel": "own = STRING experiments>=150 OR coexpression>=400",
+  "score": "interolog count (anchors = frozen 1:1, family-excluded)",
+  "seeds": [
+   11,
+   23,
+   47
+  ],
+  "hard_ratio": 0.9,
+  "min_nodes": 100
+ },
+ "runtime_s": {
+  "prep": 313,
+  "standalone_orthobench": 195,
+  "standalone_humap": 100,
+  "standalone_treefam": 581,
+  "diagnostics": 30
+ },
+ "cpu_h_total": 0.4,
+ "gpu_h": 0,
+ "threads": "1-4 (DIAMOND -p 4)",
+ "host": "dnagpu004"
+}

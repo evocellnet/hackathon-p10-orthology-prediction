@@ -1,0 +1,80 @@
+{
+ "n_truth": 19146,
+ "counts": {
+  "TN": 13887,
+  "TP": 3532,
+  "FN": 953,
+  "FP": 774
+ },
+ "own": {
+  "TP": {
+   "n": 3532,
+   "evaluable": 159,
+   "count_gt0": 75
+  },
+  "FN": {
+   "n": 953,
+   "evaluable": 21,
+   "count_gt0": 7
+  },
+  "FP": {
+   "n": 774,
+   "evaluable": 39,
+   "count_gt0": 32
+  },
+  "TN": {
+   "n": 13887,
+   "evaluable": 458,
+   "count_gt0": 92
+  },
+  "oracle_upper_bound": {
+   "fixable_FN": 7,
+   "fixable_FP": 7,
+   "micro_F1_off": 0.8035,
+   "micro_F1_if_all_fixed": 0.8051,
+   "delta": 0.0016
+  },
+  "frac_evaluable_by_class": {
+   "FN": 0.022,
+   "FP": 0.0504,
+   "TN": 0.033,
+   "TP": 0.045
+  }
+ },
+ "db400_CIRCULAR": {
+  "TP": {
+   "n": 3532,
+   "evaluable": 856,
+   "count_gt0": 846
+  },
+  "FN": {
+   "n": 953,
+   "evaluable": 183,
+   "count_gt0": 175
+  },
+  "FP": {
+   "n": 774,
+   "evaluable": 179,
+   "count_gt0": 172
+  },
+  "TN": {
+   "n": 13887,
+   "evaluable": 1955,
+   "count_gt0": 1261
+  },
+  "oracle_upper_bound": {
+   "fixable_FN": 175,
+   "fixable_FP": 7,
+   "micro_F1_off": 0.8035,
+   "micro_F1_if_all_fixed": 0.8275,
+   "delta": 0.024
+  },
+  "frac_evaluable_by_class": {
+   "FN": 0.192,
+   "FP": 0.2313,
+   "TN": 0.1408,
+   "TP": 0.2424
+  }
+ },
+ "wall_s": 11.7
+}

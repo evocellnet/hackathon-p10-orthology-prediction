@@ -1,0 +1,424 @@
+{
+ "Ciona_intestinalis": {
+  "n_ob": 16671,
+  "n_string": 16671,
+  "string_mapped_by": {
+   "id": 16671,
+   "md5": 0,
+   "gene": 0,
+   "none": 0
+  },
+  "ob_mapped": 16671,
+  "ob_mapped_frac": 1.0,
+  "edges": {
+   "n_edges_exp_ge150": 23,
+   "n_edges_exp_ge400": 1,
+   "n_edges_exp_ge700": 1,
+   "n_edges_coexp_ge150": 0,
+   "n_edges_coexp_ge400": 0,
+   "n_edges_coexp_ge700": 0,
+   "n_edges_db_ge150": 17772,
+   "n_edges_db_ge400": 16325,
+   "n_edges_db_ge700": 6441,
+   "n_nodes_exp_ge400": 2,
+   "n_nodes_coexp_ge400": 0,
+   "n_nodes_db_ge400": 2847,
+   "n_nodes_expcoexp_ge400": 2,
+   "n_edges_expcoexp_ge400": 1,
+   "wall_s": 2.5
+  },
+  "abundance": null,
+  "wall_s": 3.4
+ },
+ "Caenorhabditis_elegans": {
+  "n_ob": 20191,
+  "n_string": 20177,
+  "string_mapped_by": {
+   "id": 0,
+   "md5": 20165,
+   "gene": 12,
+   "none": 0
+  },
+  "ob_mapped": 20177,
+  "ob_mapped_frac": 0.9993,
+  "edges": {
+   "n_edges_exp_ge150": 57041,
+   "n_edges_exp_ge400": 2929,
+   "n_edges_exp_ge700": 613,
+   "n_edges_coexp_ge150": 1473674,
+   "n_edges_coexp_ge400": 236396,
+   "n_edges_coexp_ge700": 7049,
+   "n_edges_db_ge150": 58526,
+   "n_edges_db_ge400": 57623,
+   "n_edges_db_ge700": 11567,
+   "n_nodes_exp_ge400": 2054,
+   "n_nodes_coexp_ge400": 6860,
+   "n_nodes_db_ge400": 4757,
+   "n_nodes_expcoexp_ge400": 7893,
+   "n_edges_expcoexp_ge400": 238636,
+   "wall_s": 12.3
+  },
+  "abundance": {
+   "paxdb_file": "6239-WHOLE_ORGANISM-integrated.txt",
+   "n_paxdb": 13054,
+   "n_ob_with_abundance": 12622,
+   "n_pos": 12622
+  },
+  "wall_s": 14.1
+ },
+ "Canis_familiaris": {
+  "n_ob": 20257,
+  "n_string": 20199,
+  "string_mapped_by": {
+   "id": 20199,
+   "md5": 0,
+   "gene": 0,
+   "none": 0
+  },
+  "ob_mapped": 20199,
+  "ob_mapped_frac": 0.9971,
+  "edges": {
+   "n_edges_exp_ge150": 2966,
+   "n_edges_exp_ge400": 2925,
+   "n_edges_exp_ge700": 2918,
+   "n_edges_coexp_ge150": 110920,
+   "n_edges_coexp_ge400": 56,
+   "n_edges_coexp_ge700": 0,
+   "n_edges_db_ge150": 135567,
+   "n_edges_db_ge400": 135435,
+   "n_edges_db_ge700": 28230,
+   "n_nodes_exp_ge400": 118,
+   "n_nodes_coexp_ge400": 30,
+   "n_nodes_db_ge400": 8952,
+   "n_nodes_expcoexp_ge400": 148,
+   "n_edges_expcoexp_ge400": 2981,
+   "wall_s": 12.4
+  },
+  "abundance": {
+   "paxdb_file": "9615-GPM_2012_09_Canis_familiaris.txt",
+   "n_paxdb": 4303,
+   "n_ob_with_abundance": 4303,
+   "n_pos": 4303
+  },
+  "wall_s": 14.6
+ },
+ "Danio_rerio": {
+  "n_ob": 30313,
+  "n_string": 25402,
+  "string_mapped_by": {
+   "id": 25402,
+   "md5": 0,
+   "gene": 0,
+   "none": 0
+  },
+  "ob_mapped": 25402,
+  "ob_mapped_frac": 0.838,
+  "edges": {
+   "n_edges_exp_ge150": 3873,
+   "n_edges_exp_ge400": 3331,
+   "n_edges_exp_ge700": 3314,
+   "n_edges_coexp_ge150": 299336,
+   "n_edges_coexp_ge400": 343,
+   "n_edges_coexp_ge700": 0,
+   "n_edges_db_ge150": 174907,
+   "n_edges_db_ge400": 169889,
+   "n_edges_db_ge700": 28481,
+   "n_nodes_exp_ge400": 178,
+   "n_nodes_coexp_ge400": 238,
+   "n_nodes_db_ge400": 10448,
+   "n_nodes_expcoexp_ge400": 390,
+   "n_edges_expcoexp_ge400": 3612,
+   "wall_s": 14.5
+  },
+  "abundance": {
+   "paxdb_file": "7955-WHOLE_ORGANISM-integrated.txt",
+   "n_paxdb": 14998,
+   "n_ob_with_abundance": 11887,
+   "n_pos": 11887
+  },
+  "wall_s": 17.1
+ },
+ "Drosophila_melanogaster": {
+  "n_ob": 13947,
+  "n_string": 13947,
+  "string_mapped_by": {
+   "id": 13947,
+   "md5": 0,
+   "gene": 0,
+   "none": 0
+  },
+  "ob_mapped": 13947,
+  "ob_mapped_frac": 1.0,
+  "edges": {
+   "n_edges_exp_ge150": 44671,
+   "n_edges_exp_ge400": 14632,
+   "n_edges_exp_ge700": 8816,
+   "n_edges_coexp_ge150": 618763,
+   "n_edges_coexp_ge400": 54674,
+   "n_edges_coexp_ge700": 11240,
+   "n_edges_db_ge150": 78157,
+   "n_edges_db_ge400": 76801,
+   "n_edges_db_ge700": 20666,
+   "n_nodes_exp_ge400": 4216,
+   "n_nodes_coexp_ge400": 5794,
+   "n_nodes_db_ge400": 5563,
+   "n_nodes_expcoexp_ge400": 8228,
+   "n_edges_expcoexp_ge400": 66698,
+   "wall_s": 6.2
+  },
+  "abundance": {
+   "paxdb_file": "7227-WHOLE_ORGANISM-integrated.txt",
+   "n_paxdb": 13284,
+   "n_ob_with_abundance": 12656,
+   "n_pos": 12656
+  },
+  "wall_s": 8.1
+ },
+ "Gallus_gallus": {
+  "n_ob": 16878,
+  "n_string": 16778,
+  "string_mapped_by": {
+   "id": 16778,
+   "md5": 0,
+   "gene": 0,
+   "none": 0
+  },
+  "ob_mapped": 16778,
+  "ob_mapped_frac": 0.9941,
+  "edges": {
+   "n_edges_exp_ge150": 406,
+   "n_edges_exp_ge400": 154,
+   "n_edges_exp_ge700": 128,
+   "n_edges_coexp_ge150": 110271,
+   "n_edges_coexp_ge400": 856,
+   "n_edges_coexp_ge700": 64,
+   "n_edges_db_ge150": 108032,
+   "n_edges_db_ge400": 104126,
+   "n_edges_db_ge700": 20605,
+   "n_nodes_exp_ge400": 133,
+   "n_nodes_coexp_ge400": 344,
+   "n_nodes_db_ge400": 7668,
+   "n_nodes_expcoexp_ge400": 465,
+   "n_edges_expcoexp_ge400": 1006,
+   "wall_s": 6.9
+  },
+  "abundance": {
+   "paxdb_file": "9031-WHOLE_ORGANISM-integrated.txt",
+   "n_paxdb": 12266,
+   "n_ob_with_abundance": 8387,
+   "n_pos": 8387
+  },
+  "wall_s": 8.6
+ },
+ "Homo_sapiens": {
+  "n_ob": 23485,
+  "n_string": 19699,
+  "string_mapped_by": {
+   "id": 19699,
+   "md5": 0,
+   "gene": 0,
+   "none": 0
+  },
+  "ob_mapped": 19699,
+  "ob_mapped_frac": 0.8388,
+  "edges": {
+   "n_edges_exp_ge150": 470740,
+   "n_edges_exp_ge400": 92885,
+   "n_edges_exp_ge700": 51501,
+   "n_edges_coexp_ge150": 409136,
+   "n_edges_coexp_ge400": 29704,
+   "n_edges_coexp_ge700": 6576,
+   "n_edges_db_ge150": 222588,
+   "n_edges_db_ge400": 218819,
+   "n_edges_db_ge700": 51919,
+   "n_nodes_exp_ge400": 13079,
+   "n_nodes_coexp_ge400": 6382,
+   "n_nodes_db_ge400": 11340,
+   "n_nodes_expcoexp_ge400": 14393,
+   "n_edges_expcoexp_ge400": 116792,
+   "wall_s": 19.9
+  },
+  "abundance": {
+   "paxdb_file": "9606-WHOLE_ORGANISM-integrated.txt",
+   "n_paxdb": 19338,
+   "n_ob_with_abundance": 19007,
+   "n_pos": 19007
+  },
+  "wall_s": 27.7
+ },
+ "Monodelphis_domestica": {
+  "n_ob": 21384,
+  "n_string": 21380,
+  "string_mapped_by": {
+   "id": 21380,
+   "md5": 0,
+   "gene": 0,
+   "none": 0
+  },
+  "ob_mapped": 21380,
+  "ob_mapped_frac": 0.9998,
+  "edges": {
+   "n_edges_exp_ge150": 4,
+   "n_edges_exp_ge400": 4,
+   "n_edges_exp_ge700": 4,
+   "n_edges_coexp_ge150": 0,
+   "n_edges_coexp_ge400": 0,
+   "n_edges_coexp_ge700": 0,
+   "n_edges_db_ge150": 67910,
+   "n_edges_db_ge400": 54670,
+   "n_edges_db_ge700": 21810,
+   "n_nodes_exp_ge400": 4,
+   "n_nodes_coexp_ge400": 0,
+   "n_nodes_db_ge400": 6838,
+   "n_nodes_expcoexp_ge400": 4,
+   "n_edges_expcoexp_ge400": 4,
+   "wall_s": 10.3
+  },
+  "abundance": null,
+  "wall_s": 12.0
+ },
+ "Mus_musculus": {
+  "n_ob": 22866,
+  "n_string": 21840,
+  "string_mapped_by": {
+   "id": 21840,
+   "md5": 0,
+   "gene": 0,
+   "none": 0
+  },
+  "ob_mapped": 21840,
+  "ob_mapped_frac": 0.9551,
+  "edges": {
+   "n_edges_exp_ge150": 62183,
+   "n_edges_exp_ge400": 12801,
+   "n_edges_exp_ge700": 9754,
+   "n_edges_coexp_ge150": 405348,
+   "n_edges_coexp_ge400": 23498,
+   "n_edges_coexp_ge700": 4732,
+   "n_edges_db_ge150": 206374,
+   "n_edges_db_ge400": 204765,
+   "n_edges_db_ge700": 63791,
+   "n_nodes_exp_ge400": 3400,
+   "n_nodes_coexp_ge400": 5933,
+   "n_nodes_db_ge400": 11609,
+   "n_nodes_expcoexp_ge400": 8038,
+   "n_edges_expcoexp_ge400": 33333,
+   "wall_s": 18.0
+  },
+  "abundance": {
+   "paxdb_file": "10090-WHOLE_ORGANISM-integrated.txt",
+   "n_paxdb": 19871,
+   "n_ob_with_abundance": 19351,
+   "n_pos": 19351
+  },
+  "wall_s": 21.9
+ },
+ "Pan_troglodytes": {
+  "n_ob": 23534,
+  "n_string": 23302,
+  "string_mapped_by": {
+   "id": 23302,
+   "md5": 0,
+   "gene": 0,
+   "none": 0
+  },
+  "ob_mapped": 23302,
+  "ob_mapped_frac": 0.9901,
+  "edges": {
+   "n_edges_exp_ge150": 850,
+   "n_edges_exp_ge400": 850,
+   "n_edges_exp_ge700": 850,
+   "n_edges_coexp_ge150": 0,
+   "n_edges_coexp_ge400": 0,
+   "n_edges_coexp_ge700": 0,
+   "n_edges_db_ge150": 101348,
+   "n_edges_db_ge400": 77879,
+   "n_edges_db_ge700": 23749,
+   "n_nodes_exp_ge400": 164,
+   "n_nodes_coexp_ge400": 0,
+   "n_nodes_db_ge400": 7179,
+   "n_nodes_expcoexp_ge400": 164,
+   "n_edges_expcoexp_ge400": 850,
+   "wall_s": 13.1
+  },
+  "abundance": {
+   "paxdb_file": "9598-Chimp_iBAQ_Khan_2013.txt",
+   "n_paxdb": 2893,
+   "n_ob_with_abundance": 2827,
+   "n_pos": 2827
+  },
+  "wall_s": 15.9
+ },
+ "Rattus_norvegicus": {
+  "n_ob": 22250,
+  "n_string": 22237,
+  "string_mapped_by": {
+   "id": 22237,
+   "md5": 0,
+   "gene": 0,
+   "none": 0
+  },
+  "ob_mapped": 22237,
+  "ob_mapped_frac": 0.9994,
+  "edges": {
+   "n_edges_exp_ge150": 12867,
+   "n_edges_exp_ge400": 7803,
+   "n_edges_exp_ge700": 7479,
+   "n_edges_coexp_ge150": 304213,
+   "n_edges_coexp_ge400": 3159,
+   "n_edges_coexp_ge700": 691,
+   "n_edges_db_ge150": 194172,
+   "n_edges_db_ge400": 189796,
+   "n_edges_db_ge700": 55338,
+   "n_nodes_exp_ge400": 754,
+   "n_nodes_coexp_ge400": 953,
+   "n_nodes_db_ge400": 11216,
+   "n_nodes_expcoexp_ge400": 1616,
+   "n_edges_expcoexp_ge400": 10383,
+   "wall_s": 16.9
+  },
+  "abundance": {
+   "paxdb_file": "10116-WHOLE_ORGANISM-integrated.txt",
+   "n_paxdb": 16729,
+   "n_ob_with_abundance": 14467,
+   "n_pos": 14467
+  },
+  "wall_s": 19.4
+ },
+ "Tetraodon_nigroviridis": {
+  "n_ob": 19602,
+  "n_string": 19602,
+  "string_mapped_by": {
+   "id": 19602,
+   "md5": 0,
+   "gene": 0,
+   "none": 0
+  },
+  "ob_mapped": 19602,
+  "ob_mapped_frac": 1.0,
+  "edges": {
+   "n_edges_exp_ge150": 0,
+   "n_edges_exp_ge400": 0,
+   "n_edges_exp_ge700": 0,
+   "n_edges_coexp_ge150": 0,
+   "n_edges_coexp_ge400": 0,
+   "n_edges_coexp_ge700": 0,
+   "n_edges_db_ge150": 17705,
+   "n_edges_db_ge400": 11018,
+   "n_edges_db_ge700": 7991,
+   "n_nodes_exp_ge400": 0,
+   "n_nodes_coexp_ge400": 0,
+   "n_nodes_db_ge400": 2280,
+   "n_nodes_expcoexp_ge400": 0,
+   "n_edges_expcoexp_ge400": 0,
+   "wall_s": 8.2
+  },
+  "abundance": null,
+  "wall_s": 9.2
+ },
+ "humap3_Homo_sapiens": {
+  "n_pairs_file": 159451,
+  "n_pairs_mapped": 162088,
+  "n_nodes": 13714
+ }
+}
