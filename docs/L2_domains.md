@@ -156,3 +156,142 @@ AUC J **0.979 [0.839, 0.995]** vs sequence 0.708; shuffled 0.501 / 0.498 / 0.499
 4. Expectation for step (b), stated before any merge arm was run: H3 (re-ranking) should be null; H2/H4 can only act
    through deep/between-orthogroup decisions; the primary metric (TreeFam-A dev pairs, all *within* TreeFam families)
    is mostly blind to between-family fusions, so a null primary result is the most likely outcome.
+
+## 3. Methods (step b)
+
+- **Code** (branch `l2-domains`): `ancestra/domains.py` (domtbl parsing with overlap resolution and clan mapping;
+  `DomainArch`: gene → architecture code, shuffled control, per-node unit architecture = most frequent architecture of
+  the unit's annotated members, vectorised over the merge's member CSR); `ancestra/merge.py`: `MergeConfig.arch_mode`
+  (`off` default, omitted from `key()` at its default so stage hashes are unchanged), `arch_lam`, `arch_tol`, and an
+  `arch=` argument of `run_merge` → `decide_node` (both passes of `run_merge_constrained` receive it through `**kw`).
+  `bonus` adds `arch_lam·score·J` to R1's selection score inside the synteny window; `gate` adds mutual-best seeds at
+  `arch_tol` whose two units have the same architecture; `gate_deep` does so only at nodes flagged deep; `veto` drops
+  mutual-best seeds with unit J = 0. With `arch_mode="off"` (or `arch=None`) the code path is unchanged:
+  `tests/test_domains.py::test_run_merge_arch_off_identical`, and the OrthoBench/QfO `off` arms reproduce the frozen
+  dev numbers exactly (OrthoBench OG-F 79.69 = rescue R0; QfO TP/FP/FN/TN 8,607/722/5,386/10,698 = runs.tsv B3).
+  `pytest -q`: 157 passed, 5 skipped.
+- **Drivers:** `scripts/L2d_merge_arm.py` (one arm on cached stages; constrained two-pass synteny merge + veto + R3
+  choice, exactly as `pipeline.s_merge`; QfO `fast`, OrthoBench `accurate` with 2 FastTree workers),
+  `scripts/L2d_queue.sh`, `scripts/L2d_analyze.py` (paired bootstraps, keep rule). Each arm JSON in
+  `results/l2_domains/arms/` carries its manifest (git commit, config key, inputs, wall/CPU time).
+- **Annotated scope in the merge:** QfO: all proteins of the 276 S0 families that hold a TreeFam-A dev gene (446,439;
+  Pfam architecture for 411,523); OrthoBench: all proteins of the 37 dev-holding S0 families (56,108 with architecture).
+  Proteins outside the scope have no architecture; the arms then do nothing for their units, and the merge is
+  family-local, so dev metrics depend only on the annotated families.
+
+## 4. Results, step (b) (`results/l2_domains/integration.json`, `integration_table.md`, `arms/*.json`)
+
+Primary: TreeFam-A dev pair F1 (raw pair records), Δ(real − off) with a paired bootstrap over the 359 dev families
+(B=2000, seed 11). Shuffled = architectures permuted within species among annotated genes, seeds 11/23/47.
+QfO base `fast` (off: TPR 0.6151 / PPV 0.9226 / F1 0.7381); OrthoBench base `accurate` (off: OG-F 79.69, micro pair
+F1 0.8035, macro 0.8026).
+
+| arm | ΔF1 [95% CI] (primary) | F1 shuffled 11/23/47 | real − shuf (spread) | ΔTPR [CI] | ΔPPV [CI] | OB OG-F (shuffled) | OB pair F1 Δ [CI] | events (real) | keep? |
+|---|---|---|---|---|---|---|---|---|---|
+| bonus | −0.0017 [−0.0188, +0.0134] | 0.7376 / 0.7291 / 0.7310 | +0.0038 (0.0085) | −0.0032 [−0.024, +0.016] | +0.0020 [−0.004, +0.009] | **76.67** (79.35 / 79.45 / 81.43) | −0.0085 [−0.020, +0.001] | 602,249 bonused edges | no (CI, shuffle, OG-F) |
+| gate | **+0.0182 [+0.0032, +0.0336]** | 0.7421 / 0.7321 / 0.7366 | +0.0194 (0.0100) | +0.0383 [+0.014, +0.064] | **−0.0250 [−0.046, −0.006]** | **76.82** (80.12 / 78.75 / 78.75) | −0.0139 [−0.027, +0.000] | 116,609 seeds added | **no** (PPV guard, OG-F guard) |
+| gate_deep | +0.0103 [−0.0147, +0.0329] | 0.7410 / 0.7294 / 0.7376 | +0.0124 (0.0116) | +0.0302 [+0.013, +0.050] | −0.0319 [−0.085, +0.002] | – (no deep node) | – | 30,297 seeds added | no (CI, PPV guard) |
+| veto | +0.0013 [+0.0000, +0.0044] | 0.6791 / 0.6822 / 0.6766 | +0.0601 (0.0057) | +0.0017 [0, +0.006] | +0.0002 [0, +0.001] | 79.69 (71.59 / 72.42 / 68.79) | +0.0000 | 1,923 seeds vetoed (OB 61) | no (CI lower bound = 0; one family) |
+
+Official-formula TreeFam-A dev values (pseudocount, /2; comparable to `results/core_v0_qfo/runs.tsv`): off .6151/.9224,
+bonus .6118/.9244, gate .6534/.8974, gate_deep .6452/.8905, veto .6168/.9226.
+
+**Post hoc (labelled; not pre-registered, run after the real arms to interpret the gate):** the same relaxation
+*without* the architecture condition (`results/l2_domains/posthoc/`).
+
+| arm | TF-A dev TPR / PPV / F1 | OB OG-F / pair F1 |
+|---|---|---|
+| off | .6151 / .9226 / .7381 | 79.69 / .8035 |
+| ungated tol 0.8 (all nodes) | .6477 / .8869 / .7486 | 71.25 / .7959 |
+| **gate** (tol 0.8 only if same architecture) | .6534 / .8976 / .7563 | 76.82 / .7896 |
+| ungated deep_tol 0.8 | .6499 / .8754 / .7460 | – |
+| gate_deep | .6453 / .8907 / .7484 | – |
+
+**Findings.**
+1. **No arm passes the keep rule.** The only arm with a primary CI above 0 is `gate` (+0.018 F1, TPR +0.038), and it
+   breaks two guards: TreeFam-A dev PPV −0.025 (rule: ≥ −0.01) and OrthoBench dev OG-F −2.87 (rule: ≥ −1.0). On the QfO
+   Pareto plot it is dominated by an existing sequence-only arm (C2, accurate + so_struct + deep absorption: .6548/.9136 official formula,
+   `results/core_v0_qfo/runs.tsv`), although that arm is on the accurate base.
+2. **Architecture carries some information at the merge, but not enough.** Gated relaxation dominates ungated
+   relaxation on QfO (TPR +0.006 *and* PPV +0.011) and costs far less OG-F on OrthoBench (76.8 vs 71.2). So requiring
+   the same architecture removes part of the false seeds that a looser tolerance lets in. It does not remove enough of
+   them: within an orthogroup, paralogs share the architecture as often as orthologs (§2), so the gate admits paralog
+   seeds too.
+3. **Re-ranking (`bonus`, H3) is null on QfO and harmful on OrthoBench** (OG-F −3.0, pair F1 −0.0085 with CI touching 0),
+   as predicted by the standalone null within orthogroups. Shuffled bonuses are mostly harmless (OG-F 79.4–81.4), so the
+   harm comes from real architectures pulling partner choice towards same-architecture paralogs.
+4. **Veto (H4) almost never fires with real architectures** (1,923 of ~596k QfO seeds, 61 of ~169k OrthoBench seeds; one
+   TreeFam family changes, +24 TP). Its shuffled control is not a useful null: random architectures produce J = 0 for
+   most seeds and veto 333k of them (TPR −0.08), so "real beats shuffled" is trivially met. Pre-registered as is; noted
+   as a design weakness of the control for veto-type rules.
+5. The OrthoBench and QfO `off` arms reproduce the frozen dev numbers exactly, and every arm leaves the frozen presets
+   untouched (`arch_mode="off"` default).
+
+## 5. Verdict
+
+**Negative result for the merge; keep as a diagnostic.** Pfam domain architecture separates orthogroups from each
+other (same vs different RefOG: AUC 0.98 vs sequence 0.71), but it does not separate orthologs from in-paralogs inside
+an orthogroup (OrthoBench within-RefOG AUC 0.54, hard 0.49; TreeFam-A dev 0.49), which is the decision the level-
+synchronous merge actually makes. None of the four pre-registered integrations (R1 bonus, architecture-gated relaxed
+tolerance at all or deep nodes, R1 veto) passes the keep rule; the gate buys recall (+0.038 TPR, CI > 0) at a precision
+cost that breaks both guards. No frozen config is written (no arm passed), so there is nothing for a test agent to run.
+
+Possible later use (not tested here; would need a new pre-registration): the strong between-orthogroup signal fits the
+S0 side (family fusion guard, e.g. the 3Di rescue that fused RefOG010, or Leiden splitting of giant components), not the
+merge.
+
+## 6. Cost
+
+| item | CPU-h | wall | notes |
+|---|---|---|---|
+| Pfam stage 1 (61,711 proteins, 41 M aa) | 4.9 | 30 min | 8 × hmmsearch --cpu 1 |
+| Pfam stage 2 (442,858 proteins, 228 M aa) | 26.4 | 3.2 h | 6 processes |
+| merge arms (30 pre-registered + 3 post hoc + 1 duplicate killed) | ≈ 16.5 | – | QfO fast 0.11 CPU-h/run; OrthoBench accurate ≈ 1.0 CPU-h/run at 2 FastTree workers |
+| standalone benchmark | 0.02 | 55 s | |
+| total | ≈ 48 | ~6 h compute wall (overlapping) | no GPU |
+
+Annotation dominates: ≈ 0.22 CPU-s per protein, i.e. ≈ 60 CPU-h for all 988,778 QfO 2022 proteins and ≈ 15 CPU-h for the
+251,378 OrthoBench proteins, which is ~4× the whole accurate OrthoBench pipeline (3.9 CPU-h, RESEARCH_TREE 8.3). The merge
+overhead of the layer itself is small (QfO merge 334 s off vs 336–381 s with architectures, ≤ 14%).
+
+## 7. Literature credit (each checked on PubMed; DOIs)
+
+- Forslund K, Pekkari I, Sonnhammer ELL. Domain architecture conservation in orthologs. *BMC Bioinformatics* 2011;12:326.
+  doi:10.1186/1471-2105-12-326 (orthologs conserve architecture more than paralogs at equal divergence, but the closest
+  paralogs have very similar architectures, which is the limitation we hit).
+- Dosch J, Bergmann H, Tran V, Ebersberger I. FAS: assessing the similarity between proteins using multi-layered feature
+  architectures. *Bioinformatics* 2023;39(5):btad226. doi:10.1093/bioinformatics/btad226 (feature-architecture similarity;
+  basis of the QfO FAS benchmark).
+- Persson E, Kaduk M, Forslund SK, Sonnhammer ELL. Domainoid: domain-oriented orthology inference. *BMC Bioinformatics*
+  2019;20:523. doi:10.1186/s12859-019-3137-2 (domain-level orthology; idea 4, not pursued here).
+- Bitard-Feildel T, Kemena C, Greenwood JM, Bornberg-Bauer E. Domain similarity based orthology detection. *BMC
+  Bioinformatics* 2015;16:154. doi:10.1186/s12859-015-0570-8 (porthoDom: domain-content similarity to group proteins
+  before ortholog search, i.e. the family-level use that our between-orthogroup signal supports).
+- Cosentino S, Sriswasdi S, Iwasaki W. SonicParanoid2: fast, accurate, and comprehensive orthology inference with machine
+  learning and language models. *Genome Biol* 2024;25:195. doi:10.1186/s13059-024-03298-4 (domain-architecture-aware
+  orthology at scale).
+- Paysan-Lafosse T, et al. The Pfam protein families database: embracing AI/ML. *Nucleic Acids Res* 2025;53(D1):D523–D534.
+  doi:10.1093/nar/gkae997 (Pfam; release 38.2 used).
+- Eddy SR. Accelerated profile HMM searches. *PLoS Comput Biol* 2011;7(10):e1002195. doi:10.1371/journal.pcbi.1002195
+  (HMMER3, hmmsearch).
+
+## 8. Failed or not pursued (for S1 Text)
+
+- Pfam domain architecture (Pfam 38.2, hmmsearch GA): separates orthogroups (same vs different RefOG AUC 0.98) but not
+  orthologs from in-paralogs (OrthoBench dev within-RefOG AUC 0.54, hard 0.49; TreeFam-A dev 0.49; shuffled 0.50).
+- Four merge integrations failed the pre-registered keep rule on dev: R1 architecture bonus (QfO ΔF1 −0.002; OrthoBench
+  OG-F −3.0), architecture-gated relaxed tolerance (ΔF1 +0.018 [+0.003, +0.034], TPR +0.038, but PPV −0.025 and
+  OrthoBench OG-F −2.9), the same at deep nodes only (PPV −0.032), and an R1 veto of seeds sharing no domain (fires on
+  0.3% of seeds; one family changes).
+- Post hoc: the architecture gate dominates the same relaxation without it (TPR +0.006, PPV +0.011, OrthoBench OG-F
+  +5.6), so architecture is informative but too weak to license extra merges.
+- Not pursued: domain-level re-scoring of pairs (Domainoid-style), architecture-aware S0 splitting/fusion guard, TED/CATH
+  domains, InterPro precomputed matches. Annotation alone (~60 CPU-h for QfO) costs more than the whole pipeline.
+
+## 9. Deviations and incidents
+
+- No change to the pre-registration. Post hoc arms (§4) are labelled and were run after the real arms.
+- Scheduling: one duplicate OrthoBench run (`veto`, seed 47) was started by two queues at once; the duplicate was killed
+  before writing, and the kept output is from the first run (merges are deterministic).
+- A first test run of `pytest` failed only because `diamond` was not on PATH; rerun with the conda env on PATH: 157
+  passed, 5 skipped.

@@ -1,0 +1,26 @@
+{
+ "git_commit": "562662300278a7a583d1605effe599847578e9a0",
+ "tool": "hmmsearch (HMMER 3.4) --cut_ga --cpu 1 --noali --domtblout",
+ "db": "Pfam-A 38.2 (Pfam-A.hmm md5 589ccc8370eaf079022db0dbb25c8aa2; .gz 7ab3c4e215d0daaea3004e37c4e24f8a)",
+ "clans": "Pfam-A.clans.tsv.gz md5 a70eeffcd8105ff094ea5834456d8bab",
+ "script": "scripts/L2d_hmmsearch.sh, scripts/L2d_prepare_fasta.py",
+ "stage1": {
+  "proteins": 61711,
+  "processes": 8,
+  "with_hits": 59655,
+  "wall_s": 1783.0,
+  "cpu_s": 17717.0,
+  "md5:stage1.fa": "04746b4491b5a293da68846ffead831b",
+  "md5:Pfam-A.hmm": "589ccc8370eaf079022db0dbb25c8aa2"
+ },
+ "stage2": {
+  "proteins": 442858,
+  "processes": 6,
+  "with_hits": 407976,
+  "wall_s": 11556.0,
+  "cpu_s": 95064.5,
+  "md5:stage2.fa": "7ad52f72854edaadd17c898666b4cdf7",
+  "md5:Pfam-A.hmm": "589ccc8370eaf079022db0dbb25c8aa2"
+ },
+ "outputs": "work/l2_domains/pfam_stage{1,2}/pfam.domtbl (not committed; regenerate with the scripts)"
+}
