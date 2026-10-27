@@ -1,0 +1,130 @@
+key	doi	verified_by	title
+buchfink2026deepclust	10.1038/s41592-026-03030-z	crossref	Clustering the protein universe of life using DIAMOND DeepClust
+buchfink2021diamond	10.1038/s41592-021-01101-x	crossref	Sensitive protein alignments at tree-of-life scale using DIAMOND
+buchfink2015diamond	10.1038/nmeth.3176	crossref	Fast and sensitive protein alignment using DIAMOND
+steinegger2018linclust	10.1038/s41467-018-04964-5	crossref	Clustering huge protein sequence sets in linear time
+steinegger2017mmseqs2	10.1038/nbt.3988	crossref	MMseqs2 enables sensitive protein sequence searching for the analysis of massive data sets
+kallenborn2025mmseqs2gpu	10.1038/s41592-025-02819-8	crossref	GPU-accelerated homology search with MMseqs2
+traag2019leiden	10.1038/s41598-019-41695-z	crossref	From Louvain to Leiden: guaranteeing well-connected communities
+enright2002mcl	10.1093/nar/30.7.1575	crossref	An efficient algorithm for large-scale detection of protein families
+derelle2020broccoli	10.1093/molbev/msaa159	crossref	Broccoli: Combining Phylogenetic and Network Analyses for Orthology Assignment
+persson2022inparanoid	10.1093/bioinformatics/btac194	crossref	InParanoid-DIAMOND: faster orthology analysis with the InParanoid algorithm
+remm2001inparanoid	10.1006/jmbi.2000.5197	crossref	Automatic clustering of orthologs and in-paralogs from pairwise species comparisons
+nevers2019orthoinspector	10.1093/nar/gky1068	crossref	OrthoInspector 3.0: open portal for comparative genomics
+klemm2023proteinortho	10.3389/fbinf.2023.1322477	crossref	Proteinortho6: pseudo-reciprocal best alignment heuristic for graph-based detection of (co-)orthologs
+schreiber2013hieranoid	10.1016/j.jmb.2013.02.018	crossref	Hieranoid: Hierarchical Orthology Inference
+kaduk2017hieranoid2	10.1093/bioinformatics/btw774	crossref	Improved orthology inference with Hieranoid 2
+majidian2025fastoma	10.1038/s41592-024-02552-8	crossref	Orthology inference at scale with FastOMA
+emms2026orthofinder3	10.1038/s41592-026-03126-6	crossref	OrthoFinder: improved phylogenetic orthology inference with enhanced accuracy and scalability
+emms2019orthofinder	10.1186/s13059-019-1832-y	crossref	OrthoFinder: phylogenetic orthology inference for comparative genomics
+emms2015orthofinder	10.1186/s13059-015-0721-2	crossref	OrthoFinder: solving fundamental biases in whole genome comparisons dramatically improves orthogroup inference accuracy
+hernandezplaza2026eggnog7	10.1093/nar/gkaf1249	crossref	eggNOG v7: phylogeny-based orthology predictions and functional annotations
+deorowicz2016famsa	10.1038/srep33964	crossref	FAMSA: Fast and accurate multiple sequence alignment of huge protein families
+price2010fasttree2	10.1371/journal.pone.0009490	crossref	FastTree 2 – Approximately Maximum-Likelihood Trees for Large Alignments
+saitou1987nj	10.1093/oxfordjournals.molbev.a040454	crossref+pubmed	The neighbor-joining method: a new method for reconstructing phylogenetic trees.
+gascuel1997bionj	10.1093/oxfordjournals.molbev.a025808	crossref	BIONJ: an improved version of the NJ algorithm based on a simple model of sequence data
+emms2022shoot	10.1186/s13059-022-02652-8	crossref	SHOOT: phylogenetic gene search and ortholog inference
+huertacepas2007overlap	10.1186/gb-2007-8-6-r109	crossref	The human phylome
+fuentes2022phylomedb	10.1093/nar/gkab966	crossref	PhylomeDB V5: an expanding repository for genome-wide catalogues of annotated gene phylogenies
+wapinski2007synergy	10.1093/bioinformatics/btm193	crossref	Automatic genome-wide reconstruction of phylogenetic gene trees
+altenhoff2013gethogs	10.1371/journal.pone.0053786	crossref	Inferring Hierarchical Orthologous Groups from Orthologous Gene Pairs
+altenhoff2024oma	10.1093/nar/gkad1020	crossref	OMA orthology in 2024: improved prokaryote coverage, ancestral and extant GO enrichment, a revamped synteny viewer and more in the OMA Ecosystem
+lechner2014poff	10.1371/journal.pone.0105015	crossref	Orthology Detection Combining Clustering and Synteny for Very Large Datasets
+ludwig2024orthorefine	10.1186/s12859-024-05786-7	crossref	OrthoRefine: automated enhancement of prior ortholog identification via synteny
+lovell2022genespace	10.7554/elife.78526	crossref	GENESPACE tracks regions of interest and gene copy number variation across multiple genomes
+zhang2025soi	10.1093/nar/gkaf320	crossref	SOI: robust identification of orthologous synteny with the Orthology Index and broad applications in evolutionary genomics
+jun2009localsynteny	10.1186/1471-2164-10-630	crossref	Identification of mammalian orthologs using local synteny
+vilella2009ensemblcompara	10.1101/gr.073585.107	crossref	EnsemblCompara GeneTrees: Complete, duplication-aware phylogenetic trees in vertebrates
+wang2012mcscanx	10.1093/nar/gkr1293	crossref	MCScanX: a toolkit for detection and evolutionary analysis of gene synteny and collinearity
+muffato2023agora	10.1038/s41559-022-01956-z	crossref	Reconstruction of hundreds of reference ancestral genomes across the eukaryotic kingdom
+duchemin2017decostar	10.1093/gbe/evx069	crossref+pubmed	DeCoSTAR: Reconstructing the Ancestral Organization of Genes or Genomes Using Reconciled Phylogenies
+bernard2025edgehog	10.1038/s41559-025-02818-0	crossref	EdgeHOG: a method for fine-grained ancestral gene order inference at large scale
+scannell2006ohnologs	10.1038/nature04562	crossref	Multiple rounds of speciation associated with reciprocal gene loss in polyploid yeasts
+dewey2011positional	10.1093/bib/bbr040	crossref	Positional orthology: putting genomic evolutionary relationships into context
+schmitt2011orthoxml	10.1093/bib/bbr025	crossref	Letter to the Editor: SeqXML and OrthoXML: standards for sequence and orthology information
+sarton2025hogreview	10.1007/s00239-025-10277-1	crossref	Reconstructing Evolutionary Histories with Hierarchical Orthologous Groups
+train2019pyham	10.1093/bioinformatics/bty994	crossref	iHam and pyHam: visualizing and processing hierarchical orthologous groups
+yazdizadeh2025orthoxmltools	10.1007/s00239-025-10271-7	crossref	OrthoXML-Tools: A Toolkit for Manipulating OrthoXML Files for Orthology Data
+zhang2020astralpro	10.1093/molbev/msaa139	crossref	ASTRAL-Pro: Quartet-Based Species-Tree Inference despite Paralogy
+zhang2022astralpro2	10.1093/bioinformatics/btac620	crossref	ASTRAL-Pro 2: ultrafast species tree reconstruction from multi-copy gene family trees
+zhang2025aster	10.1093/molbev/msaf172	crossref	ASTER: A Package for Large-Scale Phylogenomic Reconstructions
+lefort2015fastme	10.1093/molbev/msv150	crossref	FastME 2.0: A Comprehensive, Accurate, and Fast Distance-Based Phylogeny Inference Program: Table 1.
+altenhoff2016qfo	10.1038/nmeth.3830	crossref	Standardized benchmarking in the quest for orthologs
+altenhoff2020qfo	10.1093/nar/gkaa308	crossref	The Quest for Orthologs benchmark service and consensus calls in 2020
+nevers2022qfo	10.1093/nar/gkac330	crossref	The Quest for Orthologs orthology benchmark service in 2022
+altenhoff2024qfo	10.1093/nargab/lqae167	crossref	New developments for the Quest for Orthologs benchmark service
+boeckmann2011swisstree	10.1093/bib/bbr034	crossref	Conceptual framework and pilot study to benchmark phylogenomic databases based on reference gene trees
+boeckmann2017swisstree	10.1101/181966	crossref	Taxon sampling unequally affects individual nodes in a phylogenetic tree: consequences for model gene tree construction in SwissTree
+emms2020orthobench	10.1093/gbe/evaa211	crossref	Benchmarking Orthogroup Inference Accuracy: Revisiting Orthobench
+trachana2011orthobench	10.1002/bies.201100062	crossref	Orthology prediction methods: A quality assessment using curated protein families
+li2006treefam	10.1093/nar/gkj118	crossref	TreeFam: a curated database of phylogenetic trees of animal gene families
+ruan2007treefam	10.1093/nar/gkm1005	crossref	TreeFam: 2008 Update
+schreiber2014treefam9	10.1093/nar/gkt1055	crossref	TreeFam v9: a new website, more species and orthology-on-the-fly
+tweedie2021genenames	10.1093/nar/gkaa980	crossref	Genenames.org: the HGNC and VGNC resources in 2021
+davin2020zombi	10.1093/bioinformatics/btz710	crossref	Zombi: a phylogenetic simulator of trees, genomes and sequences that accounts for dead linages
+dalquen2012alf	10.1093/molbev/msr268	crossref	ALF—A Simulation Framework for Genome Evolution
+li2023miniprot	10.1093/bioinformatics/btad014	crossref	Protein-to-genome alignment with miniprot
+kirilenko2023toga	10.1126/science.abn3107	crossref	Integrating gene annotation with orthology inference at scale
+sharma2016cesar	10.1093/nar/gkw210	crossref	Coding exon-structure aware realigner (CESAR) utilizes genome alignments for accurate comparative gene annotation
+sharma2018geneloss	10.1038/s41467-018-03667-1	crossref	A genomics approach reveals insights into the importance of gene losses for mammalian adaptations
+vankempen2024foldseek	10.1038/s41587-023-01773-0	crossref	Fast and accurate protein structure search with Foldseek
+barriohernandez2023foldseekcluster	10.1038/s41586-023-06510-w	crossref	Clustering predicted structures at the scale of the known protein universe
+moi2025foldtree	10.1038/s41594-025-01649-8	crossref	Structural phylogenetics unravels the evolutionary diversification of communication systems in gram-positive bacteria and their viruses
+heinzinger2024prostt5	10.1093/nargab/lqae150	crossref	Bilingual language model for protein sequence and structure
+garg2025q3di	10.1093/molbev/msaf124	crossref	A General Substitution Matrix for Structural Phylogenetics
+puentelelievre2023tertiary	10.1101/2023.12.12.571181	crossref	Tertiary-interaction characters enable fast, model-based structural phylogenetics beyond the twilight zone
+fullmer2025structphylo	10.1101/2025.06.30.662300	crossref	Adding 3Di characters to amino acid datasets can improve resolution, but the effect is weaker in shorter and alpha-helical proteins
+puentelelievre2025review	10.1093/gbe/evaf139	crossref	Protein Structural Phylogenetics
+varadi2022alphafolddb	10.1093/nar/gkab1061	crossref	AlphaFold Protein Structure Database: massively expanding the structural coverage of protein-sequence space with high-accuracy models
+varadi2024alphafolddb	10.1093/nar/gkad1011	crossref	AlphaFold Protein Structure Database in 2024: providing structure coverage for over 214 million protein sequences
+jumper2021alphafold	10.1038/s41586-021-03819-2	crossref	Highly accurate protein structure prediction with AlphaFold
+kim2023foldcomp	10.1093/bioinformatics/btad153	crossref	Foldcomp: a library and format for compressing and indexing large protein structure sets
+bastian2025bgee	10.1093/nar/gkae1118	crossref	Bgee in 2024: focus on curated single-cell RNA-seq datasets, and query tools
+bastian2021bgee	10.1093/nar/gkaa793	crossref	The Bgee suite: integrated curated expression atlas and comparative transcriptomics in animals
+altenhoff2012conjecture	10.1371/journal.pcbi.1002514	crossref	Resolving the Ortholog Conjecture: Orthologs Tend to Be Weakly, but Significantly, More Similar in Function than Paralogs
+chen2012conjecture	10.1371/journal.pcbi.1002784	crossref	The Ortholog Conjecture Is Untestable by the Current Gene Ontology but Is Supported by RNA Sequencing Data
+kryuchkovamostacci2016conjecture	10.1371/journal.pcbi.1005274	crossref	Tissue-Specificity of Gene Expression Diverges Slowly between Orthologs, and Rapidly between Paralogs
+dunn2018conjecture	10.1073/pnas.1707515115	crossref	Pairwise comparisons across species are problematic when analyzing functional genomic data
+philippon2017isosel	10.1371/journal.pone.0174250	crossref	IsoSel: Protein Isoform Selector for phylogenetic reconstructions
+guillaudeux2022isoforms	10.1186/s12864-022-08429-4	crossref	Identifying genes with conserved splicing structure and orthologous isoforms in human, mouse and dog
+minh2020iqtree2	10.1093/molbev/msaa015	crossref	IQ-TREE 2: New Models and Efficient Methods for Phylogenetic Inference in the Genomic Era
+wong2026iqtree3	10.1093/molbev/msag117	crossref	IQ-TREE 3: phylogenomic inference software using complex evolutionary models
+lin2023esm2	10.1126/science.ade2574	crossref	Evolutionary-scale prediction of atomic-level protein structure with a language model
+johnson2021faiss	10.1109/tbdata.2019.2921572	crossref	Billion-Scale Similarity Search with GPUs
+douze2026faiss	10.1109/tbdata.2025.3618474	crossref	The Faiss Library
+antonov2026igraph	10.1371/journal.pone.0355108	crossref	igraph 1.0 enables fast and robust network analysis across programming languages
+yates2019ensembl	10.1093/nar/gkz966	crossref	Ensembl 2020
+schoch2020ncbitaxonomy	10.1093/database/baaa062	crossref	NCBI Taxonomy: a comprehensive update on curation, resources and tools
+uniprot2025	10.1093/nar/gkae1010	crossref	UniProt: the Universal Protein Knowledgebase in 2025
+uniprot2023	10.1093/nar/gkac1052	crossref	UniProt: the Universal Protein Knowledgebase in 2023
+rossier2021omamer	10.1093/bioinformatics/btab219	crossref	OMAmer: tree-driven and alignment-free protein assignment to subfamilies outperforms closest sequence approaches
+cosentino2024sonicparanoid2	10.1186/s13059-024-03298-4	crossref	SonicParanoid2: fast, accurate, and comprehensive orthology inference with machine learning and language models
+persson2019domainoid	10.1186/s12859-019-3137-2	crossref	Domainoid: domain-oriented orthology inference
+thomas2022panther	10.1002/pro.4218	crossref	PANTHER : Making genome‐scale phylogenetics accessible to all
+tang2019treegrafter	10.1093/bioinformatics/bty625	crossref	TreeGrafter: phylogenetic tree-based annotation of proteins with Gene Ontology terms and other annotations
+cantalapiedra2021eggnogmapper	10.1093/molbev/msab293	crossref	eggNOG-mapper v2: Functional Annotation, Orthology Assignments, and Domain Prediction at the Metagenomic Scale
+li2003orthomcl	10.1101/gr.1224503	crossref	OrthoMCL: Identification of Ortholog Groups for Eukaryotic Genomes
+steenwyk2024orthohmm	10.1101/2024.12.07.627370	crossref	OrthoHMM: Improved Inference of Ortholog Groups using Hidden Markov Models
+glover2025perspectives	10.1007/s00239-025-10290-4	crossref	Perspectives on Orthology During the Quest for Orthologs
+minotto2025kmeans	10.1093/bioinformatics/btaf472	crossref	Exploring homology detection via k-means clustering of proteins embedded with a large language model
+emms2017stride	10.1093/molbev/msx259	crossref	STRIDE: Species Tree Root Inference from Gene Duplication Events
+emms2018stag	10.1101/267914	crossref	STAG: Species Tree Inference from All Genes
+willson2022disco	10.1093/sysbio/syab070	crossref	DISCO: Species Tree Inference using Multicopy Gene Family Tree Decomposition
+hong2025dhr	10.1038/s41587-024-02353-6	crossref	Fast, sensitive detection of protein homologs using deep dense retrieval
+liu2024plmsearch	10.1038/s41467-024-46808-5	crossref	PLMSearch: Protein language model powers accurate and fast sequence search for remote homology
+hamamsy2024tmvec	10.1038/s41587-023-01917-2	crossref	Protein remote homology detection and structural alignment using deep learning
+gilchrist2026foldmason	10.1126/science.ads6733	crossref	Multiple protein structure alignment at scale with FoldMason
+barbera2019epang	10.1093/sysbio/syy054	crossref	EPA-ng: Massively Parallel Evolutionary Placement of Genetic Sequences
+ondov2016mash	10.1186/s13059-016-0997-x	crossref	Mash: fast genome and metagenome distance estimation using MinHash
+baker2023dashing2	10.1101/gr.277655.123	crossref	Genomic sketching with multiplicities and locality-sensitive hashing using Dashing 2
+chen2000notung	10.1089/106652700750050871	crossref	NOTUNG: A Program for Dating Gene Duplications and Optimizing Gene Family Trees
+szollosi2013ale	10.1093/sysbio/syt054	crossref	Efficient Exploration of the Space of Reconciled Gene Trees
+morel2020generax	10.1093/molbev/msaa141	crossref	GeneRax: A Tool for Species-Tree-Aware Maximum Likelihood-Based Gene Family Tree Inference under Gene Duplication, Transfer, and Loss
+morel2022speciesrax	10.1093/molbev/msab365	crossref	SpeciesRax: A Tool for Maximum Likelihood Species Tree Inference from Gene Family Trees under Duplication, Transfer, and Loss
+morel2024alerax	10.1093/bioinformatics/btae162	crossref	AleRax: a tool for gene and species tree co-estimation and reconciliation under a probabilistic model of gene duplication, transfer, and loss
+johnson2024esm2alignment	10.7554/elife.91415	crossref	Sensitive remote homology search by local alignment of small positional embeddings from protein language models
+kaminski2023plmblast	10.1093/bioinformatics/btad579	crossref	pLM-BLAST: distant homology detection based on direct comparison of sequence representations from protein language models
+pantolini2024eba	10.1093/bioinformatics/btad786	crossref	Embedding-based alignment: combining protein language models with dynamic programming alignment to detect structural similarities in the twilight-zone
+piaggio2012consortnoninferiority	10.1001/jama.2012.87802	crossref	Reporting of Noninferiority and Equivalence Randomized Trials
+efron1979bootstrap	10.1214/aos/1176344552	crossref	Bootstrap Methods: Another Look at the Jackknife
+diTommaso2017nextflow	10.1038/nbt.3820	crossref	Nextflow enables reproducible computational workflows

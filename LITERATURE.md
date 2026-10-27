@@ -498,7 +498,7 @@ Reading notes:
 
 ## 8. OrthoXML format and tools
 
-**Specification**: Schmitt et al. 2011, "SeqXML and OrthoXML: standards for sequence and orthology information", *Brief Bioinform* 12:485, doi:10.1093/bib/bbr034 **[U: from memory]**. Repo: https://github.com/qfo/orthoxml (cloned).
+**Specification**: Schmitt et al. 2011, "SeqXML and OrthoXML: standards for sequence and orthology information", *Brief Bioinform* 12:485, doi:10.1093/bib/bbr025 **[V: Crossref 2026-10-27; earlier bbr034 was wrong (that is Boeckmann 2011 SwissTree)]**. Repo: https://github.com/qfo/orthoxml (cloned).
 
 | Version | Status / changes |
 |---|---|
