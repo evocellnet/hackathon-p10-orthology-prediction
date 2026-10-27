@@ -227,7 +227,31 @@ def newick_to_edges(nwk: str, leaf_index: dict):
 
 
 def _fasttree_job(job):
-    """job = (leaf names, sequences, workdir) -> Newick string (FAMSA + FastTree -lg)."""
+    """job = (leaf names, sequences, workdir) -> Newick string (FAMSA + FastTree -lg).
+
+    Optional memo (L2, off by default): if the environment variable ANCESTRA_FT_CACHE names a
+    directory, results are stored there keyed by sha256(names, sequences). FAMSA -t 1 and
+    FastTree are deterministic on identical input, so a hit returns the same Newick."""
+    import os
+    cdir = os.environ.get("ANCESTRA_FT_CACHE")
+    if cdir:
+        import hashlib
+        h = hashlib.sha256("\n".join(f"{a}\t{b}" for a, b in zip(job[0], job[1])).encode()).hexdigest()
+        cf = os.path.join(cdir, h[:2], h + ".nwk")
+        if os.path.exists(cf):
+            with open(cf) as fh:
+                return fh.read()
+        out = _fasttree_run(job)
+        os.makedirs(os.path.dirname(cf), exist_ok=True)
+        tmp = f"{cf}.{os.getpid()}.tmp"
+        with open(tmp, "w") as fh:
+            fh.write(out)
+        os.replace(tmp, cf)
+        return out
+    return _fasttree_run(job)
+
+
+def _fasttree_run(job):
     import os
     import subprocess
     import tempfile

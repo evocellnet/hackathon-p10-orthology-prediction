@@ -125,13 +125,23 @@ class MergeConfig:
     orphan_merge: str = "off"    # R4: off | root | all -- merge partner-less same-child units
                                  # (no cross-child homolog at the node) connected by same-child
                                  # edges into one paralogGroup (parsimony: 1 dup vs dup + losses)
+    # L2-genome (post-freeze, default off): gated synteny repair (GSR), docs/L2_genome.md §1.1.
+    # After R1-R3 and the local-tree resolver, a still-alone unit u ("single": one species only;
+    # "any": any unit) joins the group g lacking child(u) whose synteny support is the unique best
+    # (>= gsr_min, >= every other group of u + gsr_margin) if max score(u, g) >= gsr_rho * best(u).
+    gsr: str = "off"             # off | single | any
+    gsr_mask: bool = True        # support masked to the synteny-off root HOG (ConstrainedContext)
+    gsr_rho: float = 0.75
+    gsr_min: float = 2.0
+    gsr_margin: float = 1.0
 
     def key(self) -> dict:
         d = asdict(self)
         # options added after the QfO freeze: omitted at their defaults (stable stage hashes)
         for k, v in (("tree_method", "nj"), ("tree_ft_mode", "medoid"), ("so_struct", False),
                      ("so_absorb", False), ("deep_min_d", 0.0), ("deep_tol", 0.0),
-                     ("deep_so_absorb", False)):
+                     ("deep_so_absorb", False), ("gsr", "off"), ("gsr_mask", True), ("gsr_rho", 0.75),
+                     ("gsr_min", 2.0), ("gsr_margin", 1.0)):
             if d.get(k) == v:
                 d.pop(k)
         d.pop("tree_ft_workers", None)   # results do not depend on the pool size (tested)
@@ -320,6 +330,14 @@ def decide_node(n: int, child: np.ndarray, lu: np.ndarray, lv: np.ndarray, score
         if cfg.locus_repair and hasattr(context, "support"):
             fn = getattr(context, "locus_support", context.support)   # unmasked if constrained
             locus_sup = np.asarray(fn(ctx), dtype=np.float64)
+        if cfg.gsr != "off" and hasattr(context, "support"):
+            if hasattr(context, "gsr_support"):          # e.g. a shuffled-layer control
+                gsup = context.gsr_support(ctx, cfg.gsr_mask)
+            elif cfg.gsr_mask or not hasattr(context, "locus_support"):
+                gsup = context.support(ctx)
+            else:
+                gsup = context.locus_support(ctx)
+            stats["_gsr"] = (ca.copy(), cb.copy(), cs.copy(), np.asarray(gsup, dtype=np.float64))
         if cfg.ctx_mode == "all":
             cs = cs + bonus
             cs_sel = cs
@@ -668,6 +686,96 @@ def _locus_repair(n, child, ca, cb, cs, sup, labels, min_sup, stats, eligible=No
     return labels
 
 
+GSR_LOG = None   # diagnostics: set to a list to record every GSR decision (docs/L2_genome.md)
+
+
+def _gsr_repair(n, child, ca, cb, cs, sup, labels, cfg, stats, eligible=None, members=None, node=None):
+    """Gated synteny repair (L2-genome, docs/L2_genome.md §1.1). A still-alone (eligible) unit u
+    joins group g iff g holds no unit of child(u), s(u, g) = max synteny support over v in g is
+    the unique best over all groups u has candidate edges to (>= gsr_min and >= runner-up +
+    gsr_margin), and max score(u, v in g) >= gsr_rho * u's best cross-child score. Greedy by
+    support, then score; one unit per (group, child) per pass."""
+    labels = np.asarray(labels, dtype=np.int64).copy()
+    stats["gsr_repaired"] = 0
+    if len(ca) == 0 or n == 0:
+        return labels
+    size = np.bincount(labels, minlength=int(labels.max()) + 1)
+    alone = size[labels] == 1
+    if eligible is not None:
+        alone = alone & np.asarray(eligible, bool)
+    a = np.concatenate([ca, cb]).astype(np.int64)
+    b = np.concatenate([cb, ca]).astype(np.int64)
+    s = np.concatenate([cs, cs]).astype(np.float64)
+    sp = np.concatenate([sup, sup]).astype(np.float64)
+    best_any = np.full(n, -np.inf)
+    np.maximum.at(best_any, a, s)
+    m = alone[a]
+    stats["gsr_eligible"] = int(alone.sum())
+    if not m.any():
+        return labels
+    a, b, s, sp = a[m], b[m], s[m], sp[m]
+    g = labels[b]
+    k = int(child.max()) + 1
+    G = int(labels.max()) + 1
+    gkeys = set((labels * k + child).tolist())
+    key = a * G + g
+    o = np.lexsort((-s, -sp, key))
+    key, a, g, s, sp = key[o], a[o], g[o], s[o], sp[o]
+    st = np.r_[True, key[1:] != key[:-1]]
+    fi = np.flatnonzero(st)
+    ug_u, ug_g = a[fi], g[fi]
+    ug_sup = np.maximum.reduceat(sp, fi)
+    ug_s = np.maximum.reduceat(s, fi)
+    # per unit: best group by (support, score), runner-up support
+    o2 = np.lexsort((-ug_s, -ug_sup, ug_u))
+    ug_u, ug_g, ug_sup, ug_s = ug_u[o2], ug_g[o2], ug_sup[o2], ug_s[o2]
+    st2 = np.r_[True, ug_u[1:] != ug_u[:-1]]
+    f2 = np.flatnonzero(st2)
+    nxt = f2 + 1
+    has2 = np.r_[ug_u[1:] == ug_u[:-1], False][f2]
+    s2 = np.where(has2, ug_sup[np.minimum(nxt, len(ug_u) - 1)], 0.0)
+    plans = []
+    for j, i in enumerate(f2.tolist()):
+        u, gg, s1, sc = int(ug_u[i]), int(ug_g[i]), float(ug_sup[i]), float(ug_s[i])
+        if s1 <= 0:
+            continue
+        ok_c = (gg * k + int(child[u])) not in gkeys
+        ok_s = sc >= cfg.gsr_rho * best_any[u]
+        ok_m = s1 >= cfg.gsr_min and s1 >= float(s2[j]) + cfg.gsr_margin
+        plans.append((u, gg, s1, float(s2[j]), sc, ok_c, ok_s, ok_m))
+    done = []
+    gsize = {int(x): int(c) for x, c in zip(*np.unique(labels, return_counts=True))}
+    for u, gg, s1, s2_, sc, ok_c, ok_s, ok_m in sorted(plans, key=lambda x: (-x[2], -x[4], x[0])):
+        if not (ok_c and ok_s and ok_m):
+            continue
+        cu = int(child[u])
+        if gsize[int(labels[u])] != 1 or (gg * k + cu) in gkeys or labels[u] == gg:
+            continue
+        gsize[int(labels[u])] -= 1
+        labels[u] = gg
+        gsize[gg] = gsize.get(gg, 0) + 1
+        gkeys.add(gg * k + cu)
+        done.append(u)
+    stats["gsr_repaired"] = len(done)
+    stats["gsr_plans"] = len(plans)
+    if GSR_LOG is not None and members is not None:
+        dset = set(done)
+        for u, gg, s1, s2_, sc, ok_c, ok_s, ok_m in plans:
+            GSR_LOG.append(dict(node=node, u=[int(x) for x in members(u)], g_units=gg, s1=s1, s2=s2_,
+                                ratio=float(sc / best_any[u]) if best_any[u] > 0 else 0.0,
+                                ok_c=bool(ok_c), ok_s=bool(ok_s), ok_m=bool(ok_m), done=u in dset))
+        # group members (labels before this pass are not needed: g ids are stable for non-movers)
+        gm: dict = {}
+        want = {r["g_units"] for r in GSR_LOG[-len(plans):]} if plans else set()
+        for i in range(n):
+            li = int(labels[i])
+            if li in want and i not in dset:
+                gm.setdefault(li, []).extend(int(x) for x in members(i))
+        for r in GSR_LOG[-len(plans):] if plans else []:
+            r["g"] = gm.get(r.pop("g_units"), [])
+    return labels
+
+
 _RULE_CODE = {"ortholog": 0, "self": 1, "either": 2, "quartet": 3}
 
 
@@ -980,7 +1088,7 @@ def run_merge(gt: GeneTable, tree: Node, st: ScoreTable, cfg: MergeConfig,
             b_m = np.searchsorted(ga_local[o_m], np.arange(n + 1))
             g_sorted = genes[o_m]
             node_info["members"] = lambda i, _g=g_sorted, _b=b_m: _g[_b[i]:_b[i + 1]]
-            if cfg.locus_repair:
+            if cfg.locus_repair or cfg.gsr == "single":
                 sp_sorted = gt.species_of[g_sorted].astype(np.int64)
                 nsp = np.zeros(n, dtype=np.int64)
                 for i in range(n):
@@ -1012,6 +1120,10 @@ def run_merge(gt: GeneTable, tree: Node, st: ScoreTable, cfg: MergeConfig,
             stt["tree_s"] = round(time.time() - t_tree, 3)
         if cfg.so_absorb or (cfg.deep_so_absorb and stt.get("deep")):
             labels = _so_absorb(n, child, lu, lv, score, labels, [amask[int(u)] for u in units], stt)
+        gsr_in = stt.pop("_gsr", None)
+        if gsr_in is not None:
+            elig = (node_info["unit_nsp"] == 1) if cfg.gsr == "single" else None
+            labels = _gsr_repair(n, child, *gsr_in, labels, cfg, stt, elig, node_info["members"], nd.name)
         if cfg.orphan_merge == "all" or (cfg.orphan_merge == "root" and nd.parent is None):
             labels = _orphan_merge(n, child, lu, lv, labels, stt, score, cfg.orphan_min)
         pos[units] = -1
