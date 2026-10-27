@@ -1,0 +1,178 @@
+[
+ {
+  "started": "2026-10-27T06:04:11+0100",
+  "argv": [
+   "work/scaling/code_snapshot/scripts/qfo_pipeline_driver.py",
+   "--proteomes",
+   "work/scaling/inputs/sub64",
+   "--tree",
+   "results/scaling/subsets/sub64.nwk",
+   "--out",
+   "work/scaling/runs/anc_64_fast",
+   "--threads",
+   "8",
+   "--gene-order",
+   "none",
+   "--preset",
+   "fast",
+   "--reuse-stages-from",
+   "work/scaling/runs/anc_64"
+  ],
+  "threads": 8,
+  "gene_order": null,
+  "preset": "fast",
+  "stop_after": null,
+  "invalidated": [],
+  "adopted_unrecorded": [],
+  "code_keys": {
+   "input": "f88bcb3b394df2f2",
+   "families": "df43339fea1e7020",
+   "scores": "d702ca61d3c2a3c5",
+   "merge": "1586ac85522d8be7",
+   "output": "2f14310e1c956f53"
+  },
+  "stages": {
+   "input": {
+    "skipped": true,
+    "pipeline_wall_s": 0.59,
+    "peak_rss_mb": 521.7,
+    "stats": {
+     "n_genes": 815573,
+     "n_species": 64,
+     "n_internal_nodes": 44
+    }
+   },
+   "families": {
+    "skipped": true,
+    "pipeline_wall_s": 1533.36,
+    "peak_rss_mb": 5282.0,
+    "stats": {
+     "source": "ancestra.families",
+     "s0_timings": {
+      "stage1_s": 743.4753758907318,
+      "stage2_search_s": 571.333254814148,
+      "stage2_s": 773.8260600566864,
+      "total_s": 1529.6460483074188
+     },
+     "n_families": 125202,
+     "n_singletons": 99613,
+     "max_family": 7405,
+     "sum_g2": 1664479165
+    }
+   },
+   "scores": {
+    "skipped": true,
+    "pipeline_wall_s": 4631.905,
+    "peak_rss_mb": 25675.5,
+    "stats": {
+     "backend": "hybrid",
+     "n_families": 125202,
+     "sum_g2": 1664479165,
+     "max_family": 7405,
+     "n_cross_family_hits": 71727382,
+     "n_raw_hits": 355811012,
+     "n_blocks": 8,
+     "diamond_s": 3112.58,
+     "n_pairs_diamond": 145060149,
+     "n_pairs_rescue_candidates": 21390768,
+     "n_pairs_aligned_mmseqs": 21390768,
+     "pairs_write_s": 13.04,
+     "align_s": 131.5,
+     "n_families_over_cap": 21,
+     "n_families_over_gmax": 0,
+     "n_pairs_dropped_by_cap": 67244385,
+     "pairs_dropped_per_family": {
+      "3": 545983,
+      "16": 3375766,
+      "42": 1193301,
+      "60": 828391,
+      "70": 2585971,
+      "94": 161034,
+      "130": 949005,
+      "147": 1022096,
+      "160": 122070,
+      "235": 1403875,
+      "287": 1838322,
+      "333": 3953829,
+      "428": 2636794,
+      "439": 5338375,
+      "580": 7786742,
+      "604": 521717,
+      "831": 1530067,
+      "1820": 1313020,
+      "2142": 25282024,
+      "2146": 641075,
+      "52945": 4214928
+     },
+     "wall_s": 3429.8,
+     "n_scored_pairs": 56603656,
+     "n_self_scores": 815375,
+     "rescue_joins": 352,
+     "rescue_rescored_genes": 183765,
+     "rescue_wall_s": 1175.11,
+     "n_families_after_rescue": 124850,
+     "n_families_before_rescue": 125202
+    }
+   },
+   "merge": {
+    "skipped": false,
+    "wall_s": 103.65,
+    "cpu_self_s": 103.0,
+    "cpu_children_s": 0.0,
+    "children_maxrss_mb_so_far": 5568.9,
+    "load_start": [
+     5.2,
+     10.8,
+     16.6
+    ],
+    "load_end": [
+     2.1,
+     8.1,
+     15.0
+    ],
+    "cpu_total_s": 103.0,
+    "pipeline_wall_s": 103.649,
+    "peak_rss_mb": 6282.1,
+    "stats": {
+     "n_root_groups": 28899,
+     "n_root_anc_genes": 229253,
+     "merge_s_sum_nodes": 88.66,
+     "tree_clusters": 141012,
+     "tree_units": 615552,
+     "tree_s": 34.81
+    }
+   },
+   "output": {
+    "skipped": false,
+    "wall_s": 30.62,
+    "cpu_self_s": 30.4,
+    "cpu_children_s": 0.0,
+    "children_maxrss_mb_so_far": 5568.9,
+    "load_start": [
+     2.1,
+     8.1,
+     15.0
+    ],
+    "load_end": [
+     1.7,
+     7.4,
+     14.5
+    ],
+    "cpu_total_s": 30.4,
+    "pipeline_wall_s": 30.603,
+    "peak_rss_mb": 4563.7,
+    "stats": {
+     "xsd_valid": true,
+     "n_top_groups": 28899,
+     "n_pairs": 14646213,
+     "n_ogs_multi": 28899
+    }
+   }
+  },
+  "total_wall_s": 141.319,
+  "finished": true,
+  "driver_wall_s": 142.4,
+  "cpu_self_s": 142.2,
+  "cpu_children_s": 0.0
+ }
+]

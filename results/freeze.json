@@ -5,7 +5,7 @@
   "accurate (default)",
   "fast"
  ],
- "note": "Frozen at T+15h40 after QfO peek 2. Default preset 'accurate' was chosen BEFORE peek 2 and is not changed based on test results; both presets are reported.",
+ "note": "Frozen at T+15h25 after QfO peek 2. Default preset 'accurate' was chosen BEFORE peek 2 and is not changed based on test results; both presets are reported.",
  "ancestra_sha256": {
   "ancestra/__init__.py": "ff0255f055b7ce9013505e6aff10e1946e2f00102c16e014fd053ad7cd9f09e6",
   "ancestra/__main__.py": "8f567e5a94787f22d5efd920a4d8a99ccf6a6449a4bd4111ba3bcb3dd534c438",
