@@ -1,0 +1,219 @@
+[
+ {
+  "started": "2026-10-27T02:44:53+0100",
+  "argv": [
+   "scripts/qfo_pipeline_driver.py",
+   "--proteomes",
+   "work/scaling/inputs/sub64",
+   "--tree",
+   "results/scaling/subsets/sub64.nwk",
+   "--out",
+   "work/scaling/runs/anc_64",
+   "--threads",
+   "8",
+   "--gene-order",
+   "none"
+  ],
+  "threads": 8,
+  "gene_order": null,
+  "preset": null,
+  "stop_after": null,
+  "invalidated": [],
+  "adopted_unrecorded": [],
+  "code_keys": {
+   "input": "f88bcb3b394df2f2",
+   "families": "df43339fea1e7020",
+   "scores": "d702ca61d3c2a3c5",
+   "merge": "74d8ba0e39eb23c7",
+   "output": "a2c7b14e469ae050"
+  },
+  "stages": {
+   "input": {
+    "skipped": false,
+    "wall_s": 0.59,
+    "cpu_self_s": 0.5,
+    "cpu_children_s": 0.0,
+    "children_maxrss_mb_so_far": 553.6,
+    "load_start": [
+     29.9,
+     33.8,
+     36.5
+    ],
+    "load_end": [
+     29.9,
+     33.8,
+     36.5
+    ],
+    "cpu_total_s": 0.5,
+    "pipeline_wall_s": 0.59,
+    "peak_rss_mb": 521.7,
+    "stats": {
+     "n_genes": 815573,
+     "n_species": 64,
+     "n_internal_nodes": 44
+    }
+   },
+   "families": {
+    "skipped": false,
+    "wall_s": 1533.36,
+    "cpu_self_s": 218.9,
+    "cpu_children_s": 8695.0,
+    "children_maxrss_mb_so_far": 5220.6,
+    "load_start": [
+     29.9,
+     33.8,
+     36.5
+    ],
+    "load_end": [
+     7.1,
+     15.9,
+     24.1
+    ],
+    "cpu_total_s": 8913.9,
+    "pipeline_wall_s": 1533.36,
+    "peak_rss_mb": 5282.0,
+    "stats": {
+     "source": "ancestra.families",
+     "s0_timings": {
+      "stage1_s": 743.4753758907318,
+      "stage2_search_s": 571.333254814148,
+      "stage2_s": 773.8260600566864,
+      "total_s": 1529.6460483074188
+     },
+     "n_families": 125202,
+     "n_singletons": 99613,
+     "max_family": 7405,
+     "sum_g2": 1664479165
+    }
+   },
+   "scores": {
+    "skipped": false,
+    "wall_s": 4631.91,
+    "cpu_self_s": 631.8,
+    "cpu_children_s": 28566.3,
+    "children_maxrss_mb_so_far": 25675.5,
+    "load_start": [
+     7.1,
+     15.9,
+     24.1
+    ],
+    "load_end": [
+     24.2,
+     25.8,
+     27.5
+    ],
+    "cpu_total_s": 29198.1,
+    "pipeline_wall_s": 4631.905,
+    "peak_rss_mb": 25675.5,
+    "stats": {
+     "backend": "hybrid",
+     "n_families": 125202,
+     "sum_g2": 1664479165,
+     "max_family": 7405,
+     "n_cross_family_hits": 71727382,
+     "n_raw_hits": 355811012,
+     "n_blocks": 8,
+     "diamond_s": 3112.58,
+     "n_pairs_diamond": 145060149,
+     "n_pairs_rescue_candidates": 21390768,
+     "n_pairs_aligned_mmseqs": 21390768,
+     "pairs_write_s": 13.04,
+     "align_s": 131.5,
+     "n_families_over_cap": 21,
+     "n_families_over_gmax": 0,
+     "n_pairs_dropped_by_cap": 67244385,
+     "pairs_dropped_per_family": {
+      "3": 545983,
+      "16": 3375766,
+      "42": 1193301,
+      "60": 828391,
+      "70": 2585971,
+      "94": 161034,
+      "130": 949005,
+      "147": 1022096,
+      "160": 122070,
+      "235": 1403875,
+      "287": 1838322,
+      "333": 3953829,
+      "428": 2636794,
+      "439": 5338375,
+      "580": 7786742,
+      "604": 521717,
+      "831": 1530067,
+      "1820": 1313020,
+      "2142": 25282024,
+      "2146": 641075,
+      "52945": 4214928
+     },
+     "wall_s": 3429.8,
+     "n_scored_pairs": 56603656,
+     "n_self_scores": 815375,
+     "rescue_joins": 352,
+     "rescue_rescored_genes": 183765,
+     "rescue_wall_s": 1175.11,
+     "n_families_after_rescue": 124850,
+     "n_families_before_rescue": 125202
+    }
+   },
+   "merge": {
+    "skipped": false,
+    "wall_s": 3338.26,
+    "cpu_self_s": 173.0,
+    "cpu_children_s": 20366.2,
+    "children_maxrss_mb_so_far": 25675.5,
+    "load_start": [
+     24.3,
+     25.7,
+     27.5
+    ],
+    "load_end": [
+     28.6,
+     27.4,
+     25.3
+    ],
+    "cpu_total_s": 20539.2,
+    "pipeline_wall_s": 3338.248,
+    "peak_rss_mb": 6953.5,
+    "stats": {
+     "n_root_groups": 28919,
+     "n_root_anc_genes": 229123,
+     "merge_s_sum_nodes": 3322.958,
+     "tree_clusters": 140820,
+     "tree_units": 609414,
+     "tree_s": 3263.43
+    }
+   },
+   "output": {
+    "skipped": false,
+    "wall_s": 32.7,
+    "cpu_self_s": 32.3,
+    "cpu_children_s": 0.0,
+    "children_maxrss_mb_so_far": 25675.5,
+    "load_start": [
+     28.6,
+     27.4,
+     25.3
+    ],
+    "load_end": [
+     23.9,
+     26.4,
+     25.1
+    ],
+    "cpu_total_s": 32.3,
+    "pipeline_wall_s": 32.698,
+    "peak_rss_mb": 4822.8,
+    "stats": {
+     "xsd_valid": true,
+     "n_top_groups": 28919,
+     "n_pairs": 16990389,
+     "n_ogs_multi": 28919
+    }
+   }
+  },
+  "total_wall_s": 9544.742,
+  "finished": true,
+  "driver_wall_s": 9545.9,
+  "cpu_self_s": 1065.7,
+  "cpu_children_s": 57627.5
+ }
+]

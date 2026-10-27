@@ -1,0 +1,33 @@
+{
+ "label": "anc_16_fast",
+ "kind": "anc",
+ "n_species": 16,
+ "n_proteins": 144334,
+ "threads": 8,
+ "cap_s": 7200,
+ "start": "2026-10-27T05:38:33.355484+01:00",
+ "end": "2026-10-27T05:38:51.389508+01:00",
+ "node_cores": 48,
+ "returncode": 0,
+ "preset": "fast",
+ "reuse_from": "anc_16",
+ "code": "snapshot",
+ "censored": false,
+ "wall_s": 16.65,
+ "user_s": 17.03,
+ "sys_s": 0.72,
+ "max_rss_gb": 0.6795997619628906,
+ "exit_status": 0,
+ "major_faults": 0,
+ "cpu_pct": "106%",
+ "cpu_s": 17.75,
+ "cpu_h": 0.004930555555555555,
+ "wall_h": 0.004625,
+ "node_load_1min": {
+  "n": 1,
+  "load1_mean": 23.08,
+  "load1_max": 23.08,
+  "load1_min": 23.08
+ },
+ "ok": true
+}

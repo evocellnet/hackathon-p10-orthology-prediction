@@ -1,0 +1,12 @@
+{
+ "gmax": 20000.0,
+ "n_families": 22559,
+ "max_family": 18888,
+ "n_split_parts": 69,
+ "genes_in_split": 118703,
+ "n_moved": 452,
+ "sum_g2": 1255290052,
+ "n_fam_gt5000": 7,
+ "leiden_s": 3.8,
+ "wall_s": 19.0
+}

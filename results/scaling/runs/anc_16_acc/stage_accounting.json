@@ -1,0 +1,161 @@
+[
+ {
+  "started": "2026-10-27T05:27:23+0100",
+  "argv": [
+   "work/scaling/code_snapshot/scripts/qfo_pipeline_driver.py",
+   "--proteomes",
+   "work/scaling/inputs/sub16",
+   "--tree",
+   "results/scaling/subsets/sub16.nwk",
+   "--out",
+   "work/scaling/runs/anc_16_acc",
+   "--threads",
+   "8",
+   "--gene-order",
+   "none",
+   "--preset",
+   "accurate",
+   "--reuse-stages-from",
+   "work/scaling/runs/anc_16"
+  ],
+  "threads": 8,
+  "gene_order": null,
+  "preset": "accurate",
+  "stop_after": null,
+  "invalidated": [],
+  "adopted_unrecorded": [],
+  "code_keys": {
+   "input": "f88bcb3b394df2f2",
+   "families": "df43339fea1e7020",
+   "scores": "d702ca61d3c2a3c5",
+   "merge": "9e50502b99329c17",
+   "output": "73381b4afab4cc73"
+  },
+  "stages": {
+   "input": {
+    "skipped": true,
+    "pipeline_wall_s": 0.091,
+    "peak_rss_mb": 128.8,
+    "stats": {
+     "n_genes": 144334,
+     "n_species": 16,
+     "n_internal_nodes": 11
+    }
+   },
+   "families": {
+    "skipped": true,
+    "pipeline_wall_s": 312.664,
+    "peak_rss_mb": 578.4,
+    "stats": {
+     "source": "ancestra.families",
+     "s0_timings": {
+      "stage1_s": 211.62816452980042,
+      "stage2_search_s": 89.07497262954712,
+      "stage2_s": 98.74417090415955,
+      "total_s": 312.2081387042999
+     },
+     "n_families": 38113,
+     "n_singletons": 29044,
+     "max_family": 7236,
+     "sum_g2": 214452600
+    }
+   },
+   "scores": {
+    "skipped": true,
+    "pipeline_wall_s": 276.185,
+    "peak_rss_mb": 2108.4,
+    "stats": {
+     "backend": "hybrid",
+     "n_families": 38113,
+     "sum_g2": 214452600,
+     "max_family": 7236,
+     "n_cross_family_hits": 440983,
+     "n_raw_hits": 10355254,
+     "n_blocks": 2,
+     "diamond_s": 156.96,
+     "n_pairs_diamond": 5167036,
+     "n_pairs_rescue_candidates": 2131618,
+     "n_pairs_aligned_mmseqs": 2131618,
+     "pairs_write_s": 1.02,
+     "align_s": 15.51,
+     "n_families_over_cap": 4,
+     "n_families_over_gmax": 0,
+     "n_pairs_dropped_by_cap": 2374876,
+     "pairs_dropped_per_family": {
+      "3": 370143,
+      "28": 195139,
+      "43": 1594319,
+      "83": 215275
+     },
+     "wall_s": 180.12,
+     "n_scored_pairs": 2914936,
+     "n_self_scores": 144317,
+     "rescue_joins": 115,
+     "rescue_rescored_genes": 41361,
+     "rescue_wall_s": 95.71,
+     "n_families_after_rescue": 37998,
+     "n_families_before_rescue": 38113
+    }
+   },
+   "merge": {
+    "skipped": false,
+    "wall_s": 664.14,
+    "cpu_self_s": 24.2,
+    "cpu_children_s": 4196.0,
+    "children_maxrss_mb_so_far": 2325.8,
+    "load_start": [
+     26.6,
+     26.8,
+     25.5
+    ],
+    "load_end": [
+     23.7,
+     23.8,
+     24.7
+    ],
+    "cpu_total_s": 4220.2,
+    "pipeline_wall_s": 664.139,
+    "peak_rss_mb": 755.2,
+    "stats": {
+     "n_root_groups": 11892,
+     "n_root_anc_genes": 61588,
+     "merge_s_sum_nodes": 663.335,
+     "tree_clusters": 27792,
+     "tree_units": 120915,
+     "tree_s": 658.34
+    }
+   },
+   "output": {
+    "skipped": false,
+    "wall_s": 3.65,
+    "cpu_self_s": 3.6,
+    "cpu_children_s": 0.0,
+    "children_maxrss_mb_so_far": 2325.8,
+    "load_start": [
+     23.7,
+     23.8,
+     24.7
+    ],
+    "load_end": [
+     23.1,
+     23.7,
+     24.6
+    ],
+    "cpu_total_s": 3.6,
+    "pipeline_wall_s": 3.646,
+    "peak_rss_mb": 703.1,
+    "stats": {
+     "xsd_valid": true,
+     "n_top_groups": 11892,
+     "n_pairs": 413722,
+     "n_ogs_multi": 11892
+    }
+   }
+  },
+  "total_wall_s": 668.743,
+  "finished": true,
+  "driver_wall_s": 668.8,
+  "cpu_self_s": 30.4,
+  "cpu_children_s": 4196.0
+ }
+]

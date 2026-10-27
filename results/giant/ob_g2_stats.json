@@ -1,0 +1,9 @@
+{
+ "n_reps_in_split_components": 10671,
+ "n_cross_piece_candidates": 3093,
+ "n_unique_pairs": 1826,
+ "n_edges_after_cap": 1819,
+ "n_pairs_total": 13567208,
+ "n_pairs_old": 13565389,
+ "wall_s": 5.3
+}

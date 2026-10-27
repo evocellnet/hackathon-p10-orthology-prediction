@@ -40,6 +40,7 @@ def main():
     ap.add_argument("--scores")
     ap.add_argument("--families")
     ap.add_argument("--threads", type=int, default=8)
+    ap.add_argument("--set", nargs="*", default=[], help="MergeConfig overrides k=v (JSON) after the preset")
     a = ap.parse_args()
     C = B[a.bench]
     run = os.path.join(ROOT, C["run"])
@@ -50,6 +51,7 @@ def main():
     st = ScoreTable.load(a.scores or os.path.join(run, "stages/scores/scores.npz"))
     fam = np.load(a.families or os.path.join(run, "stages/scores/families_final.npy"))
     merge = apply_preset(MergeConfig(), a.preset, a.threads)
+    merge = replace(merge, **{k: json.loads(v) for k, v in (kv.split("=", 1) for kv in a.set)})
     if merge.tree_method == "fasttree":
         full = load_proteomes(os.path.join(ROOT, C["prot"]))
         assert full.names == gt.names
@@ -71,7 +73,8 @@ def main():
     rss = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 1e6
     row = dict(time=datetime.now().isoformat(timespec="seconds"), bench=a.bench, label=a.label, preset=a.preset,
                merge_wall_s=round(wall, 1), merge_cpu_s=round(cpu, 1), peak_rss_gb=round(rss, 1),
-               scores=a.scores, families=a.families)
+               scores=a.scores, families=a.families, overrides=a.set,
+               preset_def=PRESETS[a.preset])
     if a.bench == "qfo":
         from qfo_merge_iter import fn_breakdown
         from qfo_treefam_dev_fast import score as tf_score

@@ -1,0 +1,8 @@
+05:24:07 [driver] reused stages ['input', 'families', 'scores'] from work/scaling/runs/anc_8 (hard links)
+05:24:07 [ancestra] stage input: up to date (7fe28c0d0b5c52d2), skipped
+05:24:07 [ancestra] stage families: up to date (5dab7713b38e8c9a), skipped
+05:24:07 [ancestra] stage scores: up to date (f65fb0feb83853dd), skipped
+05:24:07 [ancestra] stage merge: running
+05:27:14 [ancestra] stage merge: done in 186.4s, peak RSS 464 MB
+05:27:14 [ancestra] stage output: running
+05:27:15 [ancestra] stage output: done in 1.3s, peak RSS 402 MB

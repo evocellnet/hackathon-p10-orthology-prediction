@@ -1,0 +1,30 @@
+{
+ "n_changed_groups": 8,
+ "n_genes_changed": 96300,
+ "max_group": 22126,
+ "n_blocks": 1,
+ "diamond_s": 829.0,
+ "n_raw_hits": 89550339,
+ "n_new_pairs_raw": 4244074,
+ "G1": {
+  "n_pairs": 8679616,
+  "n_pairs_old": 13565389,
+  "n_new_kept": 4189408,
+  "dropped_by_cap": 9075181,
+  "n_families": 22474,
+  "max_family": 14617,
+  "n_fam_gt5000": 9,
+  "n_fam_gt20000": 0
+ },
+ "G3": {
+  "n_pairs": 8681243,
+  "n_pairs_old": 13565389,
+  "n_new_kept": 4228535,
+  "dropped_by_cap": 9112681,
+  "n_families": 22473,
+  "max_family": 18888,
+  "n_fam_gt5000": 8,
+  "n_fam_gt20000": 0
+ },
+ "wall_s": 851.4
+}
