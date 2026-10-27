@@ -17,8 +17,10 @@ Scoring is the official Open_Orthobench `BENCHMARKS/benchmark.py` (unmodified, i
 CLI (backward compatible with run_orthobench.sh):
   orthobench_eval.py <BENCHMARKS dir> <orthogroups file> [--basic] [--json out.json] [--label NAME]
                      [--split splits/orthobench_split.json] [--per-refog-tsv out.tsv]
-  orthobench_eval.py --compare A.json B.json [--subset all|dev|test] [-B 2000] [--seed 11]
-     paired bootstrap over RefOGs of dF = F(A) - F(B) (JSONs written by the first form).
+  orthobench_eval.py --compare A.json B.json [--subset all|dev|test] [-B 2000] [--seed 11] [--ni-margin 3]
+     paired bootstrap over RefOGs of dF = F(A) - F(B) (JSONs written by the first form). With --ni-margin M
+     (percentage points) a non-inferiority verdict is added: "comparable" iff the lower 95% bound >= -M
+     (DESIGN §5 of the root repo: M = 3 pp = 0.03 F as a fraction).
 Python API: score_orthogroups(...), subset_scores(per_refog, ids), bootstrap_delta_f(perA, perB, ids, B=2000, seed=11).
 Units: F/precision/recall in percent (as upstream); `F_frac` etc. are fractions.
 """
@@ -167,6 +169,13 @@ def bootstrap_delta_f(perA, perB, ids=None, B=2000, seed=11):
                 p_le0=float((d <= 0).mean()), B=B, seed=seed, n_refogs=n, F_A=fA, F_B=fB)
 
 
+def ni_verdict(ci_lo, margin):
+    """Non-inferiority verdict for dF = F(A) - F(B) (percentage points): comparable iff lower 95% bound >= -margin."""
+    if ci_lo >= -margin:
+        return "comparable (non-inferior%s)" % ("; CI > 0" if ci_lo > 0 else "")
+    return "not shown non-inferior"
+
+
 def main():
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     p.add_argument("bench_dir", nargs="?"); p.add_argument("ogs", nargs="?")
@@ -178,6 +187,8 @@ def main():
     p.add_argument("--compare", nargs=2, metavar=("A.json", "B.json"))
     p.add_argument("--subset", default="all", choices=["all", "dev", "test"])
     p.add_argument("-B", type=int, default=2000); p.add_argument("--seed", type=int, default=11)
+    p.add_argument("--ni-margin", type=float, default=None,
+                   help="non-inferiority margin in percentage points (adds 'ni_verdict' to --compare output)")
     a = p.parse_args()
     if a.compare:
         A, Bj = (json.load(open(x)) for x in a.compare)
@@ -186,6 +197,8 @@ def main():
             ids = json.load(open(a.split))[a.subset]
         r = bootstrap_delta_f(A["per_refog"], Bj["per_refog"], ids, a.B, a.seed)
         r.update(file_A=a.compare[0], file_B=a.compare[1], subset=a.subset)
+        if a.ni_margin is not None:
+            r.update(ni_margin_pp=a.ni_margin, ni_verdict=ni_verdict(r["ci95"][0], a.ni_margin))
         print(json.dumps(r, indent=1))
         return
     if not (a.bench_dir and a.ogs):
