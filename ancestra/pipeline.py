@@ -282,7 +282,8 @@ def run_pipeline(proteomes: str, tree_path: str, outdir: str, families: str | No
                  fam_cols: tuple = (0, 1), threads: int = 24, scoring: ScoringConfig | None = None,
                  merge: MergeConfig | None = None, family_config: dict | None = None,
                  force: bool = False, log=print, gene_order_dir: str | None = None,
-                 preset: str = "accurate") -> dict:
+                 preset: str = "accurate", family_rescue: str = "none",
+                 structure_3di: str | None = None, rescue_guard: bool = False) -> dict:
     os.makedirs(outdir, exist_ok=True)
     scoring = scoring or ScoringConfig()
     scoring.threads = threads
@@ -359,6 +360,38 @@ def run_pipeline(proteomes: str, tree_path: str, outdir: str, families: str | No
         return stats
     d_sc, k_sc = R.stage("scores", {"up": k_fam, "cfg": scoring.key()}, s_scores)
     st = ScoreTable.load(os.path.join(d_sc, "scores.npz"))
+    famf_path = os.path.join(d_sc, "families_final.npy")
+    k_up = k_sc
+
+    # 3b. optional S0 family rescue on cached scores (ancestra.rescue; off by default, and
+    # then no stage, no key change)
+    rescue_on = family_rescue not in (None, "none")
+    if rescue_on or rescue_guard:
+        R.manifest["config"]["family_rescue"] = {"mode": family_rescue, "guard": rescue_guard,
+                                                 "structure_3di": structure_3di}
+    if rescue_on:
+        from .rescue import RescueConfig, run_rescue, write_families
+        rcfg = RescueConfig(mode=family_rescue, threads=threads)
+        r_key = {"up": k_sc, "cfg": rcfg.key(),
+                 "3di": md5_file(structure_3di) if structure_3di and family_rescue in ("3di", "both")
+                 else None}
+
+        def s_rescue(d):
+            fam0 = np.load(famf_path) if os.path.exists(famf_path) else fam
+            fam2, st2, att, info = run_rescue(gt, fam0, st, rcfg, os.path.join(d, "work"),
+                                              s0_dir=os.path.join(d_fam, "s0"), threedi=structure_3di,
+                                              scoring=replace(scoring), log_path=os.path.join(d, "commands.log"),
+                                              hits_cache=os.path.join(R.sdir, "rescue_hits"), input_key=k_sc)
+            shutil.rmtree(os.path.join(d, "work"), ignore_errors=True)
+            st2.save(os.path.join(d, "scores.npz"))
+            np.save(os.path.join(d, "families_final.npy"), fam2)
+            np.save(os.path.join(d, "families_before.npy"), fam0)
+            np.savez(os.path.join(d, "attach.npz"), **att)
+            write_families(gt, fam2, os.path.join(d, "families.tsv"))
+            return info
+        d_rs, k_up = R.stage("rescue", r_key, s_rescue)
+        st = ScoreTable.load(os.path.join(d_rs, "scores.npz"))
+        famf_path = os.path.join(d_rs, "families_final.npy")
 
     # 4. merge
     syn_info = None
@@ -380,15 +413,30 @@ def run_pipeline(proteomes: str, tree_path: str, outdir: str, families: str | No
                 names.append(sp if os.path.exists(os.path.join(gene_order_dir, sp + ".parquet"))
                              else sp.split(".")[0])
             cc, oo, cov = gene_positions(gt.names, gt.species_of, names, gene_order_dir)
-            famf = os.path.join(d_sc, "families_final.npy")
-            famx = np.load(famf) if os.path.exists(famf) else fam
-            ctx = SyntenyContext(cc, oo, family=famx, **SYNTENY_DEFAULT)
+            famx = np.load(famf_path) if os.path.exists(famf_path) else fam
             mcfg = replace(merge, ctx_veto=True, ctx_r3=True)
-            res = run_merge_constrained(gt, tree, st, mcfg, ctx,
-                                        off_cfg=replace(mcfg, tree_method=off_tree))
+
+            def merge_once(st_, fam_):
+                ctx = SyntenyContext(cc, oo, family=fam_, **SYNTENY_DEFAULT)
+                return run_merge_constrained(gt, tree, st_, mcfg, ctx,
+                                             off_cfg=replace(mcfg, tree_method=off_tree))
             info["synteny_coverage"] = cov
         else:
-            res = run_merge(gt, tree, st, merge)
+            famx = np.load(famf_path) if os.path.exists(famf_path) else fam
+
+            def merge_once(st_, fam_):
+                return run_merge(gt, tree, st_, merge)
+        res = merge_once(st, famx)
+        if rescue_guard and rescue_on:
+            # R4 merge-side guard (ancestra.rescue.guard_detach): attachments not confirmed by a
+            # predicted ortholog pair with a reciprocal best hit are undone; merge again
+            from .rescue import guard_detach, revert_families
+            fam_b = np.load(os.path.join(d_rs, "families_before.npy"))
+            det, ginfo = guard_detach(res, gt, tree, fam_b, famx, st)
+            if len(det):
+                fam_g, st_g = revert_families(fam_b, famx, st, det)
+                res = merge_once(st_g, fam_g)
+            info["rescue_guard"] = ginfo
         with open(os.path.join(d, "merge.pkl"), "wb") as fh:
             pickle.dump(res, fh, protocol=pickle.HIGHEST_PROTOCOL)
         with open(os.path.join(d, "node_stats.json"), "w") as fh:
@@ -400,8 +448,11 @@ def run_pipeline(proteomes: str, tree_path: str, outdir: str, families: str | No
                 "tree_units": int(sum(s.get("tree_units", 0) for s in res.node_stats)),
                 "tree_s": round(sum(s.get("tree_s", 0) for s in res.node_stats), 2)})
         return info
-    d_m, k_m = R.stage("merge", {"up": k_sc, "cfg": merge.key(), "synteny": syn_info,
-                                 "preset": preset, "off_tree_method": off_tree}, s_merge)
+    m_key = {"up": k_up, "cfg": merge.key(), "synteny": syn_info,
+             "preset": preset, "off_tree_method": off_tree}
+    if rescue_guard and rescue_on:
+        m_key["rescue_guard"] = True
+    d_m, k_m = R.stage("merge", m_key, s_merge)
     with open(os.path.join(d_m, "merge.pkl"), "rb") as fh:
         res: MergeResult = pickle.load(fh)
     R.manifest["nodes"] = [{k: s[k] for k in ("node", "n_children", "n_units", "n_anc_out",
@@ -455,6 +506,13 @@ def build_parser(ap: argparse.ArgumentParser | None = None) -> argparse.Argument
     ap.add_argument("--config", help="JSON {'scoring': {...}, 'merge': {...}} overriding defaults")
     ap.add_argument("--gene-order", help="directory of S5 gene-order tables (<species>.parquet); "
                     "enables synteny evidence")
+    ap.add_argument("--family-rescue", default="none", choices=["none", "3di", "profile", "both"],
+                    help="attach small S0 families to their best remote-homology family after scoring "
+                         "(ancestra.rescue; default none)")
+    ap.add_argument("--structure-3di", help="3Di FASTA for --family-rescue 3di|both (AFDB exact-sequence 3Di)")
+    ap.add_argument("--family-rescue-guard", action="store_true",
+                    help="merge-side guard: undo attachments without a predicted RBH ortholog in the target "
+                         "family, then merge again")
     ap.add_argument("--force", action="store_true", help="recompute all stages")
     return ap
 
@@ -478,7 +536,8 @@ def main(argv=None) -> int:
     m = run_pipeline(a.proteomes, a.tree, a.out, families=a.families, fam_cols=cols,
                      threads=a.threads, scoring=sc, merge=mc, family_config=fc, force=a.force,
                      log=lambda s: print(s, file=sys.stderr), gene_order_dir=a.gene_order,
-                     preset=a.preset)
+                     preset=a.preset, family_rescue=a.family_rescue, structure_3di=a.structure_3di,
+                     rescue_guard=a.family_rescue_guard)
     print(f"[ancestra] done in {m['total_wall_s']:.1f}s -> {a.out}/hogs.orthoxml", file=sys.stderr)
     return 0
 

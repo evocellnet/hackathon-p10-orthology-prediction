@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<orthoXML xmlns="http://orthoXML.org/2011/" origin="ancestra" originVersion="0.1" version="0.5">
+  <species name="UP000000536_69014" taxonId="121">
+    <database name="ancestra" version="1">
+      <genes>
+        <gene id="1" protId="Q5JFM9"/>
+      </genes>
+    </database>
+  </species>
+  <species name="UP000000554_64091" taxonId="123">
+    <database name="ancestra" version="1">
+      <genes>
+        <gene id="2" protId="Q9HP11"/>
+      </genes>
+    </database>
+  </species>
+  <species name="UP000002487_188937" taxonId="124">
+    <database name="ancestra" version="1">
+      <genes>
+        <gene id="3" protId="Q8TTP7"/>
+      </genes>
+    </database>
+  </species>
+  <species name="UP000000805_243232" taxonId="125">
+    <database name="ancestra" version="1">
+      <genes>
+        <gene id="4" protId="Q57586"/>
+      </genes>
+    </database>
+  </species>
+  <taxonomy>
+    <taxon id="1" name="cellular organisms">
+      <taxon id="2" name="Bacteria">
+        <taxon id="3" name="Pseudomonadati">
+          <taxon id="4" name="Pseudomonadota">
+            <taxon id="5" name="UP000000425_122586"/>
+            <taxon id="6" name="Gammaproteobacteria">
+              <taxon id="7" name="UP000000625_83333"/>
+              <taxon id="8" name="UP000002438_208964"/>
+            </taxon>
+            <taxon id="9" name="UP000002526_224911"/>
+          </taxon>
+          <taxon id="10" name="UP000000429_85962"/>
+          <taxon id="11" name="PVC group">
+            <taxon id="12" name="UP000000431_272561"/>
+            <taxon id="13" name="UP000001025_243090"/>
+          </taxon>
+          <taxon id="14" name="UP000000577_243231"/>
+          <taxon id="15" name="UP000000718_289376"/>
+          <taxon id="16" name="UP000000798_224324"/>
+          <taxon id="17" name="UP000001408_189518"/>
+          <taxon id="18" name="UP000001414_226186"/>
+          <taxon id="19" name="UP000007719_515635"/>
+        </taxon>
+        <taxon id="20" name="Bacillati">
+          <taxon id="21" name="Cyanophyceae">
+            <taxon id="22" name="UP000000557_251221"/>
+            <taxon id="23" name="UP000001425_1111708"/>
+          </taxon>
+          <taxon id="24" name="UP000000807_243273"/>
+          <taxon id="25" name="UP000001570_224308"/>
+          <taxon id="26" name="Actinomycetes">
+            <taxon id="27" name="UP000001584_83332"/>
+            <taxon id="28" name="UP000001973_100226"/>
+          </taxon>
+          <taxon id="29" name="UP000002008_324602"/>
+        </taxon>
+        <taxon id="30" name="UP000002521_190304"/>
+        <taxon id="31" name="Thermotogati">
+          <taxon id="32" name="UP000002524_243230"/>
+          <taxon id="33" name="UP000008183_243274"/>
+        </taxon>
+      </taxon>
+      <taxon id="34" name="Eukaryota">
+        <taxon id="35" name="Opisthokonta">
+          <taxon id="36" name="Eumetazoa">
+            <taxon id="37" name="Bilateria">
+              <taxon id="38" name="Chordata">
+                <taxon id="39" name="Euteleostomi">
+                  <taxon id="40" name="Neopterygii">
+                    <taxon id="41" name="Clupeocephala">
+                      <taxon id="42" name="UP000000437_7955"/>
+                      <taxon id="43" name="UP000001038_8090"/>
+                    </taxon>
+                    <taxon id="44" name="UP000018468_7918"/>
+                  </taxon>
+                  <taxon id="45" name="Tetrapoda">
+                    <taxon id="46" name="Amniota">
+                      <taxon id="47" name="UP000000539_9031"/>
+                      <taxon id="48" name="Theria">
+                        <taxon id="49" name="Boreoeutheria">
+                          <taxon id="50" name="Euarchontoglires">
+                            <taxon id="51" name="Murinae">
+                              <taxon id="52" name="UP000000589_10090"/>
+                              <taxon id="53" name="UP000002494_10116"/>
+                            </taxon>
+                            <taxon id="54" name="Homininae">
+                              <taxon id="55" name="UP000001519_9595"/>
+                              <taxon id="56" name="UP000002277_9598"/>
+                              <taxon id="57" name="UP000005640_9606"/>
+                            </taxon>
+                          </taxon>
+                          <taxon id="58" name="Laurasiatheria">
+                            <taxon id="59" name="UP000002254_9615"/>
+                            <taxon id="60" name="UP000009136_9913"/>
+                          </taxon>
+                        </taxon>
+                        <taxon id="61" name="UP000002280_13616"/>
+                      </taxon>
+                    </taxon>
+                    <taxon id="62" name="UP000008143_8364"/>
+                  </taxon>
+                </taxon>
+                <taxon id="63" name="UP000001554_7739"/>
+                <taxon id="64" name="UP000008144_7719"/>
+              </taxon>
+              <taxon id="65" name="Protostomia">
+                <taxon id="66" name="Ecdysozoa">
+                  <taxon id="67" name="Arthropoda">
+                    <taxon id="68" name="Aparaglossata">
+                      <taxon id="69" name="Diptera">
+                        <taxon id="70" name="UP000000803_7227"/>
+                        <taxon id="71" name="UP000007062_7165"/>
+                      </taxon>
+                      <taxon id="72" name="UP000007266_7070"/>
+                    </taxon>
+                    <taxon id="73" name="UP000001555_6945"/>
+                  </taxon>
+                  <taxon id="74" name="UP000001940_6239"/>
+                </taxon>
+                <taxon id="75" name="UP000015101_6412"/>
+              </taxon>
+            </taxon>
+            <taxon id="76" name="UP000001593_45351"/>
+          </taxon>
+          <taxon id="77" name="Fungi">
+            <taxon id="78" name="Dikarya">
+              <taxon id="79" name="Ascomycota">
+                <taxon id="80" name="saccharomyceta">
+                  <taxon id="81" name="Saccharomycotina">
+                    <taxon id="82" name="UP000000559_237561"/>
+                    <taxon id="83" name="UP000001300_284591"/>
+                    <taxon id="84" name="UP000002311_559292"/>
+                  </taxon>
+                  <taxon id="85" name="leotiomyceta">
+                    <taxon id="86" name="UP000001055_321614"/>
+                    <taxon id="87" name="sordariomyceta">
+                      <taxon id="88" name="UP000001312_665079"/>
+                      <taxon id="89" name="UP000001805_367110"/>
+                    </taxon>
+                    <taxon id="90" name="UP000002530_330879"/>
+                  </taxon>
+                </taxon>
+                <taxon id="91" name="UP000002485_284812"/>
+              </taxon>
+              <taxon id="92" name="Basidiomycota">
+                <taxon id="93" name="UP000000561_237631"/>
+                <taxon id="94" name="UP000002149_214684"/>
+                <taxon id="95" name="UP000008783_418459"/>
+              </taxon>
+            </taxon>
+            <taxon id="96" name="UP000007241_684364"/>
+          </taxon>
+          <taxon id="97" name="UP000001357_81824"/>
+        </taxon>
+        <taxon id="98" name="UP000000542_5664"/>
+        <taxon id="99" name="Sar">
+          <taxon id="100" name="Alveolata">
+            <taxon id="101" name="UP000000600_5888"/>
+            <taxon id="102" name="UP000001450_36329"/>
+          </taxon>
+          <taxon id="103" name="Stramenopiles">
+            <taxon id="104" name="UP000001449_35128"/>
+            <taxon id="105" name="UP000005238_164328"/>
+          </taxon>
+        </taxon>
+        <taxon id="106" name="Metamonada">
+          <taxon id="107" name="UP000001542_5722"/>
+          <taxon id="108" name="UP000001548_184922"/>
+        </taxon>
+        <taxon id="109" name="UP000002195_44689"/>
+        <taxon id="110" name="Viridiplantae">
+          <taxon id="111" name="Embryophyta">
+            <taxon id="112" name="Mesangiospermae">
+              <taxon id="113" name="UP000006548_3702"/>
+              <taxon id="114" name="Poaceae">
+                <taxon id="115" name="UP000007305_4577"/>
+                <taxon id="116" name="UP000059680_39947"/>
+              </taxon>
+            </taxon>
+            <taxon id="117" name="UP000006727_3218"/>
+          </taxon>
+          <taxon id="118" name="UP000006906_3055"/>
+        </taxon>
+      </taxon>
+      <taxon id="119" name="Archaea">
+        <taxon id="120" name="Methanobacteriota">
+          <taxon id="121" name="UP000000536_69014"/>
+          <taxon id="122" name="Stenosarchaea group">
+            <taxon id="123" name="UP000000554_64091"/>
+            <taxon id="124" name="UP000002487_188937"/>
+          </taxon>
+          <taxon id="125" name="UP000000805_243232"/>
+        </taxon>
+        <taxon id="126" name="Thermoproteati">
+          <taxon id="127" name="UP000000792_436308"/>
+          <taxon id="128" name="Thermoproteota">
+            <taxon id="129" name="UP000001686_374847"/>
+            <taxon id="130" name="UP000001974_273057"/>
+          </taxon>
+        </taxon>
+      </taxon>
+    </taxon>
+  </taxonomy>
+  <groups>
+    <orthologGroup id="HOG0000410" taxonId="120">
+      <property name="TaxRange" value="Methanobacteriota"/>
+      <orthologGroup id="HOG0000410.1" taxonId="120">
+        <property name="TaxRange" value="Methanobacteriota"/>
+        <geneRef id="3"/>
+        <geneRef id="4"/>
+      </orthologGroup>
+      <orthologGroup id="HOG0000410.2" taxonId="120">
+        <property name="TaxRange" value="Methanobacteriota"/>
+        <geneRef id="1"/>
+        <geneRef id="2"/>
+      </orthologGroup>
+    </orthologGroup>
+  </groups>
+</orthoXML>

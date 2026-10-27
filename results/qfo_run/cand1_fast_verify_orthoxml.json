@@ -1,0 +1,264 @@
+{
+ "orthoxml": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/qfo2022_det/cand1_fast/hogs.orthoxml",
+ "tree": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/qfo2022_det/cand1_fast/stages/input/guide_tree.nwk",
+ "checks": {
+  "xsd": {
+   "ok": true,
+   "errors": []
+  },
+  "generef_integrity": {
+   "ok": true,
+   "n_genes_declared": 988778,
+   "n_generefs": 742121,
+   "n_groups": 514634,
+   "dup_gene_ids": [],
+   "dup_protids": [],
+   "dangling_generefs": [],
+   "dup_group_ids": []
+  },
+  "genes_once": {
+   "n_genes_in_groups": 742121,
+   "n_singletons": 246657,
+   "n_genes_referenced_more_than_once": 0,
+   "examples": [],
+   "gene_table": "work/qfo2022_det/cand1_fast/stages/input/genes.tsv",
+   "n_input_genes": 988778,
+   "n_missing": 0,
+   "n_extra": 0,
+   "n_wrong_species": 0,
+   "examples_missing": [],
+   "examples_extra": [],
+   "examples_wrong_species": [],
+   "ok": true
+  },
+  "taxrange_lca": {
+   "ok": false,
+   "n_orthologGroups": 404650,
+   "n_paralogGroups": 109984,
+   "n_taxrange_ne_lca": 0,
+   "examples_taxrange_ne_lca": [],
+   "n_taxonid_ne_taxrange": 0,
+   "examples_taxonid": [],
+   "n_nesting_violations": 8999,
+   "examples_nesting": [
+    [
+     "HOG0000305.4",
+     "Thermoproteati",
+     "Thermoproteati"
+    ],
+    [
+     "HOG0000313.6",
+     "Methanobacteriota",
+     "Methanobacteriota"
+    ],
+    [
+     "HOG0000404.5",
+     "Methanobacteriota",
+     "Methanobacteriota"
+    ],
+    [
+     "HOG0000410.2",
+     "Methanobacteriota",
+     "Methanobacteriota"
+    ],
+    [
+     "HOG0000410.1",
+     "Methanobacteriota",
+     "Methanobacteriota"
+    ],
+    [
+     "HOG0000418.1",
+     "Methanobacteriota",
+     "Methanobacteriota"
+    ],
+    [
+     "HOG0000463.4",
+     "Methanobacteriota",
+     "Methanobacteriota"
+    ],
+    [
+     "HOG0000488.4",
+     "Thermoproteati",
+     "Thermoproteati"
+    ],
+    [
+     "HOG0003851.5",
+     "Mesangiospermae",
+     "Mesangiospermae"
+    ],
+    [
+     "HOG0003988.54",
+     "Mesangiospermae",
+     "Mesangiospermae"
+    ]
+   ],
+   "n_paralog_level_violations": 323,
+   "examples_paralog": [
+    [
+     "HOG0004012.12",
+     "Poaceae",
+     "UP000059680_39947",
+     "Poaceae"
+    ],
+    [
+     "HOG0004719.21",
+     "Poaceae",
+     "UP000059680_39947",
+     "Poaceae"
+    ],
+    [
+     "HOG0004719.20",
+     "Poaceae",
+     "UP000007305_4577",
+     "Poaceae"
+    ],
+    [
+     "HOG0004742.22",
+     "Poaceae",
+     "UP000059680_39947",
+     "Poaceae"
+    ],
+    [
+     "HOG0004762.14",
+     "Poaceae",
+     "UP000007305_4577",
+     "Poaceae"
+    ],
+    [
+     "HOG0004864.85",
+     "Mesangiospermae",
+     "Mesangiospermae",
+     "Mesangiospermae"
+    ],
+    [
+     "HOG0004864.82",
+     "Mesangiospermae",
+     "Mesangiospermae",
+     "Mesangiospermae"
+    ],
+    [
+     "HOG0005468.21",
+     "Poaceae",
+     "UP000007305_4577",
+     "Poaceae"
+    ],
+    [
+     "HOG0005520.20",
+     "Poaceae",
+     "UP000007305_4577",
+     "Poaceae"
+    ],
+    [
+     "HOG0005568.7",
+     "Mesangiospermae",
+     "UP000007305_4577",
+     "Mesangiospermae"
+    ]
+   ],
+   "n_unknown_levels": 0,
+   "examples_unknown": [],
+   "orthologGroups_per_level": {
+    "Homininae": 21047,
+    "Poaceae": 20137,
+    "Boreoeutheria": 19451,
+    "Murinae": 18843,
+    "Euarchontoglires": 18032,
+    "Laurasiatheria": 17226,
+    "Euteleostomi": 17114,
+    "Clupeocephala": 17092,
+    "Theria": 17067,
+    "Neopterygii": 15931,
+    "Tetrapoda": 14934,
+    "Amniota": 14581,
+    "Mesangiospermae": 12723,
+    "Chordata": 12147,
+    "Eumetazoa": 10815,
+    "Eukaryota": 10444,
+    "Bilateria": 8924,
+    "leotiomyceta": 8812,
+    "Embryophyta": 8753,
+    "Aparaglossata": 8022,
+    "Diptera": 7947,
+    "Opisthokonta": 6921,
+    "Arthropoda": 6620,
+    "Protostomia": 6182,
+    "sordariomyceta": 6124,
+    "Bacteria": 5861,
+    "Viridiplantae": 5418,
+    "Ecdysozoa": 5169,
+    "Basidiomycota": 4945,
+    "Dikarya": 4724,
+    "cellular organisms": 4621,
+    "Pseudomonadati": 4588,
+    "Saccharomycotina": 4482,
+    "saccharomyceta": 4372,
+    "Ascomycota": 3814,
+    "Fungi": 3653,
+    "Stramenopiles": 3320,
+    "Sar": 3102,
+    "Bacillati": 3099,
+    "Pseudomonadota": 2863,
+    "Gammaproteobacteria": 2048,
+    "Actinomycetes": 1896,
+    "Cyanophyceae": 1740,
+    "Alveolata": 1719,
+    "Methanobacteriota": 1435,
+    "Archaea": 1332,
+    "Metamonada": 1164,
+    "Stenosarchaea group": 854,
+    "Thermoproteota": 745,
+    "Thermotogati": 685,
+    "Thermoproteati": 684,
+    "PVC group": 428
+   }
+  },
+  "pairs_count": {
+   "ok": true,
+   "n_pairs_hogs": 18050712,
+   "n_lines_pairs_tsv": 18050712
+  },
+  "flattening_vs_qfo": {
+   "ok": true,
+   "mapping": "qfo2022 mapping.json.gz",
+   "qfo_mapping_checks_ok": true,
+   "n_toplevel_units": 32674,
+   "n_sampled_units": 3005,
+   "n_largest_included": 5,
+   "largest_unit_genes": 6184,
+   "n_sample_genes": 89239,
+   "n_pairs_qfo": 2420284,
+   "n_pairs_ours": 2420284,
+   "n_pairs_tsv": 2420284,
+   "ours_minus_qfo": 0,
+   "qfo_minus_ours": 0,
+   "tsv_sym_diff_ours": 0,
+   "n_toplevel_seen": 32674
+  },
+  "pyham": {
+   "ok": false,
+   "error": "AttributeError(\"'NoneType' object has no attribute 'children'\")"
+  },
+  "orthobench_export": {
+   "n_ogs_read": 34039,
+   "n_col_skip": 1,
+   "n_duplicate_genes": 0,
+   "n_unknown_genes": 0,
+   "n_multi_gene_toplevel_groups": 34039,
+   "ogs_equal_toplevel_groups": true,
+   "official_check_orthogroups": "skipped (input is not the OrthoBench gene set)",
+   "ok": true
+  }
+ },
+ "timing_s": {
+  "xsd": 11.4,
+  "generef_integrity": 11.9,
+  "genes_once": 11.9,
+  "read_orthoxml": 18.0,
+  "taxrange_lca": 7.9,
+  "pairs_count": 6.4,
+  "flattening_vs_qfo": 46.8,
+  "pyham": 26.3,
+  "orthobench_export": 6.6
+ },
+ "ok": false
+}

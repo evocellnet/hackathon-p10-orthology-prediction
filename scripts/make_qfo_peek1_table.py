@@ -15,7 +15,8 @@ Columns
 * evaluated pairs = TP+FP from the raw files of SwissTree, TreeFam-A, VGNC, and SP "Nr orthologs among SwissProt
   entries"; n_pairs_mapped = distinct predicted ortholog pairs mapped by map_relations.py (orthologs.db).
 
-Writes results/qfo_peek1/summary.tsv, summary.md, competitor_reproduction.tsv.
+Writes <out>/summary.tsv, summary.md, competitor_reproduction.tsv (default out: results/qfo_peek1).
+Usage for later peeks: --ours "LABEL=work/qfo_peekN/<arm>=local (peek N)" ... --out results/qfo_peekN
 """
 from __future__ import annotations
 
@@ -113,12 +114,21 @@ def row(name: str, src: str, pub: dict | None, loc: dict) -> dict:
             "predicted pairs mapped (all)": f(loc.get(("all", "n_pairs_mapped")))}
 
 
-def main() -> int:
-    os.makedirs(OUT, exist_ok=True)
+def main(argv=None) -> int:
+    import argparse
+    ap = argparse.ArgumentParser(description="QfO peek table (ours + published competitors)")
+    ap.add_argument("--ours", action="append", default=[],
+                    help="LABEL=QFO_RUN_DIR[=SOURCE] (default: the two peek-1 arms)")
+    ap.add_argument("--out", default=OUT)
+    a = ap.parse_args(argv)
+    out_dir = a.out
+    ours = [tuple(x.split("=", 2)) for x in a.ours] or \
+        [(n, os.path.join(PEEK, d), "local (peek 1)") for n, d in OURS]
+    os.makedirs(out_dir, exist_ok=True)
     pub = published()
     rows, repro = [], []
-    for name, arm in OURS:
-        rows.append(row(name, "local (peek 1)", None, local(os.path.join(PEEK, arm))))
+    for name, d, *src in ours:
+        rows.append(row(name, src[0] if src else "local", None, local(d)))
     for name, loc_name in COMP:
         loc = local(os.path.join(PEEK, "competitors", loc_name))
         p = pub.get(name)
@@ -132,22 +142,22 @@ def main() -> int:
                     repro.append({"method": name, "benchmark": b, "metric": m, "published": p[(b, m)][0],
                                   "local": loc[(b, m)][0], "abs_diff": abs(p[(b, m)][0] - loc[(b, m)][0])})
     cols = list(rows[0])
-    with open(os.path.join(OUT, "summary.tsv"), "w") as fh:
+    with open(os.path.join(out_dir, "summary.tsv"), "w") as fh:
         w = csv.DictWriter(fh, cols, delimiter="\t")
         w.writeheader()
         w.writerows(rows)
-    with open(os.path.join(OUT, "summary.md"), "w") as fh:
+    with open(os.path.join(out_dir, "summary.md"), "w") as fh:
         fh.write("| " + " | ".join(cols) + " |\n|" + "---|" * len(cols) + "\n")
         for r in rows:
             fh.write("| " + " | ".join(r[c] for c in cols) + " |\n")
     if repro:
-        with open(os.path.join(OUT, "competitor_reproduction.tsv"), "w") as fh:
+        with open(os.path.join(out_dir, "competitor_reproduction.tsv"), "w") as fh:
             w = csv.DictWriter(fh, list(repro[0]), delimiter="\t")
             w.writeheader()
             w.writerows(repro)
         print(f"[table] reproduction: max |local - published| = {max(r['abs_diff'] for r in repro):.2e} "
               f"over {len(repro)} values", file=sys.stderr)
-    print(f"[table] wrote {OUT}/summary.tsv ({len(rows)} rows)", file=sys.stderr)
+    print(f"[table] wrote {out_dir}/summary.tsv ({len(rows)} rows)", file=sys.stderr)
     return 0
 
 

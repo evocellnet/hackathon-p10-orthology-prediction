@@ -1,0 +1,3 @@
+time	label	F	P	R	exact	n_split	n_with_fp	pairP	pairR	pairF1	pairF1_macro	rescue_s	merge_s	rescue_stats	guard
+2026-10-27T00:59:34	R1	68.66	62.75	75.8	11	15	20	0.8012	0.8178	0.8094	0.8099	84.395	1342.479	{"n_links": 32483, "n_attached": 2719, "n_capped": 0, "n_genes_attached": 6489, "n_target_families": 937, "by_source": {"3di": 2719}}	None
+2026-10-27T01:28:24	R2	79.79	75.68	84.36	12	16	19	0.8018	0.8091	0.8055	0.8063	311.319	1394.739	{"n_links": 3709, "n_attached": 1088, "n_capped": 0, "n_genes_attached": 2313, "n_target_families": 517, "by_source": {"profile": 1088}}	None

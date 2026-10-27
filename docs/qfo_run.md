@@ -249,3 +249,20 @@ HOGs per level: `results/qfo_run/det_{go,nogo}_summary.md`. Size distribution an
     (`results/qfo_dev_diag/treefamA_dev_scores.json`).
 - **Diagnosis** (`scripts/qfo_dev_diag.py`; dev pairs only, test pairs are skipped at parse time): see
   `results/qfo_dev_diag/diag_summary.json` and `diag_pairs.tsv`.
+
+## 9. Frozen candidate cand1 (presets with so_struct + deep_so_absorb), 2026-10-27
+- **Runs.** Merge-only reruns on the cached det S0/S2 (driver `--preset fast|accurate --reuse-stages-from det_nogo`,
+  gene order on): `work/qfo2022_det/cand1_{fast,accurate}`. `verify_ids` PASS.
+  - fast: merge 374 s / 371 CPU-s / 9.5 GB.
+  - accurate: merge 4,073 s / 7.2 CPU-h / 9.5 GB, 61,216 FastTree jobs.
+- **verify_orthoxml FAILS (structure).**
+  - About 8.9–9.0k orthologGroups are nested directly in an orthologGroup of the **same** TaxRange.
+  - About 300 paralogGroups have a level that is not strictly below the enclosing orthologGroup, or that does not
+    contain their members.
+  - pyham crashes ("NoneType has no attribute children").
+  - Pair-level checks pass: pairs count, flattening vs QfO and OrthoBench export.
+  - `det_go_accurate` (presets before so_struct) had 0 violations.
+  - Minimal repro: `results/qfo_run/repro_so_struct_nesting/HOG0000410_cand1_fast.orthoxml` (4 genes:
+    OG@Methanobacteriota{OG@Methanobacteriota, OG@Methanobacteriota}).
+- **Peek 2 not run** pending the PI's decision (verification gate, DESIGN §6). Dev-only TreeFam-A (not a peek):
+  cand1_fast TPR 0.616 / PPV 0.920; cand1_accurate 0.657 / 0.914 (`results/qfo_dev_diag/treefamA_dev_scores_cand1.json`).

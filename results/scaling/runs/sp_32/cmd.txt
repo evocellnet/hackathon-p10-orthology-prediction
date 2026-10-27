@@ -1,0 +1,4 @@
+sonicparanoid -i work/scaling/inputs/sub32 -o work/scaling/runs/sp_32 -p scal32 -t 8 -m default
+cap_s=21600
+start=2026-10-27T00:57:06.347221+01:00
+load_at_start=50.31 54.99 53.56 43/3104 1480214
