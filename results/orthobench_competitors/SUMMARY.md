@@ -12,6 +12,8 @@ Scores: official Open_Orthobench `benchmark.py` (pairwise, RefOG-size normalised
 | proteinortho | 45.1 | 42.6 | 47.5 | 97.0 | 29.4 | 6/70 | 0.23 | 1.6 | 0.8 |
 | fastoma_luca | 31.7 | 29.6 | 33.5 | 24.0 | 46.7 | 19/70 | 3.50 | 12.7 | 13.6 |
 | fastoma_luca_ogs | 31.7 | 27.9 | 35.3 | 95.1 | 19.0 | 4/70 | 3.50 | 12.7 | 13.6 |
+| fastoma_v2 | 29.9 | 26.7 | 33.1 | 21.6 | 48.6 | 19/70 | 2.99 | 19.9 | 12.2 |
+| fastoma_v2_luca_released | 29.1 | 25.1 | 33.1 | 21.1 | 47.1 | 19/70 | 2.99 | 19.9 | 12.2 |
 | oma_browser | 55.8 | 50.5 | 60.4 | 92.5 | 39.9 | 6/70 | 0.26 | 0.3 | 1.5 |
 | oma_browser_root | 7.3 | 7.3 | 7.2 | 3.9 | 47.1 | 6/70 | 0.26 | 0.3 | 1.5 |
 
@@ -25,6 +27,8 @@ Precision/recall on dev / test:
 | proteinortho | 96.1 | 27.4 | 97.7 | 31.4 |
 | fastoma_luca | 23.6 | 39.8 | 24.3 | 53.7 |
 | fastoma_luca_ogs | 95.2 | 16.3 | 95.0 | 21.7 |
+| fastoma_v2 | 19.3 | 43.4 | 23.9 | 53.8 |
+| fastoma_v2_luca_released | 18.2 | 40.4 | 23.9 | 53.8 |
 | oma_browser | 97.8 | 34.1 | 88.9 | 45.8 |
 | oma_browser_root | 4.0 | 44.8 | 3.9 | 49.5 |
 
@@ -47,6 +51,12 @@ Precision/recall on dev / test:
 | fastoma_luca_ogs | all | -38.5 | [-47.6, -28.3] | 4.9 |
 | fastoma_luca_ogs | dev | -42.7 | [-53.6, -31.1] | 5.7 |
 | fastoma_luca_ogs | test | -34.4 | [-48.6, -18.2] | 7.8 |
+| fastoma_v2 | all | -40.2 | [-54.6, -15.3] | 10.1 |
+| fastoma_v2 | dev | -43.8 | [-61.3, -13.2] | 14.3 |
+| fastoma_v2 | test | -36.6 | [-56.2, -4.0] | 13.9 |
+| fastoma_v2_luca_released | all | -41.0 | [-55.1, -16.1] | 10.0 |
+| fastoma_v2_luca_released | dev | -45.4 | [-62.4, -14.6] | 13.9 |
+| fastoma_v2_luca_released | test | -36.6 | [-56.2, -4.0] | 13.9 |
 | oma_browser | all | -14.3 | [-22.7, -5.0] | 4.5 |
 | oma_browser | dev | -20.0 | [-30.0, -9.1] | 5.3 |
 | oma_browser | test | -9.3 | [-23.2, +5.5] | 7.1 |
@@ -62,6 +72,8 @@ Precision/recall on dev / test:
 - **proteinortho**: Proteinortho 6.3.6 (bioconda) diamond 2.2.8 | proteinortho -p=diamond -cpus=8 (defaults: e=1e-5, identity 25, coverage 50, conn 0.1, purity; PoFF off). Input proteomes had internal '*' stop symbols stripped (sed, required by ProteinOrtho)
 - **fastoma_luca**: FastOMA 0.5.1, omamer 2.1.0, LUCA.h5 (zenodo 20814376, 2026-06-23); species tree hand-built from NCBI taxonomy; variant=tophogs | FastOMA 0.5.1 nextflow pipeline (local, no container), OMAmer 2.1.0 + LUCA.h5 (OMAmer DB, OMA-derived: LEAKAGE - OMA contains these species), nextflow executor cpus=8. wall includes omamer search (12 x 1 cpu), nextflow overhead + report notebook; peak RSS = largest single process
 - **fastoma_luca_ogs**: FastOMA 0.5.1, omamer 2.1.0, LUCA.h5; variant=OrthologousGroups | FastOMA 0.5.1 nextflow pipeline (local, no container), OMAmer 2.1.0 + LUCA.h5 (OMAmer DB, OMA-derived: LEAKAGE - OMA contains these species); same run as fastoma_luca; peak RSS = largest single process
+- **fastoma_v2**:  | FastOMA 0.5.1 + LUCA.h5 + gene-loss patch; 3 segments (pause/resume; segment 3 re-ran all hog_rest because nextflow cache of /tmp workdirs was not reused: 76 tasks run, 14 cached); omamer step reused v1 hogmaps (add ~0.75 CPU-h, 13.6 GB RSS from v1 trace for a full run); local NVMe work dir; LEAKAGE
+- **fastoma_v2_luca_released**:  | FastOMA 0.5.1 + LUCA.h5 + gene-loss patch; 3 segments (pause/resume; segment 3 re-ran all hog_rest because nextflow cache of /tmp workdirs was not reused: 76 tasks run, 14 cached); omamer step reused v1 hogmaps (add ~0.75 CPU-h, 13.6 GB RSS from v1 trace for a full run); local NVMe work dir; LEAKAGE
 - **oma_browser**: OMA browser All.May2026 (Zenodo 10.5281/zenodo.22869443, published 2026-10-21; HOGs 'infered May 2025'), oma-hogs.orthoXML.gz md5 cf41ae36b554f6a60270297f6ab95d66, CC BY 4.0; Bilateria-level HOGs restricted to OrthoBench genes; ID mapping oma-ensembl.txt.gz (md5 86a09a24...) + exact/near-identical sequence (oma-seqs.fa.gz md5 417fa34d...); unmapped = singletons | PRECOMPUTED OMA browser HOGs (All.May2026, inferred by OMA on its own infrastructure; inference cost not measurable/not included). Runtime = local conversion only (stream oma-hogs.orthoXML.gz, ID/sequence mapping incl. DIAMOND near-identical step on 2 threads, OG export); Bilateria-level HOGs. LEAKAGE: OMA contains all 12 OrthoBench species.
 - **oma_browser_root**: OMA browser All.May2026 (Zenodo 10.5281/zenodo.22869443, published 2026-10-21; HOGs 'infered May 2025'), oma-hogs.orthoXML.gz md5 cf41ae36b554f6a60270297f6ab95d66, CC BY 4.0; root-level HOGs restricted to OrthoBench genes; ID mapping oma-ensembl.txt.gz (md5 86a09a24...) + exact/near-identical sequence (oma-seqs.fa.gz md5 417fa34d...); unmapped = singletons | PRECOMPUTED OMA browser HOGs (All.May2026, inferred by OMA on its own infrastructure; inference cost not measurable/not included). Runtime = local conversion only (stream oma-hogs.orthoXML.gz, ID/sequence mapping incl. DIAMOND near-identical step on 2 threads, OG export); root-level HOGs. LEAKAGE: OMA contains all 12 OrthoBench species.
 
@@ -86,5 +98,21 @@ Precision/recall on dev / test:
   RootHOGs.tsv == Bilateria-level HOGs). OMAmer leaves only 4.1% unplaced (Metazoa.h5: 4.2%, so a more specific DB does not help). The 21%
   absent genes = 9.1% never in a FastOMA family + 9.7% root-level singletons + 2.2% (5,497 genes) silently LOST by a FastOMA 0.5.1 bug:
   `_hog_class.split_hog()` rebuilds a split HOG only from the subHOGs that contain a representative and drops the others (also on the
-  `dev` branch). The loss concentrates in big families: RefOG005/006/008/013 almost entirely missing. v2 run (LUCA + patch) in progress,
-  see `OMA_RESUME_NOTE.md`.
+  `dev` branch). The loss concentrates in big families: RefOG005/006/008/013 almost entirely missing. The v2 run (LUCA + patch) is complete: see the section below.
+
+## OMA comparators (added at user request, post-freeze, 2026-10-27)
+
+ΔF = F(Ancestra accurate) − F(comparator), paired bootstrap over RefOGs (B=2000, seed 11), NI margin 3 pp. Rows: `fastoma_v2` = FastOMA 0.5.1 + LUCA.h5 + gene-loss patch (pre-declared primary); `fastoma_v2_luca_released` = same run minus rescued HOGs (= unpatched 0.5.1); `oma_browser` = precomputed OMA browser HOGs (All.May2026) cut at Bilateria (primary), `oma_browser_root` = root level; `fastoma_luca` = v1 (unpatched) run.
+
+| comparator | test F | P | R | exact | dev F | all-70 F | ΔF test (Ancestra − comparator) [95% CI] | SE | NI verdict (Ancestra vs comparator) | ΔF all-70 [95% CI] | CPU-h | wall-h | peak RSS GB |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| fastoma_v2 | 33.1 | 23.9 | 53.8 | 10/36 | 26.7 | 29.9 | +43.1 [+14.0, +55.3] | 11.1 | comparable (non-inferior; CI > 0) | +48.0 [+24.3, +60.6] | 19.86 | 2.99 | 12.2 |
+| fastoma_v2_luca_released | 33.1 | 23.9 | 53.8 | 10/36 | 25.1 | 29.1 | +43.1 [+14.0, +55.3] | 11.1 | comparable (non-inferior; CI > 0) | +48.8 [+25.3, +61.2] | 19.86 | 2.99 | 12.2 |
+| oma_browser | 60.4 | 88.9 | 45.8 | 3/36 | 50.5 | 55.8 | +15.7 [+1.8, +29.2] | 7.2 | comparable (non-inferior; CI > 0) | +22.1 [+13.2, +30.7] | 0.31 | 0.26 | 1.5 |
+| oma_browser_root | 7.2 | 3.9 | 49.5 | 2/36 | 7.3 | 7.3 | +69.0 [+22.3, +75.3] | 12.7 | comparable (non-inferior; CI > 0) | +70.6 [+54.6, +77.2] | 0.31 | 0.26 | 1.5 |
+| fastoma_luca | 33.5 | 24.3 | 53.7 | 10/36 | 29.6 | 31.7 | +42.7 [+14.1, +55.2] | 11.2 | comparable (non-inferior; CI > 0) | +46.2 [+26.3, +57.7] | 12.74 | 3.50 | 13.6 |
+
+- **LEAKAGE:** OMA (browser HOGs, and the OMAmer LUCA DB used by FastOMA) contains all 12 OrthoBench species/proteins, so these are informed upper-bound-style comparators, not independent ones. Ancestra did not use OMA.
+- **Patch verification:** genes in predicted groups rose to 202,691/251,378 (80.6%) vs 198,615 (79.0%) in v1 (unpatched re-run 199,302); 3,795 subHOGs (630 of size>=2, 7,464 genes) were rescued. Big families partly recovered (RefOG005 TP 0.03 -> 3.8, RefOG006 0.06 -> 4.3, RefOG008 0.08 -> 4.3; RefOG013 unchanged). Test F is essentially unchanged (33.1 vs 33.5 v1): the remaining FastOMA gap is not the gene-dropping bug (most absent genes are OMAmer-unplaced / root singletons).
+- **Cost (fastoma_v2, 3 segments, 8 threads, shared node):** 19.9 CPU-h, 2.99 h wall, peak RSS 12.2 GB (+~0.75 CPU-h omamer step reused from v1). oma_browser: conversion only, 0.31 CPU-h, 0.26 h, 1.5 GB (OMA inference not measurable). Both are not comparable to Ancestra's 3.9 CPU-h.
+- Reading: Ancestra's point estimate is above every OMA row on test; vs oma_browser ΔF +15.7 [+1.8, +29.2] (CI above 0), with the caveat that OMA saw these species.

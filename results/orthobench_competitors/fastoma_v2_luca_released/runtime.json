@@ -1,0 +1,63 @@
+{
+ "wall_s": 10746.34,
+ "user_s": 38733.97,
+ "sys_s": 32778.03,
+ "max_rss_gb": 12.242931365966797,
+ "cpu_s": 71512.0,
+ "cpu_h": 19.864444444444445,
+ "wall_h": 2.9850944444444445,
+ "threads_requested": 8,
+ "node_cores": 24,
+ "node_shared_busy": true,
+ "note": "FastOMA 0.5.1 + LUCA.h5 + gene-loss patch; 3 segments (pause/resume; segment 3 re-ran all hog_rest because nextflow cache of /tmp workdirs was not reused: 76 tasks run, 14 cached); omamer step reused v1 hogmaps (add ~0.75 CPU-h, 13.6 GB RSS from v1 trace for a full run); local NVMe work dir; LEAKAGE",
+ "phases": {
+  "luca_patched/logs_seg1": {
+   "wall_s": 3036.2,
+   "user_s": 6320.39,
+   "sys_s": 2491.71,
+   "max_rss_gb": 1.3782157897949219,
+   "exit_status": 1,
+   "major_faults": 8597,
+   "node_load_1min": {
+    "n": 51,
+    "load1_mean": 30.867254901960784,
+    "load1_max": 46.47,
+    "load1_min": 13.51
+   },
+   "start": "2026-10-27T08:34:01+01:00",
+   "end": "2026-10-27T09:24:37+01:00"
+  },
+  "luca_patched/logs_seg2": {
+   "wall_s": 2539.14,
+   "user_s": 8967.33,
+   "sys_s": 7731.21,
+   "max_rss_gb": 3.1754417419433594,
+   "exit_status": 1,
+   "major_faults": 100586,
+   "node_load_1min": {
+    "n": 43,
+    "load1_mean": 29.991627906976742,
+    "load1_max": 54.71,
+    "load1_min": 14.54
+   },
+   "start": "2026-10-27T09:25:03+01:00",
+   "end": "2026-10-27T10:07:22+01:00"
+  },
+  "luca_patched/logs": {
+   "wall_s": 5171.0,
+   "user_s": 23446.25,
+   "sys_s": 22555.11,
+   "max_rss_gb": 12.242931365966797,
+   "exit_status": 0,
+   "major_faults": 273669,
+   "node_load_1min": {
+    "n": 87,
+    "load1_mean": 31.724137931034484,
+    "load1_max": 45.73,
+    "load1_min": 1.29
+   },
+   "start": "2026-10-27T11:08:59+01:00",
+   "end": "2026-10-27T12:35:10+01:00"
+  }
+ }
+}

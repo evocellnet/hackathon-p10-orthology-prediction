@@ -1,5 +1,7 @@
 # OMA comparators on OrthoBench — PAUSED 2026-10-27T10:09:12+01:00 (user request: move to GPU node)
 
+**UPDATE: the patched FastOMA run completed and was scored (see SUMMARY.md); this note is historical.**
+
 Task (user request, post-freeze): include >=1 OMA resource in all comparisons. Two resources: (1) FastOMA re-run fixed, (2) OMA browser HOGs.
 
 ## Done
