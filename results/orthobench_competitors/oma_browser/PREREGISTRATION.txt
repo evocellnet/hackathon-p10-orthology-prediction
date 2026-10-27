@@ -1,0 +1,11 @@
+Written 2026-10-27T08:37:55+01:00, BEFORE any v2 FastOMA or OMA-browser output was scored.
+Primary rows (chosen a priori; all other arms are reported as sensitivity analyses, not selected on score):
+- fastoma_v2 (primary FastOMA row) = FastOMA 0.5.1 + LUCA.h5 (the developers' recommended OMAmer DB) + gene-loss patch
+  (split_hog drops subHOGs without representatives; patch keeps them as frozen HOGs); root-level (Bilateria) HOGs = top-level
+  orthologGroups of FastOMA_HOGs.orthoxml (== RootHOGs.tsv); genes in no HOG = singletons.
+  Sensitivity arms: fastoma_v2_luca_released (same run, rescued HOGs removed = exact unpatched 0.5.1 output),
+  fastoma_v2_metazoa (Metazoa.h5 + patch), fastoma_v2_metazoa_released.
+- oma_browser (primary OMA-browser row) = OMA All.May2026 HOGs cut at the Bilateria level (OrthoBench RefOGs are defined as
+  the descendants of one Bilateria ancestral gene), restricted to the OrthoBench genes; unmapped genes = singletons.
+  Sensitivity arm: oma_browser_root (root-level HOGs).
+ADDENDUM 2026-10-27T09:26:24+01:00: metazoa arms stopped for time (no score; see metazoa_arm.txt). OMA browser: the first implementation of the Bilateria cut (deepest Bilateria-or-older group, ignoring paralogGroups) gave F all 36.1 / test 45.5; inspection of RefOG005 showed it mislabels genes below a paralogGroup under an older-than-Bilateria group (all genes of separate paralog lineages below a paralogGroup under an older-than-Bilateria group got that older group as one shared label); corrected rule (paralog-aware, scripts/oma_browser_to_orthobench_og.py) is the reported oma_browser row. The rule was fixed for correctness, not chosen among alternatives by score.

@@ -1,0 +1,18 @@
+OrthoBench -> OMA All.May2026 mapping (route of the accepted mapping; routes 1-5 exact IDs/sequence, 6 near-identical DIAMOND >=95% id, >=90% cov both)
+routes: {'gene': 47556, 'sequence': 6802, 'unmapped': 12250, 'protein': 176642, 'transcript': 2308, 'near_identical_diamond': 5818, 'sequence_noM': 2}
+all: 251378 proteins, mapped to an OMA entry 239128 (95.1%), mapped to an entry that is in a HOG 224146 (89.2%)
+species	n	mapped%	in_HOG%
+Caenorhabditis_elegans	20191	98.8	84.4
+Canis_familiaris	20257	86.4	85.6
+Ciona_intestinalis	16671	98.3	61.8
+Danio_rerio	30313	100.0	96.0
+Drosophila_melanogaster	13947	100.0	98.4
+Gallus_gallus	16878	63.2	60.0
+Homo_sapiens	23485	96.4	93.6
+Monodelphis_domestica	21384	100.0	96.4
+Mus_musculus	22866	99.4	96.1
+Pan_troglodytes	23534	100.0	98.9
+Rattus_norvegicus	22250	92.3	89.5
+Tetraodon_nigroviridis	19602	99.6	95.6
+RefOG genes (1,945 incl. 1 duplicate): in an OMA HOG 1812 (93.2%)
+OMA species sources: chicken = RefSeq GRCg7b (Ensembl 99 = GRCg6a; hence only 60% in-HOG coverage), rat = Ensembl 106 mRatBN7.2 (Ensembl 99 = Rnor_6.0), human Ens102, mouse Ens104 GRCm39, others Ensembl 70-106 (oma-species.txt)

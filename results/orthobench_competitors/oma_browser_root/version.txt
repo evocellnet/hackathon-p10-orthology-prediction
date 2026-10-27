@@ -1,0 +1,1 @@
+OMA browser All.May2026 (Zenodo 10.5281/zenodo.22869443, published 2026-10-21; HOGs 'infered May 2025'), oma-hogs.orthoXML.gz md5 cf41ae36b554f6a60270297f6ab95d66, CC BY 4.0; root-level HOGs restricted to OrthoBench genes; ID mapping oma-ensembl.txt.gz (md5 86a09a24...) + exact/near-identical sequence (oma-seqs.fa.gz md5 417fa34d...); unmapped = singletons

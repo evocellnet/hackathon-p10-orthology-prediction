@@ -12,6 +12,8 @@ Scores: official Open_Orthobench `benchmark.py` (pairwise, RefOG-size normalised
 | proteinortho | 45.1 | 42.6 | 47.5 | 97.0 | 29.4 | 6/70 | 0.23 | 1.6 | 0.8 |
 | fastoma_luca | 31.7 | 29.6 | 33.5 | 24.0 | 46.7 | 19/70 | 3.50 | 12.7 | 13.6 |
 | fastoma_luca_ogs | 31.7 | 27.9 | 35.3 | 95.1 | 19.0 | 4/70 | 3.50 | 12.7 | 13.6 |
+| oma_browser | 55.8 | 50.5 | 60.4 | 92.5 | 39.9 | 6/70 | 0.26 | 0.3 | 1.5 |
+| oma_browser_root | 7.3 | 7.3 | 7.2 | 3.9 | 47.1 | 6/70 | 0.26 | 0.3 | 1.5 |
 
 Precision/recall on dev / test:
 
@@ -23,6 +25,8 @@ Precision/recall on dev / test:
 | proteinortho | 96.1 | 27.4 | 97.7 | 31.4 |
 | fastoma_luca | 23.6 | 39.8 | 24.3 | 53.7 |
 | fastoma_luca_ogs | 95.2 | 16.3 | 95.0 | 21.7 |
+| oma_browser | 97.8 | 34.1 | 88.9 | 45.8 |
+| oma_browser_root | 4.0 | 44.8 | 3.9 | 49.5 |
 
 ## Paired bootstrap vs OrthoFinder (dF = F(method) - F(OrthoFinder), percentage points; RefOGs resampled, B=2000, seed 11)
 
@@ -43,6 +47,12 @@ Precision/recall on dev / test:
 | fastoma_luca_ogs | all | -38.5 | [-47.6, -28.3] | 4.9 |
 | fastoma_luca_ogs | dev | -42.7 | [-53.6, -31.1] | 5.7 |
 | fastoma_luca_ogs | test | -34.4 | [-48.6, -18.2] | 7.8 |
+| oma_browser | all | -14.3 | [-22.7, -5.0] | 4.5 |
+| oma_browser | dev | -20.0 | [-30.0, -9.1] | 5.3 |
+| oma_browser | test | -9.3 | [-23.2, +5.5] | 7.1 |
+| oma_browser_root | all | -62.9 | [-71.4, -45.7] | 6.3 |
+| oma_browser_root | dev | -63.2 | [-74.1, -42.6] | 8.3 |
+| oma_browser_root | test | -62.5 | [-74.2, -11.3] | 14.9 |
 
 ## Notes
 
@@ -52,6 +62,8 @@ Precision/recall on dev / test:
 - **proteinortho**: Proteinortho 6.3.6 (bioconda) diamond 2.2.8 | proteinortho -p=diamond -cpus=8 (defaults: e=1e-5, identity 25, coverage 50, conn 0.1, purity; PoFF off). Input proteomes had internal '*' stop symbols stripped (sed, required by ProteinOrtho)
 - **fastoma_luca**: FastOMA 0.5.1, omamer 2.1.0, LUCA.h5 (zenodo 20814376, 2026-06-23); species tree hand-built from NCBI taxonomy; variant=tophogs | FastOMA 0.5.1 nextflow pipeline (local, no container), OMAmer 2.1.0 + LUCA.h5 (OMAmer DB, OMA-derived: LEAKAGE - OMA contains these species), nextflow executor cpus=8. wall includes omamer search (12 x 1 cpu), nextflow overhead + report notebook; peak RSS = largest single process
 - **fastoma_luca_ogs**: FastOMA 0.5.1, omamer 2.1.0, LUCA.h5; variant=OrthologousGroups | FastOMA 0.5.1 nextflow pipeline (local, no container), OMAmer 2.1.0 + LUCA.h5 (OMAmer DB, OMA-derived: LEAKAGE - OMA contains these species); same run as fastoma_luca; peak RSS = largest single process
+- **oma_browser**: OMA browser All.May2026 (Zenodo 10.5281/zenodo.22869443, published 2026-10-21; HOGs 'infered May 2025'), oma-hogs.orthoXML.gz md5 cf41ae36b554f6a60270297f6ab95d66, CC BY 4.0; Bilateria-level HOGs restricted to OrthoBench genes; ID mapping oma-ensembl.txt.gz (md5 86a09a24...) + exact/near-identical sequence (oma-seqs.fa.gz md5 417fa34d...); unmapped = singletons | PRECOMPUTED OMA browser HOGs (All.May2026, inferred by OMA on its own infrastructure; inference cost not measurable/not included). Runtime = local conversion only (stream oma-hogs.orthoXML.gz, ID/sequence mapping incl. DIAMOND near-identical step on 2 threads, OG export); Bilateria-level HOGs. LEAKAGE: OMA contains all 12 OrthoBench species.
+- **oma_browser_root**: OMA browser All.May2026 (Zenodo 10.5281/zenodo.22869443, published 2026-10-21; HOGs 'infered May 2025'), oma-hogs.orthoXML.gz md5 cf41ae36b554f6a60270297f6ab95d66, CC BY 4.0; root-level HOGs restricted to OrthoBench genes; ID mapping oma-ensembl.txt.gz (md5 86a09a24...) + exact/near-identical sequence (oma-seqs.fa.gz md5 417fa34d...); unmapped = singletons | PRECOMPUTED OMA browser HOGs (All.May2026, inferred by OMA on its own infrastructure; inference cost not measurable/not included). Runtime = local conversion only (stream oma-hogs.orthoXML.gz, ID/sequence mapping incl. DIAMOND near-identical step on 2 threads, OG export); root-level HOGs. LEAKAGE: OMA contains all 12 OrthoBench species.
 
 ## Caveats and provenance
 
@@ -63,3 +75,16 @@ Precision/recall on dev / test:
 - Scoring: `scripts/score_competitor.sh` -> `scripts/to_orthobench_og.py` / `orthoxml_to_orthobench_og.py` -> `run_orthobench.sh` (official benchmark.py) and `orthobench_eval.py` (per-RefOG, dev/test). Raw outputs: `data/orthobench/runs/<method>/` (not committed).
 - **SonicParanoid2 `-m sensitive` NOT completed:** MMseqs2 s=7.5 all-vs-all needed roughly 5-6 h on the shared node (48/144 alignments after ~2 h, in two attempts); both attempts were stopped (first to prioritise FastOMA, second on PI request because the node is needed for scaling runs). No score is reported for it. Partial outputs: `data/orthobench/runs/sonicparanoid_sensitive_aborted_*`.
 - Only OrthoBench `Input/*.fa` were read; a failed ProteinOrtho first attempt had written three `*.fa.len` files into `Input/`, removed afterwards (all 12 FASTA md5 verified against `data/orthobench/md5_inputs.txt`).
+- **oma_browser / oma_browser_root (added at user request, post-freeze, 2026-10-27):** precomputed OMA browser HOGs, release All.May2026
+  (Zenodo 10.5281/zenodo.22869443, CC BY 4.0), restricted to OrthoBench genes; `oma_browser` = HOGs at the Bilateria level (primary,
+  pre-declared in `oma_browser/PREREGISTRATION.txt`), `oma_browser_root` = root-level HOGs (deep LUCA/Eukaryota families -> huge groups,
+  precision 3.9). Mapping Ensembl 99 -> OMA: 95.1% of proteins mapped, 89.2% to an entry in a HOG (RefOG genes 93.2%; chicken only 60%
+  because OMA uses RefSeq GRCg7b), see `oma_browser/mapping_stats.txt`; unmapped = singletons. LEAKAGE: OMA contains all 12 species.
+  Runtime = local conversion only (OMA inference itself not measurable). Scripts: `oma_hogs_paths.py`, `oma_browser_map_orthobench.py`,
+  `oma_browser_map_nearident.py`, `oma_browser_to_orthobench_og.py`, `oma_comparators_vs_ancestra.py`.
+- **FastOMA v1 diagnosis (2026-10-27):** inputs (12 proteomes, species tree, names) and export level were correct (top-level OrthoXML HOGs ==
+  RootHOGs.tsv == Bilateria-level HOGs). OMAmer leaves only 4.1% unplaced (Metazoa.h5: 4.2%, so a more specific DB does not help). The 21%
+  absent genes = 9.1% never in a FastOMA family + 9.7% root-level singletons + 2.2% (5,497 genes) silently LOST by a FastOMA 0.5.1 bug:
+  `_hog_class.split_hog()` rebuilds a split HOG only from the subHOGs that contain a representative and drops the others (also on the
+  `dev` branch). The loss concentrates in big families: RefOG005/006/008/013 almost entirely missing. v2 run (LUCA + patch) in progress,
+  see `OMA_RESUME_NOTE.md`.

@@ -7,7 +7,7 @@ C = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "results", "o
 split = json.load(open(os.path.join(C, "..", "..", "..", "splits", "orthobench_split.json")))
 order = ["orthofinder", "orthofinder_mcl", "sonicparanoid_default", "sonicparanoid_sensitive", "proteinortho", "fastoma_luca", "fastoma_luca_ogs"]
 M = {}
-for m in order + sorted(set(os.path.basename(d) for d in glob.glob(C + "/*/")) - set(order)):
+for m in order + sorted(set(os.path.basename(d.rstrip("/")) for d in glob.glob(C + "/*/")) - set(order)):
     if os.path.exists(f"{C}/{m}/score.json"):
         M[m] = (json.load(open(f"{C}/{m}/score.json")), json.load(open(f"{C}/{m}/runtime.json")))
 L = ["# OrthoBench competitor baselines (12 species, 251,378 proteins, 70 RefOGs)", "",

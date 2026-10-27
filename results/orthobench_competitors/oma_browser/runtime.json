@@ -1,0 +1,33 @@
+{
+ "wall_s": 945.4,
+ "cpu_s": 1100.6999999999998,
+ "cpu_h": 0.30574999999999997,
+ "wall_h": 0.26261111111111113,
+ "max_rss_gb": 1.4567031860351562,
+ "threads_requested": 1,
+ "node_cores": 24,
+ "node_shared_busy": true,
+ "note": "PRECOMPUTED OMA browser HOGs (All.May2026, inferred by OMA on its own infrastructure; inference cost not measurable/not included). Runtime = local conversion only (stream oma-hogs.orthoXML.gz, ID/sequence mapping incl. DIAMOND near-identical step on 2 threads, OG export); Bilateria-level HOGs. LEAKAGE: OMA contains all 12 OrthoBench species.",
+ "phases": {
+  "extract_hog_paths": {
+   "wall_s": 465,
+   "cpu_s": 457.15999999999997,
+   "max_rss_gb": 0.5990486145019531
+  },
+  "map_ids_exact": {
+   "wall_s": 160.6,
+   "cpu_s": 158.01999999999998,
+   "max_rss_gb": 1.4567031860351562
+  },
+  "map_near_identical_diamond_2thr": {
+   "wall_s": 317.5,
+   "cpu_s": 483.27,
+   "max_rss_gb": 0.6742477416992188
+  },
+  "to_og": {
+   "wall_s": 2.3,
+   "cpu_s": 2.25,
+   "max_rss_gb": 0.1285552978515625
+  }
+ }
+}

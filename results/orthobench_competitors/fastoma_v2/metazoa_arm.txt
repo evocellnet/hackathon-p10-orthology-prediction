@@ -1,0 +1,10 @@
+FastOMA 0.5.1 + Metazoa.h5 (OMAmer DB, Zenodo 20814376, md5 066e492d8083bb197cdbc3994f7b59ed, root level Metazoa) + gene-loss patch:
+started 2026-10-27 08:35 in parallel with the LUCA arm (4 cpus each), STOPPED at 09:25 after the OMAmer step and 15/66 hog_rest
+batches (48.7 min wall, 2.67 CPU-h, max RSS 5.2 GB), to give the primary LUCA arm all 8 cpus within the ~5 h budget
+(node load 40-46 from other jobs). No OrthoBench score for this arm.
+DB question answered from the completed OMAmer step (same omamer 2.1.0, same 251,323 placed-or-not proteins):
+  LUCA.h5    unplaced (hogid N/A) 10,309 proteins = 4.10 %
+  Metazoa.h5 unplaced (hogid N/A) 10,485 proteins = 4.17 %
+-> the more specific Metazoa DB does NOT place more proteins; OMAmer placement is not the cause of the v1 coverage gap
+   (21 % of proteins absent from v1 output). The cause is the FastOMA split_hog gene-loss bug (see SUMMARY / NOTES).
+hogmaps: data/orthobench/runs/fastoma_v2/metazoa_patched/run/Output/hogmap/
