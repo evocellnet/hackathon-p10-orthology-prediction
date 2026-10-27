@@ -1,0 +1,14 @@
+{
+ "n_jobs": 1000,
+ "famsa_cli_s": 171.55,
+ "famsa_inproc_s": 174.35,
+ "inproc_rejected": 2,
+ "inproc_identical_alignments": 990,
+ "fasttree_single_s": 359.74,
+ "fasttree_batch50_s": 349.67,
+ "batch50_identical_newick": 1000,
+ "batch50_identical_topology": 1000,
+ "fasttree_batch200_s": 349.04,
+ "batch200_identical_newick": 1000,
+ "batch200_identical_topology": 1000
+}
