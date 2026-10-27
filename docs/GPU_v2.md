@@ -200,6 +200,8 @@ All runs use the frozen S0 partition and the `accurate` preset with gene order. 
 | C: GPU all, tantan-masked | exhaustive SW | 72.02 | 69.0 | 75.3 | 0.777 / 0.782 | −7.66 [−13.3, −1.8] | −0.021 [−0.040, −0.005] |
 | D: C + e ≤ 1e-3 in families > 1000 | exhaustive SW | 73.74 | 72.0 | 75.5 | 0.791 / 0.790 | −5.95 [−12.1, −1.2] | −0.012 [−0.031, +0.002] |
 | E: unmasked + e ≤ 1e-3 in families > 1000 | exhaustive SW | 73.92 | 69.5 | 78.9 | 0.784 / 0.792 | −5.77 [−11.8, −0.9] | −0.011 [−0.030, +0.006] |
+| H: unmasked + cap rule from 1000 genes (`cap_all` 1000) | exhaustive SW | 71.37 | 64.6 | 79.8 | 0.781 / 0.787 | −8.31 [−15.1, −2.8] | −0.015 [−0.037, +0.004] |
+| I1: unmasked + composition-bias correction (both directions, best kept) | exhaustive SW | 74.46 | 70.6 | 78.8 | 0.791 / 0.792 | −5.23 [−11.1, −0.2] | −0.011 [−0.030, +0.007] |
 
 **Where the loss comes from.** Score tables were spliced by family size, with no rescue and the reference = A:
 
@@ -217,7 +219,16 @@ All runs use the frozen S0 partition and the `accurate` preset with gene order. 
    10.3 M pairs in families of 1,001–5,000 genes (+80 %). Bit thresholds cannot reproduce DIAMOND's seeding: the best
    Jaccard is 0.675, at 45 bits. The extra edges cost recall (OG-R 84.6 → 75.1). Average linkage over *existing*
    edges (merge.py, `es/ec`) is diluted by many weak paralog edges, so true orthologous units stop merging.
-3. **Masking does not help.** Neither tantan masking nor an e-value cut fixes it (C, D, E). The frozen merge was
+3. **Neither masking nor score corrections help.** Tantan masking, an e-value cut, the cap rule from 1000 genes and
+   a composition-bias correction all fail to fix it (C, D, E, H, I1). I1 uses the Hauser-2016 local
+   composition-bias correction (MMseqs2's `calcLocalAaBiasCorrection`, the method DIAMOND cites for its default
+   composition statistics). It is implemented in both kernels, plus an exact GPU port of the per-residue
+   corrections. It brings GPU bit scores much closer to DIAMOND's on 1 M sampled DIAMOND pairs:
+   - big families: median GPU/DIAMOND ratio 1.049 → 1.000, mean |log ratio| 0.115 → 0.071;
+   - small families: mean |log ratio| 0.081 → 0.046.
+
+   Dev accuracy does not change (I1 ≈ unbiased). The loss therefore comes from the *pair set* (graph density), not
+   from the bit scores. The frozen merge was
    tuned on DIAMOND-sampled graphs, and the big families are the repeat- and composition-rich ones (ZNF-like).
    There DIAMOND's composition-based statistics also change the bit scores.
 4. **The cross-family rescue matters little:** −0.95 OG-F when it is off.
@@ -290,3 +301,29 @@ GPU is idle > 95 % of S2.
   cut-off does not reproduce it.
 - Equivalence in big families would need either DIAMOND itself, or a merge that is robust to the density of the
   score graph. The latter is a method change, i.e. a v2 research question.
+
+## 8. Accurate-preset local trees (task c): not a GPU problem
+
+In the e2e runs above, the `accurate` merge spends 273–276 s of its 323–327 s in FAMSA + FastTree. There is one
+job per ambiguous cluster: 15,240 clusters on OrthoBench and 61,216 jobs on QfO, with a median of ~5 units each.
+Measured per call on 5 proteins:
+
+| step | time per call |
+|---|---|
+| `famsa -t 1` | 0.073 s |
+| `FastTree -lg -nosupport` | 0.105 s |
+| empty process | 0.0008 s |
+
+So the cost is ~0.18 CPU-s per cluster, almost all of it fixed per-call work: model set-up and initialisation
+for alignments of 5 sequences. This agrees with S4 (0.24 CPU-s at 5 units).
+- A GPU cannot remove a per-process fixed cost.
+- A GPU replacement of the trees themselves (batched distances + NJ, or pLM-embedding distances) would be a
+  *different* tree method. S4 already showed that NJ-type trees on score distances lose the label-accuracy gain
+  (+0.027) that FastTree buys, and that complete-but-rescaled distances (e_fsbits) do not recover it.
+
+**Not implemented.** The cheap, equivalence-preserving fix is on the CPU, and was left as a recommendation:
+- run FastTree once per batch of clusters (`FastTree -n N` reads N alignments from one file);
+- align in-process (pyfamsa);
+- keep `-t 1` and the submission order.
+- Byte-identity with the current outputs would still have to be checked: FastTree's RNG state may carry over
+  between the alignments of one `-n` run.

@@ -99,10 +99,43 @@ def test_family_mode_deterministic():
     assert same == 1 and n == sum(k * (k + 1) // 2 for k in [18] * 11 + [17] * 6)
 
 
+@needs_gpu
+def test_composition_bias_kernels():
+    out = _run_gpu("""
+        import random, numpy as np
+        import ancestra.gpu_sw as G
+        rng = random.Random(3)
+        AA = "ACDEFGHIKLMNPQRSTVWY"
+        seqs = []
+        for _ in range(25):
+            b = "".join(rng.choice(AA if rng.random() < 0.7 else "QQQQSSPG") for _ in range(rng.randint(10, 200)))
+            seqs += [b, "".join(c if rng.random() > 0.3 else rng.choice(AA) for c in b)]
+        seq, off, lens = G.encode(seqs)
+        bias = G.comp_bias(seq, off, lens)
+        same_bias = bool((G.comp_bias_gpu(seq, off, lens, chunk=1000) == bias).all())
+        q, t = np.triu_indices(len(seqs))
+        sel = np.array([rng.random() < 0.12 for _ in q])
+        q, t = q[sel], t[sel]
+        r = G.align_pairs(seq, off, lens, q, t, evalue=1e30, bias=bias)
+        bad = 0
+        for k in range(len(q)):
+            bq = bias[off[q[k]]:off[q[k]] + lens[q[k]]]
+            bt = bias[off[t[k]]:off[t[k]] + lens[t[k]]]
+            ref = max(G.sw_reference(seqs[q[k]], seqs[t[k]], ba=bq), G.sw_reference(seqs[q[k]], seqs[t[k]], bb=bt))
+            bad += ref != r["score"][k]
+        G.LONG_CELLS = 0
+        r2 = G.align_pairs(seq, off, lens, q, t, evalue=1e30, bias=bias, sw=G.GpuSW(bias=True, w=16))
+        same = all((r[k] == r2[k]).all() for k in ("score", "qstart", "qend", "tstart", "tend"))
+        print(int(same_bias), bad, int(same), r["rev_mismatch"], int((bias != 0).any()))
+    """)
+    same_bias, bad, same, rev, nz = map(int, out.split())
+    assert same_bias == 1 and bad == 0 and same == 1 and rev == 0 and nz == 1
+
+
 def test_cpu_backend_keys_unchanged_by_gpu_fields():
     from ancestra.scoring import ScoringConfig
     for b in ("hybrid", "diamond", "mmseqs"):
         k = ScoringConfig(backend=b).key()
         assert not any(x.startswith("gpu_") for x in k), b
     k = ScoringConfig(backend="gpusw").key()
-    assert {"gpu_max_family", "gpu_mask", "gpu_db_residues"} <= set(k) and "gpu_device" not in k
+    assert {"gpu_max_family", "gpu_mask", "gpu_db_residues", "gpu_comp_bias"} <= set(k) and "gpu_device" not in k

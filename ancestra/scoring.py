@@ -90,6 +90,8 @@ class ScoringConfig:
     gpu_max_family: int = 1000      # gpusw: families <= this on the GPU (exhaustive SW); larger ones via
                                     # the DIAMOND block path on the CPU, concurrently (0 = all on the GPU)
     gpu_mask: str = "none"          # gpusw: low-complexity masking: none | tantan (mmseqs masksequence -> X)
+    gpu_comp_bias: bool = False     # gpusw: Hauser-2016 local composition-bias correction of the query,
+                                    # both directions aligned, best kept (as DIAMOND's default CBS mode)
     gpu_big_evalue: float = 0.0     # gpusw: e-value cut for non-self pairs in families > rescue_max_family
                                     # (0 = off; mimics the sparser DIAMOND-only graph there, docs/GPU_v2.md)
     gpu_device: int = 0             # gpusw: CUDA device (not part of the key)
@@ -102,6 +104,7 @@ class ScoringConfig:
             d.pop("gpu_db_residues")
             d.pop("gpu_max_family")
             d.pop("gpu_mask")
+            d.pop("gpu_comp_bias")
             d.pop("gpu_big_evalue")
         return d
 
@@ -501,7 +504,7 @@ def _backend_gpusw(gt: GeneTable, fam: np.ndarray, cfg: ScoringConfig, wd: str, 
     fam_gpu = np.where(on_gpu[fam], fam, sizes.size + np.arange(gt.n)).astype(np.int64)
     inp, out = os.path.join(wd, "gpu_in.npz"), os.path.join(wd, "gpu_out.npz")
     np.savez(inp, seq=seq, off=off, len=lens, fam=fam_gpu, db_residues=np.float64(dbr),
-             evalue=np.float64(cfg.evalue))
+             evalue=np.float64(cfg.evalue), comp_bias=np.bool_(cfg.gpu_comp_bias))
     env = dict(os.environ)
     pkg_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     env["PYTHONPATH"] = pkg_root + (os.pathsep + env["PYTHONPATH"] if env.get("PYTHONPATH") else "")

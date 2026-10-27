@@ -110,7 +110,8 @@ extern "C" __global__ void sw(const unsigned char* __restrict__ seq, const long 
         const int* __restrict__ rid, const int* __restrict__ cid, const int* __restrict__ rlen,
         const int* __restrict__ clen, const int npairs, const int* __restrict__ mat,
         int* __restrict__ scratch, const long long* __restrict__ woff, const int* __restrict__ wm,
-        const int reverse, int* __restrict__ o_score, int* __restrict__ o_i, int* __restrict__ o_j)
+        const int reverse, int* __restrict__ o_score, int* __restrict__ o_i, int* __restrict__ o_j,
+        const signed char* __restrict__ bias, const signed char* __restrict__ bside)
 {
     __shared__ int smat[1024];
     for (int k = threadIdx.x; k < 1024; k += blockDim.x) smat[k] = mat[k];
@@ -118,6 +119,11 @@ extern "C" __global__ void sw(const unsigned char* __restrict__ seq, const long 
     const int p = blockIdx.x * blockDim.x + threadIdx.x;
     if (p >= npairs) return;
     const int lane = p & 31, warp = p >> 5;
+#ifdef BIAS
+    const int side = bside[p];                 /* 1: bias of the row sequence, 2: of the column one */
+    const signed char* BR = bias + off[rid[p]];
+    const signed char* BC = bias + off[cid[p]];
+#endif
     const int m = rlen[p], n = clen[p];
     const unsigned char* R = seq + off[rid[p]];
     const unsigned char* C = seq + off[cid[p]];
@@ -127,17 +133,26 @@ extern "C" __global__ void sw(const unsigned char* __restrict__ seq, const long 
     int best = 0, bi = -1, bj = -1;
     for (int j0 = 0; j0 < n; j0 += W) {
         int cr[W], Hr[W], Fr[W];
+#ifdef BIAS
+        int cb[W];
+#endif
 #pragma unroll
         for (int w = 0; w < W; w++) {
             const int j = j0 + w;
             cr[w] = (j < n) ? (int)(reverse ? C[n - 1 - j] : C[j]) : %(PAD)d;
             Hr[w] = 0; Fr[w] = NEG;
+#ifdef BIAS
+            cb[w] = (side == 2 && j < n) ? (int)(reverse ? BC[n - 1 - j] : BC[j]) : 0;
+#endif
         }
         int hdiag = 0;
         const int lim = n - j0;
         for (int i = 0; i < m; i++) {
             const int a = reverse ? R[m - 1 - i] : R[i];
             const int* srow = smat + a * 32;
+#ifdef BIAS
+            const int rb = (side == 1) ? (int)(reverse ? BR[m - 1 - i] : BR[i]) : 0;
+#endif
             int hl = bH[(i + 1) * 32 + lane];
             int e = bE[(i + 1) * 32 + lane];
             int hd = hdiag;
@@ -147,7 +162,11 @@ extern "C" __global__ void sw(const unsigned char* __restrict__ seq, const long 
             for (int w = 0; w < W; w++) {
                 const int f = max(Fr[w] - GE, Hr[w] - GOE);
                 e = max(e - GE, hl - GOE);
+#ifdef BIAS
+                const int h = max(max(hd + srow[cr[w]] + rb + cb[w], 0), max(e, f));
+#else
                 const int h = max(max(hd + srow[cr[w]], 0), max(e, f));
+#endif
                 hd = Hr[w]; Hr[w] = h; Fr[w] = f; hl = h;
                 rbest = max(rbest, h);
             }
@@ -185,7 +204,8 @@ extern "C" __global__ void sww(const unsigned char* __restrict__ seq, const long
         const int* __restrict__ rid, const int* __restrict__ cid, const int* __restrict__ rlen,
         const int* __restrict__ clen, const int npairs, const int* __restrict__ mat,
         int* __restrict__ scratch, const long long* __restrict__ soff,
-        const int reverse, int* __restrict__ o_score, int* __restrict__ o_i, int* __restrict__ o_j)
+        const int reverse, int* __restrict__ o_score, int* __restrict__ o_i, int* __restrict__ o_j,
+        const signed char* __restrict__ bias, const signed char* __restrict__ bside)
 {
     __shared__ int smat[1024];
     for (int k = threadIdx.x; k < 1024; k += blockDim.x) smat[k] = mat[k];
@@ -193,6 +213,11 @@ extern "C" __global__ void sww(const unsigned char* __restrict__ seq, const long
     const int lane = threadIdx.x & 31;
     const int p = (blockIdx.x * blockDim.x + threadIdx.x) >> 5;
     if (p >= npairs) return;
+#ifdef BIAS
+    const int side = bside[p];
+    const signed char* BR = bias + off[rid[p]];
+    const signed char* BC = bias + off[cid[p]];
+#endif
     const int m = rlen[p], n = clen[p];
     const unsigned char* R = seq + off[rid[p]];
     const unsigned char* C = seq + off[cid[p]];
@@ -205,11 +230,17 @@ extern "C" __global__ void sww(const unsigned char* __restrict__ seq, const long
         const int j0 = c0 + lane * WW;
         const int lim = n - j0;
         int cr[WW], Hr[WW], Fr[WW];
+#ifdef BIAS
+        int cb[WW];
+#endif
 #pragma unroll
         for (int w = 0; w < WW; w++) {
             const int j = j0 + w;
             cr[w] = (j < n) ? (int)(reverse ? C[n - 1 - j] : C[j]) : %(PAD)d;
             Hr[w] = 0; Fr[w] = NEG;
+#ifdef BIAS
+            cb[w] = (side == 2 && j < n) ? (int)(reverse ? BC[n - 1 - j] : BC[j]) : 0;
+#endif
         }
         int hdiag = 0;            /* H[i-1][j0-1] */
         int out_h = 0, out_e = NEG;
@@ -222,6 +253,9 @@ extern "C" __global__ void sww(const unsigned char* __restrict__ seq, const long
                 if (j0 >= n) { in_h = 0; in_e = NEG; }
                 const int a = reverse ? R[m - 1 - i] : R[i];
                 const int* srow = smat + a * 32;
+#ifdef BIAS
+                const int rb = (side == 1) ? (int)(reverse ? BR[m - 1 - i] : BR[i]) : 0;
+#endif
                 int hl = in_h, e = in_e, hd = hdiag;
                 hdiag = in_h;
                 int rbest = 0;
@@ -229,7 +263,11 @@ extern "C" __global__ void sww(const unsigned char* __restrict__ seq, const long
                 for (int w = 0; w < WW; w++) {
                     const int f = max(Fr[w] - GE, Hr[w] - GOE);
                     e = max(e - GE, hl - GOE);
+#ifdef BIAS
+                    const int h = max(max(hd + srow[cr[w]] + rb + cb[w], 0), max(e, f));
+#else
                     const int h = max(max(hd + srow[cr[w]], 0), max(e, f));
+#endif
                     hd = Hr[w]; Hr[w] = h; Fr[w] = f; hl = h;
                     rbest = max(rbest, h);
                 }
@@ -267,32 +305,44 @@ class GpuSW:
     stream so that it overlaps the short-pair launches. Both kernels give identical results."""
 
     def __init__(self, device: int = 0, w: int | None = None, ww: int | None = None,
-                 ungapped: bool = False):
-        """``ungapped=True``: prohibitive gap costs, i.e. the best ungapped local (diagonal) score."""
+                 ungapped: bool = False, bias: bool = False):
+        """``ungapped=True``: prohibitive gap costs, i.e. the best ungapped local (diagonal) score.
+        ``bias=True``: per-residue composition-bias corrections (``comp_bias``) are added to the
+        substitution scores of one sequence of each pair (``side``), as MMseqs2/DIAMOND do for
+        the query."""
         import cupy as cp
         self.cp = cp
         cp.cuda.Device(device).use()
         self.w = w or W
         self.ww = ww or WW
+        self.bias = bias
         goe, ge = (100_000, 100_000) if ungapped else (GAP_OPEN + GAP_EXTEND, GAP_EXTEND)
-        self.kern = cp.RawKernel(_SRC % dict(W=self.w, GOE=goe, GE=ge, PAD=PAD), "sw")
-        self.kern_w = cp.RawKernel(_SRC_WARP % dict(WW=self.ww, GOE=goe, GE=ge, PAD=PAD), "sww")
+        pre = "#define BIAS\n" if bias else ""
+        self.kern = cp.RawKernel(pre + _SRC % dict(W=self.w, GOE=goe, GE=ge, PAD=PAD), "sw")
+        self.kern_w = cp.RawKernel(pre + _SRC_WARP % dict(WW=self.ww, GOE=goe, GE=ge, PAD=PAD), "sww")
+        self.d_bias = cp.zeros(1, cp.int8)
         self.mat = cp.asarray(blosum62_32().ravel())
         self.main = cp.cuda.Stream(non_blocking=True)
         self.long_s = cp.cuda.Stream(non_blocking=True)
         self.workers = [cp.cuda.Stream(non_blocking=True) for _ in range(N_STREAMS)]
 
-    def set_db(self, seq, off):
-        """Upload the sequence buffer once (re-used by every run on the same arrays)."""
+    def set_db(self, seq, off, bias=None):
+        """Upload the sequence buffer (and the bias buffer) once; re-used by every run on the same
+        arrays."""
+        cp = self.cp
         if getattr(self, "_db_id", None) != (id(seq), id(off), len(seq)):
-            cp = self.cp
             cp.cuda.Device().synchronize()
             self.d_seq = cp.asarray(seq)
             self.d_off = cp.asarray(off)
             cp.cuda.Device().synchronize()
             self._db_id = (id(seq), id(off), len(seq))
+        if bias is not None and getattr(self, "_bias_id", None) != (id(bias), len(bias)):
+            cp.cuda.Device().synchronize()
+            self.d_bias = cp.asarray(bias)
+            cp.cuda.Device().synchronize()
+            self._bias_id = (id(bias), len(bias))
 
-    def _launch_long(self, rid, cid, rl, cl, rev):
+    def _launch_long(self, rid, cid, rl, cl, rev, side):
         """Warp-per-pair kernel on the long stream; returns device outputs (not synchronised)."""
         cp = self.cp
         n = len(rid)
@@ -306,10 +356,11 @@ class GpuSW:
                         (self.d_seq, self.d_off, cp.asarray(rid.astype(np.int32)),
                          cp.asarray(cid.astype(np.int32)), cp.asarray(rl.astype(np.int32)),
                          cp.asarray(cl.astype(np.int32)), np.int32(n), self.mat, scratch,
-                         cp.asarray(soff), rev, o[0], o[1], o[2]))
+                         cp.asarray(soff), rev, o[0], o[1], o[2], self.d_bias,
+                         cp.asarray(side.astype(np.int8))))
         return o, scratch
 
-    def _launch_short(self, rid, cid, rl, cl, rev, block):
+    def _launch_short(self, rid, cid, rl, cl, rev, block, side):
         """Thread-per-pair kernel over the worker streams; returns device outputs in the input
         order (on the main stream, after waiting for the workers)."""
         cp = self.cp
@@ -325,6 +376,7 @@ class GpuSW:
             rl_s, cl_s = d_rl[order], d_cl[order]
             rid_s = cp.asarray(rid.astype(np.int32))[order]
             cid_s = cp.asarray(cid.astype(np.int32))[order]
+            side_s = cp.asarray(side.astype(np.int8))[order]
             nw = (npairs + 31) // 32
             pad = nw * 32 - npairs
             wmax = cp.concatenate([rl_s, cp.zeros(pad, cp.int32)]).reshape(nw, 32).max(axis=1).get()
@@ -354,23 +406,27 @@ class GpuSW:
                 self.kern(((k + block - 1) // block,), (block,),
                           (self.d_seq, self.d_off, rid_s[p0:p1], cid_s[p0:p1], rl_s[p0:p1],
                            cl_s[p0:p1], np.int32(k), self.mat, scratches[li % ns], woffs[li], wms[li],
-                           rev, d_s[p0:p1], d_i[p0:p1], d_j[p0:p1]))
+                           rev, d_s[p0:p1], d_i[p0:p1], d_j[p0:p1], self.d_bias, side_s[p0:p1]))
         for st in self.workers[:ns]:
             self.main.wait_event(st.record())
         with self.main:
             inv = cp.empty_like(order)
             inv[order] = cp.arange(npairs, dtype=order.dtype)
             out = (d_s[inv], d_i[inv], d_j[inv])
-        return out, (scratches, woffs, wms, rid_s, cid_s, rl_s, cl_s)
+        return out, (scratches, woffs, wms, rid_s, cid_s, rl_s, cl_s, side_s)
 
-    def run(self, seq, off, rid, cid, reverse=False, rlen=None, clen=None, block=None):
+    def run(self, seq, off, rid, cid, reverse=False, rlen=None, clen=None, block=None, bias=None,
+            side=None):
         """Score pairs (rid[k] on the rows, cid[k] on the columns; rows should be the shorter
         sequence). Returns (score, end_row, end_col) in the input order (numpy int32)."""
         npairs = len(rid)
         out = [np.zeros(npairs, np.int32), np.full(npairs, -1, np.int32), np.full(npairs, -1, np.int32)]
         if npairs == 0:
             return tuple(out)
-        self.set_db(seq, off)
+        if self.bias and (bias is None or side is None):
+            raise ValueError("a bias kernel needs the bias buffer and a side per pair")
+        self.set_db(seq, off, bias)
+        side = np.zeros(npairs, np.int8) if side is None else np.asarray(side, np.int8)
         rid = np.asarray(rid, np.int64)
         cid = np.asarray(cid, np.int64)
         rl = np.asarray(rlen, np.int64)
@@ -378,8 +434,9 @@ class GpuSW:
         rev = np.int32(1 if reverse else 0)
         is_long = rl * cl > LONG_CELLS
         iL, iS = np.flatnonzero(is_long), np.flatnonzero(~is_long)
-        dl = self._launch_long(rid[iL], cid[iL], rl[iL], cl[iL], rev) if len(iL) else None
-        ds = self._launch_short(rid[iS], cid[iS], rl[iS], cl[iS], rev, block or BLOCK) if len(iS) else None
+        dl = self._launch_long(rid[iL], cid[iL], rl[iL], cl[iL], rev, side[iL]) if len(iL) else None
+        ds = (self._launch_short(rid[iS], cid[iS], rl[iS], cl[iS], rev, block or BLOCK, side[iS])
+              if len(iS) else None)
         if ds is not None:
             with self.main:
                 for x, d in zip(out, ds[0]):
@@ -393,10 +450,15 @@ class GpuSW:
 
 
 def align_pairs(seq, off, lens, q, t, *, db_residues: float = 5e7, evalue: float = 10.0,
-                device: int = 0, sw: GpuSW | None = None) -> dict:
+                device: int = 0, sw: GpuSW | None = None, bias=None) -> dict:
     """Full computation for pairs (q[k], t[k]): forward pass (score, ends), threshold on the
-    e-value, reversed pass for the starts of the kept pairs. Returns a dict of numpy arrays."""
-    sw = sw or GpuSW(device)
+    e-value, reversed pass for the starts of the kept pairs. Returns a dict of numpy arrays.
+
+    ``bias`` (int8 per residue, ``comp_bias``; needs ``GpuSW(bias=True)``): each pair is aligned
+    twice, with the composition correction of q (q as query) and of t (t as query), and the
+    better direction is kept (ties: q), as DIAMOND reports both directions of a block-vs-block
+    search and S2 keeps the best record per pair."""
+    sw = sw or GpuSW(device, bias=bias is not None)
     q = np.asarray(q, np.int64)
     t = np.asarray(t, np.int64)
     lq, lt = lens[q].astype(np.int64), lens[t].astype(np.int64)
@@ -405,15 +467,28 @@ def align_pairs(seq, off, lens, q, t, *, db_residues: float = 5e7, evalue: float
     cid = np.where(qrow, t, q)
     rl, cl = np.minimum(lq, lt), np.maximum(lq, lt)
     t0 = time.time()
-    s, ei, ej = sw.run(seq, off, rid, cid, rlen=rl, clen=cl)
+    side = None
+    if bias is None:
+        s, ei, ej = sw.run(seq, off, rid, cid, rlen=rl, clen=cl)
+        lquery = lq
+    else:
+        side_q = np.where(qrow, 1, 2).astype(np.int8)          # bias of q: rows if q is on the rows
+        s, ei, ej = sw.run(seq, off, rid, cid, rlen=rl, clen=cl, bias=bias, side=side_q)
+        s_t, ei_t, ej_t = sw.run(seq, off, rid, cid, rlen=rl, clen=cl, bias=bias,
+                                 side=(3 - side_q).astype(np.int8))
+        use_t = s_t > s
+        s, ei, ej = np.where(use_t, s_t, s), np.where(use_t, ei_t, ei), np.where(use_t, ej_t, ej)
+        side = np.where(use_t, 3 - side_q, side_q).astype(np.int8)
+        lquery = np.where(use_t, lt, lq)
     t_fwd = time.time() - t0
     bits = bits_of(s)
-    ev = lq.astype(np.float64) * db_residues * np.power(2.0, -bits)
+    ev = lquery.astype(np.float64) * db_residues * np.power(2.0, -bits)
     keep = np.flatnonzero((s > 0) & (ev <= evalue))
     # reversed pass on prefixes ending at the forward maximum -> start positions
     t0 = time.time()
     s2, ri, rj = sw.run(seq, off, rid[keep], cid[keep], reverse=True,
-                        rlen=ei[keep].astype(np.int64) + 1, clen=ej[keep].astype(np.int64) + 1)
+                        rlen=ei[keep].astype(np.int64) + 1, clen=ej[keep].astype(np.int64) + 1,
+                        bias=bias, side=None if side is None else side[keep])
     t_rev = time.time() - t0
     rs = ei[keep] - ri               # start on rows = (m_prefix - 1) - rev_i
     cs = ej[keep] - rj
@@ -422,7 +497,7 @@ def align_pairs(seq, off, lens, q, t, *, db_residues: float = 5e7, evalue: float
     qend = np.where(qrk, ei[keep], ej[keep])
     tstart = np.where(qrk, cs, rs)
     tend = np.where(qrk, ej[keep], ei[keep])
-    cells_fwd = float((rl * cl).sum())
+    cells_fwd = float((rl * cl).sum()) * (1 if bias is None else 2)
     cells_rev = float(((ei[keep].astype(np.float64) + 1) * (ej[keep] + 1)).sum())
     return dict(keep=keep, score=s[keep], bits=bits[keep].astype(np.float32),
                 evalue=ev[keep].astype(np.float32),
@@ -435,6 +510,93 @@ def align_pairs(seq, off, lens, q, t, *, db_residues: float = 5e7, evalue: float
                            rev_s=round(t_rev, 3), cells_fwd=cells_fwd, cells_rev=cells_rev,
                            gcups_fwd=round(cells_fwd / max(t_fwd, 1e-9) / 1e9, 1),
                            gcups_rev=round(cells_rev / max(t_rev, 1e-9) / 1e9, 1)))
+
+
+# BLOSUM62 background frequencies (Robinson & Robinson 1991, as in NCBI BLAST), ALPHABET order
+_BG = dict(A=0.07805, R=0.05129, N=0.04487, D=0.05364, C=0.01925, Q=0.04264, E=0.06295, G=0.07377,
+           H=0.02199, I=0.05142, L=0.09019, K=0.05744, M=0.02243, F=0.03856, P=0.05203, S=0.07120,
+           T=0.05841, W=0.01330, Y=0.03216, V=0.06441)
+BIAS_WINDOW = 40
+
+
+def comp_bias(seq, off, lens, window: int = BIAS_WINDOW) -> np.ndarray:
+    """Per-residue local composition-bias correction (Hauser, Steinegger & Soding 2016, as in
+    MMseqs2 ``calcLocalAaBiasCorrection``): delta_i = -(sum_{j in W(i), j != i} s(x_i, x_j)) / |W(i)|
+    + sum_a p_a s(x_i, a), W(i) = [i - window/2, i + window/2) clipped to the sequence; rounded half
+    away from zero to int8. Pure numpy, deterministic."""
+    m = blosum62_32()[:24, :24].astype(np.int64)
+    pb = np.zeros(24)
+    for a, f in _BG.items():
+        pb[ALPHABET.index(a)] = f
+    exp_s = m @ pb                                           # sum_a p_a s(x, a) per residue type x
+    out = np.zeros(len(seq), np.int8)
+    half = window // 2
+    # one sequence at a time through prefix sums of one-hot counts (24 types), in big slices
+    for k in range(len(off)):
+        a0, L = int(off[k]), int(lens[k])
+        x = seq[a0:a0 + L].astype(np.int64)
+        oh = np.zeros((L + 1, 24), np.int64)
+        np.add.at(oh, (np.arange(1, L + 1), x), 1)
+        cs = np.cumsum(oh, axis=0)
+        i = np.arange(L)
+        lo, hi = np.maximum(0, i - half), np.minimum(L, i + half)
+        cnt = cs[hi] - cs[lo]                                 # L x 24 counts in the window
+        ssum = (cnt * m[x]).sum(1) - m[x, x]
+        d = -ssum / (hi - lo) + exp_s[x]
+        out[a0:a0 + L] = np.clip(np.where(d < 0, np.ceil(d - 0.5), np.floor(d + 0.5)), -127, 127)
+    return out
+
+
+_BIAS_SRC = r"""
+extern "C" __global__ void cbias(const unsigned char* __restrict__ seq, const long long* __restrict__ rs,
+        const long long* __restrict__ re, const long long n, const long long base, const int* __restrict__ mat,
+        const double* __restrict__ exp_s, const int half, signed char* __restrict__ out)
+{
+    const long long k = (long long)blockIdx.x * blockDim.x + threadIdx.x;
+    if (k >= n) return;
+    const long long p = base + k, s0 = rs[k], L = re[k] - s0, i = p - s0;
+    const long long lo = i - half > 0 ? i - half : 0, hi = i + half < L ? i + half : L;
+    const int x = seq[p];
+    long long ssum = 0;
+    for (long long j = lo; j < hi; j++) ssum += mat[x * 24 + seq[s0 + j]];
+    ssum -= mat[x * 24 + x];
+    const double d = -(double)ssum / (double)(hi - lo) + exp_s[x];
+    double r = d < 0 ? ceil(d - 0.5) : floor(d + 0.5);
+    r = r < -127 ? -127 : (r > 127 ? 127 : r);
+    out[k] = (signed char)r;
+}
+"""
+
+
+def comp_bias_gpu(seq, off, lens, window: int = BIAS_WINDOW, chunk: int = 50_000_000) -> np.ndarray:
+    """GPU version of :func:`comp_bias` (identical output; tests/test_gpu_sw.py)."""
+    import cupy as cp
+    m = blosum62_32()[:24, :24].astype(np.int64)
+    pb = np.zeros(24)
+    for a, f in _BG.items():
+        pb[ALPHABET.index(a)] = f
+    exp_s = m @ pb
+    kern = cp.RawKernel(_BIAS_SRC, "cbias")
+    d_seq = cp.asarray(seq)
+    d_mat = cp.asarray(m.astype(np.int32).ravel())
+    d_exp = cp.asarray(exp_s.astype(np.float64))
+    out = np.zeros(len(seq), np.int8)
+    off = np.asarray(off, np.int64)
+    lens = np.asarray(lens, np.int64)
+    k0 = 0
+    while k0 < len(off):
+        k1 = int(np.searchsorted(np.cumsum(lens[k0:]), chunk, side="right")) + k0
+        k1 = max(k1, k0 + 1)
+        base, end = int(off[k0]), int(off[k1 - 1] + lens[k1 - 1])
+        rs = cp.asarray(np.repeat(off[k0:k1], lens[k0:k1]))
+        re_ = cp.asarray(np.repeat(off[k0:k1] + lens[k0:k1], lens[k0:k1]))
+        n = end - base
+        d_out = cp.empty(n, cp.int8)
+        kern(((n + 255) // 256,), (256,), (d_seq, rs, re_, np.int64(n), np.int64(base), d_mat, d_exp,
+                                           np.int32(window // 2), d_out))
+        out[base:end] = d_out.get()
+        k0 = k1
+    return out
 
 
 def family_pairs_chunks(fam: np.ndarray, chunk_pairs: int = 30_000_000):
@@ -460,12 +622,13 @@ def family_pairs_chunks(fam: np.ndarray, chunk_pairs: int = 30_000_000):
 
 
 def score_families_gpu(seq, off, lens, fam, *, db_residues: float, evalue: float = 10.0,
-                       device: int = 0, chunk_pairs: int = 30_000_000) -> dict:
+                       device: int = 0, chunk_pairs: int = 30_000_000, comp_bias_corr: bool = False) -> dict:
     """Exhaustive within-family SW for every family with >= 2 members (self pairs give the
     self-scores). Returns the kept records (e-value <= evalue) and stats."""
     import queue
     import threading
-    sw = GpuSW(device)
+    sw = GpuSW(device, bias=comp_bias_corr)
+    bias = comp_bias_gpu(seq, off, lens) if comp_bias_corr else None
     out = {k: [] for k in ("q", "t", "bits", "qcov", "tcov", "evalue")}
     st = dict(n_pairs=0, n_kept=0, fwd_s=0.0, rev_s=0.0, cells_fwd=0.0, cells_rev=0.0, n_chunks=0)
     # pair lists are generated by a producer thread while the GPU works on the previous chunk
@@ -482,7 +645,7 @@ def score_families_gpu(seq, off, lens, fam, *, db_residues: float, evalue: float
         if c is None:
             break
         q, t = c
-        r = align_pairs(seq, off, lens, q, t, db_residues=db_residues, evalue=evalue, sw=sw)
+        r = align_pairs(seq, off, lens, q, t, db_residues=db_residues, evalue=evalue, sw=sw, bias=bias)
         k = r["keep"]
         out["q"].append(q[k].astype(np.int32))
         out["t"].append(t[k].astype(np.int32))
@@ -501,8 +664,9 @@ def score_families_gpu(seq, off, lens, fam, *, db_residues: float, evalue: float
     return res
 
 
-def sw_reference(a: str, b: str) -> int:
-    """Pure-python Gotoh local alignment score (tests)."""
+def sw_reference(a: str, b: str, ba=None, bb=None) -> int:
+    """Pure-python Gotoh local alignment score (tests); optional per-residue score corrections
+    ``ba`` (added for every cell of a's residue i) and ``bb`` (for b's residue j)."""
     m = blosum62_32()
     ea, _, _ = encode([a])
     eb, _, _ = encode([b])
@@ -516,7 +680,9 @@ def sw_reference(a: str, b: str) -> int:
         for j in range(n):
             F[j + 1] = max(F[j + 1] - ge, H[j + 1] - go)
             e = max(e - ge, Hn[j] - go)
-            h = max(0, H[j] + int(m[ea[i], eb[j]]), e, F[j + 1])
+            sc = int(m[ea[i], eb[j]]) + (int(ba[i]) if ba is not None else 0) + \
+                (int(bb[j]) if bb is not None else 0)
+            h = max(0, H[j] + sc, e, F[j + 1])
             Hn[j + 1] = h
             best = max(best, h)
         H = Hn
@@ -542,7 +708,8 @@ def main(argv=None):
                           device=a.device)
     else:
         res = score_families_gpu(z["seq"], z["off"], z["len"], z["fam"], db_residues=dbr, evalue=ev,
-                                 device=a.device)
+                                 device=a.device,
+                                 comp_bias_corr=bool(z["comp_bias"]) if "comp_bias" in z else False)
     res["stats"]["total_s"] = round(time.time() - t0, 3)
     stats = res.pop("stats")
     tmp = a.out + ".tmp.npz"
