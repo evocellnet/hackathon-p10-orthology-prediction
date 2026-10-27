@@ -21,6 +21,13 @@ Backends (``ScoringConfig.backend``)
     DIAMOND blocks, then ``mmseqs align`` only on the in-family pairs (families
     <= cap_all) DIAMOND did not report: exhaustive recall at ~DIAMOND cost plus
     the missed fraction (~7-10% of pairs on the toy).
+``gpusw`` (v2-gpu, opt-in; docs/GPU_v2.md)
+    Exhaustive Smith-Waterman (BLOSUM62 11/1, no masking, no composition statistics) of
+    *every* within-family pair on the GPU (``ancestra.gpu_sw``, run in a subprocess with the GPU
+    python ``$ANCESTRA_GPU_PYTHON``); bit scores from BLAST lambda/K, e-values against a fixed
+    database size (``gpu_db_residues``; 0 = one DIAMOND block). The same e-value threshold,
+    cap rule and ScoreTable as the other backends; pident is not computed (NaN). It sees no
+    cross-family hits, so the cross-family rescue makes no joins.
 ``foldseek3di``
     Hook only (DESIGN.md S6): same interface, 3Di+AA scores. Not implemented.
 
@@ -61,7 +68,7 @@ __all__ = ["ScoringConfig", "ScoreTable", "score_families", "score_with_rescue",
 
 @dataclass
 class ScoringConfig:
-    backend: str = "hybrid"         # hybrid | diamond | mmseqs | foldseek3di (hook)
+    backend: str = "hybrid"         # hybrid | diamond | mmseqs | gpusw (v2, opt-in) | foldseek3di (hook)
     evalue: float = 10.0            # within-family: homology already established by S0
     block_genes: int = 100_000      # diamond: proteins per block (whole families)
     diamond_sens: str = "--sensitive"
@@ -77,10 +84,20 @@ class ScoringConfig:
                                     # families <= this size (bounded cost; big families get many hits)
     rescue_evalue: float = 1e-5     # ... and evalue <= rescue_evalue
     threads: int = 24
+    gpu_db_residues: float = 0.0    # gpusw: e-value database size (0 = block_genes x mean length)
+    gpu_mask: str = "tantan"        # gpusw: low-complexity masking (tantan via mmseqs masksequence -> X) | none
+    gpu_big_evalue: float = 0.0     # gpusw: e-value cut for non-self pairs in families > rescue_max_family
+                                    # (0 = off; mimics the sparser DIAMOND-only graph there, docs/GPU_v2.md)
+    gpu_device: int = 0             # gpusw: CUDA device (not part of the key)
 
     def key(self) -> dict:
         d = asdict(self)
         d.pop("threads")
+        d.pop("gpu_device")
+        if self.backend != "gpusw":          # keys of the CPU backends are unchanged (freeze-v1)
+            d.pop("gpu_db_residues")
+            d.pop("gpu_mask")
+            d.pop("gpu_big_evalue")
         return d
 
 
@@ -411,12 +428,94 @@ def _backend_diamond(gt: GeneTable, fam: np.ndarray, cfg: ScoringConfig, wd: str
     return _reduce_records(c[0].astype(np.int64), c[1].astype(np.int64), *c[2:], gt.n)
 
 
+def gpu_python() -> str:
+    """GPU python interpreter for ``ancestra.gpu_sw`` ($ANCESTRA_GPU_PYTHON, else the project's
+    conda_envs/gpu)."""
+    p = os.environ.get("ANCESTRA_GPU_PYTHON")
+    if p:
+        return p
+    root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    for cand in (os.path.join(root, "conda_envs/gpu/bin/python"),
+                 os.path.join(root, "../../conda_envs/gpu/bin/python")):
+        if os.path.exists(cand):
+            return os.path.abspath(cand)
+    raise RuntimeError("gpusw backend: set ANCESTRA_GPU_PYTHON to a python with cupy")
+
+
+def _tantan_mask(gt: GeneTable, wd: str, log, threads: int, stats: dict) -> list:
+    """Soft-mask low-complexity regions with tantan (``mmseqs masksequence``, the masking MMseqs2
+    uses in its prefilter); returns the sequences with masked residues in lower case."""
+    t0 = time.time()
+    fa = os.path.join(wd, "mask_in.fa")
+    write_fasta(gt, fa)
+    db, mdb, out = (os.path.join(wd, x) for x in ("mask_db", "mask_db_m", "mask_out.fa"))
+    _run(["mmseqs", "createdb", fa, db, "-v", "1"], log)
+    _run(["mmseqs", "masksequence", db, mdb, "--threads", threads, "-v", "1"], log)
+    _run(["mmseqs", "convert2fasta", mdb, out, "-v", "1"], log)
+    seqs = [None] * gt.n
+    name, buf = None, []
+    with open(out) as fh:
+        for line in fh:
+            if line.startswith(">"):
+                if name is not None:
+                    seqs[name] = "".join(buf)
+                name, buf = int(line[1:].split()[0]), []
+            else:
+                buf.append(line.strip())
+    if name is not None:
+        seqs[name] = "".join(buf)
+    stats["gpu_mask_s"] = round(time.time() - t0, 2)
+    stats["gpu_masked_residues"] = int((np.frombuffer("".join(seqs).encode("ascii"), np.uint8) >= 97).sum())
+    return seqs
+
+
+def _backend_gpusw(gt: GeneTable, fam: np.ndarray, cfg: ScoringConfig, wd: str, log, stats):
+    """v2-gpu: exhaustive in-family Smith-Waterman on the GPU (docs/GPU_v2.md)."""
+    import json
+    from .gpu_sw import encode
+    seqs = gt.seqs
+    if cfg.gpu_mask == "tantan":
+        seqs = _tantan_mask(gt, wd, log, cfg.threads, stats)
+    elif cfg.gpu_mask != "none":
+        raise ValueError(f"unknown gpu_mask {cfg.gpu_mask!r}")
+    seq, off, lens = encode(seqs, lower_as_x=cfg.gpu_mask == "tantan")
+    assert (lens == gt.lengths).all()
+    dbr = cfg.gpu_db_residues or float(min(lens.sum(), cfg.block_genes * lens.mean()))
+    inp, out = os.path.join(wd, "gpu_in.npz"), os.path.join(wd, "gpu_out.npz")
+    np.savez(inp, seq=seq, off=off, len=lens, fam=np.asarray(fam, np.int64),
+             db_residues=np.float64(dbr), evalue=np.float64(cfg.evalue))
+    env = dict(os.environ)
+    pkg_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    env["PYTHONPATH"] = pkg_root + (os.pathsep + env["PYTHONPATH"] if env.get("PYTHONPATH") else "")
+    cmd = [gpu_python(), "-m", "ancestra.gpu_sw", "families", inp, out, "--device", str(cfg.gpu_device)]
+    log.write("$ " + " ".join(cmd) + "\n")
+    log.flush()
+    t0 = time.time()
+    r = subprocess.run(cmd, stdout=log, stderr=log, env=env)
+    if r.returncode != 0:
+        raise RuntimeError(f"gpu_sw failed ({r.returncode}); see {log.name}")
+    z = np.load(out)
+    gst = json.loads(str(z["stats"]))
+    stats.update({"gpu_" + k: v for k, v in gst.items()})
+    stats["gpu_db_residues"] = dbr
+    stats["gpu_wall_s"] = round(time.time() - t0, 2)
+    q, t = z["q"].astype(np.int64), z["t"].astype(np.int64)
+    cols = [z["bits"], z["qcov"], z["tcov"], np.full(len(q), np.nan, np.float32), z["evalue"]]
+    if cfg.gpu_big_evalue > 0:
+        sizes = np.bincount(fam)
+        drop = (sizes[fam[q]] > cfg.rescue_max_family) & (q != t) & (cols[4] > cfg.gpu_big_evalue)
+        stats["gpu_big_dropped"] = int(drop.sum())
+        q, t = q[~drop], t[~drop]
+        cols = [x[~drop] for x in cols]
+    return _reduce_records(q, t, *cols, gt.n)
+
+
 def _backend_foldseek3di(*a, **k):
     raise NotImplementedError("3Di backend is a DESIGN.md S6 hook; not part of core v0")
 
 
 BACKENDS = {"mmseqs": _backend_mmseqs, "diamond": _backend_diamond, "hybrid": _backend_hybrid,
-            "foldseek3di": _backend_foldseek3di}
+            "foldseek3di": _backend_foldseek3di, "gpusw": _backend_gpusw}
 
 
 def join_families(fam: np.ndarray, cross: dict, cov: float, evalue: float, max_size: int | None = None):

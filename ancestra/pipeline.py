@@ -498,7 +498,9 @@ def build_parser(ap: argparse.ArgumentParser | None = None) -> argparse.Argument
     ap.add_argument("--family-config", help="JSON with ancestra.families.FamilyConfig fields")
     ap.add_argument("--out", required=True)
     ap.add_argument("--threads", type=int, default=24)
-    ap.add_argument("--backend", default="hybrid", choices=["hybrid", "diamond", "mmseqs"])
+    ap.add_argument("--backend", default="hybrid", choices=["hybrid", "diamond", "mmseqs", "gpusw"],
+                    help="S2 scoring backend; gpusw = exhaustive in-family Smith-Waterman on the GPU "
+                         "(v2, opt-in; docs/GPU_v2.md)")
     ap.add_argument("--preset", default="accurate", choices=sorted(PRESETS),
                     help="accurate (default; FastTree local trees) | fast (NJ local trees) | "
                          "custom (use --config merge fields as given)")
