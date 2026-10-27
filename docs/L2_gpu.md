@@ -9,8 +9,8 @@ Started 2026-10-27 18:00 CET (`scripts/clock.sh`). Rules: docs/L2_protocol.md (d
 | task | outcome | verdict |
 |---|---|---|
 | 1. all-GPU S2 made accuracy-equivalent by sparsifying the GPU graph | 8 sparsification / splice arms + controls on OrthoBench dev and TreeFam-A dev. **No arm passes the pre-registered equivalence rule** (E1/E2 on OrthoBench fail for all). But a **1 % score-jitter of the CPU table itself costs −3 to −7 OG-F and −0.010 to −0.014 macro pair F1** (3 seeds): the OrthoBench dev optimum of the frozen merge is a tuned point that any S2 perturbation leaves, so E1/E2 cannot separate "equivalent" from "different" here. On QfO, **R207** (keep a pair if bits ≥ 0.207 × the query's best hit in the partner's species) gives **TreeFam-A dev TPR 0.637 / PPV 0.930 vs CPU 0.615 / 0.922** (ΔTPR +0.021 [−0.003, +0.050]) at **0.59 CPU-h instead of 9.05** (15×). Mechanism traced (§2.2): avg-link over *present* pairs + uneven presence reshuffles the local-tree ambiguity clusters. | **not equivalent by the rule**; R207 is a documented opt-in speed mode (`scoring.gpu_sparsify = "ratio:0.207"`, `gpu_max_family = 0`), not a frozen candidate |
-| 2. batched FastTree / in-process FAMSA | `FastTree -n` gives byte-identical trees on 1,000/1,000 sampled jobs, but a full OrthoBench run differs in 4 of 1.39 M pairs (dev metrics identical) and is only 1.5 % faster; pyfamsa is not faster and changes 8/998 alignments. The per-call cost is ML optimisation inside FastTree (93 %), not process start-up (GPU_v2 §8 corrected). | equivalence-preserving but **not worth it**; in-process FAMSA rejected |
-| 3. R4 structure rescue at full 3Di coverage | ProstT5-GPU fills the QfO gap (63k proteins) in 5 h on a shared A100. Full coverage = AFDB-only on every dev metric (OrthoBench: macro +0.0042 [−0.0005, +0.011] for both; QfO see §4.1). Foldseek GPU search is slower than CPU and finds different hits. | **fails the keep rule**; full coverage adds nothing measurable; GPU search not useful |
+| 2. batched FastTree / in-process FAMSA | `FastTree -n` gives byte-identical trees on 1,000/1,000 sampled jobs, but a full OrthoBench run differs in 4 of 1.39 M pairs (dev metrics identical) and is only 1.5 % faster; pyfamsa is not faster and changes 8/998 alignments. The per-call cost is ML optimisation inside FastTree (93 %), not process start-up (GPU_v2 §8 corrected). | equivalent but not byte-identical, **not worth it**; in-process FAMSA rejected |
+| 3. R4 structure rescue at full 3Di coverage | ProstT5-GPU fills the QfO gap (63k proteins) in 5 h on a shared A100. Full coverage ≈ AFDB-only on every dev metric (OrthoBench macro +0.0042 [−0.0005, +0.011] for both; QfO TPR +0.0021 vs +0.0019, PPV +0.0024 for both). Foldseek GPU search is slower than CPU and finds different hits. | **fails the keep rule**; full coverage adds nothing measurable; GPU search not useful |
 
 ## 0. Pre-registration (written 18:10 CET, before any new arm was run)
 
@@ -292,7 +292,18 @@ coverage brings are almost all undone by the RBH guard (539 vs 491 kept) and tou
 The positive part of R4 on OrthoBench comes from the *profile* search (the shuffled-3Di arms keep +0.0021 of the
 +0.0042) and from AFDB 3Di; ProstT5-filled coverage adds nothing measurable on dev.
 
-**QfO TreeFam-A dev** (Δ vs R0, paired bootstrap over 359 families): see §4.1 (filled when the QfO runs finish).
+### 4.1 QfO TreeFam-A dev (`results/l2_gpu/t3_qfo_R4.json`; Δ vs R0, paired bootstrap over 359 dev families)
+| arm | 3Di hits | attached / kept by guard | TPR | ΔTPR [CI] | PPV | ΔPPV [CI] | run (4 thr unless noted) |
+|---|---|---|---|---|---|---|---|
+| R0 (`work/rescue/qfo/R0`) | – | – | 0.6151 | – | 0.9224 | – | – |
+| R4-afdb (93.6 % 3Di; 2 thr) | 416,745 | 28,148 / 6,338 | 0.6170 | +0.0019 [−0.0014, +0.0061] | 0.9248 | +0.0024 [−0.0014, +0.0085] | byte-identical to S0_rescue R4n (19e33406…) |
+| **R4-full (100 % 3Di)** | 521,763 | 30,840 / 6,580 | 0.6172 | +0.0021 [−0.0013, +0.0063] | 0.9248 | +0.0024 [−0.0014, +0.0085] | 32.6 min, 1.38 CPU-h |
+| R4-shuf 11 (6 thr) | 56 | 6,576 / 3,021 | 0.6156 | +0.0005 [−0.0006, +0.0017] | 0.9229 | +0.0005 [0.000, +0.0014] | 18.8 min |
+
+R4-full vs R4-shuf: ΔTPR +0.0016 [−0.0019, +0.0060], ΔPPV +0.0020 [−0.0018, +0.0080]. Full coverage adds 25 % more
+3Di hits and 2,700 more attachments, of which the guard keeps 242 more; the TreeFam-A dev effect of completing coverage
+is +0.0002 TPR (two TP records). On QfO, as on OrthoBench, R4's small gain is real in sign (real 3Di > shuffled) but
+inside the CIs, and completing the 3Di layer with ProstT5 does not change it.
 
 **Cost.**
 - ProstT5 on GPU: OrthoBench gap 1 h 56 min (GPU_v2), QfO gap 5 h 01 min, both on a shared A100 (≈ 2 and 5 GPU-h);
