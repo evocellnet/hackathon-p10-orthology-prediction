@@ -98,3 +98,9 @@ task 3 after.
     families, no cross-family rescue (a conservative stand-in for `gpusw` with `gpu_max_family = T`; cost estimated
     from measured DIAMOND block times, stated as an estimate).
   QfO runs of the round-1 arms continue unchanged (they were queued before any result was seen).
+- **D2 (19:40 CET, after X1/X2 were seen).** X1 (GPU scores on DIAMOND's exact pair set) is as far from the CPU
+  path as the full GPU graph (OG-F −9.1 vs A), so OrthoBench OG-F reacts strongly to *any* score perturbation in
+  large families. To calibrate what "within noise" means for this kind of change, a **score-jitter noise floor** is
+  added: the CPU pass-1 table (A) with every non-self bit score multiplied by exp(0.01·N(0,1)) (1 % noise, far below
+  the GPU/DIAMOND score differences), seeds 11/23/47 on OrthoBench (accurate) and seed 11 on QfO (fast, CPU
+  pass-1 table). Reported as a control next to every arm; the pre-registered rule E1–E5 is not changed.
