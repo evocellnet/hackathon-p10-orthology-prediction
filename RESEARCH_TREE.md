@@ -5,6 +5,11 @@ Clock: START.txt = 2026-10-26T14:40 CET; hard deadline 2026-10-28T14:40 CET (48 
 
 ## Status summary (latest first)
 
+### M3 — 2026-10-27 ~04:00 (T+13h20) — QfO peek 1 done; recall work; presets
+**Status.** On OrthoBench dev the deterministic `accurate` preset scores OG-F 79.7 and macro pair F1 0.80, against OrthoFinder 3.2's 70.5 (other baselines are lower). QfO peek 1 used the old NJ default: precision is comparable to the field, but recall is low (TreeFam-A TPR .55 vs OrthoFinder .74, Hieranoid2 .62), and the synteny layer has no measurable effect on QfO. A dev-only diagnosis (a 30% TreeFam-A family split, pre-registered) showed 78% of misses are merge failures at the pair's LCA. Fixes tested by pre-fixed rules: FastTree local trees, species-overlap structure, and deep-node absorption with a generic divergence rule. On TreeFam-A dev the presets now give `accurate` .591/.940 and `fast` .615/.922 (from .572/.928), with each adoption checked on its own preset. A validity gate (verify_orthoxml) caught a malformed-nesting bug before peek 2; it is fixed and regression-tested. S0 rescue (3Di + profile + merge guard) passes the rule but its QfO gain is within noise → kept as an option. QfO full run ≈1.6 h wall / ~12 CPU-h for `fast`, plus ~7 CPU-h merge for `accurate`.
+
+**Next.** QfO peek 2 on both presets; the giant-family (Leiden cap) experiment that targets 711 S0-split FNs; scaling results; then freeze (target T+30–36h), final QfO incl. STD tests, OrthoBench test, independent review, REPORT. Decision M3: no further features after the giant-family experiment unless peek 2 reveals a regression; the remaining time goes to evaluation rigour (bootstrap CIs, review), scaling and the report. A rate-limit interruption at T+11h40 stopped all agents; the compute survived.
+
 ### Note — 2026-10-27 02:31 (T+11h51): API session limit interrupted all 4 running agents (core nesting fix, S0 rescue, scaling, competitor summary); background compute survived; all agents resumed.
 
 ### M2 — 2026-10-26 19:51 (T+5h11) — core method works on OrthoBench dev; layers triaged
