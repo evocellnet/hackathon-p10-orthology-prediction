@@ -44,7 +44,7 @@ We therefore describe Ancestra as a scalable, synteny-aware descendant of SYNERG
 
 - **Target.** At least 95% of dev RefOGs should fall entirely inside one family.
 - **Result.** The best of 23 configurations reached 0.794 (27/34) on DEV and 0.722 (26/36) on TEST.
-- **Reason.** Six dev RefOGs have a member with no hit at e ≤ 10^-3^ to the rest of the RefOG. So no partition built from pairwise sequence hits can exceed 0.82.
+- **Reason.** Six dev RefOGs have a member with no hit at e $\le$ 10^-3^ to the rest of the RefOG. So no partition built from pairwise sequence hits can exceed 0.82.
 - **Decision.** The target was declared unreachable with sequence data, and the near-ceiling configuration was accepted (`docs/S0_families.md`).
 
 ## 2.2 Single-level clustering (DEV)
