@@ -1,0 +1,501 @@
+% Template for PLoS
+% Version 3.8 Apr 2026
+%
+% % % % % % % % % % % % % % % % % % % % % %
+%
+% -- IMPORTANT NOTE
+%
+% This template contains comments intended 
+% to minimize problems and delays during our production 
+% process. Please follow the template instructions
+% whenever possible.
+%
+% % % % % % % % % % % % % % % % % % % % % % % 
+%
+% Once your paper is accepted for publication, 
+% PLEASE REMOVE ALL TRACKED CHANGES in this file 
+% and leave only the final text of your manuscript. 
+% PLOS recommends the use of latexdiff to track changes during review, as this will help to maintain a clean tex file.
+% Visit https://www.ctan.org/pkg/latexdiff?lang=en for info.
+%
+%
+% IMPORTANT
+% Below are a few tips to help format manuscript according to our specifications. For more tips to help reduce the possibility of formatting errors during conversion, please see our LaTeX guidelines at http://journals.plos.org/plosone/s/latex
+%
+% There are no restrictions on package use within the LaTeX files except that no packages listed in the template may be deleted.
+%
+% Please do not include colors or graphics in the text.
+%
+% The manuscript LaTeX source should be contained within a single file (do not use \input, \externaldocument, or similar commands).
+%
+% % % % % % % % % % % % % % % % % % % % % % %
+%
+% -- FIGURES AND TABLES
+%
+% Please include tables/figure captions directly after the paragraph where they are first cited in the text.
+%
+% DO NOT INCLUDE GRAPHICS IN YOUR MANUSCRIPT
+% - Figures should be uploaded separately from your manuscript file. 
+% - Figures generated using LaTeX should be extracted and removed from the PDF before submission. 
+% - Figures containing multiple panels/subfigures must be combined into one image file before submission.
+% For figure citations, please use "Fig" instead of "Figure".
+% See http://journals.plos.org/plosone/s/figures for PLOS figure guidelines.
+%
+% Tables should be cell-based and may not contain:
+% - spacing/line breaks within cells to alter layout or alignment
+% - do not nest tabular environments (no tabular environments within tabular environments)
+% - no graphics or colored text (cell background color/shading OK)
+% See http://journals.plos.org/plosone/s/tables for table guidelines.
+%
+% For tables that exceed the width of the text column, use the adjustwidth environment as illustrated in the example table in text below.
+%
+% % % % % % % % % % % % % % % % % % % % % % % %
+%
+% -- EQUATIONS, MATH SYMBOLS, OTHER SPECIAL FORMATTING
+%
+% - For bold symbols, use the \boldsymbol command and not \mathbf. 
+% - For inline equations, please be sure to include all portions of an equation in the math environment.  For example, x$^2$ is incorrect; this should be formatted as $x^2$ (or $\mathrm{x}^2$ if the romanized font is desired).
+% - Do not include text that is not math in the math environment. For example, CO2 should be written as CO\textsubscript{2} instead of CO$_2$.
+% - Avoid capturing simple text as equations, for example $<$.
+% - For inline equations, please do not include punctuation (commas, etc) within the math environment unless this is part of the equation.
+% - When adding superscript or subscripts outside of brackets/braces, please group using {}.  For example, change "[U(D,E,\gamma)]^2" to "{[U(D,E,\gamma)]}^2". 
+% - Do not use \cal for caligraphic font.  Instead, use \mathcal{}.
+% - Avoid splitting for fragmenting a single equation into multiple objects/environments, for example $f(x)$ = $g(x)$ + $h(x)$.
+% - Use math environment for all equations, do not mimic using text.
+% - Avoid using single letters in math mode where possible.
+% - Always use matching parentheses and delimiters, avoid mixing math and text brackets.
+% - Insert spaces around inline equations to ensure proper display after conversion.
+% - Do not use forced numbers for display equation labeling or suppress numbering with \nonumber. 
+%
+% % % % % % % % % % % % % % % % % % % % % % % % 
+%
+% Please contact customercare@plos.org with any questions.
+%
+% % % % % % % % % % % % % % % % % % % % % % % %
+
+\documentclass[10pt,letterpaper]{article}
+\usepackage[top=0.85in,left=2.75in,footskip=0.75in]{geometry}
+
+% amsmath and amssymb packages, useful for mathematical formulas and symbols
+\usepackage{amsmath,amssymb}
+
+% Use adjustwidth environment to exceed column width (see example table in text)
+\usepackage{changepage}
+
+% textcomp package and marvosym package for additional characters
+\usepackage{textcomp,marvosym}
+
+% cite package, to clean up citations in the main text. Do not remove.
+\usepackage{cite}
+
+% Use nameref to cite supporting information files (see Supporting Information section for more info)
+\usepackage{nameref,hyperref}
+
+% line numbers
+\usepackage[right]{lineno}
+
+% ligatures disabled
+%\usepackage[nopatch=eqnum]{microtype} % disabled for tectonic/XeTeX build
+%\DisableLigatures[f]{encoding = *, family = * }
+
+% color can be used to apply background shading to table cells only
+\usepackage[table]{xcolor}
+
+% array package and thick rules for tables
+\usepackage{array}
+
+% create "+" rule type for thick vertical lines
+\newcolumntype{+}{!{\vrule width 2pt}}
+
+% create \thickcline for thick horizontal lines of variable length
+\newlength\savedwidth
+\newcommand\thickcline[1]{%
+  \noalign{\global\savedwidth\arrayrulewidth\global\arrayrulewidth 2pt}%
+  \cline{#1}%
+  \noalign{\vskip\arrayrulewidth}%
+  \noalign{\global\arrayrulewidth\savedwidth}%
+}
+
+% \thickhline command for thick horizontal lines that span the table
+\newcommand\thickhline{\noalign{\global\savedwidth\arrayrulewidth\global\arrayrulewidth 2pt}%
+\hline
+\noalign{\global\arrayrulewidth\savedwidth}}
+
+
+% Remove comment for double spacing
+%\usepackage{setspace} 
+%\doublespacing
+
+% Text layout
+\raggedright
+\setlength{\parindent}{0.5cm}
+\textwidth 5.25in
+\textheight 8.75in
+
+% Bold the 'Figure #' in the caption and separate it from the title/caption with a period
+% Captions will be left justified
+\usepackage[aboveskip=1pt,labelfont=bf,labelsep=period,justification=raggedright,singlelinecheck=off]{caption}
+\renewcommand{\figurename}{Fig}
+
+% Please use the included `plos2025.bst` as your BibTeX style
+\bibliographystyle{plos2025}
+
+% Remove brackets from numbering in List of References
+\makeatletter
+\renewcommand{\@biblabel}[1]{\quad#1.}
+\makeatother
+
+
+
+% Header and Footer with logo
+\usepackage{lastpage,fancyhdr,graphicx}
+\usepackage{epstopdf}
+%\pagestyle{myheadings}
+\pagestyle{fancy}
+\fancyhf{}
+%\setlength{\headheight}{27.023pt}
+%\lhead{\includegraphics[width=2.0in]{PLOS-submission.eps}}
+\rfoot{\thepage/\pageref{LastPage}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrule}{\hrule height 2pt \vspace{2mm}}
+\fancyheadoffset[L]{2.25in}
+\fancyfootoffset[L]{2.25in}
+\lfoot{\today}
+
+%% Include all user-defined macros below
+\newif\ifembedfigs \embedfigstrue % set \embedfigsfalse for PLOS submission (figures uploaded separately)
+\newcommand{\pend}[1]{\textbf{[PENDING: #1]}}
+\newcommand{\CI}[2]{[#1,\,#2]}
+
+\begin{document}
+\vspace*{0.2in}
+
+\begin{flushleft}
+{\Large
+\textbf{Ancestra: orthology inference by level-wise reconstruction of ancestral genes inside de novo protein families, and a test of extra data layers}
+}
+\newline
+\\
+Ancestra project agent (Claude Opus 5.5, Anthropic), supervised by the Beltrao lab hackathon organisers\textsuperscript{1*}
+\\
+\bigskip
+\textbf{1} Institute of Molecular Systems Biology, ETH Zurich, Zurich, Switzerland
+\\
+\bigskip
+* Contact: see repository README
+\end{flushleft}
+
+\section*{Note on how this work was produced}
+\textbf{This study was an exercise in testing whether AI agents can run a bioinformatics research project.} An AI agent (Claude Opus 5.5) acted as principal investigator: it planned the work, delegated sub-tasks to other AI agents, ran all analyses and wrote this manuscript. Humans gave the initial task description (S2 Text) and a few later instructions, listed in Materials and methods. \textbf{No human has yet verified the methods or results.} The manuscript should be read as the output of that exercise, not as a peer-reviewed tool paper.
+
+\section*{Abstract}
+Most orthology methods either compare every pair of proteomes, build a gene tree for every orthogroup, or place proteins into a precomputed reference database. We tested a different approach. Our method, Ancestra, first splits all proteins into families with a near-linear clustering step. It then walks the species tree from the leaves to the root. At each ancestral node it reconstructs the genes of that ancestor, inside every family at once, from mutual best matches, absorbed in-paralogs and small local gene trees. The output is a set of hierarchical orthologous groups (HOGs) in OrthoXML. On the held-out half of OrthoBench (36 reference orthogroups), Ancestra reached F = 76.2, compared with 69.7 for OrthoFinder 3.2, 70.4 for SonicParanoid2, 60.4 for precomputed OMA HOGs and 33.1 for FastOMA, using 3.9 CPU-hours against OrthoFinder's 8.2. The gains over OMA and FastOMA were significant. The gain over OrthoFinder was not: the 95\% interval of the difference, \CI{$-6.5$}{$+18.1$} F points, failed our pre-registered non-inferiority rule. On the Quest for Orthologs 2022 benchmark (78 species), Ancestra matched FastOMA and OMA pairs on TreeFam-A recall but had clearly lower recall than OrthoFinder ($-0.16$) and the worst species-tree discordance among the main comparators. CPU time grew with the number of proteins to the power 1.16 \CI{1.10}{1.21}. We also tested five extra data layers. Gene order separated orthologs from paralogs well on its own but did not improve the final groups. 3D structure joined more family members but lowered precision. Expression and isoform data did not help. Genome sequences showed that 53\% of apparent gene losses in mammals were not real losses. Building HOGs level by level inside families is a viable and scalable approach, but it does not yet match tree-based methods on recall at deep taxonomic levels.
+
+\section*{Author summary}
+Genes in different species that descend from one gene in their last common ancestor are called orthologs. Finding them is a basic step in comparing genomes and transferring knowledge between species. As thousands of new genomes appear, orthology methods must be both accurate and fast. We built and tested a method, Ancestra, that reconstructs the genes of each ancestor in the tree of life, one ancestor at a time, inside groups of related proteins. We compared it with leading methods on two standard benchmarks. It was as good as or better than methods from the OMA family and cheaper than OrthoFinder, but it missed more distant orthologs than OrthoFinder. Adding gene order, protein structure, expression or isoform data did not improve the final result, even when that data was informative on its own. The work was planned and carried out by AI agents, as a test of how well such agents can run a research project. We report the decisions they took, the methods that failed and the protocol deviations.
+
+\linenumbers
+
+\section*{Introduction}
+Orthologs are genes that diverged by speciation; paralogs diverged by duplication~\cite{altenhoff2016qfo}. Hierarchical orthologous groups (HOGs) extend this to many species: a HOG at a taxonomic level contains all genes that descend from one gene of the ancestor at that level~\cite{altenhoff2013gethogs,sarton2025hogreview}. Current methods take one of three routes.
+\begin{itemize}
+\item \textbf{Pairwise methods} infer orthologs from best hits between every pair of proteomes and then cluster them. Examples are InParanoid~\cite{remm2001inparanoid,persson2022inparanoid}, OrthoInspector~\cite{nevers2019orthoinspector}, SonicParanoid2~\cite{cosentino2024sonicparanoid2}, ProteinOrtho~\cite{klemm2023proteinortho} and OMA pairs~\cite{altenhoff2024oma}. Their search cost grows with the square of the number of proteomes.
+\item \textbf{Tree-based methods} build a gene tree for each orthogroup and reconcile it with a species tree. Examples are OrthoFinder~\cite{emms2019orthofinder,emms2026orthofinder3}, PhylomeDB~\cite{fuentes2022phylomedb}, Ensembl Compara~\cite{vilella2009ensemblcompara} and PANTHER~\cite{thomas2022panther}.
+\item \textbf{Placement methods} map new proteins onto a precomputed reference. FastOMA, for example, places proteins into OMA HOGs with OMAmer and then refines the HOGs level by level~\cite{majidian2025fastoma,rossier2021omamer}.
+\end{itemize}
+
+A fourth idea is older but less used: build HOGs directly, by reconstructing the gene content of each ancestor along the species tree. SYNERGY did this for fungi with sequence and gene order~\cite{wapinski2007synergy}, and Hieranoid did it with an ancestral consensus proteome at each node~\cite{schreiber2013hieranoid,kaduk2017hieranoid2}. Both search ancestral proteomes against each other, which becomes expensive at deep nodes.
+
+We asked whether this idea can be made scalable, and whether it can compete with current methods. Our method, Ancestra, keeps the ancestor-by-ancestor logic but restricts all work to protein families that are found first, with a near-linear clustering step. Ancestral genes are never searched again: their similarity scores are aggregated from the scores of their member proteins.
+
+We also asked whether data beyond the protein sequence helps. Gene order (synteny), 3D structure, expression, alternative isoforms and genome sequences have each been proposed as orthology evidence~\cite{lechner2014poff,ludwig2024orthorefine,moi2025foldtree,bastian2025bgee,kirilenko2023toga}. We tested each layer first on its own and then inside the full method, with shuffled controls.
+
+Finally, this project was a test of AI agents. One agent acted as principal investigator and delegated work to other agents, under a pre-registered protocol and a 48-hour budget. We describe this setup in Materials and methods.
+
+\section*{Results}
+
+\subsection*{Overview of the method}
+Ancestra has three stages (Fig~\ref{fig:method}).
+
+\textbf{S0: family partition.} DIAMOND clusters all proteins at 30\% identity~\cite{buchfink2021diamond,buchfink2026deepclust}. Then every protein is searched against the cluster representatives, and families are the connected components of hits with at least 30\% coverage. Components larger than 7,500 proteins are split with the Leiden algorithm~\cite{traag2019leiden}. This second step was the key design decision for S0. One clustering pass placed at most 59\% of development reference orthogroups into a single family, because representatives of one family are often too distant to hit each other. Searching all proteins against the representatives raised this to 79\%.
+
+\textbf{S2: scoring inside families.} DIAMOND compares proteins within each family. MMseqs2~\cite{steinegger2017mmseqs2} then re-aligns the within-family pairs that DIAMOND missed (6--10\% of pairs on simulated data). The score of a pair is its bit score divided by the larger self-score.
+
+\textbf{S3: level-wise merge.} Ancestra walks the NCBI taxonomy tree~\cite{schoch2020ncbitaxonomy}, restricted to the input species, from the leaves to the root. Each internal node can have more than two children. At each node, and in every family at once, it merges the ancestral genes of the child clades into ancestral genes of the node:
+\begin{enumerate}
+\item Ancestral genes from different children that are mutual best matches (within a tolerance of 0.95) become orthologs. This is the reciprocal-best-hit rule~\cite{remm2001inparanoid}.
+\item A gene from the same child that is closer to an ortholog than that ortholog's best cross-child partner joins as an in-paralog. This is the InParanoid rule~\cite{remm2001inparanoid}, as used in Hieranoid~\cite{schreiber2013hieranoid}.
+\item Where several near-equal candidates compete, at nodes that are divergent and have an outgroup, a small gene tree decides. The default (\texttt{accurate} preset) aligns one representative per ancestral gene with FAMSA~\cite{deorowicz2016famsa} and builds a tree with FastTree~\cite{price2010fasttree2}, as FastOMA and OrthoFinder~3 also do~\cite{majidian2025fastoma,emms2026orthofinder3}. The \texttt{fast} preset uses neighbour joining~\cite{saitou1987nj}. Nodes of the tree are labelled duplications or speciations by species overlap~\cite{huertacepas2007overlap}.
+\item At deep nodes (median seed score $-\ln S \geq 1.5$), ancestral genes with disjoint species sets are also merged, to reduce false splits at the last common ancestor.
+\end{enumerate}
+Scores between ancestral genes are the average of the scores between their member proteins, which the method maintains exactly as groups are merged. Ancestral genes that find no partner pass up unchanged. The output is OrthoXML~\cite{schmitt2011orthoxml} with one HOG per ancestral gene and level, plus ortholog pairs and orthogroups. Every output passes a validity check (schema, each gene once, consistent levels, parsing with pyHam~\cite{train2019pyham}).
+
+\textbf{Optional gene-order layer.} If gene positions are given, each ancestral gene inherits the neighbours of its members. Synteny support then re-ranks candidate partners in step 1, but only within the root HOG found without gene order. We added this constraint after unconstrained use fused orthogroups (S1 Text, section 7).
+
+What is new is the combination: HOGs are reconstructed level by level across all families at once, without a reference database and without searching ancestral genes again. The merge rules themselves (mutual best hits, in-paralog absorption, local trees, species overlap) are borrowed. The deep-node rule is a heuristic that we tuned on development data.
+
+\ifembedfigs
+\begin{figure}[!h]
+\centering
+\includegraphics[width=\linewidth]{../docs/figures/fig1_method.png}
+\caption{{\bf Overview of Ancestra.} S0 partitions proteins into families; S2 scores pairs within families; S3 walks the guide tree from leaves to root and reconstructs ancestral genes at each node. Optional layers: gene order (re-ranking inside root HOGs), 3Di structure (family rescue, off by default) and genome DNA (validation of gene losses).}
+\label{fig:method}
+\end{figure}
+\fi
+
+\subsection*{Accuracy on OrthoBench}
+We split the 70 OrthoBench reference orthogroups (RefOGs)~\cite{trachana2011orthobench,emms2020orthobench} into a development half (34) and a test half (36). The split followed homology components, so that paralogous RefOGs never straddle the two halves. All tuning used the development half. The frozen method was scored once on the test half (Table~\ref{tab:ob}).
+
+\begin{table}[!ht]
+\begin{adjustwidth}{-2.25in}{0in}
+\centering
+\caption{{\bf OrthoBench test results (36 RefOGs).}}
+\begin{tabular}{lrrrrr}
+\hline
+Method & F & Precision & Recall & CPU-h & $\Delta$F (Ancestra $-$ method) [95\% CI]\\
+\hline
+Ancestra, \texttt{accurate} & 76.2 & 69.5 & 84.2 & 3.9 & --- \\
+Ancestra, \texttt{fast} & 74.8 & 68.7 & 82.1 & 2.9 & $+1.4$ \CI{$-3.6$}{$+7.1$}\\
+OrthoFinder 3.2 & 69.7 & 62.1 & 79.5 & 8.2 & $+6.5$ \CI{$-6.5$}{$+18.1$}\\
+SonicParanoid2 & 70.4 & 70.8 & 70.1 & 7.9 & $+5.7$ \CI{$-4.3$}{$+14.9$}\\
+OMA browser HOGs$^a$ & 60.4 & 88.9 & 45.8 & n/a & $+15.7$ \CI{$+1.8$}{$+29.2$}\\
+ProteinOrtho & 47.5 & 97.7 & 31.4 & 1.6 & $+28.7$ \CI{$+13.1$}{$+41.9$}\\
+FastOMA 0.5.1, patched$^a$ & 33.1 & 23.9 & 53.8 & 19.9 & $+43.1$ \CI{$+14.0$}{$+55.3$}\\
+\hline
+\end{tabular}
+\begin{flushleft}F, precision and recall: official OrthoBench scores, in percent. $\Delta$F: paired bootstrap over RefOGs (2,000 resamples). CPU time is from single runs on a shared node and is indicative only. $^a$OMA contains all 12 OrthoBench species, so the OMA-based results are not independent of the benchmark.
+\end{flushleft}
+\label{tab:ob}
+\end{adjustwidth}
+\end{table}
+
+Ancestra had the highest F. It was significantly better than the precomputed OMA HOGs, FastOMA and ProteinOrtho. Against OrthoFinder and SonicParanoid2 the point estimates favoured Ancestra by 6--7 points, but the confidence intervals included losses larger than our pre-registered non-inferiority margin of 3 points. We therefore cannot claim that Ancestra is at least as good as OrthoFinder on this benchmark: 36 RefOGs are too few. On all 70 RefOGs, which include the development half and are therefore optimistic, the difference was $+7.8$ \CI{$+0.5$}{$+15.1$}.
+
+FastOMA scored poorly. While investigating this, we found a bug in FastOMA 0.5.1 that dropped 5,497 genes when HOGs were split. We patched it and re-ran FastOMA. Gene coverage rose from 79.0\% to 80.6\%, but test F did not change (33.5 to 33.1). The low score comes mainly from proteins that OMAmer did not place and from fused groups at the root, consistent with the fusion rate reported for FastOMA on OrthoBench by Emms et al.~\cite{emms2026orthofinder3}. The precomputed OMA browser HOGs are a fairer OMA reference: they were precise (88.9) but had low recall (45.8).
+
+\subsection*{Accuracy on Quest for Orthologs 2022}
+We ran the full Quest for Orthologs (QfO) 2022 benchmark suite locally~\cite{altenhoff2024qfo}. To validate our local setup, we re-scored 20 published submissions and reproduced all 60 published values that we checked. The reference set has 78 species and 988,778 proteins. Table~\ref{tab:qfo} shows the main endpoints; S1 Table has all 21 methods and all benchmarks.
+
+\begin{table}[!ht]
+\begin{adjustwidth}{-2.25in}{0in}
+\centering
+\caption{{\bf Quest for Orthologs 2022, main endpoints.}}
+\begin{tabular}{lcccc}
+\hline
+Method & SwissTree TPR/PPV & TreeFam-A TPR/PPV & EC (n, thousands) & G-STD2 Euk. RF (n)\\
+\hline
+Ancestra, \texttt{accurate} & 0.721/0.926 & 0.583/0.921 & 0.899 (181) & 0.257 (3,379)\\
+Ancestra, \texttt{fast} & 0.731/0.923 & 0.608/0.916 & 0.896 (197) & 0.266 (4,753)\\
+OrthoFinder & 0.825/0.917 & 0.737/0.918 & 0.931 (204) & 0.249 (6,629)\\
+SonicParanoid2 (sens.) & 0.717/0.938 & 0.667/0.936 & 0.906 (222) & 0.232 (4,878)\\
+Hieranoid 2 & 0.726/0.950 & 0.621/0.930 & 0.948 (169) & 0.222 (3,643)\\
+FastOMA & 0.699/0.953 & 0.546/0.919 & 0.928 (157) & 0.239 (3,092)\\
+OMA HOGs & 0.696/0.924 & 0.580/0.923 & 0.829 (308) & 0.237 (2,981)\\
+OMA pairs & 0.677/0.929 & 0.565/0.920 & 0.952 (156) & 0.226 (2,369)\\
+\hline
+\end{tabular}
+\begin{flushleft}TPR, PPV: recall and precision of reference ortholog pairs. EC: average Schlicker similarity of EC numbers between predicted orthologs. G-STD2: Robinson--Foulds distance (lower is better) between gene trees from predicted orthologs and the species tree, with the number of trees in brackets. Competitor values are published submissions.
+\end{flushleft}
+\label{tab:qfo}
+\end{adjustwidth}
+\end{table}
+
+We pre-registered TreeFam-A recall on held-out families as a primary endpoint. A paired bootstrap over the 749 held-out TreeFam-A families gave these differences in recall for \texttt{accurate}:
+\begin{itemize}
+\item vs FastOMA: $+0.043$ \CI{$-0.005$}{$+0.093$}, non-inferior;
+\item vs OMA pairs: $+0.018$ \CI{$-0.028$}{$+0.069$}, non-inferior;
+\item vs OMA HOGs: $+0.002$ \CI{$-0.058$}{$+0.067$}, inconclusive;
+\item vs OrthoFinder: $-0.160$ \CI{$-0.210$}{$-0.106$}, inferior.
+\end{itemize}
+On SwissTree, recall was also lower than OrthoFinder's ($-0.103$ \CI{$-0.177$}{$-0.029$}). Ancestra had the highest G-STD2 discordance and lower EC consistency than OrthoFinder.
+
+On QfO, Ancestra therefore sits with the OMA methods: precise, with moderate recall. Why does it lead on OrthoBench but trail on QfO? OrthoBench scores whole orthogroups in 12 mostly bilaterian species. QfO rewards pairwise recall across all eukaryotes and prokaryotes. When we diagnosed recall on development families, 78\% of missed ortholog pairs were split at the pair's last common ancestor. These are deep nodes such as Opisthokonta or Eukaryota, where there is often no outgroup to tell an old duplication from a speciation. Rules that recovered recall at these nodes also fused OrthoBench orthogroups (S1 Text, section 4.7). We did not resolve this trade-off.
+
+\subsection*{Effect of extra data layers}
+We tested each layer in two steps: first on its own sub-task benchmark with a shuffled control, then inside the frozen method on held-out data (Table~\ref{tab:layers}).
+
+\begin{table}[!ht]
+\begin{adjustwidth}{-2.25in}{0in}
+\centering
+\caption{{\bf Effect of extra data layers.}}
+\begin{tabular}{p{2.3cm}p{4.6cm}p{3.8cm}p{2.0cm}}
+\hline
+Layer & On its own (development data) & In the full method (held-out) & Decision\\
+\hline
+Gene order & Ortholog vs paralog AUC 0.92 human--mouse, 0.49 human--fly; shuffled 0.50 & OrthoBench $\Delta$F $-0.1$ \CI{$-0.4$}{$0.0$} when removed; QfO TreeFam-A $-0.012$ \CI{$-0.028$}{$+0.001$} & option, no measurable gain\\
+3D structure (3Di) & Family completeness 0.794 $\to$ 0.853 (shuffled 0.794) & OrthoBench F $-5.0$ \CI{$-13.1$}{$0.0$}; precision 69.5 $\to$ 60.1 & option, off\\
+Expression (Bgee) & AUC 0.667; hard cases $-0.019$ \CI{$-0.20$}{$+0.15$} & not run & rejected\\
+Isoforms & AUC 0.760 vs 0.759; hard cases $+0.013$ \CI{$-0.018$}{$+0.044$} & not run & rejected\\
+Genome DNA & 92\% recovery of planted controls; 0/512 false hits & validation only & add-on\\
+\hline
+\end{tabular}
+\label{tab:layers}
+\end{adjustwidth}
+\end{table}
+
+\textbf{Gene order} was the strongest layer on its own. Between closely related vertebrates it separated orthologs from paralogs with AUC 0.92, and it decided 70 of 157 hard cases with precision 0.84. Inside the frozen method, however, it changed neither OrthoBench nor QfO measurably. On development data it had added 1.0 (\texttt{accurate}) to 4.4 (\texttt{fast}) F points; this gain did not replicate. Our reading is that local gene trees and species-overlap rules already resolve the cases where gene order is informative. Gene order carries no signal at deep nodes, where Ancestra loses recall (human--fly AUC 0.49).
+
+\textbf{3D structure.} We used Foldseek 3Di sequences~\cite{vankempen2024foldseek} for 94.5\% of QfO proteins, taken from AlphaFold DB~\cite{varadi2024alphafolddb}. Structure search rejoined family members that sequence search missed, raising family completeness above the ceiling of 0.82 for any partition built from sequence hits. But the rejoined proteins were mostly not true members of the reference orthogroups: OrthoBench precision fell from 69.5 to 60.1. Inside the merge, 3Di scores ranked orthologs above paralogs \emph{worse} than sequence did (AUC 0.694 vs 0.751 at deep nodes), because paralogs share the fold. Structure detects homology but does not separate orthologs from paralogs.
+
+\textbf{Expression and isoforms} failed their pre-registered rules. Expression conservation was weak evidence (AUC 0.667) and was wrong more often than sequence on the paralog cases it was meant to resolve. Choosing the best isoform pair instead of the canonical one changed almost nothing and cost 2--5 times more search.
+
+\textbf{Genome DNA.} We searched the genomes of 2,523 apparent gene losses in mammals with miniprot~\cite{li2023miniprot}, at the locus predicted by gene order. Of these losses:
+\begin{itemize}
+\item 53\% were not losses. Of all apparent losses, 32\% were errors of our own method (the gene was annotated but placed in another HOG), 19\% were intact but unannotated genes or gene-model errors, and 2\% were relocated copies;
+\item 25\% were confirmed losses (pseudogenes or deletions), including the known pseudogenes \textit{GULO} and \textit{UOX} in primates;
+\item 21\% were unresolved.
+\end{itemize} Genome sequence is therefore useful to audit the gene losses implied by HOGs, rather than as an input to inference.
+
+\subsection*{Choice of species tree}
+Ancestra needs a guide tree. We compared the NCBI taxonomy with trees inferred from the data (ASTRAL-Pro~\cite{zhang2020astralpro}, FastME~\cite{lefort2015fastme}, BIONJ~\cite{gascuel1997bionj}), with perturbed trees, and with a random tree (Table~\ref{tab:trees}).
+
+\begin{table}[!ht]
+\begin{adjustwidth}{-2.25in}{0in}
+\centering
+\caption{{\bf Effect of the guide tree.}}
+\begin{tabular}{lccc}
+\hline
+Guide tree & Conflict with QfO species tree & OrthoBench $\Delta$F & QfO TreeFam-A $\Delta$TPR / $\Delta$EC\\
+\hline
+NCBI taxonomy (default) & 0.000 & --- & --- \\
+ASTRAL-Pro & 0.120 & $+0.0$ \CI{$-0.3$}{$+0.4$} & $+0.028$ / $-0.125$\\
+FastME & 0.173 & $+0.0$ \CI{$-0.3$}{$+0.4$} & $+0.022$ / $-0.134$\\
+NCBI + 1 random NNI (3 seeds) & --- & $-3.3$ to $+0.3$ & ---\\
+Random tree & 0.987 & $-16.4$ \CI{$-27.1$}{$-5.6$} & $-0.243$ / $-0.060$\\
+\hline
+\end{tabular}
+\begin{flushleft}Conflict: fraction of splits incompatible with the published QfO species tree. QfO deltas are for the \texttt{fast} preset; the TPR intervals from a family bootstrap include zero for both inferred trees.
+\end{flushleft}
+\label{tab:trees}
+\end{adjustwidth}
+\end{table}
+
+The guide tree matters: a random tree reduced OrthoBench F by 16 points. Trees inferred from the data contained classic long-branch errors (for example \textit{C. elegans} outside Bilateria) and conflicted with 25--30\% of bacterial splits. Downstream, they gave a small, non-significant gain in QfO recall at a large cost in EC consistency. We kept the NCBI taxonomy. The local gene trees in S3 act as a per-family correction to the single guide tree. We also planned two other policies (delaying merges at uncertain nodes, and per-family guide trees) but did not run them.
+
+\subsection*{Runtime and scaling}
+We measured CPU time on nested subsets of the QfO proteomes (8, 16, 32, 64 and 78 species; Fig~\ref{fig:scaling}).
+
+\begin{table}[!ht]
+\begin{adjustwidth}{-2.25in}{0in}
+\centering
+\caption{{\bf CPU-hours on nested QfO subsets (8 threads).}}
+\begin{tabular}{lrrrrrr}
+\hline
+Method & 8 sp. & 16 sp. & 32 sp. & 64 sp. & 78 sp. & Slope vs proteins\\
+ & (62k) & (144k) & (355k) & (816k) & (989k) & \\
+\hline
+Ancestra \texttt{accurate} & 0.78 & 2.16 & 6.02 & 16.3 & 18.5 & 1.16 \CI{1.10}{1.21}\\
+Ancestra \texttt{fast} & 0.47 & 0.99 & 3.20 & 10.6 & 11.6 & 1.21 \CI{1.02}{1.41}\\
+OrthoFinder 3.2 & 1.22 & 3.54 & 14.4 & \pend{T2} & --- & 1.42 (3 points)\\
+SonicParanoid2 & 0.77 & 2.34 & 11.1 & \pend{T2} & --- & 1.53 (3 points)\\
+FastOMA 0.5.1$^a$ & 1.83 & \pend{T2} & \pend{T2} & \pend{T2} & --- & ---\\
+\hline
+\end{tabular}
+\begin{flushleft}$^a$Excludes building the OMAmer reference database. Single runs on a shared node; CPU time is the primary measure.
+\end{flushleft}
+\label{tab:scaling}
+\end{adjustwidth}
+\end{table}
+
+Ancestra's CPU time grew close to linearly with the number of proteins. On the full QfO set, the \texttt{accurate} preset took 18.5 CPU-hours and 29 GB of memory: 8.6 for scoring inside families, 7.0 for the merge (about 61,000 small FAMSA and FastTree jobs) and 3.0 for the family partition. The \texttt{fast} merge took 2.5 CPU-minutes.
+
+\pend{T3 large-scale demonstration on 125--1,000 UniProt reference proteomes (0.5--4.75 million proteins): measured so far 125 proteomes 3.3 CPU-h, 7.6 GB; 250 proteomes 8.6 CPU-h, 23.4 GB.}
+
+\subsection*{GPU acceleration}
+\pend{GPU v2 results (post-freeze, development data only): MMseqs2-GPU, batched GPU Smith--Waterman for S2, ProstT5 3Di on GPU, ESM-2 embeddings with FAISS for family candidates.}
+
+\section*{Discussion}
+Ancestra shows that HOGs can be built by reconstructing ancestral genes level by level, within families, at a cost that grows close to linearly with the number of proteins and without a reference database. On OrthoBench it was the most accurate method we tested, significantly better than OMA-based resources and ProteinOrtho, and cheaper than OrthoFinder. On QfO it matched the OMA methods but not OrthoFinder.
+
+\textbf{Main weakness: deep nodes.} At the deepest levels of the species tree, the merge relies on score rules, often without an outgroup. Rules strict enough to keep OrthoBench orthogroups apart split true orthologs across Eukaryota; looser rules fuse groups. OrthoFinder avoids this by inferring a tree for the whole orthogroup and rooting it with duplication information~\cite{emms2017stride}. Possible fixes for Ancestra are outgroup tests with a third clade, larger local trees at deep nodes, and a family partition that is not limited by pairwise sequence hits.
+
+\textbf{Extra data layers.} Our clearest finding is negative: a layer can be informative on its own yet add nothing to good sequence-based inference. Gene order and structure each passed their standalone tests with shuffled controls. Neither improved the final groups on held-out data, and structure made them worse. The cases where these layers add unique information are the cases where they are weakest: gene order decays at deep nodes, and structure is shared by paralogs. Genome sequence was most useful for validation: it exposed our own fission errors.
+
+\textbf{Benchmarks.} The two benchmarks gave different rankings, and the OrthoBench test set was too small for firm conclusions (95\% intervals of about $\pm$12 F points). We report every pre-registered verdict as written, including the failures. Several deviations weaken the evidence: the development data were reused heavily, the TreeFam-A development split was created after the first QfO evaluation, and OMA-based comparators had seen the benchmark species (S3 Text).
+
+\textbf{Running the project with AI agents.} The agent setup made it practical to test many ideas within 48 hours: about 30 approaches were tried and dropped (S1 Text). Three practices helped the most:
+\begin{itemize}
+\item pre-registering decision rules before seeing results;
+\item using shuffled controls for every data layer;
+\item having results recomputed by an agent that did not produce them.
+\end{itemize}
+Independent verification found real errors: a false statement in our list of disclosures, an omitted primary endpoint and confidence intervals that were too narrow. The main weakness of the setup was the pressure to tune on a small development set; several gains on development data did not replicate.
+
+\textbf{Limitations.} Run times come from single runs on shared nodes. Our simulator was written in-house and not validated against an independent simulator. The merge is slightly sensitive to the order of children in the guide tree (18 OrthoBench orthogroups differ). Only 22 of 81 quantitative claims were independently recomputed; the others were checked against their evidence files.
+
+\section*{Materials and methods}
+
+\subsection*{Agent setup}
+The project ran in Claude Code with Claude Opus 5.5 as principal investigator (PI). The PI did not write method code itself. It split the project into sub-tasks, each with its own benchmark, and delegated them to subagents: Claude Opus 5.5 for design, algorithm and verification work, and Claude Sonnet 5.5 for data acquisition, benchmark runs and bookkeeping. Subagents ran in the background, often several at once, and reported back to the PI, which reviewed results, decided next steps and committed them to git.
+
+The research record was kept in plain files:
+\begin{itemize}
+\item a research tree with every experiment and decision;
+\item a list of process lessons;
+\item a pre-registered design document, revised in two review rounds by eight reviewer subagents;
+\item a ledger of quantitative claims with their evidence files;
+\item a list of protocol deviations.
+\end{itemize}
+Key results were recomputed by a subagent that had not produced them. The PI checked the clock against a 48-hour budget at each milestone.
+
+Humans intervened six times after the initial prompt (S2 Text): they suggested Foldcomp structure databases, required at least one OMA resource in every comparison, paused the project to move it to a node with a GPU, reset the deadline, asked for a header in the repository README, and requested this manuscript. Compute was a shared 24-core node for the first 19.5 hours, then a node with 48 cores, 500 GB of memory and one NVIDIA A100 GPU.
+
+\subsection*{Pre-registered protocol}
+Before any results, the design document fixed:
+\begin{itemize}
+\item \textbf{Splits.} OrthoBench RefOGs were split by homology component into development (34) and test (36) halves, so that paralogous RefOGs fall on the same side. For QfO, at most three evaluations were allowed before the method was frozen.
+\item \textbf{Success rule.} Ancestra is \emph{comparable} to a method if the lower 95\% bound of the difference is at least $-0.03$ (non-inferiority~\cite{piaggio2012consortnoninferiority}). Without a confidence interval, the verdict is inconclusive.
+\item \textbf{Statistics.} Paired bootstrap~\cite{efron1979bootstrap} over RefOGs or reference families, 2,000 resamples, seed 11.
+\item \textbf{Layer tests.} Every data layer has a shuffled control and a keep rule written before the test.
+\end{itemize}
+A TreeFam-A development split (30\% of families) was added after the first QfO evaluation. This and 18 other deviations are listed in S3 Text.
+
+\subsection*{Implementation and freeze}
+Ancestra is written in Python and calls DIAMOND 2.2.8, MMseqs2 18, FAMSA and FastTree. The family partition is deterministic: we fixed input order, DIAMOND block sizes, edge order and the Leiden seed, after an early version gave different partitions at different thread counts. The method was frozen (git tag \texttt{freeze-v1}, with hashes of all modules) before the final evaluations. Presets: \texttt{accurate} (default) uses FastTree local trees; \texttt{fast} uses neighbour joining and species-overlap structure.
+
+\subsection*{Benchmarks and comparators}
+\begin{itemize}
+\item \textbf{OrthoBench:} official Open OrthoBench scoring~\cite{emms2020orthobench}. We ran OrthoFinder 3.2, SonicParanoid2, ProteinOrtho and FastOMA 0.5.1 locally. OMA browser HOGs (release All.May2026) were mapped to OrthoBench identifiers and cut at Bilateria.
+\item \textbf{QfO 2022:} the official benchmark code, run locally on the 78-species reference set~\cite{altenhoff2024qfo}; competitor values are published submissions.
+\item \textbf{Scaling:} nested, domain-stratified subsets of QfO, one run per point, CPU time from \texttt{/usr/bin/time}.
+\end{itemize}
+
+\subsection*{Data layers}
+\begin{itemize}
+\item \textbf{Gene order:} Ensembl 99 annotations~\cite{yates2019ensembl} (OrthoBench) and QfO gene coordinates.
+\item \textbf{Structure:} AlphaFold DB 3Di sequences via Foldseek and Foldcomp databases~\cite{vankempen2024foldseek,kim2023foldcomp,varadi2024alphafolddb}.
+\item \textbf{Expression:} Bgee~\cite{bastian2025bgee}.
+\item \textbf{Isoforms:} Ensembl 99 peptide sets.
+\item \textbf{Genome DNA:} miniprot~\cite{li2023miniprot} searches of Ensembl 99 genomes at loci predicted by gene order.
+\end{itemize}
+Details of each sub-task benchmark are in the research repository (\texttt{docs/S*\_*.md}).
+
+\section*{Data and code availability}
+Code, predictions (OrthoXML, pairs and orthogroups for OrthoBench and QfO), a runnable example and the original task prompt are in the accompanying repository \pend{URL}. The full research record, including all failed experiments, is in the research repository.
+
+\section*{Supporting information}
+
+\paragraph*{S1 Text.}
+\label{S1_Text}
+{\bf Methods and design choices that did not work.}
+
+\paragraph*{S2 Text.}
+\label{S2_Text}
+{\bf Original task prompt given to the agent.}
+
+\paragraph*{S3 Text.}
+\label{S3_Text}
+{\bf Protocol deviations and independent verification.}
+
+\paragraph*{S1 Table.}
+\label{S1_Table}
+{\bf Full QfO 2022 results for all 21 methods.}
+
+\section*{Acknowledgments}
+The project was run as part of a hackathon of the Beltrao lab at ETH Zurich.
+
+\nolinenumbers
+
+\bibliography{references}
+
+\end{document}
