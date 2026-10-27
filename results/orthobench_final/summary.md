@@ -91,3 +91,20 @@ Merge-only variants (cache of the main run; wall/CPU = whole CLI call incl. inpu
 - **Presets:** `fast` is −1.4 [−7.1, +3.6] test F and −0.024 [−0.048, +0.001] macro pair F1 vs `accurate`, for about 1 CPU-h less (merge 56 s vs 491 s).
 - **Runtime:** Ancestra `accurate` end to end took 31.5 min wall and 3.9 CPU-h (10 threads, max RSS 14.0 GB, node load ≈ 23–31). OrthoFinder 3.2 took 1.29 h and 8.2 CPU-h (8 threads, load 20–55). The conditions differ (threads, load), so this is indicative only. S2 scoring is 61% of CPU.
 - Pair-level test truth: the S5 labelling rule (`scripts/S5_refog_labels.py --subset test`), built for this final evaluation only (`work/ob_final/refog_pair_labels_test.parquet`; 36 RefOGs, 5,545 ortholog / 11,648 within-RefOG paralog pairs). Macro = mean over RefOGs of pair F1; Δ = paired bootstrap over RefOGs (B=2000, seed 11).
+
+## OMA comparators (added at user request, post-freeze, 2026-10-27)
+
+ΔF = F(Ancestra accurate) − F(comparator), paired bootstrap over RefOGs (B=2000, seed 11), NI margin 3 pp. Rows: `fastoma_v2` = FastOMA 0.5.1 + LUCA.h5 + gene-loss patch (pre-declared primary); `fastoma_v2_luca_released` = same run minus rescued HOGs (= unpatched 0.5.1); `oma_browser` = precomputed OMA browser HOGs (All.May2026) cut at Bilateria (primary), `oma_browser_root` = root level; `fastoma_luca` = v1 (unpatched) run.
+
+| comparator | test F | P | R | exact | dev F | all-70 F | ΔF test (Ancestra − comparator) [95% CI] | SE | NI verdict (Ancestra vs comparator) | ΔF all-70 [95% CI] | CPU-h | wall-h | peak RSS GB |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| fastoma_v2 | 33.1 | 23.9 | 53.8 | 10/36 | 26.7 | 29.9 | +43.1 [+14.0, +55.3] | 11.1 | comparable (non-inferior; CI > 0) | +48.0 [+24.3, +60.6] | 19.86 | 2.99 | 12.2 |
+| fastoma_v2_luca_released | 33.1 | 23.9 | 53.8 | 10/36 | 25.1 | 29.1 | +43.1 [+14.0, +55.3] | 11.1 | comparable (non-inferior; CI > 0) | +48.8 [+25.3, +61.2] | 19.86 | 2.99 | 12.2 |
+| oma_browser | 60.4 | 88.9 | 45.8 | 3/36 | 50.5 | 55.8 | +15.7 [+1.8, +29.2] | 7.2 | comparable (non-inferior; CI > 0) | +22.1 [+13.2, +30.7] | 0.31 | 0.26 | 1.5 |
+| oma_browser_root | 7.2 | 3.9 | 49.5 | 2/36 | 7.3 | 7.3 | +69.0 [+22.3, +75.3] | 12.7 | comparable (non-inferior; CI > 0) | +70.6 [+54.6, +77.2] | 0.31 | 0.26 | 1.5 |
+| fastoma_luca | 33.5 | 24.3 | 53.7 | 10/36 | 29.6 | 31.7 | +42.7 [+14.1, +55.2] | 11.2 | comparable (non-inferior; CI > 0) | +46.2 [+26.3, +57.7] | 12.74 | 3.50 | 13.6 |
+
+- **LEAKAGE:** OMA (browser HOGs, and the OMAmer LUCA DB used by FastOMA) contains all 12 OrthoBench species/proteins, so these are informed upper-bound-style comparators, not independent ones. Ancestra did not use OMA.
+- **Patch verification:** genes in predicted groups rose to 202,691/251,378 (80.6%) vs 198,615 (79.0%) in v1 (unpatched re-run 199,302); 3,795 subHOGs (630 of size>=2, 7,464 genes) were rescued. Big families partly recovered (RefOG005 TP 0.03 -> 3.8, RefOG006 0.06 -> 4.3, RefOG008 0.08 -> 4.3; RefOG013 unchanged). Test F is essentially unchanged (33.1 vs 33.5 v1): the remaining FastOMA gap is not the gene-dropping bug (most absent genes are OMAmer-unplaced / root singletons).
+- **Cost (fastoma_v2, 3 segments, 8 threads, shared node):** 19.9 CPU-h, 2.99 h wall, peak RSS 12.2 GB (+~0.75 CPU-h omamer step reused from v1). oma_browser: conversion only, 0.31 CPU-h, 0.26 h, 1.5 GB (OMA inference not measurable). Both are not comparable to Ancestra's 3.9 CPU-h.
+- Reading: Ancestra's point estimate is above every OMA row on test; vs oma_browser ΔF +15.7 [+1.8, +29.2] (CI above 0), with the caveat that OMA saw these species.
