@@ -1,0 +1,171 @@
+{
+ "coverage": {
+  "genes_with_tau": 0.9485
+ },
+ "n_pairs": 20140,
+ "rule": {
+  "near": 0.9,
+  "margin": 0.05,
+  "min_entities": 5
+ },
+ "real": {
+  "hard": {
+   "n": 636,
+   "seq_acc": 0.5503,
+   "decides": 286,
+   "correct": 128,
+   "wrong": 158,
+   "precision": 0.4476,
+   "precision_ci": [
+    0.3798,
+    0.554
+   ],
+   "gain": -0.0755,
+   "gain_ci": [
+    -0.1308,
+    -0.0096
+   ]
+  },
+  "all": {
+   "n": 3533,
+   "seq_acc": 0.919,
+   "decides": 375,
+   "correct": 217,
+   "wrong": 158,
+   "precision": 0.5787,
+   "precision_ci": [
+    0.4717,
+    0.7199
+   ],
+   "gain": -0.0136,
+   "gain_ci": [
+    -0.033,
+    -0.0012
+   ]
+  }
+ },
+ "shuf11": {
+  "hard": {
+   "n": 636,
+   "seq_acc": 0.5503,
+   "decides": 317,
+   "correct": 125,
+   "wrong": 192,
+   "precision": 0.3943,
+   "precision_ci": [
+    0.3029,
+    0.5481
+   ],
+   "gain": -0.1478,
+   "gain_ci": [
+    -0.2298,
+    -0.043
+   ]
+  },
+  "all": {
+   "n": 3533,
+   "seq_acc": 0.919,
+   "decides": 429,
+   "correct": 237,
+   "wrong": 192,
+   "precision": 0.5524,
+   "precision_ci": [
+    0.402,
+    0.7466
+   ],
+   "gain": -0.0266,
+   "gain_ci": [
+    -0.0585,
+    -0.0064
+   ]
+  }
+ },
+ "shuf23": {
+  "hard": {
+   "n": 636,
+   "seq_acc": 0.5503,
+   "decides": 286,
+   "correct": 105,
+   "wrong": 181,
+   "precision": 0.3671,
+   "precision_ci": [
+    0.2985,
+    0.4259
+   ],
+   "gain": -0.0943,
+   "gain_ci": [
+    -0.1451,
+    -0.0388
+   ]
+  },
+  "all": {
+   "n": 3533,
+   "seq_acc": 0.919,
+   "decides": 423,
+   "correct": 242,
+   "wrong": 181,
+   "precision": 0.5721,
+   "precision_ci": [
+    0.4855,
+    0.6727
+   ],
+   "gain": -0.017,
+   "gain_ci": [
+    -0.0313,
+    -0.0058
+   ]
+  }
+ },
+ "shuf47": {
+  "hard": {
+   "n": 636,
+   "seq_acc": 0.5503,
+   "decides": 328,
+   "correct": 118,
+   "wrong": 210,
+   "precision": 0.3598,
+   "precision_ci": [
+    0.2522,
+    0.4512
+   ],
+   "gain": -0.1336,
+   "gain_ci": [
+    -0.1886,
+    -0.0586
+   ]
+  },
+  "all": {
+   "n": 3533,
+   "seq_acc": 0.919,
+   "decides": 467,
+   "correct": 257,
+   "wrong": 210,
+   "precision": 0.5503,
+   "precision_ci": [
+    0.4655,
+    0.673
+   ],
+   "gain": -0.0241,
+   "gain_ci": [
+    -0.0428,
+    -0.0087
+   ]
+  }
+ },
+ "stop_rule": {
+  "hard_precision_ci_lo": 0.3798,
+  "shuffled_precisions": [
+   0.3943,
+   0.3671,
+   0.3598
+  ],
+  "verdict": "STOP"
+ },
+ "manifest": {
+  "script": "scripts/L2_expr_tau.py",
+  "bgee": "data/extra/bgee_v15_2 (v15.2 expr_simple, gold+silver)",
+  "labels": "work/S5/refog_pair_labels.parquet",
+  "seq": "work/S7/hits.tsv (canonical)",
+  "runtime_s": 12.6
+ }
+}

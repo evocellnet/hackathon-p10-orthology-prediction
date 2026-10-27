@@ -1,0 +1,116 @@
+{
+ "fast_R_u_log": {
+  "n_decisions": 66229,
+  "n_labelled": 235,
+  "auc_s1": 0.4688,
+  "auc_s1_ci": [
+   0.3812,
+   0.5557
+  ],
+  "all_precision": 0.6043,
+  "executed_labelled": 24,
+  "executed_precision": 0.7917,
+  "executed_ref_pairs": 136,
+  "executed_ref_pairs_S": 81,
+  "gate_pass_labelled": 26,
+  "gate_pass_precision": 0.8077,
+  "executed_by_node": {
+   "Tetrapoda": 11,
+   "Euteleostomi": 6,
+   "Bilateria": 6,
+   "Amniota": 1
+  }
+ },
+ "fast_R_c_log": {
+  "n_decisions": 42671,
+  "n_labelled": 183,
+  "auc_s1": 0.459,
+  "auc_s1_ci": [
+   0.373,
+   0.5569
+  ],
+  "all_precision": 0.623,
+  "executed_labelled": 24,
+  "executed_precision": 0.875,
+  "executed_ref_pairs": 111,
+  "executed_ref_pairs_S": 103,
+  "gate_pass_labelled": 27,
+  "gate_pass_precision": 0.8889,
+  "executed_by_node": {
+   "Tetrapoda": 10,
+   "Euteleostomi": 7,
+   "Bilateria": 6,
+   "Amniota": 1
+  }
+ },
+ "fast_R_u_s11_log": {
+  "n_decisions": 8399,
+  "n_labelled": 38,
+  "auc_s1": 0.5,
+  "auc_s1_ci": [
+   0.4143,
+   0.619
+  ],
+  "all_precision": 0.5,
+  "executed_labelled": 0,
+  "executed_precision": null,
+  "executed_ref_pairs": 0,
+  "executed_ref_pairs_S": 0,
+  "gate_pass_labelled": 0,
+  "gate_pass_precision": null,
+  "executed_by_node": {}
+ },
+ "fast_R_c_s11_log": {
+  "n_decisions": 2453,
+  "n_labelled": 13,
+  "auc_s1": 0.5,
+  "auc_s1_ci": [
+   0.5,
+   0.5
+  ],
+  "all_precision": 0.7692,
+  "executed_labelled": 0,
+  "executed_precision": null,
+  "executed_ref_pairs": 0,
+  "executed_ref_pairs_S": 0,
+  "gate_pass_labelled": 0,
+  "gate_pass_precision": null,
+  "executed_by_node": {}
+ },
+ "fast_R_u_s23_log": {
+  "n_decisions": 8353,
+  "n_labelled": 33,
+  "auc_s1": 0.5238,
+  "auc_s1_ci": [
+   0.5,
+   0.5682
+  ],
+  "all_precision": 0.6364,
+  "executed_labelled": 0,
+  "executed_precision": null,
+  "executed_ref_pairs": 0,
+  "executed_ref_pairs_S": 0,
+  "gate_pass_labelled": 0,
+  "gate_pass_precision": null,
+  "executed_by_node": {}
+ },
+ "fast_R_u_s47_log": {
+  "n_decisions": 8352,
+  "n_labelled": 42,
+  "auc_s1": 0.4704,
+  "auc_s1_ci": [
+   0.3398,
+   0.5714
+  ],
+  "all_precision": 0.6429,
+  "executed_labelled": 1,
+  "executed_precision": 0.0,
+  "executed_ref_pairs": 6,
+  "executed_ref_pairs_S": 0,
+  "gate_pass_labelled": 1,
+  "gate_pass_precision": 0.0,
+  "executed_by_node": {
+   "Bilateria": 1
+  }
+ }
+}
