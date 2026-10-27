@@ -136,3 +136,33 @@ the same fp16 GGUF ProstT5 as the CPU runs in `docs/structure_feasibility.md`). 
 A single A100 thus fills the 3Di gaps of either benchmark in a few hours, where the CPU needed days. The
 structure layer itself (3Di family rescue) gave no merge gain and is off by default (ONE_PAGE_SUMMARY). So this
 widens what can be tested rather than speeding up the frozen method.
+
+## 5. pLM embeddings + FAISS-GPU kNN as an S0 candidate generator (task e; DEV only)
+
+Script: `scripts/gpu_esm_knn.py` (conda_envs/gpu). It computes ESM-2 (`esm2_t12_35M_UR50D`, fp16) mean-pooled
+embeddings of all 251,378 OrthoBench proteins (> 1,022 aa as length-weighted means of 1,022-aa windows), L2-normalises
+them, and runs exact inner-product kNN with `faiss.GpuIndexFlatIP`. Its output is evaluated against the frozen S0
+partition on the 34 DEV RefOGs. Output: `work/gpuv2/esm_knn/summary_esm2_t12_35M_UR50D.json`.
+
+- **Cost:** embedding took 592 s (216k residues/s; the GPU was shared with an S2 job for the first ~3 min). The
+  all-vs-all kNN (k = 51) took **4.4 s**, and a repeat search was identical.
+- **Reach of the strays.** The S0 partition puts 26/34 DEV RefOGs in one family; the other 8 RefOGs leave 23
+  "stray" genes outside their RefOG's main family. "Strays reached" counts strays with ≥ 1 kNN neighbour in that
+  main family. The completeness columns count RefOGs whose strays are *all* reached; this is an upper bound,
+  because every reached stray is assumed to be joined:
+
+| k | strays reached | completeness upper bound | neighbours in the query's own S0 family | DEV-gene neighbours in another DEV RefOG |
+|---|---|---|---|---|
+| 1 | 5/23 | 28/34 = 0.824 | 0.835 | 0.0000 |
+| 10 | 7/23 | 28/34 = 0.824 | 0.715 | 0.0014 |
+| 25 | 12/23 | **29/34 = 0.853** | 0.584 | 0.0018 |
+| 50 | 13/23 | 29/34 = 0.853 | 0.485 | 0.0036 |
+
+- **Reading.** Embedding neighbours reach the sequence-search ceiling (0.82, docs/S0_families.md) at k = 1, and
+  the 3Di level (0.853) at k = 25. At k = 25, however, 42 % of all neighbours fall outside the query's own family.
+  A usable S0 rescue would therefore need a verification step, so that it does not fuse families.
+- The S0 ceiling analysis showed that 6 RefOGs have strays with no e ≤ 1e-3 sequence hit to their main family.
+  A sequence-based verification (e.g. the GPU SW kernel of §3 on the cross-family kNN pairs) would therefore remove
+  most of the gain. An embedding-similarity verification would need a shuffled control and a keep rule (LESSONS #9).
+- **Verdict:** feasible and cheap on the GPU (10 min + 5 s). The reachable completeness is the same as the 3Di
+  layer's, which also gave no merge gain. Not integrated into the pipeline; it is a v2 research lead, not a speed-up.

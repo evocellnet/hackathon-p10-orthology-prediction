@@ -29,7 +29,9 @@ def one(run, truth):
     tp, fn, fp = (per[:, k].astype(float) for k in (0, 1, 2))
     with np.errstate(invalid="ignore", divide="ignore"):
         f1_r = 2 * tp / (2 * tp + fp + fn)
+    # per-RefOG TP/FP/FN normalised by (n - 1) as benchmark.py does (q_even=True)
     og = np.array([[r["tp"], r["fp"], r["fn"]] for r in ev["per_refog"]], float)
+    og /= np.maximum(np.array([r["n"] for r in ev["per_refog"]], float) - 1, 1)[:, None]
     return dict(run=run, F=round(ev["F"], 2), P=round(ev["precision"], 2), R=round(ev["recall"], 2),
                 exact=ev["exact"], pairF1_micro=pm["all"]["F1"], pairF1_macro=round(float(np.nanmean(f1_r)), 4),
                 _og=og, _f1r=f1_r, _refogs=[r["refog"] for r in ev["per_refog"]], _prefogs=list(prefogs))
