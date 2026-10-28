@@ -36,7 +36,7 @@ trees, and (d) optional structure (3Di) rescue of families. How it compares on t
 
 ## Status (final, 2026-10-28; method frozen at tag `freeze-v1`)
 
-Full results, with confidence intervals and every pre-registered verdict, are in `REPORT.md` and the manuscript (`manuscript/`).
+Full results, with confidence intervals and every pre-registered verdict, are in `REPORT.md` and the technical report (`technical_report/`).
 
 - **OrthoBench test (36 RefOGs, scored once):** F 76.2 vs OrthoFinder 69.7, SonicParanoid2 70.4, OMA HOGs 60.4, FastOMA 33.1.
   Significantly above the OMA-based resources; non-inferiority to OrthoFinder not shown (ΔF +6.5 [−6.5, +18.1]).
