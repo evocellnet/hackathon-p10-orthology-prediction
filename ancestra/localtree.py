@@ -250,9 +250,12 @@ def _famsa_text(names, seqs, td, inproc: bool) -> str:
     import subprocess
     if inproc:
         import pyfamsa
-        msa = pyfamsa.Aligner(threads=1).align(
-            [pyfamsa.Sequence(nm.encode(), sq.encode()) for nm, sq in zip(names, seqs)])
-        return "".join(f">{x.id.decode()}\n{x.sequence.decode()}\n" for x in msa)
+        try:
+            msa = pyfamsa.Aligner(threads=1).align(
+                [pyfamsa.Sequence(nm.encode(), sq.encode()) for nm, sq in zip(names, seqs)])
+            return "".join(f">{x.id.decode()}\n{x.sequence.decode()}\n" for x in msa)
+        except ValueError:          # letters pyfamsa rejects (e.g. U): use the CLI for this cluster
+            pass
     fa, aln = os.path.join(td, "in.fa"), os.path.join(td, "aln.fa")
     with open(fa, "w") as fh:
         for nm, sq in zip(names, seqs):
@@ -262,7 +265,9 @@ def _famsa_text(names, seqs, td, inproc: bool) -> str:
     return open(aln).read()
 
 
-def _fasta_to_phylip(txt: str) -> str:
+def _fasta_to_phylip(txt: str, width: int = 1000) -> str:
+    """FASTA alignment -> interleaved PHYLIP (blocks of ``width`` columns; FastTree's PHYLIP reader
+    has a line-length limit, so long alignments must be wrapped)."""
     names, seqs = [], []
     for line in txt.splitlines():
         if line.startswith(">"):
@@ -271,7 +276,13 @@ def _fasta_to_phylip(txt: str) -> str:
         elif line:
             seqs[-1].append(line.strip())
     seqs = ["".join(x) for x in seqs]
-    return f"{len(names)} {len(seqs[0])}\n" + "".join(f"{n} {s}\n" for n, s in zip(names, seqs))
+    L = len(seqs[0])
+    out = [f"{len(names)} {L}\n"]
+    for k in range(0, max(L, 1), width):
+        for i, (n, sq) in enumerate(zip(names, seqs)):
+            out.append((f"{n} " if k == 0 else " ") + sq[k:k + width] + "\n")
+        out.append("\n")
+    return "".join(out)
 
 
 def _fasttree_batch(batch):
@@ -289,7 +300,9 @@ def _fasttree_batch(batch):
             for names, seqs, _ in jobs:
                 fh.write(_fasta_to_phylip(_famsa_text(names, seqs, td, inproc)))
         r = subprocess.run(["FastTree", "-lg", "-quiet", "-nosupport", "-n", str(len(jobs)), path],
-                           check=True, capture_output=True, text=True)
+                           capture_output=True, text=True)
+        if r.returncode != 0:
+            raise RuntimeError(f"FastTree -n failed ({r.returncode}): {r.stderr[-2000:]}")
     out = [x.strip() for x in r.stdout.split(";") if x.strip()]
     out = [x + ";" for x in out]
     if len(out) != len(jobs):
