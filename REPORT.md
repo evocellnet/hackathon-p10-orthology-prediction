@@ -251,43 +251,47 @@ This work was done after the freeze, on one A100 GPU. It lives as opt-in code on
 | MMseqs2-GPU for S0/S2 | ≈9 ms per query, so slower than DIAMOND for searches of many proteins against many | ~5% more sensitive | not useful at these sizes |
 | **`--backend gpusw`** (CUDA Smith–Waterman, 600–640 GCUPS; families ≤1000 genes on GPU, larger ones on DIAMOND at the same time) | S2 1.32×, end to end 1.18× (OrthoBench accurate, 1,027 vs 1,207 s); QfO fast 1.18× | OG-F 80.2 vs 79.7 (Δ +0.5 [−3.5, +3.3]); QfO TreeFam-A dev 0.614/0.929 vs 0.615/0.922 | equivalent within noise, deterministic; modest gain |
 | All families on the GPU | S2 2.97×, end to end 1.57×; QfO 16× fewer CPU-h | OG-F −5.3 [−12.0, −0.7]; QfO PPV −0.016 | not equivalent; opt-in for speed only |
-| GPU for the local trees | ≈93% of each FastTree call is ML optimisation (not start-up, as first assumed); batching with `FastTree -n` saves 1.5% of merge time | 4 of 1.39 M pairs differ; dev metrics identical | not worth enabling (L2-gpu) |
+| GPU for the local trees | ≈93% of each FastTree call is ML optimisation, not start-up as first assumed (20 small jobs); batching with `FastTree -n` saves 1.6% of merge wall time | 4 of 1.39 M pairs differ; dev metrics identical | not worth enabling (L2-gpu) |
 | ProstT5 3Di on GPU | 6,100–7,300 res/s (40–60× CPU); OrthoBench 3Di gap filled in 1 h 56 min | 99.9% agreement with CPU ProstT5 | feasible |
 | ESM-2 + FAISS kNN for family candidates | ≈10 min for OrthoBench | completeness bound 0.853 at k = 25, but 42% of neighbours fall outside the family | research lead |
 
 **Main lesson.** 78–85% of DIAMOND's time goes to a few families with more than 1,000 genes. Exhaustive GPU alignment of these families changes the score graph, and the frozen average-link merge is sensitive to the change. The L2-gpu follow-up (docs/L2_gpu.md) refined this in three ways:
-- The problem is not only weak edges. GPU scores on exactly DIAMOND's pair set cost −9.1 OG-F. Swapping in only the GPU self-scores costs −17.
-- A 1% random jitter of the CPU bit scores costs −3.2 to −7.3 dev OG-F (seeds 11/23/47), as much as the full GPU graph. The frozen merge sits on a sharp optimum of the exact DIAMOND table. This is a robustness limitation of the method, and any layer that changes scores should be judged against this jitter floor.
+- The problem is not only weak edges. Against the CPU path without cross-family rescue, GPU scores on exactly DIAMOND's pair set cost −9.1 OG-F, and swapping in only the GPU self-scores costs −17. The proposed mechanism, average-link over the pairs present, rests on one traced family (RefOG021). A max-link control did not settle it.
+- A 1% random jitter of the CPU bit scores gave −3.2, −7.3 and −5.0 dev OG-F (seeds 11/23/47; two of the three CIs include 0), about as much as the full GPU graph. On TreeFam-A dev it barely moved TPR/PPV (−0.009/+0.001, one seed). The frozen parameters were tuned on OrthoBench dev, so some loss under any perturbation is expected. We read this as a sign that OrthoBench dev OG-F is sensitive to small score changes, not as a measured general property. Layers that change scores should still be compared with this floor.
 - Rank-ratio sparsification (keep a pair if its bits are ≥ 0.207 × the query's best hit in that species) reaches QfO TreeFam-A dev 0.637/0.930 at 0.59 CPU-h, against 0.615/0.922 at 9.05 CPU-h, with both differences inside the CIs. It still costs −8.4 OrthoBench dev OG-F. It is an untested speed option, not part of the method.
 
 ### 3.9 Second round of data layers (post-freeze, development data only)
-After the freeze, while the scaling runs finished, we tested more layers under one shared protocol (`docs/L2_protocol.md`). The rules were:
-- each layer's hypothesis, arms and keep rule were committed before any integration result;
-- shuffled controls used seeds 11/23/47;
-- only the development splits were used, with no test data;
-- the same keep rule applied (lower 95% CI of Δ above 0; PPV −0.01, OG-F −1.0 guards).
+After the freeze, while the scaling runs finished, we tested more layers under one shared protocol (`docs/L2_protocol.md`):
+- each layer's arms and keep rule were committed before its integration results, with deviations logged in each doc;
+- shuffled controls were run (seeds 11/23/47, some controls with seed 11 only);
+- only development splits were used, with no test data;
+- the same keep rule applied (lower 95% CI of Δ above 0; PPV −0.01 and OG-F −1.0 guards).
 
-Five agents ran in parallel. **No arm passed**, so none was evaluated on test.
+Five agents ran in parallel. **No arm passed the keep rule**, so none was evaluated on test. An independent agent re-checked every number against the result files (`docs/VERIFICATION_L2.md`).
 
-| Layer | On its own (dev hard cases unless stated; shuffled ≈ 0.50) | Inside the merge (dev) | Verdict | Cost |
+| Layer | On its own (dev; ortholog vs paralog, shuffled ≈ 0.50) | Inside the merge (dev) | Verdict | Cost |
 |---|---|---|---|---|
-| Interaction networks: STRING v12, own-species channels only (no transferred, text-mining or homology evidence); hu.MAP 3.0 | AUC 0.630 [0.532, 0.699] on OrthoBench (3.4% of candidates covered), 0.622 on TreeFam-A; right when it decides 44% / 52% | not run. As recall rescue, the added pairs were orthologs only 48–54% of the time | fails standalone gate | 0.4 CPU-h |
-| Protein abundance (PaxDb) | AUC 0.676 [0.604, 0.732]; right when it decides 34% | not run | fails standalone gate | – |
-| Domain architecture (Pfam-A 38.2, clan Jaccard) | hard AUC 0.637 [0.547, 0.738] vs sequence 0.743. Between orthogroups 0.979, but within one orthogroup 0.54. Re-ranking +0.001 [−0.008, +0.011] | best arm (looser matching only for identical architectures): TreeFam-A F1 +0.018 [+0.003, +0.034], TPR +0.038 but PPV −0.025; OrthoBench OG-F −2.9 | fails guards; dominated by a sequence-only setting | 48 CPU-h (annotation alone 31) |
-| Protein language models (ESM-2 35M–3B, ProtT5; mean cosine and embedding alignment) | above shuffled by +0.23 to +0.33, but below sequence everywhere (deep 0.61–0.72 vs 0.757). Where sequence fails on hard cases they are below chance (0.24–0.41). Best tie-breaker +0.022 [−0.001, +0.046] | not run | fails standalone gate | 3 GPU-h |
-| Contrastive head trained on our own synteny-supported 1:1 pairs (families with dev or test genes excluded) | easy cases +0.040 [+0.010, +0.056] over raw embeddings; hard cases −0.007 [−0.065, +0.056]; below sequence on deep pairs (−0.077) | not run | fails standalone gate | (in the above) |
-| pLM nearest-neighbour family rescue with a guard | the guard passed 90% of links; 229k of 251k genes chained into one family | – | killed | – |
-| Gated synteny repair (an unmatched unit joins its uniquely best syntenic partner) | removes 29–40% of the S8 fission candidates (shuffled: none) | OrthoBench macro pair F1 +0.0059 [−0.0015, +0.0159]; TreeFam-A TPR +0.0042 [−0.0049, +0.0134]; PPV within 0.002 | fails (CIs include 0); fewer than 1% of its decisions touch a labelled dev pair | ~4 CPU-h for the whole genome agent |
-| Intron positions (Ensembl 99 GFF3) | AUC 0.578 [0.514, 0.661] vs sequence 0.654. As a tie-breaker, accuracy −0.071 [−0.149, +0.007] | not run | fails | – |
-| Expression, second look (tissue specificity τ as a tie-breaker) | right when it decides 45%; re-ranking −0.076 [−0.131, −0.010] | not run | fails | – |
-| Structure rescue at full 3Di coverage (ProstT5 on GPU for 63k QfO proteins) | – | OrthoBench macro +0.0042 [−0.0005, +0.011], identical to the AlphaFold DB-only coverage; TreeFam-A +0.002 TPR | fails | ProstT5 5 GPU-h |
-| All-GPU S2, rank-ratio sparsified | – | TreeFam-A 0.637/0.930 vs 0.615/0.922 at 0.59 vs 9.05 CPU-h; OrthoBench OG-F −8.4 | fails equivalence | – |
+| Interaction networks: STRING v12, own-species channels only (no transferred, text-mining or homology evidence); hu.MAP 3.0 | All-pair AUC 0.630 [0.532, 0.699] on OrthoBench (3.4% of candidates covered) and 0.622 on TreeFam-A. Hard-pair AUC 0.501 [0.344, 0.687] and 0.569 [0.501, 0.625]. On hard queries it was right in 4 of 9 (OrthoBench) and 27 of 52 (TreeFam-A) decisions | not run. As a recall rescue, the added pairs were orthologs only 48–54% of the time | fails standalone gate, mainly on coverage | 0.4 CPU-h |
+| Protein abundance (PaxDb 5.0) | All-pair AUC 0.676 [0.604, 0.732], hard 0.689 [0.591, 0.753]. Right in 39 of 116 hard decisions; re-ranking −0.131 [−0.246, −0.046] | not run | fails standalone gate | – |
+| Domain architecture (Pfam-A 38.2, clan Jaccard) | Hard AUC 0.637 [0.547, 0.738] vs 0.743 for sequence. Between orthogroups 0.979; within one orthogroup 0.54, below its within-family shuffle (0.57–0.58). Re-ranking +0.001 [−0.008, +0.011] | Best arm (looser matching only for identical architectures): TreeFam-A F1 +0.018 [+0.003, +0.034], TPR +0.038, but PPV −0.025 and OrthoBench OG-F −2.9. The bonus arm cost −3.0 OG-F; the veto arm's lower bound was exactly 0 | fails guards | 48 CPU-h (annotation 31) |
+| Protein language models (ESM-2 35M–3B, ProtT5; mean cosine and embedding alignment) | All triplets: above shuffled by +0.23 to +0.33. Hard triplets: −0.048 to +0.139 vs shuffled, most CIs including 0. Below sequence everywhere (deep 0.61–0.72 vs 0.757). Where sequence ranks a hard case wrongly, six of seven arms are below chance (0.24–0.41); ProtT5 alignment is at chance (0.53). Best tie-breaker +0.022 [−0.001, +0.046] | not run | fails standalone gate | 3 GPU-h |
+| Contrastive head trained on our own synteny-supported 1:1 pairs (families with dev or test genes excluded) | Over raw embeddings: +0.040 [+0.010, +0.056] on all triplets, +0.051 [+0.026, +0.074] on shallow ones, −0.007 [−0.065, +0.056] on hard ones (seed 11). Below sequence on deep pairs (−0.077) | not run | fails standalone gate | (included above) |
+| pLM nearest-neighbour family rescue with a guard | The guard passed 90% of links; 229k of 251k genes chained into one family | – | killed | – |
+| Gated synteny repair (an unmatched unit joins its uniquely best syntenic partner) | Recomputed S8-style fission candidates fall by 29–40% (706 → 426–499; shuffled: no change). Only 7 executed joins touch a labelled OrthoBench pair (5 correct) | OrthoBench macro pair F1 +0.0059 [−0.0015, +0.0159]; TreeFam-A TPR +0.0042 [−0.0049, +0.0134]; PPV within 0.002 | fails (CIs include 0); accuracy of the repairs is essentially unmeasured | ~4 CPU-h for the whole genome agent |
+| Intron positions (Ensembl 99 GFF3) | AUC 0.578 [0.514, 0.661] vs 0.654 for sequence. As a tie-breaker: −0.071 [−0.149, +0.007] (CI includes 0) | not run. The coded stop rule passed on AUC, but the agent skipped integration on a conservative reading of it (logged) | not integrated (a judgement call) | – |
+| Expression, second look (tissue specificity τ as a tie-breaker) | Precision 0.448 [0.380, 0.554] vs 0.394 shuffled (CIs overlap); re-ranking −0.076 [−0.131, −0.010] | not run | fails | – |
+| Structure rescue at full 3Di coverage (ProstT5 on the GPU) | – | OrthoBench macro +0.0042 [−0.0005, +0.011], the same as with AlphaFold DB coverage alone; shuffled 3Di keeps +0.0021 of it. TreeFam-A +0.002 TPR | fails | ProstT5 5 GPU-h |
+| All-GPU S2, rank-ratio sparsified | – | TreeFam-A 0.637/0.930 vs 0.615/0.922, at ≈0.59 CPU-h (estimate, plus 0.2–0.3 GPU-h) vs 9.05; OrthoBench OG-F −8.4 | fails equivalence | – |
 
-*Sources: `docs/L2_{network,domains,plm,genome,gpu}.md`, `results/l2_*/`.*
+*Sources: `docs/L2_{network,domains,plm,genome,gpu}.md`, `results/l2_*/`, `docs/VERIFICATION_L2.md`.*
 
-**Main lesson.** Every new layer carries real signal: each beats its shuffled control. None of them separates an ortholog from a close paralog better than sequence does. Paralogs share interaction partners, domains, folds, embeddings, intron positions and expression. Where sequence is wrong, the other layers tend to be wrong in the same direction. Synteny is the exception: it repairs real fission errors. But the cases it fixes (shallow vertebrate 1:1 orthologs split into two HOGs) are almost unlabelled in the development benchmarks, so its effect cannot be measured there. A pre-registered evaluation on a benchmark that labels those cases (e.g. a VGNC-like dev split) would settle it.
-
-A second lesson came from a control. Jittering the frozen merge's input scores by 1% costs 3–7 dev OG-F (§3.8). Any layer that changes the scores has to beat that floor, which is a high bar.
+**Main lesson.**
+- **Ordinary pairs.** Most layers separate orthologs from paralogs better than shuffled data across all pairs.
+- **Hard cases** (near-equal paralogs, where help is needed), the signal is weak, absent or not measurable:
+  - Networks and abundance cover too few of them.
+  - Domains, folds, embeddings, intron positions and expression are largely shared by close paralogs.
+  - The language models tend to fail where sequence fails.
+- **Synteny.** Gated synteny repair is the one rule that clearly changes the HOGs in the expected direction (fewer fission candidates; shuffled order does nothing). The benchmarks label too few of the cases it changes to measure its accuracy. A pre-registered benchmark that labels shallow 1:1 orthologs would settle it.
 
 ---
 
@@ -306,7 +310,7 @@ It needs no reference database, unlike placement methods.
 - structure as a deep-node tie-breaker;
 - a profile-based S0 that is not capped by the sequence-similarity ceiling.
 
-**Extra data layers.** In a second, post-freeze round, ten further arms (interaction networks, protein abundance, domain architecture, protein language models including a model trained on our own synteny labels, intron positions, synteny-driven fission repair, and full-coverage structure rescue) all failed on development data (§3.9). Our layer results are largely negative for orthology *assignment*, despite strong standalone signals. This is an important and somewhat counter-intuitive finding: a layer can be highly informative in isolation yet redundant given good sequence evidence. The cases where the extra signal is unique — distant homologs (structure) and deep levels (synteny) — are exactly where that signal is weakest or blurs orthology and paralogy. Genomic DNA was most useful as validation: it exposed our own fission errors and confirmed known pseudogenisations.
+**Extra data layers.** In a second, post-freeze round, further layers (interaction networks, protein abundance, domain architecture, protein language models including a model trained on our own synteny labels, intron positions, synteny-driven fission repair, and full-coverage structure rescue) all failed the keep rule on development data (§3.9). Our layer results are largely negative for orthology *assignment*, despite strong standalone signals. This is an important and somewhat counter-intuitive finding: a layer can be highly informative in isolation yet redundant given good sequence evidence. The cases where the extra signal is unique — distant homologs (structure) and deep levels (synteny) — are exactly where that signal is weakest or blurs orthology and paralogy. Genomic DNA was most useful as validation: it exposed our own fission errors and confirmed known pseudogenisations.
 
 **Benchmarks disagree.** The 36-RefOG OrthoBench test gives ΔF CIs of ±12 pp, so a 6.5-point lead over OrthoFinder is not significant. QfO's pair-level tests are much tighter but measure different things. We report both, and every pre-registered verdict as written, including the failures.
 
@@ -315,7 +319,7 @@ It needs no reference database, unlike placement methods.
 - Runtimes were measured once per point on a shared node (load 20–70), so walls are upper bounds. Competitor fits use 3 points.
 - OMA-based comparators saw the benchmark species (leakage in their favour). QfO competitor rows are published submissions produced under other conditions.
 - The OMA browser labelling rule was corrected after a first score (45.5 → 60.4), in OMA's favour (DISCLOSURES #19).
-- The merge is slightly sensitive to Newick child order (18/thousands of orthogroups). It is also sensitive to small score changes: a 1% random jitter of the DIAMOND scores costs 3–7 dev OG-F (L2-gpu), so the frozen parameters sit on a sharp optimum.
+- The merge is slightly sensitive to Newick child order (18/thousands of orthogroups). OrthoBench dev OG-F is also sensitive to small score changes: a 1% random jitter of the DIAMOND scores cost 3–7 points (three seeds, two CIs include 0; TreeFam-A barely moved). The parameters were tuned on that benchmark (L2-gpu).
 - Prokaryotic HGT is handled only implicitly. The NCBI tree is an external input.
 - 57 of 81 claims in `CLAIMS.md` were matched to their evidence files but not independently recomputed.
 
