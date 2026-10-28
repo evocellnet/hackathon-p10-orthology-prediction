@@ -1,0 +1,32 @@
+{
+ "label": "of_64",
+ "kind": "of",
+ "n_species": 64,
+ "n_proteins": 815573,
+ "threads": 8,
+ "cap_s": 21600,
+ "start": "2026-10-27T20:05:10.029199+01:00",
+ "end": "2026-10-28T02:05:18.065136+01:00",
+ "node_cores": 48,
+ "returncode": 124,
+ "preset": "accurate(default)",
+ "reuse_from": null,
+ "code": null,
+ "censored": true,
+ "wall_s": 21606.0,
+ "user_s": 163738.0,
+ "sys_s": 1377.36,
+ "max_rss_gb": 5.2944488525390625,
+ "exit_status": 124,
+ "major_faults": 5,
+ "cpu_pct": "764%",
+ "cpu_s": 165115.36,
+ "cpu_h": 45.86537777777777,
+ "wall_h": 6.001666666666667,
+ "node_load_1min": {
+  "n": 361,
+  "load1_mean": 25.38160664819944,
+  "load1_max": 40.1,
+  "load1_min": 9.03
+ }
+}

@@ -31,3 +31,8 @@ Notes: node loads differ (new node: wall-time not comparable with the shared-nod
 
 ## RESUME 2026-10-27 11:10 (48 CPU node): lane A running
 Queue `scripts/scaling_queue3.py` (started 11:10 with conda env active; first attempt without env gave rc=127, cleaned) runs fo_16, fo_32, fo_64, of_64, sp_64 sequentially, 8 threads, 6 h cap. Node shared (load 25-45 from other agents). Then `python scripts/scaling_analyze.py`.
+
+DEADLINE UPDATE (PI, 11:45): soft deadline 2026-10-28T14:40; n=1000 must finish before 10-28 06:40; final report by 10-28 08:40.
+20:05 status: fo_16, fo_32, fo_64 finished (see runs/*/runtime.json); of_64 running, sp_64 next.
+PI UPDATE (01:25 10-28): n1000 may run until 11:30; if unfinished record censored '> T' with stage times. Report n500->n1000 per-stage slopes honestly (S0 4922s -> 17614s).
+06:15 10-28: lane A done: fo_16/32/64 ok; of_64 censored >6h; sp_64 FAILED rc=251 (37/64 architecture files) after 4.1h. scaling.tsv/summary.md/png/fits.json regenerated. Header text in summary.md still says '24-core node' (analysis script text, node is now 48 cores shared).

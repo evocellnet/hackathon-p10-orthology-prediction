@@ -60,6 +60,13 @@ L += ["", "## EXTRAPOLATION (not measured) to 200 M proteins / ~10,000 proteomes
 for k, f in fits.items():
     lo, hi = sorted(f["extrapolated_to_200M_ci_slope_lo_hi"]); u = "GB" if "rss" in k else "h"
     L.append(f"| {k} | {f['extrapolated_to_200M']:,.0f} {u} | {lo:,.0f} - {hi:,.0f} {u} |")
+if len(fast) >= 2:
+    a, b = fast[-2], fast[-1]
+    L += ["", f"## Local slopes between the two largest measured points ({a['tag']} -> {b['tag']}, {b['n_proteins']/a['n_proteins']:.2f}x proteins)", "",
+          "Report these alongside the global fit: the cost is superlinear; the local exponent for S0 (families) is higher than the global one.", "", "| quantity | n_prev | n_last | ratio | local slope |", "|---|---|---|---|---|"]
+    for k in ("wall_h", "cpu_h", "max_rss_gb", "families_wall_h", "scores_wall_h", "merge_wall_h", "output_wall_h"):
+        rr = b[k] / a[k]; L.append(f"| {k} | {a[k]:.3g} | {b[k]:.3g} | {rr:.2f} | {np.log(rr)/np.log(b['n_proteins']/a['n_proteins']):.2f} |")
+    L += ["", "Caveats: timings come from a shared node (load1 mean/max in the table); S0 (families) at n1000 was 3.6x the n500 time for 2.1x proteins, i.e. the global power-law slope understates the growth at the top end, so the extrapolation below is more likely an under- than an over-estimate for time. Peak RSS is the S2 (scores) stage; a 65 TB extrapolation is not meaningful, it only says S2 would need chunking/streaming at that scale."]
 open(f"{OUT}/summary.md", "w").write("\n".join(L) + "\n")
 # plot
 fig, ax = plt.subplots(1, 3, figsize=(13, 4))

@@ -1,0 +1,40 @@
+[PROCESS d6/03b323] hog_rest (58)
+[PROCESS 94/d3e503] hog_rest (60)
+[PROCESS 8c/f3b67e] hog_rest (59)
+[PROCESS ff/f1d9c3] hog_rest (61)
+[PROCESS e8/44ae9e] hog_rest (64)
+[PROCESS 97/c50b04] hog_rest (62)
+[PROCESS 59/ea6b1c] hog_rest (66)
+[PROCESS 90/f933d7] hog_rest (68)
+[PROCESS 92/053460] hog_rest (69)
+[PROCESS bd/4788d1] hog_rest (71)
+[PROCESS 79/b90a80] hog_rest (74)
+[PROCESS 20/395b02] hog_rest (76)
+[PROCESS c6/9c20d9] hog_rest (75)
+[PROCESS 9a/8c7c91] hog_rest (78)
+[PROCESS ac/215341] hog_rest (77)
+[PROCESS 8a/8e42c3] hog_big (11)
+[PROCESS 89/a448a9] hog_rest (83)
+[PROCESS 94/60099a] hog_big (12)
+[PROCESS 31/762128] hog_big (10)
+[PROCESS e8/121f9e] hog_rest (81)
+[PROCESS bd/72437d] hog_rest (80)
+[PROCESS 08/5c6ea1] hog_rest (85)
+[PROCESS 0a/d46d90] hog_rest (79)
+[PROCESS 86/ff2e90] hog_big (4)
+[PROCESS a9/436a30] hog_big (14)
+[PROCESS 16/83f8e8] hog_rest (84)
+[PROCESS 67/7a2178] hog_rest (82)
+[PROCESS 6c/a6cb91] hog_rest (86)
+[PROCESS 78/690a35] hog_rest (87)
+[PROCESS 10/ec872d] hog_rest (88)
+[PROCESS 57/9527d3] collect_subhogs (1)
+[PROCESS 2a/9b7d58] fastoma_report (1)
+
+Completed at    : 2026-10-27T13:38:08.936226827Z
+Duration        : 2h 41m 47s
+Processes       : 139 (success), 0 (failed)
+Output in       : /scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/scaling/runs/fo_32/Output
+Done!
+
+[SUCCESS] completed=139 failed=0 cached=0

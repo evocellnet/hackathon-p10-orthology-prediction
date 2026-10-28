@@ -1,0 +1,40 @@
+[PROCESS e1/d57000] hog_rest (25)
+[PROCESS 3a/1e2e37] hog_rest (11)
+[PROCESS 3c/f77e9a] hog_rest (31)
+[PROCESS 16/d2f0c4] hog_rest (10)
+[PROCESS c3/ce4be3] hog_rest (16)
+[PROCESS db/853c96] hog_rest (6)
+[PROCESS 09/63708a] hog_rest (21)
+[PROCESS 89/06fef1] hog_rest (9)
+[PROCESS fa/33ca24] hog_rest (33)
+[PROCESS 0b/b7ac56] hog_rest (14)
+[PROCESS cf/3a3de6] hog_rest (15)
+[PROCESS 3b/1e33b4] hog_rest (1)
+[PROCESS c4/4dd0fb] hog_rest (30)
+[PROCESS 13/c31897] hog_rest (7)
+[PROCESS c7/bc7ad4] hog_rest (8)
+[PROCESS d6/125dcb] hog_rest (28)
+[PROCESS c3/8f80b6] hog_rest (24)
+[PROCESS 2d/af9a3a] hog_rest (13)
+[PROCESS b6/4af61d] hog_rest (26)
+[PROCESS 5b/badd73] hog_rest (18)
+[PROCESS 40/3e20b3] hog_rest (5)
+[PROCESS 1b/c5c919] hog_rest (32)
+[PROCESS d1/20310a] hog_rest (29)
+[PROCESS b7/26f436] hog_rest (23)
+[PROCESS f1/a54a82] hog_rest (34)
+[PROCESS b5/d7afb5] hog_rest (4)
+[PROCESS 31/53269e] hog_rest (2)
+[PROCESS b0/4c2901] hog_rest (12)
+[PROCESS a1/712d59] hog_big (1)
+[PROCESS 1f/13512d] collect_subhogs (1)
+[PROCESS 01/5e221d] extract_pairwise_ortholog_relations (1)
+[PROCESS 83/6de02f] fastoma_report (1)
+
+Completed at    : 2026-10-27T10:56:16.963894400Z
+Duration        : 45m 22s
+Processes       : 60 (success), 0 (failed)
+Output in       : /scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/scaling/runs/fo_16/Output
+Done!
+
+[SUCCESS] completed=60 failed=0 cached=0

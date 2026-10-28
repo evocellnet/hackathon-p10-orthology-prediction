@@ -1,0 +1,40 @@
+WARNING: program called by OrthoFinder produced output to stderr
+
+Command: mcl 
+/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/scaling/ru
+ns/of_64/Results_Oct27/WorkingDirectory/OrthoFinder_graph.txt -I 1.2 -o 
+/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/scaling/ru
+ns/of_64/Results_Oct27/WorkingDirectory/clusters_OrthoFinder_I1.2.txt -te 8 -V 
+all
+
+stdout:
+b''
+stderr:
+b' cut <1> instances of overlap\n'
+[1;36;49m2026[0m[39;49m-[0m[1;36;49m10[0m[39;49m-[0m[1;36;49m28[0m[39;49m [0m[1;92;49m00:39:00[0m[39;49m : Ran MCL[0m
+
+Writing orthogroups to file
+---------------------------
+[1;36;49m2026[0m[39;49m-[0m[1;36;49m10[0m[39;49m-[0m[1;36;49m28[0m[39;49m [0m[1;92;49m00:39:24[0m[39;49m : Done orthogroups[0m
+
+Analysing Orthogroups
+=====================
+[1;36;49m2026[0m[39;49m-[0m[1;36;49m10[0m[39;49m-[0m[1;36;49m28[0m[39;49m [0m[1;92;49m00:39:25[0m[39;49m : Starting MSA/Trees[0m
+Species tree: Using 122 orthogroups with minimum of 50.0% of species having 
+single-copy genes in any orthogroup
+
+Inferring multiple sequence alignments for species tree
+-------------------------------------------------------
+Processing... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━   122/122 0:00:31
+[1;36;49m2026[0m[39;49m-[0m[1;36;49m10[0m[39;49m-[0m[1;36;49m28[0m[39;49m [0m[1;92;49m00:40:00[0m[39;49m : Scheduling species tree inference from concatenated [0m
+[39;49malignment[0m
+
+Inferring remaining multiple sequence alignments and gene trees
+---------------------------------------------------------------
+
+Processing... ━━╸                                      ⠸  2235/34659 1:25:10
+
+[1;31mProgram terminated [0m[1;31m([0m[1;31mSIGTERM[0m[1;31m)[0m[1;31m.[0m
+
+[38;5;136;49mOrthoFinder[0m[39;49m stopped after [0m[1;36;49m21604.[0m[39;49m309518s[0m
+

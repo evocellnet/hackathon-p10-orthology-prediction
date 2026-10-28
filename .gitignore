@@ -5,3 +5,5 @@ work/
 *.dmnd
 *.pyc
 __pycache__/
+ancestra-mvp/
+results/l2_*/**/*_files/

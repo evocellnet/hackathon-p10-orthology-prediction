@@ -1,0 +1,4 @@
+bash scripts/scaling_fastoma.sh 64 work/scaling/runs/fo_64
+cap_s=21600
+start=2026-10-27T14:38:10.142672+01:00
+load_at_start=33.16 29.92 30.07 33/2108 3092939

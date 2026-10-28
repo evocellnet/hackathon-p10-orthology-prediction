@@ -1,0 +1,33 @@
+{
+ "label": "fo_64",
+ "kind": "fo",
+ "n_species": 64,
+ "n_proteins": 815573,
+ "threads": 8,
+ "cap_s": 21600,
+ "start": "2026-10-27T14:38:10.142672+01:00",
+ "end": "2026-10-27T20:05:10.022497+01:00",
+ "node_cores": 48,
+ "returncode": 0,
+ "preset": "accurate(default)",
+ "reuse_from": null,
+ "code": null,
+ "censored": false,
+ "wall_s": 19618.0,
+ "user_s": 78310.41,
+ "sys_s": 53595.3,
+ "max_rss_gb": 24.589420318603516,
+ "exit_status": 0,
+ "major_faults": 469078,
+ "cpu_pct": "672%",
+ "cpu_s": 131905.71000000002,
+ "cpu_h": 36.64047500000001,
+ "wall_h": 5.4494444444444445,
+ "node_load_1min": {
+  "n": 327,
+  "load1_mean": 23.27486238532112,
+  "load1_max": 51.88,
+  "load1_min": 10.89
+ },
+ "ok": true
+}

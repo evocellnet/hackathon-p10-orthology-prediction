@@ -1,0 +1,40 @@
+[PROCESS 71/ed0270] hog_big (27)
+[PROCESS 35/cf675b] hog_big (2)
+[PROCESS 12/c20d70] hog_big (26)
+[PROCESS 17/65f83e] hog_big (17)
+[PROCESS 6c/1d81ce] hog_big (6)
+[PROCESS bf/2071e7] hog_big (28)
+[PROCESS 1f/c07ee5] hog_big (12)
+[PROCESS 8b/d40e19] hog_big (4)
+[PROCESS 4f/4b5dbb] hog_big (3)
+[PROCESS 92/8f1784] hog_big (1)
+[PROCESS b1/40371d] hog_big (5)
+[PROCESS 8b/0fe784] hog_big (15)
+[PROCESS f1/d78df2] hog_big (31)
+[PROCESS 9e/f30fe9] hog_big (20)
+[PROCESS 28/13c996] hog_big (10)
+[PROCESS 91/439fd9] hog_big (7)
+[PROCESS 03/dd77ee] hog_big (30)
+[PROCESS 53/022cfd] hog_big (19)
+[PROCESS 1b/3514e5] hog_big (14)
+[PROCESS a3/e882c5] hog_big (8)
+[PROCESS 56/4d51a3] hog_big (23)
+[PROCESS 29/4f2fb5] hog_big (21)
+[PROCESS 72/b7bdb5] hog_big (11)
+[PROCESS ec/4805c8] hog_big (18)
+[PROCESS 6a/993275] hog_big (29)
+[PROCESS df/7f791b] hog_big (24)
+[PROCESS 96/93b67c] hog_big (22)
+[PROCESS 48/12edb0] hog_big (9)
+[PROCESS 25/3c6053] hog_big (25)
+[PROCESS 5e/d8e071] hog_big (13)
+[PROCESS 69/30ac75] collect_subhogs (1)
+[PROCESS 10/52c56f] fastoma_report (1)
+
+Completed at    : 2026-10-27T19:05:07.054248672Z
+Duration        : 5h 26m 54s
+Processes       : 296 (success), 0 (failed)
+Output in       : /scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/scaling/runs/fo_64/Output
+Done!
+
+[SUCCESS] completed=296 failed=0 cached=0

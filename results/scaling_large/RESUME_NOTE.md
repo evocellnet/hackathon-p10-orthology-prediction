@@ -39,3 +39,10 @@ so the n=1000 memory projection must be re-checked from the n=125/250/500 fits b
 
 ## RESUME 2026-10-27 11:10: lane B running (LIMIT_GB raised to 300 in scale_large_run.sh)
 Chain `work/scale_large_chain.sh` runs n=125,250,500 (fast, 12 threads). n=125 done 11:11-11:35: 23.9 min wall, 3.26 CPU-h, 7.9 GB RSS. n=1000 launched manually only after RSS/time projection check. Collector: scripts/scaling_large_collect.py (to write).
+
+DEADLINE UPDATE (PI, 11:45): soft deadline 2026-10-28T14:40; n=1000 must finish before 10-28 06:40; final report by 10-28 08:40.
+
+## 16:00 status: n125/250/500 done (0.40/1.12/3.32 h wall; 7.6/23.4/68.8 GB RSS; collector run). Projection for n1000 from fits: ~9.7 h wall, ~212 GB RSS (<300, ends ~02:00 < 06:40 limit) -> launched 16:00 via scripts/scale_large_run.sh 1000 fast (LIMIT_GB 300). Afterwards: n250 accurate (`scripts/scale_large_run.sh 250 accurate n250_accurate`), verify_orthoxml on each, rerun `python scripts/scaling_large_collect.py`.
+PI UPDATE (01:25 10-28): n1000 may run until 11:30; if unfinished record censored '> T' with stage times. Report n500->n1000 per-stage slopes honestly (S0 4922s -> 17614s).
+02:36 10-28: n1000 DONE (10.6 h wall, 64.3 CPU-h, 221 GB RSS). n250_accurate launched 02:35 (work/scale_large/n250_accurate). verify_n125/250/500 PASS; verify_n1000 running. Collector reruns: python scripts/scaling_large_collect.py (collects accurate tag too).
+04:35: lane B complete (n125/250/500/1000 fast + n250_accurate, all verify PASS); summary/png/fits written. Only sp_64 pending in lane A.

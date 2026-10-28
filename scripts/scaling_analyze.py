@@ -166,7 +166,7 @@ def main():
     sizes = sorted({r["n_species"] for r in rows})
     npro = {r["n_species"]: r["n_proteins"] for r in rows}
     L = ["# Runtime scaling (DESIGN §5)", "",
-         "8 threads per run, one run at a time, shared 24-core node (load logged per run in `runs/*/load.log`; wall times from a busy node are upper bounds, CPU-h = user+sys from `/usr/bin/time -v` is the primary metric). Fresh work dir per run. Censored runs: `> cap`.", "",
+         "8 threads per run, one run at a time, shared node (24 cores until 2026-10-27 11:10, 48 cores after; load logged per run in `runs/*/load.log`; wall times from a busy node are upper bounds, CPU-h = user+sys from `/usr/bin/time -v` is the primary metric). Fresh work dir per run. Censored runs: `> cap`.", "",
          "**FastOMA** relies on a precomputed OMA-derived OMAmer database (LUCA.h5, 9.9 GB); its build cost is not counted (download excluded); the timed workflow is the full nextflow pipeline incl. OMAmer placement, roothog inference, HOG inference and the report notebook. OMA contains these species (leakage flag for accuracy, irrelevant for timing). FastOMA places only the proteins OMAmer can assign.", "",
          "Subsets: nested, domain-stratified (random.Random(11)), `subsets/sub{n}.{txt,nwk,json}`; guide tree = NCBI tree pruned to the subset.", "",
          "| method | " + " | ".join(f"{n} sp ({npro[n]/1000:.0f}k)" for n in sizes) + " |", "|---|" + "---|" * len(sizes)]

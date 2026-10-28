@@ -1,0 +1,40 @@
+/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/conda_envs/orth/lib/python3.11/site-packages/sonicparanoid/pfam_files/profile_db/pfama.mmseqs.version
+was not found!
+\
+                Please create the profile database before proceeding.
+ERROR:
+The profiles DB file
+/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/conda_envs/orth/lib/python3.11/site-packages/sonicparanoid/pfam_files/profile_db/pfama.mmseqs.version
+was not found!
+\
+                Please create the profile database before proceeding.
+ERROR:
+The profiles DB file
+/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/conda_envs/orth/lib/python3.11/site-packages/sonicparanoid/pfam_files/profile_db/pfama.mmseqs.version
+was not found!
+\
+                Please create the profile database before proceeding.
+ERROR:
+The profiles DB file
+/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/conda_envs/orth/lib/python3.11/site-packages/sonicparanoid/pfam_files/profile_db/pfama.mmseqs.version
+was not found!
+\
+                Please create the profile database before proceeding.
+ERROR:
+The profiles DB file
+/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/conda_envs/orth/lib/python3.11/site-packages/sonicparanoid/pfam_files/profile_db/pfama.mmseqs.version
+was not found!
+\
+                Please create the profile database before proceeding.
+ERROR:
+The profiles DB file
+/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/conda_envs/orth/lib/python3.11/site-packages/sonicparanoid/pfam_files/profile_db/pfama.mmseqs.version
+was not found!
+\
+                Please create the profile database before proceeding.
+ERROR:
+The directory with the architectures contains 37 files when 64 are expected.
+Please generate the 64 architecture files.
+
+
+Elapsed time for profile searches using MMseqs (seconds):	874.179

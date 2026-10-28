@@ -1,0 +1,24 @@
+Command exited with non-zero status 251
+	Command being timed: "timeout -s TERM -k 120 21600 sonicparanoid -i work/scaling/inputs/sub64 -o work/scaling/runs/sp_64 -p scal64 -t 8 -m default"
+	User time (seconds): 129461.99
+	System time (seconds): 2012.26
+	Percent of CPU this job got: 886%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 4:07:08
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 8446256
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 3
+	Minor (reclaiming a frame) page faults: 225554800
+	Voluntary context switches: 3527998
+	Involuntary context switches: 372187
+	Swaps: 0
+	File system inputs: 462
+	File system outputs: 8
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 251
