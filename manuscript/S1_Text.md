@@ -1,6 +1,6 @@
 ---
 title: "S1 Text. Methods and design choices that did not work"
-subtitle: "Supplement to: Ancestra — orthology inference by level-synchronous ancestral-genome reconstruction inside de novo protein families"
+subtitle: "Supplement to: Ancestra: orthology inference by level-wise reconstruction of ancestral genes inside de novo protein families, and a test of extra data layers"
 geometry: margin=2.2cm
 fontsize: 10pt
 ---
@@ -67,7 +67,7 @@ Two runs of the same configuration gave different partitions (adjusted Rand inde
 1. ties in DIAMOND's greedy clustering depend on input order;
 2. DIAMOND's automatic block size depends on the thread count.
 
-We fixed the input order, pinned the block and chunk sizes, sorted the edges and fixed the Leiden seed. The partition is now byte-identical across thread counts and input orders (`tests/test_s0_determinism.py`). All merge settings tuned on the old partition were re-checked on three partitions. Some earlier gains turned out to be partition noise.
+We fixed the input order, pinned the block and chunk sizes, sorted the edges and fixed the Leiden seed. The partition is now byte-identical across thread counts and input orders (`tests/test_s0_determinism.py`). The key merge arms (gene order, its shuffled controls and locus repair) were re-checked on three partitions, and the others on the deterministic one. Some earlier gains turned out to be partition noise.
 
 ## 2.5 Larger cap for giant families (DEV; failed pre-registered rule)
 
@@ -134,7 +134,7 @@ This rule was meant to re-join subfamilies that arose from the two vertebrate wh
 
 The toy simulator favoured trees at every node; OrthoBench did not.
 
-## 4.7 Rules to raise QfO recall (DEV; pre-fixed six-arm grid)
+## 4.7 Rules to raise QfO recall (DEV; two pre-fixed grids)
 
 QfO peek 1 showed low recall (TreeFam-A TPR 0.55 vs 0.74 for OrthoFinder). On the TreeFam-A dev split, 78% of missed pairs were merge failures at the pair's last common ancestor. Six arms were tested against a rule fixed in advance: TPR must rise, PPV may fall by at most 0.01, and OrthoBench OG-F may fall by at most 1.
 
@@ -158,12 +158,12 @@ We tested five ways of adding Foldseek 3Di+AA scores to merge decisions, each wi
 
 # 5. Local gene-tree method (S4; DEV)
 
-On 32 dev RefOGs, FAMSA + FastTree improved the accuracy of duplication/speciation labels over NJ (0.955 vs 0.928; +0.027 [+0.004, +0.060]). The pre-registered verdict was still "keep NJ", because projected cost exceeded the bar by 1%. A later end-to-end arm (dev OG-F 80.4 vs 75.7) was adopted as the `accurate` preset under a separate rule set by the PI agent. **The pre-registered S4 verdict was therefore overridden.**
+On 32 dev RefOGs, FAMSA + FastTree improved the accuracy of duplication/speciation labels over NJ (0.955 vs 0.928; +0.027 [+0.004, +0.060]). The pre-registered verdict was still "keep NJ", because projected cost exceeded the 1 CPU-h bar (1.01 CPU-h by direct measurement, 6.7 CPU-h by the pre-registered size fit). A later end-to-end arm (dev OG-F 80.4 vs 75.7) was adopted as the `accurate` preset under a separate rule set by the PI agent. **The pre-registered S4 verdict was therefore overridden.**
 
 | Tree method | Δ label accuracy vs NJ (DEV) | Decision |
 |---|---|---|
 | IQ-TREE LG+G4 | +0.020 [−0.010, 0.044] | rejected: not significant, more cost |
-| Partitioned AA + 3Di IQ-TREE | +0.029 [+0.013, 0.064] | rejected: 3.3 CPU-h on the subset |
+| Partitioned AA + 3Di IQ-TREE | +0.029 [+0.013, 0.064] | rejected: 3.3 CPU-h projected for OrthoBench (bar 1 CPU-h) |
 | 3Di-only trees | −0.043 | rejected |
 | Foldseek-distance NJ (FoldTree-like) | −0.004 (better topology, nRF 0.289 vs 0.339) | rejected |
 | FastTree with all genes as leaves | OG-F 79.5 vs 80.4 at 3× cost | rejected |
@@ -189,7 +189,7 @@ A random tree (negative control) cost −16.4 [−27.1, −5.6] OrthoBench F.
 
 ## 6.2 Policy arms that were planned but never run
 
-The design planned three guide-tree policies (strict, delayed merge, per-family) and a check with an independent simulator (Zombi or ALF). Neither was done. The per-family local gene trees in S3 partly cover the per-family policy. All toy results come from our own simulator, which a reviewer agent warned "proves little".
+Besides the strict universal guide tree that Ancestra uses, the design planned two other policies (delayed merge, per-family guide trees) and a check with an independent simulator (Zombi or ALF). None of these was done. The per-family local gene trees in S3 partly cover the per-family policy. All toy results come from our own simulator, which a reviewer agent warned "proves little".
 
 ## 6.3 Sensitivity to child order
 
@@ -247,13 +247,13 @@ Expression was worse than sequence on the cases it was meant for.
 
 ## 8.3 ProstT5 3Di on CPU (feasibility)
 
-On CPU, ProstT5 predicted 120–160 residues per second, so QfO would need 490–980 CPU-hours. Its 3Di states matched AlphaFold DB 3Di at only 69% per protein. We used precomputed AlphaFold DB 3Di instead, which covers 94.5% of QfO proteins. ProstT5 on GPU is evaluated in the main text.
+On CPU, ProstT5 predicted 120–160 residues per second, so QfO would need 490–980 hours (20–41 days) on a 24-core node. Its 3Di states matched AlphaFold DB 3Di at only 69% per protein. We used precomputed AlphaFold DB 3Di instead, which covers 94.5% of QfO proteins. ProstT5 on GPU is evaluated in the main text.
 
 # 9. Evaluation and process
 
 ## 9.1 Leaky dev/test split (fixed before tuning)
 
-The first OrthoBench split was random over RefOGs. A reviewer agent found five groups of paralogous RefOGs that straddled dev and test. We replaced it with a split by homology component (dev 34 / test 36 RefOGs). Three early S0 configurations had already been scored on RefOGs that later fell into the test set.
+The first OrthoBench split was random over RefOGs. A reviewer agent found five groups of paralogous RefOGs, three of which straddled dev and test. We replaced it with a split by homology component (dev 34 / test 36 RefOGs). Three early S0 configurations had already been scored on RefOGs that later fell into the test set.
 
 ## 9.2 Other deviations
 
@@ -270,6 +270,8 @@ Full list: `docs/DISCLOSURES.md`.
 |---|---|
 | OrthoBench non-inferiority vs OrthoFinder (margin −3 points) | ΔF +6.5 [−6.5, +18.1]: not shown |
 | QfO TreeFam-A TPR vs OrthoFinder | −0.160 [−0.210, −0.106]: fails |
+| QfO TreeFam-A TPR vs Hieranoid 2 / InParanoid 5 / SonicParanoid2-sens-g | −0.036 [−0.069, +0.004] / −0.042 [−0.081, −0.000] / −0.087 [−0.132, −0.038]: not shown / fails / fails |
+| QfO TreeFam-A PPV | non-inferiority not shown vs any primary comparator (shown only vs OMA HOGs and OMA pairs, which were not pre-registered comparators) |
 | QfO SwissTree TPR vs OrthoFinder | −0.103 [−0.177, −0.029]: fails |
 | QfO G-STD2 Eukaryota RF | 0.257: worst of the main comparators |
 | QfO EC | 0.899 vs OrthoFinder 0.931 |
@@ -283,8 +285,8 @@ Full list: `docs/DISCLOSURES.md`.
 # 10. Second round of data layers (post-freeze; DEV only)
 
 These arms ran after the freeze, under one shared protocol (`docs/L2_protocol.md`):
-- each layer's arms and keep rule were committed before its integration results;
-- shuffled controls used seeds 11/23/47;
+- each layer's arms and keep rule were committed before its integration results, apart from the post hoc arms logged as deviations in each doc (pLM D2 heads; GPU D1 arms and the D2 jitter control; domain ungated arms; network TreeFam-A standalone extension; genome idea 4);
+- shuffled controls used seeds 11/23/47, except where noted: QfO structure rescue and QfO jitter used seed 11 only; the genome F arms on TreeFam-A had no shuffled control; the sparsification arms had random-sparsification and jitter controls instead of shuffled scores;
 - the same keep rule as before applied;
 - no test data were used.
 
@@ -327,5 +329,5 @@ No arm passed. Details are in `docs/L2_{network,domains,plm,genome,gpu}.md`.
 ## 10.6 GPU ideas left open in the first GPU round
 
 - **Sparsifying the all-GPU score graph.** We ran seven arms, a random-sparsification control and a score-jitter floor. Every all-GPU arm lost OrthoBench dev accuracy. On that benchmark, a 1% random jitter of the CPU scores alone gave −3.2 to −7.3 OG-F (two of three seed CIs include 0), while TreeFam-A barely moved. The best QfO arm (keep pairs scoring at least 0.207 × the query's best hit in that species) gave TreeFam-A dev TPR/PPV 0.637/0.930 at 0.59 CPU-h, against 0.615/0.922 at 9.05 CPU-h, but it lost 8.4 OrthoBench OG-F. The 0.59 CPU-h is an estimate and excludes 0.2–0.3 GPU-h.
-- **Batched FastTree.** `FastTree -n` saved 1.6% of merge wall time and changed 4 of 1.39 M pairs. The first GPU report had blamed process start-up for the cost; in fact about 93% of each call is the ML optimisation (measured on 20 small jobs). In-process FAMSA (pyfamsa) was not faster and changed 8 of 998 alignments. Not enabled.
+- **Batched FastTree.** `FastTree -n` saved 1.6% of merge wall time and changed 4 of 1.39 M pairs. The first GPU report had blamed process start-up for the cost; in fact about 93% of a call is the ML optimisation (in a sample of 20 small jobs). In-process FAMSA (pyfamsa) was not faster and changed 8 of 998 alignments. Not enabled.
 - **Structure rescue at full 3Di coverage.** ProstT5 on the GPU filled the 63k QfO proteins without AlphaFold DB structures in 5 h. Metrics were the same as with AlphaFold DB coverage alone (OrthoBench macro pair F1 +0.0042 [−0.0005, +0.011]; shuffled 3Di kept +0.0021 of it), so the rescue still fails the keep rule. Foldseek's GPU search was slower than its CPU search here (47.6 vs 29.0 s for 3,000 queries) and returned a different hit set.

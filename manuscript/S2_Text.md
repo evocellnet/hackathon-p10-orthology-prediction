@@ -56,6 +56,7 @@ This is the prompt that started the project (copied verbatim from `PROMPT.md` in
 4. Test GPU access and resume from the original prompt and the resume document.
 5. Keep the original 48-hour budget, now as a soft deadline; add a fixed human-written header to the top of both repository READMEs.
 6. Write this manuscript, a supplement of failed methods and a minimal public repository (prompt in section 3).
+7. Second round of data layers (2026-10-27, about 17:57 CET; this led to S1 Text, section 10, and the main-text "Second round of layers"): "While waiting for the next step to finish, you have additional resources to try out more ideas regarding the additional source of information. this includes the previously considered data (3d structure, expression, synteny), but should include other easily available data that could help the new method, like domain architecture (predicted or from the TED paper), proteomics, large scale co-fractionation experiments, protein language models (existing or new based on the extra data), etc. for the previously considered sources of information, go back and rethink new alternative possibilities of including them for a gain, or invest a bit more time in developing the modified substeps testing on a smaller dataset that could conclude within a reasonable time before or after the soft deadline. this includes ideas that were dropped for lack of time, like the exploration of gpu accelerated steps in the gpu report."
 
 # 3. Manuscript prompt (verbatim)
 

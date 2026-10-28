@@ -14,14 +14,15 @@ The output is hierarchical orthologous groups (HOGs) in OrthoXML, plus pairs. Th
 - **QfO 2022** (78 species, ~1M proteins; the full official suite run locally):
   - Ancestra is **non-inferior to FastOMA and OMA Pairs** on TreeFam-A test recall.
   - It is **clearly below OrthoFinder** on recall: TreeFam-A −0.16, SwissTree −0.10.
-  - Its species-tree discordance (G-STD2-Euk RF .257) is the worst of the main comparators.
+  - On TreeFam-A recall it is also below two other pre-registered primary comparators, SonicParanoid2-sens-g (−0.087 [−0.132, −0.038]) and InParanoid 5 (−0.042 [−0.081, −0.000]). Non-inferiority to Hieranoid 2 is not shown (−0.036 [−0.069, +0.004]).
+  - Its species-tree discordance (G-STD2-Euk RF .257) is the worst of the main comparators in REPORT Table 2.
   - EC precision is a little lower, consistent with vertebrate over-merging.
-- **Cost and scaling:** one QfO run takes ~1.9 h wall and 11.6 CPU-h (`fast`) or 18.5 CPU-h (`accurate`), with ≤29 GB RAM. On nested QfO subsets, CPU grows about as proteins^1.1, against about proteins^1.4–1.5 for OrthoFinder and SonicParanoid2. At 32 species it costs 3.2–6.0 CPU-h, against 14.4 for OrthoFinder and 11.1 for SonicParanoid2. At 8 species FastOMA takes 1.83 CPU-h against 0.47–0.78 for Ancestra (FastOMA's precomputed OMA database is not counted). Fitted slope for Ancestra: 1.16 [1.10, 1.21]; the competitor fits rest on only 3 points.
+- **Cost and scaling:** one QfO run takes ~1.9 h wall and 11.6 CPU-h (`fast`) or 18.5 CPU-h (`accurate`), with ≤29 GB RAM. On nested QfO subsets, CPU grows about as proteins^1.16, against about proteins^1.4–1.5 for OrthoFinder and SonicParanoid2. At 32 species it costs 3.2–6.0 CPU-h, against 14.4 for OrthoFinder and 11.1 for SonicParanoid2. At 8 species FastOMA takes 1.83 CPU-h against 0.47–0.78 for Ancestra (FastOMA's precomputed OMA database is not counted). Fitted slope for Ancestra: 1.16 [1.10, 1.21]; the competitor fits rest on only 3 points.
 - **Extra data layers**, each tested standalone and then in the full pipeline:
   - *Synteny* discriminates orthologs from paralogs well (human–mouse AUC 0.92; shuffled 0.50). Its gain in the frozen merge was dev-only and is **not measurable on the test sets**.
   - *3D structure (3Di; 94.5% QfO coverage from AFDB/Foldcomp)* lifts family completeness above the sequence ceiling (0.853 vs 0.82). It gave no merge gain and is an option only.
   - *Expression (Bgee)* and *isoforms* were killed by pre-registered rules.
-  - *Genome DNA* (miniprot at syntenic loci) shows that 53% of apparent mammal losses are not losses: 32% are our own fission errors, and 25% are confirmed pseudogenes or deletions, e.g. GULO and UOX in primates.
+  - *Genome DNA* (miniprot at syntenic loci) shows that 53% of apparent mammal losses are not losses: 32% are our own fission errors, and 25% are confirmed pseudogenes or deletions, e.g. the UOX pseudogene in human (GULO, missing in both human and chimp, was confirmed by a separate clade-level search).
 - **Species tree:** the NCBI taxonomy guide tree is best. Data-derived trees (ASTRAL-Pro, FastME) are equal on OrthoBench but buy QfO recall at a large EC cost. A random tree costs −16 OrthoBench F (negative control).
 
 ![benchmarks](figures/fig2_benchmarks.png)

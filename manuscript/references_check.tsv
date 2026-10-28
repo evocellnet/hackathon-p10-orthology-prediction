@@ -48,7 +48,7 @@ yazdizadeh2025orthoxmltools	10.1007/s00239-025-10271-7	crossref	OrthoXML-Tools: 
 zhang2020astralpro	10.1093/molbev/msaa139	crossref	ASTRAL-Pro: Quartet-Based Species-Tree Inference despite Paralogy
 zhang2022astralpro2	10.1093/bioinformatics/btac620	crossref	ASTRAL-Pro 2: ultrafast species tree reconstruction from multi-copy gene family trees
 zhang2025aster	10.1093/molbev/msaf172	crossref	ASTER: A Package for Large-Scale Phylogenomic Reconstructions
-lefort2015fastme	10.1093/molbev/msv150	crossref	FastME 2.0: A Comprehensive, Accurate, and Fast Distance-Based Phylogeny Inference Program: Table 1.
+lefort2015fastme	10.1093/molbev/msv150	crossref	FastME 2.0: A Comprehensive, Accurate, and Fast Distance-Based Phylogeny Inference Program
 altenhoff2016qfo	10.1038/nmeth.3830	crossref	Standardized benchmarking in the quest for orthologs
 altenhoff2020qfo	10.1093/nar/gkaa308	crossref	The Quest for Orthologs benchmark service and consensus calls in 2020
 nevers2022qfo	10.1093/nar/gkac330	crossref	The Quest for Orthologs orthology benchmark service in 2022
@@ -93,7 +93,7 @@ lin2023esm2	10.1126/science.ade2574	crossref	Evolutionary-scale prediction of at
 johnson2021faiss	10.1109/tbdata.2019.2921572	crossref	Billion-Scale Similarity Search with GPUs
 douze2026faiss	10.1109/tbdata.2025.3618474	crossref	The Faiss Library
 antonov2026igraph	10.1371/journal.pone.0355108	crossref	igraph 1.0 enables fast and robust network analysis across programming languages
-yates2019ensembl	10.1093/nar/gkz966	crossref	Ensembl 2020
+yates2019ensembl	10.1093/nar/gkz966	crossref+pubmed	Ensembl 2020
 schoch2020ncbitaxonomy	10.1093/database/baaa062	crossref	NCBI Taxonomy: a comprehensive update on curation, resources and tools
 uniprot2025	10.1093/nar/gkae1010	crossref	UniProt: the Universal Protein Knowledgebase in 2025
 uniprot2023	10.1093/nar/gkac1052	crossref	UniProt: the Universal Protein Knowledgebase in 2023

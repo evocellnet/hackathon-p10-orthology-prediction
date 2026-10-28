@@ -12,9 +12,9 @@
 
 **Method.** *Ancestra* (i) partitions all proteins into families in near-linear time with a two-level DIAMOND clustering (no all-vs-all, no reference database), (ii) scores protein pairs only inside families, and (iii) walks the NCBI taxonomy guide tree bottom-up. At each ancestral node, the ancestral genes of all families are merged with mutual-best seeds, in-paralog absorption and small local gene trees (FastTree or NJ) labelled by species overlap. Gene order can re-rank partners inside an existing root HOG. Output: HOGs in OrthoXML, ortholog pairs and orthogroups.
 
-**Results.** On the held-out OrthoBench test RefOGs (36, split by homology component, scored once), the default preset reaches F = 76.2 vs 69.7 for OrthoFinder 3.2, 70.4 for SonicParanoid2, 60.4 for precomputed OMA browser HOGs and 33.1 for FastOMA 0.5.1. It uses 3.9 CPU-h vs 8.2 for OrthoFinder. The differences against OMA (+15.7 F [+1.8, +29.2]) and FastOMA (+43.1 [+14.0, +55.3]) are significant. The pre-registered non-inferiority criterion against OrthoFinder is not met (Δ +6.5 [−6.5, +18.1]): the confidence interval is too wide for 36 RefOGs. On the Quest for Orthologs 2022 benchmark (78 species, ~1 M proteins; full official suite run locally), Ancestra is non-inferior to FastOMA and OMA Pairs on TreeFam-A recall, but clearly below OrthoFinder on recall (TreeFam-A −0.16, SwissTree −0.10). Its species-tree discordance (G-STD2 Eukaryota) is the worst of the main comparators. CPU time grows as proteins^1.16 [1.10, 1.21], against ~1.4–1.5 for OrthoFinder and SonicParanoid2 (3-point fits). Of the extra layers, gene order separates orthologs from paralogs very well on its own (human–mouse AUC 0.92) but gives no test-measurable gain inside the merge. 3D structure (3Di) raises family completeness beyond the sequence ceiling but does not improve final orthologs. Expression and isoforms were rejected by pre-registered rules. Genomic DNA shows that 53% of apparent gene losses are not real losses. The NCBI taxonomy is the best guide tree; a random tree costs 16 F points.
+**Results.** On the held-out OrthoBench test RefOGs (36, split by homology component, scored once), the default preset reaches F = 76.2 vs 69.7 for OrthoFinder 3.2, 70.4 for SonicParanoid2, 60.4 for precomputed OMA browser HOGs and 33.1 for FastOMA 0.5.1. It uses 3.9 CPU-h vs 8.2 for OrthoFinder. The differences against OMA (+15.7 F [+1.8, +29.2]) and FastOMA (+43.1 [+14.0, +55.3]) are significant. The pre-registered non-inferiority criterion against OrthoFinder is not met (Δ +6.5 [−6.5, +18.1]): the confidence interval is too wide for 36 RefOGs. On the Quest for Orthologs 2022 benchmark (78 species, ~1 M proteins; full official suite run locally), Ancestra is non-inferior to FastOMA and OMA Pairs on TreeFam-A recall. It is below OrthoFinder on recall (TreeFam-A −0.16, SwissTree −0.10). On TreeFam-A recall it is also below two other pre-registered primary comparators, SonicParanoid2-sens-g (−0.087 [−0.132, −0.038]) and InParanoid 5 (−0.042 [−0.081, −0.000]), and non-inferiority to Hieranoid 2 is not shown (−0.036 [−0.069, +0.004]). Its species-tree discordance (G-STD2 Eukaryota) is the worst of the main comparators. CPU time grows as proteins^1.16 [1.10, 1.21], against ~1.4–1.5 for OrthoFinder and SonicParanoid2 (3-point fits). Of the extra layers, gene order separates orthologs from paralogs very well on its own (human–mouse AUC 0.92) but gives no test-measurable gain inside the merge. 3D structure (3Di) raises family completeness beyond the sequence ceiling but does not improve final orthologs. Expression and isoforms were rejected by pre-registered rules. Genomic DNA shows that 53% of apparent gene losses are not real losses. The NCBI taxonomy is the best guide tree; a random tree costs 16 F points.
 
-**Conclusion.** Level-synchronous ancestral reconstruction inside de novo families is a viable, cheaper and more scalable route to HOGs. It is competitive with or better than OMA-based resources and pairwise methods on OrthoBench, but it does not yet match OrthoFinder's recall at deep taxonomic levels.
+**Conclusion.** Level-synchronous ancestral reconstruction inside de novo families is a viable route to HOGs, and in our runs it used less CPU time than OrthoFinder and SonicParanoid2. On OrthoBench it scores significantly higher than OMA-based resources and ProteinOrtho; its lead over OrthoFinder and SonicParanoid2 is not significant. On QfO its recall matches FastOMA and OMA Pairs but stays below that of OrthoFinder, SonicParanoid2 and InParanoid 5.
 
 ---
 
@@ -127,13 +127,13 @@ All numbers in this section come from the frozen code (`freeze-v1`, sha256 of ev
 
 Under the pre-registered rule (comparable if the lower 95% bound of Δ ≥ −3 pp):
 - Ancestra is **comparable to or better than** ProteinOrtho, the OMA browser HOGs and FastOMA, with CIs entirely above 0.
-- Non-inferiority to OrthoFinder and SonicParanoid2 is **not shown**. The point estimates favour Ancestra by 5–7 F, but with 36 RefOGs the standard error of ΔF is ~5–6 pp.
+- Non-inferiority to OrthoFinder and SonicParanoid2 is **not shown**. The point estimates favour Ancestra by 6.5 and 5.7 F, but with 36 RefOGs the standard error of ΔF is ~5–6 pp.
 - On all 70 RefOGs, which include the dev half used for tuning (optimistic), the difference vs OrthoFinder is +7.8 [+0.5, +15.1].
 
-**FastOMA.** FastOMA 0.5.1 performed poorly on OrthoBench. While diagnosing this we found a bug that drops ~5.5 k genes when groups are split. A patched re-run raised gene coverage from 79.0% to 80.6% but did not change test F (33.5 → 33.1). The gap is therefore methodological: many proteins are not placed by OMAmer, and RefOGs are fused at the root. This is consistent with the large FastOMA fusion rate on OrthoBench reported by Emms et al. (2026). The precomputed OMA browser HOGs, cut at Bilateria, are a fairer OMA representative (60.4): precise (P 88.9) but low-recall (R 45.8).
+**FastOMA.** FastOMA 0.5.1 performed poorly on OrthoBench. While diagnosing this we found a bug that drops ~5.5 k genes when groups are split. A patched re-run raised gene coverage from 79.0% to 80.6% but did not change test F (33.5 → 33.1). The gap is therefore methodological. It has two sources. Precision is low (23.9), because RefOGs are fused into larger HOGs, and 19% of proteins are missing from FastOMA's groups. In the unpatched run, 9.1% of proteins were never placed in a FastOMA family and 9.7% were left as root-level singletons; OMAmer itself left only 4.1% unplaced. This is consistent with the large FastOMA fusion rate on OrthoBench reported by Emms et al. (2026). The precomputed OMA browser HOGs, cut at Bilateria, are a fairer OMA representative (60.4): precise (P 88.9) but low-recall (R 45.8).
 
 ### 3.2 Quest for Orthologs 2022 (78 species, 988,778 proteins)
-The full QfO benchmark suite (SwissTree, TreeFam-A, VGNC, GO/EC function, FAS, STD and G-STD2) was run locally from the official code. Our local scoring reproduces 60/60 published values of competitor submissions [C-INF-2].
+The full QfO benchmark suite (SwissTree, TreeFam-A, VGNC, GO/EC function, FAS, STD and G-STD2) was run locally from the official code. To check our local scoring, we re-scored 10 of the 20 published submissions on SwissTree, TreeFam-A and VGNC; all 60 published TPR/PPV values were reproduced exactly [C-INF-2].
 
 | Method | SwissTree TPR / PPV | TreeFam-A TPR / PPV | EC Schlicker (n) | G-STD2 Euk RF (n trees) |
 |---|---|---|---|---|
@@ -142,11 +142,12 @@ The full QfO benchmark suite (SwissTree, TreeFam-A, VGNC, GO/EC function, FAS, S
 | OrthoFinder | 0.825 / 0.917 | 0.737 / 0.918 | 0.931 (204k) | 0.249 (6,629) |
 | SonicParanoid2-sens-g | 0.717 / 0.938 | 0.667 / 0.936 | 0.906 (222k) | 0.232 (4,878) |
 | Hieranoid 2 | 0.726 / 0.950 | 0.621 / 0.930 | 0.948 (169k) | 0.222 (3,643) |
+| InParanoid 5 | 0.701 / 0.944 | 0.627 / 0.933 | 0.927 (198k) | 0.227 (3,655) |
 | FastOMA v0.1.4 | 0.699 / 0.953 | 0.546 / 0.919 | 0.928 (157k) | 0.239 (3,092) |
 | OMA HOGs | 0.696 / 0.924 | 0.580 / 0.923 | 0.829 (308k) | 0.237 (2,981) |
 | OMA Pairs | 0.677 / 0.929 | 0.565 / 0.920 | 0.952 (156k) | 0.226 (2,369) |
 
-*Table 2. QfO 2022 primary endpoints for the main comparators. The full 21-method table, VGNC, GO, FAS and STD results are in `results/qfo_final/summary.md`. Competitor values are published OpenEBench submissions.*
+*Table 2. QfO 2022 primary endpoints for the main comparators. The full table (20 published methods and both Ancestra presets), VGNC, GO, FAS and STD results are in `results/qfo_final/summary.md`. Competitor values are published OpenEBench submissions. Ancestra rows use the gene-order layer.*
 
 The formal non-inferiority analysis used a paired bootstrap over the 749 TreeFam-A test families and the 18 SwissTree cases [`results/verification/qfo_primary_ni.json`]. `accurate` on TreeFam-A test recall:
 
@@ -156,14 +157,19 @@ The formal non-inferiority analysis used a paired bootstrap over the 749 TreeFam
 | OMA Pairs | +0.018 [−0.028, +0.069] | non-inferior |
 | OMA HOGs | +0.002 [−0.058, +0.067] | inconclusive |
 | OrthoFinder | −0.160 [−0.210, −0.106] | fails |
+| Hieranoid 2 | −0.036 [−0.069, +0.004] | not shown |
+| InParanoid 5 | −0.042 [−0.081, −0.000] | fails (lower) |
+| SonicParanoid2-sens-g | −0.087 [−0.132, −0.038] | fails |
+
+`DESIGN.md` §5 named OrthoFinder, FastOMA, Hieranoid 2, InParanoid 5 and SonicParanoid2-sens-g as the primary comparators. OMA Pairs and OMA HOGs were added after the human instruction to include an OMA resource in every comparison. Ancestra fails or does not show non-inferiority against four of the five primary comparators; it is non-inferior only to FastOMA. On TreeFam-A precision, non-inferiority is shown only against OMA Pairs and OMA HOGs.
 
 On SwissTree recall it fails against OrthoFinder (−0.103 [−0.177, −0.029]) and is inconclusive against the rest.
 
-Ancestra therefore sits with the OMA family of methods on QfO, precise but recall-limited, while OrthoFinder and the tree-based methods (PANTHER-all, pbDOOD) reach higher recall. G-STD2 Eukaryota is the worst of the main comparators. EC precision is also slightly lower, consistent with — but not proven to be caused by — over-merging in large vertebrate families.
+Ancestra therefore sits with the OMA family of methods on QfO, precise but recall-limited, while OrthoFinder, the tree-based methods (PANTHER-all, pbDOOD) and the pairwise methods SonicParanoid2, InParanoid 5 and Hieranoid 2 reach higher recall. G-STD2 Eukaryota is the worst of the methods in Table 2. EC precision is also slightly lower, consistent with — but not proven to be caused by — over-merging in large vertebrate families.
 
 **Contrast with OrthoBench.** Ancestra leads on OrthoBench but trails OrthoFinder on QfO. The two benchmarks reward different things:
 - OrthoBench scores whole orthogroups in 12 mostly bilaterian species, where Ancestra's family-first partition and in-family merge do well.
-- QfO's TreeFam-A and SwissTree reward pairwise recall across deep, eukaryote-wide divergences. There Ancestra's score-based merge decisions at deep nodes (Bilateria, Opisthokonta, Eukaryota), which have no outgroup, split true orthologs at the LCA.
+- QfO's TreeFam-A and SwissTree reward pairwise recall across deep, eukaryote-wide divergences. There Ancestra's score-based merge decisions at deep nodes split true orthologs at the LCA. Of these misses on dev families, 34% are at Bilateria, 21% at Eukaryota and 13% at Opisthokonta, where an outgroup is often missing or distant.
 
 ### 3.3 Effect of extra data layers
 Every layer was tested at two levels:
@@ -172,7 +178,7 @@ Every layer was tested at two levels:
 
 | Layer | Standalone (dev) | OrthoBench test (Δ F vs main) | QfO (Δ TreeFam-A TPR, family bootstrap) | Decision |
 |---|---|---|---|---|
-| Gene order (synteny) | AUC 0.92 human–mouse, 0.82 fish, 0.49 human–fly (shuffled 0.50); hard cases +0.16 [0.05, 0.26] | −0.1 [−0.4, 0.0] (removing it) | −0.012 [−0.028, +0.001] (removing it) | option, default on; no measurable test gain |
+| Gene order (synteny) | AUC 0.92 human–mouse, 0.82 fish, 0.49 human–fly (shuffled 0.50); hard cases +0.16 [0.05, 0.26] | −0.1 [−0.4, 0.0] (removing it) | −0.012 [−0.028, +0.001] (removing it; `fast`) | option, default on; no measurable test gain |
 | 3D structure (3Di, AFDB/Foldcomp, 94.5% QfO coverage) | S0 completeness 0.794 → 0.853 | −5.0 [−13.1, 0.0] as family rescue | −0.004 | option, off |
 | Expression (Bgee) | AUC 0.667; hard-case −0.019 [−0.20, 0.15] | not run | not run | rejected (pre-registered) |
 | Isoforms | hard-case +0.013 [−0.018, 0.044]; 2–5× search cost | not run | not run | rejected |
@@ -187,7 +193,7 @@ Every layer was tested at two levels:
 **Genomic DNA.** Of 2,523 apparent gene losses in mammals:
 - 53% were not losses;
 - 32% were our own fission errors (a gene split across HOGs);
-- 25% were confirmed pseudogenes or deletions, e.g. *GULO* and *UOX* in primates;
+- 25% were confirmed pseudogenes or deletions, e.g. the *UOX* pseudogene in human (*GULO*, which is missing in both human and chimp, was confirmed as a pseudogene by a separate clade-level search);
 - the rest were unresolved [C-S8-1, -3].
 
 This makes genome-level validation a useful quality-control layer for HOG gene-loss claims, rather than an input to inference.
@@ -251,19 +257,19 @@ This work was done after the freeze, on one A100 GPU. It lives as opt-in code on
 | MMseqs2-GPU for S0/S2 | ≈9 ms per query, so slower than DIAMOND for searches of many proteins against many | ~5% more sensitive | not useful at these sizes |
 | **`--backend gpusw`** (CUDA Smith–Waterman, 600–640 GCUPS; families ≤1000 genes on GPU, larger ones on DIAMOND at the same time) | S2 1.32×, end to end 1.18× (OrthoBench accurate, 1,027 vs 1,207 s); QfO fast 1.18× | OG-F 80.2 vs 79.7 (Δ +0.5 [−3.5, +3.3]); QfO TreeFam-A dev 0.614/0.929 vs 0.615/0.922 | equivalent within noise, deterministic; modest gain |
 | All families on the GPU | S2 2.97×, end to end 1.57×; QfO 16× fewer CPU-h | OG-F −5.3 [−12.0, −0.7]; QfO PPV −0.016 | not equivalent; opt-in for speed only |
-| GPU for the local trees | ≈93% of each FastTree call is ML optimisation, not start-up as first assumed (20 small jobs); batching with `FastTree -n` saves 1.6% of merge wall time | 4 of 1.39 M pairs differ; dev metrics identical | not worth enabling (L2-gpu) |
+| GPU for the local trees | ≈93% of a FastTree call is ML optimisation, not start-up as first assumed (in a sample of 20 small jobs); batching with `FastTree -n` saves 1.6% of merge wall time | 4 of 1.39 M pairs differ; dev metrics identical | not worth enabling (L2-gpu) |
 | ProstT5 3Di on GPU | 6,100–7,300 res/s (40–60× CPU); OrthoBench 3Di gap filled in 1 h 56 min | 99.9% agreement with CPU ProstT5 | feasible |
 | ESM-2 + FAISS kNN for family candidates | ≈10 min for OrthoBench | completeness bound 0.853 at k = 25, but 42% of neighbours fall outside the family | research lead |
 
 **Main lesson.** 78–85% of DIAMOND's time goes to a few families with more than 1,000 genes. Exhaustive GPU alignment of these families changes the score graph, and the frozen average-link merge is sensitive to the change. The L2-gpu follow-up (docs/L2_gpu.md) refined this in three ways:
 - The problem is not only weak edges. Against the CPU path without cross-family rescue, GPU scores on exactly DIAMOND's pair set cost −9.1 OG-F, and swapping in only the GPU self-scores costs −17. The proposed mechanism, average-link over the pairs present, rests on one traced family (RefOG021). A max-link control did not settle it.
 - A 1% random jitter of the CPU bit scores gave −3.2, −7.3 and −5.0 dev OG-F (seeds 11/23/47; two of the three CIs include 0), about as much as the full GPU graph. On TreeFam-A dev it barely moved TPR/PPV (−0.009/+0.001, one seed). The frozen parameters were tuned on OrthoBench dev, so some loss under any perturbation is expected. We read this as a sign that OrthoBench dev OG-F is sensitive to small score changes, not as a measured general property. Layers that change scores should still be compared with this floor.
-- Rank-ratio sparsification (keep a pair if its bits are ≥ 0.207 × the query's best hit in that species) reaches QfO TreeFam-A dev 0.637/0.930 at 0.59 CPU-h, against 0.615/0.922 at 9.05 CPU-h, with both differences inside the CIs. It still costs −8.4 OrthoBench dev OG-F. It is an untested speed option, not part of the method.
+- Rank-ratio sparsification (keep a pair if its bits are ≥ 0.207 × the query's best hit in that species) reaches QfO TreeFam-A dev 0.637/0.930 at an estimated 0.59 CPU-h (plus 0.2–0.3 GPU-h), against 0.615/0.922 at 9.05 CPU-h. The CIs of both differences include 0, and this was the best of seven arms on this set. It still costs −8.4 OrthoBench dev OG-F. It is an untested speed option, not part of the method.
 
 ### 3.9 Second round of data layers (post-freeze, development data only)
 After the freeze, while the scaling runs finished, we tested more layers under one shared protocol (`docs/L2_protocol.md`):
-- each layer's arms and keep rule were committed before its integration results, with deviations logged in each doc;
-- shuffled controls were run (seeds 11/23/47, some controls with seed 11 only);
+- each layer's arms and keep rule were committed before its integration results, apart from the post hoc arms logged as deviations in each doc (pLM D2 heads; GPU D1 arms and the D2 jitter control; domain ungated arms; network TreeFam-A standalone extension; genome idea 4);
+- shuffled controls used seeds 11/23/47, except where noted: QfO structure rescue and QfO jitter used seed 11 only; the genome F arms on TreeFam-A had no shuffled control; the sparsification arms had random-sparsification and jitter controls instead of shuffled scores;
 - only development splits were used, with no test data;
 - the same keep rule applied (lower 95% CI of Δ above 0; PPV −0.01 and OG-F −1.0 guards).
 
@@ -298,7 +304,7 @@ Five agents ran in parallel. **No arm passed the keep rule**, so none was evalua
 ## 4. Discussion
 
 **What is new.** Ancestra treats HOG inference as ancestral-genome reconstruction rather than as clustering of pairwise relations or decomposition of large gene trees. Each decision is small: one family, one ancestral node, a handful of ancestral genes. Four consequences follow:
-1. the cost is dominated by within-family alignment, which scales close to linearly in the number of proteins;
+1. the cost is dominated by within-family alignment, which scales slightly faster than linearly in the number of proteins (exponent 1.16 [1.10, 1.21]);
 2. the expensive phylogenetic step is reserved for ambiguous clusters;
 3. ancestral gene order can be carried along with the ancestral genes;
 4. HOGs at every level are produced directly, not extracted after the fact.
@@ -312,7 +318,7 @@ It needs no reference database, unlike placement methods.
 
 **Extra data layers.** In a second, post-freeze round, further layers (interaction networks, protein abundance, domain architecture, protein language models including a model trained on our own synteny labels, intron positions, synteny-driven fission repair, and full-coverage structure rescue) all failed the keep rule on development data (§3.9). Our layer results are largely negative for orthology *assignment*, despite strong standalone signals. This is an important and somewhat counter-intuitive finding: a layer can be highly informative in isolation yet redundant given good sequence evidence. The cases where the extra signal is unique — distant homologs (structure) and deep levels (synteny) — are exactly where that signal is weakest or blurs orthology and paralogy. Genomic DNA was most useful as validation: it exposed our own fission errors and confirmed known pseudogenisations.
 
-**Benchmarks disagree.** The 36-RefOG OrthoBench test gives ΔF CIs of ±12 pp, so a 6.5-point lead over OrthoFinder is not significant. QfO's pair-level tests are much tighter but measure different things. We report both, and every pre-registered verdict as written, including the failures.
+**Benchmarks disagree.** The 36-RefOG OrthoBench test gives ΔF CIs of ±12 pp, so a 6.5-point lead over OrthoFinder is not significant. QfO's pair-level tests are much tighter but measure different things. On them, Ancestra's recall is below that of OrthoFinder, SonicParanoid2 and InParanoid 5, and non-inferior only to FastOMA and OMA Pairs. We report both, and every pre-registered verdict as written, including the failures.
 
 ## 5. Limitations
 - Dev data were reused heavily. A dev split for TreeFam-A was created after the first QfO peek, and test TreeFam-A families were scored once at peek 2, one minute before the freeze (DISCLOSURES #1). Dev numbers are therefore optimistic. Test numbers come from one evaluation of a frozen method.
