@@ -43,7 +43,7 @@ Full results, with confidence intervals and every pre-registered verdict, are in
 - **QfO 2022 (78 species):** TreeFam-A recall non-inferior to FastOMA and OMA Pairs, but below OrthoFinder (−0.16), SonicParanoid2 and
   InParanoid 5; worst G-STD2 discordance among the main comparators.
 - **Scaling:** CPU time ∝ proteins^1.16 up to 1 M proteins; 1,000 UniProt proteomes (4.75 M proteins) in 10.6 h wall / 64 CPU-h /
-  221 GB, with a steeper exponent (1.35) at that scale (`results/scaling*/summary.md`).
+  221 GB, CPU-time exponent 1.35 [1.31, 1.39] for the `fast` preset at that scale (1.21 for `fast` on QfO subsets) (`results/scaling*/summary.md`).
 - **Extra data layers:** none improved held-out results (gene order, structure, expression, isoforms; and, post-freeze on dev data,
   networks, abundance, domains, protein language models, introns, synteny repair). Details in `REPORT.md` §3.3 and §3.9.
 
