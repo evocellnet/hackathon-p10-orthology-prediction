@@ -18,7 +18,7 @@
 \textbf{This study was an exercise in testing whether AI agents can run a bioinformatics research project.} An AI agent (Claude Opus 5.5) acted as principal investigator: it planned the work, delegated sub-tasks to other AI agents, ran all analyses and wrote this manuscript. Humans gave the initial task description (S2 Text) and a few later instructions, listed in Materials and methods. \textbf{No human has yet verified the methods or results.} The manuscript should be read as the output of that exercise, not as a peer-reviewed tool paper.
 
 \section*{Abstract}
-Most orthology methods either compare every pair of proteomes, build a gene tree for every orthogroup, or place proteins into a precomputed reference database. We tested a different approach. Our method, Ancestra, first splits all proteins into families with a near-linear clustering step. It then walks the species tree from the leaves to the root. At each ancestral node it reconstructs the genes of that ancestor, inside every family at once, from mutual best matches, absorbed in-paralogs and small local gene trees. The output is a set of hierarchical orthologous groups (HOGs) in OrthoXML. On the held-out half of OrthoBench (36 reference orthogroups), Ancestra reached F = 76.2, compared with 69.7 for OrthoFinder 3.2, 70.4 for SonicParanoid2, 60.4 for precomputed OMA HOGs and 33.1 for FastOMA, using 3.9 CPU-hours against OrthoFinder's 8.2. The gains over OMA and FastOMA were significant. The gain over OrthoFinder was not: the 95\% interval of the difference, \CI{$-6.5$}{$+18.1$} F points, failed our pre-registered non-inferiority rule. On the Quest for Orthologs 2022 benchmark (78 species), Ancestra matched FastOMA and OMA pairs on TreeFam-A recall but had clearly lower recall than OrthoFinder ($-0.16$) and the worst species-tree discordance among the main comparators. CPU time grew with the number of proteins to the power 1.16 \CI{1.10}{1.21}. We also tested five extra data layers. Gene order separated orthologs from paralogs well on its own but did not improve the final groups. 3D structure joined more family members but lowered precision. Expression and isoform data did not help. Genome sequences showed that 53\% of apparent gene losses in mammals were not real losses. Building HOGs level by level inside families is a viable and scalable approach, but it does not yet match tree-based methods on recall at deep taxonomic levels.
+Most orthology methods either compare every pair of proteomes, build a gene tree for every orthogroup, or place proteins into a precomputed reference database. We tested a different approach. Our method, Ancestra, first splits all proteins into families with a near-linear clustering step. It then walks the species tree from the leaves to the root. At each ancestral node it reconstructs the genes of that ancestor, inside every family at once, from mutual best matches, absorbed in-paralogs and small local gene trees. The output is a set of hierarchical orthologous groups (HOGs) in OrthoXML. On the held-out half of OrthoBench (36 reference orthogroups), Ancestra reached F = 76.2, compared with 69.7 for OrthoFinder 3.2, 70.4 for SonicParanoid2, 60.4 for precomputed OMA HOGs and 33.1 for FastOMA, using 3.9 CPU-hours against OrthoFinder's 8.2. The gains over OMA and FastOMA were significant. The gain over OrthoFinder was not: the 95\% interval of the difference, \CI{$-6.5$}{$+18.1$} F points, failed our pre-registered non-inferiority rule. On the Quest for Orthologs 2022 benchmark (78 species), Ancestra matched FastOMA and OMA pairs on TreeFam-A recall but had clearly lower recall than OrthoFinder ($-0.16$) and the worst species-tree discordance among the main comparators. CPU time grew with the number of proteins to the power 1.16 \CI{1.10}{1.21}. We also tested five extra data layers, and eight more in a second round on development data. Gene order separated orthologs from paralogs well on its own but did not improve the final groups. 3D structure joined more family members but lowered precision. Expression and isoform data did not help, nor did interaction networks, domain architecture or protein language models. Genome sequences showed that 53\% of apparent gene losses in mammals were not real losses. Building HOGs level by level inside families is a viable and scalable approach, but it does not yet match tree-based methods on recall at deep taxonomic levels.
 
 \section*{Author summary}
 Genes in different species that descend from one gene in their last common ancestor are called orthologs. Finding them is a basic step in comparing genomes and transferring knowledge between species. As thousands of new genomes appear, orthology methods must be both accurate and fast. We built and tested a method, Ancestra, that reconstructs the genes of each ancestor in the tree of life, one ancestor at a time, inside groups of related proteins. We compared it with leading methods on two standard benchmarks. It was as good as or better than methods from the OMA family and cheaper than OrthoFinder, but it missed more distant orthologs than OrthoFinder. Adding gene order, protein structure, expression or isoform data did not improve the final result, even when that data was informative on its own. The work was planned and carried out by AI agents, as a test of how well such agents can run a research project. We report the decisions they took, the methods that failed and the protocol deviations.
@@ -175,6 +175,32 @@ Genome DNA & 92\% recovery of planted controls; 0/512 false hits & validation on
 \item 21\% were unresolved.
 \end{itemize} Genome sequence is therefore useful to audit the gene losses implied by HOGs, rather than as an input to inference.
 
+\textbf{Second round of layers.} After the freeze, we tested further layers under one shared protocol, on development data only (Table~\ref{tab:layers2}). Each layer's arms and keep rule were committed before its integration results, and each was compared with shuffled controls. No arm passed, so none was run on test data.
+
+\begin{table}[!ht]
+\begin{adjustwidth}{-2.25in}{0in}
+\centering
+\caption{{\bf Second round of data layers (development data only).} AUC is for ortholog vs paralog on hard cases (shuffled controls $\approx$0.50) unless stated.}
+\begin{tabular}{p{3.4cm}p{5.4cm}p{4.6cm}}
+\hline
+Layer & On its own & Inside the merge\\
+\hline
+Interaction networks (STRING, own-species evidence only~\cite{szklarczyk2023string}; hu.MAP 3.0~\cite{fischer2025humap3}) & AUC 0.63 (OrthoBench, 3.4\% of candidates covered), 0.62 (TreeFam-A) & not run; as recall rescue, added pairs were orthologs only 48--54\% of the time\\
+Protein abundance (PaxDb~\cite{huang2023paxdb}) & AUC 0.68; right in 34\% of decisions & not run\\
+Domain architecture (Pfam~\cite{paysanlafosse2025pfam}) & AUC 0.64 (sequence 0.74); 0.98 between orthogroups but 0.54 within one & TreeFam-A F1 $+0.018$ \CI{$+0.003$}{$+0.034$}, but PPV $-0.025$ and OrthoBench OG-F $-2.9$\\
+Protein language models (ESM-2~\cite{lin2023esm2}, ProtT5~\cite{elnaggar2022prottrans}) & above shuffled, below sequence; below chance where sequence fails & not run\\
+Contrastive model trained on our own synteny-supported pairs & $+0.040$ over raw embeddings on easy cases; $-0.007$ \CI{$-0.065$}{$+0.056$} on hard cases & not run\\
+Intron positions & AUC 0.58 (sequence 0.65); tie-breaking lowered accuracy by 0.07 & not run\\
+Gene order: repair of split HOGs & removed 29--40\% of known fission cases (shuffled: none) & macro pair F1 $+0.006$ \CI{$-0.002$}{$+0.016$}; TreeFam-A TPR $+0.004$ \CI{$-0.005$}{$+0.013$}\\
+Structure rescue with full 3Di coverage (ProstT5) & -- & macro pair F1 $+0.004$ \CI{$-0.001$}{$+0.011$}\\
+\hline
+\end{tabular}
+\label{tab:layers2}
+\end{adjustwidth}
+\end{table}
+
+Every layer beat its shuffled control, but none separated an ortholog from a close paralog better than sequence. Paralogs share interaction partners, domains, folds, embeddings and intron positions, so these layers tend to fail on the same cases as sequence. The repair of split HOGs by gene order is the exception: it fixed real errors, but fewer than 1\% of its decisions touched a labelled pair, so the benchmarks could not measure it.
+
 \subsection*{Choice of species tree}
 Ancestra needs a guide tree. We compared the NCBI taxonomy with trees inferred from the data (ASTRAL-Pro~\cite{zhang2020astralpro}, FastME~\cite{lefort2015fastme}, BIONJ~\cite{gascuel1997bionj}), with perturbed trees, and with a random tree (Table~\ref{tab:trees}).
 
@@ -247,7 +273,7 @@ Ancestra shows that HOGs can be built by reconstructing ancestral genes level by
 
 \textbf{Main weakness: deep nodes.} At the deepest levels of the species tree, the merge relies on score rules, often without an outgroup. Rules strict enough to keep OrthoBench orthogroups apart split true orthologs across Eukaryota; looser rules fuse groups. OrthoFinder avoids this by inferring a tree for the whole orthogroup and rooting it with duplication information~\cite{emms2017stride}. Possible fixes for Ancestra are outgroup tests with a third clade, larger local trees at deep nodes, and a family partition that is not limited by pairwise sequence hits.
 
-\textbf{Extra data layers.} Our clearest finding is negative: a layer can be informative on its own yet add nothing to good sequence-based inference. Gene order and structure each passed their standalone tests with shuffled controls. Neither improved the final groups on held-out data, and structure made them worse. The cases where these layers add unique information are the cases where they are weakest: gene order decays at deep nodes, and structure is shared by paralogs. Genome sequence was most useful for validation: it exposed our own fission errors.
+\textbf{Extra data layers.} Our clearest finding is negative: a layer can be informative on its own yet add nothing to good sequence-based inference. Gene order and structure each passed their standalone tests with shuffled controls. Neither improved the final groups on held-out data, and structure made them worse. A second round of layers (interaction networks, protein abundance, domain architecture, protein language models, intron positions) failed for the same reason: the evidence that separates orthologs from distant homologs is also shared by close paralogs. The cases where these layers add unique information are the cases where they are weakest: gene order decays at deep nodes, and structure is shared by paralogs. Genome sequence was most useful for validation: it exposed our own fission errors.
 
 \textbf{Benchmarks.} The two benchmarks gave different rankings, and the OrthoBench test set was too small for firm conclusions (95\% intervals of about $\pm$12 F points). We report every pre-registered verdict as written, including the failures. Several deviations weaken the evidence: the development data were reused heavily, the TreeFam-A development split was created after the first QfO evaluation, and OMA-based comparators had seen the benchmark species (S3 Text).
 
@@ -259,7 +285,7 @@ Ancestra shows that HOGs can be built by reconstructing ancestral genes level by
 \end{itemize}
 Independent verification found real errors: a false statement in our list of disclosures, an omitted primary endpoint and confidence intervals that were too narrow. The main weakness of the setup was the pressure to tune on a small development set; several gains on development data did not replicate.
 
-\textbf{Limitations.} Run times come from single runs on shared nodes. Our simulator was written in-house and not validated against an independent simulator. The merge is slightly sensitive to the order of children in the guide tree (18 OrthoBench orthogroups differ). Only 22 of 81 quantitative claims were independently recomputed; the others were checked against their evidence files.
+\textbf{Limitations.} Run times come from single runs on shared nodes. Our simulator was written in-house and not validated against an independent simulator. The merge is slightly sensitive to the order of children in the guide tree (18 OrthoBench orthogroups differ). It is also sensitive to small changes in the scores: a 1\% random jitter of the DIAMOND scores lowered development OG-F by 3--7 points, so the frozen parameters sit on a sharp optimum. Only 22 of 81 quantitative claims were independently recomputed; the others were checked against their evidence files.
 
 \section*{Materials and methods}
 
@@ -305,8 +331,18 @@ Ancestra is written in Python and calls DIAMOND 2.2.8, MMseqs2 18, FAMSA and Fas
 \item \textbf{Expression:} Bgee~\cite{bastian2025bgee}.
 \item \textbf{Isoforms:} Ensembl 99 peptide sets.
 \item \textbf{Genome DNA:} miniprot~\cite{li2023miniprot} searches of Ensembl 99 genomes at loci predicted by gene order.
+\item \textbf{Second round (post-freeze, development data only):}
+  \begin{itemize}
+  \item STRING v12, using only each organism's own experimental and co-expression channels, since transferred evidence is itself derived from orthology;
+  \item hu.MAP 3.0 and PaxDb 5.0;
+  \item Pfam-A 38.2 (\texttt{hmmsearch --cut\_ga});
+  \item ESM-2 and ProtT5 embeddings, and a contrastive head trained on synteny-supported pairs from families with no development or test genes;
+  \item intron positions from Ensembl 99 GFF3;
+  \item ProstT5 3Di predicted on a GPU.
+  \end{itemize}
+  Five agents ran these in parallel under one shared protocol: pre-registered arms and keep rules, and shuffled controls with seeds 11, 23 and 47.
 \end{itemize}
-Details of each sub-task benchmark are in the research repository (\texttt{docs/S*\_*.md}).
+Details of each sub-task benchmark are in the research repository (\texttt{docs/S*\_*.md}, \texttt{docs/L2\_*.md}).
 
 \section*{Data and code availability}
 Code, predictions (OrthoXML, pairs and orthogroups for OrthoBench and QfO), a runnable example and the original task prompt are in the accompanying repository \pend{URL}. The full research record, including all failed experiments, is in the research repository.

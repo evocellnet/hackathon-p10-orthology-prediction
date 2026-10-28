@@ -260,6 +260,35 @@ This work was done after the freeze, on one A100 GPU. It lives as opt-in code on
 - A 1% random jitter of the CPU bit scores costs −3.2 to −7.3 dev OG-F (seeds 11/23/47), as much as the full GPU graph. The frozen merge sits on a sharp optimum of the exact DIAMOND table. This is a robustness limitation of the method, and any layer that changes scores should be judged against this jitter floor.
 - Rank-ratio sparsification (keep a pair if its bits are ≥ 0.207 × the query's best hit in that species) reaches QfO TreeFam-A dev 0.637/0.930 at 0.59 CPU-h, against 0.615/0.922 at 9.05 CPU-h, with both differences inside the CIs. It still costs −8.4 OrthoBench dev OG-F. It is an untested speed option, not part of the method.
 
+### 3.9 Second round of data layers (post-freeze, development data only)
+After the freeze, while the scaling runs finished, we tested more layers under one shared protocol (`docs/L2_protocol.md`). The rules were:
+- each layer's hypothesis, arms and keep rule were committed before any integration result;
+- shuffled controls used seeds 11/23/47;
+- only the development splits were used, with no test data;
+- the same keep rule applied (lower 95% CI of Δ above 0; PPV −0.01, OG-F −1.0 guards).
+
+Five agents ran in parallel. **No arm passed**, so none was evaluated on test.
+
+| Layer | On its own (dev hard cases unless stated; shuffled ≈ 0.50) | Inside the merge (dev) | Verdict | Cost |
+|---|---|---|---|---|
+| Interaction networks: STRING v12, own-species channels only (no transferred, text-mining or homology evidence); hu.MAP 3.0 | AUC 0.630 [0.532, 0.699] on OrthoBench (3.4% of candidates covered), 0.622 on TreeFam-A; right when it decides 44% / 52% | not run. As recall rescue, the added pairs were orthologs only 48–54% of the time | fails standalone gate | 0.4 CPU-h |
+| Protein abundance (PaxDb) | AUC 0.676 [0.604, 0.732]; right when it decides 34% | not run | fails standalone gate | – |
+| Domain architecture (Pfam-A 38.2, clan Jaccard) | hard AUC 0.637 [0.547, 0.738] vs sequence 0.743. Between orthogroups 0.979, but within one orthogroup 0.54. Re-ranking +0.001 [−0.008, +0.011] | best arm (looser matching only for identical architectures): TreeFam-A F1 +0.018 [+0.003, +0.034], TPR +0.038 but PPV −0.025; OrthoBench OG-F −2.9 | fails guards; dominated by a sequence-only setting | 48 CPU-h (annotation alone 31) |
+| Protein language models (ESM-2 35M–3B, ProtT5; mean cosine and embedding alignment) | above shuffled by +0.23 to +0.33, but below sequence everywhere (deep 0.61–0.72 vs 0.757). Where sequence fails on hard cases they are below chance (0.24–0.41). Best tie-breaker +0.022 [−0.001, +0.046] | not run | fails standalone gate | 3 GPU-h |
+| Contrastive head trained on our own synteny-supported 1:1 pairs (families with dev or test genes excluded) | easy cases +0.040 [+0.010, +0.056] over raw embeddings; hard cases −0.007 [−0.065, +0.056]; below sequence on deep pairs (−0.077) | not run | fails standalone gate | (in the above) |
+| pLM nearest-neighbour family rescue with a guard | the guard passed 90% of links; 229k of 251k genes chained into one family | – | killed | – |
+| Gated synteny repair (an unmatched unit joins its uniquely best syntenic partner) | removes 29–40% of the S8 fission candidates (shuffled: none) | OrthoBench macro pair F1 +0.0059 [−0.0015, +0.0159]; TreeFam-A TPR +0.0042 [−0.0049, +0.0134]; PPV within 0.002 | fails (CIs include 0); fewer than 1% of its decisions touch a labelled dev pair | ~4 CPU-h for the whole genome agent |
+| Intron positions (Ensembl 99 GFF3) | AUC 0.578 [0.514, 0.661] vs sequence 0.654. As a tie-breaker, accuracy −0.071 [−0.149, +0.007] | not run | fails | – |
+| Expression, second look (tissue specificity τ as a tie-breaker) | right when it decides 45%; re-ranking −0.076 [−0.131, −0.010] | not run | fails | – |
+| Structure rescue at full 3Di coverage (ProstT5 on GPU for 63k QfO proteins) | – | OrthoBench macro +0.0042 [−0.0005, +0.011], identical to the AlphaFold DB-only coverage; TreeFam-A +0.002 TPR | fails | ProstT5 5 GPU-h |
+| All-GPU S2, rank-ratio sparsified | – | TreeFam-A 0.637/0.930 vs 0.615/0.922 at 0.59 vs 9.05 CPU-h; OrthoBench OG-F −8.4 | fails equivalence | – |
+
+*Sources: `docs/L2_{network,domains,plm,genome,gpu}.md`, `results/l2_*/`.*
+
+**Main lesson.** Every new layer carries real signal: each beats its shuffled control. None of them separates an ortholog from a close paralog better than sequence does. Paralogs share interaction partners, domains, folds, embeddings, intron positions and expression. Where sequence is wrong, the other layers tend to be wrong in the same direction. Synteny is the exception: it repairs real fission errors. But the cases it fixes (shallow vertebrate 1:1 orthologs split into two HOGs) are almost unlabelled in the development benchmarks, so its effect cannot be measured there. A pre-registered evaluation on a benchmark that labels those cases (e.g. a VGNC-like dev split) would settle it.
+
+A second lesson came from a control. Jittering the frozen merge's input scores by 1% costs 3–7 dev OG-F (§3.8). Any layer that changes the scores has to beat that floor, which is a high bar.
+
 ---
 
 ## 4. Discussion
@@ -277,7 +306,7 @@ It needs no reference database, unlike placement methods.
 - structure as a deep-node tie-breaker;
 - a profile-based S0 that is not capped by the sequence-similarity ceiling.
 
-**Extra data layers.** Our layer results are largely negative for orthology *assignment*, despite strong standalone signals. This is an important and somewhat counter-intuitive finding: a layer can be highly informative in isolation yet redundant given good sequence evidence. The cases where the extra signal is unique — distant homologs (structure) and deep levels (synteny) — are exactly where that signal is weakest or blurs orthology and paralogy. Genomic DNA was most useful as validation: it exposed our own fission errors and confirmed known pseudogenisations.
+**Extra data layers.** In a second, post-freeze round, ten further arms (interaction networks, protein abundance, domain architecture, protein language models including a model trained on our own synteny labels, intron positions, synteny-driven fission repair, and full-coverage structure rescue) all failed on development data (§3.9). Our layer results are largely negative for orthology *assignment*, despite strong standalone signals. This is an important and somewhat counter-intuitive finding: a layer can be highly informative in isolation yet redundant given good sequence evidence. The cases where the extra signal is unique — distant homologs (structure) and deep levels (synteny) — are exactly where that signal is weakest or blurs orthology and paralogy. Genomic DNA was most useful as validation: it exposed our own fission errors and confirmed known pseudogenisations.
 
 **Benchmarks disagree.** The 36-RefOG OrthoBench test gives ΔF CIs of ±12 pp, so a 6.5-point lead over OrthoFinder is not significant. QfO's pair-level tests are much tighter but measure different things. We report both, and every pre-registered verdict as written, including the failures.
 
@@ -286,7 +315,7 @@ It needs no reference database, unlike placement methods.
 - Runtimes were measured once per point on a shared node (load 20–70), so walls are upper bounds. Competitor fits use 3 points.
 - OMA-based comparators saw the benchmark species (leakage in their favour). QfO competitor rows are published submissions produced under other conditions.
 - The OMA browser labelling rule was corrected after a first score (45.5 → 60.4), in OMA's favour (DISCLOSURES #19).
-- The merge is slightly sensitive to Newick child order (18/thousands of orthogroups).
+- The merge is slightly sensitive to Newick child order (18/thousands of orthogroups). It is also sensitive to small score changes: a 1% random jitter of the DIAMOND scores costs 3–7 dev OG-F (L2-gpu), so the frozen parameters sit on a sharp optimum.
 - Prokaryotic HGT is handled only implicitly. The NCBI tree is an external input.
 - 57 of 81 claims in `CLAIMS.md` were matched to their evidence files but not independently recomputed.
 

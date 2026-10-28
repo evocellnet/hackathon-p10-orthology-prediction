@@ -279,3 +279,53 @@ Full list: `docs/DISCLOSURES.md`.
 - **Gene-dropping bug.** FastOMA 0.5.1 dropped 5,497 OrthoBench genes when splitting HOGs. We patched the bug and re-ran FastOMA: test F was 33.1, against 33.5 unpatched, so the bug does not explain its low score.
 - **OMA browser HOGs.** Our first labelling rule for the precomputed HOGs gave test F 45.5. We corrected the rule after seeing this score (60.4), a change in OMA's favour.
 - **Scaling runs.** The first FastOMA runs failed silently because Nextflow could not list files in a symbolic-link directory.
+
+# 10. Second round of data layers (post-freeze; DEV only)
+
+These arms ran after the freeze, under one shared protocol (`docs/L2_protocol.md`):
+- each layer's arms and keep rule were committed before its integration results;
+- shuffled controls used seeds 11/23/47;
+- the same keep rule as before applied;
+- no test data were used.
+
+No arm passed. Details are in `docs/L2_{network,domains,plm,genome,gpu}.md`.
+
+## 10.1 Interaction networks and co-fractionation
+
+- **Idea.** Orthologs keep their interaction partners. For a candidate pair, the score counts the partners that are linked through the run's own confident 1:1 orthologs.
+- **Data.** STRING v12, using only each organism's own experimental and co-expression evidence. Transferred, text-mining and homology channels were excluded, since they are derived from orthology. The human co-fractionation and AP-MS complexes of hu.MAP 3.0 were added.
+- **Result.** AUC was 0.630 [0.532, 0.699] on OrthoBench and 0.622 on TreeFam-A, against 0.50 for shuffled networks. But only 3.4% of OrthoBench candidates have any network data, and on hard queries the layer was right in only 44% (OrthoBench) and 52% (TreeFam-A) of its decisions. Pairs added as recall rescue were orthologs only 48–54% of the time.
+- **Decision.** Stopped at the standalone gate. Most hard cases lie in species with almost no interaction data (fish, chicken, dog, opossum, Ciona). Where data exist, paralogs share partners.
+
+## 10.2 Protein abundance (PaxDb)
+
+- **Result.** AUC 0.676 [0.604, 0.732]. On hard queries it was right in 34% of its decisions, and it lowered accuracy (−0.131 [−0.246, −0.046]).
+- **Decision.** Stopped, as expression was earlier.
+
+## 10.3 Domain architecture (Pfam)
+
+- **Idea and data.** Jaccard similarity of Pfam clan sets, from `hmmsearch --cut_ga` with Pfam-A 38.2. We annotated the 58k proteins in OrthoBench dev families and the 446k proteins in TreeFam-A dev families.
+- **Standalone.** Hard-case AUC was 0.637 [0.547, 0.738], against 0.743 for sequence. Architecture separates different orthogroups almost perfectly (0.979) but not orthologs from in-paralogs within one orthogroup (0.54). Re-ranking hard cases changed accuracy by +0.001.
+- **Integration.** The best arm relaxed the mutual-best tolerance to 0.8 only for identical architectures. TreeFam-A dev F1 rose by +0.018 [+0.003, +0.034] and TPR by +0.038, and the arm beat its shuffled control. But PPV fell by 0.025 and OrthoBench OG-F by 2.9, so it broke both guards. An existing sequence-only arm dominated it. A bonus arm and a veto arm had no effect.
+- **Cost.** 31 CPU-h for annotation alone. Annotating all of QfO would cost about 60 CPU-h.
+- **Decision.** Rejected for the merge. The between-orthogroup signal could serve as a family-fusion guard in S0; that is untested.
+
+## 10.4 Protein language models
+
+- **Pretrained models.** We tested ESM-2 (35M, 650M, 3B) and ProtT5, each as mean-pooled cosine and as an embedding-based alignment score. All beat shuffled embeddings by 0.23–0.33 in ranking accuracy, but all stayed below sequence: 0.61–0.72 on deep pairs, against 0.757. On hard cases where sequence ranks wrongly they scored 0.24–0.41, below chance, so their errors follow the sequence errors. The best combination with sequence gained +0.022 [−0.001, +0.046] on deep hard cases, one of about 40 comparisons.
+- **A model trained on our own data.** We trained a contrastive head on frozen ESM-2 3B embeddings. Positives were synteny-supported 1:1 pairs among OrthoBench species, and every family with a dev or test gene was excluded. The head improved easy cases (+0.040 [+0.010, +0.056] over raw embeddings) but not hard ones (−0.007 [−0.065, +0.056]). The reason is that the rule that makes labels trustworthy (an unambiguous anchor) removes all sequence near-ties from training. A post-hoc variant trained on near-ties decided by synteny did not beat its random-winner control.
+- **Nearest-neighbour family rescue.** Mean-pooled cosines cluster near 1, so the pre-registered guard let 90% of links through, and 229k of 251k genes chained into one family. Killed.
+- **Not pursued.** ESM-C (licence and package version), LoRA fine-tuning, 3Di tokens as extra input, and pLM distances for NJ trees.
+
+## 10.5 Gene order and gene structure, second attempt
+
+- **Gated synteny repair.** A unit still unmatched at a node may join its uniquely best syntenic partner, if the sequence score is within 0.75 of its best and the join creates no duplication. With real gene order it removed 29–40% of the fission cases found in S8; with shuffled gene order it removed none. On the benchmarks the change was within noise: OrthoBench dev macro pair F1 +0.0059 [−0.0015, +0.0159] and TreeFam-A dev TPR +0.0042 [−0.0049, +0.0134], with PPV within 0.002. Fewer than 1% of its decisions touched a labelled pair. Rejected under the keep rule. It would need a benchmark that labels shallow 1:1 orthologs.
+- **Synteny anchors for recall at the LCA.** Same machinery and same outcome (included in the numbers above).
+- **Intron positions** (Ensembl 99 GFF3). AUC 0.578 [0.514, 0.661], against 0.50 shuffled and 0.654 for sequence. As a tie-breaker it lowered hard-case accuracy from 0.473 to 0.403. Young paralogs keep intron positions as well as orthologs do.
+- **Expression, second attempt** (tissue specificity τ as a tie-breaker). Right in 45% of its decisions; accuracy fell by 0.076 [−0.131, −0.010].
+
+## 10.6 GPU ideas left open in the first GPU round
+
+- **Sparsifying the all-GPU score graph.** We ran eight arms, a random-sparsification control and a score-jitter floor. Every all-GPU arm lost OrthoBench dev accuracy. The jitter floor explains why: a 1% random jitter of the CPU scores alone costs 3.2–7.3 OG-F. The best QfO arm (keep pairs scoring at least 0.207 × the query's best hit in that species) gave TreeFam-A dev TPR/PPV 0.637/0.930 at 0.59 CPU-h, against 0.615/0.922 at 9.05 CPU-h, but it lost 8.4 OrthoBench OG-F.
+- **Batched FastTree.** `FastTree -n` saved 1.5% of merge time and changed 4 of 1.39 M pairs. The first GPU report had blamed process start-up for the cost; in fact 93% of each call is the ML optimisation. In-process FAMSA (pyfamsa) was not faster and changed 8 of 998 alignments. Not enabled.
+- **Structure rescue at full 3Di coverage.** ProstT5 on the GPU filled the 63k QfO proteins without AlphaFold DB structures in 5 h. Metrics were the same as with AlphaFold DB coverage alone (OrthoBench macro pair F1 +0.0042 [−0.0005, +0.011]), so the rescue still fails the keep rule. Foldseek's GPU search was slower than its CPU search here (47.6 vs 29.0 s for 3,000 queries) and returned a different hit set.
