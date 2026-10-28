@@ -1,0 +1,248 @@
+{
+ "results": [
+  {
+   "run": "../gpuv2/diagA_cpu_norescue",
+   "F": 78.74,
+   "P": 73.65,
+   "R": 84.58,
+   "exact": 11,
+   "pairF1_micro": 0.7913,
+   "pairF1_macro": 0.796
+  },
+  {
+   "run": "../l2gpu/ob/J11",
+   "F": 75.52,
+   "P": 68.48,
+   "R": 84.17,
+   "exact": 11,
+   "pairF1_micro": 0.7781,
+   "pairF1_macro": 0.7854,
+   "dOG_F": -3.22,
+   "dOG_F_ci": [
+    -8.37,
+    -0.04
+   ],
+   "dmacro": -0.0106,
+   "dmacro_ci": [
+    -0.0197,
+    -0.0032
+   ]
+  },
+  {
+   "run": "../l2gpu/ob/J23",
+   "F": 71.44,
+   "P": 67.71,
+   "R": 75.61,
+   "exact": 12,
+   "pairF1_micro": 0.7797,
+   "pairF1_macro": 0.7825,
+   "dOG_F": -7.3,
+   "dOG_F_ci": [
+    -15.42,
+    0.14
+   ],
+   "dmacro": -0.0136,
+   "dmacro_ci": [
+    -0.0264,
+    -0.0025
+   ]
+  }
+ ],
+ "manifest": {
+  "script": "scripts/l2gpu_eval.py",
+  "argv": [
+   "scripts/l2gpu_eval.py",
+   "ob",
+   "t1_ob_jitter_vs_cpuA",
+   "../gpuv2/diagA_cpu_norescue",
+   "../l2gpu/ob/J11",
+   "../l2gpu/ob/J23"
+  ],
+  "git_commit": "4b3bdd19f8560b8674420eeaa09f49ea22326b52",
+  "dataset": "ob",
+  "split": "dev only (OrthoBench 34 dev RefOGs / TreeFam-A 359 dev families)",
+  "bootstrap": "paired, B=2000, seed 11",
+  "eval_runtime_s": 17.9,
+  "runs": [
+   {
+    "run": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/gpuv2/diagA_cpu_norescue",
+    "config_scoring": {
+     "backend": "hybrid",
+     "evalue": 10.0,
+     "block_genes": 100000,
+     "diamond_sens": "--sensitive",
+     "diamond_b": 4.0,
+     "cap_all": 5000,
+     "g_max": 20000,
+     "top_per_species": 2,
+     "top_same": 20,
+     "family_rescue": false,
+     "rescue_cov": 0.5,
+     "rescue_max_join": 7500,
+     "rescue_max_family": 1000,
+     "rescue_evalue": 1e-05,
+     "threads": 8,
+     "gpu_db_residues": 0.0,
+     "gpu_device": 0
+    },
+    "merge_cfg_nondefault": {
+     "link": "avg",
+     "tree_method": "fasttree"
+    },
+    "git": {
+     "commit": "877017d096edc747b01a1bc2870ff84d5f307257",
+     "ancestra_dirty": true
+    },
+    "stages": {
+     "scores": {
+      "wall_s": null,
+      "peak_rss_mb": null,
+      "skipped": false
+     },
+     "merge": {
+      "wall_s": 552.584,
+      "peak_rss_mb": 3319.7,
+      "skipped": false,
+      "tree_s": 486.87
+     },
+     "output": {
+      "wall_s": 12.827,
+      "peak_rss_mb": 1801.7,
+      "skipped": false
+     }
+    },
+    "time": {
+     "User time (seconds)": "3655.60",
+     "System time (seconds)": "224.69",
+     "Elapsed (wall clock) time": "9:28.72",
+     "Maximum resident set size": "3416076"
+    },
+    "hogs_md5": "ad9712086c112f7dc005c1fbca954592"
+   },
+   {
+    "run": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/l2gpu/ob/J11",
+    "config_scoring": {
+     "backend": "gpusw",
+     "evalue": 10.0,
+     "block_genes": 100000,
+     "diamond_sens": "--sensitive",
+     "diamond_b": 4.0,
+     "cap_all": 5000,
+     "g_max": 20000,
+     "top_per_species": 2,
+     "top_same": 20,
+     "family_rescue": false,
+     "rescue_cov": 0.5,
+     "rescue_max_join": 7500,
+     "rescue_max_family": 1000,
+     "rescue_evalue": 1e-05,
+     "threads": 4,
+     "gpu_db_residues": 0.0,
+     "gpu_max_family": 1000,
+     "gpu_mask": "none",
+     "gpu_comp_bias": false,
+     "gpu_big_evalue": 0.0,
+     "gpu_device": 0,
+     "gpu_sparsify": "none"
+    },
+    "merge_cfg_nondefault": {
+     "link": "avg",
+     "tree_method": "fasttree",
+     "tree_ft_batch": 0,
+     "tree_ft_inproc": false
+    },
+    "git": {
+     "commit": "4b3bdd19f8560b8674420eeaa09f49ea22326b52",
+     "ancestra_dirty": false
+    },
+    "stages": {
+     "scores": {
+      "wall_s": null,
+      "peak_rss_mb": null,
+      "skipped": false
+     },
+     "merge": {
+      "wall_s": 999.001,
+      "peak_rss_mb": 3315.2,
+      "skipped": false,
+      "tree_s": 936.67
+     },
+     "output": {
+      "wall_s": 10.675,
+      "peak_rss_mb": 1803.8,
+      "skipped": false
+     }
+    },
+    "time": {
+     "User time (seconds)": "3584.45",
+     "System time (seconds)": "200.38",
+     "Elapsed (wall clock) time": "16:52.66",
+     "Maximum resident set size": "3408632"
+    },
+    "hogs_md5": "8ac92ef7d0a7920453ad6a7da9f0596a"
+   },
+   {
+    "run": "/scratch/spascare/agentic-ai/workspaces/p10-orthology-prediction/work/l2gpu/ob/J23",
+    "config_scoring": {
+     "backend": "gpusw",
+     "evalue": 10.0,
+     "block_genes": 100000,
+     "diamond_sens": "--sensitive",
+     "diamond_b": 4.0,
+     "cap_all": 5000,
+     "g_max": 20000,
+     "top_per_species": 2,
+     "top_same": 20,
+     "family_rescue": false,
+     "rescue_cov": 0.5,
+     "rescue_max_join": 7500,
+     "rescue_max_family": 1000,
+     "rescue_evalue": 1e-05,
+     "threads": 4,
+     "gpu_db_residues": 0.0,
+     "gpu_max_family": 1000,
+     "gpu_mask": "none",
+     "gpu_comp_bias": false,
+     "gpu_big_evalue": 0.0,
+     "gpu_device": 0,
+     "gpu_sparsify": "none"
+    },
+    "merge_cfg_nondefault": {
+     "link": "avg",
+     "tree_method": "fasttree",
+     "tree_ft_batch": 0,
+     "tree_ft_inproc": false
+    },
+    "git": {
+     "commit": "4b3bdd19f8560b8674420eeaa09f49ea22326b52",
+     "ancestra_dirty": false
+    },
+    "stages": {
+     "scores": {
+      "wall_s": null,
+      "peak_rss_mb": null,
+      "skipped": false
+     },
+     "merge": {
+      "wall_s": 998.952,
+      "peak_rss_mb": 3307.7,
+      "skipped": false,
+      "tree_s": 937.7
+     },
+     "output": {
+      "wall_s": 10.803,
+      "peak_rss_mb": 1856.9,
+      "skipped": false
+     }
+    },
+    "time": {
+     "User time (seconds)": "3591.73",
+     "System time (seconds)": "196.44",
+     "Elapsed (wall clock) time": "16:52.68",
+     "Maximum resident set size": "3416500"
+    },
+    "hogs_md5": "94fe43c4f9871f9fb90c9be4c8dd4618"
+   }
+  ]
+ }
+}

@@ -251,11 +251,14 @@ This work was done after the freeze, on one A100 GPU. It lives as opt-in code on
 | MMseqs2-GPU for S0/S2 | ≈9 ms per query, so slower than DIAMOND for searches of many proteins against many | ~5% more sensitive | not useful at these sizes |
 | **`--backend gpusw`** (CUDA Smith–Waterman, 600–640 GCUPS; families ≤1000 genes on GPU, larger ones on DIAMOND at the same time) | S2 1.32×, end to end 1.18× (OrthoBench accurate, 1,027 vs 1,207 s); QfO fast 1.18× | OG-F 80.2 vs 79.7 (Δ +0.5 [−3.5, +3.3]); QfO TreeFam-A dev 0.614/0.929 vs 0.615/0.922 | equivalent within noise, deterministic; modest gain |
 | All families on the GPU | S2 2.97×, end to end 1.57×; QfO 16× fewer CPU-h | OG-F −5.3 [−12.0, −0.7]; QfO PPV −0.016 | not equivalent; opt-in for speed only |
-| GPU for the local trees | cost is ≈0.18 s of fixed start-up per FAMSA/FastTree call | – | not pursued |
+| GPU for the local trees | ≈93% of each FastTree call is ML optimisation (not start-up, as first assumed); batching with `FastTree -n` saves 1.5% of merge time | 4 of 1.39 M pairs differ; dev metrics identical | not worth enabling (L2-gpu) |
 | ProstT5 3Di on GPU | 6,100–7,300 res/s (40–60× CPU); OrthoBench 3Di gap filled in 1 h 56 min | 99.9% agreement with CPU ProstT5 | feasible |
 | ESM-2 + FAISS kNN for family candidates | ≈10 min for OrthoBench | completeness bound 0.853 at k = 25, but 42% of neighbours fall outside the family | research lead |
 
-**Main lesson.** 78–85% of DIAMOND's time goes to a few families with more than 1,000 genes. Exhaustive GPU alignment of these families adds millions of weak paralog edges, and the frozen average-link merge is sensitive to them. A larger speed-up that keeps accuracy would therefore need a merge that is robust to how dense the score graph is.
+**Main lesson.** 78–85% of DIAMOND's time goes to a few families with more than 1,000 genes. Exhaustive GPU alignment of these families changes the score graph, and the frozen average-link merge is sensitive to the change. The L2-gpu follow-up (docs/L2_gpu.md) refined this in three ways:
+- The problem is not only weak edges. GPU scores on exactly DIAMOND's pair set cost −9.1 OG-F. Swapping in only the GPU self-scores costs −17.
+- A 1% random jitter of the CPU bit scores costs −3.2 to −7.3 dev OG-F (seeds 11/23/47), as much as the full GPU graph. The frozen merge sits on a sharp optimum of the exact DIAMOND table. This is a robustness limitation of the method, and any layer that changes scores should be judged against this jitter floor.
+- Rank-ratio sparsification (keep a pair if its bits are ≥ 0.207 × the query's best hit in that species) reaches QfO TreeFam-A dev 0.637/0.930 at 0.59 CPU-h, against 0.615/0.922 at 9.05 CPU-h, with both differences inside the CIs. It still costs −8.4 OrthoBench dev OG-F. It is an untested speed option, not part of the method.
 
 ---
 

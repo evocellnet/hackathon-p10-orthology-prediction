@@ -1,0 +1,278 @@
+{
+ "min_family": 1000,
+ "n_cpu": 13692945,
+ "n_gpu": 24067067,
+ "n_both": 13475703,
+ "jaccard_all": 0.5549139981705883,
+ "topk_per_species": {
+  "1": {
+   "kept": 837739,
+   "in_cpu": 741633,
+   "jaccard": 0.0538,
+   "recall_of_cpu": 0.0542,
+   "precision": 0.8853
+  },
+  "2": {
+   "kept": 1663846,
+   "in_cpu": 1394479,
+   "jaccard": 0.0999,
+   "recall_of_cpu": 0.1018,
+   "precision": 0.8381
+  },
+  "3": {
+   "kept": 2190056,
+   "in_cpu": 1824853,
+   "jaccard": 0.1298,
+   "recall_of_cpu": 0.1333,
+   "precision": 0.8332
+  },
+  "5": {
+   "kept": 3211265,
+   "in_cpu": 2617008,
+   "jaccard": 0.1832,
+   "recall_of_cpu": 0.1911,
+   "precision": 0.8149
+  },
+  "8": {
+   "kept": 4636629,
+   "in_cpu": 3647828,
+   "jaccard": 0.2485,
+   "recall_of_cpu": 0.2664,
+   "precision": 0.7867
+  },
+  "10": {
+   "kept": 5517499,
+   "in_cpu": 4250009,
+   "jaccard": 0.2841,
+   "recall_of_cpu": 0.3104,
+   "precision": 0.7703
+  },
+  "15": {
+   "kept": 7502858,
+   "in_cpu": 5526355,
+   "jaccard": 0.3527,
+   "recall_of_cpu": 0.4036,
+   "precision": 0.7366
+  },
+  "20": {
+   "kept": 9222599,
+   "in_cpu": 6542926,
+   "jaccard": 0.3996,
+   "recall_of_cpu": 0.4778,
+   "precision": 0.7094
+  },
+  "30": {
+   "kept": 11902972,
+   "in_cpu": 8015547,
+   "jaccard": 0.4559,
+   "recall_of_cpu": 0.5854,
+   "precision": 0.6734
+  },
+  "50": {
+   "kept": 15709554,
+   "in_cpu": 9923397,
+   "jaccard": 0.5094,
+   "recall_of_cpu": 0.7247,
+   "precision": 0.6317
+  },
+  "100": {
+   "kept": 20321930,
+   "in_cpu": 12051410,
+   "jaccard": 0.5487,
+   "recall_of_cpu": 0.8801,
+   "precision": 0.593
+  }
+ },
+ "ratio_to_best": {
+  "0.2": {
+   "kept": 14024674,
+   "in_cpu": 9115185,
+   "jaccard": 0.49,
+   "recall_of_cpu": 0.6657,
+   "precision": 0.6499
+  },
+  "0.3": {
+   "kept": 10391807,
+   "in_cpu": 7013716,
+   "jaccard": 0.4109,
+   "recall_of_cpu": 0.5122,
+   "precision": 0.6749
+  },
+  "0.4": {
+   "kept": 8105936,
+   "in_cpu": 5636152,
+   "jaccard": 0.3487,
+   "recall_of_cpu": 0.4116,
+   "precision": 0.6953
+  },
+  "0.5": {
+   "kept": 6390586,
+   "in_cpu": 4575295,
+   "jaccard": 0.295,
+   "recall_of_cpu": 0.3341,
+   "precision": 0.7159
+  },
+  "0.6": {
+   "kept": 4975568,
+   "in_cpu": 3724947,
+   "jaccard": 0.2493,
+   "recall_of_cpu": 0.272,
+   "precision": 0.7486
+  },
+  "0.7": {
+   "kept": 3789354,
+   "in_cpu": 3013043,
+   "jaccard": 0.2082,
+   "recall_of_cpu": 0.22,
+   "precision": 0.7951
+  },
+  "0.8": {
+   "kept": 2816884,
+   "in_cpu": 2370711,
+   "jaccard": 0.1677,
+   "recall_of_cpu": 0.1731,
+   "precision": 0.8416
+  },
+  "0.9": {
+   "kept": 1977240,
+   "in_cpu": 1727966,
+   "jaccard": 0.1239,
+   "recall_of_cpu": 0.1262,
+   "precision": 0.8739
+  }
+ },
+ "norm_max": {
+  "0.02": {
+   "kept": 21266823,
+   "in_cpu": 12683101,
+   "jaccard": 0.5693,
+   "recall_of_cpu": 0.9263,
+   "precision": 0.5964
+  },
+  "0.04": {
+   "kept": 16586850,
+   "in_cpu": 10864481,
+   "jaccard": 0.5596,
+   "recall_of_cpu": 0.7934,
+   "precision": 0.655
+  },
+  "0.06": {
+   "kept": 12317236,
+   "in_cpu": 9029985,
+   "jaccard": 0.5318,
+   "recall_of_cpu": 0.6595,
+   "precision": 0.7331
+  },
+  "0.08": {
+   "kept": 9295074,
+   "in_cpu": 7332419,
+   "jaccard": 0.4684,
+   "recall_of_cpu": 0.5355,
+   "precision": 0.7888
+  },
+  "0.1": {
+   "kept": 7192098,
+   "in_cpu": 5924894,
+   "jaccard": 0.396,
+   "recall_of_cpu": 0.4327,
+   "precision": 0.8238
+  },
+  "0.12": {
+   "kept": 5738006,
+   "in_cpu": 4862763,
+   "jaccard": 0.3338,
+   "recall_of_cpu": 0.3551,
+   "precision": 0.8475
+  },
+  "0.15": {
+   "kept": 4209085,
+   "in_cpu": 3802084,
+   "jaccard": 0.2697,
+   "recall_of_cpu": 0.2777,
+   "precision": 0.9033
+  },
+  "0.2": {
+   "kept": 2873856,
+   "in_cpu": 2739932,
+   "jaccard": 0.1982,
+   "recall_of_cpu": 0.2001,
+   "precision": 0.9534
+  }
+ },
+ "bits": {
+  "30": {
+   "kept": 24005364,
+   "in_cpu": 13472876,
+   "jaccard": 0.5561,
+   "recall_of_cpu": 0.9839,
+   "precision": 0.5612
+  },
+  "35": {
+   "kept": 21461598,
+   "in_cpu": 13291514,
+   "jaccard": 0.6079,
+   "recall_of_cpu": 0.9707,
+   "precision": 0.6193
+  },
+  "40": {
+   "kept": 18656213,
+   "in_cpu": 12794745,
+   "jaccard": 0.6543,
+   "recall_of_cpu": 0.9344,
+   "precision": 0.6858
+  },
+  "45": {
+   "kept": 16357065,
+   "in_cpu": 12062932,
+   "jaccard": 0.6706,
+   "recall_of_cpu": 0.881,
+   "precision": 0.7375
+  },
+  "50": {
+   "kept": 14399845,
+   "in_cpu": 11208376,
+   "jaccard": 0.6638,
+   "recall_of_cpu": 0.8186,
+   "precision": 0.7784
+  },
+  "60": {
+   "kept": 11243270,
+   "in_cpu": 9443097,
+   "jaccard": 0.6095,
+   "recall_of_cpu": 0.6896,
+   "precision": 0.8399
+  },
+  "80": {
+   "kept": 7441432,
+   "in_cpu": 6805408,
+   "jaccard": 0.4749,
+   "recall_of_cpu": 0.497,
+   "precision": 0.9145
+  }
+ },
+ "p_in_cpu_by_rank": {
+  "0-0": 0.8853,
+  "1-1": 0.7903,
+  "2-2": 0.8179,
+  "3-4": 0.7757,
+  "5-9": 0.7081,
+  "10-19": 0.6189,
+  "20-49": 0.5211,
+  "50-99": 0.4614,
+  "100-200": 0.3803
+ },
+ "p_in_cpu_by_norm": {
+  "0-0.02": 0.283,
+  "0.02-0.04": 0.3886,
+  "0.04-0.06": 0.4297,
+  "0.06-0.08": 0.5617,
+  "0.08-0.1": 0.6693,
+  "0.1-0.15": 0.7116,
+  "0.15-0.2": 0.7955,
+  "0.2-0.3": 0.9322,
+  "0.3-0.5": 0.9539,
+  "0.5-1.01": 0.9831
+ },
+ "self_ratio_gpu_over_cpu_median": 1.0302,
+ "self_cpu_missing": 1
+}

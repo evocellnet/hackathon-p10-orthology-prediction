@@ -1,0 +1,25 @@
+{
+ "n_query_units": 172165,
+ "n_target_units": 41320,
+ "sample": 3000,
+ "targets_with_3di": 41320,
+ "threads": 2,
+ "cpu_search_s": 28.97833514213562,
+ "pad_s": 1.452728509902954,
+ "gpu_search_s": 47.64058256149292,
+ "cpu_hits": 8602,
+ "gpu_hits": 4743,
+ "shared": 3523,
+ "jaccard": 0.3587,
+ "extrapolated_full_cpu_s": 1663.0,
+ "extrapolated_full_gpu_s": 2734.0,
+ "manifest": {
+  "script": "scripts/l2gpu_foldseek_gpu_bench.py",
+  "base": "work/rescue/qfo/base",
+  "3di": "work/l2gpu/t3/qfo_3di_full.fa (AFDB qfo_3di_best.fa + ProstT5-GPU gap, md5 gap 764665b6)",
+  "foldseek": "10.941cd33",
+  "sample_seed": 11,
+  "params": "-s 7.5 --max-seqs 100 -e 1e-3 --alignment-type 2",
+  "node": "shared A100 (plm agent), 2 CPU threads, load ~33"
+ }
+}

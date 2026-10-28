@@ -1,0 +1,39 @@
+[
+ {
+  "run": "../gpuv2/qfo_cpu_fast",
+  "TPR": 0.6151,
+  "PPV": 0.9224
+ },
+ {
+  "run": "../gpuv2/qfo_allgpu_fast",
+  "TPR": 0.6081,
+  "PPV": 0.9061,
+  "dTPR": -0.0069,
+  "dTPR_ci": [
+   -0.0252,
+   0.0139
+  ],
+  "dPPV": -0.0163,
+  "dPPV_ci": [
+   -0.0524,
+   0.0177
+  ],
+  "n_families": 359
+ },
+ {
+  "run": "../gpuv2/qfo_gpusw_fast",
+  "TPR": 0.6138,
+  "PPV": 0.9287,
+  "dTPR": -0.0013,
+  "dTPR_ci": [
+   -0.0073,
+   0.0057
+  ],
+  "dPPV": 0.0062,
+  "dPPV_ci": [
+   -0.0033,
+   0.0244
+  ],
+  "n_families": 359
+ }
+]
