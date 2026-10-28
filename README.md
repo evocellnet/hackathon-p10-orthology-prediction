@@ -11,12 +11,12 @@ The rest of this repository is entirely AI generated. It includes code for imple
 # Ancestra
 
 Ancestra infers **hierarchical orthologous groups (HOGs)** from a set of proteomes and writes them as OrthoXML.
-It is a research prototype built in a 48-hour autonomous project (clock in `START.txt`). Method development and all numbers
-quoted here are **dev-only** and not yet independently reviewed; see "Status" below and `CLAIMS.md`.
+It is a research prototype built in a 48-hour autonomous project (clock in `START.txt`). The numbers below were checked by
+agents that did not produce them (`docs/VERIFICATION*.md`), not by a human; see "Status" below and `CLAIMS.md`.
 
 ## What Ancestra is
 
-Ancestra splits the problem in three steps. (1) A near-linear **family partition** (DIAMOND clustering, then every gene against the
+Ancestra splits the problem in three steps. (1) A **family partition** (DIAMOND clustering, then every gene against the
 cluster representatives, then connected components with a Leiden cap) sorts all proteins into homologous families, with no
 all-vs-all search and no reference database. (2) Sequence similarity is computed **only inside each family** (DIAMOND in
 blocks, plus an MMseqs2 re-alignment of the pairs DIAMOND missed). (3) A **level-synchronous merge** walks a guide species tree
@@ -29,19 +29,23 @@ and vetoes in-paralog absorptions that the context contradicts. Output is OrthoX
 bottom-up approaches. **SYNERGY** (Wapinski 2007) already merged orthologs bottom-up along a species tree using sequence plus synteny,
 and **Hieranoid** did progressive InParanoid merges; both rely on all-vs-all searches. **OrthoFinder** infers orthogroups from
 all-vs-all DIAMOND plus gene-tree reconciliation, and **FastOMA** places proteins into a reference HOG database with OMAmer and then
-processes HOGs along the species tree. What Ancestra tries to add is (a) a reference-free, near-linear family step feeding a bottom-up
+processes HOGs along the species tree. What Ancestra tries to add is (a) a reference-free family step without all-vs-all search, feeding a bottom-up
 merge over all families at once, (b) ancestral gene-order context inside the merge decision, (c) a hybrid of score rules and local
-trees, and (d) optional structure (3Di) rescue of families. Whether this is competitive on the community benchmarks is **not yet
-established**. So far it has only been scored on the OrthoBench *dev* split (34 RefOGs, comparator point estimates only, no CIs) and
-no QfO benchmark has been run. See `DESIGN.md` section 2 for the novelty discussion and `LITERATURE.md` for prior work.
+trees, and (d) optional structure (3Di) rescue of families. How it compares on the community benchmarks is summarised below; see `DESIGN.md` section 2 for the novelty discussion and
+`LITERATURE.md` for prior work.
 
-## Status (at milestone M2, 2026-10-26)
+## Status (final, 2026-10-28; method frozen at tag `freeze-v1`)
 
-- Dev only: OrthoBench dev OG-F 75.7 with gene order and 71.3 without (deterministic partition), against OrthoFinder 70.5 on the same
-  34 RefOGs (`CLAIMS.md` rows C-CORE-12, C-BASE-1). Partition sensitivity is +-2-4 points and no confidence interval is available yet.
-- Test-split and QfO results: **not yet available** (placeholders in `REPORT.md`).
-- Layers tested with shuffled-layer controls: synteny kept; structure only as an optional S0 rescue; expression and isoforms rejected by
-  pre-registered rules (`RESEARCH_TREE.md`, tree item 7).
+Full results, with confidence intervals and every pre-registered verdict, are in `REPORT.md` and the manuscript (`manuscript/`).
+
+- **OrthoBench test (36 RefOGs, scored once):** F 76.2 vs OrthoFinder 69.7, SonicParanoid2 70.4, OMA HOGs 60.4, FastOMA 33.1.
+  Significantly above the OMA-based resources; non-inferiority to OrthoFinder not shown (ΔF +6.5 [−6.5, +18.1]).
+- **QfO 2022 (78 species):** TreeFam-A recall non-inferior to FastOMA and OMA Pairs, but below OrthoFinder (−0.16), SonicParanoid2 and
+  InParanoid 5; worst G-STD2 discordance among the main comparators.
+- **Scaling:** CPU time ∝ proteins^1.16 up to 1 M proteins; 1,000 UniProt proteomes (4.75 M proteins) in 10.6 h wall / 64 CPU-h /
+  221 GB, with a steeper exponent (1.35) at that scale (`results/scaling*/summary.md`).
+- **Extra data layers:** none improved held-out results (gene order, structure, expression, isoforms; and, post-freeze on dev data,
+  networks, abundance, domains, protein language models, introns, synteny repair). Details in `REPORT.md` §3.3 and §3.9.
 
 ## Install
 

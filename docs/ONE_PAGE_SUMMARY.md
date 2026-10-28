@@ -1,7 +1,7 @@
 # Ancestra — one-page summary (paused at T+19h30, 2026-10-27 10:10 CET)
 
 **Ancestra** treats orthology as *level-synchronous ancestral-genome reconstruction inside de novo protein families*. It runs in three stages:
-1. **S0** partitions all proteins into families in near-linear time (DIAMOND clustering, then all genes vs representatives). No reference orthology database is used and there is no all-vs-all search.
+1. **S0** partitions all proteins into families (DIAMOND clustering, then all genes vs representatives). No reference orthology database is used and there is no all-vs-all search.
 2. **S2** scores protein pairs only within families.
 3. **S3** walks the NCBI guide tree bottom-up and merges ancestral genes of all families at each node. It uses mutual-best matches, in-paralog absorption, small FastTree local trees with species-overlap labelling for ambiguous clusters, and an optional gene-order (synteny) re-ranking.
 
@@ -29,4 +29,4 @@ The output is hierarchical orthologous groups (HOGs) in OrthoXML, plus pairs. Th
 
 **Honesty notes.** 18 protocol deviations are listed in `docs/DISCLOSURES.md`. Among them, the TreeFam-A dev split was created after the first QfO peek, and OrthoBench dev was reused heavily, so dev numbers are optimistic. Every key number was recomputed by an independent agent (`docs/VERIFICATION.md`).
 
-**Not finished at pause:** FastOMA scaling runs, and the 125–1000-proteome scalability demo (data ready, runs not started). Next steps are in `RESUME.md`.
+**Scaling (final):** FastOMA 1.17 CPU-h exponent on QfO subsets (Ancestra 1.16); 1,000 UniProt proteomes (4.75 M proteins) in 10.6 h wall, 64 CPU-h, 221 GB, exponent 1.35 at that scale (`results/scaling_large/summary.md`).

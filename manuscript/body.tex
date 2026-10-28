@@ -18,10 +18,10 @@
 \textbf{This study was an exercise in testing whether AI agents can run a bioinformatics research project.} An AI agent (Claude Opus 5.5) acted as principal investigator: it planned the work, delegated sub-tasks to other AI agents, ran all analyses and wrote this manuscript. Humans gave the initial task description (S2 Text) and a few later instructions, listed in Materials and methods. \textbf{No human has yet verified the methods or results.} The manuscript should be read as the output of that exercise, not as a peer-reviewed tool paper.
 
 \section*{Abstract}
-Most orthology methods either compare every pair of proteomes, build a gene tree for every orthogroup, or place proteins into a precomputed reference database. We tested a different approach. Our method, Ancestra, first splits all proteins into families with a near-linear clustering step. It then walks the species tree from the leaves to the root. At each ancestral node it reconstructs the genes of that ancestor, inside every family at once, from mutual best matches, absorbed in-paralogs and small local gene trees. The output is a set of hierarchical orthologous groups (HOGs) in OrthoXML. On the held-out half of OrthoBench (36 reference orthogroups), Ancestra reached F = 76.2, compared with 69.7 for OrthoFinder 3.2, 70.4 for SonicParanoid2, 60.4 for precomputed OMA HOGs and 33.1 for FastOMA, using 3.9 CPU-hours against OrthoFinder's 8.2. The gains over OMA and FastOMA were significant. The gain over OrthoFinder was not: the 95\% interval of the difference, \CI{$-6.5$}{$+18.1$} F points, failed our pre-registered non-inferiority rule. On the Quest for Orthologs 2022 benchmark (78 species), Ancestra matched FastOMA and OMA pairs on TreeFam-A recall but had lower recall than OrthoFinder ($-0.16$), SonicParanoid2 and InParanoid, and the worst species-tree discordance among the main comparators. CPU time grew with the number of proteins to the power 1.16 \CI{1.10}{1.21}. We also tested five extra data layers, and eight more in a second round on development data. Gene order separated orthologs from paralogs well on its own but did not improve the final groups. 3D structure joined more family members but lowered precision. Expression and isoform data did not help, nor did interaction networks, domain architecture or protein language models. Genome sequences showed that 53\% of apparent gene losses in mammals were not real losses. Building HOGs level by level inside families is a viable and scalable approach, but its recall on QfO is still below that of OrthoFinder and the best pairwise methods.
+Most orthology methods either compare every pair of proteomes, build a gene tree for every orthogroup, or place proteins into a precomputed reference database. We tested a different approach. Our method, Ancestra, first splits all proteins into families with a clustering step. It then walks the species tree from the leaves to the root. At each ancestral node it reconstructs the genes of that ancestor, inside every family at once, from mutual best matches, absorbed in-paralogs and small local gene trees. The output is a set of hierarchical orthologous groups (HOGs) in OrthoXML. On the held-out half of OrthoBench (36 reference orthogroups), Ancestra reached F = 76.2, compared with 69.7 for OrthoFinder 3.2, 70.4 for SonicParanoid2, 60.4 for precomputed OMA HOGs and 33.1 for FastOMA, using 3.9 CPU-hours against OrthoFinder's 8.2. The gains over OMA and FastOMA were significant. The gain over OrthoFinder was not: the 95\% interval of the difference, \CI{$-6.5$}{$+18.1$} F points, failed our pre-registered non-inferiority rule. On the Quest for Orthologs 2022 benchmark (78 species), Ancestra matched FastOMA and OMA pairs on TreeFam-A recall but had lower recall than OrthoFinder ($-0.16$), SonicParanoid2 and InParanoid, and the worst species-tree discordance among the main comparators. CPU time grew with the number of proteins to the power 1.16 \CI{1.10}{1.21} up to one million proteins, and to the power 1.35 \CI{1.31}{1.39} from 0.5 to 4.75 million; 1,000 proteomes took 64 CPU-hours but 221 GB of memory. We also tested five extra data layers, and eight more in a second round on development data. Gene order separated orthologs from paralogs well on its own but did not improve the final groups. 3D structure joined more family members but lowered precision. Expression and isoform data did not help, nor did interaction networks, domain architecture or protein language models. Genome sequences showed that 53\% of apparent gene losses in mammals were not real losses. Building HOGs level by level inside families is a viable and scalable approach, but its recall on QfO is still below that of OrthoFinder and the best pairwise methods.
 
 \section*{Author summary}
-Genes in different species that descend from one gene in their last common ancestor are called orthologs. Finding them is a basic step in comparing genomes and transferring knowledge between species. As thousands of new genomes appear, orthology methods must be both accurate and fast. We built and tested a method, Ancestra, that reconstructs the genes of each ancestor in the tree of life, one ancestor at a time, inside groups of related proteins. We compared it with leading methods on two standard benchmarks. On OrthoBench it scored higher than OMA-based methods. On the Quest for Orthologs benchmark its recall was similar to that of FastOMA and OMA pairs. It was cheaper than OrthoFinder, but it missed more distant orthologs than OrthoFinder and several pairwise methods. Adding gene order, protein structure, expression or isoform data did not improve the final result, even when that data was informative on its own. The work was planned and carried out by AI agents, as a test of how well such agents can run a research project. We report the decisions they took, the methods that failed and the protocol deviations.
+Genes in different species that descend from one gene in their last common ancestor are called orthologs. Finding them is a basic step in comparing genomes and transferring knowledge between species. As thousands of new genomes appear, orthology methods must be both accurate and fast. We built and tested a method, Ancestra, that reconstructs the genes of each ancestor in the tree of life, one ancestor at a time, inside groups of related proteins. We compared it with leading methods on two standard benchmarks. On OrthoBench it scored higher than OMA-based methods. On the Quest for Orthologs benchmark its recall was similar to that of FastOMA and OMA pairs. It was cheaper than OrthoFinder and ran on 1,000 proteomes on one computer, but it missed more distant orthologs than OrthoFinder and several pairwise methods. Adding gene order, protein structure, expression or isoform data did not improve the final result, even when that data was informative on its own. The work was planned and carried out by AI agents, as a test of how well such agents can run a research project. We report the decisions they took, the methods that failed and the protocol deviations.
 
 \linenumbers
 
@@ -35,7 +35,7 @@ Orthologs are genes that diverged by speciation; paralogs diverged by duplicatio
 
 A fourth idea is older but less used: build HOGs directly, by reconstructing the gene content of each ancestor along the species tree. SYNERGY did this for fungi with sequence and gene order, from one all-against-all comparison of extant genes whose distances it updates as genes are merged~\cite{wapinski2007synergy}. Hieranoid builds an ancestral consensus proteome at each node and searches it against that of the sister clade~\cite{schreiber2013hieranoid,kaduk2017hieranoid2}. SYNERGY's all-against-all search grows quadratically, and Hieranoid's ancestral searches become expensive at deep nodes.
 
-We asked whether this idea can be made scalable, and whether it can compete with current methods. Our method, Ancestra, keeps the ancestor-by-ancestor logic but restricts all work to protein families that are found first, with a near-linear clustering step. Ancestral genes are never searched again: their similarity scores are aggregated from the scores of their member proteins, as in SYNERGY~\cite{wapinski2007synergy}.
+We asked whether this idea can be made scalable, and whether it can compete with current methods. Our method, Ancestra, keeps the ancestor-by-ancestor logic but restricts all work to protein families that are found first, with a fast clustering step. Ancestral genes are never searched again: their similarity scores are aggregated from the scores of their member proteins, as in SYNERGY~\cite{wapinski2007synergy}.
 
 We also asked whether data beyond the protein sequence helps. Gene order (synteny), 3D structure, expression, alternative isoforms and genome sequences have each been proposed or used as orthology evidence~\cite{lechner2014poff,ludwig2024orthorefine,moi2025foldtree,bastian2025bgee,kirilenko2023toga}. We tested each layer first on its own and then inside the full method, with shuffled controls.
 
@@ -245,20 +245,45 @@ Method & 8 sp. & 16 sp. & 32 sp. & 64 sp. & 78 sp. & Slope vs proteins\\
 \hline
 Ancestra \texttt{accurate} & 0.78 & 2.16 & 6.02 & 16.3 & 18.5 & 1.16 \CI{1.10}{1.21}\\
 Ancestra \texttt{fast} & 0.47 & 0.99 & 3.20 & 10.6 & 11.6 & 1.21 \CI{1.02}{1.41}\\
-OrthoFinder 3.2 & 1.22 & 3.54 & 14.4 & \pend{T2} & --- & 1.42 (3 points)\\
-SonicParanoid2 & 0.77 & 2.34 & 11.1 & \pend{T2} & --- & 1.53 (3 points)\\
-FastOMA 0.5.1$^a$ & 1.83 & \pend{T2} & \pend{T2} & \pend{T2} & --- & ---\\
+OrthoFinder 3.2 & 1.22 & 3.54 & 14.4 & $>$45.9$^b$ & --- & 1.42 (3 points)\\
+SonicParanoid2 & 0.77 & 2.34 & 11.1 & failed$^c$ & --- & 1.53 (3 points)\\
+FastOMA 0.5.1$^a$ & 1.83 & 5.27 & 15.7 & 36.6 & --- & 1.17 \CI{1.00}{1.34}\\
 \hline
 \end{tabular}
-\begin{flushleft}$^a$Excludes building the OMAmer reference database. Ancestra runs are sequence only (no gene order). Single runs on a shared node; CPU time is the primary measure.
+\begin{flushleft}$^a$Excludes building the OMAmer reference database. $^b$Stopped at the 6-hour wall-time cap; CPU time used up to then. $^c$Aborted after 4.1 hours (36.5 CPU-hours) with an internal error (``architectures contains 37 files when 64 are expected''); the 8--32-species runs completed, and we did not diagnose or rerun it. Ancestra runs are sequence only (no gene order). Single runs on a shared node; CPU time is the primary measure. Slopes are log--log fits of CPU-hours against proteins with 95\% $t$-intervals, over completed runs only.
 \end{flushleft}
 \label{tab:scaling}
 \end{adjustwidth}
 \end{table}
 
-Ancestra's CPU time grew slightly faster than linearly with the number of proteins (exponent 1.16). On the full QfO set, the \texttt{accurate} preset took 18.5 CPU-hours and 29 GB of memory: 8.6 for scoring inside families, 7.0 for the merge (about 61,000 small FAMSA and FastTree jobs) and 3.0 for the family partition. The \texttt{fast} merge took 2.5 CPU-minutes.
+Up to one million proteins, Ancestra's CPU time grew slightly faster than linearly with the number of proteins (exponent 1.16), as did FastOMA's (1.17). At 64 species Ancestra \texttt{accurate} used 16.3 CPU-hours, FastOMA 36.6, and OrthoFinder more than 45.9 (Fig~\ref{fig:scaling}A). On the full QfO set, the \texttt{accurate} preset took 18.5 CPU-hours and 29 GB of memory: 8.6 for scoring inside families, 7.0 for the merge (about 61,000 small FAMSA and FastTree jobs) and 3.0 for the family partition. The \texttt{fast} merge took 2.5 CPU-minutes.
 
-\pend{T3 large-scale demonstration on 125--1,000 UniProt reference proteomes (0.5--4.75 million proteins): measured so far 125 proteomes 3.3 CPU-h, 7.6 GB; 250 proteomes 8.6 CPU-h, 23.4 GB.}
+To test larger inputs, we ran the \texttt{fast} preset on nested sets of 125, 250, 500 and 1,000 UniProt reference proteomes (0.52--4.75 million proteins; 12 threads; Table~\ref{tab:large}, Fig~\ref{fig:scaling}B). All five outputs passed OrthoXML validation. The 1,000-proteome run took 10.6 hours and 64 CPU-hours, but needed 221 GB of memory. At this scale the cost grew faster than on QfO: the CPU-time exponent was 1.35 \CI{1.31}{1.39} and the memory exponent 1.52. The family step, which we designed to be near-linear, grew fastest. Its wall time rose 3.6-fold from 500 to 1,000 proteomes, for 2.1 times more proteins (local exponent 1.71). We did not profile why. Peak memory was in the scoring stage, which holds all in-family scores at once; it would need to be streamed for much larger inputs. The \texttt{accurate} preset on 250 proteomes took 17.7 CPU-hours, twice the \texttt{fast} preset, mostly in the merge (0.87 vs 0.05 hours). We ran no competitor at this scale.
+
+\begin{table}[!ht]
+\centering
+\caption{{\bf Ancestra \texttt{fast} on UniProt reference proteomes (12 threads, shared node).}}
+\begin{tabular}{rrrrrr}
+\hline
+Proteomes & Proteins & Wall (h) & CPU-h & Peak memory (GB) & Root HOGs\\
+\hline
+125 & 523,225 & 0.40 & 3.3 & 7.6 & 30,552\\
+250 & 1,082,777 & 1.12 & 8.6 & 23.4 & 50,362\\
+500 & 2,257,658 & 3.32 & 23.0 & 68.8 & 84,865\\
+1,000 & 4,751,551 & 10.6 & 64.3 & 221 & 146,079\\
+\hline
+\end{tabular}
+\begin{flushleft}One run per size. Peak memory is the scoring stage. Accuracy cannot be measured on these sets; outputs were checked for validity only.
+\end{flushleft}
+\label{tab:large}
+\end{table}
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=\linewidth]{../docs/figures/fig3_scaling.png}
+\caption{{\bf CPU time against number of proteins.} (A) Nested QfO subsets, 8 threads. OrthoFinder at 64 species was stopped at the 6-hour cap (open triangle, lower bound); SonicParanoid2 at 64 species failed (cross). (B) Ancestra on 125--1,000 UniProt reference proteomes, 12 threads; peak memory in GB is shown on the same axis. Measured points only; single runs on a shared node.}
+\label{fig:scaling}
+\end{figure}
 
 \subsection*{GPU acceleration}
 After the method was frozen, the project moved to a node with an NVIDIA A100 GPU. We tested GPU options for each stage, as opt-in code on a separate branch, and evaluated them on development data only. Scoring inside families (S2) takes 60--75\% of the wall time, so it was the main target.
@@ -273,7 +298,7 @@ After the method was frozen, the project moved to a node with an NVIDIA A100 GPU
 In short, the GPU gave a modest, accuracy-neutral speed-up. A larger speed-up would need a merge that is robust to the density of the score graph, which is a change of method that we did not make.
 
 \section*{Discussion}
-Ancestra shows that HOGs can be built by reconstructing ancestral genes level by level, within families, at a cost that grows only slightly faster than linearly with the number of proteins and without a reference database. On OrthoBench it had the highest F of the methods we tested (not significantly above OrthoFinder or SonicParanoid2). It was significantly better than OMA-based resources and ProteinOrtho, and cheaper than OrthoFinder. On QfO its recall was non-inferior to FastOMA and OMA pairs, but below that of OrthoFinder, SonicParanoid2 and InParanoid.
+Ancestra shows that HOGs can be built by reconstructing ancestral genes level by level, within families, without a reference database, and that the approach runs on 1,000 proteomes on one node. The cost is not linear: its exponent rose from 1.16 on QfO to 1.35 between 0.5 and 4.75 million proteins, the family step grew fastest, and memory (221 GB at 1,000 proteomes) is the first limit to larger inputs. On OrthoBench it had the highest F of the methods we tested (not significantly above OrthoFinder or SonicParanoid2). It was significantly better than OMA-based resources and ProteinOrtho, and cheaper than OrthoFinder. On QfO its recall was non-inferior to FastOMA and OMA pairs, but below that of OrthoFinder, SonicParanoid2 and InParanoid.
 
 \textbf{Main weakness: deep nodes.} At the deepest levels of the species tree, the merge relies on score rules, often without an outgroup. Rules strict enough to keep OrthoBench orthogroups apart split true orthologs across Eukaryota; looser rules fuse groups. OrthoFinder avoids this by inferring a tree for the whole orthogroup and rooting it with duplication information~\cite{emms2017stride,emms2019orthofinder}. Possible fixes for Ancestra are outgroup tests with a third clade, larger local trees at deep nodes, and a family partition that is not limited by pairwise sequence hits.
 
@@ -289,7 +314,7 @@ Ancestra shows that HOGs can be built by reconstructing ancestral genes level by
 \end{itemize}
 Independent verification found real errors: a false statement in our list of disclosures, an omitted primary endpoint and confidence intervals that were too narrow. A later check of this manuscript found that three pre-registered QfO comparators were missing from the main text; we added them. The main weakness of the setup was the pressure to tune on a small development set; several gains on development data did not replicate.
 
-\textbf{Limitations.} Run times come from single runs on shared nodes. Our simulator was written in-house and not validated against an independent simulator. The merge is slightly sensitive to the order of children in the guide tree (18 OrthoBench orthogroups differ). Development OG-F on OrthoBench is also sensitive to small changes in the scores. A 1\% random jitter lowered it by 3--7 points (three seeds, two intervals include 0), while TreeFam-A barely changed. The parameters were tuned on this benchmark. Of the 81 claims in our claim ledger, which covers results up to the freeze, 22 were independently recomputed; the others were checked against their evidence files. Post-freeze GPU and second-round results were checked separately.
+\textbf{Limitations.} Run times come from single runs on shared nodes, and no competitor was run beyond 64 species; OrthoFinder hit our time cap and SonicParanoid2 failed at that size. Our simulator was written in-house and not validated against an independent simulator. The merge is slightly sensitive to the order of children in the guide tree (18 OrthoBench orthogroups differ). Development OG-F on OrthoBench is also sensitive to small changes in the scores. A 1\% random jitter lowered it by 3--7 points (three seeds, two intervals include 0), while TreeFam-A barely changed. The parameters were tuned on this benchmark. Of the 81 claims in our claim ledger, which covers results up to the freeze, 22 were independently recomputed; the others were checked against their evidence files. Post-freeze GPU and second-round results were checked separately.
 
 \section*{Materials and methods}
 
@@ -325,7 +350,7 @@ Ancestra is written in Python and calls DIAMOND 2.2.8, MMseqs2 18, FAMSA and Fas
 \begin{itemize}
 \item \textbf{OrthoBench:} official Open OrthoBench scoring~\cite{emms2020orthobench}. We ran OrthoFinder 3.2, SonicParanoid2, ProteinOrtho and FastOMA 0.5.1 locally. OMA browser HOGs (release All.May2026) were mapped to OrthoBench identifiers and cut at Bilateria.
 \item \textbf{QfO 2022:} the official benchmark code, run locally on the 78-species reference set~\cite{altenhoff2024qfo}; competitor values are published submissions.
-\item \textbf{Scaling:} nested, domain-stratified subsets of QfO, one run per point, CPU time from \texttt{/usr/bin/time}.
+\item \textbf{Scaling:} nested, domain-stratified subsets of QfO, one run per point, CPU time from \texttt{/usr/bin/time}; competitors capped at 6 hours of wall time. The large-scale sets are 1,000 UniProt 2026\_03 reference proteomes (800 bacterial, 100 archaeal and 100 eukaryotic; one per genus, phyla visited in a seeded random round-robin), taken in nested subsets of 125, 250, 500 and 1,000, with guide trees from the NCBI taxonomy. Outputs were checked with our OrthoXML validator.
 \end{itemize}
 
 \subsection*{Data layers}
@@ -349,7 +374,7 @@ Ancestra is written in Python and calls DIAMOND 2.2.8, MMseqs2 18, FAMSA and Fas
 Details of each sub-task benchmark are in the research repository (\texttt{docs/S*\_*.md}, \texttt{docs/L2\_*.md}).
 
 \section*{Data and code availability}
-Code, predictions (OrthoXML, pairs and orthogroups for OrthoBench and QfO), a runnable example and the original task prompt are in the accompanying repository \pend{URL}. The full research record, including all failed experiments, is in the research repository.
+Code, predictions (OrthoXML, pairs and orthogroups for OrthoBench and QfO), a runnable example and the original task prompt are in the accompanying repository (URL to be added by the human authors on publication). The full research record, including all failed experiments, is in the research repository.
 
 \section*{Supporting information}
 
