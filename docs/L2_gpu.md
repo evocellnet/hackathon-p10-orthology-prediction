@@ -319,6 +319,8 @@ inside the CIs, and completing the 3Di layer with ProstT5 does not change it.
   an ungapped prefilter, which suits few queries against huge databases, not 172k × 41k all-vs-all.
 
 ## 5. Verdict, frozen configs, cost
+- E4: every pipeline output is XSD-validated at write time; `scripts/verify_orthoxml.py` (all 8 checks) passes for
+  OrthoBench/QfO R207, OrthoBench K10, OrthoBench/QfO R4-full and the batched-FastTree run.
 - **No arm passes its pre-registered rule, so there is no frozen config for a test agent.** The GPU *split* backend
   of GPU_v2 (`gpu_max_family` 1000) remains the only accuracy-equivalent GPU mode (passes E1–E3 here too).
 - Opt-in options added on `l2-gpu` (all default off, stage keys unchanged at the defaults, `pytest -q` passes):

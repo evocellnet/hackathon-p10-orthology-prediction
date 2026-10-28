@@ -20,3 +20,8 @@
   Task 3 OB: R4full = R4afdb on dev (OG-F 79.93, macro +0.0042 [-0.0005, +0.011] vs frozen -> fails keep rule);
   shuffled 3Di +0.0021. QfO R4full / R4afdb / R4shuf11 running (batch_late.sh); foldseek GPU bench running
   (work/l2gpu/t3/fsbench). QfO ProstT5 gap done: 63,237 proteins, 5h01 shared GPU, md5 764665b6.
+- 01:00 ALL TASKS DONE. docs/L2_gpu.md complete (summary, pre-reg + deviations D1-D3, results, mechanism, Pareto, cost,
+  literature, failed list). Verdicts: task 1 no arm passes (R207 = QfO-best speed mode, documented, no frozen config);
+  task 2 FastTree -n equivalent (4/1.39M pairs differ) but -1.5% only; pyfamsa rejected; task 3 R4-full = R4-afdb,
+  fails keep rule (OB macro +0.0042 [-0.0005, +0.011]; QfO +0.0021/+0.0024 within CI); Foldseek GPU slower.
+  pytest: 166 passed, 1 skipped. Nothing left running.
