@@ -5,6 +5,9 @@ Clock: START.txt = 2026-10-26T14:40 CET; hard deadline 2026-10-28T14:40 CET (48 
 
 ## Status summary (latest first)
 
+### M7 — Scaling done, 2026-10-28 06:15 (budget used 39h35)
+FastOMA 16/32/64 done (36.6 CPU-h at 64 species; exponent 1.17); OrthoFinder 64 stopped at the 6 h cap (>45.9 CPU-h); SonicParanoid2 64 failed (rc=251). Large-scale demo: 125–1,000 UniProt proteomes, `fast` preset; n1000 = 4.75 M proteins, 10.6 h wall, 64 CPU-h, 221 GB, all outputs valid. Cost exponent 1.35 at this scale (S0 local 1.71): "near-linear" claims removed from manuscript, REPORT and READMEs. Decision M7: report as measured, extrapolation only as an order of magnitude; streaming S2 and profiling S0 listed as follow-ups. Independent scaling verification launched.
+
 ### M6 — Layers round 2 (L2), 2026-10-27 18:00 (budget used 27h20)
 The user asked for more extra-data work while the scaling runs (n1000; FastOMA, OrthoFinder and SonicParanoid2 at 64 species) finish. This is post-freeze and dev-only, under the shared protocol docs/L2_protocol.md (pre-registration, shuffled controls, the same keep rule; test runs only through a separate agent). Five agents run in parallel:
 - **domains:** Pfam/InterPro/TED domain architecture;
@@ -14,6 +17,8 @@ The user asked for more extra-data work while the scaling runs (n1000; FastOMA, 
 - **genome:** synteny fission repair and recall anchors, intron positions, expression rethink.
 
 Results are due 2026-10-28 08:30. The frozen numbers are unaffected.
+
+**Outcome (2026-10-28 01:00; verified, docs/VERIFICATION_L2.md):** no arm met the keep rule, so none went to test. Domains: identical-architecture gate +0.018 TreeFam-A dev F1 but OrthoBench dev OG-F −2.9 (guard). Networks/abundance: hard-case AUC ≈ chance, low coverage. pLMs: below sequence on deep pairs; a contrastive head on synteny labels gave hard-case −0.007. Genome: gated synteny fission repair cuts fission candidates 29–40% (shuffled: none) but the dev benchmarks label only 7 joins; introns and expression negative. GPU: sparsified all-GPU S2 ~15× cheaper but −8.4 OrthoBench OG-F. Written up in REPORT §3.9, manuscript Table layers2 and S1 Text §10.
 
 ### M5 — RESUMED on GPU node, 2026-10-27 11:06 (budget used 20h26; soft deadline 2026-10-28 14:40 = original 48 h)
 New node: 48 CPUs, 500 GB, A100-40GB. GPU checks: torch 2.6+cu124 sees the A100 (16 TFLOPS FP32 matmul); MMseqs2 18 has --gpu. A first human-vs-human GPU search took 251 s wall vs 88 s for 24-thread CPU earlier — under diagnosis. Separate GPU env: conda_envs/gpu. Resumed: T1 (patched FastOMA on OrthoBench), T2+T3 (scaling incl. FastOMA + 125–1000-proteome demo), and the GPU v2 track on branch `v2-gpu` (opt-in GPU backends; freeze-v1 untouched; dev-only evaluation).

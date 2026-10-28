@@ -15,3 +15,6 @@
 12. Re-check adoption on every preset, and run verify_orthoxml before every peek. Evidence: so_struct passed on fast, failed on accurate; the gate caught malformed nesting.
 13. Create the dev split before the first look at a test benchmark. Evidence: the TreeFam-A dev split came after peek 1 (disclosure #1).
 14. Keep long runs as detached, logged jobs, and never edit a running script. Evidence: the API limit at T+11h40 killed 4 agents but not their jobs; 2 QfO runs were lost to script edits.
+15. A strong standalone signal does not predict a gain inside the merge; test the hard cases and integrate before investing in data. Evidence: L2 round, no layer passed the keep rule; domain architecture separated orthogroups with AUC 0.98 but orthologs from in-group paralogs only at 0.54, and most layers were near chance on hard cases.
+16. Measure scaling at the target scale, not only on the benchmark set. Evidence: exponent 1.16 on QfO subsets became 1.35 at 0.5–4.75 M proteins, the "near-linear" S0 had local exponent 1.71, and memory (221 GB) became the limit.
+17. Check that a competitor run completes at every size before the deadline night. Evidence: SonicParanoid2 at 64 species failed after 4.1 h with no time to rerun.

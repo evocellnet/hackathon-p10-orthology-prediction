@@ -190,3 +190,11 @@ checksum manifests are kept next to the data (paths given); key checksums are li
   `proteome_stats.tsv`, `subset_totals.tsv`. **md5 manifest:** `data/scale1000/md5sums.txt` (1000 gz files; copy in `results/scaling_large/subsets/`).
 - **Totals** (`scripts/scale1000_stats.py`): 125 -> 523,225 proteins / 190.95 M residues; 250 -> 1,082,777 / 395.71 M; 500 -> 2,257,658 / 831.24 M; 1000 -> 4,751,551 / 1,746.62 M (largest proteome 28,993 proteins).
 - **Check:** `ancestra.io.load_proteomes` on the directory (35 s, 2.6 GB RSS) and `load_guide_tree` on each tree accept the set (leaves = file stems; internal nodes clade-named; max 24 children).
+
+## 16. Second-round layers (L2, post-freeze, dev only, 2026-10-27/28)
+All under `data/extra/l2_<name>/` (gitignored, never committed). Full tables (URL, version, retrieval date, licence, md5) are in the "Data" section of each `docs/L2_<name>.md`; md5 lists are copied to `results/l2_<name>/`.
+- **Domains** (`docs/L2_domains.md` §1): Pfam-A 38.2 HMMs, clans and hmm.dat (EBI FTP, CC0 1.0); hmmscan on the 12 OrthoBench and TreeFam-A dev proteomes.
+- **Networks and abundance** (`docs/L2_network.md` §2): STRING v12.0 per-organism `protein.links.full` (own-species channels only; CC BY 4.0); hu.MAP 3.0 complex pairs 2024-09-29 (licence not stated on the download page: local use only); PaxDb 5.0 integrated abundance sets (CC BY 4.0).
+- **Protein language models** (`docs/L2_plm.md` §1): ESM-2 35M/650M/3B (`facebook/esm2_*`, MIT) and ProtT5-XL-U50 encoder (`Rostlab/prot_t5_xl_half_uniref50-enc`; licence unclear on the hub: local use only, no weights or embeddings committed).
+- **Genome** (`docs/L2_genome.md` §3): no new downloads; Ensembl 99 GFF3 CDS segments (§12/§13 sources) for intron positions, Bgee v15.2 (§9) and the existing gene-order tables.
+- **GPU** (`docs/L2_gpu.md` §1): no new external data; ProstT5 3Di predictions for the OrthoBench proteins without AFDB structures (derived, local).
